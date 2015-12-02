@@ -12,10 +12,12 @@ $brand-warning: #ffec39 !default;
 $brand-danger: #fc483f !default;
 $brand-info: #000072 !default;
 
+$menu-height: 70px !default;
+
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 
 body {
-  padding-top: 70px;
+  padding-top: $menu-height;
 }
 img.loading {
   text-align: center;
@@ -32,5 +34,38 @@ img.doneLoading {
 }
 nav li:hover .dropdown-menu {
   display: block;
+}
+
+
+.flexslider {
+  border: none;
+  overflow: hidden;
+  .flex-direction-nav {
+    a {
+      height: 45px;
+      color: white;
+      text-shadow: none;
+      &:before {
+        font-size: 40px;
+        color: white;
+        text-shadow: none;
+        font-family: 'FontAwesome';
+      }
+    }
+    .flex-prev {
+      left: 20px !important;
+      opacity: 1 !important;
+      &:before {
+        content: '\f053';
+      }
+    }
+    .flex-next {
+      right: 20px !important;
+      opacity: 1 !important;
+      &:before {
+        content: '\f054';
+      }
+    }
+  }
 }
 /* Start writing sass here */

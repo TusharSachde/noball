@@ -24,7 +24,7 @@ var ftpdetails = {
     host: 'wohlig.co.in',
     user: 'enter your username',
     pass: 'enter your password',
-    remotePath: "public_html/PROJECTNAME"
+    remotePath: "public_html/ccc"
 };
 
 //Do not change anything below

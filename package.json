@@ -1,7 +1,7 @@
 {
-  "name": "angularframeworkfrontend",
+  "name": "ccc",
   "version": "0.0.1",
-  "description": "AngularFrameworkFrontend",
+  "description": "ccc",
   "main": "gulpfile.js",
   "dependencies": {
     "gulp": "^3.9.0",
