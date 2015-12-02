@@ -1,23 +1,58 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,300,100,200,500,600,700,800,900);
 @import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
 @import "../bower_components/flexslider/flexslider.css";
 @import "../bower_components/font-awesome/css/font-awesome.min.css";
-
+@font-face {
+  font-family: "Facile Sans";
+  src: url("../fonts/Facile Sans.otf");
+  src: url("../fonts/Facile Sans.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
 /* Bootstrap Variables Goes Here */
 
 $brand-primary: #0d9dff !default;
-$brand-success: #84ce3c !default;
-$brand-warning: #ffec39 !default;
-$brand-danger: #fc483f !default;
+$brand-success: #C1E603 !default;
+$brand-warning: #E6CF07 !default;
+$brand-danger: #E3028F !default;
 $brand-info: #000072 !default;
 
-$menu-height: 70px !default;
+$logo-color: #616161 !default;
+$font-color: #1b1b1b !default;
+
+$body-bg: #fff !default;
+$text-color: $font-color !default;
+
+$link-color: $font-color !default;
+$link-hover-color: $font-color !default;
+$link-hover-decoration: none !default;
+
+$font-family-sans-serif: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-serif: "Raleway", Georgia, "Times New Roman", Times, serif !default;
+$font-logo: "Facile Sans", "Helvetiva Neue", Helvetica !default;
+
+$border-radius-base: 0 !default;
+$border-radius-large: 0 !default;
+$border-radius-small: 0 !default;
+$menu-height: 65px !default;
+
+$facebook: #3a579d !default;
+$google: #dd4d3c !default;
+$twitter: #49c8f5 !default;
 
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 body {
   padding-top: $menu-height;
+}
+.btn {
+  @include transition(all 300ms ease);
 }
 img.loading {
   text-align: center;
@@ -35,11 +70,81 @@ img.doneLoading {
 nav li:hover .dropdown-menu {
   display: block;
 }
+.black {
+  color: black;
+}
+.btn-dark {
+  @include button-variant(white, $font-color, $font-color);
+  &.btn-outline {
+    background-color: transparent;
+    color: $font-color;
+    &:hover, &:focus {
+      background-color: $font-color;
+      color: white;
+    }
+  }
+}
+.btn-facebook {
+  @include button-variant(white, $facebook, $facebook);
+}
+.btn-google {
+  @include button-variant(white, $google, $google);
+}
+.btn-twitter {
+  @include button-variant(white, $twitter, $twitter);
+}
+.high-light {
+  text-transform: uppercase;
+  margin: 0 0 10px;
+  font-weight: 400;
+  font-size: 55px;
+  letter-spacing: 3px;
+}
+.para {
+  line-height: 180%;
+  font-weight: 300;
+}
+.navbar-default {
+  background-color: #000000;
+  border-color: #000000;
+  .navbar-nav {
+   > li {
+    > a {
+      color: white;
+      font-size: 15px;
+      letter-spacing: 2px;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 22.5px 80px 22.5px 20px;
+      @include transition(all 300ms ease);
 
+      &:hover {
+        color: $logo-color;
+      }
+      }
+    }
+  }
+}
+.navbar-brand {
+  padding: 8px 0;
+  color: $logo-color !important;
+  text-transform: uppercase;
+  font-family: $font-logo;
+  height: 65px;
+  line-height: 40px;
+  margin: 0 !important;
+
+  img {
+    height: 100%;
+    margin-right: 10px;
+    display: inline-block;
+  }
+}
 
 .flexslider {
   border: none;
   overflow: hidden;
+  margin: 0;
   .flex-direction-nav {
     a {
       height: 45px;
@@ -67,5 +172,144 @@ nav li:hover .dropdown-menu {
       }
     }
   }
+}
+
+.relative {
+  position: relative;
+}
+
+.text-on {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    @include translate(-50%, -50%);
+    p {
+      width: 50%;
+    }
+}
+
+.row-flex {
+  @include display(flex);
+}
+.col-flex {
+  @include flex(1);
+  position: relative;
+}
+
+.grey-bg {
+  background-color: #1B1B1B;
+}
+
+.space-flex {
+  .row-flex+.row-flex {
+    margin-top: 2px;
+  }
+  .col-flex+.col-flex {
+    margin-left: 2px;
+  }
+}
+
+.strong {
+  padding: 120px 280px;
+
+  .line-hover {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: white;
+    background-color: #131313;
+    border-bottom: 2px solid transparent;
+    padding: 95px 0 93px;
+    cursor: pointer;
+    font-size: 18px;
+    @include transition(all 300ms ease);
+
+    &:hover {
+      color: $brand-success;
+      border-color: $brand-success;
+    }
+  }
+}
+
+.smart-content {
+  padding: 100px 0;
+  background-image: url('../img/logo-light.png');
+  background-size: auto 103%;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+
+  .btn {
+    text-transform: uppercase;
+    font-weight: 300;
+    padding: 3px 15px;
+  }
+  h3 {
+    margin-bottom: 20px;
+  }
+  p {
+    width: 80%;
+    margin: 0 auto 20px;
+  }
+}
+
+.advertise {
+    padding: 250px 0;
+    background-image: url("../img/ccc-advert.jpg");
+    color: #787878;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    background-size: cover;
+    background-position: top center;
+
+  h4 {
+    font-size: 29px;
+    margin: 0;
+    font-weight: 300;
+  }
+  h3 {
+    font-size: 38px;
+    margin: 0;
+    font-weight: 400;
+  }
+  a {
+    font-size: 18px;
+    font-weight: 300;
+    color: #ededed;
+    border-bottom: 1px solid #ededed;
+  }
+}
+
+footer {
+  background-color: #111;
+  color: #dbdbdb;
+  text-transform: uppercase;
+  font-size: 18px;
+
+  .footer {
+    font-weight: 300;
+    color: #5c5c5c;
+    a {
+      color: inherit;
+    }
+  }
+
+  .footermenu {
+    padding: 35px 0;
+
+    ul {
+      margin: 0;
+    }
+    li {
+      font-weight: 600;
+      margin: 0;
+      line-height: 200%;
+      a {
+        color: inherit;
+        font-weight: 300;
+      }
+    }
+  }
+
 }
 /* Start writing sass here */
