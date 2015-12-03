@@ -19,14 +19,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.template = TemplateService;
   $scope.hovermenu = false;
   $scope.hovered = function() {
-    console.log("hover");
     $scope.hovermenu = true;
-    console.log($scope.hovermenu);
   }
   $scope.unhovered = function() {
-    console.log("unhover");
     $scope.hovermenu = false;
-    console.log($scope.hovermenu);
   }
 
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
