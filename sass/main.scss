@@ -290,6 +290,9 @@ footer {
   color: #dbdbdb;
   text-transform: uppercase;
   font-size: 18px;
+  a {
+    color: inherit !important;
+  }
 
   .footer {
     font-weight: 300;
