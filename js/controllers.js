@@ -14,6 +14,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     subhead: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
   }];
 })
+.controller('CategoriesCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  //Used to name the .html file
+  $scope.template = TemplateService.changecontent("categories");
+  $scope.menutitle = NavigationService.makeactive("Categories");
+  TemplateService.title = $scope.menutitle;
+  $scope.navigation = NavigationService.getnav();
+})
 
 .controller('headerctrl', function($scope, TemplateService) {
   $scope.template = TemplateService;
@@ -29,5 +36,4 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $(window).scrollTop(0);
   });
 })
-
 ;
