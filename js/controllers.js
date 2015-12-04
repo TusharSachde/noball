@@ -41,6 +41,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.menutitle = NavigationService.makeactive("product-detail");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
+    
+      $scope.oneAtATime = true;
+    
+    
+      $scope.status = {
+    isFirstOpen: true,
+    isFirstDisabled: false
+  };
 })
 .controller('Terms&ConditionsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
