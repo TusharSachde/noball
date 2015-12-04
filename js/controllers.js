@@ -1,82 +1,79 @@
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider'])
 
-.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-  //Used to name the .html file
-  $scope.template = TemplateService.changecontent("home");
-  $scope.menutitle = NavigationService.makeactive("Home");
-  TemplateService.title = $scope.menutitle;
-  $scope.navigation = NavigationService.getnav();
+.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("home");
+        $scope.menutitle = NavigationService.makeactive("Home");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
 
-  $scope.mySlides = [{
-    id: 1,
-    src: "img/slide1.jpg",
-    head: 'CUSTOMIZED BATS',
-    subhead: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+        $scope.mySlides = [{
+            id: 1,
+            src: "img/slide1.jpg",
+            head: 'CUSTOMIZED BATS',
+            subhead: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
   }];
-})
-.controller('CategoriesCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-  //Used to name the .html file
-  $scope.template = TemplateService.changecontent("categories");
-  $scope.menutitle = NavigationService.makeactive("Categories");
-  TemplateService.title = $scope.menutitle;
-  $scope.navigation = NavigationService.getnav();
-})
-.controller('SweatshirtsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-  //Used to name the .html file
-  $scope.template = TemplateService.changecontent("sweatshirts");
-  $scope.menutitle = NavigationService.makeactive("Sweatshirts");
-  TemplateService.title = $scope.menutitle;
-  $scope.navigation = NavigationService.getnav();
-})
-.controller('PrivacyPolicyCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-  //Used to name the .html file
-  $scope.template = TemplateService.changecontent("privacypolicy");
-  $scope.menutitle = NavigationService.makeactive("PrivacyPolicy");
-  TemplateService.title = $scope.menutitle;
-  $scope.navigation = NavigationService.getnav();
-})
-    .controller('Product-DetailCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-  //Used to name the .html file
-  $scope.template = TemplateService.changecontent("product-detail");
-  $scope.menutitle = NavigationService.makeactive("product-detail");
-  TemplateService.title = $scope.menutitle;
-  $scope.navigation = NavigationService.getnav();
-    
-      $scope.oneAtATime = true;
-    
-    
-      $scope.status = {
-    isFirstOpen: true,
-    isFirstDisabled: false
-  };
-})
-.controller('Terms&ConditionsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-  //Used to name the .html file
-  $scope.template = TemplateService.changecontent("terms&conditions");
-  $scope.menutitle = NavigationService.makeactive("Terms&Conditions");
-  TemplateService.title = $scope.menutitle;
-  $scope.navigation = NavigationService.getnav();
-})
-.controller('CheckoutCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-  //Used to name the .html file
-  $scope.template = TemplateService.changecontent("checkout");
-  $scope.menutitle = NavigationService.makeactive("Checkout");
-  TemplateService.title = $scope.menutitle;
-  $scope.navigation = NavigationService.getnav();
-})
+    })
+    .controller('CategoriesCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("categories");
+        $scope.menutitle = NavigationService.makeactive("Categories");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+    })
+    .controller('SweatshirtsCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("sweatshirts");
+        $scope.menutitle = NavigationService.makeactive("Sweatshirts");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+    })
+    .controller('PrivacyPolicyCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("privacypolicy");
+        $scope.menutitle = NavigationService.makeactive("PrivacyPolicy");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+    })
+    .controller('Product-DetailCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("product-detail");
+        $scope.menutitle = NavigationService.makeactive("product-detail");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
 
-.controller('headerctrl', function($scope, TemplateService) {
-  $scope.template = TemplateService;
-  $scope.hovermenu = false;
-  $scope.hovered = function() {
-    $scope.hovermenu = true;
-  }
-  $scope.unhovered = function() {
+        $scope.oneAtATime = true;
+        $scope.status = {
+            isFirstOpen: true,
+            isFirstDisabled: false
+        };
+    })
+    .controller('Terms&ConditionsCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("terms&conditions");
+        $scope.menutitle = NavigationService.makeactive("Terms&Conditions");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+    })
+    .controller('CheckoutCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("checkout");
+        $scope.menutitle = NavigationService.makeactive("Checkout");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+    })
+
+.controller('headerctrl', function ($scope, TemplateService) {
+    $scope.template = TemplateService;
     $scope.hovermenu = false;
-  }
+    $scope.hovered = function () {
+        $scope.hovermenu = true;
+    }
+    $scope.unhovered = function () {
+        $scope.hovermenu = false;
+    }
 
-  $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
-    $(window).scrollTop(0);
-  });
-})
-;
+    $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+        $(window).scrollTop(0);
+    });
+});
