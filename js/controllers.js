@@ -31,9 +31,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.images = [{
 
                     src: "img/custom/c2.jpg"
-
-        
-            }, {
+       }, {
 
                 src: "img/custom/c2.jpg"
             }, {
