@@ -25,6 +25,23 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
     controller: 'CategoriesCtrl'
   })
 
+  .state('sweatshirts', {
+    url: "/sweatshirts",
+    templateUrl: "views/template.html",
+    controller: 'SweatshirtsCtrl'
+  })
+
+  .state('privacypolicy', {
+    url: "/privacypolicy",
+    templateUrl: "views/template.html",
+    controller: 'PrivacyPolicyCtrl'
+  })
+  .state('terms&conditions', {
+    url: "/terms&conditions",
+    templateUrl: "views/template.html",
+    controller: 'Terms&ConditionsCtrl'
+  })
+
   $urlRouterProvider.otherwise("/home");
 
 });
