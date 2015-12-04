@@ -3,6 +3,29 @@
         <h3 class="high-light">CUSTOMISE YOUR T-SHIRT</h3>
     </div>
     <div class="container">
+        <div class="row">
+            <div class="step">
+                <ul>
+                    <li>
+                        <p>1. DESIGN</p>
+
+                    </li>
+                    <li>
+                        <p>2. TRIM</p>
+                    </li>
+                    <li>
+                        <p>3. TEAM LOGO</p>
+                    </li>
+                    <li>
+                        <p>4. SPONSOR LOGOS</p>
+                    </li>
+                    <li>
+                        <p>5. QUANTITY</p>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
         <div class="product-detail">
             <div class="row">
                 <div class="col-md-5">
@@ -25,16 +48,20 @@
                         <h4>PLAYING T-SHIRTS</h4>
                         <h3><i class="fa fa-inr"></i>900</h3>
                     </div>
-                    <div class="choos">
-                    <div class="row" >
-                        <div class="col-md-10">
-                        <div class="col-md-4"  ng-repeat="img in images track by $index">
-                            <div class="cat-img">
-                            <img ng-src="{{img.src}}" class="img-responsive">
+                    <div class="choos" >
+                        <p>Choose Your Type Of Design</p>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="col-md-4" ng-repeat="img in images track by $index">
+                                    <div class="cat-img">
+                                        <img ng-src="{{img.src}}" class="img-responsive">
+                                    </div>
+                                </div>
+
                             </div>
-                            </div>
-                      
                         </div>
+                        <div class="edit-btn">
+                            <button href="" class="btn btn-outline btn-dark">NEXT</button>
                         </div>
                     </div>
                 </div>
