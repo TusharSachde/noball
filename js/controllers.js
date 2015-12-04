@@ -21,7 +21,38 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
     })
-    .controller('SweatshirtsCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+    .controller('CustomCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+            //Used to name the .html file
+            $scope.template = TemplateService.changecontent("custom");
+            $scope.menutitle = NavigationService.makeactive("Custom");
+            TemplateService.title = $scope.menutitle;
+            $scope.navigation = NavigationService.getnav();
+
+            $scope.images = [{
+
+                    src: "img/custom/c2.jpg"
+
+        
+            }, {
+
+                src: "img/custom/c2.jpg"
+            }, {
+
+                src: "img/custom/c2.jpg"
+
+            }, {
+
+                src: "img/custom/c2.jpg"
+
+            }, {
+
+                src: "img/custom/c2.jpg"
+
+            }];
+
+
+    })
+.controller('SweatshirtsCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("sweatshirts");
         $scope.menutitle = NavigationService.makeactive("Sweatshirts");

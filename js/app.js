@@ -24,6 +24,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
     templateUrl: "views/template.html",
     controller: 'CategoriesCtrl'
   })
+  .state('custom', {
+    url: "/custom",
+    templateUrl: "views/template.html",
+    controller: 'CustomCtrl'
+  })
 
   .state('sweatshirts', {
     url: "/sweatshirts",
