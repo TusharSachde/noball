@@ -6,20 +6,20 @@
         <div class="row">
             <div class="step">
                 <ul>
-                    <li>
+                    <li class="tab-item {{classa}}" ng-click="tabchange('design',1)">
                         <p>1. DESIGN</p>
 
                     </li>
-                    <li>
+                    <li class="tab-item {{classb}}" ng-click="tabchange('trim',2)">
                         <p>2. TRIM</p>
                     </li>
-                    <li>
+                    <li class="tab-item {{classc}}" ng-click="tabchange('new',3)">
                         <p>3. TEAM LOGO</p>
                     </li>
-                    <li>
+                    <li class="tab-item {{classd}}" ng-click="tabchange('new',4)">
                         <p>4. SPONSOR LOGOS</p>
                     </li>
-                    <li>
+                    <li class="tab-item {{classe}}" ng-click="tabchange('new',5)">
                         <p>5. QUANTITY</p>
                     </li>
                 </ul>
@@ -48,7 +48,8 @@
                         <h4>PLAYING T-SHIRTS</h4>
                         <h3><i class="fa fa-inr"></i>900</h3>
                     </div>
-                    <div class="choos" >
+<!--                    // design tab-->
+                    <div class="choos" ng-show="tab=='design'" >
                         <p>Choose Your Type Of Design</p>
                         <div class="row">
                             <div class="col-md-10">
@@ -61,6 +62,25 @@
                             </div>
                         </div>
                         <div class="edit-btn">
+                            <button href="" class="btn btn-outline btn-dark">NEXT</button>
+                        </div>
+                    </div>
+                    
+<!--                    //trim tab-->
+                             <div class="choos" ng-show="tab=='trim'" >
+                        <p>Select The Trim Colour Of Your Choice</p>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="col-md-3" ng-repeat="img in images track by $index">
+                                    <div class="colo-pallet text-center">
+                                       <div class="noti-img" ng-style="{'background-color':'red'}"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="edit-btn">
+                             <button href="" class="btn btn-outline btn-dark">BACK</button>
                             <button href="" class="btn btn-outline btn-dark">NEXT</button>
                         </div>
                     </div>
