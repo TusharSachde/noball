@@ -7,6 +7,7 @@ var jsArray = [
     './bower_components/angular-animate/angular-animate.min.js',
     './bower_components/angular-bootstrap/ui-bootstrap.min.js',
     './bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+    './bower_components/font-awesome/css/font-awesome.min.css',
     './bower_components/ui-router/release/angular-ui-router.min.js',
     './bower_components/angular-flexslider/angular-flexslider.js',
     './js/app.js',
