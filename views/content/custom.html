@@ -13,10 +13,10 @@
                     <li class="tab-item {{classb}}" ng-click="tabchange('trim',2)">
                         <p>2. TRIM</p>
                     </li>
-                    <li class="tab-item {{classc}}" ng-click="tabchange('new',3)">
+                    <li class="tab-item {{classc}}" ng-click="tabchange('team',3)">
                         <p>3. TEAM LOGO</p>
                     </li>
-                    <li class="tab-item {{classd}}" ng-click="tabchange('new',4)">
+                    <li class="tab-item {{classd}}" ng-click="tabchange('logo',4)">
                         <p>4. SPONSOR LOGOS</p>
                     </li>
                     <li class="tab-item {{classe}}" ng-click="tabchange('new',5)">
@@ -48,8 +48,8 @@
                         <h4>PLAYING T-SHIRTS</h4>
                         <h3><i class="fa fa-inr"></i>900</h3>
                     </div>
-<!--                    // design tab-->
-                    <div class="choos" ng-show="tab=='design'" >
+                    <!--                    // design tab-->
+                    <div class="choos" ng-show="tab=='design'">
                         <p>Choose Your Type Of Design</p>
                         <div class="row">
                             <div class="col-md-10">
@@ -65,23 +65,121 @@
                             <button href="" class="btn btn-outline btn-dark">NEXT</button>
                         </div>
                     </div>
-                    
-<!--                    //trim tab-->
-                             <div class="choos" ng-show="tab=='trim'" >
+
+
+                    <!--                    //trim tab-->
+                    <div class="choos" ng-show="tab=='trim'">
                         <p>Select The Trim Colour Of Your Choice</p>
                         <div class="row">
                             <div class="col-md-10">
                                 <div class="col-md-3" ng-repeat="img in images track by $index">
                                     <div class="colo-pallet text-center">
-                                       <div class="noti-img" ng-style="{'background-color':'red'}"></div>
+                                        <div class="noti-img" ng-style="{'background-color':'red'}"></div>
                                     </div>
                                 </div>
 
                             </div>
                         </div>
                         <div class="edit-btn">
-                             <button href="" class="btn btn-outline btn-dark">BACK</button>
+                            <button href="" class="btn btn-outline btn-dark">BACK</button>
                             <button href="" class="btn btn-outline btn-dark">NEXT</button>
+                        </div>
+                    </div>
+                    <!--                    //trim tab-->
+                    <div class="choos" ng-show="tab=='team'">
+                        <p>Upload Your Team Logo</p>
+                        <div class="pic-up">
+                            <p>File Type Format</p>
+                            <span>jpeg, png, tiff, pdf, eps</span>
+                        </div>
+                        <div class="up-img">
+                            <img src="img/custom/c4.jpg">
+                            <div class="edit-btn">
+                                <button href="" class="btn btn-outline btn-dark">CHANGE</button>
+                                <br>
+                                <button href="" class="btn btn-outline btn-dark">REMOVE</button>
+                            </div>
+                        </div>
+                        <div class="pic-up">
+                            <p>Maximum Upload File Size 5MB</p>
+                            <span>File may take anywhere from a few seconds to a few minutes to upload</span>
+
+                        </div>
+                        <div class="up-btn">
+                            <button href="" class="btn btn-outline btn-dark" data-toggle="modal" data-target="#myModal">UPLOAD</button>
+                        </div>
+                        <div class="print-typ">
+                            <p>Select The Printing Type For Your Team Logo</p>
+                            <form action="">
+                                <input type="radio" name="Embroidered" value="Embroidered">Embroidered
+                                <br>
+                                <input type="radio" name="Sublimated" value="Sublimated">Sublimated
+                            </form>
+                            <span>Note: The printed CCC Logo will always be sublimated on your t-shirt</span>
+                        </div>
+                        <div class="edit-btn">
+                            <button href="" class="btn btn-outline btn-dark">BACK</button>
+                            <button href="" class="btn btn-outline btn-dark">NEXT</button>
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+
+                                    <div class="modal-body text-center">
+                                        <div class="mod-img ">
+                                            <img src="img/custom/c4.jpg" class="img-responsive">
+                                            <button href="" class="btn btn-outline btn-dark">SUBMIT</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--                    //logo tab-->
+                    <div class="choos" ng-show="tab=='logo'">
+                        <p>Upload Your Team Logo</p>
+                        <div class="pic-up">
+                            <p>File Type Format</p>
+                            <span>jpeg, png, tiff, pdf, eps</span>
+                        </div>
+                        <div class="pic-up">
+                            <p>Maximum Upload File Size 5MB</p>
+                            <span>File may take anywhere from a few seconds to a few minutes to upload</span>
+
+                        </div>
+                        
+                        <div class="sp-logo">
+                            <button href="" class="btn btn-outline btn-dark" data-toggle="modal" data-target="#myModal1">MAIN SPONSOR</button>
+                            <button href="" class="btn btn-outline btn-dark" data-toggle="modal" data-target="#myModal1">BACK SPONSOR</button>
+                            <br>
+                            <button href="" class="btn btn-outline btn-dark" data-toggle="modal" data-target="#myModal1">LEFT SLEEVE SPONSOR</button>
+                            <br>
+                            <button href="" class="btn btn-outline btn-dark" data-toggle="modal" data-target="#myModal1">RIGHT SLEEVE SPONSOR</button>
+                        </div>
+                        <div class="print-typ">
+
+                            <span>Note: The printed CCC Logo will always be sublimated on your t-shirt</span>
+                        </div>
+                        <div class="edit-btn">
+                            <button href="" class="btn btn-outline btn-dark">BACK</button>
+                            <button href="" class="btn btn-outline btn-dark">NEXT</button>
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+
+                                    <div class="modal-body text-center">
+                                        <div class="mod-img ">
+                                            <img src="img/custom/c4.jpg" class="img-responsive">
+                                            <button href="" class="btn btn-outline btn-dark">SUBMIT</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
