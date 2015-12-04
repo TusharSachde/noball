@@ -48,6 +48,12 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
     controller: 'Terms&ConditionsCtrl'
   })
 
+  .state('checkout', {
+    url: "/checkout",
+    templateUrl: "views/template.html",
+    controller: 'CheckoutCtrl'
+  })
+
   $urlRouterProvider.otherwise("/home");
 
 });
