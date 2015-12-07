@@ -37,27 +37,27 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
     })
 
     .state('privacypolicy', {
-        url: "/privacypolicy",
-        templateUrl: "views/template.html",
-        controller: 'PrivacyPolicyCtrl'
-    })   
+            url: "/privacypolicy",
+            templateUrl: "views/template.html",
+            controller: 'PrivacyPolicyCtrl'
+        })
         .state('review', {
-        url: "/review",
-        templateUrl: "views/template.html",
-        controller: 'ReviewCtrl'
-    })
+            url: "/review",
+            templateUrl: "views/template.html",
+            controller: 'ReviewCtrl'
+        })
         .state('trauser', {
-        url: "/trauser",
-        templateUrl: "views/template.html",
-        controller: 'TrauserCtrl'
-    })
+            url: "/trauser",
+            templateUrl: "views/template.html",
+            controller: 'TrauserCtrl'
+        })
 
     .state('cart', {
             url: "/cart",
             templateUrl: "views/template.html",
             controller: 'CartCtrl'
         })
-    .state('profile', {
+        .state('profile', {
             url: "/profile",
             templateUrl: "views/template.html",
             controller: 'ProfileCtrl'
@@ -66,6 +66,11 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
             url: "/product-detail",
             templateUrl: "views/template.html",
             controller: 'Product-DetailCtrl'
+        })
+        .state('save-design', {
+            url: "/save-design",
+            templateUrl: "views/template.html",
+            controller: 'Save-DesignCtrl'
         })
         .state('terms&conditions', {
             url: "/terms&conditions",
