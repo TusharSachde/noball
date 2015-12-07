@@ -171,6 +171,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Checkout");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
+    })   
+    .controller('TrauserCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("trauser");
+        $scope.menutitle = NavigationService.makeactive("Trauser");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
     })
     .controller('WishlistCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file

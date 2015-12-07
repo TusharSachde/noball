@@ -46,6 +46,11 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
         templateUrl: "views/template.html",
         controller: 'ReviewCtrl'
     })
+        .state('trauser', {
+        url: "/trauser",
+        templateUrl: "views/template.html",
+        controller: 'TrauserCtrl'
+    })
 
     .state('cart', {
             url: "/cart",
