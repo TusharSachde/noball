@@ -1,5 +1,5 @@
 <section>
-        <div class="container">
+    <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div ng-include="template.account"></div>
@@ -14,7 +14,7 @@
                     <img src="img/custom/t2.jpg" class="img-responsive">
                     <p>PLAYING T-SHIRT</p>
                     <button href="" class="btn btn-outline btn-dark">VIEW</button>
-                    <button href="" class="btn btn-outline btn-dark">DELETE</button>
+                    <button href="" class="btn btn-outline btn-dark" data-toggle="modal" data-target="#myModal5">DELETE</button>
                     <br>
                     <button href="" class="btn btn-outline btn-dark">EDIT</button>
                 </div>
@@ -24,7 +24,7 @@
                     <img src="img/custom/t2.jpg" class="img-responsive">
                     <p>PLAYING T-SHIRT</p>
                     <button href="" class="btn btn-outline btn-dark">VIEW</button>
-                    <button href="" class="btn btn-outline btn-dark">DELETE</button>
+                    <button href="" class="btn btn-outline btn-dark" data-toggle="modal" data-target="#myModal5">DELETE</button>
                     <br>
                     <button href="" class="btn btn-outline btn-dark">EDIT</button>
                 </div>
@@ -34,12 +34,26 @@
                     <img src="img/custom/t2.jpg" class="img-responsive">
                     <p>PLAYING T-SHIRT</p>
                     <button href="" class="btn btn-outline btn-dark">VIEW</button>
-                    <button href="" class="btn btn-outline btn-dark">DELETE</button>
+                    <button href="" class="btn btn-outline btn-dark" data-toggle="modal" data-target="#myModal5">DELETE</button>
                     <br>
                     <button href="" class="btn btn-outline btn-dark">EDIT</button>
                 </div>
             </div>
 
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+
+                    <div class="modal-body text-center">
+                        <p>ARE YOU SURE YOU WANT TO DELETE THIS DESIGN</p>
+                        <button href="" class="btn btn-outline btn-dark">YES</button>
+                        <button href="" class="btn btn-outline btn-dark">NO</button>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
 
