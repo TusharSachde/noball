@@ -151,10 +151,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             isFirstDisabled: false
         };
     })
-    .controller('Terms&ConditionsCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+    .controller('TermsConditionsCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
-        $scope.template = TemplateService.changecontent("terms&conditions");
-        $scope.menutitle = NavigationService.makeactive("Terms&Conditions");
+        $scope.template = TemplateService.changecontent("terms-conditions");
+        $scope.menutitle = NavigationService.makeactive("Terms & Conditions");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
     })
@@ -171,14 +171,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Checkout");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-    })   
+    })
     .controller('TrauserCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("trauser");
         $scope.menutitle = NavigationService.makeactive("Trauser");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-    })  
+    })
     .controller('Save-DesignCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("save-design");

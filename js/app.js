@@ -72,10 +72,10 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
             templateUrl: "views/template.html",
             controller: 'Save-DesignCtrl'
         })
-        .state('terms&conditions', {
-            url: "/terms&conditions",
+        .state('termsconditions', {
+            url: "/terms-conditions",
             templateUrl: "views/template.html",
-            controller: 'Terms&ConditionsCtrl'
+            controller: 'TermsConditionsCtrl'
         })
         .state('wishlist', {
             url: "/wishlist",
