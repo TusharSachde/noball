@@ -40,6 +40,11 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
         url: "/privacypolicy",
         templateUrl: "views/template.html",
         controller: 'PrivacyPolicyCtrl'
+    })   
+        .state('review', {
+        url: "/review",
+        templateUrl: "views/template.html",
+        controller: 'ReviewCtrl'
     })
 
     .state('cart', {

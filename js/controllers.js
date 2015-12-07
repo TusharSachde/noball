@@ -35,30 +35,37 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
     })
+    .controller('ReviewCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("review");
+        $scope.menutitle = NavigationService.makeactive("Review");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+    })
     .controller('CustomCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
-            //Used to name the .html file
-            $scope.template = TemplateService.changecontent("custom");
-            $scope.menutitle = NavigationService.makeactive("Custom");
-            TemplateService.title = $scope.menutitle;
-            $scope.navigation = NavigationService.getnav();
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("custom");
+        $scope.menutitle = NavigationService.makeactive("Custom");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
 
-            $scope.images = [{
+        $scope.images = [{
 
-                    src: "img/custom/c2.jpg"
+            src: "img/custom/c2.jpg"
        }, {
 
-                src: "img/custom/c2.jpg"
+            src: "img/custom/c2.jpg"
             }, {
 
-                src: "img/custom/c2.jpg"
-
-            }, {
-
-                src: "img/custom/c2.jpg"
+            src: "img/custom/c2.jpg"
 
             }, {
 
-                src: "img/custom/c2.jpg"
+            src: "img/custom/c2.jpg"
+
+            }, {
+
+            src: "img/custom/c2.jpg"
 
             }];
         //tab changes
@@ -88,21 +95,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.classd = '';
                 $scope.classe = '';
 
-            }     if (a == 3) {
+            }
+            if (a == 3) {
                 $scope.classc = 'active';
                 $scope.classb = '';
                 $scope.classa = '';
                 $scope.classd = '';
                 $scope.classe = '';
 
-            }     if (a == 4) {
+            }
+            if (a == 4) {
                 $scope.classd = 'active';
                 $scope.classb = '';
                 $scope.classc = '';
                 $scope.classa = '';
                 $scope.classe = '';
 
-            }  else if (a == 5) {
+            } else if (a == 5) {
                 $scope.classe = 'active';
                 $scope.classb = '';
                 $scope.classc = '';
@@ -115,7 +124,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //    end
 
     })
-.controller('SweatshirtsCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+    .controller('SweatshirtsCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("sweatshirts");
         $scope.menutitle = NavigationService.makeactive("Sweatshirts");
