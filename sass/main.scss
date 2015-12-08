@@ -392,7 +392,9 @@ footer {
 }
 .banners {
   .banner {
-    position: relative;    color: #fff;
+    position: relative;
+     color: #fff;
+     &:hover .overlay {
       opacity: 1;
     }
     h2 {
@@ -411,4 +413,5 @@ footer {
       @include transition (all 500ms ease);
     }
   }
+}
 @import "amit";
