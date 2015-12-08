@@ -6,44 +6,36 @@
 @import "../bower_components/font-awesome/css/font-awesome.min.css";
 @font-face {
   font-family: "Facile Sans";
-  src: url("../fonts/Facile-Sans.otf");
-  src: url("../fonts/Facile-Sans.ttf");
+  src: url(../fonts/Facile-Sans.otf);
+  src: url(../fonts/Facile-Sans.ttf);
   font-weight: normal;
   font-style: normal;
 }
 /* Bootstrap Variables Goes Here */
-
 $brand-primary: #0d9dff !default;
 $brand-success: #C1E603 !default;
 $brand-warning: #E6CF07 !default;
 $brand-danger: #E3028F !default;
 $brand-info: #000072 !default;
-
 $logo-color: #616161 !default;
 $font-color: #1b1b1b !default;
-
+$btn-light: #fff!default;
 $body-bg: #fff !default;
 $text-color: $font-color !default;
-
 $link-color: $font-color !default;
 $link-hover-color: $font-color !default;
 $link-hover-decoration: none !default;
-
 $font-family-sans-serif: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $font-family-serif: "Raleway", Georgia, "Times New Roman", Times, serif !default;
 $font-logo: "Facile Sans", "Helvetiva Neue", Helvetica !default;
-
 $border-radius-base: 0 !default;
 $border-radius-large: 0 !default;
 $border-radius-small: 0 !default;
 $menu-height: 65px !default;
-
 $facebook: #3a579d !default;
 $google: #dd4d3c !default;
 $twitter: #49c8f5 !default;
-
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
-
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -78,9 +70,22 @@ nav li:hover .dropdown-menu {
   &.btn-outline {
     background-color: transparent;
     color: $font-color;
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       background-color: $font-color;
       color: white;
+    }
+  }
+}
+.btn-light {
+  @include button-variant(white, $btn-light, $btn-light);
+  &.btn-outline {
+    background-color: transparent;
+    color: $btn-light;
+    &:hover,
+    &:focus {
+      background-color: $btn-light;
+      color: $font-color;
     }
   }
 }
@@ -100,32 +105,33 @@ nav li:hover .dropdown-menu {
   font-size: 55px;
   letter-spacing: 3px;
 }
+.main-head {
+  padding: 20px 0 10px;
+}
 .para {
   line-height: 180%;
   font-weight: 300;
 }
-
 .navbar {
   margin: 0;
 }
-
 .navbar-default {
   background-color: #000000;
   border-color: #000000;
   .navbar-nav {
-   > li {
-    > a {
-      color: white;
-      font-size: 15px;
-      letter-spacing: 2px;
-      font-weight: bold;
-      text-transform: uppercase;
-      padding: 22.5px 80px 22.5px 15px;
-      @include transition(all 300ms ease);
-
-      &:hover, &.active {
-        color: $logo-color;
-      }
+    > li {
+      > a {
+        color: white;
+        font-size: 15px;
+        letter-spacing: 2px;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding: 22.5px 80px 22.5px 15px;
+        @include transition(all 300ms ease);
+        &:hover,
+        &.active {
+          color: $logo-color;
+        }
       }
     }
   }
@@ -138,14 +144,15 @@ nav li:hover .dropdown-menu {
   height: 65px;
   line-height: 40px;
   margin: 0 !important;
-
   img {
     height: 100%;
     margin-right: 10px;
     display: inline-block;
   }
 }
-
+.pad-btm-30{
+  padding-bottom: 30px;
+}
 .flexslider {
   border: none;
   overflow: hidden;
@@ -178,22 +185,19 @@ nav li:hover .dropdown-menu {
     }
   }
 }
-
 .relative {
   position: relative;
 }
-
 .text-on {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 80%;
-    @include translate(-50%, -50%);
-    p {
-      width: 50%;
-    }
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  @include translate(-50%, -50%);
+  p {
+    width: 50%;
+  }
 }
-
 .row-flex {
   @include display(flex);
 }
@@ -201,11 +205,9 @@ nav li:hover .dropdown-menu {
   @include flex(1);
   position: relative;
 }
-
 .grey-bg {
   background-color: #1B1B1B;
 }
-
 .space-flex {
   .row-flex+.row-flex {
     margin-top: 2px;
@@ -214,10 +216,8 @@ nav li:hover .dropdown-menu {
     margin-left: 2px;
   }
 }
-
 .strong {
   padding: 120px 280px;
-
   .line-hover {
     text-align: center;
     text-transform: uppercase;
@@ -229,21 +229,18 @@ nav li:hover .dropdown-menu {
     cursor: pointer;
     font-size: 18px;
     @include transition(all 300ms ease);
-
     &:hover {
       color: $brand-success;
       border-color: $brand-success;
     }
   }
 }
-
 .smart-content {
   padding: 100px 0;
-  background-image: url('../img/logo-light.png');
+  background-image: url(../img/logo-light.png);
   background-size: auto 103%;
   background-repeat: no-repeat;
   background-position: right bottom;
-
   .btn {
     text-transform: uppercase;
     font-weight: 300;
@@ -257,16 +254,14 @@ nav li:hover .dropdown-menu {
     margin: 0 auto 20px;
   }
 }
-
 .advertise {
-    padding: 250px 0;
-    background-image: url("../img/ccc-advert.jpg");
-    color: #787878;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    background-size: cover;
-    background-position: top center;
-
+  padding: 250px 0;
+  background-image: url(../img/ccc-advert.jpg);
+  color: #787878;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  background-size: cover;
+  background-position: top center;
   h4 {
     font-size: 29px;
     margin: 0;
@@ -284,7 +279,6 @@ nav li:hover .dropdown-menu {
     border-bottom: 1px solid #ededed;
   }
 }
-
 footer {
   background-color: #111;
   color: #dbdbdb;
@@ -293,7 +287,6 @@ footer {
   a {
     color: inherit !important;
   }
-
   .footer {
     font-weight: 300;
     color: #5c5c5c;
@@ -301,10 +294,8 @@ footer {
       color: inherit;
     }
   }
-
   .footermenu {
     padding: 35px 0;
-
     ul {
       margin: 0;
     }
@@ -326,7 +317,7 @@ footer {
   z-index: 1000;
   min-width: 120px;
   padding: 10px 0;
-  margin: 0px 0 0;
+  margin: 0;
   list-style: none;
   text-align: left;
   width: 100%;
@@ -335,7 +326,6 @@ footer {
   letter-spacing: 1px;
   line-height: 100%;
   font-size: 12px;
-
   li {
     +li {
       margin-top: 1px;
@@ -349,9 +339,8 @@ footer {
       border-left: 3px solid transparent;
       @include transition(all 300ms ease);
       margin-right: 20px;
-
-
-      &:hover, &.active {
+      &:hover,
+      &.active {
         color: white;
         background-color: black;
         border-color: $brand-warning;
@@ -359,14 +348,15 @@ footer {
     }
   }
   &.Shop {
-    a:hover, a.active {
+    a:hover,
+    a.active {
       background-color: lighten(black, 50%);
       border-color: $brand-success;
     }
   }
-
   &.Customize {
-    a:hover, a.active {
+    a:hover,
+    a.active {
       background-color: lighten(black, 50%);
       border-color: $brand-danger;
     }
@@ -386,10 +376,30 @@ footer {
 }
 /* Start writing sass here */
 .noti-img {
-    height: 45px;
-    width: 45px;
-    border-radius: 100%;
+  height: 45px;
+  width: 45px;
+  border-radius: 100%;
 }
-.design{
-    display: inline-block;
+.design {
+  display: inline-block;
 }
+.text-above {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  @include transform( translateY(-50%));
+}
+.banners {
+  .banner {
+    position: relative;
+    color: #fff;
+      opacity: 1;
+    }
+    h2 {
+      letter-spacing: 2px;
+      font-size: 34pt;
+      font-weight: 900;
+    }
+  }
+@import "amit";
