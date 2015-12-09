@@ -172,11 +172,10 @@ $border: #c0c0c0 !default;
             cursor: pointer;
         }
     }
-    label {
-        letter-spacing: 3px;
-        font-size: 14px;
-        padding-left: 20px;
-    }
+input[type="radio"]:checked + label {
+  color: #f00;
+  font-style: normal;
+} 
 }
 .noti-imgs {
     height: 170px;
