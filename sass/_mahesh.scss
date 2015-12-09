@@ -151,7 +151,7 @@ $border: #c0c0c0 !default;
 .pbotom {
     padding-top: 12px;
     font-size: 10px;
-    padding-bottom: 15px;
+    padding-bottom: 20px;
     display: block;
 }
 .radio {
@@ -218,4 +218,16 @@ $border: #c0c0c0 !default;
 .marg10{
     margin-bottom:8px;
     margin-top: 12px;
+}
+.mright15{
+    margin-right: 15px;
+}
+.mall10{
+        margin: 10px 0px;
+}
+.bright{
+        border-right: 1px solid $border;
+}
+.mar30 {
+    margin: 30px 0px 8px 0px;
 }
