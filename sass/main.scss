@@ -465,14 +465,79 @@ footer {
     color: #1b1b1b;
   }
 }
-
 .custom-img {
-    width: 300px;
-    margin: 0 auto;
+  width: 300px;
+  margin: 0 auto;
 }
-
+.img-hold {
+  height: 130px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.product-desc {
+  width: 85%;
+  margin: 0 auto;
+  .pro-rp p {
+    background: #e2e2e2;
+    width: 140px;
+    padding-bottom: 8px;
+    text-align: center;
+    font-size: 35px;
+    font-weight: 700;
+    color: #fff;
+    i {
+      padding-right: 5px;
+      vertical-align: bottom;
+    }
+  }
+}
+.pro-detail {
+  .panel-body {
+    border-top-color: #fff!important;
+    padding-left: 0 !important;
+    ul.delivery {
+      list-style: decimal;
+      padding-left: 20px;
+    }
+    li{
+      padding-bottom: 20px;
+    }
+  }
+  .panel-heading {
+    background: #fff;
+    border-color: #fff;
+    box-shadow: none;
+    padding-left: 0 !important;
+    a {
+      &:focus {
+        outline: none;
+      }
+      span {
+        font-weight: 400;
+        font-size: 20px;
+        letter-spacing: 2px;
+        margin-bottom: 5px;
+      }
+      i.fa.fa-play {
+        font-size: 14px;
+        vertical-align: 2px;
+        color: #E2E2E2;
+        &.down {
+          position: absolute;
+          transform: rotate(90deg);
+          margin-top: 4px;
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+  .panel.panel-default {
+    border-color: #fff;
+    box-shadow: none;
+  }
+}
 @import "amit";
 @import "mahesh";
-.vertical-icon.placed{
-      left: 50px;
+.vertical-icon.placed {
+  left: 50px;
 }

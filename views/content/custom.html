@@ -1,101 +1,101 @@
 <section>
-    <div class="text-center">
-        <h3 class="high-light main-head">CUSTOMISE YOUR T-SHIRT</h3>
+  <div class="text-center">
+    <h3 class="high-light main-head">CUSTOMISE YOUR T-SHIRT</h3>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="step">
+        <ul>
+          <li class="tab-item {{classa}}" ng-click="tabchange('design',1)">
+            <p>1. DESIGN</p>
+
+          </li>
+          <li class="tab-item {{classb}}" ng-click="tabchange('trim',2)">
+            <p>2. TRIM</p>
+          </li>
+          <li class="tab-item {{classc}}" ng-click="tabchange('team',3)">
+            <p>3. TEAM LOGO</p>
+          </li>
+          <li class="tab-item {{classd}}" ng-click="tabchange('logo',4)">
+            <p>4. SPONSOR LOGOS</p>
+          </li>
+          <li class="tab-item {{classe}}" ng-click="tabchange('quantity',5)">
+            <p>5. QUANTITY</p>
+          </li>
+        </ul>
+      </div>
+
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="step">
-                <ul>
-                    <li class="tab-item {{classa}}" ng-click="tabchange('design',1)">
-                        <p>1. DESIGN</p>
-
-                    </li>
-                    <li class="tab-item {{classb}}" ng-click="tabchange('trim',2)">
-                        <p>2. TRIM</p>
-                    </li>
-                    <li class="tab-item {{classc}}" ng-click="tabchange('team',3)">
-                        <p>3. TEAM LOGO</p>
-                    </li>
-                    <li class="tab-item {{classd}}" ng-click="tabchange('logo',4)">
-                        <p>4. SPONSOR LOGOS</p>
-                    </li>
-                    <li class="tab-item {{classe}}" ng-click="tabchange('quantity',5)">
-                        <p>5. QUANTITY</p>
-                    </li>
-                </ul>
+    <div class="product-detail">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="text-center">
+            <div class="custom-img">
+              <img src="img/custom/c1.jpg" class="img-responsive">
             </div>
-
+            <div class="vertical-icon">
+              <img src="img/zoom.jpg">
+            </div>
+            <div class="horizontal-icon">
+              <img src="img/left.jpg">
+              <p>ROTATE</p>
+              <img src="img/right.jpg">
+            </div>
+            <div class="edit-btn margbotm">
+              <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN & EDIT LATER</button>
+            </div>
+          </div>
         </div>
-        <div class="product-detail">
+        <div class="col-md-7">
+          <div class="det-name">
+            <h4>PLAYING T-SHIRTS</h4>
+            <h3><i class="fa fa-inr"></i>900</h3>
+          </div>
+          <!--                    // design tab-->
+          <div class="choos" ng-show="tab=='design'">
+            <p>Choose Your Type Of Design</p>
             <div class="row">
-                <div class="col-md-5">
-                    <div class="text-center">
-                        <div class="custom-img">
-                            <img src="img/custom/c1.jpg" class="img-responsive">
-                        </div>
-                        <div class="vertical-icon">
-                            <img src="img/zoom.jpg">
-                        </div>
-                        <div class="horizontal-icon">
-                            <img src="img/left.jpg">
-                            <p>ROTATE</p>
-                            <img src="img/right.jpg">
-                        </div>
-                        <div class="edit-btn margbotm">
-                            <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN & EDIT LATER</button>
-                        </div>
-                    </div>
+              <div class="col-md-10">
+                <div class="col-md-4 paddingl" ng-repeat="img in images track by $index">
+                  <div class="cat-img">
+                    <img ng-src="{{img.src}}" class="img-responsive">
+                  </div>
                 </div>
-                <div class="col-md-7">
-                    <div class="det-name">
-                        <h4>PLAYING T-SHIRTS</h4>
-                        <h3><i class="fa fa-inr"></i>900</h3>
-                    </div>
-                    <!--                    // design tab-->
-                    <div class="choos" ng-show="tab=='design'">
-                        <p>Choose Your Type Of Design</p>
-                        <div class="row">
-                            <div class="col-md-10">
-                                <div class="col-md-4 paddingl" ng-repeat="img in images track by $index">
-                                    <div class="cat-img">
-                                        <img ng-src="{{img.src}}" class="img-responsive">
-                                    </div>
-                                </div>
 
-                            </div>
-                        </div>
-                        <div class="edit-btn ">
-                            <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
-                        </div>
-                    </div>
+              </div>
+            </div>
+            <div class="edit-btn ">
+              <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+            </div>
+          </div>
 
 
-                    <!--                    //trim tab-->
-                    <div class="choos" ng-show="tab=='trim'">
-                        <p>Select The Trim Colour Of Your Choice</p>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="col-md-3 paddingl" ng-repeat="col in color track by $index">
-                                    <div class="colo-pallet text-center ">
-                                        <div class="noti-img" ng-style="{'background-color':'{{col.colr}}'}"></div>
-                                    </div>
-                                </div>
+          <!--                    //trim tab-->
+          <div class="choos" ng-show="tab=='trim'">
+            <p>Select The Trim Colour Of Your Choice</p>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="col-md-3 paddingl" ng-repeat="col in color track by $index">
+                  <div class="colo-pallet text-center ">
+                    <div class="noti-img" ng-style="{'background-color':'{{col.colr}}'}"></div>
+                  </div>
+                </div>
 
-                            </div>
-                        </div>
-                        <div class="edit-btn margintp">
-                            <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing mright15">BACK</button>
-                            <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
-                        </div>
-                    </div>
-                    <!--                    //trim tab-->
-                    <div class="choos" ng-show="tab=='team'">
-                        <p>Upload Your Team Logo</p>
-                        <div class="pic-up">
-                            <p>File Type Format</p>
-                            <span>jpeg, png, tiff, pdf, eps</span>
-                        </div>
-                        <!--
+              </div>
+            </div>
+            <div class="edit-btn margintp">
+              <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing mright15">BACK</button>
+              <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+            </div>
+          </div>
+          <!--                    //trim tab-->
+          <div class="choos" ng-show="tab=='team'">
+            <p>Upload Your Team Logo</p>
+            <div class="pic-up">
+              <p>File Type Format</p>
+              <span>jpeg, png, tiff, pdf, eps</span>
+            </div>
+            <!--
                         <div class="up-img">
                             <img src="img/custom/c4.jpg">
                             <div class="edit-btn">
@@ -105,87 +105,91 @@
                             </div>
                         </div>
 -->
-                        <div class="pic-up">
-                            <p>Maximum Upload File Size 5MB</p>
-                            <span>File may take anywhere from a few seconds to a few minutes to upload</span>
+            <div class="pic-up">
+              <p>Maximum Upload File Size 5MB</p>
+              <span>File may take anywhere from a few seconds to a few minutes to upload</span>
 
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="up-img text-center">
-                                    <!--                            <img src="img/custom/c4.jpg">-->
-                                    <div class="noti-imgs1" ng-style="{'background-image':'url(img/custom/c4.jpg)'}"></div>
-                                    <div class="edit-btn">
-                                        <button href="" class="btn btn-outline btn-dark letter-spacing marg10">CHANGE</button>
-                                        <br>
-                                        <button href="" class="btn btn-outline btn-dark letter-spacing">REMOVE</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <div class="up-img text-center">
+                  <!--                            <img src="img/custom/c4.jpg">-->
+                  <div class="noti-imgs1" ng-style="{'background-image':'url(img/custom/c4.jpg)'}"></div>
+                  <div class="edit-btn">
+                    <button href="" class="btn btn-outline btn-dark letter-spacing marg10">CHANGE</button>
+                    <br>
+                    <button href="" class="btn btn-outline btn-dark letter-spacing">REMOVE</button>
+                  </div>
+                </div>
+              </div>
+            </div>
 
 
-                        <!--
+            <!--
                         <div class="up-btn">
                             <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal">UPLOAD</button>
                         </div>
 -->
-                        <div class="print-typ">
-                            <p>Select The Printing Type For Your Team Logo</p>
-                            <form action="" class="radio">
+            <div class="print-typ">
+              <p>Select The Printing Type For Your Team Logo</p>
+              <form action="" class="radio">
 
-                                <input type="radio" id="radio01" name="radio" />
-                                <label for="radio01"><span></span>Embroidered</label>
-                                <br>
-                                <input type="radio" id="radio01" name="radio" />
-                                <label for="radio01"><span></span>Sublimated</label>
+                <input type="radio" id="radio01" name="radio" />
+                <label for="radio01">
+                  <span></span>Embroidered</label>
+                <br>
+                <input type="radio" id="radio01" name="radio" />
+                <label for="radio01">
+                  <span></span>Sublimated</label>
 
-                            </form>
-                            <span class="pbotom">Note: The printed CCC Logo will always be sublimated on your t-shirt</span>
-                        </div>
-                        <div class="edit-btn">
-                            <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing mright15">BACK</button>
-                            <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
-                        </div>
-                        <!-- Modal -->
-                        <div class="modal fade custom" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              </form>
+              <span class="pbotom">Note: The printed CCC Logo will always be sublimated on your t-shirt</span>
+            </div>
+            <div class="edit-btn">
+              <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing mright15">BACK</button>
+              <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade custom" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
 
-                                    </div>
-                                    <div class="modal-body text-center">
-                                        <div class="mod-img ">
+                  </div>
+                  <div class="modal-body text-center">
+                    <div class="mod-img ">
 
-                                            <div class="noti-imgs" ng-style="{'background-image':'url(img/custom/c4.jpg)'}"></div>
-                                            <button href="" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing">SUBMIT</button>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
+                      <div class="noti-imgs" ng-style="{'background-image':'url(img/custom/c4.jpg)'}"></div>
+                      <button href="" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing">SUBMIT</button>
                     </div>
-                    <!--                    //logo tab-->
-                    <div class="choos" ng-show="tab=='logo'">
-                        <p>Upload Your Team Logo</p>
-                        <div class="pic-up">
-                            <p>File Type Format</p>
-                            <span>jpeg, png, tiff, pdf, eps</span>
-                        </div>
-                        <div class="pic-up">
-                            <p>Maximum Upload File Size 5MB</p>
-                            <span>File may take anywhere from a few seconds to a few minutes to upload</span>
+                  </div>
 
-                        </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--                    //logo tab-->
+          <div class="choos" ng-show="tab=='logo'">
+            <p>Upload Your Team Logo</p>
+            <div class="pic-up">
+              <p>File Type Format</p>
+              <span>jpeg, png, tiff, pdf, eps</span>
+            </div>
+            <div class="pic-up">
+              <p>Maximum Upload File Size 5MB</p>
+              <span>File may take anywhere from a few seconds to a few minutes to upload</span>
 
-                        <!--
+            </div>
+
+            <!--
                         <div class="grp1">
                             <div class="row">
                                 <div class="col-md-3">
                                 <div class="up-img text-center bright">
-                                   
+
                                     <div class="noti-imgs1" ng-style="{'background-image':'url(img/custom/c4.jpg)'}"></div>
                                     <div class="edit-btn">
                                         <button href="" class="btn btn-outline btn-dark letter-spacing marg10">CHANGE</button>
@@ -210,7 +214,7 @@
 -->
 
 
-                        <!--
+            <!--
                         <div class="grp2">
                             <div class="row">
                                 <div class="col-md-3 bright">
@@ -245,7 +249,7 @@
 -->
 
 
-<!--
+            <!--
                         <div class="grp3">
                             <div class="row">
                                 <div class="col-md-3 bright">
@@ -293,59 +297,59 @@
                         </div>
 -->
 
-                        
-                        <div class="grp4">
-                            <div class="row">
-                                 <div class="col-md-3 bright">
-                                    <div class="up-img text-center ">
 
-                                        <div class="noti-imgs1" ng-style="{'background-image':'url(img/custom/c4.jpg)'}"></div>
-                                        <div class="edit-btn">
-                                            <button href="" class="btn btn-outline btn-dark letter-spacing marg10">CHANGE</button>
-                                          
-                                            <button href="" class="btn btn-outline btn-dark letter-spacing">REMOVE</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 bright">
-                                    <div class="up-img text-center ">
+            <div class="grp4">
+              <div class="row">
+                <div class="col-md-3 bright">
+                  <div class="up-img text-center ">
 
-                                        <div class="noti-imgs1" ng-style="{'background-image':'url(img/custom/c4.jpg)'}"></div>
-                                        <div class="edit-btn">
-                                            <button href="" class="btn btn-outline btn-dark letter-spacing marg10">CHANGE</button>
-                                          
-                                            <button href="" class="btn btn-outline btn-dark letter-spacing">REMOVE</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                 <div class="col-md-3 bright">
-                                    <div class="up-img text-center ">
+                    <div class="noti-imgs1" ng-style="{'background-image':'url(img/custom/c4.jpg)'}"></div>
+                    <div class="edit-btn">
+                      <button href="" class="btn btn-outline btn-dark letter-spacing marg10">CHANGE</button>
 
-                                        <div class="noti-imgs1" ng-style="{'background-image':'url(img/custom/c4.jpg)'}"></div>
-                                        <div class="edit-btn">
-                                            <button href="" class="btn btn-outline btn-dark letter-spacing marg10">CHANGE</button>
-                                           
-                                            <button href="" class="btn btn-outline btn-dark letter-spacing">REMOVE</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                 <div class="col-md-3">
-                                    <div class="up-img text-center ">
+                      <button href="" class="btn btn-outline btn-dark letter-spacing">REMOVE</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 bright">
+                  <div class="up-img text-center ">
 
-                                        <div class="noti-imgs1" ng-style="{'background-image':'url(img/custom/c4.jpg)'}"></div>
-                                        <div class="edit-btn">
-                                            <button href="" class="btn btn-outline btn-dark letter-spacing marg10">CHANGE</button>
-                                           
-                                            <button href="" class="btn btn-outline btn-dark letter-spacing">REMOVE</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-          
-                        </div>
+                    <div class="noti-imgs1" ng-style="{'background-image':'url(img/custom/c4.jpg)'}"></div>
+                    <div class="edit-btn">
+                      <button href="" class="btn btn-outline btn-dark letter-spacing marg10">CHANGE</button>
+
+                      <button href="" class="btn btn-outline btn-dark letter-spacing">REMOVE</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 bright">
+                  <div class="up-img text-center ">
+
+                    <div class="noti-imgs1" ng-style="{'background-image':'url(img/custom/c4.jpg)'}"></div>
+                    <div class="edit-btn">
+                      <button href="" class="btn btn-outline btn-dark letter-spacing marg10">CHANGE</button>
+
+                      <button href="" class="btn btn-outline btn-dark letter-spacing">REMOVE</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="up-img text-center ">
+
+                    <div class="noti-imgs1" ng-style="{'background-image':'url(img/custom/c4.jpg)'}"></div>
+                    <div class="edit-btn">
+                      <button href="" class="btn btn-outline btn-dark letter-spacing marg10">CHANGE</button>
+
+                      <button href="" class="btn btn-outline btn-dark letter-spacing">REMOVE</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
 
 
-                        <!--
+            <!--
                         <div class="sp-logo">
                             <button href="" class="btn btn-outline btn-dark mright15" data-toggle="modal" data-target="#myModal1">MAIN SPONSOR</button>
 
@@ -357,146 +361,162 @@
                         </div>
 -->
 
-                        <div class="print-typ">
+            <div class="print-typ">
 
-                            <span class="pbotom">Note: The printed CCC Logo will always be sublimated on your t-shirt</span>
-                        </div>
-                        <div class="edit-btn">
-                            <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing">BACK</button>
-                            <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
-                        </div>
-                        <!-- Modal -->
-                        <div class="modal fade custom" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
-                                    </div>
-                                    <div class="modal-body text-center">
-                                        <div class="mod-img ">
-
-                                            <div class="noti-imgs" ng-style="{'background-image':'url(img/custom/c4.jpg)'}"></div>
-                                            <button href="" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing">SUBMIT</button>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="choos" ng-show="tab=='quantity'">
-                        <p>Place Your Order</p>
-                        <div class="row">
-                            <div class="col-md-2">
-                                <div class="size">
-                                    <p>M</p>
-                                    <select>
-                                        <option value="20">20</option>
-                                        <option value="30">30</option>
-                                        <option value="40">40</option>
-                                        <option value="40">40</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="size">
-                                    <p>S</p>
-                                    <select>
-                                        <option value="20">20</option>
-                                        <option value="30">30</option>
-                                        <option value="40">40</option>
-                                        <option value="40">40</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="size">
-                                    <p>M</p>
-                                    <select>
-                                        <option value="20">20</option>
-                                        <option value="30">30</option>
-                                        <option value="40">40</option>
-                                        <option value="40">40</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="size">
-                                    <p>L</p>
-                                    <select>
-                                        <option value="20">20</option>
-                                        <option value="30">30</option>
-                                        <option value="40">40</option>
-                                        <option value="40">40</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="size">
-                                    <p>XL</p>
-                                    <select>
-                                        <option value="20">20</option>
-                                        <option value="30">30</option>
-                                        <option value="40">40</option>
-                                        <option value="40">40</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="size">
-                                    <p>XXL</p>
-                                    <select>
-                                        <option value="20">20</option>
-                                        <option value="30">30</option>
-                                        <option value="40">40</option>
-                                        <option value="40">40</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="chart">
-                            <p>view: <span data-toggle="modal" data-target="#myModal4">Size Chart</span></p>
-                        </div>
-                        <!-- Modal -->
-                        <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-
-                                    <div class="modal-body text-center">
-                                        <p>SIZE CHART</p>
-                                        <div class="mod-img ">
-                                            <img src="img/sizechart.jpg" class="img-responsive">
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="edit-btn">
-                            <button href="" class="btn btn-outline btn-dark">START OVER</button>
-                            <button href="" class="btn btn-outline btn-dark" data-toggle="modal" data-target="#myModal5">CONFIRM</button>
-                            <br>
-                            <button href="" class="btn btn-outline btn-dark">BACK</button>
-                        </div>
-                        <!-- Modal -->
-                        <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-
-                                    <div class="modal-body text-center">
-                                        <p>The order for your customised t-shirt has been successfully registered. Kindly e-mail us the list of names, numbers and associated sizes for your t-shirts at info@customcricketcompany.com</p>
-                                        <button href="" class="btn btn-outline btn-dark">CLICK HERE TO EMAIL</button>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              <span class="pbotom">Note: The printed CCC Logo will always be sublimated on your t-shirt</span>
             </div>
+            <div class="edit-btn">
+              <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing">BACK</button>
+              <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade custom" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
 
+                  </div>
+                  <div class="modal-body text-center">
+                    <div class="mod-img ">
+
+                      <div class="noti-imgs" ng-style="{'background-image':'url(img/custom/c4.jpg)'}"></div>
+                      <button href="" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing">SUBMIT</button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="choos" ng-show="tab=='quantity'">
+            <p>Place Your Order</p>
+            <div class="row">
+              <div class="col-md-2">
+                <div class="size text-center">
+                  <p>M</p>
+                  <div class="ccc-select text-center">
+                    <select>
+                      <option value="20">20</option>
+                      <option value="30">30</option>
+                      <option value="40">40</option>
+                      <option value="40">40</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="size text-center">
+                  <p>S</p>
+                  <div class="ccc-select">
+                    <select>
+                      <option value="20">20</option>
+                      <option value="30">30</option>
+                      <option value="40">40</option>
+                      <option value="40">40</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="size text-center">
+                  <p>M</p>
+                  <div class="ccc-select">
+                    <select>
+                      <option value="20">20</option>
+                      <option value="30">30</option>
+                      <option value="40">40</option>
+                      <option value="40">40</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="size text-center">
+                  <p>L</p>
+                  <div class="ccc-select">
+                    <select>
+                      <option value="20">20</option>
+                      <option value="30">30</option>
+                      <option value="40">40</option>
+                      <option value="40">40</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="size text-center">
+                  <p>XL</p>
+                  <div class="ccc-select">
+                    <select>
+                      <option value="20">20</option>
+                      <option value="30">30</option>
+                      <option value="40">40</option>
+                      <option value="40">40</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="size text-center">
+                  <p>XXL</p>
+                  <div class="ccc-select">
+                    <select>
+                      <option value="20">20</option>
+                      <option value="30">30</option>
+                      <option value="40">40</option>
+                      <option value="40">40</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="chart">
+              <p>view:
+                <span data-toggle="modal" data-target="#myModal4">Size Chart</span>
+              </p>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+
+                  <div class="modal-body text-center">
+                    <p>SIZE CHART</p>
+                    <div class="mod-img ">
+                      <img src="img/sizechart.jpg" class="img-responsive">
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="edit-btn">
+              <button href="" class="btn btn-outline btn-dark">START OVER</button>
+              <button href="" class="btn btn-outline btn-dark" data-toggle="modal" data-target="#myModal5">CONFIRM</button>
+              <br>
+              <button href="" class="btn btn-outline btn-dark">BACK</button>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+
+                  <div class="modal-body text-center">
+                    <p>The order for your customised t-shirt has been successfully registered. Kindly e-mail us the list of names, numbers and associated sizes for your t-shirts at info@customcricketcompany.com</p>
+                    <button href="" class="btn btn-outline btn-dark">CLICK HERE TO EMAIL</button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+
+    </div>
 </section>
