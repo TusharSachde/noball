@@ -46,10 +46,10 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
             templateUrl: "views/template.html",
             controller: 'ReviewCtrl'
         })
-        .state('trauser', {
-            url: "/trauser",
+        .state('ready', {
+            url: "/ready",
             templateUrl: "views/template.html",
-            controller: 'TrauserCtrl'
+            controller: 'ReadyCtrl'
         })
 
     .state('cart', {
@@ -92,6 +92,12 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
         url: "/checkout",
         templateUrl: "views/template.html",
         controller: 'CheckoutCtrl'
+    })
+
+    .state('mywishlist', {
+        url: "/mywishlist",
+        templateUrl: "views/template.html",
+        controller: 'MyWishListCtrl'
     })
 
     $urlRouterProvider.otherwise("/home");

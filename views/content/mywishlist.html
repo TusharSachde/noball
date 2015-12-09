@@ -1,11 +1,15 @@
 <section>
-    <div class="text-center main-head">
-        <h3 class="high-light">MY CART</h3>
-    </div>
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12">
+              <div ng-include="template.account"></div>
+          </div>
+      </div>
+  </div>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="order-table">
+                <div class="order-table wish-table">
                     <table class="table">
                         <thead class="text-center">
                             <tr>
@@ -17,7 +21,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="text-center">
+                            <tr class="text-center text-bold">
                                 <td>
                                     <figure>
                                         <img src="img/product1.png">
@@ -29,11 +33,13 @@
                                 <td>1 <span class="more"><i class="fa fa-plus"></i></span><span class="more"><i class="fa fa-minus"></i></span></td>
                                 <td>
                                     <p>699</p>
-
-                                    <button class="btn btn-outline btn-dark">REMOVE</button>
+                                    <div class="pull-right">
+                                        <button class="btn btn-outline btn-dark">ADD TO CART</button>
+                                        <button class="btn btn-outline btn-dark">REMOVE</button>
+                                    </div>
                                 </td>
                             </tr>
-                            <tr class="text-center">
+                            <tr class="text-center text-bold">
                                 <td>
                                     <figure>
                                         <img src="img/product2.png">
@@ -45,8 +51,10 @@
                                 <td>1 <span class="more"><i class="fa fa-plus"></i></span><span class="more"><i class="fa fa-minus"></i></span></td>
                                 <td>
                                     <p>699</p>
-
-                                    <button class="btn btn-outline btn-dark">REMOVE</button>
+                                    <div class="pull-right">
+                                        <button class="btn btn-outline btn-dark">ADD TO CART</button>
+                                        <button class="btn btn-outline btn-dark">REMOVE</button>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
@@ -58,32 +66,11 @@
         </div>
         <div class="wish-back">
             <div class="row">
-                <div class="col-md-offset-8 col-md-4">
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <div class="category">
-                                <p>TOTAL:</p>
-                                <p>SHIPPING:</p>
-                                <p>GIFT CARD:</p>
-                                <p>STORE CREDIT:</p>
-                                <p>DISCOUNT:</p>
-                                <p>GRAND TOTAL:</p>
-                            </div>
-                        </div>
-                        <div class="col-xs-6">
-                            <div class="list text-right">
-                                <p>1398</p>
-                                <p>0</p>
-                                <p>0</p>
-                                <p>0</p>
-                                <p>100</p>
-                                <p>1399</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cart-btn clearfix">
-                        <button class="btn btn-outline btn-dark">CONTINUE SHOPPING</button>
-                        <button class="btn btn-outline btn-dark">CHECK OUT</button>
+                <div class="col-md-offset-6 col-md-6">
+
+                    <div class="cart-btn">
+                        <button class="btn btn-outline btn-dark">SAVE WISHLIST</button>
+                                            <button class="btn btn-outline btn-dark">CONTINUE SHOPPING</button>
                     </div>
                 </div>
             </div>
