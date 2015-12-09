@@ -209,3 +209,13 @@ $border: #c0c0c0 !default;
         }
     }
 }
+.noti-imgs1{
+    @extend .noti-imgs;
+    height: 80px;
+    width: 80px;
+  
+}
+.marg10{
+    margin-bottom:8px;
+    margin-top: 12px;
+}
