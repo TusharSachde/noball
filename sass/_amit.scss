@@ -1,6 +1,6 @@
-$check-out-btn : #898989;
+$check-out-btn: #898989;
 $black: #000;
-    .overlay {
+.overlay {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -174,13 +174,6 @@ $black: #000;
                         box-shadow: none;
                     }
                 }
-                span {
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    width: 100%;
-                    height: 34px;
-                }
                 &:after {
                     font: normal normal normal 14px/1 FontAwesome;
                     content: "\f107";
@@ -265,5 +258,46 @@ $black: #000;
                 font-weight: 600;
             }
         }
+    }
+}
+//ready
+.chart {
+    span {
+        font-size: 14px;
+        text-decoration: underline;
+    }
+}
+.ccc-select {
+    position: relative;
+    select {
+        -webkit-appearance: none;
+        border: 1px solid #000;
+        width: 62%;
+        background-color: transparent;
+        outline: 0;
+        cursor: pointer;
+        height: 20px;
+        line-height: 15px;
+    }
+    &:after {
+        font: normal normal normal 14px/1 FontAwesome;
+        content: "\f107";
+        height: 20px;
+        width: 20px;
+        background-color: #000;
+        color: #fff;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        @include transform(translateX(-50%));
+        text-align: center;
+        line-height: 20px;
+        font-size: 16px;
+        z-index: -1;
+    }
+}
+.edit-btn {
+    button {
+        margin: 15px 5px 15px 0;
     }
 }
