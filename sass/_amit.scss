@@ -85,6 +85,19 @@ $black: #000;
             }
         }
     }
+    .more {
+        border: 1px solid #555;
+        padding: 2px 8px;
+        display: inline-block;
+        line-height: 10px;
+        i {
+            color: #555;
+            font-size: 9px;
+        }
+    }
+    .more:first-child {
+        margin-left: 5px;
+    }
 }
 .wish-back {
     font-weight: 600;
