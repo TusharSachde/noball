@@ -1,4 +1,6 @@
-.overlay {
+$check-out-btn : #898989;
+$black: #000;
+    .overlay {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -31,7 +33,7 @@
     color: #737373;
     text-align: justify;
     .dark {
-        color: #000;
+        color: $black;
         margin: 25px 0 5px;
     }
 }
@@ -123,21 +125,21 @@
         padding: 20px 40px;
         li {
             a {
-                border: 1px solid #000;
+                border: 1px solid $black;
                 padding: 6px 24px;
                 margin: 0 15px;
                 letter-spacing: 2px;
                 text-transform: uppercase;
                 &:hover {
-                    border: 1px solid #898989;
-                    background-color: #898989;
+                    border: 1px solid $check-out-btn;
+                    background-color: $check-out-btn;
                     color: #fff;
                 }
             }
         }
         li.active a {
-            border: 1px solid #898989;
-            background-color: #898989;
+            border: 1px solid $check-out-btn;
+            background-color: $check-out-btn;
             color: #fff;
         }
     }
@@ -178,7 +180,6 @@
                     right: 0;
                     width: 100%;
                     height: 34px;
-                   
                 }
                 &:after {
                     font: normal normal normal 14px/1 FontAwesome;
@@ -193,6 +194,23 @@
                     font-size: 30px;
                     text-align: center;
                 }
+            }
+            .nodis {
+                display: none;
+            }
+            .card {
+                &:before {
+                    content: "";
+                    width: 15px;
+                    height: 15px;
+                    display: inline-block;
+                    border: 1px solid $black;
+                    margin-right: 10px;
+                    vertical-align: top;
+                }
+            }
+            .card:checked + .card:before {
+                background-color: $black;
             }
         }
         button {
