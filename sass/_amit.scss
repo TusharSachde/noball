@@ -35,3 +35,66 @@
         margin: 25px 0 5px;
     }
 }
+.tc {
+    background: url('../img/page-banner/t&c.png') no-repeat center;
+    background-size: cover;
+}
+.order-table {
+    .table {
+        thead {
+            tr {
+                th {
+                    border: none;
+                    background-color: #c0c0c0;
+                    color: #fff;
+                    font-size: 15px;
+                    font-weight: 300;
+                    letter-spacing: 1px;
+                    text-align: center;
+                }
+            }
+        }
+        tbody {
+            tr {
+                td {
+                    padding: 20px 0;
+                    vertical-align: middle;
+                    figure {
+                        img {
+                            width: 80px;
+                        }
+                        figcaption {
+                            font-size: 10px;
+                        }
+                    }
+                }
+                td:last-child {
+                    padding: 28px 0;
+                    vertical-align: bottom;
+                    button {
+                        float: right;
+                        letter-spacing: 2px;
+                    }
+                }
+            }
+        }
+    }
+}
+.wish-back {
+    font-weight: 600;
+    .category {
+        p {
+            margin-left: 15px;
+        }
+    }
+    .cart-btn {
+        float: right;
+        margin: 15px 0;
+        button {
+            letter-spacing: 2px;
+        }
+        button:last-child {
+            margin-left: 10px;
+        }
+    }
+}
