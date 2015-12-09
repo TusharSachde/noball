@@ -76,7 +76,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="col-md-3 paddingl" ng-repeat="col in color track by $index">
-                                    <div class="colo-pallet text-center " >
+                                    <div class="colo-pallet text-center ">
                                         <div class="noti-img" ng-style="{'background-color':'{{col.colr}}'}"></div>
                                     </div>
                                 </div>
@@ -95,6 +95,7 @@
                             <p>File Type Format</p>
                             <span>jpeg, png, tiff, pdf, eps</span>
                         </div>
+                        <!--
                         <div class="up-img">
                             <img src="img/custom/c4.jpg">
                             <div class="edit-btn">
@@ -103,36 +104,45 @@
                                 <button href="" class="btn btn-outline btn-dark">REMOVE</button>
                             </div>
                         </div>
+-->
                         <div class="pic-up">
                             <p>Maximum Upload File Size 5MB</p>
                             <span>File may take anywhere from a few seconds to a few minutes to upload</span>
 
                         </div>
                         <div class="up-btn">
-                            <button href="" class="btn btn-outline btn-dark" data-toggle="modal" data-target="#myModal">UPLOAD</button>
+                            <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal">UPLOAD</button>
                         </div>
                         <div class="print-typ">
                             <p>Select The Printing Type For Your Team Logo</p>
-                            <form action="">
-                                <input type="radio" name="Embroidered" value="Embroidered">Embroidered
+                            <form action="" class="radio">
+                                <!--                                <input type="radio" name="Embroidered" value="Embroidered">-->
+                                <input type="radio" id="radio01" name="radio" />
+                                <label for="radio01"><span></span>Embroidered</label>
                                 <br>
-                                <input type="radio" name="Sublimated" value="Sublimated">Sublimated
+                                <input type="radio" id="radio01" name="radio" />
+                                <label for="radio01"><span></span>Sublimated</label>
+                                <!--                                <input type="radio" name="Sublimated" value="Sublimated">-->
                             </form>
-                            <span>Note: The printed CCC Logo will always be sublimated on your t-shirt</span>
+                            <span class="pbotom">Note: The printed CCC Logo will always be sublimated on your t-shirt</span>
                         </div>
                         <div class="edit-btn">
-                            <button href="" class="btn btn-outline btn-dark">BACK</button>
-                            <button href="" class="btn btn-outline btn-dark">NEXT</button>
+                            <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing">BACK</button>
+                            <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
                         </div>
                         <!-- Modal -->
-                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal fade custom" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
+                                    </div>
                                     <div class="modal-body text-center">
                                         <div class="mod-img ">
-                                            <img src="img/custom/c4.jpg" class="img-responsive">
-                                            <button href="" class="btn btn-outline btn-dark">SUBMIT</button>
+                                            <!--                                            <img src="img/custom/c4.jpg" class="img-responsive">-->
+                                            <div class="noti-imgs" ng-style="{'background-image':'url(img/custom/c4.jpg)'}"></div>
+                                            <button href="" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing">SUBMIT</button>
                                         </div>
                                     </div>
 
