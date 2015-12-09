@@ -156,6 +156,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Sweatshirts");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
+        $scope.hovermenu = false;
+        $scope.hovered = function () {
+            $scope.hovermenu = true;
+        }
+        $scope.unhovered = function () {
+            $scope.hovermenu = false;
+        }
     })
     .controller('PrivacyPolicyCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
