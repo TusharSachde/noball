@@ -158,6 +158,42 @@
             label.same-agree {
                 font-weight: normal;
             }
+            .ccc-select {
+                position: relative;
+                select {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    border: 1px solid #555;
+                    width: 100%;
+                    height: 34px;
+                    cursor: pointer;
+                    &:focus {
+                        outline: none;
+                        box-shadow: none;
+                    }
+                }
+                span {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 100%;
+                    height: 34px;
+                   
+                }
+                &:after {
+                    font: normal normal normal 14px/1 FontAwesome;
+                    content: "\f107";
+                    background: #555;
+                    width: 30px;
+                    height: 34px;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    color: #fff;
+                    font-size: 30px;
+                    text-align: center;
+                }
+            }
         }
         button {
             letter-spacing: 2px;
@@ -198,9 +234,18 @@
                 }
             }
         }
-        .nxt {
+        .nxt,
+        .more-pd {
             padding: 6px 34px;
             letter-spacing: 3px;
+        }
+        .mg30 {
+            margin: 30px 0;
+        }
+        .payment {
+            p {
+                font-weight: 600;
+            }
         }
     }
 }
