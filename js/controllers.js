@@ -48,31 +48,31 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Custom");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-    
+
     $scope.color=[{
     colr:"#f5b122"
-        
+
     },{
     colr:"#c80d28"
-        
+
     },{
     colr:"#318db2"
-        
+
     },{
     colr:"#2c8b47"
-        
+
     },{
     colr:"#0036ff"
-        
+
     },{
     colr:"#491f61"
-        
+
     },{
     colr:"#e87024"
-        
+
     },{
     colr:"#501e1f"
-        
+
     }]
 
         $scope.images = [{
@@ -223,6 +223,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("wishlist");
         $scope.menutitle = NavigationService.makeactive("Wishlist");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+    })
+
+    .controller('MyWishListCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("mywishlist");
+        $scope.menutitle = NavigationService.makeactive("MyWishlist");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
     })
