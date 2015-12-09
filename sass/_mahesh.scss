@@ -1,11 +1,32 @@
-ul{
+$dark-grey:#898989!default;
+$brand-primary: #0d9dff !default;
+$black: #000 !default;
+.margin0 {
+    margin: 0;
+}
+.padding {
+    padding: 0;
+}
+ul {
     display: block;
     list-style: none;
-    li{
+    li {
         display: inline-block;
-        
     }
 }
-.step{
-    
+.step {
+    p {
+        @extend .margin0;
+        border: 1px solid $black;
+        padding: 4px 49px;
+        cursor: pointer;
+    }
+    .active{
+        background: $dark-grey;
+       
+        color:#fff;
+        p{
+          border: 1px solid $dark-grey !important;   
+        }
+    }
 }
