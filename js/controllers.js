@@ -48,20 +48,46 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Custom");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
+    
+    $scope.color=[{
+    colr:"#f5b122"
+        
+    },{
+    colr:"#c80d28"
+        
+    },{
+    colr:"#318db2"
+        
+    },{
+    colr:"#2c8b47"
+        
+    },{
+    colr:"#0036ff"
+        
+    },{
+    colr:"#491f61"
+        
+    },{
+    colr:"#e87024"
+        
+    },{
+    colr:"#501e1f"
+        
+    }]
 
         $scope.images = [{
 
             src: "img/custom/c2.jpg"
        }, {
 
-            src: "img/custom/c2.jpg"
+            src: "img/custom/c3.jpg"
             }, {
 
             src: "img/custom/c2.jpg"
 
             }, {
 
-            src: "img/custom/c2.jpg"
+            src: "img/custom/c3.jpg"
 
             }, {
 

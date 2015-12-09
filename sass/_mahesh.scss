@@ -2,6 +2,15 @@ $dark-grey:#898989!default;
 $brand-primary: #0d9dff !default;
 $black: #000 !default;
 $border: #c0c0c0 !default;
+@mixin transition($transition...) {
+    -moz-transition: $transition;
+    -o-transition: $transition;
+    -webkit-transition: $transition;
+    transition: $transition;
+}
+.letter-spacing {
+    letter-spacing: 4px;
+}
 .margin0 {
     margin: 0;
 }
@@ -61,6 +70,12 @@ $border: #c0c0c0 !default;
         margin-bottom: 15px;
     }
 }
+.margbotm{
+    margin-bottom: 100px;
+}
+.paddingl{
+    padding-left: 0px;
+}
 .cat-img {
     height: 150px;
     width: 100%;
@@ -72,5 +87,45 @@ $border: #c0c0c0 !default;
         max-height: 100%;
         max-width: 100%;
         cursor: pointer;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        @include transform(translate(-50%, -50%))
     }
+}
+.padding-btn {
+    padding: 6px 45px 4px 45px;
+    outline: 0;
+}
+.vertical-icon {
+    position: absolute;
+    bottom: 45%;
+    left: 70px;
+    cursor: pointer;
+    img {
+        width: 25px;
+    }
+}
+.horizontal-icon {
+    padding-top: 20px;
+    padding-bottom: 45px;
+    img {
+        display: inline-block;
+        width: 25px;
+        cursor: pointer;
+    }
+    p {
+        display: inline-block;
+        padding: 0px 12px;
+    }
+}
+.colo-pallet {
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+.margintp{
+    margin-top: 20px;
+}
+.noti-img{
+    cursor: pointer;
 }

@@ -34,12 +34,15 @@
                             <img src="img/custom/c1.jpg" class="img-responsive">
                         </div>
                         <div class="vertical-icon">
-
+                            <img src="img/zoom.jpg">
                         </div>
                         <div class="horizontal-icon">
+                            <img src="img/left.jpg">
+                            <p>ROTATE</p>
+                            <img src="img/right.jpg">
                         </div>
-                        <div class="edit-btn">
-                            <button href="" class="btn btn-outline btn-dark">SAVE DESIGN & EDIT LATER</button>
+                        <div class="edit-btn margbotm">
+                            <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN & EDIT LATER</button>
                         </div>
                     </div>
                 </div>
@@ -53,7 +56,7 @@
                         <p>Choose Your Type Of Design</p>
                         <div class="row">
                             <div class="col-md-10">
-                                <div class="col-md-4" ng-repeat="img in images track by $index">
+                                <div class="col-md-4 paddingl" ng-repeat="img in images track by $index">
                                     <div class="cat-img">
                                         <img ng-src="{{img.src}}" class="img-responsive">
                                     </div>
@@ -61,8 +64,8 @@
 
                             </div>
                         </div>
-                        <div class="edit-btn">
-                            <button href="" class="btn btn-outline btn-dark">NEXT</button>
+                        <div class="edit-btn ">
+                            <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
                         </div>
                     </div>
 
@@ -71,18 +74,18 @@
                     <div class="choos" ng-show="tab=='trim'">
                         <p>Select The Trim Colour Of Your Choice</p>
                         <div class="row">
-                            <div class="col-md-10">
-                                <div class="col-md-3" ng-repeat="img in images track by $index">
-                                    <div class="colo-pallet text-center">
-                                        <div class="noti-img" ng-style="{'background-color':'red'}"></div>
+                            <div class="col-md-6">
+                                <div class="col-md-3 paddingl" ng-repeat="col in color track by $index">
+                                    <div class="colo-pallet text-center " >
+                                        <div class="noti-img" ng-style="{'background-color':'{{col.colr}}'}"></div>
                                     </div>
                                 </div>
 
                             </div>
                         </div>
-                        <div class="edit-btn">
-                            <button href="" class="btn btn-outline btn-dark">BACK</button>
-                            <button href="" class="btn btn-outline btn-dark">NEXT</button>
+                        <div class="edit-btn margintp">
+                            <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing">BACK</button>
+                            <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
                         </div>
                     </div>
                     <!--                    //trim tab-->
