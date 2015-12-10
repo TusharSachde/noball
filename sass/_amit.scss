@@ -96,7 +96,7 @@ $black: #000;
         i {
             color: #555;
             font-size: 9px;
-            
+
         }
     }
     .more:first-child {
@@ -296,6 +296,7 @@ $black: #000;
     span {
         font-size: 14px;
         text-decoration: underline;
+        cursor: pointer;
     }
 }
 .ccc-select {
