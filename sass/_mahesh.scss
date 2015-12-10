@@ -112,14 +112,40 @@ $border: #c0c0c0 !default;
   margin-top: 40px;
     .review {
         margin: 20px 0;
-        text-align: center;
         .design {
+          display: block;
+            .noti-imgs1 {
+                padding: 4px;
+                margin-right: 10px;
+                display: inline-block;
+                img {
+                    max-width: 100%;
+                    max-height: 100%;
+                }
+            }
             .dark {
-                font-size: 18px;
                 font-weight: 500;
             }
             p {
+                margin: 0;
+                font-size: 16px;
                 letter-spacing: 3px;
+            }
+            input {
+                height: 20px;
+                padding: 0;
+                text-align: center;
+                &:focus {
+                    border-color: #ccc;
+                    box-shadow: none;
+                    outline: none;
+                }
+            }
+            .mg28 {
+                margin: 28px 0;
+            }
+            .mg10 {
+                margin: 10px 0;
             }
         }
     }
