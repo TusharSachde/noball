@@ -110,58 +110,58 @@ $border: #c0c0c0 !default;
 }
 .product-detail {
   margin-top: 40px;
-    .review {
-        margin: 20px 0;
-        .design {
-          display: block;
-            .noti-imgs1 {
-                padding: 4px;
-                margin-right: 10px;
-                display: inline-block;
-                img {
-                    max-width: 100%;
-                    max-height: 100%;
-                }
-            }
-            .dark {
-                font-weight: 500;
-            }
-            p {
-                margin: 0;
-                font-size: 16px;
-                letter-spacing: 3px;
-            }
-            input {
-                height: 20px;
-                border: 1px solid #555;
-                padding: 0;
-                text-align: center;
-                &:focus {
-                    border-color: #555;
-                    box-shadow: none;
-                    outline: none;
-                }
-            }
-            .mg28 {
-                margin: 28px 0;
-            }
-            .mg10 {
-                margin: 10px 0;
-            }
+  .review {
+    margin: 20px 0;
+    .design {
+      display: block;
+      .noti-imgs1 {
+        padding: 4px;
+        margin-right: 10px;
+        display: inline-block;
+        img {
+          max-width: 100%;
+          max-height: 100%;
         }
-    }
-    .agree {
-        margin: 10px 0;
-        font-size: 18px;
+      }
+      .dark {
         font-weight: 500;
-        letter-spacing: 2px;
+      }
+      p {
+        margin: 0;
+        font-size: 16px;
+        letter-spacing: 3px;
+      }
+      input {
+        height: 20px;
+        border: 1px solid #555;
+        padding: 0;
+        text-align: center;
+        &:focus {
+          border-color: #555;
+          box-shadow: none;
+          outline: none;
+        }
+      }
+      .mg28 {
+        margin: 28px 0;
+      }
+      .mg10 {
+        margin: 10px 0;
+      }
     }
+  }
+  .agree {
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 2px;
+  }
 }
 .back {
-    min-height: 350px;
-    padding: 40px 0;
-    background: url('../img/background/checkout.jpg') no-repeat;
-    background-size: contain;
+  min-height: 350px;
+  padding: 40px 0;
+  background: url(../img/background/checkout.jpg) no-repeat;
+  background-size: contain;
 }
 .det-name {
   border-bottom: 1px solid $border;
@@ -172,11 +172,11 @@ $border: #c0c0c0 !default;
     letter-spacing: 2px;
     margin-bottom: 5px;
   }
-    .sum {
-        font-size: 30px;
-        font-weight: 500;
-        letter-spacing: 3px;
-    }
+  .sum {
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 3px;
+  }
   h3 {
     margin: 0;
     font-weight: bold;
@@ -209,6 +209,11 @@ $border: #c0c0c0 !default;
   border: 1px solid $border;
   padding: 10px;
   margin-bottom: 18px;
+  @include transition (all ease 300ms);
+  &:hover,
+  &.active {
+    border-color: darken($border,50%);
+  }
   img {
     max-height: 100%;
     max-width: 100%;
@@ -277,25 +282,32 @@ $border: #c0c0c0 !default;
 }
 .radio {
   input[type="radio"] {
-    @include appearance(none);
-    &:before {
-      content: "";
-      display: inline-block;
-      width: 12px;
-      height: 12px;
-      margin-right: 10px;
-      position: absolute;
-      left: 20px;
-      /* bottom: 1px; */
-      background-color: #FFF;
-      border-radius: 100%;
-      border: 1px solid;
-      cursor: pointer;
-    }
+    display: none;
   }
-  input[type="radio"]:checked + label {
-    color: #f00;
-    font-style: normal;
+  input[type="radio"] + label {
+    color: #515151;
+    font-size: 13px;
+  }
+  input[type="radio"] + label span {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+    cursor: pointer;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 1px solid #000;
+  }
+  input[type="radio"] + label span {
+    background-color: transparent;
+  }
+  input[type="radio"]:checked + label span {
+    background-color: #000;
+  }
+  input[type="radio"] + label span,
+  input[type="radio"]:checked + label span {
+    @include transition(background-color 0.4s linear);
   }
 }
 .noti-imgs {
@@ -349,4 +361,33 @@ $border: #c0c0c0 !default;
 }
 .mar30 {
   margin: 30px 0 8px;
+}
+.checkbox {
+  input[type="checkbox"] {
+    display: none;
+  }
+  input[type="checkbox"] + label {
+    color: #515151;
+    font-size: 13px;
+    padding-left: 10px;
+  }
+  input[type="checkbox"] + label span {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid #000;
+  }
+  input[type="checkbox"] + label span {
+    background-color: transparent;
+  }
+  input[type="checkbox"]:checked + label span {
+    background-color: #000;
+  }
+  input[type="checkbox"] + label span,
+  input[type="checkbox"]:checked + label span {
+    @include transition(background-color 0.4s linear);
+  }
 }
