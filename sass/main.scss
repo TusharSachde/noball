@@ -240,6 +240,9 @@ nav li:hover .dropdown-menu {
     }
   }
 }
+.uppercase {
+  text-transform: uppercase;
+}
 .smart-content {
   padding: 100px 0;
   background-image: url(../img/logo-light.png);
@@ -515,7 +518,7 @@ footer {
       span {
         font-weight: 400;
         font-size: 20px;
-        letter-spacing: 2px;
+        letter-spacing: 4px;
         margin-bottom: 5px;
       }
       i.fa.fa-play {
