@@ -30,77 +30,82 @@ $border: #c0c0c0 !default;
       display: inline-block;
       position: relative;
       margin-right: 20px;
+
       // @include transition (all ease 300ms );
-      &:hover span.bread-back,
-      &.active span.bread-back {
-        border-top: 15px solid transparent;
-        border-bottom: 15px solid transparent;
-        border-left: 15px solid #898989;
-        right: -14px;
-        top:0;
+      p {
+        @extend .margin0;
+        border: 1px solid $dark-grey;
+        padding: 4px 49px;
+        cursor: pointer;
+        height: 30px;
       }
       &:hover p,
       &.active p {
         background: $dark-grey;
         color: #fff;
       }
+      &.breadcrums {
+        p {
 
-      // &:hover p::after,
-      // &.active p::after {
-      //   content: "";
-      //   border-left: 14px solid $dark-grey;
-      //   z-index: -2;
-      // }
+          // @include transition (all ease 300ms );
+          &:before {
+            content: "";
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 14px solid $dark-grey;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -2;
+          }
+          &::after {
+            content: "";
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 15px solid $dark-grey;
+            position: absolute;
+            right: -14px;
+            top: 0;
+            z-index: -2;
+          }
+        }
+        span.bread-frnt {
+          border-top: 14px solid transparent;
+          border-bottom: 14px solid transparent;
+          border-left: 13px solid #FFFFFF;
+          position: absolute;
+          left: 0;
+          top: 1px;
+          z-index: 9;
+        }
+        span.bread-back {
+          border-top: 14px solid transparent;
+          border-bottom: 14px solid transparent;
+          border-left: 14px solid #FFFFFF;
+          position: absolute;
+          right: -13px;
+          top: 1px;
+          z-index: 9;
+
+          // @include transition (all ease 300ms );
+        }
+        &:hover span.bread-back,
+        &.active span.bread-back {
+          border-top: 15px solid transparent;
+          border-bottom: 15px solid transparent;
+          border-left: 15px solid #898989;
+          right: -14px;
+          top: 0;
+        }
+
+        // &:hover p::after,
+        // &.active p::after {
+        //   content: "";
+        //   border-left: 14px solid $dark-grey;
+        //   z-index: -2;
+        // }
+      }
     }
-  }
-  p {
-    @extend .margin0;
-    border-top: 1px solid $dark-grey;
-    border-bottom: 1px solid $dark-grey;
-    padding: 4px 49px;
-    cursor: pointer;
-    height: 30px;
-    // @include transition (all ease 300ms );
-    &:before {
-      content: "";
-      border-top: 15px solid transparent;
-      border-bottom: 15px solid transparent;
-      border-left: 14px solid $dark-grey;
-      position: absolute;
-      left: 0;
-      top: 0;
-      z-index: -2;
-    }
-    &::after {
-      content: "";
-      border-top: 15px solid transparent;
-      border-bottom: 15px solid transparent;
-      border-left: 15px solid $dark-grey;
-      position: absolute;
-      right: -14px;
-      top: 0;
-      z-index: -2;
-    }
-  }
-  span.bread-frnt {
-    border-top: 14px solid transparent;
-    border-bottom: 14px solid transparent;
-    border-left: 13px solid #FFFFFF;
-    position: absolute;
-    left: 0;
-    top: 1px;
-    z-index: 9;
-    // @include transition (all ease 300ms );
-  }
-  span.bread-back {
-    border-top: 14px solid transparent;
-    border-bottom: 14px solid transparent;
-    border-left: 14px solid #FFFFFF;
-    position: absolute;
-    right: -13px;
-    top: 1px;
-    z-index: 9;
-    // @include transition (all ease 300ms );
   }
 }
 .product-detail {
