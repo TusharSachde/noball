@@ -110,6 +110,19 @@ $border: #c0c0c0 !default;
 }
 .product-detail {
   margin-top: 40px;
+    .review {
+        margin: 20px 0;
+        text-align: center;
+        .design {
+            .dark {
+                font-size: 18px;
+                font-weight: 500;
+            }
+            p {
+                letter-spacing: 3px;
+            }
+        }
+    }
 }
 .det-name {
   border-bottom: 1px solid $border;
@@ -120,6 +133,11 @@ $border: #c0c0c0 !default;
     letter-spacing: 2px;
     margin-bottom: 5px;
   }
+    .sum {
+        font-size: 30px;
+        font-weight: 500;
+        letter-spacing: 3px;
+    }
   h3 {
     margin: 0;
     font-weight: bold;
