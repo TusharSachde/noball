@@ -169,7 +169,11 @@ $border: #c0c0c0 !default;
     @extend.back;
     background-position: left  bottom;
     background-size: auto 50%;
-
+}
+.back-2 {
+    min-height: 400px;
+    padding: 0 0 2px 0;
+    @extend.back;
 }
 .det-name {
   border-bottom: 1px solid $border;
