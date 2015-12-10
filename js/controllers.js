@@ -150,10 +150,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //    end
 
     })
-    .controller('SweatshirtsCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+    .controller('CategoriesInsideCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
-        $scope.template = TemplateService.changecontent("sweatshirts");
-        $scope.menutitle = NavigationService.makeactive("Sweatshirts");
+        $scope.template = TemplateService.changecontent("categories-inside");
+        $scope.menutitle = NavigationService.makeactive("Categories Inside");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.hovermenu = false;

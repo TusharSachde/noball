@@ -30,10 +30,10 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
             controller: 'CustomCtrl'
         })
 
-    .state('sweatshirts', {
-        url: "/sweatshirts",
+    .state('categories-inside', {
+        url: "/categories/sweatshirts",
         templateUrl: "views/template.html",
-        controller: 'SweatshirtsCtrl'
+        controller: 'CategoriesInsideCtrl'
     })
 
     .state('privacypolicy', {
@@ -63,7 +63,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
             controller: 'ProfileCtrl'
         })
         .state('product-detail', {
-            url: "/product-detail",
+            url: "/categories/sweatshirts/product-detail",
             templateUrl: "views/template.html",
             controller: 'Product-DetailCtrl'
         })
