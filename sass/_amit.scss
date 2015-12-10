@@ -45,6 +45,7 @@ $black: #000;
 //cart page
 .order-table {
     .table {
+        margin-bottom: 0;
         thead {
             tr {
                 th {
@@ -98,6 +99,17 @@ $black: #000;
     .more:first-child {
         margin-left: 5px;
     }
+}
+.cart-back {
+    padding: 40px 0;
+    background: url('../img/background/bg1.jpg') no-repeat;
+    background-size: contain;
+}
+.wish-bg {
+    min-height: 300px;
+    padding-top: 30px;
+    background: url('../img/background/bg2.jpg') no-repeat;
+    background-size: contain;
 }
 .wish-back {
     font-weight: 600;
