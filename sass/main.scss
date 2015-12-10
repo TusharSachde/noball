@@ -449,7 +449,7 @@ footer {
   border-bottom: 1px solid #c0c0c0;
 }
 .account-name {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   color: #898989;
   p {
     margin-bottom: 2px;
@@ -535,6 +535,9 @@ footer {
     border-color: #fff;
     box-shadow: none;
   }
+}
+.p65{
+        padding-top: 66px;
 }
 @import "amit";
 @import "mahesh";
