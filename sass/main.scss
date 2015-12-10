@@ -539,6 +539,12 @@ footer {
 .p65{
         padding-top: 66px;
 }
+.account-bg {
+    min-height: 245px;
+   background: url('../img/background/accountbg1.jpg') no-repeat; 
+    background-size: contain;
+}
+
 @import "amit";
 @import "mahesh";
 .vertical-icon.placed {
