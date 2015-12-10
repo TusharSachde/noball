@@ -158,10 +158,18 @@ $border: #c0c0c0 !default;
   }
 }
 .back {
-  min-height: 350px;
-  padding: 40px 0;
-  background: url(../img/background/checkout.jpg) no-repeat;
-  background-size: contain;
+    min-height: 350px;
+    padding: 40px 0;
+    background-image: url('../img/background/checkout.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.back-1 {
+    padding: 0 0 14% 0;
+    @extend.back;
+    background-position: left  bottom;
+    background-size: auto 50%;
+
 }
 .det-name {
   border-bottom: 1px solid $border;
