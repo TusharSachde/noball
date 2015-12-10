@@ -133,10 +133,11 @@ $border: #c0c0c0 !default;
             }
             input {
                 height: 20px;
+                border: 1px solid #555;
                 padding: 0;
                 text-align: center;
                 &:focus {
-                    border-color: #ccc;
+                    border-color: #555;
                     box-shadow: none;
                     outline: none;
                 }
@@ -149,6 +150,18 @@ $border: #c0c0c0 !default;
             }
         }
     }
+    .agree {
+        margin: 10px 0;
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 2px;
+    }
+}
+.back {
+    min-height: 350px;
+    padding: 40px 0;
+    background: url('../img/background/checkout.jpg') no-repeat;
+    background-size: contain;
 }
 .det-name {
   border-bottom: 1px solid $border;
