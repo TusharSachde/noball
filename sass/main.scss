@@ -551,6 +551,32 @@ p.drak {
    background: url('../img/background/accountbg1.jpg') no-repeat; 
     background-size: contain;
 }
+.account-wish-bg {
+    min-height: 300px;
+    padding-top: 30px;
+}
+//save-design
+.design-patt {
+    margin: 20px 0;
+    .img-holder {
+        width: 300px;
+        height: 300px;
+        border: 1px solid #c0c0c0;
+        padding: 25px;
+        margin: 0 auto;
+        p {
+            margin: 10px 0 0 0;
+            font-weight: 600;
+        }
+        .mg10 {
+            margin: 10px 0;
+        }
+    }
+}
+.account-design-bg {
+    background: url('../img/background/accountlast.jpg') no-repeat right;
+    background-size: contain;
+}
 
 @import "amit";
 @import "mahesh";
