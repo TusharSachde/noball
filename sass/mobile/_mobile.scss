@@ -1,4 +1,12 @@
 $screen-mobile: 480px !default;
+@media (max-width: 1224px) {
+  .img-hold {
+    height: 95px;
+  }
+  .step ul li p {
+    padding: 4px 20px;
+  }
+}
 @media (max-width: $screen-sm-max) {
   .high-light {
     font-size: 40px;
@@ -6,21 +14,275 @@ $screen-mobile: 480px !default;
   .strong {
     padding: 50px 100px;
   }
+  .step ul li p {
+    padding: 5px 10px 0 20px;
+    font-size: 12px;
+    text-align: center;
+  }
+  .step.padding-step ul li p {
+    padding: 5px 10px 0;
+    font-size: 12px;
+  }
+  .navbar-default {
+    .navbar-nav > li > a {
+      font-size: 14px;
+      padding: 22.5px 10px;
+    }
+  }
+  .custom-sub li a {
+    padding: 10px 10px 10px 12px;
+    font-size: 12px;
+  }
+  .img-hold {
+    height: 70px;
+  }
+  .bright {
+    margin-bottom: 20px;
+  }
+  .bright-1 {
+    border-right: 1px solid $border;
+    margin-bottom: 20px;
+  }
+  .no-bg{
+    background: none;
+  }
 }
 @media (max-width:$screen-xs-max) {
+  .high-light {
+    font-size: 26px;
+  }
+  .advertise {
+    h4 {
+      font-size: 24px;
+    }
+    h3 {
+      font-size: 30px;
+    }
+  }
   .strong {
     padding: 20px;
     .line-hover {
-      font-size: 12px;
+      font-size: 14px;
       letter-spacing: 2px;
       padding: 75px 0;
     }
   }
+  .navbar-collapse .pull-right {
+    float: none!important;
+    text-align: center;
+  }
+  .navbar-default {
+    .navbar-nav {
+      li {
+        &:last-child a {
+          border-bottom: 0;
+        }
+        a {
+          padding: 10px;
+          border-bottom: 1px solid #ddd;
+        }
+      }
+    }
+    .navbar-collapse {
+      padding: 0;
+    }
+    .navbar-toggle:hover,
+    .navbar-toggle:focus {
+      background-color: #000;
+    }
+  }
+  ul.nav.navbar-nav.ng-scope {
+    margin: 0;
+    margin-top: -4px;
+  }
+  .banners {
+    .banner-inner {
+      h2 {
+        font-size: 30px;
+      }
+    }
+  }
+  .step {
+    ul {
+      padding-left: 5px;
+      text-align: center;
+      li {
+        margin-right: 12px;
+        margin-bottom: 10px;
+        p {
+          padding: 7px 0 0 20px;
+          font-size: 10px;
+        }
+      }
+    }
+  }
+  .check-out .nav-tabs li a {
+    padding: 6px 8px;
+    margin: 0 5px;
+  }
+  .step.padding-step ul li {
+    margin-right: 10px;
+    p {
+      padding: 6px 7px !important;
+    }
+  }
+  .product-detail .review .design {
+    margin-bottom: 10px;
+    p {
+      letter-spacing: 1px;
+      text-align: center;
+      font-size: 14px;
+    }
+  }
 }
 @media (max-width: $screen-mobile) {
+  .high-light {
+    font-size: 24px;
+  }
+  .smart-content {
+    padding: 35px 0;
+  }
+  .advertise {
+    letter-spacing: 0;
+    h4 {
+      font-size: 17px;
+    }
+    h3 {
+      font-size: 20px;
+    }
+  }
   .strong {
     .line-hover {
+      font-size: 12px;
       padding: 50px 0;
     }
+  }
+  .text-on {
+    width: 80%;
+    .high-light {
+      font-size: 20px;
+      letter-spacing: 0;
+      margin-bottom: 0;
+    }
+    p {
+      width: 80%;
+      line-height: 120%;
+    }
+  }
+  .footermenu {
+    li {
+      font-size: 12px;
+    }
+  }
+  footer .footer p {
+    font-size: 10px;
+  }
+  a.navbar-brand {
+    font-size: 12px;
+    img {
+      height: 92%;
+    }
+  }
+  .btn-dark.btn-outline {
+    padding: 4px 5px;
+    font-size: 12px;
+  }
+  .btn-light.btn-outline {
+    padding: 4px 5px;
+    font-size: 12px;
+  }
+  .letter-spacing {
+    letter-spacing: 2px;
+  }
+  .banner-inner h2 {
+    letter-spacing: 2px!important;
+    font-size: 12px!important;
+  }
+  .product-desc {
+    .pro-rp {
+      p {
+        font-size: 20px;
+      }
+    }
+  }
+  .pro-detail {
+    .panel-heading {
+      a {
+        span {
+          font-weight: 400;
+          font-size: 14px;
+          letter-spacing: 1px;
+        }
+        i.fa.fa-caret-right,
+        i.fa.fa-caret-down {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  .no-row-flex {
+    display: block!important;
+  }
+  .img-hold {
+    height: 60px;
+  }
+  .custom-img {
+    width: 280px;
+  }
+  .product-desc {
+    width: 90%;
+  }
+  .step {
+    ul {
+      padding-left: 20px;
+      li {
+        display: block;
+        width: 90%;
+        margin-right: 30px;
+        margin-bottom: 10px;
+        p {
+          padding: 4px 30px;
+        }
+      }
+    }
+  }
+  .edit-btn {
+    margin: 8px 0;
+    button {
+      margin: 8px 5px 8px 0;
+    }
+  }
+  .check-out {
+    .nav-tabs {
+      padding: 20px 10px;
+      li a {
+        padding: 3px;
+        margin: 0 5px;
+        font-size: 10px;
+      }
+    }
+    .tab-content {
+      padding: 20px 10px 0;
+      .class-forget p {
+        margin: 6px 0;
+        font-size: 13px;
+      }
+      .or {
+        margin-top: 10px;
+      }
+      .social-icon {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  .custom-img {
+    width: 280px;
+  }
+  .product-detail .review .design input {
+    width: 100%;
+  }
+  .noti-imgs1 {
+    height: 60px;
+    width: 60px;
   }
 }

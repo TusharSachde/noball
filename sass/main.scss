@@ -111,6 +111,9 @@ nav li:hover .dropdown-menu {
     }
   }
 }
+.width-full {
+  width: 100%;
+}
 .btn-facebook {
   @include button-variant(white, $facebook, $facebook);
 }
@@ -420,7 +423,7 @@ footer {
   @include transform( translateY(-50%));
 }
 .banners {
-  .banner {
+  .banner-inner {
     position: relative;
     color: #fff;
     &:hover .overlay {
@@ -799,6 +802,7 @@ p.drak {
       }
       .ccc-select {
         position: relative;
+        width: 100%;
         select {
           -webkit-appearance: none;
           appearance: none;
@@ -892,10 +896,12 @@ p.drak {
 }
 .ccc-select {
   position: relative;
+  width: 50px;
+  margin: 0 auto;
   select {
     -webkit-appearance: none;
     border: 1px solid #000;
-    width: 62%;
+    width: 100%;
     background-color: transparent;
     outline: 0;
     cursor: pointer;
@@ -911,7 +917,7 @@ p.drak {
     color: #fff;
     position: absolute;
     top: 0;
-    right: 20%;
+    right: 0;
     text-align: center;
     line-height: 20px;
     font-size: 16px;
@@ -1038,6 +1044,8 @@ p.drak {
         height: 20px;
         border: 1px solid #555;
         padding: 0;
+        width: 35px;
+        margin: 0 auto;
         text-align: center;
         &:focus {
           border-color: #555;
@@ -1109,6 +1117,13 @@ p.drak {
     font-weight: 500;
     margin-top: 12px;
     margin-bottom: 15px;
+  }
+}
+.choos.quantity {
+  p {
+    margin: 0;
+    padding-top: 12px;
+    font-size: 14px;
   }
 }
 .margbotm {
@@ -1355,4 +1370,25 @@ p.drak {
   input[type="radio"]:checked + label span {
     @include transition(background-color 0.4s linear);
   }
+}
+.modal-review {
+  padding: 70px 40px;
+  background-image: url(../img/logo-light.png);
+  background-size: 75%;
+  background-repeat: no-repeat;
+  .btn {
+    margin-bottom: 15px;
+  }
+  h4 {
+    font-size: 24px;
+    margin: 0 0 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+  }
+  p {
+    letter-spacing: 2px;
+    font-weight: 500;
+    padding: 0 0 20px;
+  }
+}
 @import "mobile/mobile";

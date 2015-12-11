@@ -65,7 +65,7 @@
             <p>Choose Your Type Of Design</p>
             <div class="row">
               <div class="col-md-10">
-                <div class="col-md-4 paddingl" ng-repeat="img in images track by $index">
+                <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images track by $index">
                   <div class="cat-img">
                     <img ng-src="{{img.src}}" class="img-responsive">
                   </div>
@@ -77,14 +77,12 @@
               <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
             </div>
           </div>
-
-
           <!--                    //trim tab-->
           <div class="choos" ng-show="tab=='trim'">
             <p>Select The Trim Colour Of Your Choice</p>
             <div class="row">
               <div class="col-md-6">
-                <div class="col-md-3 paddingl" ng-repeat="col in color track by $index">
+                <div class="col-md-3 col-xs-3 paddingl" ng-repeat="col in color track by $index">
                   <div class="colo-pallet text-center ">
                     <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
                   </div>
@@ -309,7 +307,7 @@
 
             <div class="grp4">
               <div class="row">
-                <div class="col-md-3 bright">
+                <div class="col-md-3 col-xs-6 bright">
                   <div class="up-img text-center ">
 
                     <div class="noti-imgs1" ng-style="{'background-image':'url(img/custom/c4.jpg)'}"></div>
@@ -320,7 +318,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-3 bright">
+                <div class="col-md-3 col-xs-6 bright">
                   <div class="up-img text-center ">
 
                     <div class="noti-imgs1" ng-style="{'background-image':'url(img/custom/c4.jpg)'}"></div>
@@ -331,7 +329,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-3 bright">
+                <div class="col-md-3 col-xs-6 bright">
                   <div class="up-img text-center ">
 
                     <div class="noti-imgs1" ng-style="{'background-image':'url(img/custom/c4.jpg)'}"></div>
@@ -342,7 +340,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 col-xs-6 bright-1">
                   <div class="up-img text-center ">
 
                     <div class="noti-imgs1" ng-style="{'background-image':'url(img/custom/c4.jpg)'}"></div>
@@ -401,10 +399,10 @@
             </div>
           </div>
 
-          <div class="choos" ng-show="tab=='quantity'">
+          <div class="choos quantity" ng-show="tab=='quantity'">
             <p>Place Your Order</p>
             <div class="row">
-              <div class="col-md-2">
+              <div class="col-md-2  col-xs-4">
                 <div class="size text-center">
                   <p>M</p>
                   <div class="ccc-select">
@@ -417,7 +415,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-2">
+              <div class="col-md-2 col-xs-4">
                 <div class="size text-center">
                   <p>S</p>
                   <div class="ccc-select">
@@ -430,7 +428,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-2">
+              <div class="col-md-2 col-xs-4">
                 <div class="size text-center">
                   <p>M</p>
                   <div class="ccc-select">
@@ -443,7 +441,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-2">
+              <div class="col-md-2 col-xs-4">
                 <div class="size text-center">
                   <p>L</p>
                   <div class="ccc-select">
@@ -456,7 +454,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-2">
+              <div class="col-md-2 col-xs-4">
                 <div class="size text-center">
                   <p>XL</p>
                   <div class="ccc-select">
@@ -469,7 +467,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-2">
+              <div class="col-md-2 col-xs-4">
                 <div class="size text-center">
                   <p>XXL</p>
                   <div class="ccc-select">
