@@ -219,14 +219,22 @@ nav li:hover .dropdown-menu {
 .slider {
     .flexslider {
         .flex-direction-nav {
+            height: 100px;
+    width: 125px;
             .flex-prev {
                 &:before {
                     content: url('../img/prev.png');
+                    display: block;
+    height: 50%;
+    transform: scale(.4);
                 }
             }
             .flex-next {
                 &:before {
-                    content: url('../img/next.png')
+                    content: url('../img/next.png');
+                    display: block;
+    height: 50%;
+    transform: scale(.4);
                 }
             }
         }
