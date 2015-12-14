@@ -213,6 +213,22 @@ nav li:hover .dropdown-menu {
     }
   }
 }
+.slider {
+    .flexslider {
+        .flex-direction-nav {
+            .flex-prev {
+                &:before {
+                    content: url('../img/prev.png');
+                }
+            }
+            .flex-next {
+                &:before {
+                    content: url('../img/next.png')
+                }
+            }
+        }
+    }
+}
 .relative {
   position: relative;
 }
