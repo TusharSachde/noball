@@ -218,9 +218,11 @@ nav li:hover .dropdown-menu {
 }
 .slider {
     .flexslider {
-        .flex-direction-nav {
+        .flex-direction-nav {a{
             height: 100px;
     width: 125px;
+            color: transparent;
+        }
             .flex-prev {
                 &:before {
                     content: url('../img/prev.png');
