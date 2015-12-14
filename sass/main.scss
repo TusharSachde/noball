@@ -86,7 +86,7 @@ nav li:hover .dropdown-menu {
 .min-height {
   min-height: 300px;
 }
-.no-pad{
+.no-pad {
   padding: 0;
 }
 .btn-dark {
@@ -217,30 +217,31 @@ nav li:hover .dropdown-menu {
   }
 }
 .slider {
-    .flexslider {
-        .flex-direction-nav {a{
-            height: 100px;
-    width: 125px;
-            color: transparent;
+  .flexslider {
+    .flex-direction-nav {
+      a {
+        height: 100px;
+        width: 125px;
+        color: transparent;
+      }
+      .flex-prev {
+        &:before {
+          content: url(../img/prev.png);
+          display: block;
+          height: 50%;
+          @include transform(scale(.4));
         }
-            .flex-prev {
-                &:before {
-                    content: url('../img/prev.png');
-                    display: block;
-    height: 50%;
-    transform: scale(.4);
-                }
-            }
-            .flex-next {
-                &:before {
-                    content: url('../img/next.png');
-                    display: block;
-    height: 50%;
-    transform: scale(.4);
-                }
-            }
+      }
+      .flex-next {
+        &:before {
+          content: url(../img/next.png);
+          display: block;
+          height: 50%;
+          @include transform(scale(.4));
         }
+      }
     }
+  }
 }
 .relative {
   position: relative;
@@ -521,7 +522,6 @@ footer {
     color: #1b1b1b;
   }
 }
-
 .custom-img {
   width: 375px;
   margin: 0 auto;

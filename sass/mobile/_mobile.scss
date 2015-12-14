@@ -1,6 +1,6 @@
 $screen-mobile: 480px !default;
 $screen-desktop: 1224px !default;
-@media (max-width: $screen-desktop) {
+@media (max-width: 1224px) {
   .img-hold {
     height: 95px;
   }
@@ -73,6 +73,9 @@ $screen-desktop: 1224px !default;
   }
   .no-bg {
     background: none;
+  }
+  .m20-l {
+      margin-bottom: 20px;
   }
 }
 @media (max-width:$screen-xs-max) {
@@ -200,6 +203,9 @@ $screen-desktop: 1224px !default;
     position: relative;
     overflow-x: auto;
     white-space: nowrap;
+  }
+  .m20-m {
+    margin-bottom: 20px;
   }
 }
 @media (max-width: $screen-mobile) {
@@ -373,5 +379,8 @@ $screen-desktop: 1224px !default;
   }
   .vertical-icon {
     left: 20px !important;
+  }
+  .m20-s {
+    margin-bottom: 20px;
   }
 }
