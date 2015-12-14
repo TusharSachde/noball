@@ -1,23 +1,38 @@
 $screen-mobile: 480px !default;
-@media (max-width: 1224px) {
+$screen-desktop: 1224px !default;
+@media (max-width: $screen-desktop) {
   .img-hold {
     height: 95px;
   }
   .step ul li p {
-    padding: 4px 20px;
+    padding: 5px 20px 0;
+  }
+  .mg-tp-0 {
+    margin-top: 0 !important;
   }
 }
 @media (max-width: $screen-sm-max) {
   .high-light {
     font-size: 40px;
   }
+  .check-out .tab-content {
+    padding: 23px 30px 0;
+  }
   .strong {
     padding: 50px 100px;
   }
-  .step ul li p {
-    padding: 5px 10px 0 20px;
-    font-size: 12px;
-    text-align: center;
+  .step {
+    ul {
+      padding-left: 10px;
+      text-align: center;
+      li {
+        p {
+          padding: 5px 10px 0 20px;
+          font-size: 12px;
+          text-align: center;
+        }
+      }
+    }
   }
   .step.padding-step ul li p {
     padding: 5px 10px 0;
@@ -29,12 +44,25 @@ $screen-mobile: 480px !default;
       padding: 22.5px 10px;
     }
   }
-  .custom-sub li a {
-    padding: 10px 10px 10px 12px;
-    font-size: 12px;
+  .custom-sub {
+    .fit {
+      margin-top: 0;
+      font-size: 8px;
+    }
+    li a {
+      font-size: 7px;
+      margin-right: 40px;
+      padding: 5px 12px;
+    }
+  }
+  .sub-holder {
+    height: 150px;
   }
   .img-hold {
     height: 70px;
+  }
+  .banners .banner-inner h2 {
+    font-size: 24pt;
   }
   .bright {
     margin-bottom: 20px;
@@ -43,11 +71,8 @@ $screen-mobile: 480px !default;
     border-right: 1px solid $border;
     margin-bottom: 20px;
   }
-  .no-bg{
+  .no-bg {
     background: none;
-  }
-  .mg-tp-0{
-    margin-top: 0px!important;
   }
 }
 @media (max-width:$screen-xs-max) {
@@ -83,6 +108,10 @@ $screen-mobile: 480px !default;
         a {
           padding: 10px;
           border-bottom: 1px solid #ddd;
+          border-right: 0;
+          font-size: 12px;
+          margin-right: 0;
+          text-align: center;
         }
       }
     }
@@ -101,8 +130,16 @@ $screen-mobile: 480px !default;
   .banners {
     .banner-inner {
       h2 {
-        font-size: 30px;
+        font-size: 16pt;
       }
+    }
+  }
+  .custom-sub {
+    position: relative;
+    padding: 0;
+    background: #fff;
+    li.mt-35 {
+      margin-top: 0;
     }
   }
   .step {
@@ -137,8 +174,32 @@ $screen-mobile: 480px !default;
       font-size: 14px;
     }
   }
-  .mg-tp-0{
-    margin-top: 10px!important;
+  .mg-tp-0 {
+    margin-top: 10px !important;
+  }
+  .privacy-info {
+    padding: 20px 12px;
+  }
+  .sub-holder {
+    height: auto;
+  }
+  .custom-sub .fit {
+    font-size: 12px;
+  }
+  .det-name {
+    h3 {
+      font-size: 24px;
+    }
+    h4 {
+      font-size: 18px;
+    }
+  }
+  table.table {
+    background-color: transparent;
+    display: block;
+    position: relative;
+    overflow-x: auto;
+    white-space: nowrap;
   }
 }
 @media (max-width: $screen-mobile) {
@@ -190,7 +251,7 @@ $screen-mobile: 480px !default;
     }
   }
   .btn-dark.btn-outline {
-    padding: 4px 0px 3px 5px;
+    padding: 4px 4px 3px 5px;
     font-size: 12px;
   }
   .btn-light.btn-outline {
@@ -208,6 +269,7 @@ $screen-mobile: 480px !default;
     .pro-rp {
       p {
         font-size: 20px;
+        padding-bottom: 0;
       }
     }
   }
@@ -247,7 +309,7 @@ $screen-mobile: 480px !default;
         margin-right: 30px;
         margin-bottom: 10px;
         p {
-          padding: 8px 30px 0 30px;
+          padding: 8px 30px 0;
         }
       }
     }
@@ -294,5 +356,22 @@ $screen-mobile: 480px !default;
   .design-patt .img-holder {
     width: 250px;
     height: 250px;
+  }
+  .wish-back {
+    .cart-btn {
+      float: none;
+      margin: 6px 0;
+      text-align: center;
+      button {
+        padding: 4px 5px 3px;
+        letter-spacing: 0 !important;
+      }
+    }
+  }
+  .cat-img {
+    height: 110px;
+  }
+  .vertical-icon {
+    left: 20px !important;
   }
 }

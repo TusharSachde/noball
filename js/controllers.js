@@ -244,7 +244,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.unhovered = function () {
         $scope.hovermenu = false;
     }
-
     $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
     });

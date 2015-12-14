@@ -86,6 +86,9 @@ nav li:hover .dropdown-menu {
 .min-height {
   min-height: 300px;
 }
+.no-pad{
+  padding: 0;
+}
 .btn-dark {
   @include button-variant(white, $font-color, $font-color);
   &.btn-outline {
@@ -508,6 +511,7 @@ footer {
     color: #1b1b1b;
   }
 }
+
 .custom-img {
   width: 375px;
   margin: 0 auto;
@@ -530,7 +534,7 @@ footer {
     color: #fff;
     i {
       padding-right: 5px;
-      vertical-align: bottom;
+      vertical-align: middle;
     }
   }
 }
