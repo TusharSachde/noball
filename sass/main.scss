@@ -102,6 +102,9 @@ nav li:hover .dropdown-menu {
     }
   }
 }
+a {
+  cursor: pointer;
+}
 .btn-light {
   @include button-variant(white, $btn-light, $btn-light);
   &.btn-outline {
