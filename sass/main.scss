@@ -616,10 +616,6 @@ footer {
 .p65 {
   padding-top: 66px;
 }
-p.drak {
-  color: #000;
-  font-weight: 500;
-}
 .mgb25 {
   margin-bottom: 25px;
 }
@@ -688,9 +684,30 @@ p.drak {
   padding: 60px;
   color: #737373;
   text-align: justify;
+  line-height: 150%;
+  p {
+    color: #737373;
+  }
+  ul, ol {
+    padding-left: 20px;
+    li+li {
+      margin-top: 10px;
+    }
+  }
+  ul {
+    li+li {
+      margin-top: 0px;
+    }
+  }
   .dark {
     color: $black;
     margin: 25px 0 5px;
+  }
+  h4, b {
+    color: #000;
+    font-weight: 500;
+    font-size: 14px;
+    margin: 0;
   }
 }
 
