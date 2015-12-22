@@ -347,7 +347,13 @@ footer {
   background-color: #111;
   color: #dbdbdb;
   text-transform: uppercase;
-  font-size: 18px;
+  font-size: 14px;
+  .pb25 {
+    padding-bottom: 35px;
+  }
+  h5{
+    font-weight: 600;
+  }
   a {
     color: inherit !important;
   }
@@ -360,6 +366,18 @@ footer {
   }
   .footermenu {
     padding: 35px 0;
+    font-size: 14px;
+    letter-spacing: 2px;
+    ul.list-unstyled.foot-cards li {
+      display: inline-block;
+      img {
+        width: 50px;
+        padding-right: 10px;
+      }
+    }
+    ul.bold li a {
+      font-weight: 600;
+    }
     ul {
       margin: 0;
     }
@@ -372,6 +390,10 @@ footer {
         font-weight: 300;
       }
     }
+  }
+  .social-icons i {
+    padding-right: 40px;
+    font-size: 24px;
   }
 }
 .custom-sub {
@@ -1422,6 +1444,16 @@ p.drak {
     letter-spacing: 2px;
     font-weight: 500;
     padding: 0 0 20px;
+  }
+}
+.custom-footer {
+  position: static;
+  padding-bottom: 20px;
+  li a.active {
+    background-color: #404040;
+    border-left-width: thick;
+    padding: 5px 15px;
+    font-size: 16px;
   }
 }
 @import "mobile/mobile";
