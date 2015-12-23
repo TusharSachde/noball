@@ -67,10 +67,10 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
             templateUrl: "views/template.html",
             controller: 'Product-DetailCtrl'
         })
-        .state('save-design', {
+        .state('savedesign', {
             url: "/save-design",
             templateUrl: "views/template.html",
-            controller: 'Save-DesignCtrl'
+            controller: 'SaveDesignCtrl'
         })
         .state('termsconditions', {
             url: "/terms-conditions",
@@ -81,6 +81,11 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
             url: "/about",
             templateUrl: "views/template.html",
             controller: 'AboutCtrl'
+        })
+        .state('contact', {
+            url: "/contact",
+            templateUrl: "views/template.html",
+            controller: 'ContactCtrl'
         })
         .state('wishlist', {
             url: "/wishlist",

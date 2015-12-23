@@ -672,12 +672,25 @@ footer {
 .banner {
   min-height: 295px;
   position: relative;
-  background: url(../img/page-banner/privacy-policy.png) no-repeat center;
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   h3 {
     @extend.fifty;
     width: 100%;
     color: #fff;
+  }
+  &.contact {
+    background-image: url(../img/page-banner/contact.jpg);
+  }
+  &.about {
+    background-image: url(../img/page-banner/about.jpg);
+  }
+  &.tnc {
+    background-image: url(../img/page-banner/tnc.jpg);
+  }
+  &.privacy {
+    background-image: url(../img/page-banner/privacy-policy.jpg);
   }
 }
 .privacy-info {
@@ -709,13 +722,13 @@ footer {
     font-size: 14px;
     margin: 0;
   }
+  h1, h2, h3, h5, h6 {
+    color: #000;
+    font-weight: 500;
+    margin-top: 0;
+  }
 }
 
-//terms & condition page
-.tc {
-  background: url(../img/page-banner/t&c.png) no-repeat center;
-  background-size: cover;
-}
 
 //cart page
 .order-table {
