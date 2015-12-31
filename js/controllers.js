@@ -225,6 +225,35 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Ready");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.product = [{
+      img: "img/hoodi.png",
+      name: "sweatshirts",
+      price: "795"
+    }, {
+      img: "img/polo.png",
+      name: "sweatshirts",
+      price: "795"
+    }, {
+      img: "img/bags.png",
+      name: "sweatshirts",
+      price: "795"
+    }, {
+      img: "img/hoodi.png",
+      name: "sweatshirts",
+      price: "795"
+    }, {
+      img: "img/polo.png",
+      name: "sweatshirts",
+      price: "795"
+    }, {
+      img: "img/bags.png",
+      name: "sweatshirts",
+      price: "795"
+    }];
+
+    $scope.products = _.chunk($scope.product, 3);
+    console.log($scope.products);
+
   })
   .controller('SaveDesignCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file

@@ -139,6 +139,55 @@
         </div>
       </div>
     </div>
+    <div class="choose-product">
+      <p class="text-center pro-head">Choose Your Type Of Trouser</p>
+      <div class="product-list">
+        <div class="row-flex">
+          <div class="col-flex">
+            <div class="product-imghold">
+              <img src="img/trouser.png" alt="" class="img-responsive">
+            </div>
+          </div>
+          <div class="col-flex">
+            <div class="product-imghold">
+              <img src="img/trouser.png" alt="" class="img-responsive">
+            </div>
+          </div>
+          <div class="col-flex">
+            <div class="product-imghold">
+              <img src="img/trouser.png" alt="" class="img-responsive">
+            </div>
+          </div>
+          <div class="col-flex">
+            <div class="product-imghold">
+              <img src="img/trouser.png" alt="" class="img-responsive">
+            </div>
+          </div>
+          <div class="col-flex">
+            <div class="product-imghold">
+              <img src="img/trouser.png" alt="" class="img-responsive">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
+  <div class="product-slider">
+    <div class="container">
+      <flexslider  class="carousel" flex-slide="prd in product track by $index" item-width="300">
+        <li>
+          <div class="product">
+            <div class="product-holder">
+              <img ng-src="{{prd.img}}" alt="" class="img-responsive">
+            </div>
+            <div class="prd-info text-center">
+              <h4 class="text-uppercase">{{prd.name}}</h4>
+              <h4><i class="fa fa-inr"></i>{{prd.price}}</h4>
+              <a href="" class="btn btn-outline btn-dark">View</a>
+            </div>
+          </div>
+        </li>
+      </flexslider>
+    </div>
+  </div>
 </section>
