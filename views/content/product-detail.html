@@ -76,4 +76,29 @@
       </div>
     </div>
   </div>
+  <div class="testimonial">
+    <div class="container">
+      <div class="heading text-center">
+        <h4 class="text-uppercase high-light">testimonials</h4>
+      </div>
+      <div class="slider-prd-detail">
+        <flex-slider class="carosuel" flex-slide="test in testimonial track by $index">
+          <li>
+            <div class="slider-info">
+              <div class="slider-imgholder">
+                <img ng-src="{{test.img}}" alt="" class="img-responsive">
+              </div>
+              <div class="info">
+                <h3 class="text-uppercase name letter-spacing">{{test.name}}</h3>
+                <h4 class="location letter-spacing">Mumbai ,India</h4>
+                <div class="descp">
+                  <p class="text-justify">{{test.descp}}</p>
+                </div>
+              </div>
+            </div>
+          </li>
+        </flex-slider>
+      </div>
+    </div>
+  </div>
 </section>
