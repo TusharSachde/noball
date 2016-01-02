@@ -11,7 +11,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 /* Bootstrap Variables Goes Here */
 $brand-primary: #0d9dff !default;
 $brand-success: #C1E603 !default;
@@ -461,7 +460,6 @@ footer {
   top: 65px;
   left: 0;
 }
-
 /* Start writing sass here */
 .noti-img {
   height: 45px;
@@ -629,7 +627,6 @@ footer {
   min-height: 300px;
   padding-top: 30px;
 }
-
 //save-design
 .design-patt {
   margin: 20px 0;
@@ -668,7 +665,6 @@ footer {
   left: 50%;
   @include transform(translate(-50%, -50%));
 }
-
 //privacy-policy
 .banner {
   min-height: 295px;
@@ -735,7 +731,6 @@ footer {
     margin-top: 0;
   }
 }
-
 //cart page
 .order-table {
   color: #515151;
@@ -758,7 +753,6 @@ footer {
       tr {
         td {
           padding: 20px 0;
-
           //                    vertical-align: middle;
           border-top: none;
           border-bottom: 1px solid #ddd;
@@ -773,7 +767,6 @@ footer {
         }
         td:last-child {
           padding: 24px 0;
-
           //                    vertical-align: bottom;
           button {
             float: right;
@@ -830,7 +823,6 @@ footer {
     }
   }
 }
-
 //wishlist page
 .wish-table {
   .table {
@@ -846,7 +838,6 @@ footer {
     }
   }
 }
-
 //checkout page
 .check-out {
   .nav-tabs {
@@ -976,7 +967,6 @@ footer {
     }
   }
 }
-
 //ready
 .chart {
   span {
@@ -1037,7 +1027,6 @@ footer {
       display: inline-block;
       position: relative;
       margin-right: 15px;
-
       // @include transition (all ease 300ms );
       p {
         @extend .margin0;
@@ -1053,7 +1042,6 @@ footer {
       }
       &.breadcrums {
         p {
-
           // @include transition (all ease 300ms );
           &:before {
             content: "";
@@ -1093,7 +1081,6 @@ footer {
           right: -13px;
           top: 1px;
           z-index: 9;
-
           // @include transition (all ease 300ms );
         }
         &:hover span.bread-back,
@@ -1416,6 +1403,7 @@ footer {
     cursor: pointer;
     border: 1px solid #000;
   }
+  
   input[type="checkbox"] + label span {
     background-color: transparent;
   }
@@ -1492,7 +1480,6 @@ footer {
     font-size: 16px;
   }
 }
-
 ////
 .choose-product {
   border-top: 2px solid #c0c0c0;
@@ -1514,18 +1501,33 @@ footer {
   }
 }
 .product-slider {
+  padding: 60px 0;
   background-color: #e2e2e2;
+  .title {
+    margin-bottom: 45px;
+  }
+  .slider-prd-detail {
+    width: 95%;
+    margin: 0 auto;
+    .flexslider .flex-direction-nav a {
+      top: 20%;
+      @include transform(translateY(-20%));
+    }
+    .flexslider .flex-direction-nav .flex-prev {
+      left: -80px !important;
+    }
+    .flexslider .flex-direction-nav .flex-next {
+      right: -60px !important;
+    }
+  }
   .product {
     .product-holder {
       margin: 0 auto;
-      @include square(250px);
+      @include square(200px);
       img {
         max-width: 100%;
         max-height: 100%;
         margin: 0 auto;
-      }
-      .prd-info {
-
       }
     }
   }
@@ -1565,36 +1567,38 @@ footer {
       }
     }
   }
-  .slider-prd-detail {
-    padding: 0 80px;
-    .flexslider {
-      border: none;
-      margin: 0;
-      overflow: visible;
-      background-color: transparent;
-    }
-    .flexslider .flex-direction-nav a {
-      height: auto;
-      color: transparent;
-      top: 50%;
-      @include transform(translateY(-50%));
-    }
-    .flexslider .flex-direction-nav .flex-next:before {
-      content: "\f105";
-      font-size: 120px;
-      color: #b7b7b7;
-    }
-    .flexslider .flex-direction-nav .flex-prev:before {
-      content: "\f104";
-      font-size: 120px;
-      color: #b7b7b7;
-    }
-    .flexslider .flex-direction-nav .flex-prev {
-      left: -111px !important;
-    }
-    .flex-control-nav {
-      display: none;
-    }
+}
+.slider-prd-detail {
+  padding: 0 80px;
+  .flexslider {
+    border: none;
+    margin: 0;
+    overflow: visible;
+    background-color: transparent;
+  }
+  .flexslider .flex-direction-nav a {
+    width: 70px;
+    height: 208px;
+    color: transparent;
+    top: 50%;
+    @include transform(translateY(-50%));
+  }
+
+  .flexslider .flex-direction-nav .flex-next:before {
+    content: url(../img/next.png);
+    display: block;
+    @include transform(scale(0.4));
+  }
+  .flexslider .flex-direction-nav .flex-prev:before {
+    content: url(../img/prev.png);
+    display: block;
+    @include transform(scale(0.4));
+  }
+  .flexslider .flex-direction-nav .flex-prev {
+    left: -111px !important;
+  }
+  .flex-control-nav {
+    display: none;
   }
 }
 @import "mobile/mobile";

@@ -244,23 +244,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       price: "795"
     }, {
       img: "img/polo.png",
-      name: "sweatshirts",
+      name: "polo",
       price: "795"
     }, {
       img: "img/bags.png",
-      name: "sweatshirts",
+      name: "travel kit",
       price: "795"
     }, {
       img: "img/hoodi.png",
       name: "sweatshirts",
       price: "795"
-    }, {
+    },  {
       img: "img/polo.png",
-      name: "sweatshirts",
+      name: "polo",
       price: "795"
-    }, {
+    },{
       img: "img/bags.png",
-      name: "sweatshirts",
+      name: "travel kit",
       price: "795"
     }];
 

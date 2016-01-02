@@ -174,20 +174,25 @@
   </div>
   <div class="product-slider">
     <div class="container">
-      <flex-slider flex-slide="prd in product track by $index"  class="carousel" item-width="375" animation="slide">
-        <li>
-          <div class="product">
-            <div class="product-holder">
-              <img ng-src="{{prd.img}}" alt="" class="img-responsive">
+      <div class="text-center title">
+        <h3 class="high-light text-uppercase">you may also like</h3>
+      </div>
+      <div class="slider-prd-detail">
+        <flex-slider flex-slide="prd in product track by $index" class="carousel" item-width="300" animation="slide">
+          <li>
+            <div class="product">
+              <div class="product-holder">
+                <img ng-src="{{prd.img}}" alt="" class="img-responsive">
+              </div>
+              <div class="prd-info text-center">
+                <h4 class="text-uppercase">{{prd.name}}</h4>
+                <h4><i class="fa fa-inr"></i>{{prd.price}}</h4>
+                <a href="" class="btn btn-outline btn-dark letter-spacing padding-btn text-uppercase">View</a>
+              </div>
             </div>
-            <div class="prd-info text-center">
-              <h4 class="text-uppercase">{{prd.name}}</h4>
-              <h4><i class="fa fa-inr"></i>{{prd.price}}</h4>
-              <a href="" class="btn btn-outline btn-dark">View</a>
-            </div>
-          </div>
-        </li>
-      </flex-slider>
+          </li>
+        </flex-slider>
+      </div>
     </div>
   </div>
 </section>
