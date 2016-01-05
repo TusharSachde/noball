@@ -11,7 +11,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       id: 1,
       src: "img/slide1.jpg",
       head: 'CUSTOMIZED BATS',
-      subhead: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+      subhead: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text."
+    },{
+      id:2,
+      src: "img/slide1.jpg",
+      head: 'CUSTOMIZED BATS',
+      subhead: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text."
     }];
   })
   .controller('CategoriesCtrl', function($scope, TemplateService, NavigationService, $timeout) {
