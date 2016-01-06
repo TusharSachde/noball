@@ -17,5 +17,35 @@
     "image":"img/apparels/playingtshirt.png",
     "order":2,
     "status":1
+},{
+    "id":4,
+    "name":"TRACKSUIT TROUSERS",
+    "image":"img/apparels/playingtshirt.png",
+    "order":3,
+    "status":1
+},{
+    "id":5,
+    "name":"POLOS",
+    "image":"img/apparels/playingtshirt.png",
+    "order":4,
+    "status":1
+},{
+    "id":6,
+    "name":"TRACKSUIT TOP",
+    "image":"img/apparels/playingtshirt.png",
+    "order":5,
+    "status":1
+},{
+    "id":7,
+    "name":"PLAYING TROUSERS",
+    "image":"img/apparels/playingtshirt.png",
+    "order":6,
+    "status":1
+},{
+    "id":8,
+    "name":"PLAYING TROUSERS",
+    "image":"img/apparels/playingtshirt.png",
+    "order":7,
+    "status":1
 }
 ]
