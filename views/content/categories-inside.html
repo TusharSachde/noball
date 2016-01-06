@@ -13,56 +13,15 @@
     </div>
   </div>
   <div class="banners">
-    <div class="row-flex">
-      <div class="col-flex">
+    <div class="row-flex" ng-repeat="item in products">
+      <div class="col-flex" ng-repeat="product in item">
         <div class="banner-inner">
           <div class="">
-            <img src="img/sweatshirts/sweatshirt1.png" alt="sweatshirts" class="img-responsive">
+            <img src="{{product.image | serverimage}}" alt="sweatshirts" class="img-responsive">
           </div>
           <div class="overlay">
             <div class="text-above text-center">
-              <h2 class="text-uppercase">Sweatshirt 1</h2>
-              <a href="#/categories/sweatshirts/product-detail" class="btn btn-outline btn-light uppercase letter-spacing">Know more</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-flex">
-        <div class="banner-inner">
-          <div class="">
-            <img src="img/sweatshirts/sweatshirt2.png" alt="sweatshirts" class="img-responsive">
-          </div>
-          <div class="overlay">
-            <div class="text-above hover-layer text-center">
-              <h2 class="text-uppercase">Sweatshirt 2</h2>
-              <a href="#/categories/sweatshirts/product-detail" class="btn btn-outline btn-light uppercase letter-spacing">Know more</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row-flex">
-      <div class="col-flex">
-        <div class="banner-inner">
-          <div class="">
-            <img src="img/sweatshirts/sweatshirt3.png" alt="sweatshirts" class="img-responsive">
-          </div>
-          <div class="overlay">
-            <div class="text-above hover-layer text-center">
-              <h2 class="text-uppercase">Sweatshirt 3</h2>
-              <a href="#/categories/sweatshirts/product-detail" class="btn btn-outline btn-light uppercase letter-spacing">Know more</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-flex">
-        <div class="banner-inner">
-          <div class="">
-            <img src="img/sweatshirts/sweatshirt4.png" alt="sweatshirts" class="img-responsive">
-          </div>
-          <div class="overlay">
-            <div class="text-above  text-center">
-              <h2 class="text-uppercase">Sweatshirt 4</h2>
+              <h2 class="text-uppercase">{{product.name}}</h2>
               <a href="#/categories/sweatshirts/product-detail" class="btn btn-outline btn-light uppercase letter-spacing">Know more</a>
             </div>
           </div>

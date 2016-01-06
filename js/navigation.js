@@ -73,6 +73,9 @@ var navigationservice = angular.module('navigationservice', [])
     getSubCategory:function(callback){
       $http.get(adminurl+'subcategory.json').success(callback);
     },
+    getProductBySubCategory:function(callback){
+      $http.get(adminurl+'product.json').success(callback);
+    },
     makeactive: function(menuname) {
       for (var i = 0; i < navigation.length; i++) {
         if (navigation[i].name == menuname) {

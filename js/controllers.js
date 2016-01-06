@@ -161,8 +161,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     NavigationService.getSubCategory(function(data){
       $scope.subCategories = data;
     })
-    NavigationService.getProductByCategory(function(data){
-      
+    NavigationService.getProductBySubCategory(function(data){
+      $scope.products =  _.chunk(data,2);
     })
     $scope.hovered = function() {
       $scope.hovermenu = true;
