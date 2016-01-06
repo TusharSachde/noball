@@ -1,0 +1,53 @@
+{
+  "address": "",
+"billingaddress": "",
+"billingcity": "thane",
+"billingcontact": "",
+"billingcountry": "IND",
+"billingline1": "kjhgu",
+"billingline2": "jhgj",
+"billingline3": "jhg",
+"billingpincode": "421201",
+"billingstate": "maharashtra",
+"cart":[{ "design": "",
+"id": "4",
+"image": "t531.jpg",
+"options": {
+  "colorid": "1",
+  "colorname": "Black",
+  "json": "",
+  "realname": "T1",
+  "sizeid": "2",
+  "sizename": "M"
+},
+"price": "850",
+"qty": "1",
+"user": "10"
+},{ "design": "",
+"id": "4",
+"image": "t531.jpg",
+"options": {
+  "colorid": "1",
+  "colorname": "Black",
+  "json": "",
+  "realname": "T1",
+  "sizeid": "2",
+  "sizename": "M"
+},
+"price": "850",
+"qty": "1",
+"user": "10"
+}],
+"lastname": "patil",
+"name": "jagruti patil",
+"phone": "09898989898",
+"shippingcity": "thane",
+"shippingcontact": "",
+"shippingcountry": "IND",
+"shippingline1": "kjhgu",
+"shippingline2": "jhgj",
+"shippingline3": "jhg",
+"shippingname": "",
+"shippingpincode": "421201",
+"shippingstate": "maharashtra"
+}

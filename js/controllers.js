@@ -7,6 +7,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
+    NavigationService.placeOrder(function(data){
+      console.log(data);
+    });
+    NavigationService.getSlider(function(data){
+      console.log(data);
+    });
+
     $scope.mySlides = [{
       id: 1,
       src: "img/slide1.jpg",

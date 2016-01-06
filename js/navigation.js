@@ -1,6 +1,6 @@
 var navigationservice = angular.module('navigationservice', [])
 
-.factory('NavigationService', function() {
+.factory('NavigationService', function($http) {
   var navigation = [{
     name: "Shop",
     classis: "",
@@ -56,6 +56,12 @@ var navigationservice = angular.module('navigationservice', [])
   return {
     getnav: function() {
       return navigation;
+    },
+    placeOrder:function(callback){
+      $http.get('json/placeorder.json').success(callback)
+    },
+    getSlider:function(callback){
+      $http.get('json/splider.json').success(callback);
     },
     makeactive: function(menuname) {
       for (var i = 0; i < navigation.length; i++) {

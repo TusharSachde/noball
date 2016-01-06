@@ -1,0 +1,14 @@
+[
+    {
+    "id":1,
+    "src":"slide1.jpg",
+    "heading":"CUSTOMIZED BATS",
+    "subheading":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text."
+    },
+    {
+    "id":2,
+    "src":"slide2.jpg",
+    "heading":"customized bags",
+    "subheading":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text."
+    }
+]

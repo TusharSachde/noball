@@ -1,0 +1,93 @@
+{
+ "product":{
+  "id":1,
+  "name":"PLAYING T-SHIRTS",
+  "price":900,
+  "description":"The Custom Cricket company cricket shirt is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest and at the centre back of the tees.",
+  "details":"The Custom Cricket company cricket shirt is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest and at the centre back of the tees.",
+  "delivery":"Delivery within 4 weeks depending on your exact delivery location. On placing your order, you will receive an email containing a summary of the order and also a more accurate delivery date. Sometimes, delivery may take longer due to - bad weather, flight delays, political disruptions or other unforeseen circumstances.* (Link to terms & conditions)",
+  "care":"Wash when dirty, not too hot, not too cold",
+  "color":1,
+  "colorname":"red",
+  "size":2,
+  "sizename":"xl",
+ },
+ "productimages":[{
+ "id":1,
+ "image":"image.jpg"
+ },{
+ "id":2,
+ "image":"image1.jpg"
+ }],
+ "color":[{
+ "id":1,
+ "name":"red"
+ },{
+ "id":3,
+ "name":"green"
+ }],
+ "size":[{
+ "id":1,
+ "name":"xl"
+ },{
+ "id":2,
+ "name":"xxl"
+ }]
+}
+
+
+
+
+{
+  "address": "",
+"billingaddress": "",
+"billingcity": "thane",
+"billingcontact": "",
+"billingcountry": "IND",
+"billingline1": "kjhgu",
+"billingline2": "jhgj",
+"billingline3": "jhg",
+"billingpincode": "421201",
+"billingstate": "maharashtra",
+"cart":[{ "design": "",
+"id": "4",
+"image": "t531.jpg",
+"options": {
+  "colorid": "1",
+  "colorname": "Black",
+  "json": "",
+  "realname": "T1",
+  "sizeid": "2",
+  "sizename": "M"
+},
+"price": "850",
+"qty": "1",
+"user": "10"
+},{ "design": "",
+"id": "4",
+"image": "t531.jpg",
+"options": {
+  "colorid": "1",
+  "colorname": "Black",
+  "json": "",
+  "realname": "T1",
+  "sizeid": "2",
+  "sizename": "M"
+},
+"price": "850",
+"qty": "1",
+"user": "10"
+}],
+"lastname": "patil",
+"name": "jagruti patil",
+"phone": "09898989898",
+"shippingcity": "thane",
+"shippingcontact": "",
+"shippingcountry": "IND",
+"shippingline1": "kjhgu",
+"shippingline2": "jhgj",
+"shippingline3": "jhg",
+"shippingname": "",
+"shippingpincode": "421201",
+"shippingstate": "maharashtra"
+}
