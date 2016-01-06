@@ -1,0 +1,21 @@
+[{
+    "id":1,
+    "name":"Sweatshirt 1",
+    "image":"img/sweatshirts/sweatshirt1.png",
+    "quantity":50
+},{
+    "id":2,
+    "name":"Sweatshirt 2",
+    "image":"img/sweatshirts/sweatshirt2.png",
+    "quantity":50
+},{
+    "id":3,
+    "name":"Sweatshirt 3",
+    "image":"img/sweatshirts/sweatshirt3.png",
+    "quantity":1
+},{
+    "id":4,
+    "name":"Sweatshirt 4",
+    "image":"img/sweatshirts/sweatshirt4.png",
+    "quantity":0
+}]

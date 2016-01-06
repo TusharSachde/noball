@@ -1,0 +1,33 @@
+[
+    {
+    "id":1,
+    "name":"Bats",
+    "order":0
+},
+    {
+    "id":2,
+    "name":"Balls",
+"order":1
+    },
+    {
+    "id":3,
+    "name":"Gloves",
+    "order":2
+},
+    {
+    "id":4,
+    "name":"Pads",
+    "order":3
+    
+},
+    {
+    "id":5,
+    "name":"Apparels",
+    "order":4
+},
+    {
+    "id":6,
+    "name":"Kit Bags",
+    "order":5
+}
+]

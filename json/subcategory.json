@@ -1,0 +1,21 @@
+[
+    {
+    "id":1,
+    "name":"PLAYING T-SHIRTS",
+    "image":"img/apparels/playingtshirt.png",
+    "order":0,
+    "status":1
+},{
+    "id":2,
+    "name":"SWEATSHIRTS",
+    "image":"img/apparels/playingtshirt.png",
+    "order":1,
+    "status":1
+},{
+    "id":3,
+    "name":"TRAINING SHORTS",
+    "image":"img/apparels/playingtshirt.png",
+    "order":2,
+    "status":1
+}
+]
