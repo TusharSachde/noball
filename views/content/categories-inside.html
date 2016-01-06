@@ -4,45 +4,10 @@
     <div class="explore-more-drop">
       <a class="btn btn-outline btn-dark" ng-click="hovered();">Explore More</a>
       <ul class="custom-menu-down" ng-show="hovermenu" ng-mouseleave="unhovered();">
-        <li>
+        <li ng-repeat="subcategory in subCategories">
           <a href="#" class="">
-              Playing T-Shirts
+              {{subcategory.name}}
             </a>
-        </li>
-        <li>
-          <a href="#" class="active">
-Sweatshirts
-            </a>
-        </li>
-        <li class="">
-          <a href="#">
-Training Shorts
-            </a>
-        </li>
-        <li>
-          <a href="#">
-Tracksuit Trousers
-             </a>
-        </li>
-        <li>
-          <a href="#">
-polos
-             </a>
-        </li>
-        <li>
-          <a href="#">
-Tracksuit top
-             </a>
-        </li>
-        <li>
-          <a href="#">
-Playing Trousers
-             </a>
-        </li>
-        <li>
-          <a href="#">
-          Training Tee
-             </a>
         </li>
       </ul>
     </div>

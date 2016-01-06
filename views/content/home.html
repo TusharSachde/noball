@@ -1,7 +1,7 @@
 <section class="slider">
   <flex-slider flex-slide="s in mySlides track by $index">
     <li class="relative">
-      <img ng-src="{{s.src}}">
+      <img ng-src="{{s.src|serverimage}}">
       <div class="text-on">
         <h3 class="high-light">{{s.head}}</h3>
         <p class="para">
@@ -13,37 +13,10 @@
 </section>
 <section>
   <div class="strong grey-bg space-flex">
-    <div class="row-flex">
-      <div class="col-flex">
+    <div class="row-flex" ng-repeat="category in categories">
+      <div class="col-flex" ng-repeat="cat in category">
         <a href="#/categories">
-          <div class="line-hover letter-spacing">Bats</div>
-        </a>
-      </div>
-      <div class="col-flex">
-        <a href="#/categories">
-          <div class="line-hover letter-spacing">Balls</div>
-        </a>
-      </div>
-      <div class="col-flex">
-        <a href="#/categories">
-          <div class="line-hover letter-spacing">Gloves</div>
-        </a>
-      </div>
-    </div>
-    <div class="row-flex">
-      <div class="col-flex">
-        <a href="#/categories">
-          <div class="line-hover letter-spacing">Pads</div>
-        </a>
-      </div>
-      <div class="col-flex">
-        <a href="#/categories">
-          <div class="line-hover letter-spacing">Apparels</div>
-        </a>
-      </div>
-      <div class="col-flex">
-        <a href="#/categories">
-          <div class="line-hover letter-spacing">Kit Bags</div>
+          <div class="line-hover letter-spacing">{{cat.name}}</div>
         </a>
       </div>
     </div>

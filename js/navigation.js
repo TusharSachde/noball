@@ -1,3 +1,7 @@
+var mainurl = "";
+var websiteurl = "http://www.myfynx.com/testing/";
+var mainurlpaymentgateway = "http://www.myfynx.com/newfynx/";
+var adminurl = mainurl + "json/";
 var navigationservice = angular.module('navigationservice', [])
 
 .factory('NavigationService', function($http) {
@@ -58,10 +62,16 @@ var navigationservice = angular.module('navigationservice', [])
       return navigation;
     },
     placeOrder:function(callback){
-      $http.get('json/placeorder.json').success(callback)
+      $http.get(adminurl+'placeorder.json').success(callback)
     },
     getSlider:function(callback){
-      $http.get('json/splider.json').success(callback);
+      $http.get(adminurl+'slider.json').success(callback);
+    },
+    getCategory:function(callback){
+      $http.get(adminurl+'category.json').success(callback);
+    },
+    getSubCategory:function(callback){
+      $http.get(adminurl+'subcategory.json').success(callback);
     },
     makeactive: function(menuname) {
       for (var i = 0; i < navigation.length; i++) {

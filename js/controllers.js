@@ -7,24 +7,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-    NavigationService.placeOrder(function(data){
-      console.log(data);
+    NavigationService.getCategory(function(data){
+      $scope.categories = _.chunk(data,3);
     });
     NavigationService.getSlider(function(data){
-      console.log(data);
+      $scope.mySlides = data;
     });
 
-    $scope.mySlides = [{
-      id: 1,
-      src: "img/slide1.jpg",
-      head: 'CUSTOMIZED BATS',
-      subhead: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text."
-    },{
-      id:2,
-      src: "img/slide1.jpg",
-      head: 'CUSTOMIZED BATS',
-      subhead: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text."
-    }];
   })
   .controller('CategoriesCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
@@ -169,6 +158,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.hovermenu = false;
+    NavigationService.getSubCategory(function(data){
+      $scope.subCategories = data;
+    })
+    NavigationService.getProductByCategory(function(data){
+      
+    })
     $scope.hovered = function() {
       $scope.hovermenu = true;
     }

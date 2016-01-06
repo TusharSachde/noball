@@ -115,6 +115,18 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
 });
 
 
+firstapp.filter('serverimage', function () {
+	return function (input) {
+		if (input) {
+			return  "img/" + input;
+			// return  "http://wohlig.co.in/newfynx/uploads/" + input;
+		} else {
+			return "img/logo.png";
+		}
+	};
+});
+
+
 firstapp.directive('img', function ($compile, $parse) {
     return {
         restrict: 'E',
