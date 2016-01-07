@@ -1,4 +1,4 @@
-var mainurl = "";
+var mainurl = "http://wohlig.io/callApi/noball/";
 var websiteurl = "http://www.myfynx.com/testing/";
 var mainurlpaymentgateway = "http://www.myfynx.com/newfynx/";
 var adminurl = mainurl + "json/";
@@ -65,10 +65,10 @@ var navigationservice = angular.module('navigationservice', [])
       $http.get(adminurl+'placeorder.json').success(callback)
     },
     getSlider:function(callback){
-      $http.get(adminurl+'slider.json').success(callback);
+      $http.get(adminurl+'getSlide').success(callback);
     },
     getCategory:function(callback){
-      $http.get(adminurl+'category.json').success(callback);
+      $http.get(adminurl+'getCategory').success(callback);
     },
     getSubCategory:function(callback){
       $http.get(adminurl+'subcategory.json').success(callback);
