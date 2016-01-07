@@ -95,7 +95,8 @@ nav li:hover .dropdown-menu {
     background-color: transparent;
     color: $font-color;
     &:hover,
-    &:focus {
+    &:focus,
+    &.active {
       background-color: $font-color;
       color: white;
       outline: 0;
