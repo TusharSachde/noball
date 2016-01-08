@@ -27,6 +27,32 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Categories");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.categories = [];
+    $scope.params = $stateParams.name;
+
+    NavigationService.getSubCategory($stateParams.name, function(data){
+      $scope.pusharray = [];
+      _.each(data, function(n){
+        if (n.type==1) {
+          if($scope.pusharray!=''){
+
+            $scope.categories.push(n);
+            $scope.pusharray=[];
+          }else{
+          $scope.categories.push(n);
+        }
+        }else {
+          $scope.pusharray.push(n);
+          if($scope.pusharray.length==2){
+            _.each(_.chunk($scope.pusharray,2),function(m){
+              $scope.categories.push(m);
+            })
+            $scope.pusharray=[];
+          }
+        }
+      })
+      console.log($scope.categories);
+    })
   })
   .controller('CartCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
@@ -164,11 +190,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.hovermenu = false;
-    NavigationService.getSubCategory(function(data) {
+    $scope.subcategory = $stateParams.name;
+    $scope.msg = "Loading...";
+    $scope.products = [];
+
+    NavigationService.getSubCategory($stateParams.category,function(data){
       $scope.subCategories = data;
     })
-    NavigationService.getProductBySubCategory(function(data) {
-      $scope.products = _.chunk(data, 2);
+
+
+    NavigationService.getProductBySubCategory($stateParams.name,function(data){
+      if (data=="") {
+        $scope.msg = "No " + $scope.subcategory + " found.";
+      }else{
+            $scope.products =  _.chunk(data,2);
+    }
     })
     $scope.hovered = function() {
       $scope.hovermenu = true;

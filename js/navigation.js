@@ -71,10 +71,10 @@ var navigationservice = angular.module('navigationservice', [])
       $http.get(adminurl+'getCategory').success(callback);
     },
     getSubCategory:function(callback){
-      $http.get(adminurl+'subcategory.json').success(callback);
+      $http.get(adminurl+'getSubCategory?name='+name).success(callback);
     },
     getProductBySubCategory:function(callback){
-      $http.get(adminurl+'product.json').success(callback);
+      $http.get(adminurl+'getProductBySubCategory?name='+name).success(callback);
     },
     makeactive: function(menuname) {
       for (var i = 0; i < navigation.length; i++) {

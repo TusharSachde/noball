@@ -20,7 +20,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
   })
 
   .state('categories', {
-      url: "/categories",
+      url: "/categories/:name",
       templateUrl: "views/template.html",
       controller: 'CategoriesCtrl'
     })
@@ -31,7 +31,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
     })
 
   .state('categories-inside', {
-    url: "/categories/sweatshirts",
+    url: "/categories/:category/:name",
     templateUrl: "views/template.html",
     controller: 'CategoriesInsideCtrl'
   })
