@@ -61,6 +61,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Cart");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    NavigationService.showCart(function (data) {
+    console.log(data);
+    $scope.addCart = data;
+});
   })
   .controller('ProfileCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file

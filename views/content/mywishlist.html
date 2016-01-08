@@ -21,28 +21,28 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="text-center text-bold">
+              <tr class="text-center text-bold" ng-repeat="wish in wishlist">
                 <td>
                   <figure>
-                    <img src="img/product1.png">
-                    <figcaption>SPACE PRINT SLIM FIT T-SHIRT</figcaption>
+                    <img src="{{wish.image|serverimage}}">
+                    <figcaption>{{wish.name}}</figcaption>
                   </figure>
                 </td>
-                <td>White</td>
-                <td>M</td>
-                <td>1
+                <td>{{wish.colour}}</td>
+                <td>{{wish.size}}</td>
+                <td>{{wish.quantity}}
                   <span class="more"><i class="fa fa-plus"></i></span>
                   <span class="more mgl"><i class="fa fa-minus"></i></span>
                 </td>
                 <td>
-                  <p>699</p>
+                  <p>{{wish.subtotal}}</p>
                   <div class="text-right p65">
                     <button class="btn btn-outline btn-dark padding-btn">ADD TO CART</button>
                     <button class="btn btn-outline btn-dark">REMOVE</button>
                   </div>
                 </td>
               </tr>
-              <tr class="text-center text-bold">
+            <!-- <tr class="text-center text-bold">
                 <td>
                   <figure>
                     <img src="img/product2.png">
@@ -62,13 +62,11 @@
                     <button class="btn btn-outline btn-dark ">REMOVE</button>
                   </div>
                 </td>
-              </tr>
+             </tr> -->
             </tbody>
           </table>
         </div>
-
       </div>
-
     </div>
     <div class="wish-back account-bg no-bg account-wish-bg">
       <div class="row">

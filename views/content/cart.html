@@ -17,24 +17,24 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="text-center">
+                            <tr class="text-center" ng-repeat="cart in addCart">
                                 <td>
                                     <figure>
-                                        <img src="img/product1.png">
-                                        <figcaption>SPACE PRINT SLIM FIT T-SHIRT</figcaption>
+                                        <img ng-src="{{cart.image|serverimage}}">
+                                        <figcaption>{{cart.realname}}</figcaption>
                                     </figure>
                                 </td>
                                 <td>White</td>
                                 <td>M</td>
-                                <td>1 <span class="more"><i class="fa fa-plus"></i></span><span class="more"><i class="fa fa-minus"></i></span></td>
+                                <td>{{cart.qty}} <span class="more"><i class="fa fa-plus"></i></span><span class="more"><i class="fa fa-minus"></i></span></td>
                                 <td>
-                                    <p>699</p>
+                                    <p>{{cart.price}}</p>
                                     <div class="p65 clearfix">
                                         <button class="btn btn-outline btn-dark ">REMOVE</button>
                                     </div>
                                 </td>
                             </tr>
-                            <tr class="text-center">
+                            <!-- <tr class="text-center">
                                 <td>
                                     <figure>
                                         <img src="img/product2.png">
@@ -50,7 +50,7 @@
                                         <button class="btn btn-outline btn-dark">REMOVE</button>
                                     </div>
                                 </td>
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
                 </div>
