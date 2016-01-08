@@ -21,7 +21,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       })
     };
   })
-  .controller('CategoriesCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  .controller('CategoriesCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("categories");
     $scope.menutitle = NavigationService.makeactive("Categories");
@@ -183,7 +183,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //    end
 
   })
-  .controller('CategoriesInsideCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  .controller('CategoriesInsideCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("categories-inside");
     $scope.menutitle = NavigationService.makeactive("Categories");
@@ -220,7 +220,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('Product-DetailCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  .controller('Product-DetailCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("product-detail");
     $scope.menutitle = NavigationService.makeactive("Products");
