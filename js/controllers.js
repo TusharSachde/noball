@@ -1,4 +1,6 @@
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider'])
+var myfunction = '';
+var count = 1;
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'ngDialog'])
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal) {
     //Used to name the .html file
@@ -220,7 +222,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('Product-DetailCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams) {
+  .controller('Product-DetailCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams,ngDialog) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("product-detail");
     $scope.menutitle = NavigationService.makeactive("Products");
@@ -234,31 +236,49 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.productdetail = {};
-$scope.testimonial =
     $scope.firstsale = false;
-$scope.productid = $stateParams.id;
-$scope.testimonial = [];
-NavigationService.getProductDetail($scope.productid, function (data) {
-    $scope.productdetail = data;
-    if ($scope.productdetail.product.firstsaleprice) {
-        $scope.firstsale = true;
-    } else {
-        $scope.firstsale = false;
+    $scope.productid = $stateParams.id;
+    $scope.testimonial = [];
+    NavigationService.getProductDetail($scope.productid, function (data) {
+      console.log(data);
+        $scope.productdetail = data;
+        if ($scope.productdetail.product.firstsaleprice) {
+            $scope.firstsale = true;
+        } else {
+            $scope.firstsale = false;
+        }
+        if ($scope.productdetail.product.quantity <= 0) {
+            $scope.outofstock = true;
+        } else {
+            $scope.outofstock = false;
+        }
+    });
+    NavigationService.getTestimonial(function (data) {
+        console.log(data);
+        $scope.testimonial = data;
+    });
+    $scope.selectImage = function (object) {
+        $scope.selectedImage = object.image;
+    };
+    $scope.cartAdd = function(){
+      $scope.productdetail.product.qty = 1;
+      NavigationService.addToCart($scope.productdetail.product, function(data){
+        if (data.value==true) {
+          myfunction();
+        }else {
+          var xyz = ngDialog.open({
+              template: '<div class="pop-up"><h5 class="popup-wishlist">'+data.comment+'</h5><span class="closepop" ng-click="closeThisDialog(value);">X</span></div>',
+              plain: true,
+              controller: 'Product-DetailCtrl'
+          });
+          $timeout(function() {
+                  xyz.close();
+              }, 1000)
+        }
+      })
     }
-    if ($scope.productdetail.product.quantity <= 0) {
-        $scope.outofstock = true;
-    } else {
-        $scope.outofstock = false;
-    }
-});
-NavigationService.getTestimonial(function (data) {
-    console.log(data);
-    $scope.testimonial = data;
-});
-$scope.selectImage = function (object) {
-    $scope.selectedImage = object.image;
-};
   })
+
   .controller('TermsConditionsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("terms-conditions");
@@ -395,12 +415,32 @@ $scope.selectImage = function (object) {
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('headerctrl', function($scope, TemplateService, $uibModal) {
+  .controller('headerctrl', function($scope, TemplateService, $uibModal, NavigationService) {
     $scope.template = TemplateService;
     $scope.logintab = {};
     var tabvalue = 1;
     $scope.logintab.tab = tabvalue;
     $scope.hovermenu = false;
+
+    //Global function
+    myfunction = function() {
+        NavigationService.getCartCount(function(data) {
+          if (data.value) {
+            $scope.amount = 0;
+            $scope.quantity = 0;
+          }else {
+            $scope.amount = data.amount;
+            $scope.quantity = data.quantity+count;
+            count++;
+          }
+
+        });
+        // NavigationService.totalcart(function(data) {
+        //     $scope.amount = data;
+        // });
+    }
+    myfunction();
+
     $scope.hovered = function() {
       $scope.hovermenu = true;
     }

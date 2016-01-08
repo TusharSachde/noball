@@ -54,7 +54,7 @@
                     <div class="custom-btn">
                         <a class="btn btn-outline btn-dark letter-spacing marg10" href="#/custom">CUSTOMIZE</a>
                         <br>
-                        <a class="btn btn-outline btn-dark letter-spacing" href="#/cart" ng-hide="outofstock">ADD TO CART</a>
+                        <a class="btn btn-outline btn-dark letter-spacing" ng-click="cartAdd()" ng-hide="outofstock">ADD TO CART</a>
                         <p ng-show="outofstock"> Out of Stock.</p>
                     </div>
                 </div>

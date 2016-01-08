@@ -70,6 +70,9 @@ var navigationservice = angular.module('navigationservice', [])
     getCategory:function(callback){
       $http.get(adminurl+'getCategory').success(callback);
     },
+    getCartCount:function(callback){
+      $http.get(adminurl+'getCartCount').success(callback);
+    },
     getSubCategory:function(name,callback){
       $http.get(adminurl+'getSubCategory?name='+name).success(callback);
     },
@@ -80,6 +83,20 @@ var navigationservice = angular.module('navigationservice', [])
     },
     getOrders: function (callback) {
         $http.get(adminurl + 'getOrders').success(callback);
+    },
+    getCartCount: function (callback) {
+        $http.get(adminurl + 'getCartCount').success(callback);
+    },
+    addToCart: function (cart, callback) {
+      return $http({
+                     url: adminurl + "addToCart",
+                     method: "POST",
+                     data: {
+                       "product":cart.id,
+                       "quantity":cart.qty,
+                       "json":""
+                     }
+                 }).success(callback);
     },
     getWishlist: function (callback) {
         $http.get(adminurl + 'getWishlist').success(callback);

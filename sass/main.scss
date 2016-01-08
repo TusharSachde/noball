@@ -1779,4 +1779,40 @@ footer {
     padding: 6px 25px;
   }
 }
+//pop-up wishlist
+.pop-up {
+	width: 400px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	h5.popup-wishlist {
+		padding: 10% 3%;
+		border: 2px solid red;
+		background-color: #fff;
+		font-size: 15px !important;
+		text-transform: capitalize;
+		text-align: center;
+		letter-spacing: 2px;
+		i {
+			color:red;
+		}
+	}
+  .closepop {
+		width: 20px;
+		border-radius: 100%;
+		position: absolute;
+		top: 0;
+		left: 388px;
+		background-color: #e6e6e6;
+		text-align: center;
+		cursor: pointer;
+	}
+}
+.ngdialog-close {
+	display: none !important;
+}
+
+.ngdialog-content {
+	background-color: transparent;
+}
 @import "mobile/mobile";
