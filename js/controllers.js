@@ -51,7 +51,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           }
         }
       })
-      console.log($scope.categories);
     })
   })
   .controller('CartCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -191,6 +190,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     $scope.hovermenu = false;
     $scope.subcategory = $stateParams.name;
+    $scope.category = $stateParams.category;
     $scope.msg = "Loading...";
     $scope.products = [];
 
