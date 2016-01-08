@@ -15,7 +15,7 @@
   <div class="strong grey-bg space-flex">
     <div class="row-flex" ng-repeat="category in categories">
       <div class="col-flex" ng-repeat="cat in category">
-        <a href="#/categories">
+        <a ui-sref="categories({name:cat.name})">
           <div class="line-hover letter-spacing">{{cat.name}}</div>
         </a>
       </div>

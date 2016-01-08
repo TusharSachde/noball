@@ -1,12 +1,13 @@
 <section>
   <div class="text-center main-head">
-    <h3 class="high-light letter-spacing">APPARELS</h3>
+    <h3 class="high-light letter-spacing">APPARELS </h3>
   </div>
   <div class="banners">
-    <div class="banner-inner ">
+    <div ng-repeat="category in categories">
+    <div class="banner-inner" ng-if="!category.length">
       <div class="row-flex">
         <div class="banner-img">
-          <img src="img/apparels/playingtshirt.png" alt="" class="img-responsive">
+          <img ng-src="{{category.image1|serverimage}}" alt="" class="img-responsive">
         </div>
       </div>
       <div class="text-above">
@@ -15,112 +16,41 @@
             <div class="col-md-offset-6 col-md-4">
               <div class="text-right">
                 <h2>
-                  PLAYING</br>
-                  T-SHIRTS
+                  {{category.name}}
+                  <!-- PLAYING</br>
+                  T-SHIRTS -->
                 </h2>
-                <a class="btn btn-outline btn-dark uppercase letter-spacing" href="#/categories/sweatshirts">Know More</a>
+                <a class="btn btn-outline btn-dark uppercase letter-spacing" ui-sref="categories-inside({category:params,name:category.name})">Know More</a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="row-flex">
+    <div class="row-flex" ng-if="category.length">
       <div class="col-flex">
         <div class="banner-inner">
-          <img src="img/apparels/sweatshirt.png" alt="" class="img-responsive">
+          <img ng-src="{{category[0].image2|serverimage}}" alt="" class="img-responsive">
           <div class="text-above text-center">
             <h2 class="">
-              SWEATSHIRTS
+              {{category[0].name}}
             </h2>
-            <a class="btn btn-outline btn-light uppercase letter-spacing" href="#/categories/sweatshirts">Know More</a>
+            <a class="btn btn-outline btn-light uppercase letter-spacing" ui-sref="categories-inside({category:params,name:category[0].name})">Know More</a>
           </div>
         </div>
       </div>
       <div class="col-flex">
         <div class="banner-inner">
-          <img src="img/apparels/trainingshorts.png" alt="" class="img-responsive">
+          <img ng-src="{{category[1].image2|serverimage}}" alt="" class="img-responsive">
           <div class="text-center text-above">
             <h2>
-              TRAINING SHORTS
+              {{category[1].name}}
             </h2>
-            <a class="btn btn-outline btn-light uppercase letter-spacing" href="#/categories/sweatshirts">Know More</a>
+            <a class="btn btn-outline btn-light uppercase letter-spacing" ui-sref="categories-inside({category:params,name:category[1].name})">Know More</a>
           </div>
         </div>
       </div>
     </div>
-    <div class="row-flex">
-      <div class="col-flex">
-        <div class="banner-inner">
-          <img src="img/apparels/tracksuit.png" alt="" class="img-responsive">
-          <div class="text-above text-center">
-            <h2>
-              TRACKSUIT
-              </br>
-              TROUSER
-            </h2>
-            <a class="btn btn-outline btn-light uppercase letter-spacing " href="#/categories/sweatshirts">Know More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-flex">
-        <div class="banner-inner">
-          <img src="img/apparels/polos.png" alt="" class="img-responsive">
-          <div class="text-above text-center">
-            <h2>
-              POLOS
-            </h2>
-            <a class="btn btn-outline btn-light uppercase letter-spacing" href="#/categories/sweatshirts">Know More</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row-flex">
-      <div class="banner-inner">
-        <div class="">
-          <img src="img/apparels/tracksuit-top.png" alt="" class="img-responsive">
-        </div>
-        <div class="text-above text-center">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-offset-2 col-md-3">
-                <div class="text-left">
-                  <h2>
-                    TRACKSUIT
-                    </br>
-                    TOP
-                  </h2>
-                  <a class="btn btn-outline btn-light uppercase letter-spacing" href="#/categories/sweatshirts">Know More</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row-flex">
-      <div class="col-flex">
-        <div class="banner-inner">
-          <img src="img/apparels/playingtroushers.png" alt="" class="img-responsive">
-          <div class="text-above text-center">
-            <h2>
-              PLAYING TROUSERS
-            </h2>
-            <a class="btn btn-outline btn-light uppercase letter-spacing" href="#/categories/sweatshirts">Know More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-flex">
-        <div class="banner-inner">
-          <img src="img/apparels/trainingtee.png" alt="" class="img-responsive">
-          <div class="text-above text-center">
-            <h2>
-              TRAINING TEE
-            </h2>
-            <a class="btn btn-outline btn-light uppercase letter-spacing" href="#/categories/sweatshirts">Know More</a>
-          </div>
-        </div>
-      </div>
-    </div>
+  </div>
   </div>
 </section>
