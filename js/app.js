@@ -114,6 +114,16 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
       templateUrl: "views/template.html",
       controller: 'ThankCtrl'
     })
+    .state('forgot', {
+      url: "/forgot",
+      templateUrl: "views/template.html",
+      controller: 'ForgotCtrl'
+    })
+    .state('forgotpassword', {
+      url: "/forgot-password",
+      templateUrl: "views/template.html",
+      controller: 'ForgotPasswordCtrl'
+    })
 
   $urlRouterProvider.otherwise("/home");
 

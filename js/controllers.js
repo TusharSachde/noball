@@ -1,19 +1,25 @@
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider'])
 
-.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("home");
     $scope.menutitle = NavigationService.makeactive("Home");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-    NavigationService.getCategory(function(data){
-      $scope.categories = _.chunk(data,3);
+    NavigationService.getCategory(function(data) {
+      $scope.categories = _.chunk(data, 3);
     });
-    NavigationService.getSlider(function(data){
+    NavigationService.getSlider(function(data) {
       $scope.mySlides = data;
     });
-
+    $scope.openAppoinment = function() {
+      $uibModal.open({
+        animation: true,
+        templateUrl: 'views/modal/appoinment.html',
+        controller: 'HomeCtrl'
+      })
+    };
   })
   .controller('CategoriesCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
@@ -158,11 +164,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.hovermenu = false;
-    NavigationService.getSubCategory(function(data){
+    NavigationService.getSubCategory(function(data) {
       $scope.subCategories = data;
     })
-    NavigationService.getProductBySubCategory(function(data){
-      $scope.products =  _.chunk(data,2);
+    NavigationService.getProductBySubCategory(function(data) {
+      $scope.products = _.chunk(data, 2);
     })
     $scope.hovered = function() {
       $scope.hovermenu = true;
@@ -191,18 +197,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       isFirstDisabled: false
     };
 
-    $scope.testimonial = [
-      {
-        img: "img/manan.png",
-        name: "manan vora",
-        descp: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
-      },
-      {
-        img: "img/manan.png",
-        name: "Viraj",
-        descp: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
-      }
-    ];
+    $scope.testimonial = [{
+      img: "img/manan.png",
+      name: "manan vora",
+      descp: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+    }, {
+      img: "img/manan.png",
+      name: "Viraj",
+      descp: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+    }];
   })
   .controller('TermsConditionsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
@@ -261,11 +264,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       img: "img/hoodi.png",
       name: "sweatshirts",
       price: "795"
-    },  {
+    }, {
       img: "img/polo.png",
       name: "polo",
       price: "795"
-    },{
+    }, {
       img: "img/bags.png",
       name: "travel kit",
       price: "795"
@@ -291,23 +294,87 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   })
 
 .controller('MyWishListCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-  //Used to name the .html file
-  $scope.template = TemplateService.changecontent("mywishlist");
-  $scope.menutitle = NavigationService.makeactive("My Wishlist");
-  TemplateService.title = $scope.menutitle;
-  $scope.navigation = NavigationService.getnav();
-})
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("mywishlist");
+    $scope.menutitle = NavigationService.makeactive("My Wishlist");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+  })
+  //
+  // .controller('headerctrl', function($scope, TemplateService) {
+  //   $scope.template = TemplateService;
+  //   $scope.hovermenu = false;
+  //   $scope.hovered = function() {
+  //     $scope.hovermenu = true;
+  //   }
+  //   $scope.unhovered = function() {
+  //     $scope.hovermenu = false;
+  //   }
+  //   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+  //     $(window).scrollTop(0);
+  //   });
+  // });
 
-.controller('headerctrl', function($scope, TemplateService) {
-  $scope.template = TemplateService;
-  $scope.hovermenu = false;
-  $scope.hovered = function() {
-    $scope.hovermenu = true;
-  }
-  $scope.unhovered = function() {
+.controller('ForgotCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("forgot");
+    $scope.menutitle = NavigationService.makeactive("Forgot Password");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+  })
+  .controller('ForgotPasswordCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("forgot-password");
+    $scope.menutitle = NavigationService.makeactive("Forgot Password");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+  })
+  .controller('ThankCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("thank");
+    $scope.menutitle = NavigationService.makeactive("Thank You");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+  })
+  .controller('headerctrl', function($scope, TemplateService, $uibModal) {
+    $scope.template = TemplateService;
+    $scope.logintab = {};
+    var tabvalue = 1;
+    $scope.logintab.tab = tabvalue;
     $scope.hovermenu = false;
-  }
-  $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
-    $(window).scrollTop(0);
+    $scope.hovered = function() {
+      $scope.hovermenu = true;
+    }
+    $scope.unhovered = function() {
+      $scope.hovermenu = false;
+    }
+    $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+      $(window).scrollTop(0);
+    });
+    $scope.animationsEnabled = true;
+
+    $scope.openLogin = function() {
+      $.jStorage.set("isExpert", false);
+      tabvalue = 2;
+      $uibModal.open({
+        animation: true,
+        templateUrl: 'views/modal/login.html',
+        controller: 'headerctrl'
+      })
+    };
+    $scope.changeTab = function(tab) {
+      $scope.logintab.tab = tab;
+    }
+    $scope.openSignup = function() {
+      $.jStorage.set("isExpert", true);
+      tabvalue = 1;
+      $uibModal.open({
+        animation: true,
+        templateUrl: 'views/modal/login.html',
+        controller: 'headerctrl'
+      })
+    };
+    $scope.cancel = function () {
+      $uibModalInstance.dismiss('cancel');
+    };
   });
-});

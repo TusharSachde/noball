@@ -407,20 +407,24 @@ footer {
 .btn-pink {
   background-color: gray;
   border-left: 3px solid $brand-danger;
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: gray !important;
     border-left: 3px solid $brand-danger;
     color: #fff !important;
+    outline: 0;
   }
 }
 .btn-yellow {
   background-color: gray;
   border-left: 3px solid $brand-warning;
   margin-left: 40px !important;
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: gray!important;
     border-left: 3px solid $brand-warning;
     color: #fff !important;
+    outline: 0;
   }
 }
 .custom-sub {
@@ -1142,7 +1146,6 @@ footer {
     }
   }
 }
-
 .stepbg {
   ul {
     li {
@@ -1669,6 +1672,111 @@ footer {
   }
   .flex-control-nav {
     display: none;
+  }
+}
+.tabs-login {
+  .modal-header {
+    border: 0;
+    padding-right: 30px;
+    .modal-title {
+      cursor: pointer;
+      border-bottom: 3px solid $border;
+      position: relative;
+      margin-left: -6px;
+      margin-bottom: 10px;
+      @include transition(all ease 300ms);
+      &.activeyellow:hover {
+        border-bottom: 3px solid $brand-warning;
+      }
+      &.activered:hover {
+        border-bottom: 3px solid $brand-danger;
+      }
+      &:before {
+        content: '';
+        border-left: 6px solid $border;
+        position: relative;
+        left: -12px;
+        top: 2px;
+        @include transition(all ease 300ms);
+      }
+      &.activeyellow:before {
+        border-left: 6px solid $brand-warning;
+      }
+      &.activered:before {
+        border-left: 6px solid $brand-danger;
+      }
+    }
+  }
+  .modal-body {
+    padding: 20px 60px;
+    .login-form {
+      padding-bottom: 10px;
+    }
+    input.form-control {
+      background: #f4f4f4;
+      box-shadow: none;
+      color: $font-color;
+      border-color: $font-color;
+      &:focus {
+        box-shadow: none;
+      }
+    }
+    input::-webkit-input-placeholder {
+      color: $font-color;
+    }
+    input:-moz-placeholder {
+      color: $font-color;
+    }
+    input::-moz-placeholder {
+      color: $font-color;
+    }
+    input:-ms-input-placeholder {
+      color: $font-color;
+    }
+    .checkbox input[type="checkbox"] + label {
+      padding-left: 0;
+      span {
+        margin: -4px 4px 0 0;
+      }
+    }
+    .mg p {
+      font-size: 16px;
+    }
+    .btn {
+      &:focus {
+        outline: 0 auto -webkit-focus-ring-color;
+        outline-offset: 0;
+      }
+    }
+    .btn-google {
+      font-size: 12px;
+      padding: 7px 10px;
+    }
+    .btn.btn-outline.btn-dark.active {
+      padding: 6px 30px !important;
+      margin-bottom: 15px !important;
+      text-transform: uppercase;
+    }
+  }
+  .panel-heading {
+    background: #000;
+    color: #fff;
+    letter-spacing: 4px;
+  }
+  .head-form {
+    padding-bottom: 20px;
+  }
+}
+.thank-you.text-center {
+  padding: 50px;
+  p {
+    font-size: 35px;
+  }
+  .shopping {
+    padding: 30px 2px;
+  }
+  a.btn.btn-outline.btn-dark {
+    padding: 6px 25px;
   }
 }
 @import "mobile/mobile";
