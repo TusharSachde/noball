@@ -75,7 +75,18 @@ var navigationservice = angular.module('navigationservice', [])
     },
     getProductBySubCategory:function(callback){
       $http.get(adminurl+'getProductBySubCategory?name='+name).success(callback);
+    },getTestimonial: function (callback) {
+        $http.get(adminurl + 'getTestimonial').success(callback);
     },
+    getOrders: function (callback) {
+        $http.get(adminurl + 'getOrders').success(callback);
+    },
+    getWishlist: function (callback) {
+        $http.get(adminurl + 'getWishlist').success(callback);
+    },
+    getProductDetail: function (id, callback) {
+        $http.get(adminurl + 'getProductDetail?id=' + id).success(callback);
+},
     makeactive: function(menuname) {
       for (var i = 0; i < navigation.length; i++) {
         if (navigation[i].name == menuname) {

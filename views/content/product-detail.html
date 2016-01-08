@@ -1,104 +1,89 @@
 <section>
-  <div class="margin-bottom">
-    <div class="text-center main-head">
-      <h3 class="high-light">PLAYING T-SHIRTS</h3>
-    </div>
-    <div class="row-flex no-row-flex">
-      <div class="col-flex">
-        <div class="img-holder">
-          <img src="img/detail/d1.jpg" class="img-responsive">
+    <div class="margin-bottom">
+        <div class="text-center main-head">
+            <h3 class="high-light">{{productdetail.product.name}}</h3>
         </div>
-        <div class="row-flex">
-          <div class="col-flex">
-            <div class="img-hold">
-              <img src="img/detail/d2.jpg" class="img-responsive">
-            </div>
-          </div>
-          <div class="col-flex">
-            <div class="img-hold">
-              <img src="img/detail/d3.jpg" class="img-responsive">
-            </div>
-          </div>
-          <div class="col-flex">
-            <div class="img-hold">
-              <img src="img/detail/d4.jpg" class="img-responsive">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-flex">
-        <div class="product-desc">
-          <div class="pro-rp">
-            <p><i class="fa fa-inr"></i>900</p>
-          </div>
-          <div class="pro-detail">
-            <accordion close-others="oneAtATime" is-open="status.open">
-              <accordion-group is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
-                <accordion-heading>
-                  DESCRIPTION <i class="fa" ng-class="{'fa-caret-down': status.isFirstOpen, 'fa-caret-right': !status.isFirstOpen}"></i>
-                </accordion-heading>
-                The Custom Cricket company cricket shirt is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest and at the centre back
-                of the tees.
-              </accordion-group>
-              <accordion-group is-open="status.open2">
-                <accordion-heading>
-                  DETAILS <i class="fa" ng-class="{'fa-caret-down': status.open2, 'fa-caret-right': !status.open2}"></i>
-                </accordion-heading>
-                The Custom Cricket company cricket shirt is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest and at the centre back
-                of the tees.
-              </accordion-group>
-              <accordion-group is-open="status.open3">
-                <accordion-heading>
-                  DELIVERY <i class="fa" ng-class="{'fa-caret-down': status.open3, 'fa-caret-right': !status.open3}"></i>
-                </accordion-heading>
-                <ul class="delivery">
-                  <li> Delivery within 4 weeks depending on your exact delivery location. On placing your order, you will receive an email containing a summary of the order and also a more accurate delivery date. Sometimes, delivery may take longer due to
-                    - bad weather, flight delays, political disruptions or other unforeseen circumstances.* (Link to terms & conditions)</li>
-                  <li> All our indicated prices do not include VAT. Promotional sporting goods shipped from India are VAT free.</li>
-                  <li>We are a registered Import/ Export proprietorship with its head office in Mumbai, India.</li>
-                </ul>
-              </accordion-group>
-
-              <accordion-group is-open="status.open4">
-                <accordion-heading>
-                  CARE <i class="fa" ng-class="{'fa-caret-down': status.open4, 'fa-caret-right': !status.open4}"></i>
-                </accordion-heading>
-                Wash when dirty, not too hot, not too cold
-              </accordion-group>
-            </accordion>
-          </div>
-          <div class="custom-btn">
-            <a class="btn btn-outline btn-dark letter-spacing marg10" href="#/custom">CUSTOMIZE</a>
-            <br>
-            <a class="btn btn-outline btn-dark letter-spacing" href="#/cart">ADD TO CART</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="testimonial">
-    <div class="container">
-      <div class="heading text-center">
-        <h4 class="text-uppercase high-light">testimonials</h4>
-      </div>
-      <div class="slider-prd-detail">
-        <flex-slider class="carosuel" flex-slide="test in testimonial track by $index">
-          <li>
-            <div class="slider-info">
-              <div class="slider-imgholder">
-                <img ng-src="{{test.img}}" alt="" class="img-responsive">
-              </div>
-              <div class="info">
-                <h3 class="text-uppercase name letter-spacing">{{test.name}}</h3>
-                <h4 class="location letter-spacing">Mumbai ,India</h4>
-                <div class="descp">
-                  <p class="text-justify">{{test.descp}}</p>
+        <div class="row-flex no-row-flex">
+            <div class="col-flex">
+                <div class="img-holder">
+                    <img ng-src="{{selectedImage || productdetail.productimages[0].image}}" class="img-responsive">
                 </div>
-              </div>
+                <div class="row-flex">
+                    <div class="col-flex" ng-repeat="item in productdetail.productimages" ng-click="selectImage(item)">
+                        <div class="img-hold">
+                            <img ng-src="{{item.image}}" class="img-responsive">
+                        </div>
+                    </div>
+                </div>
             </div>
-          </li>
-        </flex-slider>
-      </div>
+            <div class="col-flex">
+                <div class="product-desc">
+                    <div class="pro-rp">
+                        <p ng-class="{'strike-text':firstsale}"><i class="fa fa-inr"></i>{{productdetail.product.price}}</p>
+                        <span ng-show="firstsale"><i class="fa fa-inr"></i>{{productdetail.product.firstsaleprice}}</span>
+                    </div>
+                    <div class="pro-detail">
+                        <accordion close-others="oneAtATime" is-open="status.open">
+                            <accordion-group is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+                                <accordion-heading>
+                                    DESCRIPTION <i class="fa" ng-class="{'fa-caret-down': status.isFirstOpen, 'fa-caret-right': !status.isFirstOpen}"></i>
+                                </accordion-heading>
+                                <div class="" ng-bind-html="productdetail.product.description || 'Loading..'"></div>
+                            </accordion-group>
+                            <accordion-group is-open="status.open2">
+                                <accordion-heading>
+                                    DETAILS <i class="fa" ng-class="{'fa-caret-down': status.open2, 'fa-caret-right': !status.open2}"></i>
+                                </accordion-heading>
+                                <div class="" ng-bind-html="productdetail.product.details || 'Loading..'"></div>
+                            </accordion-group>
+                            <accordion-group is-open="status.open3">
+                                <accordion-heading>
+                                    DELIVERY <i class="fa" ng-class="{'fa-caret-down': status.open3, 'fa-caret-right': !status.open3}"></i>
+                                </accordion-heading>
+                                <div class="" ng-bind-html="productdetail.product.delivery || 'Loading..'"></div>
+                            </accordion-group>
+
+                            <accordion-group is-open="status.open4">
+                                <accordion-heading>
+                                    CARE <i class="fa" ng-class="{'fa-caret-down': status.open4, 'fa-caret-right': !status.open4}"></i>
+                                </accordion-heading>
+                                <div class="" ng-bind-html="productdetail.product.care || 'Loading..'"></div>
+                            </accordion-group>
+                        </accordion>
+                    </div>
+                    <div class="custom-btn">
+                        <a class="btn btn-outline btn-dark letter-spacing marg10" href="#/custom">CUSTOMIZE</a>
+                        <br>
+                        <a class="btn btn-outline btn-dark letter-spacing" href="#/cart" ng-hide="outofstock">ADD TO CART</a>
+                        <p ng-show="outofstock"> Out of Stock.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+    <div class="testimonial">
+        <div class="container">
+            <div class="heading text-center">
+                <h4 class="text-uppercase high-light">testimonials</h4>
+            </div>
+            <div class="slider-prd-detail">
+                <flex-slider class="carosuel" flex-slide="test in testimonial track by $index">
+                    <li>
+                        <div class="slider-info">
+                            <div class="slider-imgholder">
+                                <img ng-src="{{test.image}}" alt="" class="img-responsive">
+                            </div>
+                            <div class="info">
+                                <h3 class="text-uppercase name letter-spacing">{{test.name}}</h3>
+                                <h4 class="location letter-spacing">{{test.location}}</h4>
+                                <div class="descp">
+                                    <p class="text-justify">{{test.description || 'Loading..'}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </flex-slider>
+            </div>
+        </div>
+    </div>
 </section>

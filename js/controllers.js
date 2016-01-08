@@ -233,15 +233,31 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       isFirstDisabled: false
     };
 
-    $scope.testimonial = [{
-      img: "img/manan.png",
-      name: "manan vora",
-      descp: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
-    }, {
-      img: "img/manan.png",
-      name: "Viraj",
-      descp: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
-    }];
+    $scope.productdetail = {};
+$scope.testimonial =
+    $scope.firstsale = false;
+$scope.productid = $stateParams.id;
+$scope.testimonial = [];
+NavigationService.getProductDetail($scope.productid, function (data) {
+    $scope.productdetail = data;
+    if ($scope.productdetail.product.firstsaleprice) {
+        $scope.firstsale = true;
+    } else {
+        $scope.firstsale = false;
+    }
+    if ($scope.productdetail.product.quantity <= 0) {
+        $scope.outofstock = true;
+    } else {
+        $scope.outofstock = false;
+    }
+});
+NavigationService.getTestimonial(function (data) {
+    console.log(data);
+    $scope.testimonial = data;
+});
+$scope.selectImage = function (object) {
+    $scope.selectedImage = object.image;
+};
   })
   .controller('TermsConditionsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
@@ -270,6 +286,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Order");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    NavigationService.getOrders(function (data) {
+    $scope.orders = data;
+});
   })
   .controller('CheckoutCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
@@ -335,6 +354,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("My Wishlist");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    NavigationService.getWishlist(function (data) {
+    console.log(data);
+    $scope.wishlist = data;
+});
   })
   //
   // .controller('headerctrl', function($scope, TemplateService) {

@@ -10,7 +10,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="">
-          <div class="order-table wish-table">
+          <div class="order-table wish-table" ng-if="orders">
             <table class="table">
               <thead>
                 <tr class="text-center desktop">
@@ -22,28 +22,15 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="text-center">
+                <tr class="text-center" ng-repeat="order in orders">
                   <td>
-                    <span class="mobile">TRANSITION ID</span> 1586972348 </td>
+                    <span class="mobile">TRANSACTION ID</span> {{order.transactionid}} </td>
                   <td>
-                    <span class="mobile">DATE </span>5.6.12 </td>
+                    <span class="mobile">DATE </span>{{order.date}} </td>
                   <td>
-                    <span class="mobile">AMOUNT</span>5800 </td>
+                    <span class="mobile">AMOUNT</span>{{order.amount}} </td>
                   <td>
-                    <span class="mobile">STATUS</span>DISPATCHED</td>
-                  <td>
-                    <button type="submit" class="btn btn-outline btn-dark padding-btn">PRINT INVOICE</button>
-                  </td>
-                </tr>
-                <tr class="text-center">
-                  <td>
-                    <span class="mobile">TRANSITION ID</span> 1586972348 </td>
-                  <td>
-                    <span class="mobile">DATE </span>5.6.12 </td>
-                  <td>
-                    <span class="mobile">AMOUNT</span>5700 </td>
-                  <td>
-                    <span class="mobile">STATUS</span>DISPATCHED</td>
+                    <span class="mobile">STATUS</span>{{order.status}}</td>
                   <td>
                     <button type="submit" class="btn btn-outline btn-dark padding-btn">PRINT INVOICE</button>
                   </td>
@@ -51,6 +38,7 @@
               </tbody>
             </table>
           </div>
+          <div class="text-center" ng-if="!orders">No orders yet.</div>
         </div>
       </div>
     </div>
