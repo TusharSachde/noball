@@ -502,173 +502,176 @@ var countries = [{
 ];
 var navigationservice = angular.module('navigationservice', [])
 
-.factory('NavigationService', function($http) {
-  var navigation = [{
-    name: "Shop",
-    classis: "",
-    link: "#/shop",
-    subnav: [{
-      name: "Bats",
-      classis: "",
-      link: "#/shop"
+.factory('NavigationService', function ($http) {
+    var navigation = [{
+        name: "Shop",
+        classis: "",
+        link: "#/shop",
+        subnav: [{
+            name: "Bats",
+            classis: "",
+            link: "#/shop"
     }, {
-      name: "Balls",
-      classis: "",
-      link: "#/shop"
+            name: "Balls",
+            classis: "",
+            link: "#/shop"
     }, {
-      name: "Gloves",
-      classis: "",
-      link: "#/shop"
+            name: "Gloves",
+            classis: "",
+            link: "#/shop"
     }, {
-      name: "Apparels",
-      classis: "",
-      link: "#/shop"
+            name: "Apparels",
+            classis: "",
+            link: "#/shop"
     }, {
-      name: "Kit Bags",
-      classis: "",
-      link: "#/shop"
+            name: "Kit Bags",
+            classis: "",
+            link: "#/shop"
     }]
   }, {
-    name: "Customize",
-    classis: "",
-    link: "#/customize",
-    subnav: [{
-      name: "Bats",
-      classis: "",
-      link: "#/customize"
+        name: "Customize",
+        classis: "",
+        link: "#/customize",
+        subnav: [{
+            name: "Bats",
+            classis: "",
+            link: "#/customize"
     }, {
-      name: "Balls",
-      classis: "",
-      link: "#/customize"
+            name: "Balls",
+            classis: "",
+            link: "#/customize"
     }, {
-      name: "Gloves",
-      classis: "",
-      link: "#/customize"
+            name: "Gloves",
+            classis: "",
+            link: "#/customize"
     }, {
-      name: "Apparels",
-      classis: "",
-      link: "#/customize"
+            name: "Apparels",
+            classis: "",
+            link: "#/customize"
     }, {
-      name: "Kit Bags",
-      classis: "",
-      link: "#/customize"
+            name: "Kit Bags",
+            classis: "",
+            link: "#/customize"
     }]
   }];
 
-  return {
-    getnav: function() {
-      return navigation;
-    },
-    placeOrder: function(callback) {
-      $http.get(adminurl + 'placeorder.json').success(callback)
-    },
-    getSlider: function(callback) {
-      $http.get(adminurl + 'getSlide').success(callback);
-    },
-    getCategory: function(callback) {
-      $http.get(adminurl + 'getCategory').success(callback);
-    },
-    getCartCount: function(callback) {
-      $http.get(adminurl + 'getCartCount').success(callback);
-    },
-    getSubCategory: function(name, callback) {
-      $http.get(adminurl + 'getSubCategory?name=' + name).success(callback);
-    },
-    getProductBySubCategory: function(name, callback) {
-      $http.get(adminurl + 'getProductBySubCategory?name=' + name).success(callback);
-    },
-    getTestimonial: function(callback) {
-      $http.get(adminurl + 'getTestimonial').success(callback);
-    },
-    getOrders: function(callback) {
-      $http.get(adminurl + 'getOrders').success(callback);
-    },
-    getCartCount: function(callback) {
-      $http.get(adminurl + 'getCartCount').success(callback);
-    },
-    addToCart: function(cart, callback) {
-      return $http({
-        url: adminurl + "addToCart",
-        method: "POST",
-        data: {
-          "product": cart.id,
-          "quantity": cart.qty,
-          "json": ""
-        }
-      }).success(callback);
-    },
-    login: function(login, callback) {
-      return $http({
-        url: adminurl + "login",
-        method: "POST",
-        data: {
-          "email": login.email,
-          "password": login.password
-        }
-      }).success(callback);
-    },
-    signup: function(signup, callback) {
-      console.log(signup);
-      return $http({
-        url: adminurl + "signup",
-        method: "POST",
-        data: {
-          "firstname": signup.firstname,
-          "lastname": signup.lastname,
-          "email":signup.email,
-          "password":signup.password
-        }
-      }).success(callback);
-    },
-    updateProfile: function(profile, callback) {
-      return $http({
-        url: adminurl + "updateProfile",
-        method: "POST",
-        data: profile
-      }).success(callback);
-    },
-    changePassword: function(password, callback) {
-      return $http({
-        url: adminurl + "changePassword",
-        method: "POST",
-        data: {
-                  "email": password.email,
-                  "newpassword": password.newpassword,
-                  "oldpassword": password.oldpassword
-              }
-      }).success(callback);
-    },
-    getWishlist: function(callback) {
-      $http.get(adminurl + 'getWishlist').success(callback);
-    },
-    getUserDetail: function(callback) {
-      $http.get(adminurl + 'getUser?id='+2).success(callback);
-    },
-    getProductDetail: function(id, callback) {
-      $http.get(adminurl + 'getProductDetail?id=' + id).success(callback);
-    },
-    showCart: function(callback) {
-      $http.get(adminurl + 'showCart').success(callback);
-    },
-    logout: function(callback) {
-      $http.get(adminurl + 'logout').success(callback);
-    },
-    setUser: function(user) {
-      $.jStorage.set("user",user);
-    },
-    getUser: function() {
-      return $.jStorage.get("user");
-    },
-    makeactive: function(menuname) {
-      for (var i = 0; i < navigation.length; i++) {
-        if (navigation[i].name == menuname) {
-          navigation[i].classis = "active";
-        } else {
-          navigation[i].classis = "";
-        }
-      }
-      return menuname;
-    },
+    return {
+        getnav: function () {
+            return navigation;
+        },
+        placeOrder: function (callback) {
+            $http.get(adminurl + 'placeorder.json').success(callback)
+        },
+        getSlider: function (callback) {
+            $http.get(adminurl + 'getSlide').success(callback);
+        },
+        getCategory: function (callback) {
+            $http.get(adminurl + 'getCategory').success(callback);
+        },
+        getCartCount: function (callback) {
+            $http.get(adminurl + 'getCartCount').success(callback);
+        },
+        getSubCategory: function (name, callback) {
+            $http.get(adminurl + 'getSubCategory?name=' + name).success(callback);
+        },
+        getProductBySubCategory: function (name, callback) {
+            $http.get(adminurl + 'getProductBySubCategory?name=' + name).success(callback);
+        },
+        getTestimonial: function (callback) {
+            $http.get(adminurl + 'getTestimonial').success(callback);
+        },
+        getOrders: function (callback) {
+            $http.get(adminurl + 'getOrders').success(callback);
+        },
+        getCartCount: function (callback) {
+            $http.get(adminurl + 'getCartCount').success(callback);
+        },
+        addToCart: function (cart, callback) {
+            return $http({
+                url: adminurl + "addToCart",
+                method: "POST",
+                data: {
+                    "product": cart.id,
+                    "quantity": cart.qty,
+                    "json": ""
+                }
+            }).success(callback);
+        },
+        login: function (login, callback) {
+            return $http({
+                url: adminurl + "login",
+                method: "POST",
+                data: {
+                    "email": login.email,
+                    "password": login.password
+                }
+            }).success(callback);
+        },
+        signup: function (signup, callback) {
+            console.log(signup);
+            return $http({
+                url: adminurl + "signup",
+                method: "POST",
+                data: {
+                    "firstname": signup.firstname,
+                    "lastname": signup.lastname,
+                    "email": signup.email,
+                    "password": signup.password
+                }
+            }).success(callback);
+        },
+        updateProfile: function (profile, callback) {
+            return $http({
+                url: adminurl + "updateProfile",
+                method: "POST",
+                data: profile
+            }).success(callback);
+        },
+        changePassword: function (password, callback) {
+            return $http({
+                url: adminurl + "changePassword",
+                method: "POST",
+                data: {
+                    "email": password.email,
+                    "newpassword": password.newpassword,
+                    "oldpassword": password.oldpassword
+                }
+            }).success(callback);
+        },
+        getWishlist: function (callback) {
+            $http.get(adminurl + 'getWishlist').success(callback);
+        },
+        placeOrder: function (callback) {
+            $http.get(adminurl + 'placeorder.json').success(callback)
+        },
+        getUserDetail: function (id,callback) {
+            $http.get(adminurl + 'getUser?id=' + id).success(callback);
+        },
+        getProductDetail: function (id, callback) {
+            $http.get(adminurl + 'getProductDetail?id=' + id).success(callback);
+        },
+        showCart: function (callback) {
+            $http.get(adminurl + 'showCart').success(callback);
+        },
+        logout: function (callback) {
+            $http.get(adminurl + 'logout').success(callback);
+        },
+        setUser: function (user) {
+            $.jStorage.set("user", user);
+        },
+        getUser: function () {
+            return $.jStorage.get("user");
+        },
+        makeactive: function (menuname) {
+            for (var i = 0; i < navigation.length; i++) {
+                if (navigation[i].name == menuname) {
+                    navigation[i].classis = "active";
+                } else {
+                    navigation[i].classis = "";
+                }
+            }
+            return menuname;
+        },
 
-  }
+    }
 });
