@@ -1,6 +1,6 @@
 // JavaScript Document
 var firstapp = angular.module('firstapp', [
-  'ui.router', 
+  'ui.router',
   'phonecatControllers',
   'templateservicemod',
   'navigationservice'
@@ -141,6 +141,18 @@ firstapp.filter('serverimage', function() {
   };
 });
 
+
+var formvalidation = function (allvalidation) {
+	var isvalid2 = true;
+	for (var i = 0; i < allvalidation.length; i++) {
+		console.log(allvalidation[i].field);
+		if (allvalidation[i].field == "" || !allvalidation[i].field || allvalidation[i].field == "Please select" || allvalidation[i].field == "Please Select") {
+			allvalidation[i].validation = "ng-invalid";
+			isvalid2 = false;
+		}
+	}
+	return isvalid2;
+};
 
 firstapp.directive('img', function($compile, $parse) {
   return {

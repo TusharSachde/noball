@@ -1,7 +1,7 @@
 <div class="tabs-login">
   <div class="modal-header">
     <h3 class="modal-title activered" ng-click="changeTab(1)">SIGN UP</h3>
-    <h3 class="modal-title activeyellow" ng-click="changeTab(2)">LOGIN</h3>
+    <h3 class="modal-title activeyellow" ng-click="changeTab(2)">LOGIN{{logintab.tab}}</h3>
   </div>
   <div class="modal-body">
     <!--   Registration   -->
@@ -9,30 +9,31 @@
       <div class="signup">
         <div class="login-form">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="First Name">
+            <input type="text" class="form-control" ng-model="signup.firstname" placeholder="First Name *">
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Last Name">
+            <input type="text" class="form-control" ng-model="signup.lastname" placeholder="Last Name *">
           </div>
           <div class="form-group">
-            <input type="email" class="form-control" placeholder="Email">
+            <input type="email" class="form-control" ng-model="signup.email" placeholder="Email *">
           </div>
           <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password">
+            <input type="password" class="form-control" ng-model="signup.password" placeholder="Password *">
           </div>
           <div class="form-group">
-            <input type="password" class="form-control" placeholder="Confirm Password">
+            <input type="password" class="form-control" ng-model="signup.cpassword" placeholder="Confirm Password *">
           </div>
           <div class="form-group i-check">
             <div class="checkbox">
-              <input type="checkbox" id="tc">
+              <input type="checkbox" id="tc" ng-model="accept">
               <label for="tc" class="agree">
+              <p style="color:red" ng-if="validation1!=''">{{validation1}}</p>
                 <span></span> I Accept the Terms and Conditions and Privacy Policy of the website
             </div>
           </div>
         </div>
         <div class="">
-          <button class="btn btn-outline btn-dark active">SIGN UP</button>
+          <button class="btn btn-outline btn-dark active" ng-click="doSignUp(accept)">SIGN UP</button>
           <div class="mg">
             <p class="or">OR SIGN UP VIA</p>
           </div>
@@ -55,16 +56,17 @@
       <div class="login">
         <div class="login-form">
           <div class="form-group">
-            <input type="email" class="form-control" placeholder="Email">
+            <input type="email" class="form-control" ng-model="login.email" placeholder="Email *">
           </div>
           <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password">
+            <input type="password" class="form-control" ng-model="login.password" placeholder="Password *">
           </div>
           <div class="form-group i-check">
             <div class="checkbox">
               <input type="checkbox" id="tc">
               <label for="tc" class="agree">
-                <span></span> Keep me logged in
+                <!-- <span></span> Keep me logged in -->
+                <p style="color:red" ng-if="validation">Enter all Fields</p>
             </div>
           </div>
         </div>
@@ -76,7 +78,7 @@
             </div>
           </div>
           <div class="col-xs-12">
-            <button class="btn btn-outline btn-dark active">LOGIN</button>
+            <button class="btn btn-outline btn-dark active" ng-click="doLogin()">LOGIN</button>
           </div>
         </div>
         <div class="signupor">

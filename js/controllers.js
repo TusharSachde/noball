@@ -1,5 +1,7 @@
 var myfunction = '';
 var count = 1;
+var tabvalue = 1;
+var user = $.jStorage.get("user");
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'ngDialog'])
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal) {
@@ -72,6 +74,115 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Profile");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+
+    $scope.profile = {};
+    $scope.profile.nameemailedit = 'edit';
+    $scope.profile.changepasswordedit = 'edit';
+    $scope.profile.billingaddressedit = 'edit';
+    $scope.profile.shippingaddressedit = 'edit';
+    $scope.password = {};
+    $scope.alerts = [];
+    $scope.countries = countries;
+    $scope.updateuser = {};
+    $scope.updateuser.user = {};
+
+    $scope.addAlert = function(type, msg) {
+      $scope.alerts.push({
+        type: type,
+        msg: msg
+      });
+    };
+
+    $scope.closeAlert = function(index) {
+      $scope.alerts.splice(index, 1);
+    };
+
+    $scope.myProfile = {};
+    NavigationService.getUserDetail(function(data) {
+      console.log(data);
+      $scope.user = data;
+      $scope.updateuser.user = data;
+    });
+
+    $scope.saveUser = function() {
+      NavigationService.updateProfile($scope.updateuser.user, function(data) {
+        console.log(data);
+      })
+    }
+
+    $scope.editProfile = function(num) {
+      switch (num) {
+        case 1:
+          {
+            console.log("name email");
+            console.log($scope.profile.nameemailedit);
+            if ($scope.profile.nameemailedit == 'edit') {
+              $scope.profile.nameemailedit = 'save';
+            } else {
+              $scope.profile.nameemailedit = 'edit';
+              $scope.saveUser()
+            }
+          }
+          break;
+        case 2:
+          {
+            if ($scope.profile.changepasswordedit == 'edit') {
+              $scope.profile.changepasswordedit = 'save';
+            } else {
+
+              NavigationService.changepassword($scope.password, function(data) {
+                console.log(data);
+                switch (data) {
+                  case '-1':
+                    {
+                      $scope.addAlert("danger", "Re-enter password. ");
+                    }
+                    break;
+                  case '1':
+                    {
+                      $scope.addAlert("success", "Password changed successfully. ");
+                      $scope.profile.changepasswordedit = 'edit';
+                    }
+                    break;
+                  case '0':
+                    {
+                      $scope.addAlert("danger", "Wrong password");
+                    }
+                    break;
+                  default:
+                    {}
+
+                }
+              });
+            }
+          }
+          break;
+        case 3:
+          {
+            if ($scope.profile.billingaddressedit == 'edit') {
+              $scope.profile.billingaddressedit = 'save';
+            } else {
+              $scope.profile.billingaddressedit = 'edit';
+              $scope.saveUser();
+            }
+          }
+          break;
+        case 4:
+          {
+            if ($scope.profile.shippingaddressedit == 'edit') {
+              $scope.profile.shippingaddressedit = 'save';
+            } else {
+              $scope.profile.shippingaddressedit = 'edit';
+              $scope.saveUser();
+            }
+          }
+          break;
+        default:
+          {
+
+          }
+      }
+    }
   })
   .controller('ReviewCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
@@ -419,12 +530,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
+
   .controller('headerctrl', function($scope, TemplateService, $uibModal, NavigationService) {
     $scope.template = TemplateService;
     $scope.logintab = {};
-    var tabvalue = 1;
-    $scope.logintab.tab = tabvalue;
+    $scope.login = {};
+    $scope.logintab.tab = 1;
     $scope.hovermenu = false;
+    $scope.validation = false;
+    $scope.validation1 = "";
+    $scope.isLogin = false;
+    $scope.user = user;
+
+    if (NavigationService.getUser()) {
+      $scope.isLogin = true;
+    }else {
+      $scope.isLogin = false;
+    }
 
     //Global function
     myfunction = function() {
@@ -458,11 +580,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.openLogin = function() {
       $.jStorage.set("isExpert", false);
-      tabvalue = 2;
+      $scope.logintab.tab = 2;
       $uibModal.open({
         animation: true,
         templateUrl: 'views/modal/login.html',
-        controller: 'headerctrl'
+        controller: 'headerctrl',
+        scope: $scope
       })
     };
     $scope.changeTab = function(tab) {
@@ -470,14 +593,100 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
     $scope.openSignup = function() {
       $.jStorage.set("isExpert", true);
-      tabvalue = 1;
+      $scope.logintab.tab = 1;
       $uibModal.open({
         animation: true,
         templateUrl: 'views/modal/login.html',
-        controller: 'headerctrl'
+        controller: 'headerctrl',
+        scope: $scope
       })
     };
     $scope.cancel = function () {
       $uibModalInstance.dismiss('cancel');
     };
+
+
+    //login
+    $scope.doLogin = function(){
+      console.log($scope.login);
+      $scope.allvalidation = [{
+        field: $scope.login.email,
+        validation: ""
+      }, {
+        field: $scope.login.password,
+        validation: ""
+      }];
+
+      var check = formvalidation($scope.allvalidation);
+
+      if (check) {
+        NavigationService.login($scope.login, function(data){
+          if(data.value){
+            $scope.validation = true;
+          }else {
+            $scope.validation = false;
+            NavigationService.setUser(data);
+            window.location.reload();
+          }
+        })
+      }else {
+        $scope.validation = true;
+      }
+    }
+    //signup
+    $scope.signup = {};
+    $scope.accept = false;
+    $scope.doSignUp = function(accept){
+      console.log(accept);
+
+      $scope.allvalidation = [{
+        field: $scope.signup.firstname,
+        validation: ""
+      }, {
+        field: $scope.signup.lastname,
+        validation: ""
+      }, {
+        field: $scope.signup.email,
+        validation: ""
+      }, {
+        field: $scope.signup.password,
+        validation: ""
+      }, {
+        field: $scope.signup.cpassword,
+        validation: ""
+      }];
+
+      var check = formvalidation($scope.allvalidation);
+      if (check) {
+        $scope.validation = false;
+        if(accept==true && $scope.signup.password===$scope.signup.cpassword){
+        NavigationService.signup($scope.signup, function(data){
+          if(data.value){
+            $scope.validation1 = true;
+          }else {
+            $scope.validation1 = false;
+            NavigationService.setUser(data);
+            window.location.reload();
+          }
+        })
+      }else{
+        $scope.validation1 = "Accept Terms and Conditions OR password and confirmpassword does not match";
+      }
+      }else {
+        $scope.validation1 = "Fill all fields";
+      }
+
+
+
+    }
+
+    //logout
+    $scope.logout = function(){
+      NavigationService.logout(function(data){
+        if (data.value==true) {
+          $.jStorage.flush();
+          window.location.reload();
+        }
+      })
+    }
   });
