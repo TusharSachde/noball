@@ -3,6 +3,11 @@
         <h3 class="high-light">MY CART</h3>
     </div>
     <div class="container">
+      <div class="alert-postion">
+          <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" dismiss-on-timeout="5000">{{alert.msg}}</uib-alert>
+      </div>
+      <h4 ng-if="msg!=''">{{msg}}</h4>
+      <div ng-if="msg==''">
         <div class="row">
             <div class="col-md-12">
                 <div class="order-table">
@@ -63,21 +68,22 @@
                         </div>
                         <div class="col-xs-6">
                             <div class="list text-right">
-                                <p>1398</p>
+                                <p>{{bigcount.amount}}</p>
                                 <p>0</p>
                                 <p>0</p>
                                 <p>0</p>
                                 <p>100</p>
-                                <p>1399</p>
+                                <p>{{bigcount.amount}}</p>
                             </div>
                         </div>
                     </div>
                     <div class="cart-btn clearfix">
-                        <button class="btn btn-outline btn-dark marg10">CONTINUE SHOPPING</button>
-                        <button class="btn btn-outline btn-dark marg10">CHECK OUT</button>
+                        <button class="btn btn-outline btn-dark marg10" ui-sref="home">CONTINUE SHOPPING</button>
+                        <button class="btn btn-outline btn-dark marg10" ng-click="toCheckout()">CHECK OUT</button>
                     </div>
                 </div>
             </div>
         </div>
+      </div>
     </div>
 </section>
