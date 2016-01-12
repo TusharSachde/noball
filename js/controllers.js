@@ -455,72 +455,105 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.login = {};
         $scope.userid = null;
         $scope.checkout = {};
-        if ($.jStorage.get("user")) {
+    $scope.getCart = function () {
+            NavigationService.showCart(function (data) {
+                console.log(data);
+                $scope.allcart = data;
+            })
+        };    
+    if ($.jStorage.get("user")) {
             $scope.tabs[1].active = true;
+            $scope.getCart();
         }
         $scope.proceedToCart = function (checkoutGuest) {
             if (checkoutGuest) {
                 $timeout(function () {
+                    $scope.getCart();
                     $scope.tabs[1].active = true;
                 }, 1000);
             }
         };
-        var getlogin = function (data, status) {
-            console.log(data);
-            console.log("in login");
-            if (data != "false") {
-                $.jStorage.set("user", data);
-                // login successful message
-                $scope.tabs[1].active = true;
-            } else {
-                //unable to login message
+        
+        $scope.doLogin = function () {
+                console.log($scope.login);
+                $scope.allvalidation = [{
+                    field: $scope.login.email,
+                    validation: ""
+      }, {
+                    field: $scope.login.password,
+                    validation: ""
+      }];
+
+                var check = formvalidation($scope.allvalidation);
+
+                if (check) {
+                    NavigationService.login($scope.login, function (data) {
+                        if (data.value) {
+                            $scope.validation = true;
+                        } else {
+                            $scope.validation = false;
+                            NavigationService.setUser(data);
+                            $scope.tabs[1].active= true;
+                            $scope.getCart();
+                        }
+                    })
+                } else {
+                    $scope.validation = true;
+                }
             }
-        };
-        $scope.doLogin = function (login) {
-            $scope.allvalidation = [{
-                field: $scope.login.email,
-                validation: ""
-        }, {
-                field: $scope.login.password,
-                validation: ""
-        }];
-            var check = formvalidation($scope.allvalidation);
-            if (check) {
-                //NavigationService.loginuser(login, getlogin);
-            } else {
-                //ngDialog message
-            }
-        };
-        $scope.doSignup = function () {
+            //signup
+        $scope.signup = {};
+        $scope.accept = false;
+        $scope.doSignUp = function (accept) {
+            console.log(accept);
+
             $scope.allvalidation = [{
                 field: $scope.signup.firstname,
                 validation: ""
-        }, {
+      }, {
                 field: $scope.signup.lastname,
                 validation: ""
-        }, {
+      }, {
                 field: $scope.signup.email,
                 validation: ""
-        }, {
+      }, {
                 field: $scope.signup.password,
                 validation: ""
-        }, {
-                field: $scope.signup.confirmpassword,
+      }, {
+                field: $scope.signup.cpassword,
                 validation: ""
-        }];
+      }];
+
             var check = formvalidation($scope.allvalidation);
             if (check) {
-                NavigationService.registeruser($scope.signup, registerusercallback);
+                $scope.validation = false;
+                if (accept == true && $scope.signup.password === $scope.signup.cpassword) {
+                    NavigationService.signup($scope.signup, function (data) {
+                        if (data.value) {
+                            $scope.validation1 = true;
+                        } else {
+                            $scope.validation1 = false;
+                            NavigationService.setUser(data);
+                            $scope.tabs[1].active=true;
+                            $scope.getCart();
+                        }
+                    })
+                } else {
+                    $scope.validation1 = "Accept Terms and Conditions OR password and confirmpassword does not match";
+                }
             } else {
-                $scope.msgregister = "Invalid data try again!!";
-                $scope.msg = "";
+                $scope.validation1 = "Fill all fields";
             }
+
+
 
         }
         var setPlaceOrder = function (data) {
             console.log(data);
             $scope.checkout = data;
         };
+        $scope.allcart = [];
+        
         $scope.proceedToDeliveryDetails = function () {
             $scope.tabs[2].active = true;
             if ($.jStorage.get("user")) {
@@ -530,7 +563,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         };
         $scope.placeOrder = function () {
-
             $scope.invalidData = false;
             $scope.allvalidation = [{
                 field: $scope.checkout.firstname,

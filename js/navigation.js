@@ -598,6 +598,7 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         login: function (login, callback) {
+            console.log(login);
             return $http({
                 url: adminurl + "login",
                 method: "POST",

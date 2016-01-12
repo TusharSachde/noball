@@ -129,39 +129,21 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr class="text-center text-bold">
+                                                <tr class="text-center text-bold" ng-repeat="item in allcart">
                                                     <td>
                                                         <figure>
                                                             <img src="img/product1.png">
-                                                            <figcaption>SPACE PRINT SLIM FIT T-SHIRT</figcaption>
+                                                            <figcaption>{{item.options.realname}}</figcaption>
                                                         </figure>
                                                     </td>
-                                                    <td>White</td>
-                                                    <td>M</td>
-                                                    <td>1
+                                                    <td>{{item.colour}}</td>
+                                                    <td>{{item.size}}</td>
+                                                    <td>{{item.qty}}
                                                         <span class="more"><i class="fa fa-plus"></i></span>
                                                         <span class="more mgl"><i class="fa fa-minus"></i></span>
                                                     </td>
                                                     <td>
-                                                        <p>699</p>
-
-                                                    </td>
-                                                </tr>
-                                                <tr class="text-center ">
-                                                    <td>
-                                                        <figure>
-                                                            <img src="img/product2.png">
-                                                            <figcaption>SPACE PRINT SLIM FIT T-SHIRT</figcaption>
-                                                        </figure>
-                                                    </td>
-                                                    <td>White</td>
-                                                    <td>M</td>
-                                                    <td>1
-                                                        <span class="more"><i class="fa fa-plus"></i></span>
-                                                        <span class="more mgl"><i class="fa fa-minus"></i></span>
-                                                    </td>
-                                                    <td>
-                                                        <p>699</p>
+                                                        <p>{{item.price}}</p>
 
                                                     </td>
                                                 </tr>
