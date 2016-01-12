@@ -27,8 +27,12 @@
                                 <td>White</td>
                                 <td>M</td>
                                 <td>
-                                <input type="number" class="spin-number" ng-model="cart.qty">
-                                  <span class="more"><i class="fa fa-plus"></i></span><span class="more"><i class="fa fa-minus"></i></span></td>
+                                <input type="number" ng-change="updateCartQuantity(cart)" class="spin-number" ng-model="cart.qty">
+                                  <span class="more" ng-click="addQuantity(cart)"><i class="fa fa-plus"></i></span><span class="more" ng-click="subtractQuantity(cart)"><i class="fa fa-minus"></i></span>
+                                 <p ng-show="cart.exceed" >
+                                     Exceeds max available quantity
+                                 </p>
+                                   </td>
                                 <td>
                                     <p>{{cart.price}}</p>
                                     <div class="p65 clearfix">

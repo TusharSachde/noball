@@ -66,7 +66,46 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         NavigationService.showCart(function (data) {
             console.log(data);
             $scope.addCart = data;
+            _.each($scope.addCart, function(key) {
+                if (!$scope.validateQuantity(key)) {
+                    key.exceed = true;
+                } else {
+                    key.exceed = false;
+                }
+            })
         });
+        $scope.validateQuantity= function(item) {
+            if (item.qty > item.maxQuantity) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        $scope.updateCartQuantity = function (item) {
+            if (item.qty <= 0) {
+                item.qty = 1;
+            }else if(!$scope.validateQuantity(item)){
+                item.exceed=true;
+            }else if($scope.validateQuantity(item)){
+                item.exceed=false;
+            } else {
+                NavigationService.addToCart(item, function (data) {
+                    console.log(data);
+                    if (data.value) {
+                        //operations on response
+                    }
+                })
+            }
+
+        };
+        $scope.addQuantity = function (item) {
+            item.qty++;
+            $scope.updateCartQuantity(item);
+        };
+        $scope.subtractQuantity = function (item) {
+            item.qty--;
+            $scope.updateCartQuantity(item);
+        };
     })
     .controller('ProfileCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
@@ -99,7 +138,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.myProfile = {};
 
-        NavigationService.getUserDetail(2,function (data) { //remove two add userid
+        NavigationService.getUserDetail(2, function (data) { //remove two add userid
             console.log(data);
             $scope.user = data;
             $scope.updateuser.user = data;
@@ -455,13 +494,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.login = {};
         $scope.userid = null;
         $scope.checkout = {};
-    $scope.getCart = function () {
+        $scope.getCart = function () {
             NavigationService.showCart(function (data) {
                 console.log(data);
                 $scope.allcart = data;
             })
-        };    
-    if ($.jStorage.get("user")) {
+        };
+        if ($.jStorage.get("user")) {
             $scope.tabs[1].active = true;
             $scope.getCart();
         }
@@ -473,7 +512,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }, 1000);
             }
         };
-        
+
         $scope.doLogin = function () {
                 console.log($scope.login);
                 $scope.allvalidation = [{
@@ -493,7 +532,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         } else {
                             $scope.validation = false;
                             NavigationService.setUser(data);
-                            $scope.tabs[1].active= true;
+                            $scope.tabs[1].active = true;
                             $scope.getCart();
                         }
                     })
@@ -534,7 +573,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         } else {
                             $scope.validation1 = false;
                             NavigationService.setUser(data);
-                            $scope.tabs[1].active=true;
+                            $scope.tabs[1].active = true;
                             $scope.getCart();
                         }
                     })
@@ -553,7 +592,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.checkout = data;
         };
         $scope.allcart = [];
-        
+
         $scope.proceedToDeliveryDetails = function () {
             $scope.tabs[2].active = true;
             if ($.jStorage.get("user")) {
