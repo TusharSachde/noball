@@ -129,22 +129,27 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr class="text-center text-bold" ng-repeat="item in allcart">
+                                                <tr class="text-center" ng-repeat="cart in allcart">
                                                     <td>
                                                         <figure>
-                                                            <img src="img/product1.png">
-                                                            <figcaption>{{item.options.realname}}</figcaption>
+                                                            <img ng-src="{{cart.image|serverimage}}">
+                                                            <figcaption>{{cart.realname}}</figcaption>
                                                         </figure>
                                                     </td>
-                                                    <td>{{item.colour}}</td>
-                                                    <td>{{item.size}}</td>
-                                                    <td>{{item.qty}}
-                                                        <span class="more"><i class="fa fa-plus"></i></span>
-                                                        <span class="more mgl"><i class="fa fa-minus"></i></span>
+                                                    <td>{{cart.colour}}</td>
+                                                    <td>{{cart.size}}</td>
+                                                    <td>
+                                                        <input type="number" ng-change="updateCartQuantity(cart)" class="text-center spin-number" ng-model="cart.qty" min="1">
+                                                        <span class="more" ng-click="addQuantity(cart)"><i class="fa fa-plus"></i></span><span class="more" ng-click="subtractQuantity(cart)"><i class="fa fa-minus"></i></span>
+                                                        <p ng-show="cart.exceed">
+                                                            Exceeds max available quantity
+                                                        </p>
                                                     </td>
                                                     <td>
-                                                        <p>{{item.price}}</p>
-
+                                                        <p>{{cart.subtotal}}</p>
+                                                        <div class="p65 clearfix">
+                                                            <button class="btn btn-outline btn-dark ">REMOVE</button>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -165,9 +170,9 @@
                                             </div>
                                             <div class="col-xs-6">
                                                 <div class="list text-right">
-                                                    <p>1398</p>
+                                                    <p>{{totalcart}}</p>
                                                     <p>0</p>
-                                                    <p>1399</p>
+                                                    <p>{{totalcart}}</p>
                                                 </div>
                                             </div>
                                         </div>

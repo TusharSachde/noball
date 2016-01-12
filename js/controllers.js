@@ -66,7 +66,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         NavigationService.showCart(function (data) {
             console.log(data);
             $scope.addCart = data;
-            _.each($scope.addCart, function(key) {
+            _.each($scope.addCart, function (key) {
+                key.subtotal = key.qty * key.price;
                 if (!$scope.validateQuantity(key)) {
                     key.exceed = true;
                 } else {
@@ -74,7 +75,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             })
         });
-        $scope.validateQuantity= function(item) {
+        $scope.validateQuantity = function (item) {
             if (item.qty > item.maxQuantity) {
                 return false;
             } else {
@@ -82,17 +83,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         }
         $scope.updateCartQuantity = function (item) {
+            item.subtotal = item.qty * item.price;
             if (item.qty <= 0) {
                 item.qty = 1;
-            }else if(!$scope.validateQuantity(item)){
-                item.exceed=true;
-            }else if($scope.validateQuantity(item)){
-                item.exceed=false;
-            } else {
+            } else if (!$scope.validateQuantity(item)) {
+                item.exceed = true;
+            } else if ($scope.validateQuantity(item)) {
+                item.exceed = false;
                 NavigationService.addToCart(item, function (data) {
                     console.log(data);
                     if (data.value) {
-                        //operations on response
+
                     }
                 })
             }
@@ -494,10 +495,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.login = {};
         $scope.userid = null;
         $scope.checkout = {};
+        $scope.totalcart = 0;
         $scope.getCart = function () {
+            $scope.totalcart = 0;
             NavigationService.showCart(function (data) {
                 console.log(data);
                 $scope.allcart = data;
+
+                _.each($scope.allcart, function (key) {
+                    key.subtotal = key.qty * key.price;
+                    $scope.totalcart = $scope.totalcart + key.subtotal;
+                    if (!$scope.validateQuantity(key)) {
+                        key.exceed = true;
+                    } else {
+                        key.exceed = false;
+                    }
+                })
             })
         };
         if ($.jStorage.get("user")) {
@@ -583,23 +596,49 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             } else {
                 $scope.validation1 = "Fill all fields";
             }
-
-
-
         }
         var setPlaceOrder = function (data) {
             console.log(data);
             $scope.checkout = data;
         };
         $scope.allcart = [];
-
+        $scope.isCartValid = function () {
+            var isValid = true;
+            _.each($scope.allcart, function (key) {
+                if (key.exceed == true) {
+                    isValid = false;
+                }
+            });
+            return isValid;
+        };
+        
         $scope.proceedToDeliveryDetails = function () {
-            $scope.tabs[2].active = true;
-            if ($.jStorage.get("user")) {
-                console.log($.jStorage.get("user").id);
-                $scope.userid = $.jStorage.get("user").id;
-                NavigationService.getUserDetail($scope.userid, setPlaceOrder);
+            if (!$scope.isCartValid()) {
+                 $scope.alerts.push({
+                    type: 'danger',
+                    msg: 'Remove exceeding quantities'
+                });
+                
+            } else {
+                NavigationService.checkoutCheck(function(data){
+                    if(data.value){
+                        $scope.tabs[2].active = true;
+                if ($.jStorage.get("user")) {
+                    console.log($.jStorage.get("user").id);
+                    $scope.userid = $.jStorage.get("user").id;
+                    NavigationService.getUserDetail($scope.userid, setPlaceOrder);
+                }
+                    }else{
+                        $scope.getCart();
+                        $scope.alerts.push({
+                            type:'danger',
+                            msg:'Some items went out of stock. Remove them'
+                        });
+                    }
+                })
+               
             }
+
         };
         $scope.placeOrder = function () {
             $scope.invalidData = false;
@@ -682,6 +721,40 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 });
             }
 
+        };
+
+        $scope.validateQuantity = function (item) {
+            if (item.qty > item.maxQuantity) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        $scope.updateCartQuantity = function (item) {
+            item.subtotal = item.qty * item.price;
+
+            if (!$scope.validateQuantity(item)) {
+                item.exceed = true;
+                //$scope.totalcart = null;
+
+            } else if ($scope.validateQuantity(item)) {
+                item.exceed = false;
+                NavigationService.addToCart(item, function (data) {
+                    console.log(data);
+                    if (data.value) {
+                        $scope.getCart();
+                    }
+                })
+            }
+
+        };
+        $scope.addQuantity = function (item) {
+            item.qty++;
+            $scope.updateCartQuantity(item);
+        };
+        $scope.subtractQuantity = function (item) {
+            item.qty--;
+            $scope.updateCartQuantity(item);
         };
         $scope.closeAlert = function (index) {
             $scope.alerts.splice(index, 1);

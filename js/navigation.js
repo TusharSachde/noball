@@ -642,6 +642,9 @@ var navigationservice = angular.module('navigationservice', [])
         getWishlist: function (callback) {
             $http.get(adminurl + 'getWishlist').success(callback);
         },
+        checkoutCheck: function (callback) {
+            $http.get(adminurl + 'checkoutCheck').success(callback);
+        },
         placeOrder: function (callback) {
             $http.get(adminurl + 'placeorder.json').success(callback)
         },
