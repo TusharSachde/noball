@@ -7,6 +7,9 @@ $screen-desktop: 1224px !default;
   .step ul li p {
     padding: 5px 20px 0;
   }
+  .navbar-default .navbar-nav > li > a {
+    padding: 8px 10px;
+  }
   .mg-tp-0 {
     margin-top: 0 !important;
   }
@@ -35,19 +38,22 @@ $screen-desktop: 1224px !default;
       }
     }
   }
-}
-.testimonial {
-  .slider-prd-detail {
-    padding: 0 60px;
+  .custom-direct .space-flex {
+    padding: 50px;
   }
-  .slider-info {
-    .info {
-      width: 500px;
-      .name {
-        width: 50%;
-      }
-      .descp {
-        margin: 20px 0;
+  .testimonial {
+    .slider-prd-detail {
+      padding: 0 60px;
+    }
+    .slider-info {
+      .info {
+        width: 500px;
+        .name {
+          width: 50%;
+        }
+        .descp {
+          margin: 20px 0;
+        }
       }
     }
   }
@@ -169,6 +175,17 @@ $screen-desktop: 1224px !default;
       margin: 0 auto;
       .info {
         width: 55%;
+      }
+    }
+  }
+  .custom-direct {
+    .space-flex {
+      padding: 0;
+    }
+    .flex-pad {
+      padding: 30px;
+      .category {
+        font-size: 24px;
       }
     }
   }
