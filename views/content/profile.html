@@ -7,6 +7,9 @@
     </div>
   </div>
   <div class="container check-out ">
+    <div class="alert-postion">
+        <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" dismiss-on-timeout="5000">{{alert.msg}}</uib-alert>
+    </div>
     <div class="row tab-content">
       <div class="col-md-4 col-sm-6">
         <div class="account-name">

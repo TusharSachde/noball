@@ -203,31 +203,38 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             if ($scope.profile.changepasswordedit == 'edit') {
               $scope.profile.changepasswordedit = 'save';
             } else {
+              $scope.allvalidation = [{
+                field: $scope.password.oldpassword,
+                validation: ""
+              }, {
+                field: $scope.password.newpassword,
+                validation: ""
+              }, {
+                field: $scope.password.confirmpassword,
+                validation: ""
+              }];
 
-              NavigationService.changepassword($scope.password, function(data) {
-                console.log(data);
-                switch (data) {
-                  case '-1':
-                    {
-                      $scope.addAlert("danger", "Re-enter password. ");
-                    }
-                    break;
-                  case '1':
-                    {
+              var check = formvalidation($scope.allvalidation);
+
+              if (check) {
+                if ($scope.password.newpassword===$scope.password.confirmpassword) {
+                  NavigationService.changePassword($scope.password, function(data) {
+                    console.log(data);
+                    if (data.value == true) {
                       $scope.addAlert("success", "Password changed successfully. ");
                       $scope.profile.changepasswordedit = 'edit';
-                    }
-                    break;
-                  case '0':
-                    {
+                    }else {
                       $scope.addAlert("danger", "Wrong password");
                     }
-                    break;
-                  default:
-                    {}
-
+                  });
+                }else {
+                  $scope.addAlert("danger", "New password and confirm password should be same");
                 }
-              });
+
+
+            }else {
+              $scope.addAlert("danger", "All fields are manditory");
+            }
             }
           }
           break;
