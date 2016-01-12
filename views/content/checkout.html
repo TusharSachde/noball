@@ -242,10 +242,8 @@
 
                                             <div class="ccc-select">
                                                 <select class="form-control" ng-change="sameShipping(checkout)" ng-model="checkout.billingcountry">
-                                                    <option value="">Country</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
+                                                    <option value="">Select country</option>
+                                                    											<option value="{{country.value}}" ng-repeat="country in countries">{{country.value}}</option>
                                                 </select>
                                                 <span></span>
                                             </div>
