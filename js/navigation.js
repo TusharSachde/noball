@@ -597,6 +597,15 @@ var navigationservice = angular.module('navigationservice', [])
                 }
             }).success(callback);
         },
+        removeFromCart: function (cart, callback) {
+            return $http({
+                url: adminurl + "removeFromCart",
+                method: "POST",
+                data: {
+                    "cart": cart.id
+                }
+            }).success(callback);
+        },
         login: function (login, callback) {
             console.log(login);
             return $http({

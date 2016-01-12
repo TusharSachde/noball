@@ -91,7 +91,7 @@
                                             </div>
                                         </div>
                                         <div class="text-center">
-                                            <button class="btn btn-outline btn-dark">REGISTER</button>
+                                            <button class="btn btn-outline btn-dark" ng-click="doSignUp()">REGISTER</button>
                                             <div class="mg">
                                                 <p class="or">OR</p>
                                                 <p class="or">SIGN UP VIA</p>
@@ -148,7 +148,7 @@
                                                     <td>
                                                         <p>{{cart.subtotal}}</p>
                                                         <div class="p65 clearfix">
-                                                            <button class="btn btn-outline btn-dark ">REMOVE</button>
+                                                            <button class="btn btn-outline btn-dark " ng-click="removeItem(cart)">REMOVE</button>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -242,7 +242,6 @@
 
                                             <div class="ccc-select">
                                                 <select class="form-control" ng-change="sameShipping(checkout)" ng-model="checkout.billingcountry">
-                                                    <option value="">Select country</option>
                                                     											<option value="{{country.value}}" ng-repeat="country in countries">{{country.value}}</option>
                                                 </select>
                                                 <span></span>
@@ -282,10 +281,7 @@
 
                                             <div class="ccc-select">
                                                 <select class="form-control" ng-model="checkout.shippingcountry">
-                                                    <option value="">Country</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
+       											<option value="{{country.value}}" ng-repeat="country in countries">{{country.value}}</option>
                                                 </select>
                                                 <span></span>
                                             </div>
