@@ -1836,5 +1836,14 @@ footer {
         background-color: #A94442;
       }
     }
-} 
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    @include appearance(none);
+    margin: 0;
+}
+.spin-number{
+  width: 30px;
+  margin-right: 10px;
+}
 @import "mobile/mobile";

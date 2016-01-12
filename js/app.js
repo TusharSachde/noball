@@ -146,6 +146,16 @@ firstapp.filter('serverimage', function() {
   };
 });
 
+firstapp.filter('alertopup', function() {
+  return function(input) {
+    console.log(input);
+    this.alerts.push({
+        type: 'danger',
+        msg: 'Input all information'
+    });
+  };
+});
+
 
 var formvalidation = function (allvalidation) {
 	var isvalid2 = true;
