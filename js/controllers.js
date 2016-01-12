@@ -98,7 +98,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
 
         $scope.myProfile = {};
-    
+
         NavigationService.getUserDetail(2,function (data) { //remove two add userid
             console.log(data);
             $scope.user = data;
@@ -737,6 +737,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("thank");
         $scope.menutitle = NavigationService.makeactive("Thank You");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+    })
+    .controller('CustomDirectCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("custom-direct");
+        $scope.menutitle = NavigationService.makeactive("Custom Direct");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
     })

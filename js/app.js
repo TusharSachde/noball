@@ -124,6 +124,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
       templateUrl: "views/template.html",
       controller: 'ForgotPasswordCtrl'
     })
+    .state('customdirect', {
+      url: "/custom-direct",
+      templateUrl: "views/template.html",
+      controller: 'CustomDirectCtrl'
+    })
 
   $urlRouterProvider.otherwise("/home");
 
