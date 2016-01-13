@@ -64,9 +64,37 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Cart");
         TemplateService.title = $scope.menutitle;
         $scope.alerts = [];
+        $scope.totalcart = 0;
         $scope.msg = "Loading";
         $scope.navigation = NavigationService.getnav();
+        $scope.alerts = [];
+        $scope.closeAlert = function (index) {
+            $scope.alerts.splice(index, 1);
+        };
+        $scope.getCart = function () {
+            NavigationService.showCart(function (data) {
+                console.log(data);
+                if (data != '') {
+                    $scope.msg = "";
+                    $scope.addCart = data;
+                    _.each($scope.addCart, function (key) {
+                        key.subtotal = key.qty * key.price;
+                        $scope.totalcart = $scope.totalcart + key.subtotal;
+                        if (!$scope.validateQuantity(key)) {
+                            key.exceed = true;
+                        } else {
+                            key.exceed = false;
+                        }
+                    })
+                    console.log(bigcount);
+                    $scope.bigcount = bigcount;
+                } else {
+                    $scope.msg = "No items in cart.";
+                }
 
+            });
+        };
+        $scope.getCart();
         $scope.toCheckout = function () {
             NavigationService.checkoutCheck(function (data) {
                 if (data.value == true) {
@@ -86,49 +114,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.removeItem = function (cart) {
             NavigationService.removeFromCart(cart, function (data) {
                 if (data.value) {
-                    NavigationService.showCart(function (data) {
-                        console.log(data);
-                        if (data != '') {
-                            $scope.msg = "";
-                            $scope.addCart = data;
-                            _.each($scope.addCart, function (key) {
-                                key.subtotal = key.qty * key.price;
-                                if (!$scope.validateQuantity(key)) {
-                                    key.exceed = true;
-                                } else {
-                                    key.exceed = false;
-                                }
-                            })
-                            console.log(bigcount);
-                            $scope.bigcount = bigcount;
-                        } else {
-                            $scope.msg = "No items in cart.";
-                        }
-
+                    $scope.alerts.push({
+                        type: 'success',
+                        msg: 'Removed successfully'
                     });
+                    $scope.getCart();
                 }
             })
         };
-        NavigationService.showCart(function (data) {
-            console.log(data);
-            if (data != '') {
-                $scope.msg = "";
-                $scope.addCart = data;
-                _.each($scope.addCart, function (key) {
-                    key.subtotal = key.qty * key.price;
-                    if (!$scope.validateQuantity(key)) {
-                        key.exceed = true;
-                    } else {
-                        key.exceed = false;
-                    }
-                })
-                console.log(bigcount);
-                $scope.bigcount = bigcount;
-            } else {
-                $scope.msg = "No items in cart.";
-            }
 
-        });
         $scope.validateQuantity = function (item) {
             if (item.qty > item.maxQuantity) {
                 return false;
@@ -148,7 +142,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     console.log(data);
                     myfunction();
                     if (data.value) {
-
+                        $scope.getCart();
                     }
                 })
             }
@@ -614,8 +608,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     })
                 } else {
                     $scope.alerts.push({
-                        type:'danger',
-                        msg:'Please input all information.'
+                        type: 'danger',
+                        msg: 'Please input all information.'
                     });
                 }
             }
@@ -659,10 +653,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.validation1 = "Accept Terms and Conditions OR password and confirmpassword does not match";
                 }
             } else {
-              $scope.alerts.push({
-                        type:'danger',
-                        msg:'Please input all information.'
-                    });
+                $scope.alerts.push({
+                    type: 'danger',
+                    msg: 'Please input all information.'
+                });
             }
         }
         var setPlaceOrder = function (data) {
@@ -695,7 +689,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                             console.log($.jStorage.get("user").id);
                             $scope.userid = $.jStorage.get("user").id;
                             NavigationService.getUserDetail($scope.userid, setPlaceOrder);
-                           window.scrollTo(0, 0);
+                            window.scrollTo(0, 0);
                         }
                     } else {
                         $scope.getCart();
@@ -803,6 +797,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.removeFromCart(cart, function (data) {
                 if (data.value) {
                     $scope.getCart();
+                } else {
+                    $scope.alerts.push({
+                        type: 'success',
+                        msg: 'Removed successfully'
+                    });
                 }
             })
         };
@@ -978,7 +977,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.validation1 = "";
     $scope.isLogin = false;
     $scope.user = user;
-
+    $scope.alerts = [];
     if (NavigationService.getUser()) {
         $scope.isLogin = true;
     } else {
@@ -1068,7 +1067,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     }
                 })
             } else {
-                $scope.validation = true;
+               $scope.validation = true;
             }
         }
         //signup
@@ -1100,9 +1099,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             if (accept == true && $scope.signup.password === $scope.signup.cpassword) {
                 NavigationService.signup($scope.signup, function (data) {
                     if (data.value) {
-                        $scope.validation1 = true;
+                        $scope.validation1 = "Enter all fields";
                     } else {
-                        $scope.validation1 = false;
+                        $scope.validation1 = "";
                         NavigationService.setUser(data);
                         window.location.reload();
                     }
@@ -1111,7 +1110,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.validation1 = "Accept Terms and Conditions OR password and confirmpassword does not match";
             }
         } else {
-            $scope.validation1 = "Fill all fields";
+                           $scope.validation1 = "Enter all fields";
+
         }
 
 
