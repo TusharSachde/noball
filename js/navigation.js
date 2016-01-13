@@ -648,6 +648,15 @@ var navigationservice = angular.module('navigationservice', [])
                 }
             }).success(callback);
         },
+        forgotPassword: function (password, callback) {
+            return $http({
+                url: adminurl + "forgotPassword",
+                method: "POST",
+                data: {
+                    "email": password.email
+                }
+            }).success(callback);
+        },
         getWishlist: function (callback) {
             $http.get(adminurl + 'getWishlist').success(callback);
         },

@@ -944,6 +944,35 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Forgot Password");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
+        $scope.forgotpassword={};
+        $scope.alerts = [];
+    $scope.closeAlert = function (index) {
+            $scope.alerts.splice(index, 1);
+        };
+        $scope.sendEmail = function(request){
+            if($scope.forgotpassword.email == "" || $scope.forgotpassword.email == null || $scope.forgotpassword.email == undefined){
+                $scope.alerts.push({
+                        type:'danger',
+                        msg:'Please input an email address.'
+                    });
+            }else{
+                NavigationService.forgotPassword(request,function(data){
+                console.log(data);
+                if(data.value == true){
+                    $scope.alerts.push({
+                        type:'success',
+                        msg:'An email has been sent with instructions to reset your password. Please check your inbox.'
+                    });
+                    
+                }else{
+                    $scope.alerts.push({
+                        type:'danger',
+                        msg:'The email ID does not exist. Please proceed to signup.'
+                    });
+                }
+            });
+            }
+        };
     })
     .controller('ForgotPasswordCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
