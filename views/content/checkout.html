@@ -115,7 +115,9 @@
               </div>
             </tab>
             <tab active="tabs[1].active" disable="tabs[1].disabled" heading="Step 2">
-              <div class="row">
+               <h4 ng-if="allcart==''">{{msg}}</h4>
+
+              <div class="row" ng-if="allcart!=''">
                 <div class="col-md-12">
                   <div class="order-table check-out-wish">
                     <table class="table">

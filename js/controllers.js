@@ -35,27 +35,34 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.categories = [];
         $scope.params = $stateParams.name;
 
-        NavigationService.getSubCategory($stateParams.name, function (data) {
-            $scope.pusharray = [];
-            _.each(data, function (n) {
-                if (n.type == 1) {
-                    if ($scope.pusharray != '') {
+        $scope.msg = "Loading...";
 
-                        $scope.categories.push(n);
-                        $scope.pusharray = [];
+
+        NavigationService.getSubCategory($stateParams.name, function (data) {
+            if (data == "") {
+                $scope.msg = "No " + $scope.params + " found.";
+            } else {
+                $scope.pusharray = [];
+                _.each(data, function (n) {
+                    if (n.type == 1) {
+                        if ($scope.pusharray != '') {
+
+                            $scope.categories.push(n);
+                            $scope.pusharray = [];
+                        } else {
+                            $scope.categories.push(n);
+                        }
                     } else {
-                        $scope.categories.push(n);
+                        $scope.pusharray.push(n);
+                        if ($scope.pusharray.length == 2) {
+                            _.each(_.chunk($scope.pusharray, 2), function (m) {
+                                $scope.categories.push(m);
+                            })
+                            $scope.pusharray = [];
+                        }
                     }
-                } else {
-                    $scope.pusharray.push(n);
-                    if ($scope.pusharray.length == 2) {
-                        _.each(_.chunk($scope.pusharray, 2), function (m) {
-                            $scope.categories.push(m);
-                        })
-                        $scope.pusharray = [];
-                    }
-                }
-            })
+                })
+            }
         })
     })
     .controller('CartCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state) {
@@ -65,7 +72,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.alerts = [];
         $scope.totalcart = 0;
-        $scope.msg = "Loading";
+        $scope.msg = "Loading...";
         $scope.navigation = NavigationService.getnav();
         $scope.alerts = [];
         $scope.closeAlert = function (index) {
@@ -535,6 +542,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.invalidData = false;
         $scope.shipAtSame = false;
         $scope.countries = countries;
+        $scope.msg = 'Loading...';
         $scope.tabs = [{
             active: true,
             disabled: true
@@ -556,18 +564,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.getCart = function () {
             $scope.totalcart = 0;
             NavigationService.showCart(function (data) {
-                console.log(data);
-                $scope.allcart = data;
+                if (data == "") {
+                    $scope.msg = "No items in cart.";
+                } else {
+                    console.log(data);
+                    $scope.allcart = data;
 
-                _.each($scope.allcart, function (key) {
-                    key.subtotal = key.qty * key.price;
-                    $scope.totalcart = $scope.totalcart + key.subtotal;
-                    if (!$scope.validateQuantity(key)) {
-                        key.exceed = true;
-                    } else {
-                        key.exceed = false;
-                    }
-                })
+                    _.each($scope.allcart, function (key) {
+                        key.subtotal = key.qty * key.price;
+                        $scope.totalcart = $scope.totalcart + key.subtotal;
+                        if (!$scope.validateQuantity(key)) {
+                            key.exceed = true;
+                        } else {
+                            key.exceed = false;
+                        }
+                    })
+                }
             })
         };
         if ($.jStorage.get("user")) {
@@ -997,29 +1009,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             var check = formvalidation($scope.allvalidation);
 
             if (check) {
-                if( $scope.resetpassword.newpassword != $scope.resetpassword.confirmpassword){
+                if ($scope.resetpassword.newpassword != $scope.resetpassword.confirmpassword) {
                     $scope.alerts.push({
-                            type: 'danger',
-                            msg: 'Password fields do not match.'
-                        });
-                }else{
+                        type: 'danger',
+                        msg: 'Password fields do not match.'
+                    });
+                } else {
                     NavigationService.resetPassword($scope.resetpassword, function (data) {
-                    if (data.value == true) {
-                        $scope.alerts.push({
-                            type: 'success',
-                            msg: 'Password reset successful. Please wait while we redirect you to login..'
-                        });
-                        $timeout(function () {
-                            $state.go("home");
-                        }, 5000);
+                        if (data.value == true) {
+                            $scope.alerts.push({
+                                type: 'success',
+                                msg: 'Password reset successful. Please wait while we redirect you to login..'
+                            });
+                            $timeout(function () {
+                                $state.go("home");
+                            }, 5000);
 
-                    } else {
-                        $scope.alerts.push({
-                            type: 'danger',
-                            msg: 'Unable to reset password. Try again'
-                        });
-                    }
-                });
+                        } else {
+                            $scope.alerts.push({
+                                type: 'danger',
+                                msg: 'Unable to reset password. Try again'
+                            });
+                        }
+                    });
                 }
             } else {
                 $scope.alerts.push({

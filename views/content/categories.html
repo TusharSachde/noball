@@ -2,6 +2,7 @@
   <div class="text-center main-head">
     <h3 class="high-light letter-spacing">APPARELS </h3>
   </div>
+  <h4 ng-if="categories==''">{{msg}}</h4>
   <div class="banners">
     <div ng-repeat="category in categories">
     <div class="banner-inner" ng-if="!category.length">
