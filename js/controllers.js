@@ -808,11 +808,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.removeItem = function (cart) {
             NavigationService.removeFromCart(cart, function (data) {
                 if (data.value) {
-                    $scope.getCart();
-                } else {
                     $scope.alerts.push({
                         type: 'success',
                         msg: 'Removed successfully'
+                    });
+                    $scope.getCart();
+                } else {
+                    $scope.alerts.push({
+                        type: 'danger',
+                        msg: 'Unable to remove item.'
                     });
                 }
             })
