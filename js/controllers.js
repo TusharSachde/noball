@@ -944,42 +944,90 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Forgot Password");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-        $scope.forgotpassword={};
+        $scope.forgotpassword = {};
         $scope.alerts = [];
-    $scope.closeAlert = function (index) {
+        $scope.closeAlert = function (index) {
             $scope.alerts.splice(index, 1);
         };
-        $scope.sendEmail = function(request){
-            if($scope.forgotpassword.email == "" || $scope.forgotpassword.email == null || $scope.forgotpassword.email == undefined){
+        $scope.sendEmail = function (request) {
+            if ($scope.forgotpassword.email == "" || $scope.forgotpassword.email == null || $scope.forgotpassword.email == undefined) {
                 $scope.alerts.push({
-                        type:'danger',
-                        msg:'Please input an email address.'
-                    });
-            }else{
-                NavigationService.forgotPassword(request,function(data){
-                console.log(data);
-                if(data.value == true){
-                    $scope.alerts.push({
-                        type:'success',
-                        msg:'An email has been sent with instructions to reset your password. Please check your inbox.'
-                    });
-                    
-                }else{
-                    $scope.alerts.push({
-                        type:'danger',
-                        msg:'The email ID does not exist. Please proceed to signup.'
-                    });
-                }
-            });
+                    type: 'danger',
+                    msg: 'Please input an email address.'
+                });
+            } else {
+                NavigationService.forgotPassword(request, function (data) {
+                    console.log(data);
+                    if (data.value == true) {
+                        $scope.alerts.push({
+                            type: 'success',
+                            msg: 'An email has been sent with instructions to reset your password. Please check your inbox.'
+                        });
+
+                    } else {
+                        $scope.alerts.push({
+                            type: 'danger',
+                            msg: 'The email ID does not exist. Please proceed to signup.'
+                        });
+                    }
+                });
             }
         };
     })
-    .controller('ForgotPasswordCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+    .controller('ForgotPasswordCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("forgot-password");
         $scope.menutitle = NavigationService.makeactive("Forgot Password");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
+        $scope.resetpassword = {};
+        $scope.alerts = [];
+        $scope.closeAlert = function (index) {
+            $scope.alerts.splice(index, 1);
+        };
+        $scope.resetPassword = function () {
+            $scope.allvalidation = [{
+                field: $scope.resetpassword.newpassword,
+                validation: ""
+      }, {
+                field: $scope.resetpassword.confirmpassword,
+                validation: ""
+      }];
+
+            var check = formvalidation($scope.allvalidation);
+
+            if (check) {
+                if( $scope.resetpassword.newpassword != $scope.resetpassword.confirmpassword){
+                    $scope.alerts.push({
+                            type: 'danger',
+                            msg: 'Password fields do not match.'
+                        });
+                }else{
+                    NavigationService.resetPassword($scope.resetpassword, function (data) {
+                    if (data.value == true) {
+                        $scope.alerts.push({
+                            type: 'success',
+                            msg: 'Password reset successful. Please wait while we redirect you to login..'
+                        });
+                        $timeout(function () {
+                            $state.go("home");
+                        }, 5000);
+
+                    } else {
+                        $scope.alerts.push({
+                            type: 'danger',
+                            msg: 'Unable to reset password. Try again'
+                        });
+                    }
+                });
+                }
+            } else {
+                $scope.alerts.push({
+                    type: 'danger',
+                    msg: 'Please input all information.'
+                });
+            }
+        };
     })
     .controller('ThankCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
@@ -1096,7 +1144,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     }
                 })
             } else {
-               $scope.validation = true;
+                $scope.validation = true;
             }
         }
         //signup
@@ -1139,7 +1187,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.validation1 = "Accept Terms and Conditions OR password and confirmpassword does not match";
             }
         } else {
-                           $scope.validation1 = "Enter all fields";
+            $scope.validation1 = "Enter all fields";
 
         }
 
