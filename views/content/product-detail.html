@@ -8,8 +8,8 @@
                 <div class="img-holder">
                     <img ng-src="{{selectedImage || productdetail.productimages[0].image}}" class="img-responsive">
                 </div>
-                <div class="row-flex">
-                    <div class="col-flex" ng-repeat="item in productdetail.productimages" ng-click="selectImage(item)">
+                <div class="row">
+                    <div class="col-md-4" ng-repeat="item in productdetail.productimages" ng-click="selectImage(item)">
                         <div class="img-hold">
                             <img ng-src="{{item.image}}" class="img-responsive">
                         </div>
@@ -22,6 +22,7 @@
                         <p ng-class="{'strike-text':firstsale}"><i class="fa fa-inr"></i>{{productdetail.product.price}}</p>
                         <span ng-show="firstsale"><i class="fa fa-inr"></i>{{productdetail.product.firstsaleprice}}</span>
                     </div>
+                    <div class="clearfix"></div>
                     <div class="pro-detail">
                         <accordion close-others="oneAtATime" is-open="status.open">
                             <accordion-group is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
@@ -52,6 +53,8 @@
                         </accordion>
                     </div>
                     <div class="custom-btn">
+                        <a class="btn btn-outline btn-dark letter-spacing" href="#/mywishlist">Wishlist</a>
+                        <br>
                         <a class="btn btn-outline btn-dark letter-spacing marg10" href="#/custom">CUSTOMIZE</a>
                         <br>
                         <a class="btn btn-outline btn-dark letter-spacing" ng-click="cartAdd()" ng-hide="outofstock">ADD TO CART</a>

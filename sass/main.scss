@@ -251,6 +251,9 @@ a.icon-btn {
     }
   }
 }
+.btn.btn-outline.btn-dark {
+  text-transform: uppercase;
+}
 .relative {
   position: relative;
 }
@@ -262,6 +265,20 @@ a.icon-btn {
   @include translate(-50%, -50%);
   p {
     width: 50%;
+  }
+}
+.img-holder {
+  position: relative;
+  height: 400px;
+  margin: 10px 0;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform (translate(-50%,-50%));
   }
 }
 .row-flex {
@@ -594,17 +611,29 @@ footer {
 .product-desc {
   width: 85%;
   margin: 0 auto;
-  .pro-rp p {
-    background: #e2e2e2;
-    width: 140px;
-    padding-bottom: 8px;
-    text-align: center;
-    font-size: 35px;
-    font-weight: 700;
-    color: #fff;
-    i {
-      padding-right: 5px;
-      vertical-align: middle;
+  .pro-rp {
+    p {
+      background: #e2e2e2;
+      width: 140px;
+      padding-bottom: 8px;
+      text-align: center;
+      font-size: 35px;
+      font-weight: 700;
+      color: #fff;
+      float: left;
+      margin-right: 20px;
+      &.strike-text {
+        text-decoration: line-through;
+      }
+      i {
+        padding-right: 5px;
+        vertical-align: middle;
+      }
+    }
+    span {
+      font-size: 35px;
+      font-weight: 700;
+      color: $font-color;
     }
   }
 }
@@ -1777,6 +1806,7 @@ footer {
   }
   a.btn.btn-outline.btn-dark {
     padding: 6px 25px;
+    text-transform: uppercase;
   }
 }
 
@@ -1871,7 +1901,6 @@ input[type=number]::-webkit-outer-spin-button {
         }
       }
     }
-
     .img-holder-custom {
       width: 85%;
       height: 150px;
@@ -1896,5 +1925,11 @@ input[type=number]::-webkit-outer-spin-button {
     padding: 50px 150px;
     @include transition(all ease 300ms);
   }
+}
+.mar-btm-10 {
+  margin-bottom: 10px;
+}
+.margin-zero {
+  margin: 0;
 }
 @import "mobile/mobile";
