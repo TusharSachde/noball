@@ -6,12 +6,12 @@
         <div class="row-flex no-row-flex">
             <div class="col-flex">
                 <div class="img-holder">
-                    <img ng-src="{{selectedImage || productdetail.productimages[0].image}}" class="img-responsive">
+                    <img ng-src="{{selectedImage || productdetail.productimages[0].image | serverimage}}" class="img-responsive">
                 </div>
                 <div class="row">
                     <div class="col-md-4" ng-repeat="item in productdetail.productimages" ng-click="selectImage(item)">
                         <div class="img-hold">
-                            <img ng-src="{{item.image}}" class="img-responsive">
+                            <img ng-src="{{item.image | serverimage}}" class="img-responsive">
                         </div>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                         </accordion>
                     </div>
                     <div class="custom-btn">
-                        
+
                         <a class="btn btn-outline btn-dark letter-spacing" href="#/custom">CUSTOMIZE</a>
                         <br>
                         <a class="btn btn-outline btn-dark letter-spacing marg10" ng-click="cartAdd()" ng-hide="outofstock">ADD TO CART</a>
@@ -68,6 +68,9 @@
     </div>
     <div class="testimonial">
         <div class="container">
+          <div class="alert-postion">
+            <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" class="text-center" dismiss-on-timeout="5000">{{alert.msg}}</uib-alert>
+          </div>
             <div class="heading text-center">
                 <h4 class="text-uppercase high-light">testimonials</h4>
             </div>

@@ -578,6 +578,7 @@ var navigationservice = angular.module('navigationservice', [])
             $http.get(adminurl + 'getSubCategory?name=' + name).success(callback);
         },
         getProductBySubCategory: function (name, callback) {
+          console.log(name);
             $http.get(adminurl + 'getProductBySubCategory?name=' + name).success(callback);
         },
         getTestimonial: function (callback) {
@@ -585,9 +586,6 @@ var navigationservice = angular.module('navigationservice', [])
         },
         getOrders: function (callback) {
             $http.get(adminurl + 'getOrders').success(callback);
-        },
-        getCartCount: function (callback) {
-            $http.get(adminurl + 'getCartCount').success(callback);
         },
         addToCart: function (cart, callback) {
             return $http({

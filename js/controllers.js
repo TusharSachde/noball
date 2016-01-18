@@ -87,6 +87,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.addCart = data;
                     _.each($scope.addCart, function (key) {
                         key.subtotal = key.qty * key.price;
+                        key.qty = parseInt(key.qty);
                         $scope.totalcart = $scope.totalcart + key.subtotal;
                         if (!$scope.validateQuantity(key)) {
                             key.exceed = true;
@@ -452,7 +453,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Products");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-
+        $scope.alerts=[];
         $scope.oneAtATime = true;
         $scope.status = {
             isFirstOpen: true,
@@ -463,6 +464,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.firstsale = false;
         $scope.productid = $stateParams.id;
         $scope.testimonial = [];
+        $scope.closeAlert = function (index) {
+            $scope.alerts.splice(index, 1);
+        };
         NavigationService.getProductDetail($scope.productid, function (data) {
             console.log(data);
             $scope.productdetail = data;
@@ -484,20 +488,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.selectImage = function (object) {
             $scope.selectedImage = object.image;
         };
+
         $scope.cartAdd = function () {
             $scope.productdetail.product.qty = 1;
             NavigationService.addToCart($scope.productdetail.product, function (data) {
                 if (data.value == true) {
                     myfunction();
-                } else {
-                    var xyz = ngDialog.open({
-                        template: '<div class="pop-up"><h5 class="popup-wishlist">' + data.comment + '</h5><span class="closepop" ng-click="closeThisDialog(value);">X</span></div>',
-                        plain: true,
-                        controller: 'Product-DetailCtrl'
+                    $scope.alerts.push({
+                        type: 'success',
+                        msg: 'Added in cart'
                     });
-                    $timeout(function () {
-                        xyz.close();
-                    }, 1000)
+                } else {
+                  $scope.alerts.push({
+                      type: 'danger',
+                      msg: 'Already in cart'
+                  });
+                    // var xyz = ngDialog.open({
+                    //     template: '<div class="pop-up"><h5 class="popup-wishlist">' + data.comment + '</h5><span class="closepop" ng-click="closeThisDialog(value);">X</span></div>',
+                    //     plain: true,
+                    //     controller: 'Product-DetailCtrl'
+                    // });
+                    // $timeout(function () {
+                    //     xyz.close();
+                    // }, 1000)
                 }
             })
         }
@@ -612,7 +625,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
                 if (check) {
                     NavigationService.login($scope.login, function (data) {
-                        if (data.value) {
+                      console.log(data);
+                        if (data.value == false) {
                             $scope.validation = true;
                         } else {
                             $scope.validation = false;
@@ -1088,7 +1102,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             } else {
                 bigcount = data;
                 $scope.amount = data.amount;
-                $scope.quantity = data.quantity + count;
+                $scope.quantity = data.quantity;
                 count++;
             }
 
@@ -1111,6 +1125,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.animationsEnabled = true;
 
     $scope.openLogin = function () {
+ console.log("login opened");
         $.jStorage.set("isExpert", false);
         $scope.logintab.tab = 2;
         $uibModal.open({
@@ -1124,6 +1139,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.logintab.tab = tab;
     }
     $scope.openSignup = function () {
+      console.log("singup opened");
         $.jStorage.set("isExpert", true);
         $scope.logintab.tab = 1;
         $uibModal.open({
