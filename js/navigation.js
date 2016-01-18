@@ -1,4 +1,7 @@
-var mainurl = "http://wohlig.io:81/callApi/noball/";
+// var mainurl = "http://wohlig.io:81/callApi/noball/";
+var mainurl = "http://localhost/cccbackend/index.php/";
+var imgurl = "http://localhost/cccbackend/uploads/"
+
 var websiteurl = "http://www.myfynx.com/testing/";
 var mainurlpaymentgateway = "http://www.myfynx.com/newfynx/";
 var adminurl = mainurl + "json/";

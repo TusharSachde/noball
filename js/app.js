@@ -138,8 +138,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
 firstapp.filter('serverimage', function() {
   return function(input) {
     if (input) {
-      return "img/" + input;
-      // return  "http://wohlig.co.in/newfynx/uploads/" + input;
+      return  imgurl + input;
     } else {
       return "img/logo.png";
     }

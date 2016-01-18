@@ -16,6 +16,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.categories = _.chunk(data, 3);
         });
         NavigationService.getSlider(function (data) {
+          console.log(data);
             $scope.mySlides = data;
         });
         $scope.openAppoinment = function () {
@@ -184,6 +185,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.countries = countries;
         $scope.updateuser = {};
         $scope.updateuser.user = {};
+        $scope.userid =NavigationService.getUser().id;
 
         $scope.addAlert = function (type, msg) {
             $scope.alerts.push({
@@ -198,7 +200,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.myProfile = {};
 
-        NavigationService.getUserDetail(2, function (data) { //remove two add userid
+        NavigationService.getUserDetail($scope.userid, function (data) { //remove two add userid
             console.log(data);
             $scope.user = data;
             $scope.updateuser.user = data;
@@ -653,7 +655,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.validation = false;
                 if (accept == true && $scope.signup.password === $scope.signup.cpassword) {
                     NavigationService.signup($scope.signup, function (data) {
-                        if (data.value) {
+                      console.log(data);
+                        if (data.value == false) {
                             $scope.validation1 = true;
                         } else {
                             $scope.validation1 = false;
@@ -1076,11 +1079,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     } else {
         $scope.isLogin = false;
     }
-
     //Global function
     myfunction = function () {
         NavigationService.getCartCount(function (data) {
-            if (data.value) {
+            if (data.value ==false) {
                 $scope.amount = 0;
                 $scope.quantity = 0;
             } else {
@@ -1191,8 +1193,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.validation = false;
             if (accept == true && $scope.signup.password === $scope.signup.cpassword) {
                 NavigationService.signup($scope.signup, function (data) {
-                    if (data.value) {
-                        $scope.validation1 = "Enter all fields";
+                    if (data.value == false) {
+                        $scope.validation1 = "Already exists";
                     } else {
                         $scope.validation1 = "";
                         NavigationService.setUser(data);
@@ -1214,7 +1216,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //logout
     $scope.logout = function () {
         NavigationService.logout(function (data) {
-            if (data.value == true) {
+          console.log(true);
+            if (data == "true") {
                 $.jStorage.flush();
                 window.location.reload();
             }
