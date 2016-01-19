@@ -765,7 +765,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.proceedToDeliveryDetails = function() {
-      if (!$scope.isCartValid()) {
+      if($scope.allcart.length ==0 || $scope.allcart == null){
+        $scope.alerts.push({
+
+
+          type:'danger',
+          msg:'No items in cart'
+        });
+      }
+      else if (!$scope.isCartValid()) {
         $scope.alerts.push({
           type: 'danger',
           msg: 'Remove exceeding quantities'
@@ -1037,6 +1045,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             msg: 'Removed from cart.'
           });
           $scope.getWishlist();
+          myfunction();
         } else {
           $scope.alerts.push({
             type: 'danger',
@@ -1181,6 +1190,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.alerts = [];
   $scope.loginmodal = true;
   $scope.signupmodal = false;
+  $scope.wishlistcount=0;
   $scope.navigation = NavigationService.getnav();
   if (NavigationService.getUser()) {
     $scope.isLogin = true;
@@ -1189,11 +1199,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   }
   //Global function
 
+
   NavigationService.getCategory(function(data){
     console.log(data);
     $scope.navigation[0].subnav = data;
   });
+  $scope.wishlistcountshow =false ;
   myfunction = function() {
+$scope.wishlistcount=0;
+    if($.jStorage.get("user")){
+      $scope.wishlistcountshow=true;
+      NavigationService.getWishlistCount(function(data){
+        console.log(data);
+        $scope.wishlistcount=data;
+      });
+    }
     NavigationService.getCartCount(function(data) {
       if (data.value == false) {
         $scope.amount = 0;
@@ -1204,6 +1224,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.quantity = data.quantity;
         count++;
       }
+
     });
     // NavigationService.totalcart(function(data) {
     //     $scope.amount = data;

@@ -25,12 +25,12 @@
   <li ng-if="isLogin">
     <a ui-sref="profile">{{user.firstname}} {{user.lastname}}</a>
   </li>
-  <li class="mt-35">
+  <li class="mt-35" ng-show="wishlistcountshow">
     <a ui-sref="mywishlist" class="icon-btn">
       <span class="fit">
         <i class="fa fa-star"></i>
       </span>
-      <span>0</span>
+      <span>{{wishlistcount}}</span>
     </a>
   </li>
   <li>

@@ -569,6 +569,7 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         removeFromCart: function (cart, callback) {
+          console.log(cart);
             return $http({
                 url: adminurl + "removeFromCart",
                 method: "POST",
@@ -640,6 +641,9 @@ var navigationservice = angular.module('navigationservice', [])
         },
         getWishlist: function (callback) {
             $http.get(adminurl + 'getWishlist').success(callback);
+        },
+        getWishlistCount: function (callback) {
+            $http.get(adminurl + 'getWishlistCount').success(callback);
         },
         checkoutCheck: function (callback) {
             $http.get(adminurl + 'checkoutCheck').success(callback);
