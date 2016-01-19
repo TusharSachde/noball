@@ -480,7 +480,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     NavigationService.getProductDetail($scope.productid, function(data) {
       console.log(data);
       $scope.productdetail = data;
-      if ($scope.productdetail.product.firstsaleprice) {
+      if ($scope.productdetail.product.discountprice) {
         $scope.firstsale = true;
       } else {
         $scope.firstsale = false;

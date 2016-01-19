@@ -2,7 +2,7 @@
   <div class="text-center main-head">
     <h3 class="high-light letter-spacing">{{params}} </h3>
   </div>
-  <h4 ng-if="categories==''">{{msg}}</h4>
+  <h4 class="text-center" ng-if="categories==''">{{msg}}</h4>
   <div class="banners">
     <div ng-repeat="category in categories">
     <div class="banner-inner" ng-if="!category.length">
@@ -18,8 +18,6 @@
               <div class="text-right">
                 <h2>
                   {{category.name}}
-                  <!-- PLAYING</br>
-                  T-SHIRTS -->
                 </h2>
                 <a class="btn btn-outline btn-light uppercase letter-spacing" ui-sref="categories-inside({category:params,name:category.name})">Know More</a>
               </div>
