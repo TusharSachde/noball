@@ -1178,7 +1178,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.isLogin = false;
   $scope.user = user;
   $scope.alerts = [];
-  $scope.loginmodal = false;
+  $scope.loginmodal = true;
   $scope.signupmodal = false;
   if (NavigationService.getUser()) {
     $scope.isLogin = true;
