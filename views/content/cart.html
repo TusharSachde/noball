@@ -26,7 +26,7 @@
                                 <td>
                                     <figure>
                                         <img ng-src="{{cart.image|serverimage}}">
-                                        <figcaption>{{cart.realname}}</figcaption>
+                                        <figcaption>{{cart.options.realname}}</figcaption>
                                     </figure>
                                 </td>
                                 <td>{{cart.colour}}</td>
@@ -68,12 +68,12 @@
                         </div>
                         <div class="col-xs-6">
                             <div class="list text-right">
-                                <p>{{bigcount.amount}}</p>
+                                <p>{{totalcart}}</p>
                                 <p>0</p>
                                 <p>0</p>
                                 <p>0</p>
-                                <p>100</p>
-                                <p>{{bigcount.amount}}</p>
+                                <p>0</p>
+                                <p>{{totalcart}}</p>
                             </div>
                         </div>
                     </div>

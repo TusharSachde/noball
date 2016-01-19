@@ -5,7 +5,7 @@
   </div>
   <div class="modal-body">
     <!--   Registration   -->
-    <div class="holder1" ng-if="logintab.tab==1">
+    <div class="holder1" ng-show="signupmodal" >
       <div class="signup">
         <div class="login-form">
           <div class="form-group">
@@ -52,7 +52,7 @@
       </div>
     </div>
     <!--    Login   -->
-    <div class="holder1" ng-if="logintab.tab==2">
+    <div class="holder1" ng-show="loginmodal">
       <div class="login">
         <div class="login-form">
           <div class="form-group">

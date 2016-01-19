@@ -76,15 +76,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.msg = "Loading...";
     $scope.navigation = NavigationService.getnav();
     $scope.alerts = [];
+    $scope.totalcart = 0;
     $scope.closeAlert = function(index) {
       $scope.alerts.splice(index, 1);
     };
     $scope.getCart = function() {
+
+
       NavigationService.showCart(function(data) {
         console.log(data);
         if (data != '') {
           $scope.msg = "";
           $scope.addCart = data;
+          $scope.totalcart = 0;
           _.each($scope.addCart, function(key) {
             key.subtotal = key.qty * key.price;
             key.qty = parseInt(key.qty);
@@ -620,6 +624,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           _.each($scope.allcart, function(key) {
             key.subtotal = key.qty * key.price;
             $scope.totalcart = $scope.totalcart + key.subtotal;
+            key.qty = parseInt(key.qty);
             if (!$scope.validateQuantity(key)) {
               key.exceed = true;
             } else {
@@ -879,9 +884,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         item.exceed = true;
         //$scope.totalcart = null;
 
-      } else if ($scope.validateQuantity(item) == false) {
+      } else if ($scope.validateQuantity(item)) {
         item.exceed = false;
         item.status = "2";
+        console.log("here");
         NavigationService.addToCart(item, function(data) {
           console.log(data);
           if (data.value) {
@@ -1150,6 +1156,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.isLogin = false;
   $scope.user = user;
   $scope.alerts = [];
+  $scope.loginmodal = false;
+  $scope.signupmodal = false;
   if (NavigationService.getUser()) {
     $scope.isLogin = true;
   } else {
@@ -1173,6 +1181,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //     $scope.amount = data;
     // });
   }
+  $scope.changeTab = function(tab) {
+    console.log(tab);
+    if (tab === 1) {
+      $scope.signupmodal = true;
+      $scope.loginmodal = false;
+
+    } else {
+      $scope.loginmodal = true;
+      $scope.signupmodal = false;
+    }
+  }
   myfunction();
 
   $scope.hovered = function() {
@@ -1189,7 +1208,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.openLogin = function() {
     console.log("login opened");
     $.jStorage.set("isExpert", false);
-    $scope.logintab.tab = 2;
+    $scope.changeTab(2);
     $uibModal.open({
       animation: true,
       templateUrl: 'views/modal/login.html',
@@ -1197,19 +1216,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       scope: $scope
     })
   };
-  $scope.changeTab = function(tab) {
-    $scope.logintab.tab = tab;
-  }
+
   $scope.openSignup = function() {
     console.log("singup opened");
     $.jStorage.set("isExpert", true);
-    $scope.logintab.tab = 1;
+
+
     $uibModal.open({
       animation: true,
       templateUrl: 'views/modal/login.html',
       controller: 'headerctrl',
       scope: $scope
     })
+    $scope.changeTab(1);
   };
   $scope.cancel = function() {
     $uibModalInstance.dismiss('cancel');
