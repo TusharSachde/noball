@@ -132,6 +132,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             msg: 'Removed successfully'
           });
           $scope.getCart();
+          myfunction();
         }
       })
     };

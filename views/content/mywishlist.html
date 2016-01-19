@@ -11,8 +11,8 @@
       <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" class="text-center" dismiss-on-timeout="5000">{{alert.msg}}</uib-alert>
     </div>
     <div class="row">
-      <div class="col-md-12">
-        <div class="order-table wish-table">
+      <div class="col-md-12" ng-if="wishlist !== null">
+        <div class="order-table wish-table" >
           <table class="table">
             <thead class="text-center">
               <tr>
@@ -69,8 +69,11 @@
             </tbody>
           </table>
         </div>
+
+
       </div>
     </div>
+      <div class="text-center" ng-if="!wishlist">Your wishlist is empty.</div>
     <div class="wish-back account-bg no-bg account-wish-bg">
       <div class="row">
         <div class="col-md-offset-6 col-md-6">
