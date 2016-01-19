@@ -1,9 +1,7 @@
 // var mainurl = "http://wohlig.io:81/callApi/noball/";
 var mainurl = "http://www.wohlig.co.in/cccbackend/index.php/";
-var imgurl = "http://www.wohlig.co.in/cccbackend/uploads/"
-
-var websiteurl = "http://www.myfynx.com/testing/";
-var mainurlpaymentgateway = "http://www.myfynx.com/newfynx/";
+var mainurl = "http://localhost/cccbackend/index.php/";
+var imgurl = "http://localhost/cccbackend/uploads/";
 var adminurl = mainurl + "json/";
 var countries = [{
         "value": "Please Select"
@@ -562,9 +560,6 @@ var navigationservice = angular.module('navigationservice', [])
         getnav: function () {
             return navigation;
         },
-        placeOrder: function (callback) {
-            $http.get(adminurl + 'placeorder.json').success(callback)
-        },
         getSlider: function (callback) {
             $http.get(adminurl + 'getSlide').success(callback);
         },
@@ -594,7 +589,26 @@ var navigationservice = angular.module('navigationservice', [])
                 data: {
                     "product": cart.id,
                     "quantity": cart.qty,
-                    "json": ""
+                    "json": "",
+                    "status":cart.status
+                }
+            }).success(callback);
+        },
+        addToWishlist: function (wishlist, callback) {
+            return $http({
+                url: adminurl + "addToWishlist",
+                method: "POST",
+                data: {
+                    "product": wishlist
+                }
+            }).success(callback);
+        },
+        removeFromWishlist: function (wishlist, callback) {
+            return $http({
+                url: adminurl + "removeFromWishlist",
+                method: "POST",
+                data: {
+                    "product": wishlist
                 }
             }).success(callback);
         },
@@ -639,6 +653,7 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         changePassword: function (password, callback) {
+          console.log(password);
             return $http({
                 url: adminurl + "changePassword",
                 method: "POST",
@@ -673,8 +688,12 @@ var navigationservice = angular.module('navigationservice', [])
         checkoutCheck: function (callback) {
             $http.get(adminurl + 'checkoutCheck').success(callback);
         },
-        placeOrder: function (callback) {
-            $http.get(adminurl + 'placeorder.json').success(callback)
+        placeOrder: function (order,callback) {
+          return $http({
+              url: adminurl + "placeOrder",
+              method: "POST",
+              data: order
+          }).success(callback);
         },
         getUserDetail: function (id,callback) {
             $http.get(adminurl + 'getUser?id=' + id).success(callback);

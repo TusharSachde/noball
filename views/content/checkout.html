@@ -84,14 +84,14 @@
                       </div>
                       <div class="form-group i-check">
                         <div class="checkbox">
-                          <input type="checkbox" id="cc">
+                          <input type="checkbox" id="cc" ng-model="accept">
                           <label for="cc" class="agree">
                             <span></span> I agree with the terms &amp; conditions &amp; privacy policy</label>
                         </div>
                       </div>
                     </div>
                     <div class="text-center">
-                      <button class="btn btn-outline btn-dark" ng-click="doSignUp()">REGISTER</button>
+                      <button class="btn btn-outline btn-dark" ng-click="doSignUp(accept)">REGISTER</button>
                       <div class="mg">
                         <p class="or">OR</p>
                         <p class="or">SIGN UP VIA</p>

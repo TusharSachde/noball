@@ -7,6 +7,9 @@
     </div>
   </div>
   <div class="container">
+    <div class="alert-postion">
+      <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" class="text-center" dismiss-on-timeout="5000">{{alert.msg}}</uib-alert>
+    </div>
     <div class="row">
       <div class="col-md-12">
         <div class="order-table wish-table">
@@ -38,7 +41,7 @@
                   <p>{{wish.subtotal}}</p>
                   <div class="text-right p65">
                     <button class="btn btn-outline btn-dark padding-btn">ADD TO CART</button>
-                    <button class="btn btn-outline btn-dark">REMOVE</button>
+                    <button class="btn btn-outline btn-dark" ng-click="removeCart(wish.id)">REMOVE</button>
                   </div>
                 </td>
               </tr>
