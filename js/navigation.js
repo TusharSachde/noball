@@ -1,7 +1,7 @@
 // var mainurl = "http://wohlig.io:81/callApi/noball/";
-var mainurl = "http://www.wohlig.co.in/cccbackend/index.php/";
-var mainurl = "http://localhost/cccbackend/index.php/";
-var imgurl = "http://localhost/cccbackend/uploads/";
+var mainurl = "http://wohlig.co.in/cccbackend/index.php/";
+// var mainurl = "http://localhost/cccbackend/index.php/";
+var imgurl = "http://wohlig.co.in/cccbackend/uploads/";
 var adminurl = mainurl + "json/";
 var countries = [{
         "value": "Please Select"
