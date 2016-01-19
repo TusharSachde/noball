@@ -692,7 +692,6 @@ footer {
   min-height: 300px;
   padding-top: 30px;
 }
-
 //save-design
 .design-patt {
   margin: 20px 0;
@@ -731,7 +730,6 @@ footer {
   left: 50%;
   @include transform(translate(-50%, -50%));
 }
-
 //privacy-policy
 .banner {
   min-height: 295px;
@@ -798,7 +796,6 @@ footer {
     margin-top: 0;
   }
 }
-
 //cart page
 .order-table {
   color: #515151;
@@ -821,7 +818,6 @@ footer {
       tr {
         td {
           padding: 20px 0;
-
           //                    vertical-align: middle;
           border-top: none;
           border-bottom: 1px solid #ddd;
@@ -836,7 +832,6 @@ footer {
         }
         td:last-child {
           padding: 24px 0;
-
           //                    vertical-align: bottom;
           button {
             float: right;
@@ -893,7 +888,6 @@ footer {
     }
   }
 }
-
 //wishlist page
 .wish-table {
   .table {
@@ -909,7 +903,6 @@ footer {
     }
   }
 }
-
 //checkout page
 .check-out {
   .nav-tabs {
@@ -1041,7 +1034,6 @@ footer {
     }
   }
 }
-
 //ready
 .chart {
   span {
@@ -1104,7 +1096,6 @@ footer {
       display: inline-block;
       position: relative;
       margin-right: 15px;
-
       // @include transition (all ease 300ms );
       p {
         @extend .margin0;
@@ -1120,7 +1111,6 @@ footer {
       }
       &.breadcrums {
         p {
-
           // @include transition (all ease 300ms );
           &:before {
             content: "";
@@ -1160,7 +1150,6 @@ footer {
           right: -13px;
           top: 1px;
           z-index: 9;
-
           // @include transition (all ease 300ms );
         }
         &:hover span.bread-back,
@@ -1572,7 +1561,6 @@ footer {
     font-size: 16px;
   }
 }
-
 ////
 .choose-product {
   border-top: 2px solid #c0c0c0;
@@ -1809,7 +1797,6 @@ footer {
     text-transform: uppercase;
   }
 }
-
 //pop-up wishlist
 .pop-up {
   width: 400px;
@@ -1931,5 +1918,23 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .margin-zero {
   margin: 0;
+}
+// thankyou,error,sorry
+.message {
+  .logo {
+    img {
+      margin: 0 auto;
+    }
+  }
+  .head-msg {
+    margin: 0;
+    font-size: 150px;
+  }
+  .sorry {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+  }
 }
 @import "mobile/mobile";
