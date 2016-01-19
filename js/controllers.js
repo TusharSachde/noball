@@ -558,6 +558,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
               msg: 'Added to wishlist.'
             });
             myfunction();
+
           } else {
             $scope.alerts.push({
               type: 'danger',
@@ -1180,12 +1181,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.alerts = [];
   $scope.loginmodal = false;
   $scope.signupmodal = false;
+  $scope.navigation = NavigationService.getnav();
   if (NavigationService.getUser()) {
     $scope.isLogin = true;
   } else {
     $scope.isLogin = false;
   }
   //Global function
+
+  NavigationService.getCategory(function(data){
+    console.log(data);
+    $scope.navigation[0].subnav = data;
+  });
   myfunction = function() {
     NavigationService.getCartCount(function(data) {
       if (data.value == false) {
@@ -1197,7 +1204,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.quantity = data.quantity;
         count++;
       }
-
     });
     // NavigationService.totalcart(function(data) {
     //     $scope.amount = data;

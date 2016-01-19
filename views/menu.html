@@ -2,12 +2,13 @@
   <li ng-repeat="menu in navigation">
     <a href="{{menu.link}}" class="{{menu.classis}}" ng-mouseenter="hovered();">{{menu.name}}</a>
     <ul class="custom-sub {{menu.name}} hidden-xs" ng-if="menu.subnav!='';">
-      <li ng-repeat="submenu in menu.subnav">
-        <a href="{{submenu.link}}" class="{{submenu.classis}}" ng-show="hovermenu">{{submenu.name}}</a>
+      <li ui-sref="categories({name:submenu.name})" ng-repeat="submenu in menu.subnav">
+
+        <a  class="{{submenu.classis}}" ng-show="hovermenu">{{submenu.name}}</a>
       </li>
     </ul>
     <ul class="custom-sub {{menu.name}}" ng-if="menu.subnav!='';">
-      <li ng-repeat="submenu in menu.subnav">
+      <li ui-sref="categories({name:submenu.name})" ng-repeat="submenu in menu.subnav">
         <a href="{{submenu.link}}" class="{{submenu.classis}}" ng-show="hovermenu">{{submenu.name}}</a>
       </li>
     </ul>
