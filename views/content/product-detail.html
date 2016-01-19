@@ -20,7 +20,7 @@
                 <div class="product-desc">
                     <div class="pro-rp">
                         <p ng-class="{'strike-text':firstsale}"><i class="fa fa-inr"></i>{{productdetail.product.price}}</p>
-                        <span ng-show="firstsale"><i class="fa fa-inr"></i>{{productdetail.product.firstsaleprice}}</span>
+                        <span ng-show="firstsale"><i class="fa fa-inr"></i>{{productdetail.product.discountprice}}</span>
                     </div>
                     <div class="clearfix"></div>
                     <div class="pro-detail">
@@ -79,7 +79,7 @@
                     <li>
                         <div class="slider-info">
                             <div class="slider-imgholder">
-                                <img ng-src="{{test.image}}" alt="" class="img-responsive">
+                                <img ng-src="{{test.image | serverimage}}" alt="" class="img-responsive">
                             </div>
                             <div class="info">
                                 <h3 class="text-uppercase name letter-spacing">{{test.name}}</h3>
