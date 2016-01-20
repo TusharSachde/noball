@@ -40,7 +40,7 @@
                 <td>
                   <p>{{wish.subtotal}}</p>
                   <div class="text-right p65">
-                    <button class="btn btn-outline btn-dark padding-btn">ADD TO CART</button>
+                    <button class="btn btn-outline btn-dark padding-btn" ng-click="cartAdd(wish.id)">ADD TO CART</button>
                     <button class="btn btn-outline btn-dark" ng-click="removeCart(wish.id)">REMOVE</button>
                   </div>
                 </td>

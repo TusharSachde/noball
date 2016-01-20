@@ -1055,6 +1055,35 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       })
 
     }
+    $scope.cartAdd = function(id) {
+
+      NavigationService.addToCart({
+        id:id,
+        qty:"1",
+        status:"1"
+      }, function(data) {
+        if (data.value == true) {
+          myfunction();
+          $scope.alerts.push({
+            type: 'success',
+            msg: 'Added in cart'
+          });
+        } else {
+          $scope.alerts.push({
+            type: 'danger',
+            msg: 'Already in cart'
+          });
+          // var xyz = ngDialog.open({
+          //     template: '<div class="pop-up"><h5 class="popup-wishlist">' + data.comment + '</h5><span class="closepop" ng-click="closeThisDialog(value);">X</span></div>',
+          //     plain: true,
+          //     controller: 'Product-DetailCtrl'
+          // });
+          // $timeout(function () {
+          //     xyz.close();
+          // }, 1000)
+        }
+      })
+    }
   })
   //
   // .controller('headerctrl', function($scope, TemplateService) {
