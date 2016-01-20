@@ -288,6 +288,11 @@ a.icon-btn {
   @include flex(1);
   position: relative;
 }
+.col-flex-50 {
+  @include flex(0 0 50%);
+  max-width: 50%;
+  position: relative;
+}
 .grey-bg {
   background-color: #1B1B1B;
 }
