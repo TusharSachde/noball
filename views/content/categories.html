@@ -8,10 +8,12 @@
     <div class="banner-inner" ng-if="!category.length">
       <div class="row-flex">
         <div class="banner-img">
-          <img ng-src="{{category.image1|serverimage}}" alt="" class="img-responsive">
+          <a ui-sref="categories-inside({category:params,name:category.name})">
+            <img ng-src="{{category.image1|serverimage}}" alt="" class="img-responsive">
+          </a>
         </div>
       </div>
-      <div class="text-above">
+      <!-- <div class="text-above">
         <div class="container">
           <div class="row">
             <div class="col-md-offset-6 col-md-6">
@@ -24,29 +26,33 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="row-flex" ng-if="category.length">
       <div class="col-flex-50">
         <div class="banner-inner">
-          <img ng-src="{{category[0].image2|serverimage}}" alt="" class="img-responsive">
-          <div class="text-above text-center">
+          <a ui-sref="categories-inside({category:params,name:category[0].name})">
+            <img ng-src="{{category[0].image2|serverimage}}" alt="" class="img-responsive">
+          </a>
+          <!-- <div class="text-above text-center">
             <h2 class="uppercase">
               {{category[0].name}}
             </h2>
-            <a class="btn btn-outline btn-light uppercase letter-spacing" ui-sref="categories-inside({category:params,name:category[0].name})">Know More</a>
-          </div>
+            <a class="btn btn-outline btn-light uppercase letter-spacing">Know More</a>
+          </div> -->
         </div>
       </div>
       <div class="col-flex-50">
         <div class="banner-inner">
-          <img ng-src="{{category[1].image2|serverimage}}" alt="" class="img-responsive">
-          <div class="text-center text-above">
+          <a ui-sref="categories-inside({category:params,name:category[1].name})">
+            <img ng-src="{{category[1].image2|serverimage}}" alt="" class="img-responsive">
+          </a>
+          <!-- <div class="text-center text-above">
             <h2 class="uppercase">
               {{category[1].name}}
             </h2>
             <a class="btn btn-outline btn-light uppercase letter-spacing" ui-sref="categories-inside({category:params,name:category[1].name})">Know More</a>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

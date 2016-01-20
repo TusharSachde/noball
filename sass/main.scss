@@ -1998,4 +1998,14 @@ input[type=number]::-webkit-outer-spin-button {
 .capitalize {
   text-transform: capitalize;
 }
+.banner-img {
+  img.img-responsive {
+    width: 100%;
+  }
+}
+.banner-inner {
+  img.img-responsive {
+    width: 100%;
+  }
+}
 @import "mobile/mobile";
