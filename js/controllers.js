@@ -740,7 +740,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
           })
         } else {
-          $scope.validation1 = "Accept Terms and Conditions OR password and confirmpassword does not match";
+          $scope.validation1 = "Please accept the Terms and Conditions or Password and confirm password do not match!";
         }
       } else {
         $scope.alerts.push({

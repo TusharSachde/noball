@@ -30,7 +30,7 @@
                                     </figure>
                                 </td>
                                 <td>{{cart.colour}}</td>
-                                <td>{{cart.size}}</td>
+                                <td class="uppercase">{{cart.size}}</td>
                                 <td>
                                 <input type="number" ng-change="updateCartQuantity(cart)" class="text-center spin-number" ng-model="cart.qty">
                                   <span class="more" ng-click="addQuantity(cart)"><i class="fa fa-plus"></i></span><span class="more" ng-click="subtractQuantity(cart)"><i class="fa fa-minus"></i></span>
