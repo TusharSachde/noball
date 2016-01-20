@@ -4,7 +4,7 @@
       <ul class="list-unstyled">
         <li>Shop</li>
         <li ng-repeat="shop in navigation[0].subnav">
-          <a href="{{shop.link}}">{{shop.name}}</a>
+          <a ui-sref="categories({name:shop.name})">{{shop.name}}</a>
         </li>
       </ul>
     </div>

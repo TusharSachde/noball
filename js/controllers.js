@@ -1042,7 +1042,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         if (data.value == true) {
           $scope.alerts.push({
             type: 'success',
-            msg: 'Removed from cart.'
+            msg: 'Removed from Wishlist.'
           });
           $scope.getWishlist();
           myfunction();
