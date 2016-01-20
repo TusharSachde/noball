@@ -30,7 +30,7 @@
     </div>
     <div class="row-flex" ng-if="category.length">
       <div class="col-flex-50">
-        <div class="banner-inner">
+        <div class="banner-inner" >
           <a ui-sref="categories-inside({category:params,name:category[0].name})">
             <img ng-src="{{category[0].image2|serverimage}}" alt="" class="img-responsive">
           </a>
@@ -42,8 +42,8 @@
           </div> -->
         </div>
       </div>
-      <div class="col-flex-50">
-        <div class="banner-inner">
+      <div class="col-flex-50" ng-if="category[1] != null">
+        <div class="banner-inner" >
           <a ui-sref="categories-inside({category:params,name:category[1].name})">
             <img ng-src="{{category[1].image2|serverimage}}" alt="" class="img-responsive">
           </a>

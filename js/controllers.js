@@ -46,23 +46,36 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.pusharray = [];
         _.each(data, function(n) {
           if (n.type == 1) {
-            if ($scope.pusharray != '') {
-
+            if($scope.pusharray.length ==0){
               $scope.categories.push(n);
-              $scope.pusharray = [];
-            } else {
+            }else{
+              _.each(_.chunk($scope.pusharray,2),function(m){
+                if(m.length == 2){
+                  $scope.categories.push(m);
+                }else{
+                  m.push(null);
+                  $scope.categories.push(m);
+                }
+              });
               $scope.categories.push(n);
+              $scope.pusharray=[];
             }
+
           } else {
             $scope.pusharray.push(n);
-            if ($scope.pusharray.length == 2) {
-              _.each(_.chunk($scope.pusharray, 2), function(m) {
-                $scope.categories.push(m);
-              })
-              $scope.pusharray = [];
-            }
+
           }
-        })
+        });
+        if($scope.pusharray.length != 0){
+          _.each(_.chunk($scope.pusharray,2),function(m){
+            if(m.length == 2){
+              $scope.categories.push(m);
+            }else{
+              m.push(null);
+              $scope.categories.push(m);
+            }
+          });
+        }
       }
     })
   })
@@ -766,15 +779,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.proceedToDeliveryDetails = function() {
-      if($scope.allcart.length ==0 || $scope.allcart == null){
+      if ($scope.allcart.length == 0 || $scope.allcart == null) {
         $scope.alerts.push({
 
 
-          type:'danger',
-          msg:'No items in cart'
+          type: 'danger',
+          msg: 'No items in cart'
         });
-      }
-      else if (!$scope.isCartValid()) {
+      } else if (!$scope.isCartValid()) {
         $scope.alerts.push({
           type: 'danger',
           msg: 'Remove exceeding quantities'
@@ -1059,9 +1071,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.cartAdd = function(id) {
 
       NavigationService.addToCart({
-        id:id,
-        qty:"1",
-        status:"1"
+        id: id,
+        qty: "1",
+        status: "1"
       }, function(data) {
         if (data.value == true) {
           myfunction();
@@ -1220,7 +1232,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.alerts = [];
   $scope.loginmodal = true;
   $scope.signupmodal = false;
-  $scope.wishlistcount=0;
+  $scope.wishlistcount = 0;
   $scope.navigation = NavigationService.getnav();
   if (NavigationService.getUser()) {
     $scope.isLogin = true;
@@ -1230,18 +1242,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   //Global function
 
 
-  NavigationService.getCategory(function(data){
+  NavigationService.getCategory(function(data) {
     console.log(data);
     $scope.navigation[0].subnav = data;
   });
-  $scope.wishlistcountshow =false ;
+  $scope.wishlistcountshow = false;
   myfunction = function() {
-$scope.wishlistcount=0;
-    if($.jStorage.get("user")){
-      $scope.wishlistcountshow=true;
-      NavigationService.getWishlistCount(function(data){
+    $scope.wishlistcount = 0;
+    if ($.jStorage.get("user")) {
+      $scope.wishlistcountshow = true;
+      NavigationService.getWishlistCount(function(data) {
         console.log(data);
-        $scope.wishlistcount=data;
+        $scope.wishlistcount = data;
       });
     }
     NavigationService.getCartCount(function(data) {
