@@ -1990,4 +1990,7 @@ input[type=number]::-webkit-outer-spin-button {
 .uppercase {
   text-transform: uppercase;
 }
+.capitalize {
+  text-transform: capitalize;
+}
 @import "mobile/mobile";
