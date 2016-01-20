@@ -603,6 +603,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     NavigationService.getOrders(function(data) {
+      console.log(data);
       $scope.orders = data;
     });
   })
@@ -1328,7 +1329,7 @@ $scope.wishlistcount=0;
 
       if (check) {
         NavigationService.login($scope.login, function(data) {
-          if (data.value) {
+          if (data.value == false) {
             $scope.validation = true;
           } else {
             $scope.validation = false;
