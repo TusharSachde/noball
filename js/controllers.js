@@ -60,8 +60,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.categories.push(m);
               })
               $scope.pusharray = [];
-            }else if($scope.pusharray.length == 1){
-              $scope.categories.push($scope.pusharray[0]);
             }
           }
         })
