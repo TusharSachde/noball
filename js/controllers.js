@@ -631,6 +631,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.shipAtSame = false;
     $scope.countries = countries;
     $scope.msg = 'Loading...';
+    $scope.guest ="notguest";
+    $scope.guestshow=true;
+    $scope.selectGuest= function(input){
+      console.log(input);
+      $scope.guestshow=true;
+      if(input == "notguest"){
+        $scope.guestshow=true;
+      }else {
+        $scope.guestshow=false;
+      }
+    };
     $scope.tabs = [{
       active: true,
       disabled: true
@@ -1219,6 +1230,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
   })
 
+  .controller('footerctrl', function($scope, TemplateService, $uibModal, NavigationService) {
+    $scope.template = TemplateService;
+    $scope.wishlistshow=false;
+    if($.jStorage.get("user")){
+      $scope.wishlistshow=true;
+    }else{
+      $scope.wishlistshow=false;
+    }
+  })
 .controller('headerctrl', function($scope, TemplateService, $uibModal, NavigationService) {
   $scope.template = TemplateService;
   $scope.logintab = {};
@@ -1240,8 +1260,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.isLogin = false;
   }
   //Global function
-
-
   NavigationService.getCategory(function(data) {
     console.log(data);
     $scope.navigation[0].subnav = data;

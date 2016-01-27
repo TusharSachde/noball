@@ -155,7 +155,8 @@ firstapp.filter('serverimage', function() {
     if (input) {
       return  imgurl + input;
     } else {
-      return "img/logo.png";
+      // return "img/logo.png";
+      return "";
     }
   };
 });
