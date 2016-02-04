@@ -5,8 +5,9 @@
       <a class="btn btn-outline btn-dark" ng-click="hovered();">Explore More</a>
       <ul class="custom-menu-down" ng-show="hovermenu" ng-mouseleave="unhovered();">
         <li ng-repeat="subcategory in subCategories">
-          <a ui-sref="categories({name:cat.name})">
+          <a ui-sref="categories-inside({category:category,name:subcategory.name})">
               {{subcategory.name}}
+
             </a>
         </li>
       </ul>
