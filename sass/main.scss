@@ -401,10 +401,8 @@ footer {
     color: #5c5c5c;
     a {
       color: inherit;
-      border-left: 3px solid transparent;
-      padding: 6px 5px;
+      // padding: 6px 8px;
       &:hover {
-        border-color: $brand-warning;
         color: lighten($font-color, 30%)!important;
       }
     }
@@ -436,7 +434,7 @@ footer {
         font-weight: 300;
         @include transition (all ease 300ms);
         border-left: 3px solid transparent;
-        padding: 6px 5px;
+        padding: 6px 8px;
         &:hover {
           border-color: $brand-warning;
           color: lighten($font-color, 50%)!important;
