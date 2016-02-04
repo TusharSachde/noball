@@ -5,7 +5,7 @@
       <a class="btn btn-outline btn-dark" ng-click="hovered();">Explore More</a>
       <ul class="custom-menu-down" ng-show="hovermenu" ng-mouseleave="unhovered();">
         <li ng-repeat="subcategory in subCategories">
-          <a href="#" class="">
+          <a ui-sref="categories({name:cat.name})">
               {{subcategory.name}}
             </a>
         </li>
@@ -23,7 +23,7 @@
           <div class="overlay">
             <div class="text-above text-center">
               <h2 class="text-uppercase">{{product.name}}</h2>
-              <a ui-sref="product-detail({category:category,subcategory:subcategory,id:product.id})" class="btn btn-outline btn-light uppercase letter-spacing">Know more</a>
+              <a ui-sref="product-detail({category:category,subcategory:subcategory,id:product.id})" class="btn btn-outline btn-light uppercase letter-spacing">Explore</a>
             </div>
           </div>
         </div>
