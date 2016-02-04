@@ -1263,6 +1263,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   NavigationService.getCategory(function(data) {
     console.log(data);
     $scope.navigation[0].subnav = data;
+    $scope.navigation[1].subnav = '';
   });
   $scope.wishlistcountshow = false;
   myfunction = function() {

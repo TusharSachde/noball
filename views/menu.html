@@ -1,9 +1,9 @@
 <ul class="nav navbar-nav hidden-xs">
-  <li ng-repeat="menu in navigation" ng-mouseenter="hovered();">
+  <li ng-repeat="menu in navigation">
     <a href="{{menu.link}}" class="{{menu.classis}}">{{menu.name}}</a>
-    <ul class="custom-sub bg-white {{menu.name}} hidden-xs" ng-if="menu.subnav!='';">
+    <ul class="dropdown-menu custom-sub bg-white {{menu.name}} hidden-xs" ng-if="menu.subnav!=[];">
       <li ui-sref="categories({name:submenu.name})" ng-repeat="submenu in menu.subnav">
-        <a  class="{{submenu.classis}}" ng-show="hovermenu">{{submenu.name}}</a>
+        <a class="{{submenu.classis}}">{{submenu.name}}</a>
       </li>
     </ul>
   </li>
