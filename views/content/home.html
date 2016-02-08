@@ -17,7 +17,8 @@
         <div class="row-flex" ng-repeat="category in categories">
             <div class="col-flex" ng-repeat="cat in category">
                 <a ui-sref="categories({name:cat.name})">
-                    <div class="line-hover letter-spacing">{{cat.name}}</div>
+                  <div class="cat-home"><img src="img/category/bats.jpg" alt="bags" class="img-responsive"></div>
+                    <div class="line-hover letter-spacing hover-up"><p>{{cat.name}}</p></div>
                 </a>
             </div>
         </div>

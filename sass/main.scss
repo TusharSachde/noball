@@ -327,6 +327,28 @@ a.icon-btn {
       border-color: $brand-success;
     }
   }
+  .hover-up {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    padding: 0;
+    background: transparent;
+    width: 100%;
+    &:hover {
+      background: rgba(0, 0, 0, 0.6);
+      p{
+        opacity: 1;
+      }
+    }
+    p {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      @include transform(translate(-50%,-50%));
+      opacity: 0;
+      @include transition(all ease 300ms);
+    }
+  }
 }
 .uppercase {
   text-transform: uppercase;
@@ -401,6 +423,7 @@ footer {
     color: #5c5c5c;
     a {
       color: inherit;
+
       // padding: 6px 8px;
       &:hover {
         color: lighten($font-color, 30%)!important;
