@@ -276,6 +276,7 @@ a.icon-btn {
   position: relative;
   height: 400px;
   margin: 10px 0;
+  cursor: pointer;
   img {
     max-width: 100%;
     max-height: 100%;
@@ -336,7 +337,7 @@ a.icon-btn {
     width: 100%;
     &:hover {
       background: rgba(0, 0, 0, 0.6);
-      p{
+      p {
         opacity: 1;
       }
     }
@@ -347,6 +348,7 @@ a.icon-btn {
       @include transform(translate(-50%,-50%));
       opacity: 0;
       @include transition(all ease 300ms);
+      color: $brand-success;
     }
   }
 }
@@ -494,6 +496,9 @@ footer {
     outline: 0;
   }
 }
+.get-touch{
+  padding-top: 7px;
+}
 .custom-sub {
   position: absolute;
   top: 90%;
@@ -596,7 +601,7 @@ footer {
       position: absolute;
       top: 0;
       left: 0;
-      background: #cccccc;
+      background: rgba(0, 0, 0, 0.6);
       opacity: 0;
       @include transition (all 500ms ease);
     }
@@ -658,9 +663,10 @@ footer {
   }
 }
 .img-hold {
-  height: 130px;
+  height: 200px;
   overflow: hidden;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 .product-desc {
   width: 85%;

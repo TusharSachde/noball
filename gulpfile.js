@@ -9,6 +9,8 @@ var jsArray = [
     './bower_components/ui-router/release/angular-ui-router.min.js',
     './bower_components/angular-bootstrap/ui-bootstrap.min.js',
     './bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+    './bower_components/elevatezoom/jquery.elevatezoom.js',
+    './bower_components/fancyBox/source/jquery.fancybox.pack.js',
     './bower_components/jStorage/jstorage.min.js',
     './bower_components/lodash/lodash.min.js',
     './bower_components/ngDialog/js/ngDialog.min.js',

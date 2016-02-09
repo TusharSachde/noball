@@ -46,19 +46,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.pusharray = [];
         _.each(data, function(n) {
           if (n.type == 1) {
-            if($scope.pusharray.length ==0){
+            if ($scope.pusharray.length == 0) {
               $scope.categories.push(n);
-            }else{
-              _.each(_.chunk($scope.pusharray,2),function(m){
-                if(m.length == 2){
+            } else {
+              _.each(_.chunk($scope.pusharray, 2), function(m) {
+                if (m.length == 2) {
                   $scope.categories.push(m);
-                }else{
+                } else {
                   m.push(null);
                   $scope.categories.push(m);
                 }
               });
               $scope.categories.push(n);
-              $scope.pusharray=[];
+              $scope.pusharray = [];
             }
 
           } else {
@@ -66,11 +66,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
           }
         });
-        if($scope.pusharray.length != 0){
-          _.each(_.chunk($scope.pusharray,2),function(m){
-            if(m.length == 2){
+        if ($scope.pusharray.length != 0) {
+          _.each(_.chunk($scope.pusharray, 2), function(m) {
+            if (m.length == 2) {
               $scope.categories.push(m);
-            }else{
+            } else {
               m.push(null);
               $scope.categories.push(m);
             }
@@ -491,7 +491,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('Product-DetailCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, ngDialog) {
+  .controller('Product-DetailCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, ngDialog,$rootScope) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("product-detail");
     $scope.menutitle = NavigationService.makeactive("Products");
@@ -531,6 +531,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     });
     $scope.selectImage = function(object) {
       $scope.selectedImage = object.image;
+      $rootScope.$broadcast('changeImage', {});
     };
 
     $scope.cartAdd = function() {
@@ -631,15 +632,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.shipAtSame = false;
     $scope.countries = countries;
     $scope.msg = 'Loading...';
-    $scope.guest ="notguest";
-    $scope.guestshow=true;
-    $scope.selectGuest= function(input){
+    $scope.guest = "notguest";
+    $scope.guestshow = true;
+    $scope.selectGuest = function(input) {
       console.log(input);
-      $scope.guestshow=true;
-      if(input == "notguest"){
-        $scope.guestshow=true;
-      }else {
-        $scope.guestshow=false;
+      $scope.guestshow = true;
+      if (input == "notguest") {
+        $scope.guestshow = true;
+      } else {
+        $scope.guestshow = false;
       }
     };
     $scope.tabs = [{
@@ -1230,204 +1231,204 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
   })
 
-  .controller('footerctrl', function($scope, TemplateService, $uibModal, NavigationService) {
+.controller('footerctrl', function($scope, TemplateService, $uibModal, NavigationService) {
     $scope.template = TemplateService;
-    $scope.wishlistshow=false;
-    if($.jStorage.get("user")){
-      $scope.wishlistshow=true;
-    }else{
-      $scope.wishlistshow=false;
+    $scope.wishlistshow = false;
+    if ($.jStorage.get("user")) {
+      $scope.wishlistshow = true;
+    } else {
+      $scope.wishlistshow = false;
     }
   })
-.controller('headerctrl', function($scope, TemplateService, $uibModal, NavigationService) {
-  $scope.template = TemplateService;
-  $scope.logintab = {};
-  $scope.login = {};
-  $scope.logintab.tab = 1;
-  $scope.hovermenu = false;
-  $scope.validation = false;
-  $scope.validation1 = "";
-  $scope.isLogin = false;
-  $scope.user = user;
-  $scope.alerts = [];
-  $scope.loginmodal = true;
-  $scope.signupmodal = false;
-  $scope.wishlistcount = 0;
-  $scope.navigation = NavigationService.getnav();
-  if (NavigationService.getUser()) {
-    $scope.isLogin = true;
-  } else {
-    $scope.isLogin = false;
-  }
-  //Global function
-  NavigationService.getCategory(function(data) {
-    console.log(data);
-    $scope.navigation[0].subnav = data;
-    $scope.navigation[1].subnav = '';
-  });
-  $scope.wishlistcountshow = false;
-  myfunction = function() {
-    $scope.wishlistcount = 0;
-    if ($.jStorage.get("user")) {
-      $scope.wishlistcountshow = true;
-      NavigationService.getWishlistCount(function(data) {
-        console.log(data);
-        $scope.wishlistcount = data;
-      });
-    }
-    NavigationService.getCartCount(function(data) {
-      if (data.value == false) {
-        $scope.amount = 0;
-        $scope.quantity = 0;
-      } else {
-        bigcount = data;
-        $scope.amount = data.amount;
-        $scope.quantity = data.quantity;
-        count++;
-      }
-
-    });
-    // NavigationService.totalcart(function(data) {
-    //     $scope.amount = data;
-    // });
-  }
-  $scope.changeTab = function(tab) {
-    console.log(tab);
-    if (tab === 1) {
-      $scope.signupmodal = true;
-      $scope.loginmodal = false;
-
-    } else {
-      $scope.loginmodal = true;
-      $scope.signupmodal = false;
-    }
-  }
-  myfunction();
-
-  $scope.hovered = function() {
-    $scope.hovermenu = true;
-  }
-  $scope.unhovered = function() {
+  .controller('headerctrl', function($scope, TemplateService, $uibModal, NavigationService) {
+    $scope.template = TemplateService;
+    $scope.logintab = {};
+    $scope.login = {};
+    $scope.logintab.tab = 1;
     $scope.hovermenu = false;
-  }
-  $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
-    $(window).scrollTop(0);
-  });
-  $scope.animationsEnabled = true;
+    $scope.validation = false;
+    $scope.validation1 = "";
+    $scope.isLogin = false;
+    $scope.user = user;
+    $scope.alerts = [];
+    $scope.loginmodal = true;
+    $scope.signupmodal = false;
+    $scope.wishlistcount = 0;
+    $scope.navigation = NavigationService.getnav();
+    if (NavigationService.getUser()) {
+      $scope.isLogin = true;
+    } else {
+      $scope.isLogin = false;
+    }
+    //Global function
+    NavigationService.getCategory(function(data) {
+      console.log(data);
+      $scope.navigation[0].subnav = data;
+      $scope.navigation[1].subnav = '';
+    });
+    $scope.wishlistcountshow = false;
+    myfunction = function() {
+      $scope.wishlistcount = 0;
+      if ($.jStorage.get("user")) {
+        $scope.wishlistcountshow = true;
+        NavigationService.getWishlistCount(function(data) {
+          console.log(data);
+          $scope.wishlistcount = data;
+        });
+      }
+      NavigationService.getCartCount(function(data) {
+        if (data.value == false) {
+          $scope.amount = 0;
+          $scope.quantity = 0;
+        } else {
+          bigcount = data;
+          $scope.amount = data.amount;
+          $scope.quantity = data.quantity;
+          count++;
+        }
 
-  $scope.openLogin = function() {
-    console.log("login opened");
-    $.jStorage.set("isExpert", false);
-    $scope.changeTab(2);
-    $uibModal.open({
-      animation: true,
-      templateUrl: 'views/modal/login.html',
-      controller: 'headerctrl',
-      scope: $scope
-    })
-  };
+      });
+      // NavigationService.totalcart(function(data) {
+      //     $scope.amount = data;
+      // });
+    }
+    $scope.changeTab = function(tab) {
+      console.log(tab);
+      if (tab === 1) {
+        $scope.signupmodal = true;
+        $scope.loginmodal = false;
 
-  $scope.openSignup = function() {
-    console.log("singup opened");
-    $.jStorage.set("isExpert", true);
+      } else {
+        $scope.loginmodal = true;
+        $scope.signupmodal = false;
+      }
+    }
+    myfunction();
+
+    $scope.hovered = function() {
+      $scope.hovermenu = true;
+    }
+    $scope.unhovered = function() {
+      $scope.hovermenu = false;
+    }
+    $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+      $(window).scrollTop(0);
+    });
+    $scope.animationsEnabled = true;
+
+    $scope.openLogin = function() {
+      console.log("login opened");
+      $.jStorage.set("isExpert", false);
+      $scope.changeTab(2);
+      $uibModal.open({
+        animation: true,
+        templateUrl: 'views/modal/login.html',
+        controller: 'headerctrl',
+        scope: $scope
+      })
+    };
+
+    $scope.openSignup = function() {
+      console.log("singup opened");
+      $.jStorage.set("isExpert", true);
 
 
-    $uibModal.open({
-      animation: true,
-      templateUrl: 'views/modal/login.html',
-      controller: 'headerctrl',
-      scope: $scope
-    })
-    $scope.changeTab(1);
-  };
-  $scope.cancel = function() {
-    $uibModalInstance.dismiss('cancel');
-  };
+      $uibModal.open({
+        animation: true,
+        templateUrl: 'views/modal/login.html',
+        controller: 'headerctrl',
+        scope: $scope
+      })
+      $scope.changeTab(1);
+    };
+    $scope.cancel = function() {
+      $uibModalInstance.dismiss('cancel');
+    };
 
 
-  //login
-  $scope.doLogin = function() {
-      console.log($scope.login);
+    //login
+    $scope.doLogin = function() {
+        console.log($scope.login);
+        $scope.allvalidation = [{
+          field: $scope.login.email,
+          validation: ""
+        }, {
+          field: $scope.login.password,
+          validation: ""
+        }];
+
+        var check = formvalidation($scope.allvalidation);
+
+        if (check) {
+          NavigationService.login($scope.login, function(data) {
+            if (data.value == false) {
+              $scope.validation = true;
+            } else {
+              $scope.validation = false;
+              NavigationService.setUser(data);
+              window.location.reload();
+            }
+          })
+        } else {
+          $scope.validation = true;
+        }
+      }
+      //signup
+    $scope.signup = {};
+    $scope.accept = false;
+    $scope.doSignUp = function(accept) {
+      console.log(accept);
+
       $scope.allvalidation = [{
-        field: $scope.login.email,
+        field: $scope.signup.firstname,
         validation: ""
       }, {
-        field: $scope.login.password,
+        field: $scope.signup.lastname,
+        validation: ""
+      }, {
+        field: $scope.signup.email,
+        validation: ""
+      }, {
+        field: $scope.signup.password,
+        validation: ""
+      }, {
+        field: $scope.signup.cpassword,
         validation: ""
       }];
 
       var check = formvalidation($scope.allvalidation);
-
       if (check) {
-        NavigationService.login($scope.login, function(data) {
-          if (data.value == false) {
-            $scope.validation = true;
-          } else {
-            $scope.validation = false;
-            NavigationService.setUser(data);
-            window.location.reload();
-          }
-        })
+        $scope.validation = false;
+        if (accept == true && $scope.signup.password === $scope.signup.cpassword) {
+          NavigationService.signup($scope.signup, function(data) {
+            if (data.value == false) {
+              $scope.validation1 = "Already exists";
+            } else {
+              $scope.validation1 = "";
+              NavigationService.setUser(data);
+              window.location.reload();
+            }
+          })
+        } else {
+          $scope.validation1 = "Accept Terms and Conditions OR password and confirmpassword does not match";
+        }
       } else {
-        $scope.validation = true;
-      }
-    }
-    //signup
-  $scope.signup = {};
-  $scope.accept = false;
-  $scope.doSignUp = function(accept) {
-    console.log(accept);
+        $scope.validation1 = "Enter all fields";
 
-    $scope.allvalidation = [{
-      field: $scope.signup.firstname,
-      validation: ""
-    }, {
-      field: $scope.signup.lastname,
-      validation: ""
-    }, {
-      field: $scope.signup.email,
-      validation: ""
-    }, {
-      field: $scope.signup.password,
-      validation: ""
-    }, {
-      field: $scope.signup.cpassword,
-      validation: ""
-    }];
-
-    var check = formvalidation($scope.allvalidation);
-    if (check) {
-      $scope.validation = false;
-      if (accept == true && $scope.signup.password === $scope.signup.cpassword) {
-        NavigationService.signup($scope.signup, function(data) {
-          if (data.value == false) {
-            $scope.validation1 = "Already exists";
-          } else {
-            $scope.validation1 = "";
-            NavigationService.setUser(data);
-            window.location.reload();
-          }
-        })
-      } else {
-        $scope.validation1 = "Accept Terms and Conditions OR password and confirmpassword does not match";
       }
-    } else {
-      $scope.validation1 = "Enter all fields";
+
+
 
     }
 
-
-
-  }
-
-  //logout
-  $scope.logout = function() {
-    NavigationService.logout(function(data) {
-      console.log(true);
-      if (data == "true") {
-        $.jStorage.flush();
-        window.location.reload();
-      }
-    })
-  }
-});
+    //logout
+    $scope.logout = function() {
+      NavigationService.logout(function(data) {
+        console.log(true);
+        if (data == "true") {
+          $.jStorage.flush();
+          window.location.reload();
+        }
+      })
+    }
+  });

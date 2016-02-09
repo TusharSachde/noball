@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-3 col-sm-3">
       <ul class="list-unstyled">
-        <li style="padding: 6px 10px;">Shop</li>
+        <li style="padding: 0px 10px;">Shop</li>
         <li ng-repeat="shop in navigation[0].subnav">
           <a ui-sref="categories({name:shop.name})">{{shop.name}}</a>
         </li>
@@ -44,7 +44,7 @@
       </ul>
     </div>
     <div class="col-md-3 col-sm-3">
-      <div>
+      <div class="get-touch">
         <h5><i class="fa fa-phone"></i> GET IN TOUCH</h5>
         <ul class="custom-sub custom-footer">
           <li>
@@ -67,11 +67,11 @@
       <div class="pb25">
         <ul class="list-unstyled bold">
           <li>
-            <a href="#"> <i class="fa fa-lock"></i> SECURE SHOPPING</a>
+           <i class="fa fa-lock"></i> SECURE SHOPPING
           </li>
-          <li>
+          <!-- <li>
             <a href="#"> <i class="fa fa-map-marker"></i> TRACK ORDERS</a>
-          </li>
+          </li> -->
         </ul>
       </div>
       <h5>PAYMENT METHODS</h5>

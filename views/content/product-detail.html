@@ -6,7 +6,14 @@
         <div class="row-flex no-row-flex">
             <div class="col-flex">
                 <div class="img-holder">
-                    <img ng-src="{{selectedImage || productdetail.productimages[0].image | serverimage}}" class="img-responsive">
+                    <!-- <img ng-src="{{selectedImage || productdetail.productimages[0].image | serverimage}}" class="img-responsive"> -->
+                    <!-- <a class="light-make light-shade" fancybox-box href="{{selectedImage || productdetail.productimages[0].image | serverimage}}">
+                      Enlarge<i class="fa fa-arrows-alt"></i>
+                     </a> -->
+                     <!-- <img elevate-zoom small-image="{{selectedImage || productdetail.productimages[0].image | serverimage}}" big-image="{{selectedImage || productdetail.productimages[0].image | serverimage}}" class="fix-img" /> -->
+                     <img elevate-zoom image="{{selectedImage || productdetail.productimages[0].image}}" ng-if="selectedImage || productdetail.productimages[0].image" />
+                    <!-- <a href="#" elevate-zoom data-image="small/image1.jpg" data-zoom-image="large/image1.jpg">
+                       <img id="img_01" ng-src="{{selectedImage || productdetail.productimages[0].image | serverimage}}" /> </a> -->
                 </div>
                 <div class="row">
                     <div class="col-md-4" ng-repeat="item in productdetail.productimages" ng-click="selectImage(item)">

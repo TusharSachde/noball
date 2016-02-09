@@ -23,6 +23,8 @@
     "angular-ui": "~0.4.0",
     "animate.css": "~3.3.0",
     "bootstrap-sass": "~3.3.5",
+    "elevatezoom": "https://github.com/elevateweb/elevatezoom.git#~2.2.3",
+    "fancyBox": "https://github.com/fancyapps/fancyBox.git#~2.1.5",
     "bourbon": "~4.2.5",
     "font-awesome": "fontawesome#~4.5.0",
     "jquery": "~2.1.4",
