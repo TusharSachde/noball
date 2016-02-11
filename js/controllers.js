@@ -390,7 +390,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           geometry = new THREE.SphereGeometry(1, 50, 50);
           texture = new THREE.TextureLoader();
           texture.load(
-            '../img/textures/ball_texture.jpg',
+            'img/textures/ball_texture.jpg',
             function(texture) {
               material = new THREE.MeshPhongMaterial({ map: texture });
               var sphere = new THREE.Mesh(geometry, material);
