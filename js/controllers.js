@@ -315,7 +315,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
           }
       }
-    }
+    };
   })
   .controller('ReviewCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
@@ -352,50 +352,99 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
+    $scope.$on('$viewContentLoaded', function(event) {
+      $timeout(function() {
+        var scene, camera, renderer, width, height, controls, light, loader, texture, geometry, material, mesh;
+        var three = document.getElementsByClassName("threed-ball");
+        init();
+        animate();
+
+        function init() {
+          scene = new THREE.Scene();
+          width = 400;
+          height = 400;
+
+          renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true});
+          renderer.setSize(width, height);
+          document.getElementById("threed-ball").appendChild(renderer.domElement);
+          renderer.setClearColor(0xFFFFFF, 1);
+
+          camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 10000);
+          camera.position.set(0, 0, 4.5);
+          scene.add(camera);
+
+          controls = new THREE.OrbitControls(camera, renderer.domElement);
+          controls.enableZoom = false;
+
+          var amblight = new THREE.AmbientLight(0xFFFFFF);
+          scene.add(amblight);
+
+          var dirlight = new THREE.DirectionalLight(0xFFFFFF, 0.5);
+          dirlight.shadowCameraNear = 1;
+          dirlight.shadowCameraFar = 150;
+          dirlight.castShadow = true;
+
+          var spotlight = new THREE.SpotLight(0xFFFFFF);
+          spotlight.position.set(1000, 1000, 1000);
+          spotlight.castShadow = true;
+          camera.add(spotlight);
+
+          geometry = new THREE.SphereGeometry(1, 50, 50);
+          texture = new THREE.TextureLoader();
+          texture.load(
+            '../img/textures/ball_texture.jpg',
+            function(texture) {
+              material = new THREE.MeshPhongMaterial({ map: texture });
+              var sphere = new THREE.Mesh(geometry, material);
+              sphere.castShadow = true;
+              sphere.rotation.y = -5.5;
+              sphere.rotation.z = -1;
+              scene.add(sphere);
+            },
+            function(xhr) {
+              console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+            },
+            function(xhr) {
+              console.log('An error happened');
+            }
+          );
+        }
+
+        function animate() {
+          requestAnimationFrame(animate);
+          renderer.render(scene, camera);
+        }
+      }, 100);
+    });
+
     $scope.color = [{
       colr: "#f5b122"
-
     }, {
       colr: "#c80d28"
-
     }, {
       colr: "#318db2"
-
     }, {
       colr: "#2c8b47"
-
     }, {
       colr: "#0036ff"
-
     }, {
       colr: "#491f61"
-
     }, {
       colr: "#e87024"
-
     }, {
       colr: "#501e1f"
-
-    }]
+    }];
 
     $scope.images = [{
-
       src: "img/custom/c2.jpg"
     }, {
-
       src: "img/custom/c3.jpg"
     }, {
-
       src: "img/custom/c2.jpg"
-
     }, {
-
       src: "img/custom/c3.jpg"
-
     }, {
-
       src: "img/custom/c2.jpg"
-
     }];
     //tab changes
 
