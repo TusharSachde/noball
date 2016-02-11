@@ -380,8 +380,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           scene.add(amblight);
 
           var dirlight = new THREE.DirectionalLight(0xFFFFFF, 0.5);
-          dirlight.shadowCameraNear = 1;
-          dirlight.shadowCameraFar = 150;
           dirlight.castShadow = true;
 
           var spotlight = new THREE.SpotLight(0xFFFFFF);
