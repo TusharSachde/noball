@@ -505,7 +505,7 @@ var navigationservice = angular.module('navigationservice', [])
 
 .factory('NavigationService', function ($http) {
     var navigation = [{
-        name: "Product",
+        name: "Products",
         classis: ""
   }, {
         name: "Customize",

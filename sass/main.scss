@@ -319,7 +319,7 @@ a.icon-btn {
     font-weight: 600;
     color: white;
     background-color: #131313;
-    border-bottom: 2px solid transparent;
+    border-bottom: 0px solid transparent;
     padding: 95px 0 93px;
     cursor: pointer;
     font-size: 18px;
@@ -500,7 +500,7 @@ footer {
 .btn-blue {
   background-color: gray;
   border-left: 3px solid $brand-primary;
-  margin-left: 40px !important;
+  margin-left: 10px !important;
   &:hover,
   &:focus {
     background-color: gray!important;
