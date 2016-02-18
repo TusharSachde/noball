@@ -42,6 +42,7 @@ $black: #000 !default;
 $border: #c0c0c0 !default;
 $check-out-btn: #898989;
 $bread-crumb: #90c73e;
+$color-orange:#ff7905;
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 * {
   -webkit-font-smoothing: antialiased;
@@ -161,7 +162,7 @@ a.icon-btn {
         letter-spacing: 2px;
         font-weight: bold;
         text-transform: uppercase;
-        padding: 8px 20px;
+        padding: 8px 10px;
         margin: 15px 5px;
         @include transition(all 300ms ease);
         &:hover,
@@ -492,6 +493,18 @@ footer {
   &:focus {
     background-color: gray!important;
     border-left: 3px solid $brand-warning;
+    color: #fff !important;
+    outline: 0;
+  }
+}
+.btn-blue {
+  background-color: gray;
+  border-left: 3px solid $brand-primary;
+  margin-left: 40px !important;
+  &:hover,
+  &:focus {
+    background-color: gray!important;
+    border-left: 3px solid $brand-primary;
     color: #fff !important;
     outline: 0;
   }
@@ -2079,7 +2092,9 @@ input[type=number]::-webkit-outer-spin-button {
     width: 100%;
   }
 }
-
+.w25{
+  width: 25px;
+}
 // 3D Modals
 .ballmodal {
   width: 100%;
