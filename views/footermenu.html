@@ -1,28 +1,35 @@
-<div class="container"  ng-controller="footerctrl">
+<div class="container" ng-controller="footerctrl">
   <div class="row">
-    <div class="col-md-3 col-sm-3">
+    <div class="col-md-2 col-sm-2">
       <ul class="list-unstyled">
-        <li style="padding: 0px 10px;">Shop</li>
+        <li style="padding: 0px 10px;">Products</li>
         <li ng-repeat="shop in navigation[0].subnav">
           <a ui-sref="categories({name:shop.name})">{{shop.name}}</a>
         </li>
       </ul>
     </div>
-    <!-- <div class="col-md-3 col-sm-3 col-xs-4">
+    <div class="col-md-2 col-sm-2 col-xs-4">
       <ul class="list-unstyled">
         <li>
           Customize
         </li>
-        <li ng-repeat="customize in navigation[1].subnav">
-          <a href="{{customize.link}}">{{customize.name}}</a>
+        <li ng-repeat="shop in navigation[0].subnav">
+          <a ui-sref="categories({name:shop.name})">{{shop.name}}</a>
         </li>
       </ul>
-    </div> -->
+    </div>
+    <div class="col-md-3 col-sm-3 col-xs-4">
+      <ul class="list-unstyled">
+        <li>
+          Services
+        </li>
+        <li ng-repeat="shop in navigation[0].subnav">
+          <a ui-sref="categories({name:shop.name})">{{shop.name}}</a>
+        </li>
+      </ul>
+    </div>
     <div class="col-md-3 col-sm-3">
       <ul class="list-unstyled bold">
-        <li>
-          <a href="#/custom">CUSTOMIZE </a>
-        </li>
         <li>
           <a href="#/about">ABOUT US</a>
         </li>
@@ -30,7 +37,7 @@
           <a href="#">CCC LOUNGE</a>
         </li>
         <li>
-          <a href="#/mywishlist" ng-show="wishlistshow" >Wishlist</a>
+          <a href="#/mywishlist" ng-show="wishlistshow">Wishlist</a>
         </li>
         <li>
           <a href="#/terms-conditions">TERMS &amp; CONDITIONS</a>
@@ -67,7 +74,7 @@
       <div class="pb25">
         <ul class="list-unstyled bold">
           <li>
-           <i class="fa fa-lock"></i> SECURE SHOPPING
+            <i class="fa fa-lock"></i> SECURE SHOPPING
           </li>
           <!-- <li>
             <a href="#"> <i class="fa fa-map-marker"></i> TRACK ORDERS</a>
