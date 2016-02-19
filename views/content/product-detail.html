@@ -38,36 +38,73 @@
                                 </accordion-heading>
                                 <div class="" ng-bind-html="productdetail.product.description || 'Loading..'"></div>
                             </accordion-group>
-                            <accordion-group is-open="status.open2">
+                            <!-- <accordion-group is-open="status.open2">
                                 <accordion-heading>
                                     DETAILS <i class="fa" ng-class="{'fa-caret-down': status.open2, 'fa-caret-right': !status.open2}"></i>
                                 </accordion-heading>
                                 <div class="" ng-bind-html="productdetail.product.detail || 'Loading..'"></div>
-                            </accordion-group>
+                            </accordion-group> -->
                             <accordion-group is-open="status.open3">
                                 <accordion-heading>
-                                    DELIVERY <i class="fa" ng-class="{'fa-caret-down': status.open3, 'fa-caret-right': !status.open3}"></i>
+                                    NOTES <i class="fa" ng-class="{'fa-caret-down': status.open3, 'fa-caret-right': !status.open3}"></i>
                                 </accordion-heading>
                                 <div class="" ng-bind-html="productdetail.product.delivery || 'Loading..'"></div>
                             </accordion-group>
 
-                            <accordion-group is-open="status.open4">
+                            <!-- <accordion-group is-open="status.open4">
                                 <accordion-heading>
                                     CARE <i class="fa" ng-class="{'fa-caret-down': status.open4, 'fa-caret-right': !status.open4}"></i>
                                 </accordion-heading>
                                 <div class="" ng-bind-html="productdetail.product.care || 'Loading..'"></div>
-                            </accordion-group>
+                            </accordion-group> -->
                         </accordion>
-                    </div>
-                    <div class="custom-btn">
+                        <div class="sel-qty">
+                          <ul class="padding0">
+                            <li>  <span class="f15">Select Quantity<span></li>
+                            <li><div class="form-group">
 
-                        <a class="btn btn-outline btn-dark letter-spacing" href="#/custom">CUSTOMIZE</a>
-                        <br>
-                        <a class="btn btn-outline btn-dark letter-spacing marg10" ng-click="cartAdd()" ng-hide="outofstock">ADD TO CART</a>
-                        <br>
+                            <div class="ccc-select ccc-select2">
+                              <select class="form-control" ng-change="sameShipping(checkout)" ng-model="checkout.billingcountry">
+                                <option value="{{country.value}}" ng-repeat="country in countries">{{country.value}}</option>
+                              </select>
+                              <span></span>
+                            </div>
+                          </div></li>
+                            <li>  <span class="f15">boxes</span></li>
+                          </ul>
+      <!-- <div class="row">
+                      <div class="col-md-2">
+
+
+
+                      </div>
+                      <div class="col-md-2">
+
+                      </div>
+                      <div class="col-md-2">
+
+                      </div>
+
+                    </div> -->
+                    <span>*We accept a minimum order of 2 boxes. 6 balls per box</span>
+                        </div>
+                    </div>
+                    <div class="custom-btn mt30">
+
+                        <!-- <a class="btn btn-outline btn-dark letter-spacing" href="#/custom">CUSTOMIZE</a>
+                        <br> -->
+                        <a class="btn btn-outline btn-dark letter-spacing" ng-click="cartAdd()" ng-hide="outofstock">ADD TO CART</a>
+
                         <a class="btn btn-outline btn-dark letter-spacing" ng-click="wishlistAdd(productdetail.product.id)">Add to wishlist</a>
                         <br>
                         <p ng-show="outofstock"> Out of Stock.</p>
+                    </div>
+                    <div class="border-top text-center">
+                      <span>Select from a wide array of colors and
+customisation options</span>
+<div class="mt20">
+<button type="button" name="button" class="btn-green">CUSTOMIZE NOW</button>
+</div>
                     </div>
                 </div>
             </div>
