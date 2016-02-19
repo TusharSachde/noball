@@ -2,7 +2,10 @@
   <div class="text-center main-head">
     <h3 class="high-light letter-spacing">{{params}} </h3>
   </div>
-  <h4 class="text-center" ng-if="categories==''">{{msg}}</h4>
+  <div class="no-cart text-center"  ng-if="categories==''" style="min-height:400px;">
+    <img src="img/logo.png">
+        <h4 >{{msg}}</h4>
+  </div>
   <div class="banners">
     <div ng-repeat="category in categories">
     <div class="banner-inner" ng-if="!category.length">
@@ -12,7 +15,7 @@
             <img ng-src="{{category.image1|serverimage}}" alt="" class="img-responsive">
           </a>
         </div>
-    
+
       <!-- <div class="text-above">
         <div class="container">
           <div class="row">
