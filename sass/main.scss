@@ -6,8 +6,8 @@
 @import "../bower_components/font-awesome/css/font-awesome.min.css";
 @font-face {
   font-family: "Facile Sans";
-  src: url(../fonts/Facile-Sans.otf);
-  src: url(../fonts/Facile-Sans.ttf);
+  src: url("../fonts/Facile-Sans.otf");
+  src: url("../fonts/Facile-Sans.ttf");
   font-weight: normal;
   font-style: normal;
 }
@@ -42,7 +42,7 @@ $black: #000 !default;
 $border: #c0c0c0 !default;
 $check-out-btn: #898989;
 $bread-crumb: #90c73e;
-$color-orange:#ff7905;
+$color-orange: #ff7905;
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 * {
   -webkit-font-smoothing: antialiased;
@@ -235,7 +235,7 @@ a.icon-btn {
       }
       .flex-prev {
         &:before {
-          content: url(../img/prev.png);
+          content: url("../img/prev.png");
           display: block;
           height: 50%;
           @include transform(scale(.4));
@@ -243,7 +243,7 @@ a.icon-btn {
       }
       .flex-next {
         &:before {
-          content: url(../img/next.png);
+          content: url("../img/next.png");
           display: block;
           height: 50%;
           @include transform(scale(.4));
@@ -319,7 +319,7 @@ a.icon-btn {
     font-weight: 600;
     color: white;
     background-color: #131313;
-    border-bottom: 0px solid transparent;
+    border-bottom: 0 solid transparent;
     padding: 95px 0 93px;
     cursor: pointer;
     font-size: 18px;
@@ -358,7 +358,7 @@ a.icon-btn {
 }
 .smart-content {
   padding: 100px 0;
-  background-image: url(../img/logo-light.png);
+  background-image: url("../img/logo-light.png");
   background-size: auto 103%;
   background-repeat: no-repeat;
   background-position: right bottom;
@@ -377,7 +377,7 @@ a.icon-btn {
 }
 .advertise {
   padding: 250px 0;
-  background-image: url(../img/ccc-advert.jpg);
+  background-image: url("../img/ccc-advert.jpg");
   color: #787878;
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -410,9 +410,11 @@ footer {
   }
   h5 {
     font-weight: 600;
+    font-size: 12px;
   }
   .custom-footer li a.active {
     margin-left: 40px;
+    font-size: 12px;
   }
   a {
     color: inherit !important;
@@ -426,7 +428,6 @@ footer {
     color: #5c5c5c;
     a {
       color: inherit;
-
       // padding: 6px 8px;
       &:hover {
         color: lighten($font-color, 30%)!important;
@@ -437,6 +438,7 @@ footer {
     padding: 35px 0;
     font-size: 14px;
     letter-spacing: 2px;
+    font-size: 12px;
     ul.list-unstyled.foot-cards li {
       display: inline-block;
       img {
@@ -461,6 +463,7 @@ footer {
         @include transition (all ease 300ms);
         border-left: 3px solid transparent;
         padding: 6px 8px;
+        font-size: 10px;
         &:hover {
           border-color: $brand-warning;
           color: lighten($font-color, 50%)!important;
@@ -509,7 +512,7 @@ footer {
     outline: 0;
   }
 }
-.get-touch{
+.get-touch {
   padding-top: 7px;
 }
 .custom-sub {
@@ -758,14 +761,13 @@ footer {
 }
 .account-bg {
   min-height: 245px;
-  background: url(../img/background/accountbg1.jpg) no-repeat;
+  background: url("../img/background/accountbg1.jpg") no-repeat;
   background-size: contain;
 }
 .account-wish-bg {
   min-height: 300px;
   padding-top: 30px;
 }
-
 //save-design
 .design-patt {
   margin: 20px 0;
@@ -785,7 +787,7 @@ footer {
   }
 }
 .account-design-bg {
-  background: url(../img/background/accountlast.jpg) no-repeat right;
+  background: url("../img/background/accountlast.jpg") no-repeat right;
   background-size: contain;
 }
 .overlay {
@@ -804,7 +806,6 @@ footer {
   left: 50%;
   @include transform(translate(-50%, -50%));
 }
-
 //privacy-policy
 .banner {
   min-height: 295px;
@@ -818,16 +819,16 @@ footer {
     color: #fff;
   }
   &.contact {
-    background-image: url(../img/page-banner/contact.jpg);
+    background-image: url("../img/page-banner/contact.jpg");
   }
   &.about {
-    background-image: url(../img/page-banner/about.jpg);
+    background-image: url("../img/page-banner/about.jpg");
   }
   &.tnc {
-    background-image: url(../img/page-banner/tnc.jpg);
+    background-image: url("../img/page-banner/tnc.jpg");
   }
   &.privacy {
-    background-image: url(../img/page-banner/privacy-policy.jpg);
+    background-image: url("../img/page-banner/privacy-policy.jpg");
   }
 }
 .privacy-info {
@@ -871,7 +872,6 @@ footer {
     margin-top: 0;
   }
 }
-
 //cart page
 .order-table {
   color: #515151;
@@ -894,7 +894,6 @@ footer {
       tr {
         td {
           padding: 20px 0;
-
           //                    vertical-align: middle;
           border-top: none;
           border-bottom: 1px solid #ddd;
@@ -909,7 +908,6 @@ footer {
         }
         td:last-child {
           padding: 24px 0;
-
           //                    vertical-align: bottom;
           button {
             float: right;
@@ -939,13 +937,13 @@ footer {
 }
 .cart-back {
   padding: 40px 0;
-  background: url(../img/background/bg1.jpg) no-repeat;
+  background: url("../img/background/bg1.jpg") no-repeat;
   background-size: contain;
 }
 .wish-bg {
   min-height: 300px;
   padding-top: 30px;
-  background: url(../img/background/bg2.jpg) no-repeat;
+  background: url("../img/background/bg2.jpg") no-repeat;
   background-size: contain;
 }
 .wish-back {
@@ -966,7 +964,6 @@ footer {
     }
   }
 }
-
 //wishlist page
 .wish-table {
   .table {
@@ -982,7 +979,6 @@ footer {
     }
   }
 }
-
 //checkout page
 .check-out {
   .nav-tabs {
@@ -1114,7 +1110,6 @@ footer {
     }
   }
 }
-
 //ready
 .chart {
   span {
@@ -1177,7 +1172,6 @@ footer {
       display: inline-block;
       position: relative;
       margin-right: 15px;
-
       // @include transition (all ease 300ms );
       p {
         @extend .margin0;
@@ -1193,7 +1187,6 @@ footer {
       }
       &.breadcrums {
         p {
-
           // @include transition (all ease 300ms );
           &:before {
             content: "";
@@ -1233,7 +1226,6 @@ footer {
           right: -13px;
           top: 1px;
           z-index: 9;
-
           // @include transition (all ease 300ms );
         }
         &:hover span.bread-back,
@@ -1315,7 +1307,7 @@ footer {
 .back {
   min-height: 350px;
   padding: 40px 0;
-  background-image: url(../img/background/checkout.jpg);
+  background-image: url("../img/background/checkout.jpg");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -1617,7 +1609,7 @@ footer {
 }
 .modal-review {
   padding: 70px 40px;
-  background-image: url(../img/logo-light.png);
+  background-image: url("../img/logo-light.png");
   background-size: 75%;
   background-repeat: no-repeat;
   .btn {
@@ -1645,7 +1637,6 @@ footer {
     font-size: 16px;
   }
 }
-
 ////
 .choose-product {
   border-top: 2px solid #c0c0c0;
@@ -1760,12 +1751,12 @@ footer {
     @include transform(translateY(-50%));
   }
   .flexslider .flex-direction-nav .flex-next:before {
-    content: url(../img/next.png);
+    content: url("../img/next.png");
     display: block;
     @include transform(scale(0.4));
   }
   .flexslider .flex-direction-nav .flex-prev:before {
-    content: url(../img/prev.png);
+    content: url("../img/prev.png");
     display: block;
     @include transform(scale(0.4));
   }
@@ -1882,7 +1873,6 @@ footer {
     text-transform: uppercase;
   }
 }
-
 //pop-up wishlist
 .pop-up {
   width: 400px;
@@ -2005,7 +1995,6 @@ input[type=number]::-webkit-outer-spin-button {
 .margin-zero {
   margin: 0;
 }
-
 // thankyou,error,sorry
 .message {
   padding: 50px 0;
@@ -2092,7 +2081,7 @@ input[type=number]::-webkit-outer-spin-button {
     width: 100%;
   }
 }
-.w25{
+.w25 {
   width: 25px;
 }
 // 3D Modals
@@ -2102,25 +2091,25 @@ input[type=number]::-webkit-outer-spin-button {
   overflow: hidden;
 }
 .follow-us {
-    padding-left: 12px;
-    padding-top: 33px;
+  padding-left: 12px;
+  padding-top: 33px;
 }
-.fl-l{
+.fl-l {
   float: left;
-  i{
+  i {
     font-size: 27px;
-        vertical-align: text-top;
+    vertical-align: text-top;
   }
 }
-.pt35{
-      padding-top: 35px;
+.pt35 {
+  padding-top: 35px;
 }
-.makeindia{
-  img{
+.makeindia {
+  img {
     margin: 0 auto;
   }
 }
-.pr10{
-      padding-right: 10px;
+.pr10 {
+  padding-right: 10px;
 }
 @import "mobile/mobile";
