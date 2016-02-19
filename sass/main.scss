@@ -2165,4 +2165,13 @@ padding: 6px 40px;
 border-left: 7px solid #c3e701;
 
 }
+.custom-li{
+  ul{
+    list-style: none;
+    display: block;
+    li{
+    display: inline-block; 
+    }
+  }
+}
 @import "mobile/mobile";

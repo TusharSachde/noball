@@ -20,7 +20,35 @@
                         <div class="img-hold">
                             <img ng-src="{{item.image | serverimage}}" class="img-responsive">
                         </div>
+
                     </div>
+
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="pro-desc custom-li">
+                      <ul class="padding0">
+                        <li ng-click="tabchange('detail',1)">
+                          <span class="{{classa}}">DETAILS</span>
+                        </li>
+                        <li ng-click="tabchange('delivery',2)">
+                          <span class="{{classb}}">DELIVERY</span>
+                        </li>
+                        <li ng-click="tabchange('care',3)">
+                          <span class="{{classc}}">CARE</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="desc-p"ng-show="tab=='detail'">
+                      <p>sohan</p>
+                    </div>
+                    <div class="desc-p"ng-show="tab=='delivery'">
+                      <p>amit</p>
+                    </div>
+                    <div class="desc-p"ng-show="tab=='care'">
+                      <p>harsh</p>
+                    </div>
+                  </div>
                 </div>
             </div>
             <div class="col-flex">

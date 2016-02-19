@@ -634,6 +634,33 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
       }
     }
+
+    $scope.tab = 'detail';
+$scope.classa = 'bordernw';
+$scope.classb = '';
+$scope.classc = '';
+
+$scope.tabchange = function(tab, a) {
+    //        console.log(tab);
+    $scope.tab = tab;
+    if (a == 1) {
+        $ionicScrollDelegate.scrollTop();
+        $scope.classa = "active";
+        $scope.classb = '';
+        $scope.classc = '';
+    } else if (a == 2) {
+        $ionicScrollDelegate.scrollTop();
+        $scope.classa = '';
+        $scope.classc = '';
+        $scope.classb = "active";
+    } else  {
+        $ionicScrollDelegate.scrollTop();
+        $scope.classa = '';
+        $scope.classb = '';
+        $scope.classc = "active";
+    }
+};
+
   })
 
 .controller('TermsConditionsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
