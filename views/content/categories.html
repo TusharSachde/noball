@@ -6,13 +6,13 @@
   <div class="banners">
     <div ng-repeat="category in categories">
     <div class="banner-inner" ng-if="!category.length">
-      <div class="row-flex">
+
         <div class="banner-img">
           <a ui-sref="categories-inside({category:params,name:category.name})">
             <img ng-src="{{category.image1|serverimage}}" alt="" class="img-responsive">
           </a>
         </div>
-      </div>
+    
       <!-- <div class="text-above">
         <div class="container">
           <div class="row">
