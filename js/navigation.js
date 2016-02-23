@@ -512,7 +512,8 @@ var navigationservice = angular.module('navigationservice', [])
         classis: ""
   }, {
         name: "Services",
-        classis: ""
+        classis: "",
+        link: "#/services"
   }];
 
     return {

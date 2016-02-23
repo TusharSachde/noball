@@ -1115,6 +1115,37 @@ $scope.tabchange = function(tab, a) {
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
+  .controller('ServicesCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("services");
+    $scope.menutitle = NavigationService.makeactive("Services");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    $scope.customize = [
+      { img: "img/services/advnc-slider.png" },
+      { img: "img/services/advnc-slider.png" },
+      { img: "img/services/advnc-slider.png" },
+      { img: "img/services/advnc-slider.png" }
+    ];
+    $scope.apparel = [
+      "img/services/apparel-slider.jpg",
+      "img/services/apparel-slider.jpg",
+      "img/services/apparel-slider.jpg",
+      "img/services/apparel-slider.jpg"
+    ];
+    $scope.consultancy = [
+        "img/services/consultancy1.jpg",
+        "img/services/consultancy2.jpg",
+        "img/services/consultancy3.jpg",
+        "img/services/consultancy1.jpg"
+    ];
+    $scope.memorable = [
+      "img/services/memorable-slider.jpg",
+      "img/services/memorable-slider.jpg",
+      "img/services/memorable-slider.jpg",
+      "img/services/memorable-slider.jpg"
+    ];
+  })
 
 .controller('MyWishListCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file

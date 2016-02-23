@@ -67,6 +67,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
       templateUrl: "views/template.html",
       controller: 'Product-DetailCtrl'
     })
+    .state('services', {
+      url: "/services",
+      templateUrl: "views/template.html",
+      controller: 'ServicesCtrl'
+    })
     .state('savedesign', {
       url: "/save-design",
       templateUrl: "views/template.html",

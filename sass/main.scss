@@ -90,6 +90,9 @@ nav li:hover .dropdown-menu {
 .no-pad {
   padding: 0;
 }
+.text-normal { font-weight: normal; }
+.text-medium { font-weight: 500; }
+.text-bold { font-weight: 700; }
 .btn-dark {
   @include button-variant(white, $font-color, $font-color);
   &.btn-outline {
@@ -2170,8 +2173,110 @@ border-left: 7px solid #c3e701;
     list-style: none;
     display: block;
     li{
-    display: inline-block; 
+    display: inline-block;
     }
   }
 }
+// services
+.service-main {
+  section { margin-bottom: 15px; }
+  .title {
+    font-size: 45px;
+    letter-spacing: 3px;
+  }
+  .descp {
+    font-size: 15px;
+    line-height: 22px;
+  }
+}
+.service-slider {
+  .flexslider {
+    border: none;
+    margin: 0;
+    background-color: transparent;
+  }
+}
+.black-direction {
+  .flexslider .flex-direction-nav a { height: 50px; }
+  .flexslider .flex-direction-nav .flex-prev:before,
+  .flexslider .flex-direction-nav .flex-next:before{
+    font-size: 50px;
+    color: #000;
+  }
+  .flexslider .flex-direction-nav .flex-prev:before { content: "\f104" }
+  .flexslider .flex-direction-nav .flex-next:before { content: "\f105" }
+}
+.white-direction {
+  @extend .black-direction;
+  .flexslider .flex-direction-nav .flex-prev:before,
+  .flexslider .flex-direction-nav .flex-next:before { color: #fff; }
+}
+.service-heading {
+  padding: 40px 0 20px;
+  background-color: #494949;
+  color: #fff;
+}
+.service-menu {
+  margin-top: 25px;
+  ul li {
+    border-right: 2px solid $color-orange;
+    display: inline-block;
+    list-style-type: none;
+    line-height: 15px;
+    a{
+      padding: 10px;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+  }
+  li:last-child { border: none; }
+}
+.bg-blurwhite { background-color: rgba(255, 255, 255, 0.7); }
+.bg-blurblack {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+ }
+ .bg-blurlightblack {
+   background-color: rgba(0,0,0,0.5);
+   color: #fff;
+ }
+ .bg-blurlightwhite { background-color: rgba(255,255,255,0.5); }
+.service-pd { padding: 70px 0; }
+.service-bg {
+background-repeat: no-repeat;
+background-size: cover;
+}
+.advnc-customise { background-image: url('../img/services/advance-customise.jpg'); }
+.tshirt-custmoize {
+  @include square(400px);
+  margin: 0 auto;
+}
+.jersy-holder {
+  @include size(250px, auto);
+  margin: 0 auto;
+}
+.consult-imgholder {
+  @include size(350px, auto);
+  margin: 0 auto;
+}
+.memory-imgholder {
+  @include size(250px, auto);
+  margin: 0 auto;
+}
+.custom-apparel { background-image: url('../img/services/apparel-bg.jpg');}
+.lounge {
+  padding: 100px 0;
+  color: #fff;
+  text-transform: none;
+}
+.tours { background-image: url('../img/services/tours.jpg'); }
+.match-detail { margin: 40px 0; }
+.consultancy { background-image: url('../img/services/advance-customise.jpg'); }
+.foundation-part {
+  padding: 20px 30px;
+  background-color: #000;
+  color: #fff;
+}
+.memorable { background-image: url('../img/services/memorable.jpg'); }
+// end services
 @import "mobile/mobile";
