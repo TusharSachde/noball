@@ -1054,6 +1054,7 @@ $scope.tabchange = function(tab, a) {
         $scope.shipAtSame = true;
         $scope.sameShipping($scope.checkout);
       } else {
+        $scope.shipAtSame = false;
         $scope.checkout.shippingline1 = "";
         $scope.checkout.shippingline2 = "";
         $scope.checkout.shippingline3 = "";
