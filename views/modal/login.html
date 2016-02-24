@@ -1,10 +1,9 @@
-<div class="tabs-login">
+<!-- <div class="tabs-login">
   <div class="modal-header">
     <h3 class="modal-title activered" ng-click="changeTab(1)">SIGN UP</h3>
     <h3 class="modal-title activeyellow" ng-click="changeTab(2)">LOGIN</h3>
   </div>
   <div class="modal-body">
-    <!--   Registration   -->
     <div class="holder1" ng-show="signupmodal" >
       <div class="signup">
         <div class="login-form">
@@ -51,7 +50,6 @@
         </div>
       </div>
     </div>
-    <!--    Login   -->
     <div class="holder1" ng-show="loginmodal">
       <div class="login">
         <div class="login-form">
@@ -65,7 +63,6 @@
             <div class="checkbox">
               <input type="checkbox" id="tc">
               <label for="tc" class="agree">
-                <!-- <span></span> Keep me logged in -->
                 <p style="color:red" ng-if="validation">Enter all Fields</p>
             </div>
           </div>
@@ -98,4 +95,131 @@
       </div>
     </div>
   </div>
+</div> -->
+
+
+<div class="login-tab">
+  <uib-tabset>
+    <uib-tab heading="Login">
+      <div class="login-form">
+        <form name="loginForm">
+          <div class="row">
+            <div class="col-md-offset-1 col-md-10">
+              <div class="form-group">
+                <input type="email" name="email" ng-model="login.email" class="form-control" required placeholder="Email">
+                <div class="ab" ng-show="loginForm.$invalid && loginForm.email.$touched " role="alert">
+                  Please enter email
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="password" name="password" ng-model="login.password" class="form-control" required placeholder="Password">
+                <div class="ab" ng-show="loginForm.$invalid && loginForm.password.$touched" role="alert">
+                  Please enter password
+                </div>
+                <div class="ab" ng-show="invalidinput" role="alert">
+                  Invalid email or password.
+                </div>
+              </div>
+              <div class="accept">
+                <div class="checkbox">
+                  <input type="checkbox" class="form-control" id="login">
+                  <label for="login"><span></span>Keep me logged in</label>
+                </div>
+              </div>
+                <div class="text-center ">
+                <span class="forgot text-uppercase" ng-click="openForgot();">Forgot Your Password ?</span>
+              </div>
+              <div class="text-center submit">
+                <button class="text-uppercase btn btn-light letter-spacing" type="submit">Login</button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="text-center text-uppercase">
+          <p>or Login via</p>
+        </div>
+        <div class="social-icon text-center">
+          <button class="btn btn-facebook pad-btn">
+            <i class="fa fa-facebook social-f"></i>
+          </button>
+          <button class="btn btn-google pad-btn">
+            <i class="fa fa-google-plus"></i>
+          </button>
+          <button class="btn btn-twitter pad-btn">
+            <i class="fa fa-twitter"></i>
+          </button>
+        </div>
+      </div>
+    </uib-tab>
+    <uib-tab heading="Sign up">
+      <div class="login-form">
+        <form name="signupForm">
+          <div class="row">
+            <div class="col-md-offset-1 col-md-10">
+              <div class="form-group">
+                <input type="text" name="firstname" class="form-control" ng-model="signup.firstname" required placeholder="First Name">
+                <div class="ab" ng-show="signupForm.firstname.$error.required && signupForm.firstname.$touched" role="alert">
+                  Please enter your name.
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" name="lastname" class="form-control" ng-model="signup.lastname" required placeholder="Last Name">
+                <div class="ab" ng-show="signupForm.lastname.$error.required && signupForm.lastname.$touched" role="alert">
+                  Please enter your name.
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="email" name="email" class="form-control" ng-model="signup.email" required placeholder="Email">
+                <div class="ab" ng-show="signupForm.email.$invalid && signupForm.email.$touched" role="alert">
+                  Please enter your email properly.
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="password" name="password" class="form-control" ng-model="signup.password" ng-minlength="6" required placeholder="Password">
+                <div class="ab" ng-show="signupForm.password.$error.required && signupForm.password.$touched" role="alert">
+                  Please enter your password.
+                </div>
+                <div class="ab" ng-show="signupForm.password.$error.minlength " role="alert">
+                  Password too short.
+                </div>
+              </div>
+              <div class="accept">
+                <div class="checkbox">
+                  <input type="checkbox" ng-model="accept" class="text-uppercase" id="accept">
+                  <label for="accept" class="text-light text-uppercase">
+                    <span></span> I Accept The Terms And Conditions And Privacy Policy Of The Website
+                  </label>
+                </div>
+                <div class="ab" ng-show="acceptValidate">
+                  Please accept the terms and conditions to proceed.
+                </div>
+                <div class="ab" ng-show="alreadyReg">
+                  Email ID is already registered
+                </div>
+              </div>
+              <div class="text-center submit">
+                <button class="btn btn-light letter-spacing text-uppercase" ng-click="doSignup(accept,signup,signupForm)">Signup</button>
+              </div>
+            </div>
+          </div>
+      </div>
+      </form>
+      <div class="text-center text-uppercase">
+        <span class="block or">or</span>
+        <p>sign up via</p>
+      </div>
+      <div class="social-icon text-center">
+        <button class="btn btn-facebook pad-btn">
+          <i class="fa fa-facebook social-f"></i>
+        </button>
+        <button class="btn btn-google pad-btn">
+          <i class="fa fa-google-plus"></i>
+        </button>
+        <button class="btn btn-twitter pad-btn">
+          <i class="fa fa-twitter"></i>
+        </button>
+      </div>
+</div>
+</uib-tab>
+</uib-tabset>
 </div>

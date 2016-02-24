@@ -44,6 +44,14 @@ $check-out-btn: #898989;
 $bread-crumb: #90c73e;
 $color-orange: #ff7905;
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+@mixin placeholder {
+  $placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
+  @each $placeholder in $placeholders {
+    &:#{$placeholder}-placeholder {
+      @content;
+    }
+  }
+}
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -64,6 +72,11 @@ body {
 }
 .btn {
   @include transition(all 300ms ease);
+  &:focus {
+    box-shadow: none;
+    outline: none;
+  }
+  &:hover { @include transition(all 300ms ease); }
 }
 img.loading {
   text-align: center;
@@ -81,6 +94,7 @@ img.doneLoading {
 nav li:hover .dropdown-menu {
   display: block;
 }
+.ab { position: absolute; }
 .black {
   color: black;
 }
@@ -1829,12 +1843,12 @@ footer {
     input:-ms-input-placeholder {
       color: $font-color;
     }
-    .checkbox input[type="checkbox"] + label {
-      padding-left: 0;
-      span {
-        margin: -4px 4px 0 0;
-      }
-    }
+    // .checkbox input[type="checkbox"] + label {
+    //   padding-left: 0;
+    //   span {
+    //     margin: -4px 4px 0 0;
+    //   }
+    // }
     .mg p {
       font-size: 16px;
     }
@@ -1863,6 +1877,112 @@ footer {
     padding-bottom: 20px;
   }
 }
+// login signup
+.login-tab {
+.nav-tabs {
+  border: none;
+  @include display(flex);
+  li {
+    @include flex(1);
+    a {
+      border: none;
+      padding: 10px 30px;
+      margin: 0;
+      background-color: #404040;
+      color: #d6d6d6;
+      font-size: 25px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+  }
+  li:first-child{ margin: -20px 0 0 -10px; }
+  li:last-child { margin: -20px -10px 0 0; }
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  border: none;
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+  outline: none;
+}
+.tab-content {
+  padding: 35px 0;
+  background-color: #000;
+  color: #fff;
+}
+.form-group {
+  margin-bottom: 30px;
+  input {
+  height: 50px;
+  border: none;
+  background-color: #ccc;
+  color: #000;
+  font-size: 18px;
+  @include placeholder {
+    color: #000;
+    font-size: 18px;
+  };
+  &:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+  }
+}
+}
+}
+.forgot {
+  margin: 20px 0;
+  display: block;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+.accept {
+  .checkbox input[type="checkbox"] + label {
+    padding-left: 0;
+    color: #fff;
+    text-transform: none;
+  }
+  .checkbox input[type="checkbox"] + label span {
+    @include square(15px);
+    border: 1px solid #fff;
+  }
+  input[type="checkbox"]:checked + label span {
+    background-color: #fff;
+  }
+}
+.social-icon button {
+  margin: 0 2px;
+  width: 45px;
+ }
+.enter-mail { background-color: #000; }
+.forgot-heading {
+  padding: 20px 0;
+  margin: 0 -20px;
+  background-color: #fff;
+  h2 { margin: 0; }
+}
+.forgot-main {
+  padding: 90px;
+  color: #fff;
+  h3 { margin: 0 0 60px; }
+}
+.submit {
+  margin: 20px 0;
+  button {
+    padding: 8px 50px;
+    color: #000;
+    &:hover {
+      background-color: #000;
+      border-color: #fff;
+      color: #fff;
+    }
+  }
+}
+// end login signup
 .thank-you.text-center {
   padding: 50px;
   p {
