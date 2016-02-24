@@ -5,7 +5,7 @@ var user = $.jStorage.get("user");
 var bigcount = {};
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'ngDialog'])
 
-.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal) {
+.controller('HomeCtrl', function($scope,$state, TemplateService, NavigationService, $timeout, $uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("home");
     $scope.menutitle = NavigationService.makeactive("Home");
@@ -14,11 +14,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     NavigationService.getCategory(function(data) {
       $scope.categories = _.chunk(data, 3);
-    });
+    },function(err){
+    $state.go("error");
+  });
     NavigationService.getSlider(function(data) {
       console.log(data);
       $scope.mySlides = data;
-    });
+    },function(err){
+    $state.go("error");
+  });
     $scope.openAppoinment = function() {
       $uibModal.open({
         animation: true,
@@ -27,7 +31,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       })
     };
   })
-  .controller('CategoriesCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+  .controller('CategoriesCtrl', function($scope,$state, TemplateService, NavigationService, $timeout, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("categories");
     $scope.menutitle = NavigationService.makeactive("Categories");
@@ -77,9 +81,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           });
         }
       }
-    })
+    },function(err){
+    $state.go("error");
   })
-  .controller('CartCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+  })
+  .controller('CartCtrl', function($scope,$state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("cart");
     $scope.menutitle = NavigationService.makeactive("Cart");
@@ -118,7 +124,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           $scope.msg = "No items in cart.";
         }
 
-      });
+      },function(err){
+      $state.go("error");
+    });
     };
     $scope.getCart();
     $scope.toCheckout = function() {
@@ -131,7 +139,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             msg: 'Some items went out of stock. Remove them'
           });
         }
-      })
+      },function(err){
+      $state.go("error");
+    });
 
     }
     $scope.closeAlert = function(index) {
@@ -147,7 +157,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           $scope.getCart();
           myfunction();
         }
-      })
+      },function(err){
+      $state.go("error");
+    })
     };
 
     $scope.validateQuantity = function(item) {
@@ -172,7 +184,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           if (data.value) {
             $scope.getCart();
           }
-        })
+        },function(err){
+        $state.go("error");
+      });
       }
 
     };
@@ -188,7 +202,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     };
   })
-  .controller('ProfileCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  .controller('ProfileCtrl', function($scope,$state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("profile");
     $scope.menutitle = NavigationService.makeactive("Profile");
@@ -224,12 +238,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       console.log(data);
       $scope.user = data;
       $scope.updateuser.user = data;
-    });
+    },function(err){
+    $state.go("error");
+  });
 
     $scope.saveUser = function() {
       NavigationService.updateProfile($scope.updateuser.user, function(data) {
         console.log(data);
-      })
+      },function(err){
+      $state.go("error");
+    })
     }
 
     $scope.editProfile = function(num) {
@@ -278,7 +296,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     } else {
                       $scope.addAlert("danger", "Wrong password");
                     }
-                  });
+                  },function(err){
+                  $state.go("error");
+                });
                 } else {
                   $scope.addAlert("danger", "New password and confirm password should be same");
                 }
@@ -317,35 +337,35 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       }
     };
   })
-  .controller('ReviewCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  .controller('ReviewCtrl', function($scope,$state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("review");
     $scope.menutitle = NavigationService.makeactive("Review");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('ErrorCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  .controller('ErrorCtrl', function($scope,$state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("error");
     $scope.menutitle = NavigationService.makeactive("Error");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('ThankyouCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  .controller('ThankyouCtrl', function($scope,$state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("thankyou");
     $scope.menutitle = NavigationService.makeactive("Thankyou");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('WrongCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  .controller('WrongCtrl', function($scope,$state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("wrong");
     $scope.menutitle = NavigationService.makeactive("Wrong");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('CustomCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  .controller('CustomCtrl', function($scope,$state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("custom");
     $scope.menutitle = NavigationService.makeactive("Custom");
@@ -500,7 +520,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //    end
 
   })
-  .controller('CategoriesInsideCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+  .controller('CategoriesInsideCtrl', function($scope,$state, TemplateService, NavigationService, $timeout, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("categories-inside");
     $scope.menutitle = NavigationService.makeactive("Categories");
@@ -514,7 +534,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     NavigationService.getSubCategory($stateParams.category, function(data) {
       $scope.subCategories = data;
-    })
+    },function(err){
+    $state.go("error");
+  })
 
 
     NavigationService.getProductBySubCategory($stateParams.name, function(data) {
@@ -523,22 +545,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       } else {
         $scope.products = _.chunk(data, 2);
       }
-    })
+    },function(err){
+    $state.go("error");
+  })
     $scope.hovered = function() {
       $scope.hovermenu = true;
     }
     $scope.unhovered = function() {
       $scope.hovermenu = false;
     }
-  })
-  .controller('PrivacyPolicyCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  },function(err){
+  $state.go("error");
+})
+  .controller('PrivacyPolicyCtrl', function($scope,$state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("privacypolicy");
     $scope.menutitle = NavigationService.makeactive("Privacy Policy");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('Product-DetailCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, ngDialog,$rootScope) {
+  .controller('Product-DetailCtrl', function($scope,$state, TemplateService, NavigationService, $timeout, $stateParams, ngDialog,$rootScope) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("product-detail");
     $scope.menutitle = NavigationService.makeactive("Products");
@@ -571,11 +597,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       } else {
         $scope.outofstock = false;
       }
-    });
+    },function(err){
+    $state.go("error");
+  });
     NavigationService.getTestimonial(function(data) {
       console.log(data);
       $scope.testimonial = data;
-    });
+    },function(err){
+    $state.go("error");
+  });
     $scope.selectImage = function(object) {
       $scope.selectedImage = object.image;
       $rootScope.$broadcast('changeImage', {});
@@ -606,7 +636,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           //     xyz.close();
           // }, 1000)
         }
-      })
+      },function(err){
+      $state.go("error");
+    })
     }
     $scope.wishlistAdd = function(id) {
       console.log(id);
@@ -626,7 +658,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
               msg: 'Unable to add to wishlist. Already in wishlist.'
             });
           }
-        })
+        },function(err){
+        $state.go("error");
+      })
       } else {
         $scope.alerts.push({
           type: 'danger',
@@ -663,28 +697,28 @@ $scope.tabchange = function(tab, a) {
 
   })
 
-.controller('TermsConditionsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('TermsConditionsCtrl', function($scope,$state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("terms-conditions");
     $scope.menutitle = NavigationService.makeactive("Terms & Conditions");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('AboutCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  .controller('AboutCtrl', function($scope,$state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("about");
     $scope.menutitle = NavigationService.makeactive("About Us");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('ContactCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  .controller('ContactCtrl', function($scope,$state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("contact");
     $scope.menutitle = NavigationService.makeactive("Contact Us");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('OrderCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  .controller('OrderCtrl', function($scope,$state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("order");
     $scope.menutitle = NavigationService.makeactive("Order");
@@ -693,9 +727,11 @@ $scope.tabchange = function(tab, a) {
     NavigationService.getOrders(function(data) {
       console.log(data);
       $scope.orders = data;
-    });
+    },function(err){
+    $state.go("error");
+  });
   })
-  .controller('CheckoutCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  .controller('CheckoutCtrl', function($scope,$state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("checkout");
     $scope.menutitle = NavigationService.makeactive("Checkout");
@@ -755,7 +791,9 @@ $scope.tabchange = function(tab, a) {
             }
           })
         }
-      })
+      },function(err){
+      $state.go("error");
+    })
     };
     if ($.jStorage.get("user")) {
       $scope.tabs[1].active = true;
@@ -793,7 +831,9 @@ $scope.tabchange = function(tab, a) {
               NavigationService.setUser(data);
               window.location.reload();
             }
-          })
+          },function(err){
+          $state.go("error");
+        })
         } else {
           $scope.alerts.push({
             type: 'danger',
@@ -838,7 +878,9 @@ $scope.tabchange = function(tab, a) {
               NavigationService.setUser(data);
               window.location.reload();
             }
-          })
+          },function(err){
+          $state.go("error");
+        })
         } else {
           $scope.validation1 = "Please accept the Terms and Conditions or Password and confirm password do not match!";
         }
@@ -895,7 +937,9 @@ $scope.tabchange = function(tab, a) {
               msg: 'Some items went out of stock. Remove them'
             });
           }
-        })
+        },function(err){
+        $state.go("error");
+      })
 
       }
 
@@ -972,7 +1016,9 @@ $scope.tabchange = function(tab, a) {
               msg: 'Unable to place order. Try again.'
             });
           }
-        })
+        },function(err){
+        $state.go("error");
+      })
       } else {
         $scope.invalidData = true;
         $scope.alerts.push({
@@ -1023,7 +1069,9 @@ $scope.tabchange = function(tab, a) {
           if (data.value) {
             $scope.getCart();
           }
-        })
+        },function(err){
+        $state.go("error");
+      })
       }
 
     };
@@ -1066,7 +1114,7 @@ $scope.tabchange = function(tab, a) {
     };
 
   })
-  .controller('ReadyCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  .controller('ReadyCtrl', function($scope,$state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("ready");
     $scope.menutitle = NavigationService.makeactive("Ready");
@@ -1102,21 +1150,21 @@ $scope.tabchange = function(tab, a) {
     console.log($scope.products);
 
   })
-  .controller('SaveDesignCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  .controller('SaveDesignCtrl', function($scope,$state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("save-design");
     $scope.menutitle = NavigationService.makeactive("Save Design");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('WishlistCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  .controller('WishlistCtrl', function($scope,$state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("wishlist");
     $scope.menutitle = NavigationService.makeactive("Wishlist");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('ServicesCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  .controller('ServicesCtrl', function($scope,$state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("services");
     $scope.menutitle = NavigationService.makeactive("Services");
@@ -1148,7 +1196,7 @@ $scope.tabchange = function(tab, a) {
     ];
   })
 
-.controller('MyWishListCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('MyWishListCtrl', function($scope,$state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("mywishlist");
     $scope.menutitle = NavigationService.makeactive("My Wishlist");
@@ -1161,9 +1209,13 @@ $scope.tabchange = function(tab, a) {
     };
 
     $scope.getWishlist = function() {
-      NavigationService.getWishlist(function(data) {
+      NavigationService.getWishlist(function(data,status) {
+        console.log(status);
         console.log(data);
         $scope.wishlist = data;
+      },function(err){
+        console.log(err);
+          $state.go("error");
       });
     };
     $scope.getWishlist();
@@ -1183,7 +1235,9 @@ $scope.tabchange = function(tab, a) {
             msg: 'Not removed from wishlist'
           });
         }
-      })
+      },function(err){
+      $state.go("error");
+    })
 
     }
     $scope.cartAdd = function(id) {
@@ -1213,11 +1267,13 @@ $scope.tabchange = function(tab, a) {
           //     xyz.close();
           // }, 1000)
         }
-      })
+      },function(err){
+      $state.go("error");
+    })
     }
   })
   //
-  // .controller('headerctrl', function($scope, TemplateService) {
+  // .controller('headerctrl', function($scope,$state, TemplateService) {
   //   $scope.template = TemplateService;
   //   $scope.hovermenu = false;
   //   $scope.hovered = function() {
@@ -1231,7 +1287,7 @@ $scope.tabchange = function(tab, a) {
   //   });
   // });
 
-.controller('ForgotCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('ForgotCtrl', function($scope,$state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("forgot");
     $scope.menutitle = NavigationService.makeactive("Forgot Password");
@@ -1263,11 +1319,13 @@ $scope.tabchange = function(tab, a) {
               msg: 'The email ID does not exist. Please proceed to signup.'
             });
           }
-        });
+        },function(err){
+        $state.go("error");
+      });
       }
     };
   })
-  .controller('ForgotPasswordCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
+  .controller('ForgotPasswordCtrl', function($scope,$state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("forgot-password");
     $scope.menutitle = NavigationService.makeactive("Forgot Password");
@@ -1312,7 +1370,9 @@ $scope.tabchange = function(tab, a) {
                 msg: 'Unable to reset password. Try again'
               });
             }
-          });
+          },function(err){
+          $state.go("error");
+        });
         }
       } else {
         $scope.alerts.push({
@@ -1322,14 +1382,14 @@ $scope.tabchange = function(tab, a) {
       }
     };
   })
-  .controller('ThankCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  .controller('ThankCtrl', function($scope,$state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("thank");
     $scope.menutitle = NavigationService.makeactive("Thank You");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('CustomDirectCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  .controller('CustomDirectCtrl', function($scope,$state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("custom-direct");
     $scope.menutitle = NavigationService.makeactive("Custom Direct");
@@ -1337,7 +1397,7 @@ $scope.tabchange = function(tab, a) {
     $scope.navigation = NavigationService.getnav();
   })
 
-.controller('footerctrl', function($scope, TemplateService, $uibModal, NavigationService) {
+.controller('footerctrl', function($scope,$state, TemplateService, $uibModal, NavigationService) {
     $scope.template = TemplateService;
     $scope.wishlistshow = false;
     if ($.jStorage.get("user")) {
@@ -1346,7 +1406,7 @@ $scope.tabchange = function(tab, a) {
       $scope.wishlistshow = false;
     }
   })
-  .controller('headerctrl', function($scope, TemplateService, $uibModal, NavigationService) {
+  .controller('headerctrl', function($scope,$state, TemplateService, $uibModal, NavigationService) {
     $scope.template = TemplateService;
     $scope.logintab = {};
     $scope.login = {};
@@ -1371,7 +1431,9 @@ $scope.tabchange = function(tab, a) {
       console.log(data);
       $scope.navigation[0].subnav = data;
       $scope.navigation[1].subnav = '';
-    });
+    },function(err){
+    $state.go("error");
+  });
     $scope.wishlistcountshow = false;
     myfunction = function() {
       $scope.wishlistcount = 0;
@@ -1380,7 +1442,9 @@ $scope.tabchange = function(tab, a) {
         NavigationService.getWishlistCount(function(data) {
           console.log(data);
           $scope.wishlistcount = data;
-        });
+        },function(err){
+        $state.go("error");
+      });
       }
       NavigationService.getCartCount(function(data) {
         if (data.value == false) {
@@ -1393,7 +1457,9 @@ $scope.tabchange = function(tab, a) {
           count++;
         }
 
-      });
+      },function(err){
+      $state.go("error");
+    });
       // NavigationService.totalcart(function(data) {
       //     $scope.amount = data;
       // });
@@ -1474,7 +1540,9 @@ $scope.tabchange = function(tab, a) {
               NavigationService.setUser(data);
               window.location.reload();
             }
-          })
+          },function(err){
+          $state.go("error");
+        })
         } else {
           $scope.validation = true;
         }
@@ -1514,7 +1582,9 @@ $scope.tabchange = function(tab, a) {
               NavigationService.setUser(data);
               window.location.reload();
             }
-          })
+          },function(err){
+          $state.go("error");
+        })
         } else {
           $scope.validation1 = "Accept Terms and Conditions OR password and confirmpassword does not match";
         }
@@ -1535,6 +1605,18 @@ $scope.tabchange = function(tab, a) {
           $.jStorage.flush();
           window.location.reload();
         }
-      })
+      },function(err){
+      $state.go("error");
+    })
     }
+
+    //forgot
+   $scope.openForgot = function() {
+     $uibModal.open({
+       animation: true,
+       templateUrl: 'views/modal/forgotpop.html',
+       controller: 'headerctrl',
+       scope: $scope
+     })
+   }
   });
