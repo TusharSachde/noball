@@ -91,6 +91,7 @@ img {
 img.doneLoading {
   opacity: 1;
 }
+.m-center { margin: 0 auto; }
 nav li:hover .dropdown-menu {
   display: block;
 }
@@ -351,20 +352,19 @@ a.icon-btn {
     top: 0;
     bottom: 0;
     padding: 0;
-    background: transparent;
+    background: rgba(0, 0, 0, 0.6);
     width: 100%;
+    opacity: 1;
     &:hover {
-      background: rgba(0, 0, 0, 0.6);
-      p {
-        opacity: 1;
-      }
+      background-color: transparent;
+      p { opacity: 0; }
     }
     p {
       position: absolute;
       top: 50%;
       left: 50%;
       @include transform(translate(-50%,-50%));
-      opacity: 0;
+      opacity: 1;
       @include transition(all ease 300ms);
       color: $brand-success;
     }
@@ -411,7 +411,7 @@ a.icon-btn {
     font-weight: 400;
   }
   a {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 300;
     color: #ededed;
     border-bottom: 1px solid #ededed;
@@ -1341,12 +1341,12 @@ footer {
 }
 .det-name {
   border-bottom: 1px solid $border;
-  padding-bottom: 12px;
+  padding-bottom: 10px;
   h4 {
     font-weight: 300;
-    font-size: 20px;
+    font-size: 25px;
     letter-spacing: 2px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
   .sum {
     font-size: 30px;
@@ -1354,9 +1354,9 @@ footer {
     letter-spacing: 3px;
   }
   h3 {
-    margin: 0;
-    font-weight: bold;
-    font-size: 35px;
+    margin: 10px 0;
+    font-weight: 500;
+    font-size: 40px;
     i {
       vertical-align: sub;
       padding-right: 10px;
@@ -1376,9 +1376,10 @@ footer {
   p {
     margin: 0;
     padding-top: 12px;
-    font-size: 14px;
+    font-size: 18px;
   }
 }
+.chart { margin: 20px 0px; }
 .margbotm {
   margin-bottom: 100px;
 }
@@ -1705,6 +1706,13 @@ footer {
         margin: 0 auto;
       }
     }
+    .price {
+      font-size: 23px;
+      i {
+        padding-right: 5px;
+        vertical-align: sub;
+      }
+    }
   }
 }
 .testimonial {
@@ -1821,9 +1829,11 @@ footer {
     padding: 20px 60px;
     .login-form {
       padding-bottom: 10px;
+      .form-group { margin-bottom: 30px; }
     }
     input.form-control {
-      background: #f4f4f4;
+      height: 45px;
+      background-color: #fff;
       box-shadow: none;
       color: $font-color;
       border-color: $font-color;
@@ -2070,7 +2080,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .custom-direct {
   .flex-pad {
-    padding: 30px 50px;
+    padding: 30px 45px;
     color: #fff;
     margin: 10px;
     min-height: 300px;
@@ -2089,7 +2099,7 @@ input[type=number]::-webkit-outer-spin-button {
       }
     }
     .img-holder-custom {
-      width: 85%;
+      width: 80%;
       height: 150px;
       margin: 0 auto;
       position: relative;
