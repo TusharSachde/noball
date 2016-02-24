@@ -1,6 +1,8 @@
 // var mainurl = "http://wohlig.io:81/callApi/noball/";
 var mainurl = "http://104.197.99.196/admin/index.php/";
 // var mainurl = "http://localhost/cccbackend/index.php/";
+var websiteurl = "http://www.wohlig.co.in/ccc";
+
 var imgurl = "http://104.197.99.196/admin/uploads/";
 var adminurl = mainurl + "json/";
 var countries = [{
@@ -519,29 +521,29 @@ var navigationservice = angular.module('navigationservice', [])
     getnav: function() {
       return navigation;
     },
-    getSlider: function(callback,err) {
+    getSlider: function(callback, err) {
       $http.get(adminurl + 'getSlide').success(callback).error(err);
     },
-    getCategory: function(callback,err) {
+    getCategory: function(callback, err) {
       $http.get(adminurl + 'getCategory').success(callback).error(err);
     },
-    getCartCount: function(callback,err) {
+    getCartCount: function(callback, err) {
       $http.get(adminurl + 'getCartCount').success(callback).error(err);
     },
-    getSubCategory: function(name,callback,err) {
+    getSubCategory: function(name, callback, err) {
       $http.get(adminurl + 'getSubCategory?name=' + name).success(callback).error(err);
     },
-    getProductBySubCategory: function(name,callback,err) {
+    getProductBySubCategory: function(name, callback, err) {
       console.log(name);
       $http.get(adminurl + 'getProductBySubCategory?name=' + name).success(callback).error(err);
     },
-    getTestimonial: function(callback,err) {
+    getTestimonial: function(callback, err) {
       $http.get(adminurl + 'getTestimonial').success(callback).error(err);
     },
-    getOrders: function(callback,err) {
+    getOrders: function(callback, err) {
       $http.get(adminurl + 'getOrders').success(callback).error(err);
     },
-    addToCart: function(cart,callback,err) {
+    addToCart: function(cart, callback, err) {
       return $http({
         url: adminurl + "addToCart",
         method: "POST",
@@ -553,7 +555,7 @@ var navigationservice = angular.module('navigationservice', [])
         }
       }).success(callback).error(err);
     },
-    addToWishlist: function(wishlist,callback,err) {
+    addToWishlist: function(wishlist, callback, err) {
       return $http({
         url: adminurl + "addToWishlist",
         method: "POST",
@@ -562,7 +564,7 @@ var navigationservice = angular.module('navigationservice', [])
         }
       }).success(callback).error(err);
     },
-    removeFromWishlist: function(wishlist,callback,err) {
+    removeFromWishlist: function(wishlist, callback, err) {
       return $http({
         url: adminurl + "removeFromWishlist",
         method: "POST",
@@ -571,7 +573,7 @@ var navigationservice = angular.module('navigationservice', [])
         }
       }).success(callback).error(err);
     },
-    removeFromCart: function(cart,callback,err) {
+    removeFromCart: function(cart, callback, err) {
       console.log(cart);
       return $http({
         url: adminurl + "removeFromCart",
@@ -581,7 +583,7 @@ var navigationservice = angular.module('navigationservice', [])
         }
       }).success(callback).error(err);
     },
-    login: function(login,callback,err) {
+    login: function(login, callback, err) {
       console.log(login);
       return $http({
         url: adminurl + "login",
@@ -592,7 +594,7 @@ var navigationservice = angular.module('navigationservice', [])
         }
       }).success(callback).error(err);
     },
-    signup: function(signup,callback,err) {
+    signup: function(signup, callback, err) {
       console.log(signup);
       return $http({
         url: adminurl + "signup",
@@ -605,14 +607,14 @@ var navigationservice = angular.module('navigationservice', [])
         }
       }).success(callback).error(err);
     },
-    updateProfile: function(profile,callback,err) {
+    updateProfile: function(profile, callback, err) {
       return $http({
         url: adminurl + "updateProfile",
         method: "POST",
         data: profile
       }).success(callback).error(err);
     },
-    changePassword: function(password,callback,err) {
+    changePassword: function(password, callback, err) {
       console.log(password);
       return $http({
         url: adminurl + "changePassword",
@@ -624,7 +626,7 @@ var navigationservice = angular.module('navigationservice', [])
         }
       }).success(callback).error(err);
     },
-    forgotPassword: function(password,callback,err) {
+    forgotPassword: function(password, callback, err) {
       return $http({
         url: adminurl + "forgotPassword",
         method: "POST",
@@ -633,7 +635,7 @@ var navigationservice = angular.module('navigationservice', [])
         }
       }).success(callback).error(err);
     },
-    resetPassword: function(request,callback,err) {
+    resetPassword: function(request, callback, err) {
       return $http({
         url: adminurl + "resetPassword",
         method: "POST",
@@ -642,32 +644,32 @@ var navigationservice = angular.module('navigationservice', [])
         }
       }).success(callback).error(err);
     },
-    getWishlist: function(callback,err) {
+    getWishlist: function(callback, err) {
       $http.get(adminurl + 'getWishlist').success(callback).error(err);
     },
-    getWishlistCount: function(callback,err) {
+    getWishlistCount: function(callback, err) {
       $http.get(adminurl + 'getWishlistCount').success(callback).error(err);
     },
-    checkoutCheck: function(callback,err) {
+    checkoutCheck: function(callback, err) {
       $http.get(adminurl + 'checkoutCheck').success(callback).error(err);
     },
-    placeOrder: function(order,callback,err) {
+    placeOrder: function(order, callback, err) {
       return $http({
         url: adminurl + "placeOrder",
         method: "POST",
         data: order
       }).success(callback).error(err);
     },
-    getUserDetail: function(id,callback,err) {
+    getUserDetail: function(id, callback, err) {
       $http.get(adminurl + 'getUser?id=' + id).success(callback).error(err);
     },
-    getProductDetail: function(id,callback,err) {
+    getProductDetail: function(id, callback, err) {
       $http.get(adminurl + 'getProductDetail?id=' + id).success(callback).error(err);
     },
-    showCart: function(callback,err) {
+    showCart: function(callback, err) {
       $http.get(adminurl + 'showCart').success(callback).error(err);
     },
-    logout: function(callback,err) {
+    logout: function(callback, err) {
       $http.get(adminurl + 'logout').success(callback).error(err);
     },
     setUser: function(user) {

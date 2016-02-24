@@ -1419,6 +1419,7 @@ $scope.tabchange = function(tab, a) {
     $scope.alerts = [];
     $scope.loginmodal = true;
     $scope.signupmodal = false;
+    $scope.forgot={};
     $scope.wishlistcount = 0;
     $scope.navigation = NavigationService.getnav();
     if (NavigationService.getUser()) {
@@ -1426,6 +1427,26 @@ $scope.tabchange = function(tab, a) {
     } else {
       $scope.isLogin = false;
     }
+    $scope.sendEmail = function(request) {
+      console.log(request);
+        NavigationService.forgotPassword(request, function(data) {
+          console.log(data);
+          if (data.value == true) {
+            $scope.alerts.push({
+              type: 'success',
+              msg: 'An email has been sent with instructions to reset your password. Please check your inbox.'
+            });
+
+          } else {
+            $scope.alerts.push({
+              type: 'danger',
+              msg: 'The email ID does not exist. Please proceed to signup.'
+            });
+          }
+        },function(err){
+        $state.go("error");
+      });
+  }
     //Global function
     NavigationService.getCategory(function(data) {
       console.log(data);
@@ -1517,26 +1538,20 @@ $scope.tabchange = function(tab, a) {
       $uibModalInstance.dismiss('cancel');
     };
 
+    $scope.validatelogin = false;
+    $scope.inputall=false;
 
     //login
-    $scope.doLogin = function() {
-        console.log($scope.login);
-        $scope.allvalidation = [{
-          field: $scope.login.email,
-          validation: ""
-        }, {
-          field: $scope.login.password,
-          validation: ""
-        }];
+    $scope.doLogin = function(input,formValidate) {
+      $scope.validatelogin = false;
+      $scope.inputall=false;
 
-        var check = formvalidation($scope.allvalidation);
-
-        if (check) {
-          NavigationService.login($scope.login, function(data) {
-            if (data.value == false) {
-              $scope.validation = true;
+        if (formValidate.$valid) {
+          NavigationService.login(input, function(data) {
+            if (data.value === false) {
+              console.log("works I think");
+              $scope.validatelogin = true;
             } else {
-              $scope.validation = false;
               NavigationService.setUser(data);
               window.location.reload();
             }
@@ -1544,55 +1559,44 @@ $scope.tabchange = function(tab, a) {
           $state.go("error");
         })
         } else {
-          $scope.validation = true;
+        $scope.inputall=true;
         }
       }
       //signup
+      $scope.forgot={};
     $scope.signup = {};
     $scope.accept = false;
-    $scope.doSignUp = function(accept) {
+    $scope.acceptValidate=false;
+    $scope.alreadyReg=false;
+    $scope.validateForm=false;
+    $scope.noMatch=false;
+
+    $scope.doSignup = function(accept,input,formValidate) {
       console.log(accept);
+      $scope.acceptValidate=false;
+      $scope.validateForm=false;
+      $scope.alreadyReg=false;
+      $scope.noMatch=false;
 
-      $scope.allvalidation = [{
-        field: $scope.signup.firstname,
-        validation: ""
-      }, {
-        field: $scope.signup.lastname,
-        validation: ""
-      }, {
-        field: $scope.signup.email,
-        validation: ""
-      }, {
-        field: $scope.signup.password,
-        validation: ""
-      }, {
-        field: $scope.signup.cpassword,
-        validation: ""
-      }];
 
-      var check = formvalidation($scope.allvalidation);
-      if (check) {
-        $scope.validation = false;
-        if (accept == true && $scope.signup.password === $scope.signup.cpassword) {
-          NavigationService.signup($scope.signup, function(data) {
-            if (data.value == false) {
-              $scope.validation1 = "Already exists";
-            } else {
-              $scope.validation1 = "";
-              NavigationService.setUser(data);
-              window.location.reload();
-            }
-          },function(err){
-          $state.go("error");
-        })
+        if(formValidate.$valid){
+          if (accept == true) {
+            NavigationService.signup(input, function(data) {
+              if (data.value == false) {
+                $scope.alreadyReg = true;
+              } else {
+                NavigationService.setUser(data);
+                window.location.reload();
+              }
+            },function(err){
+            $state.go("error");
+          })
         } else {
-          $scope.validation1 = "Accept Terms and Conditions OR password and confirmpassword does not match";
+            $scope.acceptValidate=true;
+          }
+        }else{
+          $scope.validateForm=true;
         }
-      } else {
-        $scope.validation1 = "Enter all fields";
-
-      }
-
 
 
     }
@@ -1609,6 +1613,54 @@ $scope.tabchange = function(tab, a) {
       $state.go("error");
     })
     }
+    var checktwitter = function(data, status) {
+      if (data != "false") {
+        $interval.cancel(stopinterval);
+        ref.close();
+        NavigationService.authenticate(authenticatesuccess);
+      } else {
+
+      }
+
+    };
+
+    var callAtIntervaltwitter = function() {
+      NavigationService.authenticate(checktwitter);
+    };
+    var authenticatesuccess = function(data, status) {
+      if (data != "false") {
+        $.jStorage.set("user", data);
+        user = data;
+        $state.go('home');
+        window.location.reload();
+      }
+    };
+
+    $scope.facebooklogin = function() {
+      ref = window.open(mainurl + 'index.php/hauth/login/Facebook?returnurl=' + websiteurl, '_blank', 'location=yes');
+      stopinterval = $interval(callAtIntervaltwitter, 2000);
+      ref.addEventListener('exit', function(event) {
+        NavigationService.authenticate(authenticatesuccess);
+        $interval.cancel(stopinterval);
+      });
+    }
+    $scope.googlelogin = function() {
+      ref = window.open(mainurl + 'index.php/hauth/login/Google?returnurl=' + websiteurl, '_blank', 'location=yes');
+      stopinterval = $interval(callAtIntervaltwitter, 2000);
+      ref.addEventListener('exit', function(event) {
+        NavigationService.authenticate(authenticatesuccess);
+        $interval.cancel(stopinterval);
+      });
+    }
+
+    $scope.twitterlogin = function() {
+      ref = window.open(mainurl + 'index.php/hauth/login/Twitter?returnurl=' + websiteurl, '_blank', 'location=yes');
+      stopinterval = $interval(callAtIntervaltwitter, 2000);
+      ref.addEventListener('exit', function(event) {
+        NavigationService.authenticate(authenticatesuccess);
+        $interval.cancel(stopinterval);
+      });
+    }
 
     //forgot
    $scope.openForgot = function() {
@@ -1619,4 +1671,5 @@ $scope.tabchange = function(tab, a) {
        scope: $scope
      })
    }
+
   });
