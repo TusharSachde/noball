@@ -1246,8 +1246,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       "img/services/memorable-slider.jpg",
       "img/services/memorable-slider.jpg"
     ];
-    var top = 900;
-    var duration = 8000;
+    function makeAnimation(id) {
+      if (!_.isEmpty(id)) {
+        var someElement = angular.element(document.getElementById(id));
+        $document.scrollToElement(someElement, 0, 1400);
+      }
+    }
   })
 
 .controller('MyWishListCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
