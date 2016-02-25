@@ -1374,25 +1374,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.closeAlert = function(index) {
       $scope.alerts.splice(index, 1);
     };
-    $scope.resetPassword = function() {
-      $scope.allvalidation = [{
-        field: $scope.resetpassword.newpassword,
-        validation: ""
-      }, {
-        field: $scope.resetpassword.confirmpassword,
-        validation: ""
-      }];
+    $scope.resetPassword = function(input,formValidate) {
+      // $scope.allvalidation = [{
+      //   field: $scope.resetpassword.newpassword,
+      //   validation: ""
+      // }, {
+      //   field: $scope.resetpassword.confirmpassword,
+      //   validation: ""
+      // }];
 
-      var check = formvalidation($scope.allvalidation);
 
-      if (check) {
-        if ($scope.resetpassword.newpassword != $scope.resetpassword.confirmpassword) {
+      if (formValidate.$valid) {
+        if (input.newpassword != input.confirmpassword) {
           $scope.alerts.push({
             type: 'danger',
             msg: 'Password fields do not match.'
           });
         } else {
-          NavigationService.resetPassword($scope.resetpassword, function(data) {
+          NavigationService.resetPassword(input, function(data) {
             if (data.value == true) {
               $scope.alerts.push({
                 type: 'success',
@@ -1408,9 +1407,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 msg: 'Unable to reset password. Try again'
               });
             }
-          }, function(err) {
-            $state.go("error");
-          });
+          },function(err){
+          $state.go("error");
+        });
         }
       } else {
         $scope.alerts.push({
