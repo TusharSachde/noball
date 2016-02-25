@@ -581,10 +581,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       isFirstOpen: true,
       isFirstDisabled: false
     };
-    $scope.testimonial = [
+    $scope.relatedproducts = [
       {
-        img: "img/detail/d2.jpg",
-        name: ""
+        img: "img/detail/pad.jpg",
+        name: "Sweep 101",
+        price: "999"
+      },
+      {
+        img: "img/detail/pad.jpg",
+        name: "Sweep 102",
+        price: "999"
+      },
+      {
+        img: "img/detail/pad.jpg",
+        name: "Sweep 103",
+        price: "999"
+      },
+      {
+        img: "img/detail/pad.jpg",
+        name: "Sweep 104",
+        price: "999"
       }
     ];
 
@@ -1374,24 +1390,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.closeAlert = function(index) {
       $scope.alerts.splice(index, 1);
     };
-    $scope.resetPassword = function(input,formValidate) {
-      // $scope.allvalidation = [{
-      //   field: $scope.resetpassword.newpassword,
-      //   validation: ""
-      // }, {
-      //   field: $scope.resetpassword.confirmpassword,
-      //   validation: ""
-      // }];
+    $scope.resetPassword = function() {
+      $scope.allvalidation = [{
+        field: $scope.resetpassword.newpassword,
+        validation: ""
+      }, {
+        field: $scope.resetpassword.confirmpassword,
+        validation: ""
+      }];
 
+      var check = formvalidation($scope.allvalidation);
 
-      if (formValidate.$valid) {
-        if (input.newpassword != input.confirmpassword) {
+      if (check) {
+        if ($scope.resetpassword.newpassword != $scope.resetpassword.confirmpassword) {
           $scope.alerts.push({
             type: 'danger',
             msg: 'Password fields do not match.'
           });
         } else {
-          NavigationService.resetPassword(input, function(data) {
+          NavigationService.resetPassword($scope.resetpassword, function(data) {
             if (data.value == true) {
               $scope.alerts.push({
                 type: 'success',
@@ -1407,9 +1424,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 msg: 'Unable to reset password. Try again'
               });
             }
-          },function(err){
-          $state.go("error");
-        });
+          }, function(err) {
+            $state.go("error");
+          });
         }
       } else {
         $scope.alerts.push({
