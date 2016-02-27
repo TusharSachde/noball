@@ -1219,6 +1219,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Services");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.navigation = NavigationService.getnav2();
     $scope.customize = [{
       img: "img/services/advnc-slider.png"
     }, {
@@ -1246,12 +1247,28 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       "img/services/memorable-slider.jpg",
       "img/services/memorable-slider.jpg"
     ];
+
     function makeAnimation(id) {
-      if (!_.isEmpty(id)) {
-        var someElement = angular.element(document.getElementById(id));
-        $document.scrollToElement(someElement, 0, 1400);
+      if (_.isEmpty(id)) {
+        id = "services";
       }
+      var someElement = angular.element(document.getElementById(id));
+      $document.scrollToElement(someElement, 0, 1400);
     }
+    $scope.$on('$viewContentLoaded', function(event) {
+      setTimeout(function() {
+        makeAnimation($stateParams.id);
+      }, 1000);
+    });
+    $scope.changeURL = function(id) {
+      $state.transitionTo('servicesid', {
+        id: id
+      }, {
+        notify: false
+      });
+      makeAnimation(id);
+      $location.replace();
+    };
   })
 
 .controller('MyWishListCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {

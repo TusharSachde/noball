@@ -517,9 +517,35 @@ var navigationservice = angular.module('navigationservice', [])
     link: "#/services"
   }];
 
+  var navigation2 = [{
+    name: "ADVANCED CUSTOMISATION",
+    anchor: "advancedcutomization",
+  }, {
+    name: "CCC LOUNGE",
+    anchor: "ccclounge",
+  }, {
+    name: "TOURS",
+    anchor: "tours",
+  }, {
+    name: "FOUNDATION",
+    anchor: "foundation",
+  }
+, {
+    name: "CONSULTANCY",
+    anchor: "consultancy",
+  }
+, {
+    name: "MEMORABILIA",
+    anchor: "memobrabilia",
+  }
+];
+
   return {
     getnav: function() {
       return navigation;
+    },
+    getnav2: function() {
+      return navigation2;
     },
     getSlider: function(callback, err) {
       $http.get(adminurl + 'getSlide').success(callback).error(err);
@@ -688,6 +714,16 @@ var navigationservice = angular.module('navigationservice', [])
       }
       return menuname;
     },
-
+    makeactive2: function(id) {
+      console.log(id);
+      for (var i = 0; i < navigation2.length; i++) {
+        if (navigation2[i].anchor == id) {
+          navigation2[i].classis = "actives";
+        } else {
+          navigation2[i].classis = "";
+        }
+      }
+      return id;
+    },
   }
 });
