@@ -663,10 +663,11 @@ var navigationservice = angular.module('navigationservice', [])
     },
     resetPassword: function(request, callback, err) {
       return $http({
-        url: adminurl + "resetPassword",
+        url: adminurl + "forgotpasswordsubmit",
         method: "POST",
         data: {
-          "newpassword": request.newpassword
+          "password": request.password,
+          "hashcode":request.hashcode
         }
       }).success(callback).error(err);
     },

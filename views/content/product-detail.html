@@ -33,20 +33,17 @@
             </div>
             <div class="get-me" ng-show="tab==1">
               <div class="pro-descp">
-                <p>Detail - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
-                  type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                <p>{{productdetail.product.detail || 'Loading..'}}</p>
               </div>
             </div>
             <div class="get-me" ng-show="tab==2">
               <div class="pro-descp">
-                <p>Delivery - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
-                  a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                <p>{{productdetail.product.delivery || 'Loading..'}}</p>
               </div>
             </div>
             <div class="get-me" ng-show="tab==3">
               <div class="pro-descp">
-                <p>Care - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                <p>{{productdetail.product.care || 'Loading..'}}</p>
               </div>
             </div>
           </div>
@@ -88,7 +85,7 @@
                             </accordion-group> -->
             </accordion>
             <!-- apparels size section start -->
-            <div class="sel-qty">
+            <div class="sel-qty" ng-if="params.category == 'Apparels'">
               <h3 class="letter-spacing">Select Quantity</h3>
               <div class="choos quantity">
                 <div class="row">
@@ -197,13 +194,13 @@
                 </div>
               </div>
             </div>
-            <!-- apparels size section start -->
+            <!-- apparels size section end -->
             <!-- if bat , ball , kit bag -->
 
-            <div class="show-pads">
+            <div class="show-pads" ng-if="params.category == 'Balls' || params.category == 'Bats' || params.category == 'Kit Bags'">
               <div class="sel-qty">
                 <!-- display button when bat opition is clicked -->
-                <div class="bat-btn">
+                <div class="bat-btn" ng-show="params.category == 'Bats'">
                   <button type="button" class="btn-orange letter-spacing text-uppercase">how to choose your bats</button>
                 </div>
                 <!-- end display button when bat opition is clicked -->
@@ -229,7 +226,7 @@
       </div>
       <!-- if bat , ball , kit bag end -->
       <!-- if pads section -->
-      <div class="show-pads">
+      <div class="show-pads" ng-if="params.category == 'Pads'">
         <div class="sel-qty">
           <div class="chart">
             <h3 class="letter-spacing">Select Pairs <span data-toggle="modal" data-target="#mymodal14" role="dialog">(Size Chart)</span></h3>
@@ -298,7 +295,7 @@
           </div>
           <!-- pads section ends -->
           <!-- glove -->
-          <div class="show-pads">
+          <div class="show-pads" ng-if="params.category == 'Gloves'">
             <div class="sel-qty">
               <div class="chart">
                 <h3 class="letter-spacing">Select Pairs</h3>

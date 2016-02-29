@@ -1400,7 +1400,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       }
     };
   })
-  .controller('ForgotPasswordCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
+  .controller('ForgotPasswordCtrl', function($scope, $state, TemplateService, NavigationService, $timeout,$stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("forgot-password");
     $scope.menutitle = NavigationService.makeactive("Forgot Password");
@@ -1408,6 +1408,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     $scope.resetpassword = {};
     $scope.alerts = [];
+    $scope.params= $stateParams;
     $scope.closeAlert = function(index) {
       $scope.alerts.splice(index, 1);
     };
@@ -1429,7 +1430,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             msg: 'Password fields do not match.'
           });
         } else {
-          NavigationService.resetPassword($scope.resetpassword, function(data) {
+          NavigationService.resetPassword({
+            password:$scope.resetpassword.newpassword,
+            hashcode:$scope.params.hash
+          }, function(data) {
             if (data.value == true) {
               $scope.alerts.push({
                 type: 'success',
