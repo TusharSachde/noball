@@ -1259,6 +1259,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       }, 1000);
     });
     $scope.changeURL = function(id) {
+      $scope.menutitle = NavigationService.makeactive(id);
       $state.transitionTo('servicesid', {
         id: id
       }, {

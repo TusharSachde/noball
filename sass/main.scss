@@ -124,9 +124,7 @@ nav li:hover .dropdown-menu {
     }
   }
 }
-a {
-  cursor: pointer;
-}
+a { cursor: pointer; }
 .btn-light {
   @include button-variant(white, $btn-light, $btn-light);
   &.btn-outline {
@@ -2399,9 +2397,12 @@ border-left: 7px solid #c3e701;
   .flex-direction-nav .flex-prev { left: 100px !important; }
 }
 .service-heading {
+  width: 100%;
+  position: fixed;
   padding: 40px 0 20px;
   background-color: #494949;
   color: #fff;
+  z-index: 11;
 }
 .service-menu {
   margin-top: 25px;
@@ -2428,7 +2429,7 @@ border-left: 7px solid #c3e701;
    color: #fff;
  }
  .bg-blurlightwhite { background-color: rgba(255,255,255,0.5); }
-.service-pd { padding: 70px 0; }
+.service-pd { padding: 20% 0 10%; }
 .service-bg {
 background-repeat: no-repeat;
 background-size: cover;
@@ -2452,7 +2453,7 @@ background-size: cover;
 }
 .custom-apparel { background-image: url('../img/services/apparel-bg.jpg');}
 .lounge {
-  padding: 100px 0;
+  // padding: 100px 0;
   color: #fff;
   text-transform: none;
 }
