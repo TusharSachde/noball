@@ -109,9 +109,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           $scope.addCart = data;
           $scope.totalcart = 0;
           _.each($scope.addCart, function(key) {
-            key.subtotal = key.qty * key.price;
             key.qty = parseInt(key.qty);
-            $scope.totalcart = $scope.totalcart + key.subtotal;
+            $scope.totalcart = $scope.totalcart + parseInt(key.subtotal);
             if (!$scope.validateQuantity(key)) {
               key.exceed = true;
             } else {
@@ -830,8 +829,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           $scope.allcart = data;
 
           _.each($scope.allcart, function(key) {
-            key.subtotal = key.qty * key.price;
-            $scope.totalcart = $scope.totalcart + key.subtotal;
+            $scope.totalcart = $scope.totalcart + parseInt(key.subtotal);
             key.qty = parseInt(key.qty);
             if (!$scope.validateQuantity(key)) {
               key.exceed = true;
