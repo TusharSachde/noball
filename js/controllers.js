@@ -575,6 +575,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.alerts = [];
+    $scope.params = $stateParams;
     $scope.oneAtATime = true;
     $scope.status = {
       isFirstOpen: true,
