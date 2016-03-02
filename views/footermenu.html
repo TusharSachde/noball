@@ -1,94 +1,145 @@
-<div class="container"  ng-controller="footerctrl">
-  <div class="row">
-    <div class="col-md-3 col-sm-3">
-      <ul class="list-unstyled">
-        <li style="padding: 6px 5px;">Shop</li>
-        <li ng-repeat="shop in navigation[0].subnav">
-          <a ui-sref="categories({name:shop.name})">{{shop.name}}</a>
-        </li>
-      </ul>
-    </div>
-    <!-- <div class="col-md-3 col-sm-3 col-xs-4">
-      <ul class="list-unstyled">
-        <li>
-          Customize
-        </li>
-        <li ng-repeat="customize in navigation[1].subnav">
-          <a href="{{customize.link}}">{{customize.name}}</a>
-        </li>
-      </ul>
-    </div> -->
-    <div class="col-md-3 col-sm-3">
-      <ul class="list-unstyled bold">
-        <li>
-          <a href="#/custom">CUSTOMIZE </a>
-        </li>
-        <li>
-          <a href="#/about">ABOUT US</a>
-        </li>
-        <li>
-          <a href="#">CCC LOUNGE</a>
-        </li>
-        <li>
-          <a href="#/mywishlist" ng-show="wishlistshow" >Wishlist</a>
-        </li>
-        <li>
-          <a href="#/terms-conditions">TERMS &amp; CONDITIONS</a>
-        </li>
-        <li>
-          <a href="#/privacypolicy">PRIVACY POLICY</a>
-        </li>
-        <li>
-          <a href="#/contact">CONTACT US</a>
-        </li>
-      </ul>
-    </div>
-    <div class="col-md-3 col-sm-3">
-      <div>
-        <h5><i class="fa fa-phone"></i> GET IN TOUCH</h5>
-        <ul class="custom-sub custom-footer">
-          <li>
-            <a href="tel:+912269995505" class="active">
-            +91 22 6999 5505
-          </a>
+<div class="container-fluid" ng-controller="footerctrl">
+  <div class="footer-margin">
+    <div class="row">
+      <div class="col-md-1">
+        <ul class="list-unstyled">
+          <li style="padding: 0px 10px;">Products</li>
+          <li ng-repeat="shop in navigation[0].subnav">
+            <a ui-sref="categories({name:shop.name})">{{shop.name}}</a>
           </li>
         </ul>
-
-        <h5>FOLLOW US</h5>
-        <div class="social-icons">
-          <a href="https://fb.com" target="_blank"><i class="fa fa-facebook"></i></a>
-          <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a>
-          <a href="https://instagram.com" target="_blank"><i class="fa fa-instagram"></i></a>
-        </div>
       </div>
-    </div>
-
-    <div class="col-md-3 col-sm-3">
-      <div class="pb25">
+      <div class="col-md-1">
+        <ul class="list-unstyled">
+          <li style="padding: 0px 10px;">
+            Customize
+          </li>
+          <li ng-repeat="shop in navigation[0].subnav">
+            <a ui-sref="categories({name:shop.name})">{{shop.name}}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-2">
+        <ul class="list-unstyled">
+          <li style="padding: 0px 10px;">
+            Services
+          </li>
+          <li>
+            <a href="">advance customisation</a>
+          </li>
+          <li>
+            <a href="">custom sports apparel</a>
+          </li>
+          <li>
+            <a href="">ccc lounge</a>
+          </li>
+          <li>
+            <a href="">tours</a>
+          </li>
+          <li>
+            <a href="">foundation</a>
+          </li>
+          <li>
+            <a href="">memorabilia</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-2">
         <ul class="list-unstyled bold">
           <li>
-            <a href="#"> <i class="fa fa-lock"></i> SECURE SHOPPING</a>
+            <a href="#/about">ABOUT US</a>
+          </li>
+          <li><a href="#/ccc">CCC LOUNGE</a></li>
+          <li>
+            <a href="#/mywishlist" ng-show="wishlistshow">Wishlist</a>
           </li>
           <li>
-            <a href="#"> <i class="fa fa-map-marker"></i> TRACK ORDERS</a>
+            <a href="#/terms-conditions">TERMS &amp; CONDITIONS</a>
+          </li>
+          <li>
+            <a href="#/privacypolicy">PRIVACY POLICY</a>
+          </li>
+          <li>
+            <a href="#/contact">CONTACT US</a>
           </li>
         </ul>
+        <div class="follow-us">
+          <h5>FOLLOW US</h5>
+          <div class="social-icons">
+            <a href="https://fb.com" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fa fa-instagram"></i></a>
+          </div>
+        </div>
       </div>
-      <h5>PAYMENT METHODS</h5>
-      <ul class="list-unstyled foot-cards">
-        <li>
-          <img src="img/visacard.png">
-        </li>
-        <li>
-          <img src="img/mastero.png">
-        </li>
-        <li>
-          <img src="img/mastercard.png">
-        </li>
-        <li>
-          <img src="img/american.png">
-        </li>
-      </ul>
+      <div class="col-md-4">
+        <div class="get-touch">
+          <h5> GET IN TOUCH</h5>
+          <ul class="custom-sub custom-footer">
+            <li>
+              <span class="fl-l"><i class="fa fa-phone"></i></span><a href="tel:+912269995505" class="active">
+            +91 22 6999 5505
+          </a>
+            </li>
+            <li>
+              <span class="fl-l"><i class="fa fa-phone"></i></span><a href="tel:+912269995505" class="active">
+            +91 22 6999 5505
+          </a>
+            </li>
+            <li>
+              <span class="fl-l"><i class="fa fa-skype"></i></span><a href="" class="active" style="text-transform: lowercase;">
+          customcricketcompany
+          </a>
+            </li>
+            <li>
+              <span class="fl-l"><i class="fa fa-envelope-o"></i></span><a href="" class="active" style="text-transform: lowercase;">
+            umpair@customcricketcompany.com
+          </a>
+            </li>
+          </ul>
+          <div class="makeindia pt35 text-center">
+            <!-- <span style="text-transform: lowercase;">Committed to</span> -->
+            <img src="img/makeinindia.png" class="img-responsive">
+            <!-- <span style="text-transform: lowercase;">A Govt. of India initiative</span> -->
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="pb25">
+          <ul class="list-unstyled bold pt35">
+            <li>
+              <i class="fa fa-lock pr10"></i> SECURE SHOPPING
+            </li>
+            <li>
+              <i class="fa fa-truck pr10"></i>free shipping Worldwide
+            </li>
+          </ul>
+          <div class="payment-method">
+            <h5>PAYMENT METHODS</h5>
+            <ul class="list-unstyled foot-cards">
+              <li>
+                <img src="img/visacard.png">
+              </li>
+              <li>
+                <img src="img/mastero.png">
+              </li>
+              <li>
+                <img src="img/mastercard.png">
+              </li>
+              <li>
+                <img src="img/american.png">
+              </li>
+              <li>
+                <img src="img/payu.jpg">
+              </li>
+              <li>
+                <img src="img/netbanking.png">
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

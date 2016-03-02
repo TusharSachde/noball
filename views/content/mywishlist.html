@@ -27,7 +27,7 @@
               <tr class="text-center text-bold" ng-repeat="wish in wishlist">
                 <td>
                   <figure>
-                    <img src="{{wish.image|serverimage}}">
+                    <img ng-src="{{wish.image | serverimage}}">
                     <figcaption>{{wish.name}}</figcaption>
                   </figure>
                 </td>

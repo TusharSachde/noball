@@ -1,6 +1,9 @@
 var jsArray = [
     './bower_components/jquery/dist/jquery.min.js',
     './bower_components/flexslider/jquery.flexslider-min.js',
+    './bower_components/threejs/build/three.min.js',
+    './js/OrbitControls.js',
+    './bower_components/threejs/examples/js/loaders/OBJLoader.js',
     './bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
     './bower_components/angular/angular.js',
     './bower_components/angular-animate/angular-animate.min.js',
@@ -9,9 +12,12 @@ var jsArray = [
     './bower_components/ui-router/release/angular-ui-router.min.js',
     './bower_components/angular-bootstrap/ui-bootstrap.min.js',
     './bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+    './bower_components/elevatezoom/jquery.elevatezoom.js',
+    './bower_components/fancyBox/source/jquery.fancybox.pack.js',
     './bower_components/jStorage/jstorage.min.js',
     './bower_components/lodash/lodash.min.js',
     './bower_components/ngDialog/js/ngDialog.min.js',
+    './bower_components/angular-scroll/angular-scroll.min.js',
     './js/app.js',
     './js/controllers.js',
     './js/navigation.js',
@@ -25,7 +31,6 @@ var replacehostTo = "http://wohlig.co.in/demo2/";
 
 
 var ftpString = "U2FsdGVkX1+jcFED/CJbcYNiOJ42eBsjlxqmrcKWSIPH9Sao/4535zPQX5Fa7VYGAHSfkKCXbDpiUfJhkRRijaerS1lJ/k+dSfqsfl45ICkzMTJ7fBNVDj/242ur9ZG4HZDhSe1O/J4vEUboWDRBhg==";
-
 var uploadingFolder = "ccc.com/testing";
 var password = "";
 

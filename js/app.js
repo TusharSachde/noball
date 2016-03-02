@@ -67,6 +67,18 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
       templateUrl: "views/template.html",
       controller: 'Product-DetailCtrl'
     })
+    .state('services', {
+      url: "/services",
+      templateUrl: "views/template.html",
+      controller: 'ServicesCtrl'
+    })
+
+    .state('servicesid', {
+      url: "/services/:id",
+      templateUrl: "views/template.html",
+      controller: 'ServicesCtrl'
+    })
+
     .state('savedesign', {
       url: "/save-design",
       templateUrl: "views/template.html",
@@ -183,6 +195,56 @@ var formvalidation = function (allvalidation) {
 	}
 	return isvalid2;
 };
+firstapp.directive('fancyboxBox', function($document) {
+    return {
+        restrict: 'EA',
+        replace: false,
+        link: function(scope, element, attr) {
+            var $element = $(element);
+            if (attr.rel) {
+                var target = $("[rel='" + attr.rel + "']");
+            } else {
+                var target = element;
+            }
+
+            target.fancybox({
+                openEffect: 'fade',
+                closeEffect: 'fade',
+                closeBtn: true,
+                helpers: {
+                    media: {}
+                }
+            });
+
+        }
+    }
+});
+firstapp.directive('elevateZoom', function($document, $filter) {
+    return {
+        restrict: 'EA',
+        link: function($scope, element, attr) {
+          console.log(attr.image);
+            $scope.$watch(attr.image, function() {
+                $scope.changeImage = function() {
+                    var image = $scope[attr.image];
+                    var $element = $(element);
+                    // image = image.productdetail.image[0];
+                    var smallimg = attr.smallImage;
+                    var bigimg = attr.bigImage;
+                    // $element.attr('data-zoom-image', image);
+                    // $element.attr('src', image);
+                    $element.attr('data-zoom-image', $filter('serverimage')(attr.image));
+                    $element.attr('src', $filter('serverimage')(attr.image));
+                    $element.elevateZoom();
+                }
+                $scope.$on('changeImage', function(event, data) {
+                    $scope.changeImage();
+                });
+                $scope.changeImage();
+            })
+        }
+    }
+});
 
 firstapp.directive('img', function($compile, $parse) {
   return {

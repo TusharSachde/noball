@@ -4,9 +4,10 @@
     <div class="explore-more-drop">
       <a class="btn btn-outline btn-dark" ng-click="hovered();">Explore More</a>
       <ul class="custom-menu-down" ng-show="hovermenu" ng-mouseleave="unhovered();">
-        <li ng-repeat="subcategory in subCategories">
-          <a ui-sref="categories({name:cat.name})">
-              {{subcategory.name}}
+        <li ng-repeat="subcat in subCategories">
+          <a ui-sref="categories-inside({category:category,name:subcat.name})" ng-class="{'active':subcat.name===subcategory}">
+              {{subcat.name}}
+
             </a>
         </li>
       </ul>
@@ -18,7 +19,7 @@
       <div class="col-flex-50" ng-repeat="product in item">
         <div class="banner-inner">
           <div class="">
-            <img src="{{product.image | serverimage}}" alt="sweatshirts" class="img-responsive">
+            <img ng-src="{{product.image | serverimage}}" alt="sweatshirts" class="img-responsive">
           </div>
           <div class="overlay">
             <div class="text-above text-center">
