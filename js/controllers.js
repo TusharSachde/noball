@@ -1219,14 +1219,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     $scope.navigation = NavigationService.getnav2();
     $scope.customize = [{
-      img: "img/services/advnc-slider.png"
+      img: "img/services/ac/advnc-slider.png"
     }, {
-      img: "img/services/advnc-slider.png"
-    }, {
-      img: "img/services/advnc-slider.png"
-    }, {
-      img: "img/services/advnc-slider.png"
-    }];
+      img: "img/services/ac/back.jpg"
+    }
+  ];
     $scope.apparel = [
       "img/services/apparel-slider.jpg",
       "img/services/apparel-slider.jpg",
@@ -1234,16 +1231,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       "img/services/apparel-slider.jpg"
     ];
     $scope.consultancy = [
-      "img/services/consultancy1.jpg",
-      "img/services/consultancy2.jpg",
-      "img/services/consultancy3.jpg",
-      "img/services/consultancy1.jpg"
+      "img/services/consultancy/1.png",
+      "img/services/consultancy/2.png",
+      "img/services/consultancy/3.png"
     ];
     $scope.memorable = [
-      "img/services/memorable-slider.jpg",
-      "img/services/memorable-slider.jpg",
-      "img/services/memorable-slider.jpg",
-      "img/services/memorable-slider.jpg"
+      "img/services/memrobilia/1.jpg",
+      "img/services/memrobilia/2.jpg",
+      "img/services/memrobilia/3.jpg",
+      "img/services/memrobilia/4.jpg",
+      "img/services/memrobilia/5.jpg",
+      "img/services/memrobilia/6.jpg",
+      "img/services/memrobilia/7.jpg",
+      "img/services/memrobilia/8.jpg",
+      "img/services/memrobilia/9.jpg",
+      "img/services/memrobilia/10.jpg",
+      "img/services/memrobilia/11.jpg",
     ];
 
     function makeAnimation(id) {
