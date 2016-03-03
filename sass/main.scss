@@ -472,9 +472,8 @@ footer {
     }
     li {
       font-weight: 600;
-      margin: 0;
       line-height: 200%;
-      margin: 10px 0;
+      margin: 10px 2px;
       a {
         color: inherit;
         font-weight: 300;
@@ -2357,6 +2356,7 @@ border-left: 7px solid #c3e701;
 .pad,
 .glove { letter-spacing: 1px; }
 .bat-btn button { font-size: 18px; }
+.pad span { font-size: 13px; }
 // services
 .service-main {
   section { margin-bottom: 15px; }
@@ -2407,15 +2407,17 @@ border-left: 7px solid #c3e701;
 .service-menu {
   margin-top: 25px;
   ul li {
+    padding: 0 10px;
     border-right: 2px solid $color-orange;
     display: inline-block;
     list-style-type: none;
     line-height: 15px;
     a{
-      padding: 10px;
+      padding: 10px 0;
       color: #fff;
       letter-spacing: 1px;
     }
+    .active { border-bottom: 2px solid $color-orange; }
   }
   li:last-child { border: none; }
 }

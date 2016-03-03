@@ -7,22 +7,22 @@
       <div class="service-menu text-center">
         <ul>
           <li>
-            <a href="#advancedcutomization" ng-click="changeURL('advancedcutomization')"  du-smooth-scroll du-scrollspy>ADVANCED CUSTOMISATION</a>
+            <a href="#advancedcutomization" ng-class="{{active}}" ng-click="changeURL('advancedcutomization')"  du-smooth-scroll du-scrollspy>ADVANCED CUSTOMISATION</a>
           </li>
           <li>
-            <a href="#ccclounge" ng-click="changeURL('ccclounge')"  du-smooth-scroll du-scrollspy>CCC LOUNGE</a>
+            <a href="#ccclounge" ng-class="{{active}}" ng-click="changeURL('ccclounge')"  du-smooth-scroll du-scrollspy>CCC LOUNGE</a>
           </li>
           <li>
-            <a href="#tours" ng-click="changeURL('tours')"  du-smooth-scroll du-scrollspy>TOURS</a>
+            <a href="#tours" ng-class="{{active}}" ng-click="changeURL('tours')"  du-smooth-scroll du-scrollspy>TOURS</a>
           </li>
           <li>
-            <a href="#foundation" ng-click="changeURL('foundation')"  du-smooth-scroll du-scrollspy>FOUNDATION</a>
+            <a href="#foundation"  ng-class="{{active}}"  ng-click="changeURL('foundation')"  du-smooth-scroll du-scrollspy>FOUNDATION</a>
           </li>
           <li>
-            <a href="#consultancy"  ng-click="changeURL('consultancy')" du-smooth-scroll du-scrollspy>CONSULTANCY</a>
+            <a href="#consultancy"  ng-class="{{active}}"   ng-click="changeURL('consultancy')" du-smooth-scroll du-scrollspy>CONSULTANCY</a>
           </li>
           <li>
-            <a href="#memorabilia" ng-click="changeURL('memorabilia')" du-smooth-scroll du-scrollspy>MEMORABILIA</a>
+            <a href="#memorabilia"  ng-class="{{active}}"  ng-click="changeURL('memorabilia')" du-smooth-scroll du-scrollspy>MEMORABILIA</a>
           </li>
         </ul>
       </div>
@@ -57,7 +57,7 @@
       </div>
     </div>
   </section>
-  <section class="custom-apparel service-bg" >
+  <section class="custom-apparel service-bg" id="customapparel">
     <div class="bg-blurblack service-pd">
       <div class="container">
         <div class="row">

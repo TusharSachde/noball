@@ -1212,7 +1212,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('ServicesCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
+  .controller('ServicesCtrl', function($scope, $state, TemplateService, NavigationService, $timeout,$document,$stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("services");
     $scope.menutitle = NavigationService.makeactive("Services");
@@ -1262,9 +1262,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       }, 1000);
     });
     $scope.changeURL = function(id) {
+      console.log(id);
       $scope.menutitle = NavigationService.makeactive(id);
       $state.transitionTo('servicesid', {
-        id: id
+        id: id,
+        menu:"active"
       }, {
         notify: false
       });
