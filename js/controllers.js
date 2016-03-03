@@ -1226,9 +1226,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
   ];
     $scope.apparel = [
-      "img/services/custom/1.jpg",
-      "img/services/custom/2.jpg",
-      "img/services/custom/3.jpg",
+      "img/services/custom/1.png",
+      "img/services/custom/2.png",
+      "img/services/custom/3.png",
+      "img/services/custom/4.png",
     ];
     $scope.consultancy = [
       "img/services/consultancy/1.png",
