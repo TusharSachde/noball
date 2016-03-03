@@ -2416,6 +2416,12 @@ border-left: 7px solid #c3e701;
       padding: 10px 0;
       color: #fff;
       letter-spacing: 1px;
+      border-bottom: 2px solid transparent;
+      @include transition(all 300ms linear);
+      &:hover {
+        border-bottom: 2px solid $color-orange;
+        @include transition(all 300ms linear);
+      }
     }
     .active { border-bottom: 2px solid $color-orange; }
   }
@@ -2462,7 +2468,8 @@ background-size: cover;
 .tours { background-image: url('../img/services/tours.jpg'); }
 .match-detail { margin: 40px 0; }
 .in-bound { margin-bottom: 50px; }
-.consultancy { background-image: url('../img/services/advance-customise.jpg'); }
+.consultancy { background-image: url('../img/services/consultancy-bg.jpg'); }
+.foundation { background-color: #000; }
 .foundation-part {
   padding: 20px 30px;
   background-color: #000;
