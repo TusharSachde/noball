@@ -189,6 +189,12 @@ a.icon-btn {
           color: $logo-color;
         }
       }
+      .user-name {
+        width: 115px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
     }
   }
 }
@@ -2016,6 +2022,7 @@ footer {
     }
   }
 }
+.sign-submit { margin: 40px 0 20px; }
 // end login signup
 .thank-you.text-center {
   padding: 50px;
