@@ -793,6 +793,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.msg = 'Loading...';
     $scope.guest = "notguest";
     $scope.guestshow = true;
+    $scope.backendurl = backendurl;
+    $scope.billingfulladdress = "";
+    $scope.shippingfulladdress = "";
     $scope.selectGuest = function(input) {
       console.log(input);
       $scope.guestshow = true;
@@ -1054,7 +1057,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       if (check) {
         $scope.checkout.cart = $scope.allCart;
         $scope.tabs[3].active = true; // comment this later
-
+        $scope.billingfulladdress = $scope.checkout.billingline1 + $scope.checkout.billingline2 + $scope.checkout.billingline3;
+        $scope.shippingfulladdress = $scope.checkout.shippingline1 + $scope.checkout.shippingline2 + $scope.checkout.shippingline3;
         NavigationService.placeOrder($scope.checkout, function(data) {
           if (data != "") {
             $scope.tabs[3].active = true;

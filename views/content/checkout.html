@@ -292,7 +292,7 @@
                   </div>
                 </div>
               </div>
-              <div class="row">
+              <!-- <div class="row">
                 <div class="col-md-12">
                   <h4 class="login">PAYMENT METHOD</h4>
                 </div>
@@ -334,7 +334,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <div class="back-2 no-bg">
                 <div class="text-center mg30">
                   <button class="btn btn-outline btn-dark more-pd text-uppercase" ng-click="placeOrder()">Continue</button>
@@ -358,6 +358,194 @@
             </tab>
             <tab active="tabs[3].active" disable="tabs[3].disabled" heading="Step 4">
               <div class="min-height">
+                <div class="row">
+              		<div class="col-md-12">
+              			<h4>Payment Gateway under testing.</h4>
+              			<div class="order-table">
+              				<form method="post" name="customerData" action="http://localhost/cccbackend/paymentgateway/PayUMoney_form.php">
+              					<table width="40%" height="100">
+                          <tr style="display:none">
+              						<!-- <tr> -->
+              							<td>key :</td>
+              							<td>
+              								<input type="text" name="key" value="gtKFFx" readonly />
+              							</td>
+              						</tr>
+                          <tr style="display:none">
+              						<!-- <tr> -->
+              							<td> txnid :</td>
+              							<td>
+              								<input type="text" name="txnid" value="872872872" />
+              							</td>
+              						</tr>
+                          <tr style="display:none">
+              						<!-- <tr> -->
+              							<td>Amount :</td>
+              							<td>
+              								<input type="text" name="amount" ng-model="totalcart" />
+              							</td>
+              						</tr>
+                          <tr style="display:none">
+              						<!-- <tr> -->
+              							<td>firstname :</td>
+              							<td>
+              								<input type="text" name="firstname" ng-model="checkout.firstname" />
+              							</td>
+              						</tr>
+                          <tr style="display:none">
+                          <!-- <tr> -->
+                            <td>phone :</td>
+                            <td>
+                              <input type="text" name="phone" ng-model="checkout.phone" />
+                            </td>
+                          </tr>
+                          <tr style="display:none">
+                          <!-- <tr> -->
+                            <td>email :</td>
+                            <td>
+                              <input type="text" name="email" ng-model="checkout.email" />
+                            </td>
+                          </tr>
+                          <tr style="display:none">
+                          <!-- <tr> -->
+                            <td>surl :</td>
+                            <td>
+                              <input type="text" name="surl" value="http://localhost/cccbackend/index.php/json/payumoneysuccess" />
+                            </td>
+                          </tr>
+                          <tr style="display:none">
+                          <!-- <tr> -->
+                            <td>furl :</td>
+                            <td>
+                              <input type="text" name="furl" value="http://localhost/cccbackend/index.php/json/payumoneyfailure" />
+                            </td>
+                          </tr>
+                          <tr style="display:none">
+                          <!-- <tr> -->
+                            <td>service_provider :</td>
+                            <td>
+                              <input type="text" name="service_provider" value=""/>
+                            </td>
+                          </tr>
+                          <tr style="display:none">
+                          <!-- <tr> -->
+                            <td>productinfo :</td>
+                            <td>
+                              <input type="text" name="productinfo" value="demo"/>
+                            </td>
+                          </tr>
+              						<tr>
+              							<td colspan="2">
+              								<h3>Billing Details</h3>
+              							</td>
+              						</tr>
+              						<tr>
+              							<td>Billing Name :</td>
+              							<td>
+              								<input type="text" style="border: none; width: 100%;" ng-model="checkout.firstname" />
+              							</td>
+              						</tr>
+              						<tr>
+              							<td>Billing Address :</td>
+              							<td>
+              								<input type="text" style="border: none; width: 100%;" ng-model="billingfulladdress" />
+              							</td>
+              						</tr>
+              						<tr>
+              							<td>Billing City :</td>
+              							<td>
+              								<input type="text" style="border: none; width: 100%;" ng-model="checkout.billingcity" />
+              							</td>
+              						</tr>
+              						<tr>
+              							<td>Billing State :</td>
+              							<td>
+              								<input type="text" style="border: none; width: 100%;" ng-model="checkout.billingstate" />
+              							</td>
+              						</tr>
+              						<tr>
+              							<td>Billing Zip :</td>
+              							<td>
+              								<input type="text" style="border: none; width: 100%;" ng-model="checkout.billingpincode" />
+              							</td>
+              						</tr>
+              						<tr>
+              							<td>Billing Country :</td>
+              							<td>
+              								<input type="text" style="border: none; width: 100%;" ng-model="checkout.billingcountry" />
+              							</td>
+              						</tr>
+              						<tr>
+              							<td>Billing Tel :</td>
+              							<td>
+              								<input type="text" style="border: none; width: 100%;" ng-model="checkout.phone" />
+              							</td>
+              						</tr>
+              						<tr>
+              							<td>Billing Email :</td>
+              							<td>
+              								<input type="text" style="border: none; width: 100%;" ng-model="checkout.email" />
+              							</td>
+              						</tr>
+              						<tr>
+              							<td colspan="2">
+              								<h3>Shipping Details</h3>
+              							</td>
+              						</tr>
+              						<tr>
+              							<td>Shipping Name :</td>
+              							<td>
+              								<input type="text" style="border: none; width: 100%;" ng-model="checkout.firstname" />
+              							</td>
+              						</tr>
+              						<tr>
+              							<td>Shipping Address :</td>
+              							<td>
+              								<input type="text" style="border: none; width: 100%;" ng-model="shippingfulladdress" />
+              							</td>
+              						</tr>
+              						<tr>
+              							<td>shipping City :</td>
+              							<td>
+              								<input type="text" style="border: none; width: 100%;" ng-model="checkout.shippingcity" />
+              							</td>
+              						</tr>
+              						<tr>
+              							<td>shipping State :</td>
+              							<td>
+              								<input type="text" style="border: none; width: 100%;" ng-model="checkout.shippingstate" />
+              							</td>
+              						</tr>
+              						<tr>
+              							<td>shipping Zip :</td>
+              							<td>
+              								<input type="text" style="border: none; width: 100%;" ng-model="checkout.shippingpincode" />
+              							</td>
+              						</tr>
+              						<tr>
+              							<td>shipping Country :</td>
+              							<td>
+              								<input type="text" style="border: none; width: 100%;" ng-model="checkout.shippingcountry" />
+              							</td>
+              						</tr>
+              						<tr>
+              							<td>Shipping Tel :</td>
+              							<td>
+              								<input type="text" style="border: none; width: 100%;" ng-model="checkout.phone" />
+              							</td>
+              						</tr>
+
+              						<tr>
+              							<td></td>
+              							<td>
+              								<button class="btn btn-danger m-30 con-btn" type="submit">Place order</button>
+              							</td>
+              						</tr>
+              					</table>
+              				</form>
+              			</div>
+              		</div>
+              	</div>
               </div>
             </tab>
           </tabset>

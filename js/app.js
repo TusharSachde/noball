@@ -245,6 +245,17 @@ firstapp.directive('elevateZoom', function($document, $filter) {
         }
     }
 });
+firstapp.directive('zoomContainer', function() {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            scope.$on('$stateChangeSuccess', function() {
+                var target = element.children('div.zoomContainer').remove();
+            })
+        }
+    }
+
+});
 
 firstapp.directive('img', function($compile, $parse) {
   return {

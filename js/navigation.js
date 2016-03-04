@@ -2,6 +2,7 @@
 var mainurl = "http://104.197.99.196/admin/index.php/";
 // var mainurl = "http://localhost/cccbackend/index.php/";
 var websiteurl = "http://www.wohlig.co.in/ccc";
+var backendurl = "http://localhost/cccbackend/";
 
 var imgurl = "http://104.197.99.196/admin/uploads/";
 var adminurl = mainurl + "json/";
