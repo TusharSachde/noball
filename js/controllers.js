@@ -1224,7 +1224,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     $scope.navigation = NavigationService.getnav2();
     $scope.customize = [{
-      img: "img/services/ac/advnc-slider.png"
+      img: "img/services/ac/front.png"
     }, {
       img: "img/services/ac/back.jpg"
     }
