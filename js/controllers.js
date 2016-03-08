@@ -1227,7 +1227,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.customize = [{
       img: "img/services/ac/front.png"
     }, {
-      img: "img/services/ac/back.jpg"
+      img: "img/services/ac/back.png"
     }
   ];
     $scope.apparel = [
