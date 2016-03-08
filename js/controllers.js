@@ -638,8 +638,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.cartAdd = function() {
-      $scope.productdetail.product.qty = 1;
-      $scope.productdetail.product.status = "1";
       NavigationService.addToCart($scope.productdetail.product, function(data) {
         console.log(data);
         if (data.value == true) {

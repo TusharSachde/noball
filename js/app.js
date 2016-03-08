@@ -140,7 +140,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, cfpL
       controller: 'ForgotCtrl'
     })
     .state('forgotpassword', {
-      url: "/forgot-password",
+      url: "/forgot-password/:hash",
       templateUrl: "views/template.html",
       controller: 'ForgotPasswordCtrl'
     })
