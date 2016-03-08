@@ -90,85 +90,25 @@
                   <div class="row">
                     <div class="col-md-2 col-xs-4">
                       <div class="size text-center">
-                        <p>size</p>
+                        <p>Size</p>
                         <div class="ccc-select">
-                          <select ng-model="product.size">
-                            <option value="size.name" ng-repeat="size in productdetail.size">{{size.name |  uppercase}}</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-2 col-xs-4">
-                      <div class="size text-center">
-                        <p>M</p>
-                        <div class="ccc-select">
-                          <select>
-                            <option value="20">20</option>
-                            <option value="30">30</option>
-                            <option value="40">40</option>
-                            <option value="40">40</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-2 col-xs-4">
-                      <div class="size text-center">
-                        <p>L</p>
-                        <div class="ccc-select">
-                          <select>
-                            <option value="20">20</option>
-                            <option value="30">30</option>
-                            <option value="40">40</option>
-                            <option value="40">40</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-2 col-xs-4">
-                      <div class="size text-center">
-                        <p>XL</p>
-                        <div class="ccc-select">
-                          <select>
-                            <option value="20">20</option>
-                            <option value="30">30</option>
-                            <option value="40">40</option>
-                            <option value="40">40</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-2 col-xs-4">
-                      <div class="size text-center">
-                        <p>XXL</p>
-                        <div class="ccc-select">
-                          <select>
-                            <option value="20">20</option>
-                            <option value="30">30</option>
-                            <option value="40">40</option>
-                            <option value="40">40</option>
-                          </select>
+                          <select class="text-uppercase" ng-options="size.id as size.name for size in productdetail.size" ng-model="filter.size" ng-click="selectSize(filter)"></select>
 
+                          </select>
                         </div>
                       </div>
                     </div>
                     <div class="col-md-2 col-xs-4">
                       <div class="size text-center">
-                        <p>XXXL</p>
+                        <p>Quantity</p>
                         <div class="ccc-select">
-                          <select>
-                            <option value="20">20</option>
-                            <option value="30">30</option>
-                            <option value="40">40</option>
-                            <option value="40">40</option>
-                          </select>
-                          <span></span>
+                          <input type="number">
                         </div>
                       </div>
                     </div>
                   </div>
                   <div class="order-minimum">
                     <span class="text-medium">*We accept a minimum order of 5 pieces</span>
-                    <span class="f15 total">Total <input type="text"></span>
                   </div>
                   <div class="chart">
                     <p>View:
@@ -386,7 +326,11 @@
           </flex-slider> -->
           <flex-slider class="carousel" flex-slide="pro in productdetail.relatedproduct track by $index" animation="slide" item-width="350">
             <li>
-              <div class="slider-info">
+              <div class="slider-info" ui-sref="product-detail({
+                category:params.category,
+                subcategory:params.subcategory,
+                id:pro.id
+              })">
                 <div class="slider-imgholder">
                   <img ng-src="{{pro.image1 | serverimage}}" alt="" class="img-responsive">
                 </div>

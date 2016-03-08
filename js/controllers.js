@@ -573,37 +573,51 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.template = TemplateService.changecontent("product-detail");
     $scope.menutitle = NavigationService.makeactive("Products");
     TemplateService.title = $scope.menutitle;
+    $scope.filter={};
     $scope.navigation = NavigationService.getnav();
     $scope.alerts = [];
     $scope.params = $stateParams;
+    $scope.filter.productid=$scope.params.id;
     $scope.oneAtATime = true;
     $scope.status = {
       isFirstOpen: true,
       isFirstDisabled: false
     };
-    $scope.relatedproducts = [
+    $scope.loadProduct = function(filter){
+      console.log(filter);
+      if(filter.size == null || filter.size == undefined)
       {
-        img: "img/detail/pad.jpg",
-        name: "Sweep 101",
-        price: "999"
-      },
-      {
-        img: "img/detail/pad.jpg",
-        name: "Sweep 102",
-        price: "999"
-      },
-      {
-        img: "img/detail/pad.jpg",
-        name: "Sweep 103",
-        price: "999"
-      },
-      {
-        img: "img/detail/pad.jpg",
-        name: "Sweep 104",
-        price: "999"
+        filter.size="";
       }
-    ];
+      NavigationService.getProductDetail(filter, function(data) {
+        console.log(data);
+        $scope.productdetail = data;
+        if ($scope.productdetail.product.discountprice) {
+          $scope.firstsale = true;
+        } else {
+          $scope.firstsale = false;
+        }
+        if ($scope.productdetail.product.quantity <= 0) {
+          $scope.outofstock = true;
+        } else {
+          $scope.outofstock = false;
+        }
+        $scope.filter.size=$scope.productdetail.product.size;
+      }, function(err) {
+        $state.go("error");
+      });
+    };
+    $scope.loadProduct($scope.filter);
+    $scope.selectSize= function(filter){
+      console.log(filter);
 
+      if(filter.size !=null && filter.size != undefined){
+        $scope.loadProduct(filter);
+        console.log();
+      }else{
+        $scope.filter.size=$scope.productdetail.product.size;
+      }
+    };
     $scope.productdetail = {};
     $scope.firstsale = false;
     $scope.productid = $stateParams.id;
@@ -611,22 +625,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.closeAlert = function(index) {
       $scope.alerts.splice(index, 1);
     };
-    NavigationService.getProductDetail($scope.productid, function(data) {
-      console.log(data);
-      $scope.productdetail = data;
-      if ($scope.productdetail.product.discountprice) {
-        $scope.firstsale = true;
-      } else {
-        $scope.firstsale = false;
-      }
-      if ($scope.productdetail.product.quantity <= 0) {
-        $scope.outofstock = true;
-      } else {
-        $scope.outofstock = false;
-      }
-    }, function(err) {
-      $state.go("error");
-    });
+
     NavigationService.getTestimonial(function(data) {
       console.log(data);
       $scope.testimonial = data;
@@ -1731,7 +1730,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.facebooklogin = function() {
-      ref = window.open(mainurl + 'index.php/hauth/login/Facebook?returnurl=' + websiteurl, '_blank', 'location=yes');
+      ref = window.open(mainurl + 'hauth/login/Facebook?returnurl=' + websiteurl, '_blank', 'location=yes');
       stopinterval = $interval(callAtIntervaltwitter, 2000);
       ref.addEventListener('exit', function(event) {
         NavigationService.authenticate(authenticatesuccess);
@@ -1739,7 +1738,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       });
     }
     $scope.googlelogin = function() {
-      ref = window.open(mainurl + 'index.php/hauth/login/Google?returnurl=' + websiteurl, '_blank', 'location=yes');
+      ref = window.open(mainurl + 'hauth/login/Google?returnurl=' + websiteurl, '_blank', 'location=yes');
       stopinterval = $interval(callAtIntervaltwitter, 2000);
       ref.addEventListener('exit', function(event) {
         NavigationService.authenticate(authenticatesuccess);
@@ -1748,7 +1747,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 
     $scope.twitterlogin = function() {
-      ref = window.open(mainurl + 'index.php/hauth/login/Twitter?returnurl=' + websiteurl, '_blank', 'location=yes');
+      ref = window.open(mainurl + 'hauth/login/Twitter?returnurl=' + websiteurl, '_blank', 'location=yes');
       stopinterval = $interval(callAtIntervaltwitter, 2000);
       ref.addEventListener('exit', function(event) {
         NavigationService.authenticate(authenticatesuccess);

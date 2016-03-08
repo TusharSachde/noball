@@ -1,11 +1,11 @@
 // var mainurl = "http://wohlig.io:81/callApi/noball/";
-var mainurl = "http://104.197.99.196/admin/index.php/";
-// var mainurl = "http://192.168.0.123/cccbackend/index.php/";
+// var mainurl = "http://104.197.99.196/admin/index.php/";
+var mainurl = "http://192.168.0.123/cccbackend/index.php/";
 var websiteurl = "http://www.wohlig.co.in/ccc";
 var backendurl = "http://localhost/cccbackend/";
 
-var imgurl = "http://104.197.99.196/admin/uploads/";
-// var imgurl = "http://192.168.0.123/admin/uploads/";
+// var imgurl = "http://104.197.99.196/admin/uploads/";
+var imgurl = "http://192.168.0.123/admin/uploads/";
 var adminurl = mainurl + "json/";
 var countries = [{
   "value": "Please Select"
@@ -637,7 +637,7 @@ var navigationservice = angular.module('navigationservice', [])
     },
     updateProfile: function(profile, callback, err) {
       return $http({
-        url: adminurl + "updateProfile",
+        url: adminurl + "updateUser",
         method: "POST",
         data: profile
       }).success(callback).error(err);
