@@ -6,11 +6,13 @@ var firstapp = angular.module('firstapp', [
   'navigationservice'
 ]);
 
-firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, cfpLoadingBarProvider) {
 
   // for http request with session
   $httpProvider.defaults.withCredentials = true;
-
+  cfpLoadingBarProvider.includeSpinner = false;
+  cfpLoadingBarProvider.includeBar = true;
+  console.log("heyyyy");
   $stateProvider
 
     .state('home', {
@@ -29,6 +31,12 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
       templateUrl: "views/template.html",
       controller: 'CustomCtrl'
     })
+    .state('customisation', {
+      url: "/customisation",
+      templateUrl: "views/template.html",
+      controller: 'CustomisationCtrl'
+    })
+
 
   .state('categories-inside', {
     url: "/categories/:category/:name",

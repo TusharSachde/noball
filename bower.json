@@ -34,6 +34,7 @@
     "jStorage": "~0.4.12",
     "angular-animate": "~1.4.6",
     "ngDialog": "~0.4.0",
-    "threejs": "*"
+    "threejs": "*",
+    "angular-loading-bar": "^0.8.0"
   }
 }

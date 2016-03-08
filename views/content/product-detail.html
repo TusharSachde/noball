@@ -90,13 +90,10 @@
                   <div class="row">
                     <div class="col-md-2 col-xs-4">
                       <div class="size text-center">
-                        <p>S</p>
+                        <p>size</p>
                         <div class="ccc-select">
-                          <select>
-                            <option value="20">20</option>
-                            <option value="30">30</option>
-                            <option value="40">40</option>
-                            <option value="40">40</option>
+                          <select ng-model="product.size">
+                            <option value="size.name" ng-repeat="size in productdetail.size">{{size.name |  uppercase}}</option>
                           </select>
                         </div>
                       </div>
@@ -387,11 +384,11 @@
               </div>
             </li>
           </flex-slider> -->
-          <flex-slider class="carousel" flex-slide="pro in relatedproducts track by $index" animation="slide" item-width="350">
+          <flex-slider class="carousel" flex-slide="pro in productdetail.relatedproduct track by $index" animation="slide" item-width="350">
             <li>
               <div class="slider-info">
                 <div class="slider-imgholder">
-                  <img ng-src="{{pro.img}}" alt="" class="img-responsive">
+                  <img ng-src="{{pro.image1 | serverimage}}" alt="" class="img-responsive">
                 </div>
                 <div class="slider-infodetaiil">
                   <h3 class="prd-name">{{pro.name}}</h3>

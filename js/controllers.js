@@ -3,7 +3,7 @@ var count = 1;
 var tabvalue = 1;
 var user = $.jStorage.get("user");
 var bigcount = {};
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'ngDialog', 'duScroll'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'ngDialog', 'duScroll','angular-loading-bar'])
 
 .controller('HomeCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
     //Used to name the .html file
@@ -1485,6 +1485,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
+   .controller('CustomisationCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
+      //Used to name the .html file
+      $scope.template = TemplateService.changecontent("customisation");
+      // $scope.menutitle = NavigationService.makeactive("Custom Direct");
+      TemplateService.title = $scope.menutitle;
+      $scope.navigation = NavigationService.getnav();
+    })
 
 .controller('footerctrl', function($scope, $state, TemplateService, $uibModal, NavigationService) {
     $scope.template = TemplateService;
