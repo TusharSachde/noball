@@ -1055,7 +1055,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
       var check = formvalidation($scope.allvalidation);
       if (check) {
-        $scope.checkout.cart = $scope.allCart;
+        $scope.checkout.cart = $scope.allcart;
         $scope.tabs[3].active = true; // comment this later
         $scope.billingfulladdress = $scope.checkout.billingline1 + $scope.checkout.billingline2 + $scope.checkout.billingline3;
         $scope.shippingfulladdress = $scope.checkout.shippingline1 + $scope.checkout.shippingline2 + $scope.checkout.shippingline3;
@@ -1510,6 +1510,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.signupmodal = false;
     $scope.forgot = {};
     $scope.wishlistcount = 0;
+    $scope.emailsent=false;
+      $scope.noexist=false;
     $scope.navigation = NavigationService.getnav();
     if (NavigationService.getUser()) {
       $scope.isLogin = true;
@@ -1517,20 +1519,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       $scope.isLogin = false;
     }
     $scope.sendEmail = function(request) {
+      $scope.emailsent=false;
+        $scope.noexist=false;
         console.log(request);
         NavigationService.forgotPassword(request, function(data) {
           console.log(data);
           if (data.value == true) {
-            $scope.alerts.push({
-              type: 'success',
-              msg: 'An email has been sent with instructions to reset your password. Please check your inbox.'
-            });
+          $scope.emailsent=true;
 
           } else {
-            $scope.alerts.push({
-              type: 'danger',
-              msg: 'The email ID does not exist. Please proceed to signup.'
-            });
+            $scope.noexist=true;
           }
         }, function(err) {
           $state.go("error");

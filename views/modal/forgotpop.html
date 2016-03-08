@@ -19,6 +19,14 @@
             <button type="" class="btn btn-light letter-spacing" ng-click="sendEmail(forgot);" ng-show="forgotpop.$valid">SUBMIT</button>
           </div>
         </div>
+        <div class="form-group">
+          <div class="text-center"  ng-show="emailsent">
+            Email sent. Please check you mail for further instructions
+          </div>
+          <div class="text-center"  ng-show="noexist">
+            Email is not registered
+          </div>
+        </div>
       </form>
     </div>
   </div>
