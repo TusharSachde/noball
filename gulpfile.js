@@ -18,6 +18,7 @@ var jsArray = [
     './bower_components/lodash/lodash.min.js',
     './bower_components/ngDialog/js/ngDialog.min.js',
     './bower_components/angular-scroll/angular-scroll.min.js',
+    './bower_components/angular-loading-bar/src/loading-bar.js',
     './js/app.js',
     './js/controllers.js',
     './js/navigation.js',

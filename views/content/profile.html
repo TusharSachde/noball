@@ -110,11 +110,11 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label>Country*</label>
-                <div class="fynx-select gray-select">
+                <div class="ccc-select">
                   <select ng-model="updateuser.user.billingcountry">
                     <option value="{{country.value}}" ng-repeat="country in countries">{{country.value}}</option>
                   </select>
-                  <span class="only-border"></span>
+                  <span></span>
                 </div>
               </div>
             </div>
@@ -122,9 +122,12 @@
         </div>
       </div>
     </div>
-    <div class="account-bg no-bg">
+    <div class="account-b no-bg">
       <div class="row tab-content">
-        <div class="col-md-offset-5 col-md-4 col-sm-6">
+        <div class="col-md-5">
+          <div class="account-bg"></div>
+        </div>
+        <div class="col-md-4 col-sm-6">
           <div class="account-name">
             <button type="submit" class="pull-right btn btn-outline btn-dark" ng-click="editProfile(4)">{{profile.shippingaddressedit}}</button>
             <h5 class="h5-class mar0 class-p">SHIPPING ADDRESS</h5>
@@ -173,11 +176,11 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>Country*</label>
-									<div class="fynx-select gray-select">
+									<div class="ccc-select">
 										<select ng-model="updateuser.user.shippingcountry">
 											<option value="{{country.value}}" ng-repeat="country in countries">{{country.value}}</option>
 										</select>
-										<span class="only-border"></span>
+										<span></span>
 									</div>
 								</div>
 							</div>
