@@ -1083,6 +1083,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.shippingfulladdress = $scope.checkout.shippingline1 + $scope.checkout.shippingline2 + $scope.checkout.shippingline3;
         NavigationService.placeOrder($scope.checkout, function(data) {
           if (data != "") {
+            $scope.txnid = Date.now(); 
             $scope.order = data
             $scope.tabs[3].active = true;
           } else {
