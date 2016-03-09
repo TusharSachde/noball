@@ -103,9 +103,11 @@
                         <div class="size text-center">
                           <p>Quantity</p>
                           <div class="ccc-select">
-                            <input type="number" required name="quantity" ng-model="filter.qty" ng-minlength="5">{{qForm.quantity.$invalid}}
+                            <input type="number" ng-change="changeQuantity(filter.qty)" required name="quantity" ng-model="filter.qty" >
                           </div>
                         </div>
+                        <h6 ng-show="maxQuantity">Quantity unavailable</h6>
+
                     </form>
                     </div>
                   </div>
@@ -148,16 +150,14 @@
                     <li>
                       <div class="form-group">
                         <div class="ccc-select ccc-select2">
-                          <select class="form-control" ng-change="sameShipping(checkout)" ng-model="checkout.billingcountry">
-                                <option value="{{country.value}}" ng-repeat="country in countries">{{country.value}}</option>
-                          </select>
+                        <input type="number" ng-model="filter.qty">
                           <span></span>
                         </div>
                       </div>
                     </li>
                   <li> <span class="f15">boxes</span></li>
                </ul>
-            <div class="order-minimum">
+            <div class="order-minimum" ng-if="params.category == 'Balls'">
               <span class="text-medium">*We accept a minimum order of 2 boxes. 6 balls per box</span>
             </div>
           </div>
@@ -208,10 +208,10 @@
             <!-- <a class="btn btn-outline btn-dark letter-spacing" href="#/custom">CUSTOMIZE</a>
                           <br> -->
             <a class="btn btn-outline btn-dark letter-spacing mright15" ng-click="cartAdd()" ng-hide="outofstock">ADD TO CART</a>
+            <p ng-show="outofstock"> Out of Stock.</p>
 
             <a class="btn btn-outline btn-dark letter-spacing" ng-click="wishlistAdd(productdetail.product.id)">Add to wishlist</a>
             <br>
-            <p ng-show="outofstock"> Out of Stock.</p>
           </div>
           <div class="border-top text-center">
             <span>Select from a wide array of colors and

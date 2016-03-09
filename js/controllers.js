@@ -588,7 +588,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       isFirstOpen: true,
       isFirstDisabled: false
     };
-
+    $scope.maxQuantity=false;
+    $scope.changeQuantity = function(q){
+      if($scope.productdetail.product.quantity < q ){
+        $scope.maxQuantity=true;
+      }else{
+        $scope.maxQuantity=false;
+      }
+    };
     $scope.loadProduct = function(filter){
       console.log(filter);
       if(filter.size == null || filter.size == undefined)
@@ -610,6 +617,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
         $scope.filter.size=$scope.productdetail.product.size;
         $scope.filter.id=$scope.productdetail.product.id;
+        if($scope.productdetail.product.quantity < 0){
+          $scope.outofstock=true;
+        }else{
+          $scope.outofstock=false;
+        }
       }, function(err) {
         $state.go("error");
       });
@@ -650,6 +662,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           type:'danger',
           msg:'Please input valid quantity'
         });
+      }else if($scope.params.category == 'Apparels' && $scope.filter.qty < 5){
+        $scope.alerts.push({
+          type:'danger',
+          msg:'Minimum order of 5 pieces'
+        });
+        $scope.filter.qty=5;
+      }else if($scope.params.category == 'Balls' && $scope.filter.qty < 2){
+        $scope.alerts.push({
+          type:'danger',
+          msg:'Minimum order of 2 boxes'
+        });
+        $scope.filter.qty=2;
+      }else if($scope.params.category == 'Gloves' && $scope.filter.qty < 6){
+        $scope.alerts.push({
+          type:'danger',
+          msg:'Minimum order of 6 pairs'
+        });
+        $scope.filter.qty=6;
       }else{
         console.log($scope.filter);
         NavigationService.addToCart($scope.filter, function(data) {
