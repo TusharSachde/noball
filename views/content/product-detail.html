@@ -239,37 +239,10 @@
                 <div class="order-minimum">
                   <span class="text-medium">*We accept a minimum order of 6 pairs</span>
                 </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="pad">
-                      <span class="inline-block text-uppercase">left handed batsmen</span>
-                      <div class="form-group  inline-block">
-                        <div class="ccc-select ccc-select2">
-                          <select class="form-control" ng-change="sameShipping(checkout)" ng-model="checkout.billingcountry">
-                            <option value="{{country.value}}" ng-repeat="country in countries">{{country.value}}</option>
-                          </select>
-                          <span></span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="pad">
-                      <span class=" inline-block text-uppercase">right handed batsmen</span>
-                      <div class="form-group  inline-block">
-                        <div class="ccc-select ccc-select2">
-                          <select class="form-control" ng-change="sameShipping(checkout)" ng-model="checkout.billingcountry">
-                            <option value="{{country.value}}" ng-repeat="country in countries">{{country.value}}</option>
-                          </select>
-                          <span></span></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
                 <div class="order-minimum">
                   <div class="total mg0">
                     <h3 class="inline-block">Total</h3>
-                    <input type="text">
+                    <input type="number" ng-model="filter.qty">
                     <h3 class="inline-block">Pairs</h3>
                   </div>
                 </div>
