@@ -10,7 +10,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, cfpL
 
   // for http request with session
   $httpProvider.defaults.withCredentials = true;
-  cfpLoadingBarProvider.includeSpinner = false;
+  cfpLoadingBarProvider.includeSpinner = true;
   cfpLoadingBarProvider.includeBar = true;
   console.log("heyyyy");
   $stateProvider
