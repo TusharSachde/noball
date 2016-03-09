@@ -102,7 +102,7 @@
                       <div class="size text-center">
                         <p>Quantity</p>
                         <div class="ccc-select">
-                          <input type="number">
+                          <input type="number" ng-model="filter.qty">
                         </div>
                       </div>
                     </div>
@@ -242,7 +242,7 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="pad">
-                      <span class=" inline-block text-uppercase">left handed batsmen</span>
+                      <span class="inline-block text-uppercase">left handed batsmen</span>
                       <div class="form-group  inline-block">
                         <div class="ccc-select ccc-select2">
                           <select class="form-control" ng-change="sameShipping(checkout)" ng-model="checkout.billingcountry">

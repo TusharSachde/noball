@@ -192,7 +192,7 @@
               </div>
               <div class="accept">
                 <div class="checkbox">
-                  <input type="checkbox" ng-model="accept" class="text-uppercase" id="accept">
+                  <input type="checkbox" ng-model="accept" ng-change="acceptIt(accept)" class="text-uppercase" id="accept">
                   <label for="accept" class="text-light text-uppercase">
                     <span></span> I Accept The Terms And Conditions And Privacy Policy Of The Website
                   </label>
@@ -203,9 +203,7 @@
                 <div class="ab" ng-show="alreadyReg">
                   Email ID is already registered
                 </div>
-                <div class="ab" ng-show="validateForm">
-                  Enter all fields
-                </div>
+              
               </div>
               <div class="text-center submit sign-submit">
                 <button class="btn btn-light letter-spacing text-uppercase" ng-click="doSignup(accept,signup,signupForm)">Signup</button>

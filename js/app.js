@@ -155,12 +155,12 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, cfpL
       controller: 'ErrorCtrl'
     })
     .state('thankyou', {
-      url: "/thankyou",
+      url: "/thankyou/:orderid/:amount",
       templateUrl: "views/template.html",
       controller: 'ThankyouCtrl'
     })
     .state('wrong', {
-      url: "/wrong",
+      url: "/wrong/:orderid",
       templateUrl: "views/template.html",
       controller: 'WrongCtrl'
     })

@@ -7,11 +7,15 @@
     </div>
   </div>
   <div class="container">
+    <div class="no-cart text-center" ng-if="msg!=''" style="min-height:400px;">
+      <img src="img/logo.png">
+          <h4 >{{msg}}</h4>
+    </div>
     <div class="alert-postion">
       <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" class="text-center" dismiss-on-timeout="5000">{{alert.msg}}</uib-alert>
     </div>
     <div class="row">
-      <div class="col-md-12" ng-if="wishlist !== null">
+      <div class="col-md-12" ng-if="msg==''">
         <div class="order-table wish-table" >
           <table class="table">
             <thead class="text-center">
@@ -31,8 +35,8 @@
                     <figcaption>{{wish.name}}</figcaption>
                   </figure>
                 </td>
-                <td class="capitalize">{{wish.color}}</td>
-                <td class="uppercase">{{wish.size}}</td>
+                <td class="capitalize">{{wish.color || '-'}}</td>
+                <td class="uppercase">{{wish.size || '-'}}</td>
                 <td>{{wish.quantity}}
                   <!-- <span class="more"><i class="fa fa-plus"></i></span>
                   <span class="more mgl"><i class="fa fa-minus"></i></span> -->

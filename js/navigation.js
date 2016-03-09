@@ -693,7 +693,7 @@ var navigationservice = angular.module('navigationservice', [])
       $http.get(adminurl + 'getUser?id=' + id).success(callback).error(err);
     },
     getProductDetail: function(req, callback, err) {
-      $http.get(adminurl + 'getProductDetail?id=' + req.productid+'&size='+req.size).success(callback).error(err);
+      $http.get(adminurl + 'getProductDetail?id=' + req.id+'&size='+req.size).success(callback).error(err);
     },
     showCart: function(callback, err) {
       $http.get(adminurl + 'showCart').success(callback).error(err);

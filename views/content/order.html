@@ -6,11 +6,15 @@
       </div>
     </div>
   </div>
+  <div class="no-cart text-center" ng-if="msg!=''" style="min-height:400px;">
+    <img src="img/logo.png">
+        <h4 >{{msg}}</h4>
+  </div>
   <div class="container min-hght">
     <div class="row">
       <div class="col-md-12">
         <div class="">
-          <div class="order-table wish-table" ng-if="orders">
+          <div class="order-table wish-table" ng-if="msg==''">
             <table class="table">
               <thead>
                 <tr class="text-center desktop">
@@ -32,7 +36,7 @@
                   <td>
                     <span class="mobile">STATUS</span>{{order.status}}</td>
                   <td>
-                    <button type="submit" class="btn btn-outline btn-dark padding-btn">PRINT INVOICE</button>
+                    <button type="submit" class="btn btn-outline btn-dark padding-btn" ng-click="printInvoice(order.id)">PRINT INVOICE</button>
                   </td>
                 </tr>
               </tbody>

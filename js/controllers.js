@@ -350,19 +350,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('ThankyouCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
+  .controller('ThankyouCtrl', function($scope, $state, TemplateService, NavigationService, $timeout,$stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("thankyou");
     $scope.menutitle = NavigationService.makeactive("Thankyou");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.order={};
+      $scope.order.transactionid=$stateParams.orderid;
+      $scope.order.amount = $stateParams.amount;
   })
-  .controller('WrongCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
+  .controller('WrongCtrl', function($scope, $state, TemplateService, NavigationService, $timeout,$stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("wrong");
     $scope.menutitle = NavigationService.makeactive("Wrong");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.order={};
+    $scope.order.transactionid=$stateParams.orderid;
   })
   .controller('CustomCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
@@ -577,12 +582,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     $scope.alerts = [];
     $scope.params = $stateParams;
-    $scope.filter.productid=$scope.params.id;
+    $scope.filter.id=$scope.params.id;
     $scope.oneAtATime = true;
     $scope.status = {
       isFirstOpen: true,
       isFirstDisabled: false
     };
+
     $scope.loadProduct = function(filter){
       console.log(filter);
       if(filter.size == null || filter.size == undefined)
@@ -603,6 +609,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           $scope.outofstock = false;
         }
         $scope.filter.size=$scope.productdetail.product.size;
+        $scope.filter.id=$scope.productdetail.product.id;
       }, function(err) {
         $state.go("error");
       });
@@ -638,31 +645,38 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.cartAdd = function() {
-      NavigationService.addToCart($scope.productdetail.product, function(data) {
-        console.log(data);
-        if (data.value == true) {
-          myfunction();
-          $scope.alerts.push({
-            type: 'success',
-            msg: 'Added in cart'
-          });
-        } else {
-          $scope.alerts.push({
-            type: 'danger',
-            msg: 'Already in cart'
-          });
-          // var xyz = ngDialog.open({
-          //     template: '<div class="pop-up"><h5 class="popup-wishlist">' + data.comment + '</h5><span class="closepop" ng-click="closeThisDialog(value);">X</span></div>',
-          //     plain: true,
-          //     controller: 'Product-DetailCtrl'
-          // });
-          // $timeout(function () {
-          //     xyz.close();
-          // }, 1000)
-        }
-      }, function(err) {
-        $state.go("error");
-      })
+      if($scope.filter.qty == "" || $scope.filter.qty == undefined || $scope.filter.qty == null || $scope.filter.qty == 0){
+        $scope.alerts.push({
+          type:'danger',
+          msg:'Please input valid quantity'
+        });
+      }else{
+        NavigationService.addToCart($scope.filter, function(data) {
+          console.log(data);
+          if (data.value == true) {
+            myfunction();
+            $scope.alerts.push({
+              type: 'success',
+              msg: 'Added in cart'
+            });
+          } else {
+            $scope.alerts.push({
+              type: 'danger',
+              msg: 'Already in cart'
+            });
+            // var xyz = ngDialog.open({
+            //     template: '<div class="pop-up"><h5 class="popup-wishlist">' + data.comment + '</h5><span class="closepop" ng-click="closeThisDialog(value);">X</span></div>',
+            //     plain: true,
+            //     controller: 'Product-DetailCtrl'
+            // });
+            // $timeout(function () {
+            //     xyz.close();
+            // }, 1000)
+          }
+        }, function(err) {
+          $state.go("error");
+        })
+      }
     }
     $scope.wishlistAdd = function(id) {
       console.log(id);
@@ -764,14 +778,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('OrderCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
+  .controller('OrderCtrl', function($scope, $state, TemplateService, NavigationService, $timeout,$window) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("order");
     $scope.menutitle = NavigationService.makeactive("Order");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.msg="Loading..";
+    $scope.printInvoice = function(id){
+      console.log(id);
+            $window.open(mainurl+'json/printorderinvoice?id='+id);
+        };
     NavigationService.getOrders(function(data) {
+      $scope.msg="";
       console.log(data);
+      if(data.value == false){
+        console.log("hiusydIUHi");
+        $scope.msg= "No orders";
+      }
       $scope.orders = data;
     }, function(err) {
       $state.go("error");
@@ -1289,9 +1313,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.closeAlert = function(index) {
       $scope.alerts.splice(index, 1);
     };
-
+    $scope.msg="Loading..";
     $scope.getWishlist = function() {
       NavigationService.getWishlist(function(data, status) {
+        $scope.msg="";
+        if(data.length==0){
+          $scope.msg="No items in wishlist";
+
+        }
         console.log(status);
         console.log(data);
         $scope.wishlist = data;
@@ -1522,6 +1551,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     } else {
       $scope.isLogin = false;
     }
+    $scope.acceptIt=function(flag){
+      if(flag === true){
+        $scope.acceptValidate = false;
+
+      }else{
+        $scope.acceptValidate = true;
+
+      }
+    };
     $scope.sendEmail = function(request) {
       $scope.emailsent=false;
         $scope.noexist=false;
