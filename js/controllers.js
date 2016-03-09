@@ -1083,7 +1083,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.shippingfulladdress = $scope.checkout.shippingline1 + $scope.checkout.shippingline2 + $scope.checkout.shippingline3;
         NavigationService.placeOrder($scope.checkout, function(data) {
           if (data != "") {
-            $scope.txnid = Date.now(); 
+            $scope.txnid = Date.now();
             $scope.order = data
             $scope.tabs[3].active = true;
           } else {
@@ -1530,7 +1530,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       $scope.wishlistshow = false;
     }
   })
-  .controller('headerctrl', function($scope, $state, TemplateService, $uibModal, NavigationService) {
+  .controller('headerctrl', function($scope, $state, TemplateService, $uibModal, NavigationService,$interval) {
     $scope.template = TemplateService;
     $scope.logintab = {};
     $scope.login = {};
@@ -1550,8 +1550,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     if (NavigationService.getUser()) {
       $scope.isLogin = true;
-    } else {
-      $scope.isLogin = false;
+    }else{
+      NavigationService.authenticate(function(data){
+        console.log(data);
+        if (data !== "false") {
+          $.jStorage.set("user",data);
+          $scope.isLogin=true;
+          window.location.reload();
+        }else{
+          $scope.isLogin=false;
+        }
+      });
     }
     $scope.acceptIt=function(flag){
       if(flag === true){
@@ -1768,6 +1777,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.facebooklogin = function() {
+      console.log("here");
       ref = window.open(mainurl + 'hauth/login/Facebook?returnurl=' + websiteurl, '_blank', 'location=yes');
       stopinterval = $interval(callAtIntervaltwitter, 2000);
       ref.addEventListener('exit', function(event) {

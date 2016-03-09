@@ -689,6 +689,9 @@ var navigationservice = angular.module('navigationservice', [])
         data: order
       }).success(callback).error(err);
     },
+    authenticate: function(callback) {
+      $http.get(adminurl + 'authenticate').success(callback);
+    },
     getUserDetail: function(id, callback, err) {
       $http.get(adminurl + 'getUser?id=' + id).success(callback).error(err);
     },

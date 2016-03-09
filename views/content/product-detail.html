@@ -88,23 +88,25 @@
                 <h3 class="letter-spacing">Select Quantity</h3>
                 <div class="choos quantity">
                   <div class="row">
-                    <div class="col-md-2 col-xs-4">
-                      <div class="size text-center">
-                        <p>Size</p>
-                        <div class="ccc-select">
-                          <select class="text-uppercase" ng-options="size.id as size.name for size in productdetail.size" ng-model="filter.size" ng-click="selectSize(filter)"></select>
+                    <form name="qForm">
+                      <div class="col-md-2 col-xs-4">
+                        <div class="size text-center">
+                          <p>Size</p>
+                          <div class="ccc-select">
+                            <select class="text-uppercase" ng-options="size.id as size.name for size in productdetail.size" ng-model="filter.size" ng-click="selectSize(filter)"></select>
 
-                          </select>
+                            </select>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="col-md-2 col-xs-4">
-                      <div class="size text-center">
-                        <p>Quantity</p>
-                        <div class="ccc-select">
-                          <input type="number" ng-model="filter.qty">
+                      <div class="col-md-2 col-xs-4">
+                        <div class="size text-center">
+                          <p>Quantity</p>
+                          <div class="ccc-select">
+                            <input type="number" required name="quantity" ng-model="filter.qty" ng-minlength="5">{{qForm.quantity.$invalid}}
+                          </div>
                         </div>
-                      </div>
+                    </form>
                     </div>
                   </div>
                   <div class="order-minimum">
@@ -170,60 +172,10 @@
                 <div class="order-minimum">
                   <span class="text-medium">*We accept a minimum order of 6 pieces</span>
                 </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="pad">
-                      <h4>MEN's STANDARD</h4>
-                      <span class=" inline-block text-uppercase">right handed batsmen</span>
-                      <div class="form-group inline-block">
-                        <div class="ccc-select ccc-select2">
-                          <select class="form-control" ng-change="sameShipping(checkout)" ng-model="checkout.billingcountry">
-                            <option value="{{country.value}}" ng-repeat="country in countries">{{country.value}}</option>
-                          </select>
-                          <span></span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="pad">
-                      <span class=" inline-block text-uppercase">left handed batsmen</span>
-                      <div class="form-group  inline-block">
-                        <div class="ccc-select ccc-select2">
-                          <select class="form-control" ng-change="sameShipping(checkout)" ng-model="checkout.billingcountry">
-                            <option value="{{country.value}}" ng-repeat="country in countries">{{country.value}}</option>
-                          </select>
-                          <span></span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="pad">
-                      <h4>MEN's STANDARD</h4>
-                      <span class=" inline-block text-uppercase">right handed batsmen</span>
-                      <div class="form-group  inline-block">
-                        <div class="ccc-select ccc-select2">
-                          <select class="form-control" ng-change="sameShipping(checkout)" ng-model="checkout.billingcountry">
-                            <option value="{{country.value}}" ng-repeat="country in countries">{{country.value}}</option>
-                          </select>
-                          <span></span></div>
-                      </div>
-                    </div>
-                    <div class="pad">
-                      <span class=" inline-block text-uppercase">left handed batsmen</span>
-                      <div class="form-group  inline-block">
-                        <div class="ccc-select ccc-select2">
-                          <select class="form-control" ng-change="sameShipping(checkout)" ng-model="checkout.billingcountry">
-                            <option value="{{country.value}}" ng-repeat="country in countries">{{country.value}}</option>
-                          </select>
-                          <span></span></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
                 <div class="order-minimum">
                   <div class="total mg0">
                     <h3 class="inline-block">Total</h3>
-                    <input type="text">
+                    <input type="number" ng-model="filter.qty">
                     <h3 class="inline-block">Pairs</h3>
                   </div>
                 </div>
