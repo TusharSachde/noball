@@ -33,8 +33,8 @@
                                         <figcaption>{{cart.options.realname}}</figcaption>
                                     </figure>
                                 </td>
-                                <td class="capitalize">{{cart.options.colorname}}</td>
-                                <td class="uppercase">{{cart.options.sizename}}</td>
+                                <td class="capitalize">{{cart.options.colorname || '-'}}</td>
+                                <td class="uppercase">{{cart.options.sizename || '-'}}</td>
                                 <td>
                                 <input type="number" ng-change="updateCartQuantity(cart)" class="text-center spin-number" ng-model="cart.qty">
                                   <span class="more" ng-click="addQuantity(cart)"><i class="fa fa-plus"></i></span><span class="more" ng-click="subtractQuantity(cart)"><i class="fa fa-minus"></i></span>

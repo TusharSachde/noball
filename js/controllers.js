@@ -680,6 +680,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           msg:'Minimum order of 6 pairs'
         });
         $scope.filter.qty=6;
+      }else if($scope.params.category == 'Pads' && $scope.filter.qty < 6){
+        $scope.alerts.push({
+          type:'danger',
+          msg:'Minimum order of 6 pairs'
+        });
+        $scope.filter.qty=6;
       }else{
         console.log($scope.filter);
         NavigationService.addToCart($scope.filter, function(data) {
@@ -1692,10 +1698,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.openSignup = function() {
-      console.log("singup opened");
       $.jStorage.set("isExpert", true);
-
-
       $uibModal.open({
         animation: true,
         templateUrl: 'views/modal/login.html',
@@ -1799,6 +1802,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
     var authenticatesuccess = function(data, status) {
       if (data != "false") {
+        console.log(data);
         $.jStorage.set("user", data);
         user = data;
         $state.go('home');
