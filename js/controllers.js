@@ -581,6 +581,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.filter={};
     $scope.navigation = NavigationService.getnav();
     $scope.alerts = [];
+    $scope.selectedImage={};
     $scope.params = $stateParams;
     $scope.filter.id=$scope.params.id;
     $scope.oneAtATime = true;
@@ -617,6 +618,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
         $scope.filter.size=$scope.productdetail.product.size;
         $scope.filter.id=$scope.productdetail.product.id;
+        $scope.selectedImage.image= $scope.productdetail.productimages[0].image;
+        $rootScope.$broadcast('changeImage', {});
+
         if($scope.productdetail.product.quantity < 0){
           $scope.outofstock=true;
         }else{
@@ -652,7 +656,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       $state.go("error");
     });
     $scope.selectImage = function(object) {
-      $scope.selectedImage = object.image;
+      console.log("user");
+      $scope.selectedImage.image = object.image;
       $rootScope.$broadcast('changeImage', {});
     };
 

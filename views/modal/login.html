@@ -102,7 +102,7 @@
   <uib-tabset>
     <uib-tab heading="Login">
       <div class="login-form">
-        <form name="loginForm">
+        <form name="loginForm" ng-submit="">
           <div class="row">
             <div class="col-md-offset-1 col-md-10">
               <div class="form-group">
@@ -129,9 +129,9 @@
               <div class="ab text-center" ng-show="validatelogin">
                 Invalid username or password
               </div>
-              <div class="ab text-center" ng-show="inputall">
+              <!-- <div class="ab text-center" ng-show="inputall">
                 Please input all info
-              </div>
+              </div> -->
                 <div class="text-center ">
                 <span class="forgot text-uppercase" ng-click="openForgot();">Forgot Your Password ?</span>
               </div>
@@ -203,7 +203,7 @@
                 <div class="ab" ng-show="alreadyReg">
                   Email ID is already registered
                 </div>
-              
+
               </div>
               <div class="text-center submit sign-submit">
                 <button class="btn btn-light letter-spacing text-uppercase" ng-click="doSignup(accept,signup,signupForm)">Signup</button>

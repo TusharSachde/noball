@@ -46,18 +46,20 @@
   			  <button class="pull-right edit btn btn-outline btn-dark" ng-click="editProfile(2)" type="submit">{{profile.changepasswordedit}}</button>
           <h5 class="h5-class">CHANGE PASSWORD</h5>
           <div ng-if="profile.changepasswordedit=='save'">
-						<div class="form-group">
-							<label>Old Password</label>
-							<input class="form-control" ng-model="password.oldpassword" required type="password">
-						</div>
-						<div class="form-group">
-							<label>New Password</label>
-							<input class="form-control" ng-model="password.newpassword" required type="password">
-						</div>
-						<div class="form-group">
-							<label>Re-enter Password</label>
-							<input class="form-control" ng-model="password.confirmpassword" required type="password">
-						</div>
+				<form ng-submit="">
+          <div class="form-group">
+            <label>Old Password</label>
+            <input class="form-control" ng-model="password.oldpassword" required type="password">
+          </div>
+          <div class="form-group">
+            <label>New Password</label>
+            <input class="form-control" ng-model="password.newpassword" required type="password">
+          </div>
+          <div class="form-group">
+            <label>Re-enter Password</label>
+            <input class="form-control" ng-model="password.confirmpassword" required type="password">
+          </div>
+				</form>
 					</div>
         </div>
       </div>

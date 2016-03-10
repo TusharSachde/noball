@@ -231,19 +231,26 @@ firstapp.directive('elevateZoom', function($document, $filter) {
     return {
         restrict: 'EA',
         link: function($scope, element, attr) {
-          console.log(attr.image);
             $scope.$watch(attr.image, function() {
                 $scope.changeImage = function() {
-                    var image = $scope[attr.image];
-                    var $element = $(element);
+                  console.log(attr.image);
+                  var $element = $(element);
+                    var image = $scope[attr.image].image;
+                    console.log(image);
                     // image = image.productdetail.image[0];
                     var smallimg = attr.smallImage;
                     var bigimg = attr.bigImage;
                     // $element.attr('data-zoom-image', image);
                     // $element.attr('src', image);
-                    $element.attr('data-zoom-image', $filter('serverimage')(attr.image));
-                    $element.attr('src', $filter('serverimage')(attr.image));
+                    var ez = $element.data("elevateZoom");
+                                        if (!ez) {
+                    $element.attr('data-zoom-image', $filter('serverimage')(image));
+                    $element.attr('src', $filter('serverimage')(image));
                     $element.elevateZoom();
+                  } else {
+                      var newImage = $filter('serverimage')(image);
+                      ez.swaptheimage(newImage, newImage);
+                  }
                 }
                 $scope.$on('changeImage', function(event, data) {
                     $scope.changeImage();
