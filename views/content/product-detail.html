@@ -19,10 +19,12 @@
             <!-- <a href="#" elevate-zoom data-image="small/image1.jpg" data-zoom-image="large/image1.jpg">
                          <img id="img_01" ng-src="{{selectedImage || productdetail.productimages[0].image | serverimage}}" /> </a> -->
           </div>
-          <div class="row">
-            <div class="col-md-4" ng-repeat="item in productdetail.productimages" ng-click="selectImage(item)">
-              <div class="img-hold">
-                <img ng-src="{{item.image | serverimage}}" class="img-responsive">
+          <div class="related-product">
+            <div class="row-flex">
+              <div class="col-flex" ng-repeat="item in productdetail.productimages" ng-click="selectImage(item)">
+                <div class="img-hold">
+                  <img ng-src="{{item.image | serverimage}}" class="img-responsive">
+                </div>
               </div>
             </div>
           </div>
