@@ -1825,7 +1825,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.facebooklogin = function() {
-      console.log("here");
       ref = window.open(mainurl + 'hauth/login/Facebook?returnurl=' + websiteurl, '_blank', 'location=yes');
       stopinterval = $interval(callAtIntervaltwitter, 2000);
       ref.addEventListener('exit', function(event) {
