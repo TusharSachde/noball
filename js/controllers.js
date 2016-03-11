@@ -611,12 +611,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         } else {
           $scope.firstsale = false;
         }
+        $scope.productdetail.size.unshift({
+          id:"",
+          name:"--"
+        });
         if ($scope.productdetail.product.quantity <= 0) {
           $scope.outofstock = true;
         } else {
           $scope.outofstock = false;
         }
-        $scope.filter.size=$scope.productdetail.product.size;
+        // $scope.filter.size=$scope.productdetail.product.size;
         $scope.filter.id=$scope.productdetail.product.id;
         $scope.selectedImage.image= $scope.productdetail.productimages[0].image;
         $rootScope.$broadcast('changeImage', {});
@@ -662,12 +666,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.cartAdd = function() {
-      if($scope.filter.qty == "" || $scope.filter.qty == undefined || $scope.filter.qty == null || $scope.filter.qty == 0){
+      if($scope.params.category == 'Apparel' && $scope.filter.size == ''){
+        $scope.alerts.push({
+          type:'danger',
+          msg:'Please input valid size'
+        });
+      }else if($scope.filter.qty == "" || $scope.filter.qty == undefined || $scope.filter.qty == null || $scope.filter.qty == 0){
         $scope.alerts.push({
           type:'danger',
           msg:'Please input valid quantity'
         });
-      }else if($scope.params.category == 'Apparels' && $scope.filter.qty < 5){
+      }else if($scope.params.category == 'Apparel' && $scope.filter.qty < 5){
         $scope.alerts.push({
           type:'danger',
           msg:'Minimum order of 5 pieces'
