@@ -192,7 +192,7 @@ a.icon-btn {
         }
       }
       .user-name {
-        width: 115px;
+        width: 113px;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
@@ -705,10 +705,11 @@ footer {
   }
 }
 .related-product {
-  overflow-x: scroll;
+  margin: 25px;
+  .flex-control-nav { bottom: 0; }
 }
 .img-hold {
-  height: 100px;
+  // height: 100px;
   overflow: hidden;
   margin: 0 10px;
   cursor: pointer;
