@@ -1,31 +1,31 @@
 var jsArray = [
-    './bower_components/jquery/dist/jquery.min.js',
-    './bower_components/flexslider/jquery.flexslider-min.js',
-    './bower_components/threejs/build/three.min.js',
-    './js/OrbitControls.js',
-    './bower_components/threejs/examples/js/loaders/OBJLoader.js',
-    './bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
-    './bower_components/angular/angular.js',
-    './bower_components/angular-animate/angular-animate.min.js',
-    './bower_components/angular-flexslider/angular-flexslider.js',
-    './bower_components/angular-sanitize/angular-sanitize.min.js',
-    './bower_components/ui-router/release/angular-ui-router.min.js',
-    './bower_components/angular-bootstrap/ui-bootstrap.min.js',
-    './bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
-    './bower_components/elevatezoom/jquery.elevatezoom.js',
-    './bower_components/fancyBox/source/jquery.fancybox.pack.js',
-    './bower_components/jStorage/jstorage.min.js',
-    './bower_components/lodash/lodash.min.js',
-    './bower_components/ngDialog/js/ngDialog.min.js',
-    './bower_components/angular-scroll/angular-scroll.min.js',
-    './bower_components/angular-loading-bar/src/loading-bar.js',
-    './js/app.js',
-    './js/controllers.js',
-    './js/navigation.js',
-    './js/templateservice.js',
+  './bower_components/jquery/dist/jquery.min.js',
+  './bower_components/flexslider/jquery.flexslider-min.js',
+  './bower_components/threejs/build/three.min.js',
+  './js/OrbitControls.js',
+  './bower_components/threejs/examples/js/loaders/OBJLoader.js',
+  './bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
+  './bower_components/angular/angular.js',
+  './bower_components/angular-animate/angular-animate.min.js',
+  './bower_components/angular-flexslider/angular-flexslider.js',
+  './bower_components/angular-sanitize/angular-sanitize.min.js',
+  './bower_components/ui-router/release/angular-ui-router.min.js',
+  './bower_components/angular-bootstrap/ui-bootstrap.min.js',
+  './bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+  './bower_components/elevatezoom/jquery.elevatezoom.js',
+  './bower_components/fancyBox/source/jquery.fancybox.pack.js',
+  './bower_components/jStorage/jstorage.min.js',
+  './bower_components/lodash/lodash.min.js',
+  './bower_components/ngDialog/js/ngDialog.min.js',
+  './bower_components/angular-scroll/angular-scroll.min.js',
+  './bower_components/angular-loading-bar/src/loading-bar.js',
+  './js/app.js',
+  './js/controllers.js',
+  './js/navigation.js',
+  './js/templateservice.js',
 
-    //please do not change it
-    './w/js/templates.js',
+  //please do not change it
+  './w/js/templates.js',
 ];
 var replacehostFrom = "http://localhost/demo/";
 var replacehostTo = "http://wohlig.co.in/demo2/";
@@ -69,6 +69,7 @@ var replace = require('gulp-replace');
 var imagemin = require('gulp-imagemin');
 var prompt = require("gulp-prompt");
 var ftp = require('vinyl-ftp');
+var shell = require('gulp-shell');
 
 var templateCacheBootstrap = "firstapp.run(['$templateCache', function($templateCache) {";
 
@@ -308,3 +309,11 @@ gulp.task('copy', ["copy:img", "copy:fonts"]);
 
 gulp.task('production', gulpSequence(["copy:img", "copy:fonts", "sass:production", "minify:indexproduction", "minify:views"], 'clean:tmp', ["minify:css", "templatecache"], "concat:js", 'clean:tmp', "uglify:js", 'clean:tmp', "inlinesource", 'clean:tmp', "gzipfile", 'clean:tmp', 'clean:tmp', "zip"));
 gulp.task('production2', gulpSequence(["copy:img", "copy:fonts", "sass:production", "minify:indexproduction", "minify:views"], 'clean:tmp', ["minify:css", "templatecache"], "concat:js", 'clean:tmp', "uglify:js", 'clean:tmp', "inlinesource", 'clean:tmp', "copy:indexhtml", 'clean:tmp', 'clean:tmp', "zip"));
+
+gulp.task('cloudTest', shell.task([
+  "rm -rf /var/www/html/test",
+  "mv production test",
+  "mv test /var/www/html"
+]));
+
+gulp.task('productioncloud', gulpSequence(["gulp:production2","cloudTest"]));
