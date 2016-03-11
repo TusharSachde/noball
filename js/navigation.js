@@ -1,7 +1,7 @@
 // var mainurl = "http://wohlig.io:81/callApi/noball/";
 var mainurl = "http://customcricketcompany.com/admin/index.php/";
 // var mainurl = "http://192.168.0.123/cccbackend/index.php/";
-var websiteurl = "http://www.wohlig.co.in/ccc";
+var websiteurl = "http://customcricketcompany.com/test/";
 var backendurl = "http://localhost/cccbackend/";
 
 var imgurl = "http://customcricketcompany.com/admin/uploads/";

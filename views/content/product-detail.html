@@ -20,9 +20,9 @@
                          <img id="img_01" ng-src="{{selectedImage || productdetail.productimages[0].image | serverimage}}" /> </a> -->
           </div>
             <div class="related-product">
-              <flex-slider class="carousel" flex-slide="relate in product" direction-nav = "false">
+              <flex-slider class="carousel" flex-slide="item in productdetail.productimages track by $index" direction-nav = "false">
                 <li>
-                  <div class="repeat-product" ng-repeat="item in productdetail.productimages" ng-click="selectImage(item)">
+                  <div class="repeat-product" ng-click="selectImage(item)">
                     <div class="img-hold">
                       <img ng-src="{{item.image | serverimage}}" class="img-responsive">
                     </div>
