@@ -711,10 +711,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
               msg: 'Added in cart'
             });
           } else {
-            $scope.alerts.push({
-              type: 'danger',
-              msg: 'Already in cart'
-            });
+            if(data.comment.indexOf("quantity") > -1){
+              $scope.alerts.push({
+                type: 'danger',
+                msg: 'Quantity not available'
+              })
+            }else{
+              $scope.alerts.push({
+                type: 'danger',
+                msg: 'Already in cart'
+              })
+            }
             // var xyz = ngDialog.open({
             //     template: '<div class="pop-up"><h5 class="popup-wishlist">' + data.comment + '</h5><span class="closepop" ng-click="closeThisDialog(value);">X</span></div>',
             //     plain: true,
