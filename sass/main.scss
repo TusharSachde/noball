@@ -599,6 +599,12 @@ footer {
     font-size: 18px;
   }
 }
+.service-head-menu {
+  width: 210px;
+  li a:hover,:active {
+    border-color: $brand-primary;
+  }
+}
 .sub-holder {
   height: 220px;
   position: absolute;
@@ -953,7 +959,7 @@ footer {
           border-bottom: 1px solid #ddd;
           figure {
             img {
-              width: 80px;
+              width: 100px;
             }
             figcaption {
               font-size: 10px;

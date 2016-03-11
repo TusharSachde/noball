@@ -1292,6 +1292,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   })
   .controller('ServicesCtrl', function($scope, $state, TemplateService, NavigationService, $timeout,$document,$stateParams) {
     //Used to name the .html file
+    console.log($stateParams);
     $scope.template = TemplateService.changecontent("services");
     $scope.menutitle = NavigationService.makeactive("Services");
     TemplateService.title = $scope.menutitle;
@@ -1645,6 +1646,32 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }, function(err) {
       $state.go("error");
     });
+    $scope.services = [{
+      name: "ADVANCED CUSTOMISATION",
+      anchor: "advancedcutomization",
+    },
+    {
+      name: "CUSTOM SPORTS APPAREL",
+      anchor: "customapparel",
+    },{
+      name: "CCC LOUNGE",
+      anchor: "ccclounge",
+    }, {
+      name: "TOURS",
+      anchor: "tours",
+    }, {
+      name: "FOUNDATION",
+      anchor: "foundation",
+    }
+  , {
+      name: "CONSULTANCY",
+      anchor: "consultancy",
+    }
+  , {
+      name: "MEMORABILIA",
+      anchor: "memorabilia",
+    }
+  ];
     $scope.wishlistcountshow = false;
     myfunction = function() {
       $scope.wishlistcount = 0;

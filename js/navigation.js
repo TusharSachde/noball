@@ -512,7 +512,8 @@ var navigationservice = angular.module('navigationservice', [])
     classis: ""
   }, {
     name: "Customize",
-    classis: ""
+    classis: "",
+    link: "#/customisation"
   }, {
     name: "Services",
     classis: "",
@@ -523,9 +524,13 @@ var navigationservice = angular.module('navigationservice', [])
     name: "ADVANCED CUSTOMISATION",
     anchor: "advancedcutomization",
   }, {
+    name: "CUSTOM SPORTS APPAREL",
+    anchor: "customapparel",
+  },
+  {
     name: "CCC LOUNGE",
     anchor: "ccclounge",
-  }, {
+  },{
     name: "TOURS",
     anchor: "tours",
   }, {

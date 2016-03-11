@@ -1,8 +1,11 @@
 <ul class="nav navbar-nav hidden-xs">
   <li ng-repeat="menu in navigation">
     <a href="{{menu.link}}" class="{{menu.classis}}">{{menu.name}}</a>
-    <ul class="dropdown-menu custom-sub bg-white {{menu.name}} hidden-xs" ng-if="menu.subnav!=[];">
-      <li ui-sref="categories({name:submenu.name})" ng-repeat="submenu in menu.subnav">
+    <ul class="dropdown-menu custom-sub service-head-menu bg-white {{menu.name}} hidden-xs" ng-if="menu.subnav!=[];">
+      <li ui-sref="categories({name:submenu.name})" ng-repeat="submenu in menu.subnav" ng-if="menu.name != 'Services'">
+        <a class="{{submenu.classis}}">{{submenu.name}}</a>
+      </li>
+      <li ui-sref="servicesid({id:submenu.anchor})"  ng-repeat="submenu in services" ng-if="menu.name == 'Services'">
         <a class="{{submenu.classis}}">{{submenu.name}}</a>
       </li>
     </ul>
