@@ -5,7 +5,7 @@
       <li ui-sref="categories({name:submenu.name})" ng-repeat="submenu in menu.subnav" ng-if="menu.name != 'Services'">
         <a class="{{submenu.classis}}">{{submenu.name}}</a>
       </li>
-      <li ui-sref="servicesid({id:submenu.anchor})"  ng-repeat="submenu in services" ng-if="menu.name == 'Services'">
+      <li ui-sref="servicesid({id:submenu.anchor})" class="blue-service" ng-repeat="submenu in services" ng-if="menu.name == 'Services'">
         <a class="{{submenu.classis}}">{{submenu.name}}</a>
       </li>
     </ul>
