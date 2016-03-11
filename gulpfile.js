@@ -316,4 +316,4 @@ gulp.task('cloudTest', shell.task([
   "mv test /var/www/html"
 ]));
 
-gulp.task('productioncloud', gulpSequence(["gulp:production2","cloudTest"]));
+gulp.task('productioncloud', gulpSequence(["production2","cloudTest"]));
