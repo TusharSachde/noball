@@ -3,11 +3,11 @@ var count = 1;
 var tabvalue = 1;
 var user = $.jStorage.get("user");
 var bigcount = {};
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'ngDialog', 'duScroll','cfp.loadingBar'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'ngDialog', 'duScroll','angular-loading-bar'])
 
-.controller('HomeCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $uibModal, cfpLoadingBar) {
+.controller('HomeCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
     //Used to name the .html file
-    cfpLoadingBar.start();
+    // cfpLoadingBar.start();
     $scope.template = TemplateService.changecontent("home");
     $scope.menutitle = NavigationService.makeactive("Home");
     TemplateService.title = $scope.menutitle;

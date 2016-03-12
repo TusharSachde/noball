@@ -2113,11 +2113,27 @@ footer {
   bottom: 0;
   right: 0;
   background: rgba(0,0,0,0.7);
-  img {
-    opacity: 1;
-    // @include transform(rotate(360deg));
+  span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%,-50%));
+    z-index: 1000;
   }
+  .rotate {
+    opacity: 1;
+    @include animation(rotatelogo 3s linear infinite);
+  }
+  @include keyframes (rotatelogo) {
+    0% {
+      @include transform(rotate(0deg));
+    }
+    100% {
+      @include transform(rotate(360deg));
+    }
+  };
 }
+
 .alert-postion {
   position: fixed;
   max-width: 500px;

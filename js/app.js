@@ -12,8 +12,8 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, cfpL
   $httpProvider.defaults.withCredentials = true;
   cfpLoadingBarProvider.includeSpinner = true;
   cfpLoadingBarProvider.includeBar = false;
-  cfpLoadingBarProvider.spinnerTemplate = '<div class="loading-bar"><img src="img/logo.png"></div>';
-  
+  cfpLoadingBarProvider.spinnerTemplate = '<div class="loading-bar"><span><img src="img/logo.png" class="rotate"></span></div>';
+
   console.log("heyyyy");
   $stateProvider
 
