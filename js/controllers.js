@@ -1710,7 +1710,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   ];
     $scope.wishlistcountshow = false;
     myfunction = function() {
-      $scope.wishlistcount = 0;
       if ($.jStorage.get("user")) {
         $scope.wishlistcountshow = true;
         NavigationService.getWishlistCount(function(data) {
