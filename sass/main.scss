@@ -2106,6 +2106,18 @@ footer {
 .ngdialog-content {
   background-color: transparent;
 }
+.loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0,0,0,0.7);
+  img {
+    opacity: 1;
+    // @include transform(rotate(360deg));
+  }
+}
 .alert-postion {
   position: fixed;
   max-width: 500px;
