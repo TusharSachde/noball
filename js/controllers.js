@@ -1587,6 +1587,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     } else {
       $scope.wishlistshow = false;
     }
+    $scope.navigation = NavigationService.getnav();
+
+    NavigationService.getCategory(function(data) {
+
+      console.log(data);
+
+      $scope.navigation[0].subnav = data;
+
+      $scope.navigation[1].subnav = '';
+
+    }, function(err) {
+
+      $state.go("error");
+
+    });
+
   })
   .controller('headerctrl', function($scope, $state, TemplateService, $uibModal, NavigationService,$interval) {
     $scope.template = TemplateService;
