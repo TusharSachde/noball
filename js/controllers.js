@@ -1618,7 +1618,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.loginmodal = true;
     $scope.signupmodal = false;
     $scope.forgot = {};
-    $scope.wishlistcount = 0;
     $scope.emailsent=false;
       $scope.noexist=false;
     $scope.navigation = NavigationService.getnav();
