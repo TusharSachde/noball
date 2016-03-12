@@ -593,7 +593,8 @@ var navigationservice = angular.module('navigationservice', [])
         url: adminurl + "addToWishlist",
         method: "POST",
         data: {
-          "product": wishlist
+          "product": wishlist.id,
+          "quantity":wishlist.qty
         }
       }).success(callback).error(err);
     },

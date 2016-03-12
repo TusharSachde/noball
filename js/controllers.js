@@ -736,10 +736,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         })
       }
     }
+    $scope.quantity=0;
     $scope.wishlistAdd = function(id) {
-      console.log(id);
+       if($scope.params.category == 'Apparel'){
+        $scope.quantity=5;
+      }else if($scope.params.category == 'Balls'){
+        $scope.quantity=2;
+      }else if($scope.params.category == 'Gloves'){
+        $scope.quantity=6;
+      }else if($scope.params.category == 'Pads' ){
+        $scope.quantity=6;
+      }else{
+        $scope.quantity=1;
+      }
       if ($.jStorage.get("user")) {
-        NavigationService.addToWishlist(id, function(data) {
+        NavigationService.addToWishlist({
+          id:id,
+          qty:$scope.quantity
+        }, function(data) {
           console.log(data);
           if (data.value == true) {
             $scope.alerts.push({
