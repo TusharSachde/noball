@@ -19,7 +19,7 @@
     <a href="#" class="btn-yellow" ng-click="logout()">Logout</a>
   </li>
   <li ng-if="isLogin">
-    <a ui-sref="profile" class="user-name">{{user.firstname}} {{user.lastname}}</a>
+    <a ui-sref="profile" class="user-name" >{{user.name}}</a>
   </li>
   <li class="mt-35" ng-show="wishlistcountshow">
     <a ui-sref="mywishlist" class="icon-btn">

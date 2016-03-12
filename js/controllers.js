@@ -1639,16 +1639,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     if (NavigationService.getUser()) {
       $scope.isLogin = true;
     }else{
-      NavigationService.authenticate(function(data){
-        console.log(data);
-        if (data !== "false") {
-          $.jStorage.set("user",data);
-          $scope.isLogin=true;
-          window.location.reload();
-        }else{
-          $scope.isLogin=false;
-        }
-      });
+      $scope.isLogin = false;
+
     }
     $scope.acceptIt=function(flag){
       if(flag === true){
