@@ -188,7 +188,8 @@ a.icon-btn {
         @include transition(all 300ms ease);
         &:hover,
         &.active {
-          color: $logo-color;
+          // color: $logo-color;
+          color: white;
         }
       }
       .user-name {
