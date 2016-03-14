@@ -598,6 +598,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.maxQuantity=false;
       }
     };
+    $scope.sizechartshirt=false;
     $scope.loadProduct = function(filter){
       console.log(filter);
       if(filter.size == null || filter.size == undefined)
@@ -616,6 +617,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           id:"",
           name:"--"
         });
+        if($scope.productdetail.product.name.toUpperCase().includes('shorts'.toUpperCase()) || $scope.productdetail.product.name.toUpperCase().includes('trousers'.toUpperCase()) ){
+          $scope.sizechartshirt=false;
+        }else{
+          $scope.sizechartshirt=true;
+        }
         if ($scope.productdetail.product.quantity <= 0) {
           $scope.outofstock = true;
         } else {
@@ -860,7 +866,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.msg="Loading..";
     $scope.printInvoice = function(id){
       console.log(id);
-            $window.open(mainurl+'json/printorderinvoice?id='+id);
+            $window.open(mainurl+'site/printorderinvoice?id='+id,'_new');
         };
     NavigationService.getOrders(function(data) {
       $scope.msg="";
