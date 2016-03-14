@@ -2546,4 +2546,17 @@ background-size: cover;
 }
 .memorable { background-image: url('../img/services/memorable.jpg'); }
 // end services
+
+// popup on product detail
+.modal.in .modal-dialog {
+  height: 100%;
+  position: relative;
+  .modal-content {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%,-50%));
+  }
+}
 @import "mobile/mobile";
