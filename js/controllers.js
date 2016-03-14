@@ -1426,11 +1426,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       })
 
     }
-    $scope.cartAdd = function(id) {
+    $scope.cartAdd = function(wish) {
 
       NavigationService.addToCart({
-        id: id,
-        qty: "1",
+        id: wish.id,
+        qty: wish.qty,
         status: "1"
       }, function(data) {
         if (data.value == true) {
