@@ -1,5 +1,5 @@
 <section class="slider">
-  <flex-slider flex-slide="s in mySlides track by $index" control-nav="false">
+  <flex-slider flex-slide="s in mySlides track by $index">
     <li class="relative">
       <a href="{{s.link}}">
         <img ng-src="{{s.src | serverimage}}">
@@ -45,7 +45,7 @@
       <h4>Here, Let Us</h4>
       <h3>Sweat it out for you!</h3>
       <!-- <a ng-click="openAppoinment();">Make an appointment now</a> -->
-      <a class="text-uppercase appoint">Make an appointment now</a>
+      <a class="text-uppercase appoint" href="#/contact">Make an appointment now</a>
     </div>
   </div>
 </section>

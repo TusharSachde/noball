@@ -174,7 +174,7 @@ a.icon-btn {
 }
 .navbar-default {
   background-color: #000000;
-  border-color: #000000;
+  border: none;
   .navbar-nav {
     > li {
       > a {
@@ -187,7 +187,8 @@ a.icon-btn {
         margin: 15px 5px;
         @include transition(all 300ms ease);
         &:hover,
-        &.active {
+        &.active,
+        &:focus {
           // color: $logo-color;
           color: white;
         }
@@ -200,6 +201,7 @@ a.icon-btn {
       }
     }
   }
+  .nav > li { min-height: 70px; }
 }
 .navbar-brand {
   padding: 8px 0;
@@ -263,7 +265,7 @@ a.icon-btn {
       }
       .flex-prev {
         &:before {
-          content: url("../img/prev.png");
+          content: url("../img/prev-slide.png");
           display: block;
           height: 50%;
           @include transform(scale(.4));
@@ -271,7 +273,7 @@ a.icon-btn {
       }
       .flex-next {
         &:before {
-          content: url("../img/next.png");
+          content: url("../img/next-slide.png");
           display: block;
           height: 50%;
           @include transform(scale(.4));
@@ -279,6 +281,8 @@ a.icon-btn {
       }
     }
   }
+  .flex-control-paging li a { background-color: rgba(255,255,255,0.5); }
+  .flex-control-paging li a.flex-active { background-color: #fff; }
 }
 .flex-control-nav {
   bottom: 20px;
@@ -462,12 +466,13 @@ footer {
     }
   }
   .footermenu {
-    padding: 35px 0;
+    padding: 35px 0 0;
     font-size: 14px;
     letter-spacing: 2px;
     font-size: 12px;
     ul.list-unstyled.foot-cards li {
       display: inline-block;
+      margin: 0;
       img {
         width: 45px;
         padding-right: 5px;
@@ -540,11 +545,13 @@ footer {
 }
 .get-touch {
   padding-top: 7px;
+  h5 { margin-left: 40px; }
 }
+.payment-method h5 {margin-left: 0;}
 .custom-sub {
   position: absolute;
-  top: 90%;
-  left: 0;
+  top: 70px;
+  left: -60px;
   z-index: 1000;
   min-width: 120px;
   padding: 0;
@@ -558,6 +565,17 @@ footer {
   line-height: 100%;
   font-size: 12px;
   border: none;
+  &:after {
+    content: "";
+    border-top: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid rgba(128,128,128,0.9);
+    border-left: 15px solid transparent;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    @include transform(translateX(-50%));
+  }
   &.bg-white {
     background: #fff;
   }
@@ -571,6 +589,8 @@ footer {
     a {
       padding: 10px 5px;
       display: block;
+      color: #000;
+      font-weight: 700;
       border-left: 3px solid transparent;
       @include transition(all 300ms ease);
       &:hover,
@@ -579,6 +599,18 @@ footer {
         background-color: black;
         border-color: $brand-warning;
       }
+    }
+    .blue.active {
+      border-color: #53c8eb;
+      &:hover { border-color: #53c8eb; }
+    }
+    .orange.active {
+      border-color: $color-orange;
+      &:hover { border-color: $color-orange; }
+    }
+    .green.active {
+      border-color: #86ba3a;
+      &:hover { border-color: #86ba3a; }
     }
   }
   &.Shop {
@@ -601,9 +633,11 @@ footer {
   }
 }
 .service-head-menu {
-  width: 210px;
+  width: 240px;
+    padding: 15px;
+    background-color: rgba(128,128,128,0.9);
   .blue-service a:hover,:active {
-    border-color: $brand-primary;
+    border-color: #53c8eb;
   }
 }
 .sub-holder {
@@ -1708,6 +1742,7 @@ footer {
 .custom-footer {
   position: static;
   padding-bottom: 20px;
+  &:after { display: none; }
   li a.active {
     background-color: #404040;
     border-left-width: thick;
@@ -2317,6 +2352,7 @@ input[type=number]::-webkit-outer-spin-button {
   overflow: hidden;
 }
 .follow-us {
+  margin-top: 17px;
   padding-left: 12px;
   // padding-top: 33px;
 }
@@ -2428,7 +2464,7 @@ border-left: 7px solid #c3e701;
 .pad span { font-size: 13px; }
 // services
 .service-main {
-  section { margin-bottom: 15px; }
+  // section { margin-bottom: 15px; }
   .title {
     font-size: 45px;
     letter-spacing: 3px;
@@ -2468,7 +2504,7 @@ border-left: 7px solid #c3e701;
 .service-heading {
   width: 100%;
   position: fixed;
-  padding: 40px 0 20px;
+  padding: 10px 0 20px;
   background-color: #494949;
   color: #fff;
   z-index: 11;
@@ -2551,12 +2587,5 @@ background-size: cover;
 .modal.in .modal-dialog {
   height: 100%;
   position: relative;
-  .modal-content {
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    @include transform(translate(-50%,-50%));
-  }
 }
 @import "mobile/mobile";

@@ -1,7 +1,7 @@
 <div class="container-fluid" ng-controller="footerctrl">
   <div class="footer-margin">
     <div class="row">
-      <div class="col-md-1">
+      <div class="col-md-1" style="padding-right:0;">
         <ul class="list-unstyled">
           <li style="padding: 0px 10px;">Products</li>
           <li ng-repeat="shop in navigation[0].subnav">
@@ -9,7 +9,7 @@
           </li>
         </ul>
       </div>
-      <div class="col-md-1">
+      <div class="col-md-1" style="padding-right:0;">
         <ul class="list-unstyled">
           <li style="padding: 0px 10px;">
             Customize
@@ -19,7 +19,7 @@
           </li>
         </ul>
       </div>
-      <div class="col-md-2">
+      <div class="col-md-2" style="padding-right:0;">
         <ul class="list-unstyled">
           <li style="padding: 0px 10px;">
             Services
@@ -72,47 +72,29 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="get-touch">
           <h5> GET IN TOUCH</h5>
           <ul class="custom-sub custom-footer">
             <li>
-              <span class="fl-l"><i class="fa fa-phone"></i></span><a href="tel:+912269995505" class="active">
+              <span class="fl-l"><i class="fa fa-phone"></i></span><a href="tel:+912269995505" class="active blue">
             +91 22 6999 5505 (INDIA)
           </a>
             </li>
             <li>
-              <span class="fl-l"><i class="fa fa-phone"></i></span><a href="tel:+4402032871222" class="active">
+              <span class="fl-l"><i class="fa fa-phone"></i></span><a href="tel:+4402032871222" class="active blue">
             +44 (020) 3287 1222 (UK)
           </a>
             </li>
             <li>
-              <span class="fl-l"><i class="fa fa-skype"></i></span><a href="" class="active" style="text-transform: lowercase;">
+              <span class="fl-l"><i class="fa fa-skype"></i></span><a href="" class="active orange" style="text-transform: lowercase;">
           customcricketcompany
           </a>
             </li>
             <li>
-              <span class="fl-l"><i class="fa fa-envelope-o"></i></span><a href="" class="active" style="text-transform: lowercase;">
+              <span class="fl-l"><i class="fa fa-envelope-o"></i></span><a href="" class="active green" style="text-transform: lowercase;">
             umpair@customcricketcompany.com
           </a>
-            </li>
-          </ul>
-          <div class="makeindia pt35 text-center">
-            <!-- <span style="text-transform: lowercase;">Committed to</span> -->
-            <img src="img/makeinindia.png" class="img-responsive">
-            <!-- <span style="text-transform: lowercase;">A Govt. of India initiative</span> -->
-          </div>
-
-        </div>
-      </div>
-      <div class="col-md-2">
-        <div class="pb25">
-          <ul class="list-unstyled bold pt35">
-            <li>
-              <i class="fa fa-lock pr10"></i> SECURE SHOPPING
-            </li>
-            <li>
-              <i class="fa fa-truck pr10"></i>free shipping Worldwide
             </li>
           </ul>
           <div class="payment-method">
@@ -138,6 +120,23 @@
               </li>
             </ul>
           </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="makeindia pt35 text-center">
+          <span style="text-transform: none;">Committed to</span>
+          <img src="img/makeinindia.png" class="img-responsive">
+          <span style="text-transform: none;">A Govt. of India initiative</span>
+        </div>
+        <div class="pb25">
+          <ul class="list-unstyled bold pt35">
+            <li>
+              <i class="fa fa-lock pr10"></i> SECURE SHOPPING
+            </li>
+            <li>
+              <i class="fa fa-truck pr10"></i>free shipping Worldwide
+            </li>
+          </ul>
         </div>
       </div>
     </div>
