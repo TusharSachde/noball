@@ -217,7 +217,7 @@
                       <form name="qForm">
                         <div class="col-md-2 col-xs-4">
                           <div class="size text-center">
-                            <p>LEFT/RIGHT</p>
+                            <p>HAND</p>
                             <div class="ccc-select">
                               <select class="text-uppercase" ng-options="size.id as size.name for size in productdetail.size" ng-model="filter.size" ng-click="selectSize(filter)"></select>
 
@@ -227,7 +227,7 @@
                         </div>
                         <div class="col-md-4 col-xs-4">
                           <div class="size">
-                            <p>Quantity (Pairs)</p>
+                            <p>Quantity</p>
                             <div class="quantity">
                               <input type="number" ng-change="changeQuantity(filter.qty)" required name="quantity" ng-model="filter.qty" >
                             </div>
@@ -245,19 +245,19 @@
               </div>
             </div>
             <!-- glove ends -->
-            <div class="custom-btn mt30">
 
-              <!-- <a class="btn btn-outline btn-dark letter-spacing" href="#/custom">CUSTOMIZE</a>
-                            <br> -->
-              <a class="btn btn-outline btn-dark letter-spacing mright15" ng-click="cartAdd()" ng-hide="outofstock">ADD TO CART</a>
-              <p ng-show="outofstock"> Out of Stock.</p>
-
-              <a class="btn btn-outline btn-dark letter-spacing" ng-click="wishlistAdd(productdetail.product.id)">Add to wishlist</a>
-              <br>
-            </div>
           </div>
 
+          <div class="custom-btn mt30">
 
+            <!-- <a class="btn btn-outline btn-dark letter-spacing" href="#/custom">CUSTOMIZE</a>
+                          <br> -->
+            <a class="btn btn-outline btn-dark letter-spacing mright15" ng-click="cartAdd()" ng-hide="outofstock">ADD TO CART</a>
+            <p ng-show="outofstock"> Out of Stock.</p>
+
+            <a class="btn btn-outline btn-dark letter-spacing" ng-click="wishlistAdd(productdetail.product.id)">Add to wishlist</a>
+            <br>
+          </div>
           <div class="border-top text-center">
             <span>Select from a wide array of colors and
   customisation options</span>
@@ -266,6 +266,7 @@
             </div>
           </div>
         </div>
+
       </div>
     </div>
     </div>
