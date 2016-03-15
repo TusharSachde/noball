@@ -174,37 +174,8 @@
         <!-- if pads section -->
         <div class="show-pads" ng-if="params.category == 'Pads'">
           <div class="sel-qty">
-            <div class="choos quantity">
-              <div class="row">
-                <form name="qForm">
-                  <div class="col-md-2 col-xs-4">
-                    <div class="size text-center">
-                      <p>Size</p>
-                      <div class="ccc-select">
-                        <select class="text-uppercase" ng-options="size.id as size.name for size in productdetail.size" ng-model="filter.size" ng-click="selectSize(filter)"></select>
-
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4 col-xs-4">
-                    <div class="size">
-                      <p>Quantity</p>
-                      <div class="quantity">
-                        <input type="number" ng-change="changeQuantity(filter.qty)" required name="quantity" ng-model="filter.qty" >
-                      </div>
-                    </div>
-                    <h6 ng-show="maxQuantity">Quantity unavailable</h6>
-
-                </form>
-                </div>
-              </div>
-              <div class="order-minimum">
-                <span class="text-medium">*We accept a minimum order of 6 pieces</span>
-              </div>
-            </div>
-            <!-- <div class="chart">
-              <h3 class="letter-spacing">Select Pairs <span data-toggle="modal" data-target="#mymodal14" role="dialog">(Size Chart)</span></h3>
+            <div class="chart">
+              <!-- <h3 class="letter-spacing">Select Pairs <span data-toggle="modal" data-target="#mymodal14" role="dialog">(Size Chart)</span></h3> -->
                 </div>
                 <div class="order-minimum">
                   <span class="text-medium">*We accept a minimum order of 6 pieces</span>
@@ -215,44 +186,15 @@
                     <input type="number" ng-model="filter.qty">
                     <h3 class="inline-block">Pairs</h3>
                   </div>
-                </div> -->
+                </div>
               </div>
             </div>
             <!-- pads section ends -->
             <!-- glove -->
             <div class="show-pads" ng-if="params.category == 'Gloves'">
               <div class="sel-qty">
-                <div class="choos quantity">
-                  <div class="row">
-                    <form name="qForm">
-                      <div class="col-md-2 col-xs-4">
-                        <div class="size text-center">
-                          <p>Size</p>
-                          <div class="ccc-select">
-                            <select class="text-uppercase" ng-options="size.id as size.name for size in productdetail.size" ng-model="filter.size" ng-click="selectSize(filter)"></select>
-
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 col-xs-4">
-                        <div class="size">
-                          <p>Quantity</p>
-                          <div class="quantity">
-                            <input type="number" ng-change="changeQuantity(filter.qty)" required name="quantity" ng-model="filter.qty" >
-                          </div>
-                        </div>
-                        <h6 ng-show="maxQuantity">Quantity unavailable</h6>
-
-                    </form>
-                    </div>
-                  </div>
-                  <div class="order-minimum">
-                    <span class="text-medium">*We accept a minimum order of 6 pairs</span>
-                  </div>
-                </div>
-                <!-- <div class="chart">
-                  <h3 class="letter-spacing">Select Pairs</h3>
+                <div class="chart">
+                  <!-- <h3 class="letter-spacing">Select Pairs</h3> -->
                 </div>
                 <div class="order-minimum">
                   <span class="text-medium">*We accept a minimum order of 6 pairs</span>
@@ -263,7 +205,7 @@
                     <input type="number" ng-model="filter.qty" >
                     <h3 class="inline-block">Pairs</h3>
                   </div>
-                </div> -->
+                </div>
               </div>
             </div>
             <!-- glove ends -->
