@@ -180,6 +180,17 @@ firstapp.filter('serverimage', function() {
       // return "img/logo.png";
       return "";
     }
+  };0
+});
+
+firstapp.filter('resizeimage', function() {
+  return function(input) {
+    if (input) {
+      return  'http://customcricketcompany.com/admin/index.php/image/index?name=' + input+'&width=600';
+    } else {
+      // return "img/logo.png";
+      return "";
+    }
   };
 });
 
@@ -247,11 +258,12 @@ firstapp.directive('elevateZoom', function($document, $filter) {
                     var ez = $element.data("elevateZoom");
                                         if (!ez) {
                     $element.attr('data-zoom-image', $filter('serverimage')(image));
-                    $element.attr('src', $filter('serverimage')(image));
+                    $element.attr('src', $filter('resizeimage')(image));
                     $element.elevateZoom();
                   } else {
                       var newImage = $filter('serverimage')(image);
-                      ez.swaptheimage(newImage, newImage);
+                      var smallImage =$filter('resizeimage')(image);
+                      ez.swaptheimage( smallImage,newImage);
                   }
                 }
                 $scope.$on('changeImage', function(event, data) {

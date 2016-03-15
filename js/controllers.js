@@ -683,30 +683,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           type:'danger',
           msg:'Please input valid quantity'
         });
-      }else if($scope.params.category == 'Apparel' && $scope.filter.qty < 5){
-        $scope.alerts.push({
-          type:'danger',
-          msg:'Minimum order of 5 pieces'
-        });
-        $scope.filter.qty=5;
-      }else if($scope.params.category == 'Balls' && $scope.filter.qty < 2){
-        $scope.alerts.push({
-          type:'danger',
-          msg:'Minimum order of 2 boxes'
-        });
-        $scope.filter.qty=2;
-      }else if($scope.params.category == 'Gloves' && $scope.filter.qty < 6){
-        $scope.alerts.push({
-          type:'danger',
-          msg:'Minimum order of 6 pairs'
-        });
-        $scope.filter.qty=6;
-      }else if($scope.params.category == 'Pads' && $scope.filter.qty < 6){
-        $scope.alerts.push({
-          type:'danger',
-          msg:'Minimum order of 6 pairs'
-        });
-        $scope.filter.qty=6;
       }else{
         console.log($scope.filter);
         NavigationService.addToCart($scope.filter, function(data) {
@@ -729,14 +705,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 msg: 'Already in cart'
               })
             }
-            // var xyz = ngDialog.open({
-            //     template: '<div class="pop-up"><h5 class="popup-wishlist">' + data.comment + '</h5><span class="closepop" ng-click="closeThisDialog(value);">X</span></div>',
-            //     plain: true,
-            //     controller: 'Product-DetailCtrl'
-            // });
-            // $timeout(function () {
-            //     xyz.close();
-            // }, 1000)
           }
         }, function(err) {
           $state.go("error");
@@ -745,17 +713,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
     $scope.quantity=0;
     $scope.wishlistAdd = function(id) {
-       if($scope.params.category == 'Apparel'){
-        $scope.quantity=5;
-      }else if($scope.params.category == 'Balls'){
-        $scope.quantity=2;
-      }else if($scope.params.category == 'Gloves'){
-        $scope.quantity=6;
-      }else if($scope.params.category == 'Pads' ){
-        $scope.quantity=6;
-      }else{
         $scope.quantity=1;
-      }
       if ($.jStorage.get("user")) {
         NavigationService.addToWishlist({
           id:id,
