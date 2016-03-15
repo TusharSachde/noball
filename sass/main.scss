@@ -2579,7 +2579,11 @@ background-size: cover;
   background-color: #000;
   color: #fff;
 }
-.memorable { background-image: url('../img/services/memorable.jpg'); }
+.memorable {
+  background-image: url('../img/services/memorable.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 // end services
 
 // popup on product detail
