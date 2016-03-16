@@ -158,21 +158,21 @@
         <!-- if pads section -->
         <div class="show-pads" ng-if="params.category == 'Pads'">
             <div class="sel-qty">
-                  <h3 class="letter-spacing">Select Quantity</h3>
+                  <h3 class="letter-spacing">Select Pairs</h3>
                       <div class="choos quantity">
                         <div class="row">
                           <form name="qForm">
-                            <div class="col-md-2 col-xs-4">
-                              <div class="size text-center">
-                                <p>LEFT/RIGHT</p>
-                                <div class="ccc-select">
+                            <div class="col-md-4 col-xs-4">
+                              <div class="size">
+                                <p>Left/Right</p>
+                                <div class="ccc-select"  style="margin: 0;">
                                   <select class="text-uppercase" ng-options="size.id as size.name for size in productdetail.size" ng-model="filter.size" ng-click="selectSize(filter)"></select>
                                 </div>
                               </div>
                             </div>
                             <div class="col-md-4 col-xs-4">
                               <div class="size">
-                                <p>Quantity (Pairs)</p>
+                                <p>Quantity</p>
                                 <div class="quantity">
                                   <input type="number" ng-change="changeQuantity(filter.qty)" required name="quantity" ng-model="filter.qty">
                                 </div>
@@ -191,21 +191,21 @@
               <!-- glove -->
               <div class="show-pads" ng-if="params.category == 'Gloves'">
                 <div class="sel-qty">
-                  <h3 class="letter-spacing">Select Quantity</h3>
+                  <h3 class="letter-spacing">Select Pairs</h3>
                   <div class="choos quantity">
                     <div class="row">
                       <form name="qForm">
-                        <div class="col-md-2 col-xs-4">
-                          <div class="size text-center">
-                            <p>LEFT/RIGHT</p>
-                            <div class="ccc-select">
+                        <div class="col-md-4 col-xs-4">
+                          <div class="size">
+                            <p>Left/Right</p>
+                            <div class="ccc-select"  style="margin: 0;">
                               <select class="text-uppercase" ng-options="size.id as size.name for size in productdetail.size" ng-model="filter.size" ng-click="selectSize(filter)"></select>
                             </div>
                           </div>
                         </div>
                         <div class="col-md-4 col-xs-4">
                           <div class="size">
-                            <p>Quantity (Pairs)</p>
+                            <p>Quantity</p>
                             <div class="quantity">
                               <input type="number" ng-change="changeQuantity(filter.qty)" required name="quantity" ng-model="filter.qty">
                             </div>

@@ -647,7 +647,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
       if(filter.size !=null && filter.size != undefined){
         $scope.loadProduct(filter);
-        console.log();
       }else{
         $scope.filter.size=$scope.productdetail.product.size;
       }
