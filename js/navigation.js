@@ -2,10 +2,10 @@
 var mainurl = "http://customcricketcompany.com/admin/index.php/";
 // var mainurl = "http://192.168.0.123/cccbackend/index.php/";
 var websiteurl = "http://customcricketcompany.com/test/";
-var backendurl = "http://localhost/cccbackend/";
+// var backendurl = "http://localhost/cccbackend/";
 
 var imgurl = "http://customcricketcompany.com/admin/uploads/";
-// var imgurl = "http://192.168.0.123/admin/uploads/";
+// var imgurl = "http://192.168.0.123/cccbackend/uploads/";
 var adminurl = mainurl + "json/";
 var countries = [{
   "value": "Please Select"
@@ -513,7 +513,7 @@ var navigationservice = angular.module('navigationservice', [])
   }, {
     name: "Customize",
     classis: "",
-    link: "#/customisation"
+    link: "#/home"
   }, {
     name: "Services",
     classis: "",

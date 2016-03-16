@@ -2465,11 +2465,11 @@ border-left: 7px solid #c3e701;
 .service-main {
   // section { margin-bottom: 15px; }
   .title {
-    font-size: 45px;
+    font-size: 40px;
     letter-spacing: 3px;
   }
   .descp {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 22px;
     letter-spacing: 1px;
   }
@@ -2541,12 +2541,15 @@ border-left: 7px solid #c3e701;
    color: #fff;
  }
  .bg-blurlightwhite { background-color: rgba(255,255,255,0.5); }
-.service-pd { padding: 20% 0 10%; }
+.service-pd { padding: 12% 0 4%; }
 .service-bg {
 background-repeat: no-repeat;
 background-size: cover;
 }
-.advnc-customise { background-image: url('../img/services/advance-customise.jpg'); }
+.advnc-customise {
+  background-color: #000;
+  color: #fff;
+}
 .tshirt-custmoize {
   @include square(400px);
   margin: 0 auto;
@@ -2563,27 +2566,24 @@ background-size: cover;
   @include size(250px, auto);
   margin: 0 auto;
 }
-.custom-apparel { background-image: url('../img/services/apparel-bg.jpg');}
+.custom-apparel { background-image: url('../img/services/apparel-bg.png');}
 .lounge {
-  // padding: 100px 0;
+  padding: 12% 0 6%;
   color: #fff;
   text-transform: none;
+  background-image: url('../img/services/lounge.jpg');
 }
 .tours { background-image: url('../img/services/tours.jpg'); }
 .match-detail { margin: 40px 0; }
 .in-bound { margin-bottom: 50px; }
-.consultancy { background-image: url('../img/services/consultancy-bg.jpg'); }
+.consultancy { background-image: url('../img/services/apparel-bg.png'); }
 .foundation { background-color: #000; }
 .foundation-part {
   padding: 20px 30px;
   background-color: #000;
   color: #fff;
 }
-.memorable {
-  background-image: url('../img/services/memorable.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+.memorable { background-image: url('../img/services/memorable.jpg');}
 // end services
 
 // popup on product detail
