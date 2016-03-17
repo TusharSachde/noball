@@ -1162,6 +1162,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             msg: 'Removed successfully'
           });
           $scope.getCart();
+          myfunction();
         } else {
           $scope.alerts.push({
             type: 'danger',
