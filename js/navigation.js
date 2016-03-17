@@ -3,7 +3,7 @@ var mainurl = "http://customcricketcompany.com/admin/index.php/";
 // var mainurl = "http://192.168.0.123/cccbackend/index.php/";
 var websiteurl = "http://customcricketcompany.com/test/";
 var backendurl = "http://customcricketcompany.com/admin/";
-
+var country="";
 var imgurl = "http://customcricketcompany.com/admin/uploads/";
 // var imgurl = "http://192.168.0.123/cccbackend/uploads/";
 var adminurl = mainurl + "json/";
@@ -650,6 +650,9 @@ var navigationservice = angular.module('navigationservice', [])
         }
       }).success(callback).error(err);
     },
+        localCountry: function(callback) {
+            $.getJSON("http://www.geoplugin.net/json.gp?jsoncallback=?", callback)
+        },
     updateProfile: function(profile, callback, err) {
       return $http({
         url: adminurl + "updateUser",

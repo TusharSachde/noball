@@ -1611,6 +1611,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }else{
       $scope.isLogin = false;
     }
+    if (country == '') {
+        NavigationService.localCountry(function(data) {
+            console.log(data.geoplugin_countryCode);
+            country = data.geoplugin_countryCode;
+            $.jStorage.set("myCountry", country);
+        });
+    }
     $scope.acceptIt=function(flag){
       if(flag === true){
         $scope.acceptValidate = false;
