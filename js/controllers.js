@@ -1301,17 +1301,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       "img/services/consultancy/3.png"
     ];
     $scope.memorable = [
-      "img/services/memrobilia/1.jpg",
-      "img/services/memrobilia/2.jpg",
-      "img/services/memrobilia/3.jpg",
-      "img/services/memrobilia/4.jpg",
-      "img/services/memrobilia/5.jpg",
-      "img/services/memrobilia/6.jpg",
-      "img/services/memrobilia/7.jpg",
-      "img/services/memrobilia/8.jpg",
-      "img/services/memrobilia/9.jpg",
-      "img/services/memrobilia/10.jpg",
-      "img/services/memrobilia/11.jpg",
+      "img/services/Memrobilia/1.jpg",
+      "img/services/Memrobilia/2.jpg",
+      "img/services/Memrobilia/3.jpg",
+      "img/services/Memrobilia/4.jpg",
+      "img/services/Memrobilia/5.jpg",
+      "img/services/Memrobilia/6.jpg",
+      "img/services/Memrobilia/7.jpg",
+      "img/services/Memrobilia/8.jpg",
+      "img/services/Memrobilia/9.jpg",
+      "img/services/Memrobilia/10.jpg",
+      "img/services/Memrobilia/11.jpg",
     ];
 
     function makeAnimation(id) {
