@@ -672,7 +672,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.cartAdd = function() {
-      if($scope.params.category == 'Apparel' && $scope.filter.size == ''){
+      if(($scope.params.category == 'Apparel' || $scope.params.category == 'Gloves' || $scope.params.category == 'Pads') && $scope.filter.size == ''){
         $scope.alerts.push({
           type:'danger',
           msg:'Please input valid size'
