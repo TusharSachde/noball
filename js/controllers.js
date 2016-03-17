@@ -1609,7 +1609,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       $scope.isLogin = true;
     }else{
       $scope.isLogin = false;
-
     }
     $scope.acceptIt=function(flag){
       if(flag === true){
