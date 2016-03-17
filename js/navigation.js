@@ -588,6 +588,15 @@ var navigationservice = angular.module('navigationservice', [])
         }
       }).success(callback).error(err);
     },
+		fedexTrack: function (tracking_number,callback) {
+      tracking_number = 123456789012;
+		    $http({
+				url: 'https://www.fedex.com/trackingCal/track?data={"TrackPackagesRequest":{"appType":"WTRK","uniqueKey":"","processingParameters":{},"trackingInfoList":[{"trackNumberInfo":{"trackingNumber":'+tracking_number+',"trackingQualifier":"","trackingCarrier":""}}]}}&action=trackpackages&locale=en_CA&version=1&formate=json',
+				method: 'GET',
+				withCredentials: false
+			}).success(callback);
+
+		},
     addToWishlist: function(wishlist, callback, err) {
       return $http({
         url: adminurl + "addToWishlist",

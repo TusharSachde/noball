@@ -825,6 +825,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       console.log(id);
             $window.open(mainurl+'site/printorderinvoice?id='+id,'_new');
         };
+        $scope.trackFedex = function(order) {
+    NavigationService.fedexTrack('', function(data) {
+      console.log(data.TrackPackagesResponse.packageList[0]);
+      order.fedex = data.TrackPackagesResponse.packageList[0];
+    })
+  }
     NavigationService.getOrders(function(data) {
       $scope.msg="";
       console.log(data);
