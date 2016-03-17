@@ -1787,8 +1787,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       $scope.validateForm = false;
       $scope.alreadyReg = false;
       $scope.noMatch = false;
-
-
       if (formValidate.$valid) {
         if (accept == true) {
           NavigationService.signup(input, function(data) {
