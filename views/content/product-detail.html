@@ -58,7 +58,13 @@
         <div class="col-flex">
           <div class="product-desc">
             <div class="pro-rp">
-              <p ng-class="{'strike-text':firstsale}"><i class="fa fa-inr"></i>{{productdetail.product.price}}</p>
+              <p ng-class="{'strike-text':firstsale}" ng-if="country == 'INR'"><i class="fa fa-inr"></i>{{productdetail.product.price}}</p>
+              <p ng-class="{'strike-text':firstsale}" ng-if="country == 'GBP'"><i class="fa fa-inr"></i>{{productdetail.product.price}}</p>
+              <p ng-class="{'strike-text':firstsale}" ng-if="country == 'NZD'"><i class="fa fa-inr"></i>{{productdetail.product.price}}</p>
+              <p ng-class="{'strike-text':firstsale}" ng-if="country == 'EUR'"><i class="fa fa-inr"></i>{{productdetail.product.price}}</p>
+              <p ng-class="{'strike-text':firstsale}" ng-if="country == 'USD'"><i class="fa fa-inr"></i>{{productdetail.product.price}}</p>
+              <p ng-class="{'strike-text':firstsale}" ng-if="country == 'ZAF'"><i class="fa fa-inr"></i>{{productdetail.product.price}}</p>
+              <p ng-class="{'strike-text':firstsale}" ng-if="country == 'AUD'"><i class="fa fa-inr"></i>{{productdetail.product.price}}</p>
               <span ng-show="firstsale"><i class="fa fa-inr"></i>{{productdetail.product.discountprice}}</span>
             </div>
             <div class="clearfix"></div>

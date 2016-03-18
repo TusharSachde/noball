@@ -582,10 +582,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.filter={};
     $scope.navigation = NavigationService.getnav();
     $scope.alerts = [];
+    $scope.menutab=[];
+    $scope.menutab = [{
+      name: "Details",
+      class: "pro-btn-active",
+      id: "1"
+    }, {
+      name: "Delivery",
+      class: "",
+      id: "2"
+    }, {
+      name: "Care",
+      class: "",
+      id: "3"
+    }];
     $scope.selectedImage={};
     $scope.params = $stateParams;
     $scope.filter.id=$scope.params.id;
     $scope.oneAtATime = true;
+    $scope.country=$.jStorage.get("myCountry");
     $scope.status = {
       isFirstOpen: true,
       isFirstDisabled: false
@@ -604,6 +619,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       if(filter.size == null || filter.size == undefined)
       {
         filter.size="";
+      }
+      if($scope.params.category == 'Apparel'){
+
+          $scope.menutab[0].name = "Form + Function";
+      }else{
+        $scope.menutab[0].name="Build + Features";
+        
       }
       NavigationService.getProductDetail(filter, function(data) {
         console.log(data);
@@ -666,7 +688,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       console.log(err);
     });
     $scope.selectImage = function(object) {
-      console.log("user");
       $scope.selectedImage.image = object.image;
       $rootScope.$broadcast('changeImage', {});
     };
@@ -684,6 +705,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
       }else{
         console.log($scope.filter);
+        $scope.filter.currency = $scope.country;
         NavigationService.addToCart($scope.filter, function(data) {
           console.log(data);
           if (data.value == true) {
@@ -749,19 +771,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.classc = '';
     $scope.tab = 1;
 
-    $scope.menutab = [{
-      name: "Details",
-      class: "pro-btn-active",
-      id: "1"
-    }, {
-      name: "Delivery",
-      class: "",
-      id: "2"
-    }, {
-      name: "Care",
-      class: "",
-      id: "3"
-    }];
+
 
     $scope.makeActive = function(menu, index) {
       $scope.tab = menu.id;
@@ -1613,8 +1623,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
     if (country == '') {
         NavigationService.localCountry(function(data) {
-            console.log(data.geoplugin_countryCode);
-            country = data.geoplugin_countryCode;
+          console.log(data);
+            console.log(data.geoplugin_currencyCode);
+            country = data.geoplugin_currencyCode;
             $.jStorage.set("myCountry", country);
         });
     }
