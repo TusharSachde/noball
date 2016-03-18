@@ -123,7 +123,35 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         } else {
           $scope.msg = "No items in cart.";
         }
+        NavigationService.getCurrency(function(data){
+          console.log(data);
+          if(data){
+            // var temp= _.find(data,{'name':$scope.country});
+            var temp;
+            _.each(data,function(key){
+              if(key.name == $.jStorage.get("myCountry")){
+                temp=key;
+              }
+            });
+            console.log(temp);
+            if(temp.name == $.jStorage.get("myCountry"));
+              {
+                console.log("herhusdhxyuashxuayhs");
+                console.log($scope.totalcart);
+                console.log(parseInt(temp.minorder));
+                if(parseInt(temp.minorder) > $scope.totalcart){
+                  console.log(temp.shipping);
+                  $scope.shippingcharges = parseInt(temp.shipping);
+                  console.log($scope.shippingcharges);
 
+                }else{
+                  $scope.shippingcharges=0;
+                }
+              }
+          }
+        }, function(err) {
+          console.log(err);
+        });
       }, function(err) {
         console.log(err);
       });
@@ -625,7 +653,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           $scope.menutab[0].name = "Form + Function";
       }else{
         $scope.menutab[0].name="Build + Features";
-        
+
       }
       NavigationService.getProductDetail(filter, function(data) {
         console.log(data);
@@ -869,6 +897,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.backendurl = backendurl;
     $scope.billingfulladdress = "";
     $scope.shippingfulladdress = "";
+    $scope.shippingcharges = 0;
     $scope.selectGuest = function(input) {
       console.log(input);
       $scope.guestshow = true;
@@ -915,6 +944,33 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
           })
         }
+        NavigationService.getCurrency(function(data){
+          console.log(data);
+          if(data){
+            // var temp= _.find(data,{'name':$scope.country});
+            var temp;
+            _.each(data,function(key){
+              if(key.name == $.jStorage.get("myCountry")){
+                temp=key;
+              }
+            });
+            console.log(temp);
+            if(temp.name == $.jStorage.get("myCountry"));
+              {
+                console.log("herhusdhxyuashxuayhs");
+                if(parseInt(temp.minorder) > $scope.totalcart){
+                  console.log(temp.shipping);
+                  $scope.shippingcharges = parseInt(temp.shipping);
+                  console.log($scope.shippingcharges);
+
+                }else{
+                  $scope.shippingcharges=0;
+                }
+              }
+          }
+        }, function(err) {
+          console.log(err);
+        });
       }, function(err) {
         console.log(err);
       })
