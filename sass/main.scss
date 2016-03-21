@@ -2598,4 +2598,17 @@ background-size: cover;
   height: 100%;
   position: relative;
 }
+// end
+// size chart
+.specialSizeChart {
+  .modal-dialog { position: relative; }
+  .modal-content {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%,-50%));
+  }
+}
+// end size chart
 @import "mobile/mobile";
