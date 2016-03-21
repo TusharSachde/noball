@@ -136,9 +136,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log(temp);
             if(temp.name == $.jStorage.get("myCountry"));
               {
-                console.log("herhusdhxyuashxuayhs");
-                console.log($scope.totalcart);
-                console.log(parseInt(temp.minorder));
                 if(parseInt(temp.minorder) > $scope.totalcart){
                   console.log(temp.shipping);
                   $scope.shippingcharges = parseInt(temp.shipping);
@@ -611,6 +608,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     $scope.alerts = [];
     $scope.menutab=[];
+    $scope.country= $.jStorage.get("myCountry");
     $scope.menutab = [{
       name: "Details",
       class: "pro-btn-active",
@@ -628,7 +626,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.params = $stateParams;
     $scope.filter.id=$scope.params.id;
     $scope.oneAtATime = true;
-    $scope.country=$.jStorage.get("myCountry");
     $scope.status = {
       isFirstOpen: true,
       isFirstDisabled: false
