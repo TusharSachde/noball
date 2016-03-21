@@ -729,8 +729,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           msg:'Please input valid quantity'
         });
       }else{
-        console.log($scope.filter);
-        $scope.filter.currency = $scope.country;
         NavigationService.addToCart($scope.filter, function(data) {
           console.log(data);
           if (data.value == true) {

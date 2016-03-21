@@ -1,13 +1,13 @@
 // var mainurl = "http://wohlig.io:81/callApi/noball/";
-// var mainurl = "http://customcricketcompany.com/admin/index.php/";
-var mainurl = "http://192.168.0.123/cccbackend/index.php/";
-// var websiteurl = "http://customcricketcompany.com/test/";
-var websiteurl = "http://localhost:8080";
-// var backendurl = "http://customcricketcompany.com/admin/";
-var backendurl = "http://192.168.0.123/cccbackend/index.php/";
+var mainurl = "http://customcricketcompany.com/admin/index.php/";
+// var mainurl = "http://192.168.0.123/cccbackend/index.php/";
+var websiteurl = "http://customcricketcompany.com/test/";
+// var websiteurl = "http://localhost:8080";
+var backendurl = "http://customcricketcompany.com/admin/";
+// var backendurl = "http://192.168.0.123/cccbackend/index.php/";
 var country="";
-// var imgurl = "http://customcricketcompany.com/admin/uploads/";
-var imgurl = "http://192.168.0.123/cccbackend/uploads/";
+var imgurl = "http://customcricketcompany.com/admin/uploads/";
+// var imgurl = "http://192.168.0.123/cccbackend/uploads/";
 var adminurl = mainurl + "json/";
 var countries = [{
   "value": "Please Select"
@@ -528,7 +528,8 @@ var navigationservice = angular.module('navigationservice', [])
   }, {
     name: "CUSTOM SPORTS APPAREL",
     anchor: "customapparel",
-  },{
+  },
+  {
     name: "CCC LOUNGE",
     anchor: "ccclounge",
   },{
@@ -581,15 +582,15 @@ var navigationservice = angular.module('navigationservice', [])
       $http.get(adminurl + 'getOrders').success(callback).error(err);
     },
     addToCart: function(cart, callback, err) {
+      var currency = $.jStorage.get("myCountry");
       return $http({
         url: adminurl + "addToCart",
         method: "POST",
         data: {
           "product": cart.id,
           "quantity": cart.qty,
-          "json": "",
-          "status": cart.status,
-          "currency":$.jStorage.get("myCountry")
+          "currency": currency,
+          "json": ""
         }
       }).success(callback).error(err);
     },
@@ -722,7 +723,14 @@ var navigationservice = angular.module('navigationservice', [])
       $http.get(adminurl + 'getProductDetail?id=' + req.id+'&size='+req.size+'&currency='+$.jStorage.get("myCountry")).success(callback).error(err);
     },
     showCart: function(callback, err) {
-      $http.get(adminurl + 'showCart').success(callback).error(err);
+      return $http({
+        url: adminurl + "showCart",
+        method: "POST",
+        data: {
+          "currency":$.jStorage.get("myCountry")
+        }
+      }).success(callback).error(err);
+
     },
     logout: function(callback, err) {
       $http.get(adminurl + 'logout').success(callback).error(err);
