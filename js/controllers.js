@@ -12,7 +12,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Home");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.minorder=0;
 
+    // $scope.country = "GBP";
+    $scope.country = $.jStorage.get("myCurrency");
     NavigationService.getCategory(function(data) {
       $scope.categories = _.chunk(data, 3);
     }, function(err) {
@@ -24,6 +27,28 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }, function(err) {
       console.log(err);
     });
+    $scope.getMinOrder = function(){
+      NavigationService.getCurrency(function(data){
+        console.log(data);
+        if(data){
+          // var temp= _.find(data,{'name':$scope.country});
+          var temp;
+          _.each(data,function(key){
+            if(key.name == $.jStorage.get("myCurrency")){
+              temp=key;
+            }
+          });
+          console.log(temp);
+          if(temp.name == $.jStorage.get("myCurrency"));
+            {
+            $scope.minorder=temp.minorder;
+            }
+        }
+      }, function(err) {
+        console.log(err);
+      });
+    }
+    $scope.getMinOrder();
     $scope.openAppoinment = function() {
       $uibModal.open({
         animation: true,
@@ -129,12 +154,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             // var temp= _.find(data,{'name':$scope.country});
             var temp;
             _.each(data,function(key){
-              if(key.name == $.jStorage.get("myCountry")){
+              if(key.name == $.jStorage.get("myCurrency")){
                 temp=key;
               }
             });
             console.log(temp);
-            if(temp.name == $.jStorage.get("myCountry"));
+            if(temp.name == $.jStorage.get("myCurrency"));
               {
                 if(parseInt(temp.minorder) > $scope.totalcart){
                   console.log(temp.shipping);
@@ -608,7 +633,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     $scope.alerts = [];
     $scope.menutab=[];
-    $scope.country= $.jStorage.get("myCountry");
+    $scope.country= $.jStorage.get("myCurrency");
     $scope.menutab = [{
       name: "Details",
       class: "pro-btn-active",
@@ -945,12 +970,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             // var temp= _.find(data,{'name':$scope.country});
             var temp;
             _.each(data,function(key){
-              if(key.name == $.jStorage.get("myCountry")){
+              if(key.name == $.jStorage.get("myCurrency")){
                 temp=key;
               }
             });
             console.log(temp);
-            if(temp.name == $.jStorage.get("myCountry"));
+            if(temp.name == $.jStorage.get("myCurrency"));
               {
                 console.log("herhusdhxyuashxuayhs");
                 if(parseInt(temp.minorder) > $scope.totalcart){
@@ -1677,7 +1702,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           console.log(data);
             console.log(data.geoplugin_currencyCode);
             country = data.geoplugin_currencyCode;
-            $.jStorage.set("myCountry", country);
+            if(country == "ZAR"){
+              $.jStorage.set("myCurrency", "ZAF");
+              country = "ZAF";
+            }else if(country == "INR" || country == "USD" || country == "GBP" || country == "EUR" || country =="AUD" || country == "NZD"){
+              $.jStorage.set("myCurrency", country);
+            }else{
+              $.jStorage.set("myCurrency", "USD");
+              country = "USD";
+            }
         });
     }
     $scope.acceptIt=function(flag){
