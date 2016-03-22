@@ -15,11 +15,18 @@
 
   </li>
 
-  <li ng-if="isLogin">
+  <!-- <li ng-if="isLogin">
     <a href="#" class="btn-yellow" ng-click="logout()">Logout</a>
-  </li>
-  <li ng-if="isLogin">
-    <a ui-sref="profile" class="user-name" >{{user.name}}</a>
+  </li> -->
+  <li ng-if="isLogin" class="user-sec">
+    <a ui-sref="profile" class="user-name" >Hi, {{user.name}} <i class="fa fa-caret-down"></i></a>
+    <ul class="custom-sub service-head-menu profile-menu">
+      <li class="blue-service"><a href="" class="text-uppercase">my profile</a></li>
+      <li class="blue-service"><a href="" class="text-uppercase">my orders</a></li>
+      <li class="blue-service"><a href="" class="text-uppercase">my wishlist</a></li>
+      <li class="blue-service"><a href="" class="text-uppercase">saved designs</a></li>
+      <li class="blue-service"><a href="" class="text-uppercase" ng-click="logout()">logout</a></li>
+    </ul>
   </li>
   <li class="mt-35" ng-show="wishlistcountshow">
     <a ui-sref="mywishlist" class="icon-btn">

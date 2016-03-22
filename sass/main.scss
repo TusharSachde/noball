@@ -195,10 +195,22 @@ a.icon-btn {
         }
       }
       .user-name {
-        width: 113px;
+        width: 175px;
+        border-left: 2px solid #808080;
+        padding: 8px 5px 8px 15px;
+        color: #53c8eb;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
+        text-align: center;
+        &:hover { color: #53c8eb; }
+        i {
+          padding: 0px 4px;
+          position: absolute;
+          top: 10px;
+          right: 0;
+          background-color: #000;
+        }
       }
     }
     li:first-child  .custom-sub {
@@ -665,6 +677,12 @@ footer {
   .blue-service a:hover,:active {
     border-color: #53c8eb;
   }
+}
+.user-sec:hover .profile-menu { display: block; }
+.profile-menu {
+  width: 180px;
+  left: 0;
+  display: none;
 }
 .cart-head:hover .cart-hov { display: block; }
 .cart-hov {
