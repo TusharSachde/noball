@@ -566,7 +566,14 @@ var navigationservice = angular.module('navigationservice', [])
       $http.get(adminurl + 'getCategory').success(callback).error(err);
     },
     getCartCount: function(callback, err) {
-      $http.get(adminurl + 'getCartCount').success(callback).error(err);
+      var currency = $.jStorage.get("myCurrency");
+      return $http({
+        url: adminurl + "getCartCount",
+        method: "POST",
+        data: {
+          "currency": currency
+        }
+      }).success(callback).error(err);
     },
     getSubCategory: function(name, callback, err) {
       $http.get(adminurl + 'getSubCategory?name=' + name).success(callback).error(err);
