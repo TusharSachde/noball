@@ -701,7 +701,14 @@ footer {
   .prd-info {
     color: #fff;
     vertical-align: top;
-    .name { margin: 0px 0px 10px; }
+    .name {
+      width: 100px;
+      margin: 0px 0px 10px;
+      font-size: 14px;
+      // text-overflow: ellipsis;
+      // overflow: hidden;
+      // white-space: nowrap;
+    }
   }
   .total-price {
     margin: 20px 0;
@@ -1020,6 +1027,7 @@ footer {
     background-image: url("../img/page-banner/privacy-policy.jpg");
   }
 }
+.contact-us { background-color: #f3f3f3; }
 .privacy-info {
   padding: 60px;
   color: #737373;
@@ -1060,6 +1068,35 @@ footer {
     font-weight: 500;
     margin-top: 0;
   }
+}
+.enquiry {
+  margin-top: 40px;
+  h3 { margin-bottom: 25px; }
+  .form-group { margin-bottom: 5px; }
+  label {
+  @include square(42px);
+    padding: 10px 12px;
+    background-color: #fff;
+    text-align: center;
+    vertical-align: top;
+  }
+  label[for="name"] { border-right: 3px solid #c4e701; }
+  label[for="mail"] { border-right: 3px solid #53c8eb; }
+  label[for="sub"] { border-right: 3px solid #ff7905; }
+  label[for="msg"] { border-right: 3px solid #747474; }
+  .form-control {
+    width: 300px;
+    height: 42px;
+    border: none;
+    box-shadow: none;
+    margin-left: -4px;
+  }
+  textarea.form-control {
+    height: 120px;
+    margin-bottom: 5px;
+    resize: none;
+  }
+  .send { margin-right: 66px; }
 }
 //cart page
 .order-table {
@@ -2702,4 +2739,31 @@ background-size: cover;
   }
 }
 // end size chart
+.customize-now {
+  padding: 30px;
+  background-color: #fff;
+  .descp { margin-bottom: 30px; }
+  .form-group { margin-bottom: 20px; }
+  .form-inline {
+    label {
+      width: 250px;
+      font-weight: 500;
+    }
+    input,
+    textarea {
+      border-color: #000;
+      box-shadow: none;
+    }
+  }
+  .msg {
+    display: block;
+    label { display: block; }
+    textarea {
+      width: 100%;
+      resize: none;
+    }
+  }
+  input[type="file"] { width: 180px; }
+  textarea { min-height: 100px; }
+}
 @import "mobile/mobile";
