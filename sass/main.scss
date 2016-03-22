@@ -666,9 +666,12 @@ footer {
     border-color: #53c8eb;
   }
 }
+.cart-head:hover .cart-hov { display: block; }
 .cart-hov {
-  width: 270px;
+  width: 260px;
+  padding: 20px 15px;
   left: -110px;
+  display: none;
   .cart-imghov {
     @include square(100px);
     img {
@@ -706,7 +709,7 @@ footer {
   }
   .free {
     margin: 10px 0px 0;
-    font-size: 8px;
+    font-size: 10px;
   }
 }
 .sub-holder {
