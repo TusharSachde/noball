@@ -24,7 +24,7 @@
               <li>
                 <div class="repeat-product" ng-click="selectImage(item)">
                   <div class="img-hold">
-                    <img ng-src="{{item.image | serverimage}}" class="img-responsive">
+                    <img ng-src="{{item.image | resizeimage}}" class="img-responsive">
                   </div>
                 </div>
               </li>
@@ -228,7 +228,7 @@
             <div class="border-top text-center">
               <span>Select from a wide array of colors and customisation options</span>
               <div class="mt20">
-                <button type="button" name="button" class="btn-green letter-spacing">CUSTOMIZE NOW</button>
+                <button type="button" name="button" class="btn-green letter-spacing" ng-click="customize();">CUSTOMIZE NOW</button>
               </div>
             </div>
           </div>

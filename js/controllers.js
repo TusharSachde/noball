@@ -591,7 +591,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.category = $stateParams.category;
     $scope.msg = "Loading...";
     $scope.products = [];
-
+    $scope.country=$.jStorage.get("myCurrency");
     NavigationService.getSubCategory($stateParams.category, function(data) {
       $scope.subCategories = data;
     }, function(err) {
@@ -624,7 +624,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('Product-DetailCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, ngDialog, $rootScope) {
+  .controller('Product-DetailCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, ngDialog, $rootScope, $uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("product-detail");
     $scope.menutitle = NavigationService.makeactive("Products");
@@ -633,6 +633,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     $scope.alerts = [];
     $scope.menutab=[];
+
+     $scope.customize = function() {
+      $uibModal.open({
+        animation: true,
+        templateUrl: "views/modal/customizepop.html",
+        scope: $scope,
+        controller: 'Product-DetailCtrl'
+      });
+    };
     $scope.country= $.jStorage.get("myCurrency");
     $scope.menutab = [{
       name: "Details",
@@ -871,6 +880,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Contact Us");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.submit = function(enquiry) {
+    if(enquiry.$valid) {
+      $scope.formComplete = true;
+    }
+  }
   })
   .controller('OrderCtrl', function($scope, $state, TemplateService, NavigationService, $timeout,$window) {
     //Used to name the .html file
@@ -1689,6 +1703,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.loginmodal = true;
     $scope.signupmodal = false;
     $scope.forgot = {};
+    $scope.country=$.jStorage.get("myCurrency");
+    $scope.totalcart = 0;
+    $scope.addCart=[];
     $scope.emailsent=false;
       $scope.noexist=false;
     $scope.navigation = NavigationService.getnav();
@@ -1697,6 +1714,50 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }else{
       $scope.isLogin = false;
     }
+    $scope.msg= "Loading ..";
+    $scope.getCart = function() {
+
+      $scope.addCart=[];
+      NavigationService.showCart(function(data) {
+        console.log(data);
+        $scope.msg="";
+        if (data != '') {
+          $scope.msg = "";
+          $scope.addCart = data;
+          $scope.totalcart = 0;
+          _.each($scope.addCart, function(key) {
+            key.qty = parseInt(key.qty);
+            $scope.totalcart = $scope.totalcart + parseInt(key.subtotal);
+
+          })
+          console.log(bigcount);
+          $scope.bigcount = bigcount;
+        } else {
+          $scope.msg = "No items in cart.";
+        }
+        NavigationService.getCurrency(function(data){
+          console.log(data);
+          if(data){
+            // var temp= _.find(data,{'name':$scope.country});
+            var temp;
+            _.each(data,function(key){
+              if(key.name == $.jStorage.get("myCurrency")){
+                temp=key;
+              }
+            });
+            console.log(temp);
+            if(temp.name == $.jStorage.get("myCurrency"));
+              {
+                $scope.minorder=temp.minorder;
+              }
+          }
+        }, function(err) {
+          console.log(err);
+        });
+      }, function(err) {
+        console.log(err);
+      });
+    };
     if (country == '') {
         NavigationService.localCountry(function(data) {
           console.log(data);

@@ -25,7 +25,13 @@
             <div class="text-above text-center">
               <h2 class="text-uppercase">{{product.name}}</h2>
               <a ui-sref="product-detail({category:category,subcategory:subcategory,id:product.id})" class="btn btn-outline btn-light uppercase letter-spacing">Explore</a>
-              <!-- <h2 class=""><i class="fa fa-inr"></i> 4000</h2> -->
+              <h2 class=""><i class="fa fa-inr" ng-if="country == 'INR'"></i>
+    <i class="fa fa-gbp" ng-if="country == 'GBP'"></i>
+    <i class="fa fa-usd" ng-if="country == 'NZD'"></i>
+    <i class="fa fa-eur" ng-if="country == 'EUR'"></i>
+    <i class="fa fa-usd" ng-if="country == 'USD'"></i>
+    <i ng-if="country == 'ZAF'">R</i>
+    <i class="fa fa-usd" ng-if="country == 'AUD'"></i> {{product.price}}</h2>
             </div>
           </div>
         </div>

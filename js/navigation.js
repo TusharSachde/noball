@@ -573,7 +573,7 @@ var navigationservice = angular.module('navigationservice', [])
     },
     getProductBySubCategory: function(name, callback, err) {
       console.log(name);
-      $http.get(adminurl + 'getProductBySubCategory?name=' + name).success(callback).error(err);
+      $http.get(adminurl + 'getProductBySubCategory?name=' + name+'&currency='+$.jStorage.get("myCurrency")).success(callback).error(err);
     },
     getTestimonial: function(callback, err) {
       $http.get(adminurl + 'getTestimonial').success(callback).error(err);
@@ -698,7 +698,15 @@ var navigationservice = angular.module('navigationservice', [])
       }).success(callback).error(err);
     },
     getWishlist: function(callback, err) {
-      $http.get(adminurl + 'getWishlist').success(callback).error(err);
+      var currency = $.jStorage.get("myCurrency");
+      console.log(currency);
+      return $http({
+        url: adminurl + "getWishlist",
+        method: "POST",
+        data: {
+          "currency":currency
+        }
+      }).success(callback).error(err);
     },
     getWishlistCount: function(callback, err) {
       $http.get(adminurl + 'getWishlistCount').success(callback).error(err);

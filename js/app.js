@@ -184,7 +184,7 @@ firstapp.filter('serverimage', function() {
 firstapp.filter('resizeimage', function() {
   return function(input) {
     if (input) {
-      return  'http://customcricketcompany.com/admin/index.php/image/index?name=' + input+'&width=600';
+      return  mainurl+'image/index?name=' + input+'&width=600';
     } else {
       // return "img/logo.png";
       return "";
