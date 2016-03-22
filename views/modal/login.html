@@ -190,6 +190,15 @@
                   Password too short.
                 </div>
               </div>
+              <div class="form-group">
+                <input type="password" name="cfpassword" class="form-control" ng-model="signup.cfpassword" ng-minlength="6" required placeholder="Confirm Password">
+                <div class="ab" ng-show="signupForm.cfpassword.$error.required && signupForm.cfpassword.$touched" role="alert">
+                  Please enter correct password.
+                </div>
+                <div class="ab" ng-show="signupForm.password.$error.minlength " role="alert">
+                  Password too short.
+                </div>
+              </div>
               <div class="accept">
                 <div class="checkbox">
                   <input type="checkbox" ng-model="accept" ng-change="acceptIt(accept)" class="text-uppercase" id="accept">
