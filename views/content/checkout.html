@@ -134,7 +134,7 @@
                         <tr class="text-center" ng-repeat="cart in allcart">
                           <td>
                               <figure>
-                                  <img ng-src="{{cart.image|serverimage}}">
+                                  <img ng-src="{{cart.image | resizeimage300}}">
                                   <figcaption>{{cart.options.realname}}</figcaption>
                               </figure>
                           </td>
