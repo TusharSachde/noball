@@ -195,7 +195,10 @@
                 <div class="ab" ng-show="signupForm.cfpassword.$error.required && signupForm.cfpassword.$touched" role="alert">
                   Please enter correct password.
                 </div>
-                <div class="ab" ng-show="signupForm.password.$error.minlength " role="alert">
+                <div class="ab" ng-show="noMatch">
+                      Passwords do not match.
+                </div>
+                <div class="ab" ng-show="signupForm.cfpassword.$error.minlength " role="alert">
                   Password too short.
                 </div>
               </div>

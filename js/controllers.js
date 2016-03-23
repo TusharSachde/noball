@@ -1952,19 +1952,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       $scope.alreadyReg = false;
       $scope.noMatch = false;
       if (formValidate.$valid) {
-        if (accept == true) {
-          NavigationService.signup(input, function(data) {
-            if (data.value == false) {
-              $scope.alreadyReg = true;
-            } else {
-              NavigationService.setUser(data);
-              window.location.reload();
-            }
-          }, function(err) {
-            console.log(err);
-          })
-        } else {
-          $scope.acceptValidate = true;
+        if(input.password != input.cfpassword){
+          $scope.noMatch=true;
+        }else{
+          if (accept == true) {
+            NavigationService.signup(input, function(data) {
+              if (data.value == false) {
+                $scope.alreadyReg = true;
+              } else {
+                NavigationService.setUser(data);
+                window.location.reload();
+              }
+            }, function(err) {
+              console.log(err);
+            })
+          } else {
+            $scope.acceptValidate = true;
+          }
         }
       } else {
         $scope.validateForm = true;

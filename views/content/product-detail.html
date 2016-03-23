@@ -235,5 +235,32 @@
         </div>
       </div>
     </div>
+    <div class="testimonial">
+      <div class="container" ng-if="productdetail.relatedproduct.length != 0">
+
+        <div class="heading">
+          <h4 class="text-uppercase high-light">you may also like</h4>
+        </div>
+        <div class="slider-prd-detail">
+          <flex-slider class="carousel" flex-slide="pro in productdetail.relatedproduct track by $index" animation="slide" item-width="350">
+            <li>
+              <div class="slider-info" ui-sref="product-detail({
+                category:params.category,
+                subcategory:params.subcategory,
+                id:pro.id
+              })">
+                <div class="slider-imgholder">
+                  <img ng-src="{{pro.image1 | serverimage}}" alt="" class="img-responsive">
+                </div>
+                <div class="slider-infodetaiil">
+                  <h3 class="prd-name">{{pro.name}}</h3>
+                  <h4 class="price"><i class="fa fa-inr"></i>{{pro.price}}</h4>
+                </div>
+              </div>
+            </li>
+          </flex-slider>
+        </div>
+      </div>
+    </div>
   </section>
 </div>
