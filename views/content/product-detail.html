@@ -1,6 +1,7 @@
 <div class="container-fluid">
   <div class="alert-postion">
-    <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" class="text-center" dismiss-on-timeout="5000">{{alert.msg}}</uib-alert>
+    <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" class="text-center" >{{alert.msg}}</uib-alert>
+    <!-- <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" class="text-center" dismiss-on-timeout="5000">{{alert.msg}}</uib-alert> -->
   </div>
   <section>
     <div class="margin-bottom">
@@ -24,7 +25,7 @@
               <li>
                 <div class="repeat-product" ng-click="selectImage(item)">
                   <div class="img-hold">
-                    <img ng-src="{{item.image | resizeimage}}" class="img-responsive">
+                    <img ng-src="{{item.image | serverimage}}" class="img-responsive">
                   </div>
                 </div>
               </li>
@@ -250,7 +251,7 @@
                 id:pro.id
               })">
                 <div class="slider-imgholder">
-                  <img ng-src="{{pro.image1 | serverimage}}" alt="" class="img-responsive">
+                  <img ng-src="{{pro.image1 | resizeimage300}}" alt="" class="img-responsive">
                 </div>
                 <div class="slider-infodetaiil">
                   <h3 class="prd-name">{{pro.name}}</h3>

@@ -680,11 +680,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         filter.size="";
       }
       if($scope.params.category == 'Apparel'){
-
           $scope.menutab[0].name = "Form + Function";
       }else{
-        $scope.menutab[0].name="Build + Features";
-
+        $scope.menutab[0].name="Build + Features";  
       }
       NavigationService.getProductDetail(filter, function(data) {
         console.log(data);

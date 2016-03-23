@@ -191,6 +191,16 @@ firstapp.filter('resizeimage', function() {
     }
   };
 });
+firstapp.filter('resizeimage300', function() {
+  return function(input) {
+    if (input) {
+      return  mainurl+'image/index?name=' + input+'&width=300';
+    } else {
+      // return "img/logo.png";
+      return "";
+    }
+  };
+});
 
 firstapp.filter('largeImage', function() {
   return function(input) {
@@ -267,11 +277,11 @@ firstapp.directive('elevateZoom', function($document, $filter) {
                     var ez = $element.data("elevateZoom");
                                         if (!ez) {
                     $element.attr('data-zoom-image', $filter('serverimage')(image));
-                    $element.attr('src', $filter('resizeimage')(image));
+                    $element.attr('src', $filter('serverimage')(image));
                     $element.elevateZoom();
                   } else {
                       var newImage = $filter('serverimage')(image);
-                      var smallImage =$filter('resizeimage')(image);
+                      var smallImage =$filter('serverimage')(image);
                       ez.swaptheimage( smallImage,newImage);
                   }
                 }
