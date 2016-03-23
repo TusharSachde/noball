@@ -50,7 +50,7 @@
         <div class="product-scroll">
           <div class="" ng-repeat= "product in addCart">
             <div class="inline-block prd-info v-top" >
-              <h4 class="name">{{product.name}}</h4>
+              <h4 class="name">{{product.options.realname}}</h4>
               <p class="text-light">TYPE : <span class="text-medium">{{product.options.sizename || '-'}}</span></p>
               <p class="text-light">QUANTITY : <span class="text-medium">{{product.qty}}</span></p>
               <p class="text-light">PRICE : <span class="text-medium"><i class="fa fa-inr"></i>{{product.subtotal}}</span></p>
