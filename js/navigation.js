@@ -1,13 +1,13 @@
 // var mainurl = "http://wohlig.io:81/callApi/noball/";
-var mainurl = "http://customcricketcompany.com/admin/index.php/";
-// var mainurl = "http://192.168.0.123/cccbackend/index.php/";
-var websiteurl = "http://customcricketcompany.com/test/";
-// var websiteurl = "http://localhost:8080";
-var backendurl = "http://customcricketcompany.com/admin/";
-// var backendurl = "http://192.168.0.123/cccbackend/index.php/";
+// var mainurl = "http://customcricketcompany.com/admin/index.php/";
+var mainurl = "http://192.168.0.123/cccbackend/index.php/";
+// var websiteurl = "http://customcricketcompany.com/test/";
+var websiteurl = "http://localhost:8080";
+// var backendurl = "http://customcricketcompany.com/admin/";
+var backendurl = "http://192.168.0.123/cccbackend/index.php/";
 var country="";
-var imgurl = "http://customcricketcompany.com/admin/uploads/";
-// var imgurl = "http://192.168.0.123/cccbackend/uploads/";
+// var imgurl = "http://customcricketcompany.com/admin/uploads/";
+var imgurl = "http://192.168.0.123/cccbackend/uploads/";
 var adminurl = mainurl + "json/";
 var countries = [{
   "value": "Please Select"
@@ -722,6 +722,8 @@ var navigationservice = angular.module('navigationservice', [])
       $http.get(adminurl + 'checkoutCheck').success(callback).error(err);
     },
     placeOrder: function(order, callback, err) {
+      var currency= $.jStorage.get("myCurrency");
+      order.currency= currency;
       return $http({
         url: adminurl + "placeOrder",
         method: "POST",

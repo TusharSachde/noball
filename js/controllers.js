@@ -682,7 +682,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       if($scope.params.category == 'Apparel'){
           $scope.menutab[0].name = "Form + Function";
       }else{
-        $scope.menutab[0].name="Build + Features";  
+        $scope.menutab[0].name="Build + Features";
       }
       NavigationService.getProductDetail(filter, function(data) {
         console.log(data);
@@ -880,6 +880,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     $scope.submit = function(enquiry) {
     if(enquiry.$valid) {
+      // NavigationService.
       $scope.formComplete = true;
     }
   }
@@ -905,7 +906,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       $scope.msg="";
       console.log(data);
       if(data.value == false){
-        console.log("hiusydIUHi");
         $scope.msg= "No orders";
       }
       $scope.orders = data;
@@ -930,6 +930,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.billingfulladdress = "";
     $scope.shippingfulladdress = "";
     $scope.shippingcharges = 0;
+    $scope.discount = 0;
     $scope.selectGuest = function(input) {
       console.log(input);
       $scope.guestshow = true;
@@ -1220,6 +1221,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.tabs[3].active = true; // comment this later
         $scope.billingfulladdress = $scope.checkout.billingline1 + $scope.checkout.billingline2 + $scope.checkout.billingline3;
         $scope.shippingfulladdress = $scope.checkout.shippingline1 + $scope.checkout.shippingline2 + $scope.checkout.shippingline3;
+        console.log($scope.shippingcharges);
+        $scope.checkout.shippingamount = $scope.shippingcharges;
+        $scope.checkout.discountamount = $scope.discount;
+        $scope.checkout.totalamount=$scope.totalcart;
+        $scope.checkout.finalamount=$scope.totalcart+$scope.shippingcharges;
         NavigationService.placeOrder($scope.checkout, function(data) {
           if (data != "") {
             $scope.txnid = Date.now();
