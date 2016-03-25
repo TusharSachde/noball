@@ -439,10 +439,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           width = 400;
           height = 400;
 
-          renderer = new THREE.WebGLRenderer({
-            antialias: true,
-            alpha: true
-          });
+          renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
           renderer.setSize(width, height);
           document.getElementById("threed-ball").appendChild(renderer.domElement);
           renderer.setClearColor(0xFFFFFF, 1);
@@ -475,6 +472,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
               });
               var sphere = new THREE.Mesh(geometry, material);
               sphere.castShadow = true;
+              sphere.rotation.x = 1;
               sphere.rotation.y = -5.5;
               sphere.rotation.z = -1;
               scene.add(sphere);
@@ -487,6 +485,106 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
           );
         }
+
+        var canvas = document.createElement("canvas");
+        canvas.width = 1000;
+        canvas.height = 667;
+        var c = canvas.getContext("2d");
+        function readURL(input) {
+          if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+              $('#ball_logo').attr('src', e.target.result);
+              src = $('#ball_logo').attr('src');
+              var image = new Image();
+              image.src = src;
+              var selectImg = '';
+              var canvas = document.createElement("canvas");
+              var ctx = canvas.getContext("2d");
+              var canvasx = document.createElement("canvas");
+              var ctxx = canvasx.getContext("2d");
+              var originalPixels, currentPixels = null;
+              var color, fullimg = '';
+              canvas.width = canvasx.width = 1000;
+              canvas.height = canvasx.height = 667;
+
+              function HexToRGB(Hex) {
+                var Long = parseInt(Hex.replace(/^#/, ""), 16);
+                return {
+                  R: (Long >>> 16) & 0xff,
+                  G: (Long >>> 8) & 0xff,
+                  B: Long & 0xff
+                };
+              }
+              function fillColor(path) {
+                color = path;
+                if (!originalPixels) return;
+                var newColor = HexToRGB(color);
+                for (var I = 0, L = originalPixels.data.length; I < L; I += 4) {
+                  if (currentPixels.data[I + 3] > 0) {
+                    currentPixels.data[I] = newColor.R;
+                    currentPixels.data[I + 1] = newColor.G;
+                    currentPixels.data[I + 2] = newColor.B;
+                  }
+                }
+
+                var cann = document.createElement("canvas");
+                cann.width = selectImg.width;
+                cann.height = selectImg.height;
+                var ctc = cann.getContext("2d");
+                ctc.putImageData(currentPixels, 0, 0);
+                var newImm = new Image();
+                newImm.src = cann.toDataURL("image/png");
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(newImm, 0, 0, 300, 300, 10, 80, 250, 250);
+                fullimg = canvas.toDataURL("image/png");
+              }
+
+              function overalayColor(himg, color) {
+                fullimg = himg[0];
+                img = new Image();
+                img.src = himg.src;
+                selectImg = himg;
+                canvas.width = 1000;
+                canvas.height = 667;
+
+                ctxx.clearRect(0, 0, canvasx.width, canvasx.height);
+                ctxx.drawImage(selectImg, 0, 0, selectImg.naturalWidth, selectImg.naturalHeight, 0, 0, selectImg.width, selectImg.height);
+                originalPixels = ctxx.getImageData(0, 0, selectImg.width, selectImg.height);
+                currentPixels = ctxx.getImageData(0, 0, selectImg.width, selectImg.height);
+
+                selectImg.onload = null;
+                fillColor(color);
+              }
+              overalayColor(document.getElementById('ball_logo'), "#ffd700");
+              var imgsrc = canvas.toDataURL("image/png", 1.0);
+              var geometry = new THREE.SphereGeometry(1, 500, 500);
+              var textur = new THREE.TextureLoader();
+              textur.load(
+                fullimg,
+                function(texture) {
+                  var material = new THREE.MeshPhongMaterial({ map: texture, transparent: true });
+                  material.map.needsUpdate = true;
+                  var mysphere = new THREE.Mesh(geometry, material);
+                  mysphere.rotation.x = 0.1;
+                  mysphere.rotation.y = -5.0;
+                  mysphere.rotation.z = -1;
+                  scene.add(mysphere);
+                },
+                function(xhr) {
+                  console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+                },
+                function(xhr) {
+                  console.log('An error happened');
+                }
+              );
+            };
+            reader.readAsDataURL(input.files[0]);
+          }
+        }
+        $("#upload").change(function() {
+          readURL(this);
+        });
 
         function animate() {
           requestAnimationFrame(animate);

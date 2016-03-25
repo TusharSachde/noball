@@ -2491,6 +2491,28 @@ input[type=number]::-webkit-outer-spin-button {
   height: 100%;
   overflow: hidden;
 }
+.file-input {
+  margin: 0 auto;
+  display: inline-block;
+  padding: 3px 15px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  background: white;
+  font-weight: 300;
+  font-size: 14px;
+  color: black;
+  border: 1px solid black;
+  letter-spacing: 4px;
+  transition: all 300ms ease;
+}
+.file-input:hover {
+  background: black;
+  color: white;
+}
+.file-input:focus, .file-input:active { outline: none; }
+#ball_logo { display: none; }
 .follow-us {
   margin-top: 17px;
   padding-left: 12px;
