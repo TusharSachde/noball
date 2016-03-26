@@ -2764,6 +2764,7 @@ background-size: cover;
     left: 50%;
     @include transform(translate(-50%,-50%));
   }
+  .modal-body { background-color: #fff; }
 }
 // end size chart
 .customize-now {
