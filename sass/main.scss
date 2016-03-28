@@ -528,7 +528,7 @@ footer {
       a {
         color: inherit;
         font-weight: 300;
-        @include transition (all ease 300ms);
+        @include transition(all ease 300ms);
         border-left: 3px solid transparent;
         padding: 6px 8px;
         font-size: 10px;
@@ -699,10 +699,10 @@ footer {
     }
   }
   .product-cart { letter-spacing: 2px; }
-  .product-scroll {
-    height: 90px;
-    overflow-y: scroll;
-  }
+.product-scroll {
+  height: 90px;
+  overflow-y: scroll;
+}
   .prd-info {
     color: #fff;
     vertical-align: top;
