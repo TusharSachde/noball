@@ -220,7 +220,7 @@
               <div class="custom-btn mt30">
                 <!-- <a class="btn btn-outline btn-dark letter-spacing" href="#/custom">CUSTOMIZE</a>
                             <br> -->
-                <a class="btn btn-outline btn-dark letter-spacing mright15" ng-click="cartAdd()" ng-hide="outofstock">ADD TO CART</a>
+                <a class="btn btn-outline btn-dark letter-spacing mright15" ng-click="cartAdd()" ng-hide="outofstock" data-target="#successcart" data-toggle="modal">ADD TO CART</a>
                 <p ng-show="outofstock"> Out of Stock.</p>
                 <a class="btn btn-outline btn-dark letter-spacing" ng-click="wishlistAdd(productdetail.product.id)">Add to wishlist</a>
                 <br>
@@ -264,4 +264,18 @@
       </div>
     </div>
   </section>
+</div>
+<div class="success">
+  <div class="modal fade" id="successcart">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h3>Your product has been added to the cart, successfully!</h3>
+        <div class="cart-btn clearfix">
+            <button class="btn btn-outline btn-dark marg10" data-dismiss="modal">CONTINUE SHOPPING</button>
+            <button class="btn btn-outline btn-dark marg10" ng-click="toCheckout()">PROCEED TO CHECKOUT</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
