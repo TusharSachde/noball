@@ -561,7 +561,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 } else if (newImmWidth < 250 && newImmHeight > 250) {
                   ctx.drawImage(newImm, 0, 0, 300, 300, 10, 120, 250, 250);
                 }
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                //ctx.clearRect(0, 0, canvas.width, canvas.height);
                 //ctx.drawImage(newImm, 0, 0, 300, 300, 10, 80, 250, 250);
                 fullimg = canvas.toDataURL("image/png");
               }
@@ -891,10 +891,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           console.log(data);
           if (data.value == true) {
             myfunction();
-            $scope.alerts.push({
-              type: 'success',
-              msg: 'Added in cart'
-            });
+            // $scope.alerts.push({
+            //   type: 'success',
+            //   msg: 'Added in cart'
+            // });
+            $('.cart-head').trigger('hover'); // Initialize the hover state
+            console.log("here");
+// $('.cart-head').removeClass('hover'); // Remove the hover state
           } else {
             if (data.comment.indexOf("quantity") > -1) {
               $scope.alerts.push({
