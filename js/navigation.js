@@ -513,7 +513,7 @@ var navigationservice = angular.module('navigationservice', [])
     name: "Products",
     classis: ""
   }, {
-    name: "Customize",
+    name: "Customise",
     classis: "",
     link: "#/home"
   }, {
