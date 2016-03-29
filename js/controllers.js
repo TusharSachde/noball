@@ -118,6 +118,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.alerts = [];
     $scope.totalcart = 0;
     $scope.navigation = NavigationService.getnav();
+    $scope.msg="";
     $scope.alerts = [];
     $scope.totalcart = 0;
     $scope.closeAlert = function(index) {
