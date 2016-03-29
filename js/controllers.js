@@ -65,7 +65,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.categories = [];
     $scope.params = $stateParams.name;
 
-    $scope.msg = "Loading...";
+    $scope.msg = "";
 
 
     NavigationService.getSubCategory($stateParams.name, function(data) {
@@ -715,7 +715,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.hovermenu = false;
     $scope.subcategory = $stateParams.name;
     $scope.category = $stateParams.category;
-    $scope.msg = "Loading...";
+    $scope.msg = "";
     $scope.products = [];
     $scope.country = $.jStorage.get("myCurrency");
     NavigationService.getSubCategory($stateParams.category, function(data) {
