@@ -703,6 +703,19 @@ footer {
   height: 90px;
   overflow-y: scroll;
 }
+.scroll-me {
+  ::-webkit-scrollbar {
+      width: 3px;
+  }
+  ::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background-color: #fff;
+  }
+  ::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: #000;
+  }
+}
   .prd-info {
     color: #fff;
     vertical-align: top;

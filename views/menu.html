@@ -47,17 +47,19 @@
       <div ng-if="addCart.length == 0" class="text-center">{{msg}}</div>
       <p class="text-bold cart-title" ng-if="addCart.length !=0 ">ADDED TO THE CART</p>
       <div class="product-cart" ng-if="addCart.length !=0 ">
-        <div class="product-scroll">
-          <div class="" ng-repeat= "product in addCart">
-            <div class="inline-block prd-info v-top" >
-              <h4 class="name">{{product.options.realname}}</h4>
-              <p class="text-light">TYPE : <span class="text-medium">{{product.options.sizename || '-'}}</span></p>
-              <p class="text-light">QUANTITY : <span class="text-medium">{{product.qty}}</span></p>
-              <p class="text-light">PRICE : <span class="text-medium"><i class="fa fa-inr"></i>{{product.subtotal}}</span></p>
-            </div>
-            <div class="inline-block">
-              <div class="cart-imghov">
-                <img src="{{product.image | resizeimage300}}" alt="" class="img-responsive">
+        <div class="scroll-me">
+          <div class="product-scroll">
+            <div class="" ng-repeat= "product in addCart">
+              <div class="inline-block prd-info v-top" >
+                <h4 class="name">{{product.options.realname}}</h4>
+                <p class="text-light">TYPE : <span class="text-medium">{{product.options.sizename || '-'}}</span></p>
+                <p class="text-light">QUANTITY : <span class="text-medium">{{product.qty}}</span></p>
+                <p class="text-light">PRICE : <span class="text-medium"><i class="fa fa-inr"></i>{{product.subtotal}}</span></p>
+              </div>
+              <div class="inline-block">
+                <div class="cart-imghov">
+                  <img src="{{product.image | resizeimage300}}" alt="" class="img-responsive">
+                </div>
               </div>
             </div>
           </div>
