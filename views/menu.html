@@ -2,7 +2,10 @@
   <li ng-repeat="menu in navigation">
     <a href="{{menu.link}}" class="{{menu.classis}}">{{menu.name}}</a>
     <ul class="dropdown-menu custom-sub service-head-menu  {{menu.name}} hidden-xs" ng-if="menu.subnav!=[];">
-      <li ui-sref="categories({name:submenu.name})" ng-repeat="submenu in menu.subnav" ng-if="menu.name != 'Services'">
+      <li ui-sref="categories({name:submenu.name})" ng-repeat="submenu in menu.subnav" ng-if="menu.name != 'Services' && ( submenu.name == 'Apparel' || submenu.name == 'Bats')">
+        <a class="{{submenu.classis}}">{{submenu.name}}</a>
+      </li>
+      <li ui-sref="categories-inside({category:submenu.name,name:submenu.name})" ng-repeat="submenu in menu.subnav" ng-if="menu.name != 'Services' && submenu.name != 'Apparel' && submenu.name != 'Bats'">
         <a class="{{submenu.classis}}">{{submenu.name}}</a>
       </li>
       <li ui-sref="servicesid({id:submenu.anchor})" class="blue-service" ng-repeat="submenu in services" ng-if="menu.name == 'Services'">
