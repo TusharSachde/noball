@@ -117,7 +117,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.alerts = [];
     $scope.totalcart = 0;
-    $scope.msg = "Loading...";
     $scope.navigation = NavigationService.getnav();
     $scope.alerts = [];
     $scope.totalcart = 0;
