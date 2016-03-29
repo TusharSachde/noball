@@ -2730,7 +2730,7 @@ border-left: 7px solid #c3e701;
    color: #fff;
  }
  .bg-blurlightwhite { background-color: rgba(255,255,255,0.5); }
-.service-pd { padding: 12% 0 4%; }
+.service-pd { padding: 11% 0 4%; }
 .service-bg {
 background-repeat: no-repeat;
 background-size: cover;
@@ -2796,7 +2796,7 @@ background-size: cover;
 // end size chart
 .customize-now {
   padding: 30px;
-  background-color: #fff;
+  background-color: #e6e6e6;
   .descp { margin-bottom: 30px; }
   .form-group { margin-bottom: 20px; }
   .form-inline {
@@ -2806,8 +2806,10 @@ background-size: cover;
     }
     input,
     textarea {
+      width: 285px;
       border-color: #000;
       box-shadow: none;
+      background-color: #ccc;
     }
   }
   .msg {
@@ -2816,10 +2818,28 @@ background-size: cover;
     textarea {
       width: 100%;
       resize: none;
+      &:focus { outline: none; }
     }
   }
-  input[type="file"] { width: 180px; }
+  input[type="file"] {
+    width: 285px;
+    &:focus { outline: none; }
+  }
   textarea { min-height: 100px; }
+}
+.customize-img { height: 130px; }
+.show-upload {
+  @include square(120px);
+  border: 1px solid #000;
+  position: absolute;
+  left: 47%;
+  overflow: hidden;
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%,-50%));
+  }
 }
 .success {
   .modal-content {
