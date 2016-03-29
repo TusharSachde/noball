@@ -224,6 +224,17 @@ firstapp.filter('largeImage', function() {
   };
 });
 
+firstapp.filter('loginame', function() {
+  return function(value) {
+    if(value){
+      var splitname = value.split(' ');
+      return splitname[0]+' ' + splitname[1].charAt(0)+'.';
+    }else{
+      return null;
+    }
+  };
+});
+
 firstapp.filter('alertopup', function() {
   return function(input) {
     console.log(input);
