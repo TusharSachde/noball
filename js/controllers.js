@@ -895,7 +895,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             //   type: 'success',
             //   msg: 'Added in cart'
             // });
-            $('.cart-head').trigger('hover'); // Initialize the hover state
+            $('.cart-head').trigger('mouseenter'); // Initialize the hover state
             console.log("here");
 // $('.cart-head').removeClass('hover'); // Remove the hover state
           } else {
@@ -2109,6 +2109,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log(true);
         if (data == "true") {
           $.jStorage.flush();
+          $state.go("home");
           window.location.reload();
         }
       }, function(err) {
