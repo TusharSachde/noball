@@ -684,6 +684,7 @@ footer {
   width: 180px;
   left: 0;
   display: none;
+  .blue-service a:hover,:active { border-color: #53c8eb; }
 }
 .cart-head:hover .cart-hov { display: block; }
 .cart-hov {
