@@ -2013,8 +2013,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       $scope.isLogin = false;
     }
     $scope.msg = "Loading ..";
+
+    var changeClass = {};
+
+
     $scope.hoverDown=function(){
-      $scope.cartClass = "";
+      changeClass = setTimeout(function() {
+        $scope.cartClass = "";
+        $scope.$apply();
+      },500);
+
     };
     globalFunc.closeIt= function(){
       $scope.hoverDown();
@@ -2022,47 +2030,52 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     globalFunc.openUp= function(){
       $scope.getCart();
     };
-    $scope.getCart = function() {
-      $scope.cartClass = "itsHover";
-      $scope.addCart = [];
-      NavigationService.showCart(function(data) {
-        console.log(data);
-        $scope.msg = "";
-        if (data != '') {
-          $scope.msg = "";
-          $scope.addCart = data;
-          $scope.totalcart = 0;
-          _.each($scope.addCart, function(key) {
-            key.qty = parseInt(key.qty);
-            $scope.totalcart = $scope.totalcart + parseInt(key.subtotal);
 
-          })
-          console.log(bigcount);
-          $scope.bigcount = bigcount;
-        } else {
-          $scope.msg = "No items in cart.";
-        }
-        NavigationService.getCurrency(function(data) {
-          console.log(data);
-          if (data) {
-            // var temp= _.find(data,{'name':$scope.country});
-            var temp;
-            _.each(data, function(key) {
-              if (key.name == $.jStorage.get("myCurrency")) {
-                temp = key;
-              }
+    $scope.getCart = function() {
+      console.log($scope.cartClass);
+       clearTimeout(changeClass);
+      if($scope.cartClass == "" || !$scope.cartClass)
+      {
+        console.log("Inside");
+        $scope.cartClass = "itsHover";
+        $scope.addCart = [];
+        NavigationService.showCart(function(data) {
+
+          $scope.msg = "";
+          if (data != '') {
+            $scope.msg = "";
+            $scope.addCart = data;
+            $scope.totalcart = 0;
+            _.each($scope.addCart, function(key) {
+              key.qty = parseInt(key.qty);
+              $scope.totalcart = $scope.totalcart + parseInt(key.subtotal);
+
             });
-            console.log(temp);
-            if (temp.name == $.jStorage.get("myCurrency")); {
-              $scope.minorder = temp.minorder;
-            }
+            $scope.bigcount = bigcount;
+          } else {
+            $scope.msg = "No items in cart.";
           }
+          NavigationService.getCurrency(function(data) {
+            if (data) {
+              // var temp= _.find(data,{'name':$scope.country});
+              var temp;
+              _.each(data, function(key) {
+                if (key.name == $.jStorage.get("myCurrency")) {
+                  temp = key;
+                }
+              });
+              if (temp.name == $.jStorage.get("myCurrency")); {
+                $scope.minorder = temp.minorder;
+              }
+            }
+          }, function(err) {
+            console.log(err);
+          });
         }, function(err) {
           console.log(err);
         });
-      }, function(err) {
-        console.log(err);
-      });
+      }
+
     };
     if (country == '') {
       NavigationService.localCountry(function(data) {

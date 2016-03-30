@@ -391,7 +391,11 @@ firstapp.directive('imageonload', function() {
     }
   };
 });
-
+firstapp.filter('reverse', function() {
+  return function(items) {
+    return items.slice().reverse();
+  };
+});
 firstapp.directive('img', function($compile, $parse) {
   return {
     restrict: 'E',

@@ -40,20 +40,20 @@
       <span>{{wishlistcount}}</span>
     </a>
   </li>
-  <li class="cart-head" ng-class="cartClass" ng-mouseleave="hoverDown()" ng-mouseover="getCart()">
+  <li class="cart-head" ng-class="cartClass"  ng-mouseover="getCart()" ng-mouseleave="hoverDown()">
     <a ui-sref="cart" class="icon-btn" >
       <span class="fit">
           <img src="img/cart.png" class="w25">
       </span>
       <span>{{quantity}}</span>
     </a>
-    <div class="custom-sub service-head-menu cart-hov">
+    <div class="custom-sub service-head-menu cart-hov" >
       <div ng-if="addCart.length == 0" class="text-center">{{msg}}</div>
       <p class="text-bold cart-title" ng-if="addCart.length !=0 ">ADDED TO THE CART</p>
-      <div class="product-cart" ng-if="addCart.length !=0 ">
+      <div class="product-cart" ng-if="addCart.length !=0 " >
         <div class="scroll-me">
           <div class="product-scroll">
-            <div class="" ng-repeat= "product in addCart">
+            <div class="" ng-repeat= "product in addCart | reverse">
               <div class="inline-block prd-info v-top" >
                 <h4 class="name">{{product.options.realname}}</h4>
                 <p class="text-light">TYPE : <span class="text-medium">{{product.options.sizename || '-'}}</span></p>
