@@ -1083,6 +1083,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.shippingfulladdress = "";
     $scope.shippingcharges = 0;
     $scope.discount = 0;
+    $scope.acceptIt = function(flag) {
+      if (flag === true) {
+        $scope.acceptValidate = false;
+
+      } else {
+        $scope.acceptValidate = true;
+
+      }
+    };
     $scope.selectGuest = function(input) {
       console.log(input);
       $scope.guestshow = true;
