@@ -1912,6 +1912,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.template = TemplateService;
     $scope.logintab = {};
     $scope.login = {};
+    $scope.customize = function() {
+      $uibModal.open({
+        animation: true,
+        templateUrl: "views/modal/customizepop.html",
+        scope: $scope,
+        controller: 'headerctrl'
+      });
+    };
     $scope.logintab.tab = 1;
     $scope.hovermenu = false;
     $scope.validation = false;
