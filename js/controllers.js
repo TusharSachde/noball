@@ -1217,26 +1217,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }, 1000);
       }
     };
+    $scope.doLogin = function(input, formValidate) {
+        $scope.validatelogin = false;
+        $scope.inputall = false;
 
-    $scope.doLogin = function() {
-        console.log($scope.login);
-        $scope.allvalidation = [{
-          field: $scope.login.email,
-          validation: ""
-        }, {
-          field: $scope.login.password,
-          validation: ""
-        }];
-
-        var check = formvalidation($scope.allvalidation);
-
-        if (check) {
-          NavigationService.login($scope.login, function(data) {
-            console.log(data);
-            if (data.value == false) {
-              $scope.validation = true;
+        if (formValidate.$valid) {
+          NavigationService.login(input, function(data) {
+            if (data.value === false) {
+              console.log("works I think");
+              $scope.validatelogin = true;
             } else {
-              $scope.validation = false;
               NavigationService.setUser(data);
               window.location.reload();
             }
@@ -1244,64 +1234,141 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log(err);
           })
         } else {
-          $scope.alerts = [];
-          $scope.alerts.push({
-            type: 'danger',
-            msg: 'Please input all information.'
-          });
+          $scope.inputall = true;
         }
       }
+    // $scope.doLogin = function() {
+    //     console.log($scope.login);
+    //     $scope.allvalidation = [{
+    //       field: $scope.login.email,
+    //       validation: ""
+    //     }, {
+    //       field: $scope.login.password,
+    //       validation: ""
+    //     }];
+    //
+    //     var check = formvalidation($scope.allvalidation);
+    //
+    //     if (check) {
+    //       NavigationService.login($scope.login, function(data) {
+    //         console.log(data);
+    //         if (data.value == false) {
+    //           $scope.validation = true;
+    //         } else {
+    //           $scope.validation = false;
+    //           NavigationService.setUser(data);
+    //           window.location.reload();
+    //         }
+    //       }, function(err) {
+    //         console.log(err);
+    //       })
+    //     } else {
+    //       $scope.alerts = [];
+    //       $scope.alerts.push({
+    //         type: 'danger',
+    //         msg: 'Please input all information.'
+    //       });
+    //     }
+    //   }
       //signup
     $scope.signup = {};
     $scope.accept = false;
-    $scope.doSignUp = function(accept) {
+    $scope.acceptValidate = false;
+    $scope.validateForm = false;
+    $scope.alreadyReg = false;
+    $scope.noMatch = false;
+    $scope.doSignUp = function(accept, input, formValidate) {
       console.log(accept);
-      console.log($scope.signup);
-      $scope.allvalidation = [{
-        field: $scope.signup.firstname,
-        validation: ""
-      }, {
-        field: $scope.signup.lastname,
-        validation: ""
-      }, {
-        field: $scope.signup.email,
-        validation: ""
-      }, {
-        field: $scope.signup.password,
-        validation: ""
-      }, {
-        field: $scope.signup.cpassword,
-        validation: ""
-      }];
-
-      var check = formvalidation($scope.allvalidation);
-      console.log(check);
-      if (check) {
-        $scope.validation = false;
-        if (accept == true && $scope.signup.password === $scope.signup.cpassword) {
-          NavigationService.signup($scope.signup, function(data) {
-            console.log(data);
-            if (data.value == false) {
-              $scope.validation1 = true;
-            } else {
-              $scope.validation1 = false;
-              NavigationService.setUser(data);
-              window.location.reload();
-            }
-          }, function(err) {
-            console.log(err);
-          })
+      $scope.acceptValidate = false;
+      $scope.validateForm = false;
+      $scope.alreadyReg = false;
+      $scope.noMatch = false;
+      if (formValidate.$valid) {
+        if (input.password != input.cfpassword) {
+          $scope.noMatch = true;
         } else {
-          $scope.validation1 = "Please accept the Terms and Conditions or Password and confirm password do not match!";
+          if (accept == true) {
+            NavigationService.signup(input, function(data) {
+              if (data.value == false) {
+                $scope.alerts= [];
+                $scope.alerts.push({
+
+                    type:'danger',
+                    msg:'Email already exists'
+
+                });
+              } else {
+                NavigationService.setUser(data);
+                window.location.reload();
+              }
+            }, function(err) {
+              console.log(err);
+            })
+          } else {
+            $scope.acceptValidate = true;
+          }
         }
       } else {
-        $scope.alerts = [];
+        $scope.alerts= [];
         $scope.alerts.push({
-          type: 'danger',
-          msg: 'Please input all information.'
+
+            type:'danger',
+            msg:'Please enter all details'
+
         });
       }
+
+
     }
+
+    // $scope.doSignUp = function(accept) {
+    //   console.log(accept);
+    //   console.log($scope.signup);
+    //   $scope.allvalidation = [{
+    //     field: $scope.signup.firstname,
+    //     validation: ""
+    //   }, {
+    //     field: $scope.signup.lastname,
+    //     validation: ""
+    //   }, {
+    //     field: $scope.signup.email,
+    //     validation: ""
+    //   }, {
+    //     field: $scope.signup.password,
+    //     validation: ""
+    //   }, {
+    //     field: $scope.signup.cpassword,
+    //     validation: ""
+    //   }];
+    //
+    //   var check = formvalidation($scope.allvalidation);
+    //   console.log(check);
+    //   if (check) {
+    //     $scope.validation = false;
+    //     if (accept == true && $scope.signup.password === $scope.signup.cpassword) {
+    //       NavigationService.signup($scope.signup, function(data) {
+    //         console.log(data);
+    //         if (data.value == false) {
+    //           $scope.validation1 = true;
+    //         } else {
+    //           $scope.validation1 = false;
+    //           NavigationService.setUser(data);
+    //           window.location.reload();
+    //         }
+    //       }, function(err) {
+    //         console.log(err);
+    //       })
+    //     } else {
+    //       $scope.validation1 = "Please accept the Terms and Conditions or Password and confirm password do not match!";
+    //     }
+    //   } else {
+    //     $scope.alerts = [];
+    //     $scope.alerts.push({
+    //       type: 'danger',
+    //       msg: 'Please input all information.'
+    //     });
+    //   }
+    // }
     var setPlaceOrder = function(data) {
       console.log(data);
       $scope.checkout = data;
