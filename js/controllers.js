@@ -1,4 +1,5 @@
 var myfunction = '';
+var globalFunc = {};
 var count = 1;
 var tabvalue = 1;
 var user = $.jStorage.get("user");
@@ -909,8 +910,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             //   type: 'success',
             //   msg: 'Added in cart'
             // });
-            $('.cart-head').trigger('mouseenter'); // Initialize the hover state
-            console.log("here");
+            globalFunc.openUp();
+
+            $timeout(function(){
+              globalFunc.closeIt();
+            },3000);
             // $('.cart-head').removeClass('hover'); // Remove the hover state
           } else {
             if (data.comment.indexOf("quantity") > -1) {
@@ -2009,8 +2013,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       $scope.isLogin = false;
     }
     $scope.msg = "Loading ..";
+    $scope.hoverDown=function(){
+      $scope.cartClass = "";
+    };
+    globalFunc.closeIt= function(){
+      $scope.hoverDown();
+    };
+    globalFunc.openUp= function(){
+      $scope.getCart();
+    };
     $scope.getCart = function() {
-
+      $scope.cartClass = "itsHover";
       $scope.addCart = [];
       NavigationService.showCart(function(data) {
         console.log(data);

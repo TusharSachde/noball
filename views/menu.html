@@ -40,8 +40,8 @@
       <span>{{wishlistcount}}</span>
     </a>
   </li>
-  <li class="cart-head">
-    <a ui-sref="cart" class="icon-btn" ng-mouseover="getCart()">
+  <li class="cart-head" ng-class="cartClass" ng-mouseleave="hoverDown()" ng-mouseover="getCart()">
+    <a ui-sref="cart" class="icon-btn" >
       <span class="fit">
           <img src="img/cart.png" class="w25">
       </span>
