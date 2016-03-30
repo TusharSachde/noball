@@ -2004,6 +2004,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.hovermenu = false;
     $scope.validation = false;
     $scope.validation1 = "";
+    $scope.wishlistcount=$.jStorage.get("wishlistCount");
+    $scope.quantity=$.jStorage.get("cartCount");
     $scope.isLogin = false;
     $scope.user = user;
     $scope.alerts = [];
