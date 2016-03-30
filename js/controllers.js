@@ -559,19 +559,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 } else if (newImmWidth == imageSize && newImmHeight < imageSize) {
                   ctx.drawImage(newImm, 0, 0, 300, 300, 10, (120 + exHeight), imageSize, imageSize);
                 } else if (newImmWidth < imageSize && newImmHeight < imageSize) {
-                  ctx.drawImage(newImm, 0, 0, w, h, (10), (120), imageSize, imageSize);
+                  ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
                 } else if (newImmWidth > imageSize && newImmHeight == imageSize) {
                   ctx.drawImage(newImm, 0, 0, 300, 300, (10 + exWidth), 120, imageSize, imageSize);
                 } else if (newImmWidth == imageSize && newImmHeight > imageSize) {
                   ctx.drawImage(newImm, 0, 0, 300, 300, 10, (120 + exHeight), imageSize, imageSize);
                 } else if (newImmWidth > imageSize && newImmHeight > imageSize) {
-                  ctx.drawImage(newImm, 0, 0, w, h, (10), (120), imageSize, imageSize);
+                  ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
                 } else if (newImmWidth > imageSize && newImmHeight < imageSize) {
-                  ctx.drawImage(newImm, 0, 0, w, h, (10), (120), imageSize, imageSize);
+                  ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
                 } else if (newImmWidth < imageSize && newImmHeight > imageSize) {
-                  ctx.drawImage(newImm, 0, 0, w, h, (10), (120), imageSize, imageSize);
+                  ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
                 }
-                
+
                 //ctx.clearRect(0, 0, canvas.width, canvas.height);
                 //ctx.drawImage(newImm, 0, 0, 300, 300, 10, 80, 250, 250);
                 fullimg = canvas.toDataURL("image/png");
