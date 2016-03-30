@@ -23,12 +23,12 @@
     <a href="#" class="btn-yellow" ng-click="logout()">Logout</a>
   </li> -->
   <li ng-if="isLogin" class="user-sec">
-    <a ui-sref="profile" class="user-name" >Hi, {{user.name | loginame | limitTo:12 }} <i class="fa fa-caret-down"></i></a>
+    <a ui-sref="profile" class="user-name" >Hi, {{::user.name | loginame | limitTo:12 }} <i class="fa fa-caret-down"></i></a>
     <ul class="custom-sub service-head-menu profile-menu">
       <li class="blue-service" ><a href="" ui-sref="profile"  class="text-uppercase">my profile</a></li>
       <li class="blue-service"><a href="" ui-sref="order" class="text-uppercase">my orders</a></li>
       <li class="blue-service"><a href="" ui-sref="mywishlist" class="text-uppercase">my wishlist</a></li>
-      <li class="blue-service"><a href="" ui-sref="" class="text-uppercase">saved designs</a></li>
+      <!-- <li class="blue-service"><a href="" ui-sref="" class="text-uppercase">saved designs</a></li> -->
       <li class="blue-service"><a href="" class="text-uppercase" ng-click="logout()">logout</a></li>
     </ul>
   </li>
