@@ -177,11 +177,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       });
     };
     $scope.getCart();
+
     $scope.toCheckout = function() {
       NavigationService.checkoutCheck(function(data) {
         if (data.value == true) {
           $state.go("checkout");
         } else {
+          $scope.alerts= [];
           $scope.alerts.push({
             type: 'danger',
             msg: 'Some items went out of stock. Remove them'
@@ -198,6 +200,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.removeItem = function(cart) {
       NavigationService.removeFromCart(cart, function(data) {
         if (data.value) {
+          $scope.alerts= [];
           $scope.alerts.push({
             type: 'success',
             msg: 'Removed successfully'
@@ -270,6 +273,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.userid = NavigationService.getUser().id;
 
     $scope.addAlert = function(type, msg) {
+      $scope.alerts= [];
       $scope.alerts.push({
         type: type,
         msg: msg
@@ -877,11 +881,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.cartAdd = function() {
       if (($scope.params.category == 'Apparel' || $scope.params.category == 'Gloves' || $scope.params.category == 'Pads') && $scope.filter.size == '') {
+        $scope.alerts= [];
         $scope.alerts.push({
           type: 'danger',
           msg: 'Please input valid size'
         });
       } else if ($scope.filter.qty == "" || $scope.filter.qty == undefined || $scope.filter.qty == null || $scope.filter.qty == 0) {
+        $scope.alerts= [];
         $scope.alerts.push({
           type: 'danger',
           msg: 'Please input valid quantity'
@@ -891,6 +897,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           console.log(data);
           if (data.value == true) {
             myfunction();
+              // $scope.alerts= [];
             // $scope.alerts.push({
             //   type: 'success',
             //   msg: 'Added in cart'
@@ -900,11 +907,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 // $('.cart-head').removeClass('hover'); // Remove the hover state
           } else {
             if (data.comment.indexOf("quantity") > -1) {
+              $scope.alerts= [];
               $scope.alerts.push({
                 type: 'danger',
                 msg: 'Quantity not available'
               })
             } else {
+              $scope.alerts= [];
               $scope.alerts.push({
                 type: 'danger',
                 msg: 'Already in cart'
@@ -926,6 +935,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }, function(data) {
           console.log(data);
           if (data.value == true) {
+            $scope.alerts= [];
             $scope.alerts.push({
               type: 'success',
               msg: 'Added to wishlist.'
@@ -933,6 +943,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             myfunction();
 
           } else {
+            $scope.alerts= [];
             $scope.alerts.push({
               type: 'danger',
               msg: 'Unable to add to wishlist. Already in wishlist.'
@@ -942,6 +953,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           console.log(err);
         })
       } else {
+        $scope.alerts= [];
         $scope.alerts.push({
           type: 'danger',
           msg: 'Please log in to add to wishlist.'
@@ -1042,7 +1054,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       console.log(err);
     });
   })
-  .controller('CheckoutCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
+  .controller('CheckoutCtrl', function($scope, $state, TemplateService, NavigationService, $timeout,$interval) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("checkout");
     $scope.menutitle = NavigationService.makeactive("Checkout");
@@ -1082,6 +1094,55 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       active: false,
       disabled: true
     }];
+    var checktwitter = function(data, status) {
+      if (data != "false") {
+        $interval.cancel(stopinterval);
+        ref.close();
+        NavigationService.authenticate(authenticatesuccess);
+      } else {
+
+      }
+
+    };
+
+    var callAtIntervaltwitter = function() {
+      NavigationService.authenticate(checktwitter);
+    };
+    var authenticatesuccess = function(data, status) {
+      if (data != "false") {
+        console.log(data);
+        $.jStorage.set("user", data);
+        user = data;
+        $state.go('checkout');
+        window.location.reload();
+      }
+    };
+
+    $scope.facebooklogin = function() {
+      ref = window.open(mainurl + 'hauth/login/Facebook?returnurl=' + websiteurl, '_blank', 'location=yes');
+      stopinterval = $interval(callAtIntervaltwitter, 2000);
+      ref.addEventListener('exit', function(event) {
+        NavigationService.authenticate(authenticatesuccess);
+        $interval.cancel(stopinterval);
+      });
+    }
+    $scope.googlelogin = function() {
+      ref = window.open(mainurl + 'hauth/login/Google?returnurl=' + websiteurl, '_blank', 'location=yes');
+      stopinterval = $interval(callAtIntervaltwitter, 2000);
+      ref.addEventListener('exit', function(event) {
+        NavigationService.authenticate(authenticatesuccess);
+        $interval.cancel(stopinterval);
+      });
+    }
+
+    $scope.twitterlogin = function() {
+      ref = window.open(mainurl + 'hauth/login/Twitter?returnurl=' + websiteurl, '_blank', 'location=yes');
+      stopinterval = $interval(callAtIntervaltwitter, 2000);
+      ref.addEventListener('exit', function(event) {
+        NavigationService.authenticate(authenticatesuccess);
+        $interval.cancel(stopinterval);
+      });
+    }
     $scope.allvalidation = [];
     $scope.login = {};
     $scope.userid = null;
@@ -1176,6 +1237,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log(err);
           })
         } else {
+          $scope.alerts= [];
           $scope.alerts.push({
             type: 'danger',
             msg: 'Please input all information.'
@@ -1226,6 +1288,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           $scope.validation1 = "Please accept the Terms and Conditions or Password and confirm password do not match!";
         }
       } else {
+        $scope.alerts= [];
         $scope.alerts.push({
           type: 'danger',
           msg: 'Please input all information.'
@@ -1249,6 +1312,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.proceedToDeliveryDetails = function() {
       if ($scope.allcart.length == 0 || $scope.allcart == null) {
+        $scope.alerts= [];
         $scope.alerts.push({
 
 
@@ -1256,6 +1320,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           msg: 'No items in cart'
         });
       } else if (!$scope.isCartValid()) {
+        $scope.alerts= [];
         $scope.alerts.push({
           type: 'danger',
           msg: 'Remove exceeding quantities'
@@ -1273,6 +1338,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
           } else {
             $scope.getCart();
+            $scope.alerts= [];
             $scope.alerts.push({
               type: 'danger',
               msg: 'Some items went out of stock. Remove them'
@@ -1360,6 +1426,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.order = data
             $scope.tabs[3].active = true;
           } else {
+            $scope.alerts= [];
             $scope.alerts.push({
               type: 'danger',
               msg: 'Unable to place order. Try again.'
@@ -1370,6 +1437,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         })
       } else {
         $scope.invalidData = true;
+        $scope.alerts= [];
         $scope.alerts.push({
           type: 'danger',
           msg: 'Input all information'
@@ -1389,6 +1457,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       NavigationService.removeFromCart(cart, function(data) {
         console.log(data);
         if (data.value) {
+          $scope.alerts= [];
           $scope.alerts.push({
             type: 'success',
             msg: 'Removed successfully'
@@ -1396,6 +1465,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           $scope.getCart();
           myfunction();
         } else {
+          $scope.alerts= [];
           $scope.alerts.push({
             type: 'danger',
             msg: 'Unable to remove item.'
@@ -1610,6 +1680,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       NavigationService.removeFromWishlist(id, function(data) {
         console.log(data);
         if (data.value == true) {
+          $scope.alerts= [];
           $scope.alerts.push({
             type: 'success',
             msg: 'Removed from Wishlist.'
@@ -1617,6 +1688,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           $scope.getWishlist();
           myfunction();
         } else {
+          $scope.alerts= [];
           $scope.alerts.push({
             type: 'danger',
             msg: 'Not removed from wishlist'
@@ -1636,11 +1708,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       }, function(data) {
         if (data.value == true) {
           myfunction();
+          $scope.alerts= [];
           $scope.alerts.push({
             type: 'success',
             msg: 'Added in cart'
           });
         } else {
+          $scope.alerts= [];
           $scope.alerts.push({
             type: 'danger',
             msg: 'Already in cart'
@@ -1687,6 +1761,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
     $scope.sendEmail = function(request) {
       if ($scope.forgotpassword.email == "" || $scope.forgotpassword.email == null || $scope.forgotpassword.email == undefined) {
+        $scope.alerts= [];
         $scope.alerts.push({
           type: 'danger',
           msg: 'Please input an email address.'
@@ -1695,12 +1770,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         NavigationService.forgotPassword(request, function(data) {
           console.log(data);
           if (data.value == true) {
+            $scope.alerts= [];
             $scope.alerts.push({
               type: 'success',
               msg: 'An email has been sent with instructions to reset your password. Please check your inbox.'
             });
 
           } else {
+            $scope.alerts= [];
             $scope.alerts.push({
               type: 'danger',
               msg: 'The email ID does not exist. Please proceed to signup.'
@@ -1737,6 +1814,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
       if (check) {
         if ($scope.resetpassword.newpassword != $scope.resetpassword.confirmpassword) {
+          $scope.alerts= [];
           $scope.alerts.push({
             type: 'danger',
             msg: 'Password fields do not match.'
@@ -1747,6 +1825,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             hashcode: $scope.params.hash
           }, function(data) {
             if (data.value == true) {
+              $scope.alerts= [];
               $scope.alerts.push({
                 type: 'success',
                 msg: 'Password reset successful. Please wait while we redirect you to login..'
@@ -1756,6 +1835,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
               }, 5000);
 
             } else {
+              $scope.alerts= [];
               $scope.alerts.push({
                 type: 'danger',
                 msg: 'Unable to reset password. Try again'
@@ -1766,6 +1846,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           });
         }
       } else {
+        $scope.alerts= [];
         $scope.alerts.push({
           type: 'danger',
           msg: 'Please input all information.'
