@@ -111,6 +111,40 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       console.log(err);
     })
   })
+  .controller('CustomiseInfoCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
+    $scope.customInfo={
+name:"",
+email:"",
+image:"",
+color:"",
+teamname:"",
+teaminitials:"",
+message:"",
+interest:""
+};
+console.log("here");
+    $scope.customiseIt =  function(input,formValidate){
+      if(formValidate.$valid){
+        NavigationService.createCustom(input,function(data){
+          $scope.alerts=[];
+          $scope.customInfo = {};
+          $scope.alerts.push({
+            type:'success',
+            msg:'Your details have been sent.'
+          });
+
+        },function(err){
+          console.log(err);
+        })
+      }else{
+        $scope.alerts = [];
+        $scope.alerts.push({
+          type:'danger',
+          msg: 'Please enter required details'
+        });
+      }
+    };
+})
   .controller('CartCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("cart");
@@ -2040,7 +2074,7 @@ interes:""
         animation: true,
         templateUrl: "views/modal/customizepop.html",
         scope: $scope,
-        controller: 'headerctrl'
+        controller: 'CustomiseInfoCtrl'
       });
     };
     $scope.logintab.tab = 1;
