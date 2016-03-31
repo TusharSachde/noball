@@ -21,7 +21,7 @@
                          <img id="img_01" ng-src="{{selectedImage || productdetail.productimages[0].image | serverimage}}" /> </a> -->
           </div>
           <div class="related-product">
-            <flex-slider class="carousel" flex-slide="item in productdetail.productimages track by $index" direction-nav="false" animation="slide" item-width="200" item-margin="5">
+            <flex-slider class="carousel" flex-slide="item in productdetail.productimages track by $index"  animation="slide" item-width="200" item-margin="5">
               <li>
                 <div class="repeat-product" ng-click="selectImage(item)">
                   <div class="img-hold">
