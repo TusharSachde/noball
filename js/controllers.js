@@ -781,6 +781,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         controller: 'Product-DetailCtrl'
       });
     };
+    $scope.submitCustomEnquiry = function () {
+      
+    };
     $scope.country = $.jStorage.get("myCurrency");
     $scope.menutab = [{
       name: "Details",

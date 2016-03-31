@@ -1,6 +1,6 @@
 <section class="customize-now">
   <p class="descp">A Do-It-Yourself automated version of CCC will be launched soon. Stay tuned for our 2nd innings but meantime get started and let us kit you up before your season opener. CCC products are available for immediate despatch, team / club customisation takes up to 4 weeks for delivery to your doorstep.</p>
-  <form action="" class="form-inline">
+  <form name="customForm" class="form-inline">
   <div class="rl customize-img">
     <div class="show-upload">
       <img ng-src="" alt="" class="img-responsive">
@@ -8,40 +8,40 @@
   </div>
     <div class="form-group">
       <label for="">Team Logo (required)</label>
-      <input type="file" class="form-control">
+      <input type="file" name="image" required ng-model="customInfo.image" class="form-control">
       <p style="margin-top: 20px">max.file upload size 20MB jpeg/pdf/tiff etc.</p>
     </div>
     <div class="form-group">
       <label for="">Name (required)</label>
-      <input type="text" class="form-control" placeholder="Ex: Virat Kohli">
+      <input type="text" name="name" required ng-model="customInfo.name" class="form-control" placeholder="Ex: Virat Kohli">
     </div>
     <div class="form-group">
       <label for="">Email ID (required)</label>
-      <input type="text" class="form-control" placeholder="Ex: viratkohli@gmail.com">
+      <input type="text" name="email" required ng-model="customInfo.email" class="form-control" placeholder="Ex: viratkohli@gmail.com">
     </div>
     <div class="form-group">
       <label for="">I am interested in (required)</label>
-      <input type="text" class="form-control" placeholder="Ex: Whites, kitbag, bats">
+      <input type="text" name="interest" required ng-model="customInfo.interest" class="form-control" placeholder="Ex: Whites, kitbag, bats">
     </div>
     <div class="form-group">
       <label for="">Team/Club Name (optional)</label>
-      <input type="text" class="form-control" placeholder="Ex: Osian">
+      <input type="text" class="form-control" ng-model="customInfo.teamname" placeholder="Ex: Osian">
     </div>
     <div class="form-group">
-      <label for="">Team Initials - (optional)</label>
-      <input type="text" class="form-control" placeholder="Ex: OCC">
+      <label for="">Team Initials  (optional)</label>
+      <input type="text" class="form-control" ng-model="customInfo.teaminitials" placeholder="Ex: OCC">
     </div>
     <div class="form-group">
       <label for="">Main Team Colours  (optional)</label>
-      <input type="text" class="form-control" placeholder="Ex: Blue & Green">
+      <input type="text" class="form-control" ng-model="customInfo.color" placeholder="Ex: Blue & Green">
     </div>
     <div class="form-group msg">
       <label for="">Message</label>
-      <textarea name="" id="" class="form-conrtol" placeholder="ex: I am interested in personalised apparel and kit bags for my club team. I can send you imagesof our old club jersey / kit which we would like to modify and improve.  Also, what is your minimum order requirement for personalised gloves, pads & balls? Thank you."></textarea>
+      <textarea ng-model="customInfo.message" id="" class="form-conrtol" placeholder="ex: I am interested in personalised apparel and kit bags for my club team. I can send you imagesof our old club jersey / kit which we would like to modify and improve.  Also, what is your minimum order requirement for personalised gloves, pads & balls? Thank you."></textarea>
     </div>
     <div class="text-center">
       <div class="submit text-center">
-        <button type="" class="btn btn-dark btn-outline letter-spacing" ng-click="sendEmail(forgot);" >SUBMIT</button>
+        <button type="" class="btn btn-dark btn-outline letter-spacing" ng-click="" >SUBMIT</button>
       </div>
     </div>
   </form>
