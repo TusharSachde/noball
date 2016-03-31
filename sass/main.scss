@@ -2799,6 +2799,8 @@ background-size: cover;
 .customize-now {
   padding: 30px;
   background-color: #e6e6e6;
+  background-image: url('../img/customize-pop-bg.jpg');
+  background-repeat: no-repeat;
   .descp { margin-bottom: 30px; }
   .form-group { margin-bottom: 20px; }
   .form-inline {
@@ -2812,6 +2814,8 @@ background-size: cover;
       border-color: #000;
       box-shadow: none;
       background-color: #ccc;
+      color: #fff;
+      @include placeholder { color:#fff };
     }
   }
   .msg {
@@ -2819,6 +2823,7 @@ background-size: cover;
     label { display: block; }
     textarea {
       width: 100%;
+      padding: 6px 12px;
       resize: none;
       &:focus { outline: none; }
     }

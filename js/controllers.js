@@ -1671,7 +1671,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('ServicesCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $document, $stateParams) {
+  .controller('ServicesCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $document, $stateParams,$uibModal) {
     //Used to name the .html file
     console.log($stateParams);
     $scope.template = TemplateService.changecontent("services");
@@ -1679,6 +1679,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.navigation = NavigationService.getnav2();
+
+    $scope.customizeNow = function() {
+      $uibModal.open({
+        animation: true,
+        templateUrl: "views/modal/customizepop.html",
+        scope: $scope,
+        controller: 'ServicesCtrl'
+      });
+    };
+
     $scope.customize = [{
       img: "img/services/ac/front.png"
     }, {
