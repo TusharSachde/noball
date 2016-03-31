@@ -772,7 +772,37 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     $scope.alerts = [];
     $scope.menutab = [];
+    $scope.customInfo={
+name:"",
+email:"",
+image:"",
+color:"",
+teamname:"",
+teaminitials:"",
+message:"",
+interes:""
+};
+    $scope.customiseIt =  function(input,formValidate){
+      if(formValidate.$valid){
+        NavigationService.createCustom(input,function(data){
+          $scope.alerts=[];
+          $scope.customInfo = {};
+          $scope.alerts.push({
+            type:'success',
+            msg:'Your details have been sent.'
+          });
 
+        },function(err){
+          console.log(err);
+        })
+      }else{
+        $scope.alerts = [];
+        $scope.alerts.push({
+          type:'danger',
+          msg: 'Please enter required details'
+        });
+      }
+    };
     $scope.customize = function() {
       $uibModal.open({
         animation: true,
@@ -782,7 +812,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       });
     };
     $scope.submitCustomEnquiry = function () {
-      
+
     };
     $scope.country = $.jStorage.get("myCurrency");
     $scope.menutab = [{

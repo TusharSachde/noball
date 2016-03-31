@@ -1,4 +1,8 @@
 <section class="customize-now">
+  <div class="alert-postion">
+    <!-- <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" class="text-center" >{{alert.msg}}</uib-alert> -->
+    <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" class="text-center" dismiss-on-timeout="5000">{{alert.msg}}</uib-alert>
+  </div>
   <p class="descp">A Do-It-Yourself automated version of CCC will be launched soon. Stay tuned for our 2nd innings but meantime get started and let us kit you up before your season opener. CCC products are available for immediate despatch, team / club customisation takes up to 4 weeks for delivery to your doorstep.</p>
   <form name="customForm" class="form-inline">
   <div class="rl customize-img">
@@ -8,7 +12,7 @@
   </div>
     <div class="form-group">
       <label for="">Team Logo (required)</label>
-      <input type="file" name="image" required ng-model="customInfo.image" class="form-control">
+      <input type="file" ng-model="customInfo.image" class="form-control">
       <p style="margin-top: 20px">max.file upload size 20MB jpeg/pdf/tiff etc.</p>
     </div>
     <div class="form-group">
@@ -41,7 +45,7 @@
     </div>
     <div class="text-center">
       <div class="submit text-center">
-        <button type="" class="btn btn-dark btn-outline letter-spacing" ng-click="" >SUBMIT</button>
+        <button type="" class="btn btn-dark btn-outline letter-spacing" ng-click="customiseIt(customInfo,customForm)" >SUBMIT</button>
       </div>
     </div>
   </form>

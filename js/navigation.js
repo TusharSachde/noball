@@ -604,6 +604,23 @@ var navigationservice = angular.module('navigationservice', [])
         }
       }).success(callback).error(err);
     },
+    createCustom: function(custom, callback, err) {
+      console.log(custom);
+      return $http({
+        url: adminurl + "createCustom",
+        method: "POST",
+        data : {
+"name":custom.name,
+"email":custom.email,
+"image":custom.image,
+"color":custom.color,
+"teamname":custom.teamname,
+"teaminitials":custom.teaminitials,
+"message":custom.message,
+"interest":custom.interest
+}
+      }).success(callback).error(err);
+    },
 		fedexTrack: function (tracking_number,callback) {
       tracking_number = 123456789012;
 		    $http({
