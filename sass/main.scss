@@ -1639,6 +1639,12 @@ footer {
     padding-top: 12px;
     font-size: 18px;
   }
+  .ccc-select {    
+    &:after { z-index: 1; }
+  } select {
+    position: relative;
+    z-index: 9;
+  }
 }
 .chart { margin: 20px 0px; }
 .margbotm {
