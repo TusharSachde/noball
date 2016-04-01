@@ -1571,7 +1571,8 @@ footer {
   }
 }
 
-.size .ccc-select { width: 70px; }
+.size .ccc-select {  width: 70px; }
+.zoomContainer { z-index: 10 !important; }
 .quantity {
   input {
     padding: 0 6px;
@@ -1639,9 +1640,11 @@ footer {
     padding-top: 12px;
     font-size: 18px;
   }
-  .ccc-select {    
+  .ccc-select {
+    z-index: 2;
     &:after { z-index: 1; }
-  } select {
+  }
+   select {
     position: relative;
     z-index: 9;
   }
@@ -2329,6 +2332,7 @@ footer {
   bottom: 0;
   right: 0;
   background: rgba(0,0,0,0.7);
+  z-index: 100;
   span {
     position: absolute;
     top: 50%;
