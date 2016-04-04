@@ -1,7 +1,7 @@
 <section>
   <div class="text-center text-uppercase main-head pad-btm-30">
     <h3 class="high-light">{{subcategory}}</h3>
-    <div class="explore-more-drop">
+    <div class="explore-more-drop" ng-if="category== 'Apparel' || category == 'Bats'">
       <a class="btn btn-outline btn-dark" ng-click="hovered();">Explore More</a>
       <ul class="custom-menu-down" ng-show="hovermenu" ng-mouseleave="unhovered();">
         <li ng-repeat="subcat in subCategories">
