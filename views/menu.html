@@ -13,9 +13,12 @@
         <a class="{{submenu.classis}}">{{submenu.name}}</a>
       </li>
     </ul>
-    <ul class="dropdown-menu custom-sub service-head-menu  {{menu.name}} hidden-xs" ng-if="menu.name == 'Customise'">
-
-    </ul>
+    <div class="dropdown-menu custom-sub customise service-head-menu  {{menu.name}} hidden-xs" ng-if="menu.name == 'Customise'">
+      <p>All our bespoke products are fully customisable for your team / club needs. A DIY version will be launching soon. Meantime get started with</p>
+      <div class="text-center">
+        <button type="button" class="btn btn-checkout btn-green" ng-click="customize()">Customise Now</button>
+      </div>
+    </div>
   </li>
   <li ng-if="!isLogin">
     <a class="btn-blue" ng-click="openLogin()">Log In | Sign Up</a>

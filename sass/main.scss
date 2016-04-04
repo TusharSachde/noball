@@ -671,6 +671,15 @@ footer {
     font-size: 18px;
   }
 }
+.customise {
+  button {
+    font-size: 16px;
+    &:hover {
+      color: #fff;
+      opacity: 0.7;
+    }
+  }
+}
 
 .service-head-menu {
     width: 240px;
