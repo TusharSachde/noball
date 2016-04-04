@@ -2,65 +2,68 @@
   <div class="banner contact">
     <h3 class="text-uppercase text-center high-light">Contact Us</h3>
   </div>
-  <div class="container">
-    <div class="privacy-info">
-      <div class="row">
-        <div class="col-md-5">
-          <h3>Custom Cricket Company</h3>
-
-          <h4>Corporate Address :</h4>
-          <p>Sai Manzil, 2nd Floor, Flat No. 5
-            <br>
-            18 Altamount Road,<br>
-            Mumbai - 400026</p>
-
-          <p>
-            <a href="mailto:info@customcricketcompany.com" target="_blank"><b>Email : </b>info@customcricketcompany.com</a>
-          </p>
-          <p>
-            <a href="http://www.customcricketcompany.com"><b>Website : </b>www.customcricketcompany.com</a>
-          </p>
-          <p><a href="tel:+912243214321"><b>Phone : </b>+91 22 4321 4321</a></p>
-          <div class="enquiry">
-            <h3>Submit your Enquiry</h3>
-            <form name="enquiry"class="form-inline form-contact" ng-hide="formComplete">
-              <div class="form-group">
-                <label for="name"><i class="fa fa-user"></i></label>
-                <input type="text" id="name" name="name" ng-model="formenquire.name" class="form-control" placeholder="Name" required>
-                <div class="" ng-show="enquiry.name.$error.required && enquiry.name.$touched">
-                  Please enter your name.
+  <div class="contact-bg">
+    <div class="container">
+      <div class="privacy-info">
+        <div class="row">
+          <div class="col-md-offset-7 col-md-5">
+            <h3>Custom Cricket Company</h3>
+            <p class="contact-tag">Visit our dug-out in south-Mumbai - Get in touch for a private preview by appointment only.</p>
+            <h4>Address :</h4>
+            <p>Sai Manzil, 2nd Floor, Flat No. 5
+              <br>
+              18 Altamount Road,<br>
+              Mumbai - 400026</p>
+            <p><a href="tel:+912243214321"><b>Phone : </b>+91 22 4321 4321</a></p>
+            <p><a href="tel:+919820579300"><b>Whatsapp : </b>+91 98205 79300 (24/7 SMS)</a></p>
+            <p><a href="skype:customcricketcompany?call"><b>Skype : </b>customcricketcompany</a></p>
+            <p>
+              <a href="mailto:info@customcricketcompany.com" target="_blank"><b>Email : </b>info@customcricketcompany.com</a>
+            </p>
+            <p>
+              <a href="http://www.customcricketcompany.com"><b>Website : </b>www.customcricketcompany.com</a>
+            </p>
+            <div class="enquiry">
+              <h3>Submit your Enquiry</h3>
+              <form name="enquiry"class="form-inline form-contact" ng-hide="formComplete">
+                <div class="form-group">
+                  <label for="name"><i class="fa fa-user"></i></label>
+                  <input type="text" id="name" name="name" ng-model="formenquire.name" class="form-control" placeholder="Name" required>
+                  <div class="" ng-show="enquiry.name.$error.required && enquiry.name.$touched">
+                    Please enter your name.
+                  </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="mail"><i class="fa fa-envelope-o"></i></label>
-                <input type="email" id="mail" name="email" ng-model="formenquire.email" class="form-control" placeholder="Email" required>
-                <div class="" ng-show="enquiry.email.$error.required && enquiry.email.$touched">
-                  Please enter your email.
+                <div class="form-group">
+                  <label for="mail"><i class="fa fa-envelope-o"></i></label>
+                  <input type="email" id="mail" name="email" ng-model="formenquire.email" class="form-control" placeholder="Email" required>
+                  <div class="" ng-show="enquiry.email.$error.required && enquiry.email.$touched">
+                    Please enter your email.
+                  </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="sub"><i class="fa fa-book"></i></label>
-                <input type="text" id="sub" name="subject" ng-model="formenquire.subject" class="form-control" placeholder="Subject" required>
-                <div class="" ng-show="enquiry.subject.$error.required && enquiry.subject.$touched">
-                  Please enter subject.
+                <div class="form-group">
+                  <label for="sub"><i class="fa fa-book"></i></label>
+                  <input type="text" id="sub" name="subject" ng-model="formenquire.subject" class="form-control" placeholder="Subject" required>
+                  <div class="" ng-show="enquiry.subject.$error.required && enquiry.subject.$touched">
+                    Please enter subject.
+                  </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="msg"><i class="fa fa-comments-o"></i></label>
-                <textarea id="msg" name="msg" ng-model="formenquire.msg" placeholder="Message" class="form-control" required></textarea>
-                <div class="" ng-show="enquiry.msg.$error.required && enquiry.msg.$touched">
-                  Please enter your message.
+                <div class="form-group">
+                  <label for="msg"><i class="fa fa-comments-o"></i></label>
+                  <textarea id="msg" name="msg" ng-model="formenquire.msg" placeholder="Message" class="form-control" required></textarea>
+                  <div class="" ng-show="enquiry.msg.$error.required && enquiry.msg.$touched">
+                    Please enter your message.
+                  </div>
                 </div>
-              </div>
-              <div class="text-right send">
-                <button class="btn btn-outline letter-spacing btn-dark active" type="submit" ng-click="submit(enquiry);">SEND</button>
-              </div>
-            </form>
-            <div class="thankyou" ng-show="formComplete">Thanks for enquiring. We will revert to you soon.</div>
+                <div class="text-right send">
+                  <button class="btn btn-outline letter-spacing btn-dark active" type="submit" ng-click="submit(enquiry);">SEND</button>
+                </div>
+              </form>
+              <div class="thankyou" ng-show="formComplete">Thanks for enquiring. We will revert to you soon.</div>
+            </div>
           </div>
-        </div>
-        <div class="col-md-7">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.2281936745358!2d72.80698011457504!3d18.965526960364862!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce74916aa0d5%3A0xccaec4bc8a4bdfeb!2sSai+Manzil!5e0!3m2!1sen!2sin!4v1450852060320" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+          <!-- <div class="col-md-7">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.2281936745358!2d72.80698011457504!3d18.965526960364862!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce74916aa0d5%3A0xccaec4bc8a4bdfeb!2sSai+Manzil!5e0!3m2!1sen!2sin!4v1450852060320" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+          </div> -->
         </div>
       </div>
     </div>

@@ -1050,6 +1050,7 @@ footer {
     color: #fff;
   }
   &.contact {
+    min-height: 250px;
     background-image: url("../img/page-banner/contact.jpg");
   }
   &.about {
@@ -1063,6 +1064,10 @@ footer {
   }
 }
 .contact-us { background-color: #f3f3f3; }
+.contact-bg {
+  background: url('../img/contact.png') no-repeat 50% 50%;
+  background-size: cover;
+}
 .privacy-info {
   padding: 60px;
   color: #737373;
@@ -1070,6 +1075,10 @@ footer {
   line-height: 150%;
   p {
     color: #737373;
+    a {
+      color: #737373;
+      &:hover { color: #000; }
+    }
   }
   ul,
   ol {
@@ -1102,6 +1111,10 @@ footer {
     color: #000;
     font-weight: 500;
     margin-top: 0;
+  }
+  .contact-tag {
+    color: #000;
+    font-weight: 500;
   }
 }
 .enquiry {
