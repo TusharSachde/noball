@@ -2,7 +2,7 @@
   <li ng-repeat="menu in navigation">
     <a href="{{menu.link}}" class="{{menu.classis}}" ng-if="menu.name !='Customise'">{{menu.name}}</a>
     <a href="" ng-click="customize()" class="{{menu.classis}}" ng-if="menu.name =='Customise'">{{menu.name}}</a>
-    <ul class="dropdown-menu custom-sub service-head-menu  {{menu.name}} hidden-xs" ng-if="menu.subnav!=[];">
+    <ul class="dropdown-menu custom-sub service-head-menu  {{menu.name}} hidden-xs" ng-if="menu.subnav!=[];" ng-if="menu.name != 'Customise'">
       <li ui-sref="categories({name:submenu.name})" ng-repeat="submenu in menu.subnav" ng-if="menu.name != 'Services' && ( submenu.name == 'Apparel' || submenu.name == 'Bats')">
         <a class="{{submenu.classis}}">{{submenu.name}}</a>
       </li>
@@ -12,6 +12,9 @@
       <li ui-sref="servicesid({id:submenu.anchor})" class="blue-service" ng-repeat="submenu in services" ng-if="menu.name == 'Services'">
         <a class="{{submenu.classis}}">{{submenu.name}}</a>
       </li>
+    </ul>
+    <ul class="dropdown-menu custom-sub service-head-menu  {{menu.name}} hidden-xs" ng-if="menu.name == 'Customise'">
+
     </ul>
   </li>
   <li ng-if="!isLogin">
