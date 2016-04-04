@@ -3,7 +3,8 @@
     <!-- <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" class="text-center" >{{alert.msg}}</uib-alert> -->
     <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" class="text-center" dismiss-on-timeout="5000">{{alert.msg}}</uib-alert>
   </div>
-  <p class="descp">A Do-It-Yourself automated version of CCC will be launched soon. Stay tuned for our 2nd innings but meantime get started and let us kit you up before your season opener. CCC products are available for immediate despatch, team / club customisation takes up to 4 weeks for delivery to your doorstep.</p>
+  <!-- <p class="descp">A Do-It-Yourself automated version of CCC will be launched soon. Stay tuned for our 2nd innings but meantime get started and let us kit you up before your season opener. CCC products are available for immediate despatch, team / club customisation takes up to 4 weeks for delivery to your doorstep.</p> -->
+  <p class="descp">A DIY version will be launching soon, until then get a head start - you can send us your requests via the form below and we can begin kitting you up.</p>
   <form name="customForm" class="form-inline">
   <div class="rl customize-img">
     <div class="show-upload">
@@ -29,7 +30,7 @@
     </div>
     <div class="form-group">
       <label for="">Team/Club Name (optional)</label>
-      <input type="text" class="form-control" ng-model="customInfo.teamname" placeholder="Ex: Osian">
+      <input type="text" class="form-control" ng-model="customInfo.teamname" placeholder="Ex: Osian's Cricket Club">
     </div>
     <div class="form-group">
       <label for="">Team Initials  (optional)</label>
@@ -41,7 +42,7 @@
     </div>
     <div class="form-group msg">
       <label for="">Message</label>
-      <textarea ng-model="customInfo.message" id="" class="form-conrtol" placeholder="ex: I am interested in personalised apparel and kit bags for my club team. I can send you imagesof our old club jersey / kit which we would like to modify and improve.  Also, what is your minimum order requirement for personalised gloves, pads & balls? Thank you."></textarea>
+      <textarea ng-model="customInfo.message" id="" class="form-conrtol" placeholder="Ex: I am interested in personalised apparel and kit bags for my club team. I can send you imagesof our old club jersey / kit which we would like to modify and improve.  Also, what is your minimum order requirement for personalised gloves, pads & balls? Thank you."></textarea>
     </div>
     <div class="text-center">
       <div class="submit text-center">
