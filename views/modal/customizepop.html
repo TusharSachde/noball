@@ -19,8 +19,8 @@
       </div>
       <label for="">Team Logo (required)</label>
 
-
-<input type='file' name="logo" ng-model="customInfo.image" class="form-control" ng-file-select='onFileSelect($files,1,"single")' onclick='this.value=null' required>
+<div ng-init='httpMethod=POST;howToSend = 1;'></div>
+<input type='file' name="file" class="form-control" ng-file-select='onFileSelect($files,1,"single")' onclick='this.value=null' required>
 <p style="margin-top: 20px">max.file upload size 20MB jpeg/pdf/tiff etc.</p>
 
     </div>

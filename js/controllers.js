@@ -1,5 +1,6 @@
 var myfunction = '';
 var globalFunc = {};
+var uploadres = [];
 var count = 1;
 var tabvalue = 1;
 var user = $.jStorage.get("user");
@@ -7,7 +8,7 @@ var globalfunction = {};
 var bigcount = {};
 window.uploadUrl = 'http://customcricketcompany.com/admin/index.php/json/uploadImage';
 
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'ngDialog', 'duScroll', 'angular-loading-bar'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'duScroll', 'angular-loading-bar','ngDialog', 'angularFileUpload', 'ngSanitize'])
 
 .controller('HomeCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
     //Used to name the .html file
@@ -252,12 +253,13 @@ $scope.onFileSelect = function($files, whichone, uploadtype) {
     $scope.removeItem = function(cart) {
       NavigationService.removeFromCart(cart, function(data) {
         if (data.value) {
+          $scope.getCart();
           $scope.alerts = [];
           $scope.alerts.push({
             type: 'success',
             msg: 'Removed successfully'
           });
-          $scope.getCart();
+
           myfunction();
         }
       }, function(err) {
@@ -1253,8 +1255,10 @@ interes:""
     $scope.checkout = {};
     $scope.totalcart = 0;
     $scope.getCart = function() {
+      console.log("heree");
       $scope.totalcart = 0;
       NavigationService.showCart(function(data) {
+        $scope.msg="";
         if (data == "") {
           $scope.msg = "No items in cart.";
         } else {
@@ -2081,7 +2085,7 @@ interes:""
     });
 
   })
-  .controller('headerctrl', function($scope, $state, TemplateService, $uibModal, NavigationService, $interval) {
+  .controller('headerctrl', function($scope, $state, TemplateService, $uibModal, NavigationService, $interval,$upload,$timeout) {
     $scope.template = TemplateService;
     $scope.logintab = {};
     $scope.login = {};
@@ -2468,8 +2472,28 @@ interes:""
       })
     }
     var arrLength = 0;
+    var imagejstupld = "";
+    $scope.images = [];
+    $scope.usingFlash = FileAPI && FileAPI.upload != null;
+    $scope.fileReaderSupported = window.FileReader != null && (window.FileAPI == null || FileAPI.html5 != false);
+    $scope.uploadRightAway = true;
+    $scope.changeAngularVersion = function() {
+        window.location.hash = $scope.angularVersion;
+        window.location.reload(true);
+    };
+    $scope.hasUploader = function(index) {
+        return $scope.upload[index] != null;
+    };
+    $scope.abort = function(index) {
+        $scope.upload[index].abort();
+        $scope.upload[index] = null;
+    };
+    $scope.angularVersion = window.location.hash.length > 1 ? (window.location.hash.indexOf('/') === 1 ?
+        window.location.hash.substring(2) : window.location.hash.substring(1)) : '1.2.20';
 
+    var arrLength = 0;
     globalfunction.onFileSelect = function($files, callback) {
+      console.log($files);
         $scope.selectedFiles = [];
         $scope.progress = [];
         console.log($files);
@@ -2487,6 +2511,7 @@ interes:""
         arrLength = $files.length;
         for (var i = 0; i < $files.length; i++) {
             var $file = $files[i];
+            console.log($file);
             if ($scope.fileReaderSupported && $file.type.indexOf('image') > -1) {
                 var fileReader = new FileReader();
                 fileReader.readAsDataURL($files[i]);
@@ -2506,6 +2531,7 @@ interes:""
     };
 
     $scope.start = function(index, callback) {
+      console.log(index);
         $scope.progress[index] = 0;
         $scope.errorMsg = null;
         console.log($scope.howToSend = 1);
@@ -2523,6 +2549,7 @@ interes:""
                 fileFormDataName: 'file'
             });
             $scope.upload[index].then(function(response) {
+              console.log(response);
                 $timeout(function() {
                   console.log(response);
                     $scope.uploadResult.push(response.data);
@@ -2545,6 +2572,8 @@ interes:""
             });
             $scope.upload[index].xhr(function(xhr) {});
         } else {
+          console.log("hehraihdiuashdohsaiudh");
+          console.log(e.target.result);
             var fileReader = new FileReader();
             fileReader.onload = function(e) {
                 $scope.upload[index] = $upload.http({
