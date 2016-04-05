@@ -5,6 +5,8 @@ var tabvalue = 1;
 var user = $.jStorage.get("user");
 var globalfunction = {};
 var bigcount = {};
+window.uploadUrl = 'http://customcricketcompany.com/admin/index.php/json/uploadImage';
+
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'ngDialog', 'duScroll', 'angular-loading-bar'])
 
 .controller('HomeCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
@@ -125,6 +127,9 @@ interest:""
 };
 console.log("here");
 $scope.onFileSelect = function($files, whichone, uploadtype) {
+  console.log($files);
+  console.log(whichone);
+  console.log(uploadtype);
     globalfunction.onFileSelect($files, function(image) {
       console.log(image);
         if (whichone == 1) {
@@ -2085,7 +2090,6 @@ interes:""
       $uibModal.open({
         animation: true,
         templateUrl: "views/modal/customizepop.html",
-        scope: $scope,
         controller: 'CustomiseInfoCtrl'
       });
     };
