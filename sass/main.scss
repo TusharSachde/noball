@@ -883,7 +883,8 @@ footer {
   }
 }
 .related-product {
-  margin: 25px;
+  width: 600px;
+  margin: 0 auto;
   .flexslider { overflow: visible; }
   .flex-control-nav { bottom: 0; }
   .flexslider .flex-direction-nav .flex-prev:before {
@@ -899,11 +900,13 @@ footer {
     color: transparent;
   }
   .flexslider .flex-direction-nav .flex-prev { left: -10px !important; }
+  .flexslider .flex-direction-nav .flex-next { right: -10px !important; }
+  .flexslider:hover .flex-direction-nav .flex-next { right: -10px !important; }
 }
 .img-hold {
   @include square(150px);
   overflow: hidden;
-  margin: 0 10px;
+  margin: 0 auto;
   cursor: pointer;
   position: relative;
   img {
@@ -2661,6 +2664,11 @@ padding: 16px 0px 0px 0px;
 span{
   font-size: 25px;
 }
+}
+.customise-sec {
+  padding: 16px 0 0 47px;
+  span { font-size: 21px; }
+  button { font-size: 20px; }
 }
 .mt20{
   margin-top: 20px;

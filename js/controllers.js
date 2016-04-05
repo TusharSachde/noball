@@ -1791,16 +1791,15 @@ interes:""
     ];
     $scope.memorable = [
       "img/services/Memrobilia/1.jpg",
-      "img/services/Memrobilia/2.jpg",
+      "img/services/Memrobilia/2.png",
       "img/services/Memrobilia/3.jpg",
-      "img/services/Memrobilia/4.jpg",
-      "img/services/Memrobilia/5.jpg",
-      "img/services/Memrobilia/6.jpg",
-      "img/services/Memrobilia/7.jpg",
-      "img/services/Memrobilia/8.jpg",
-      "img/services/Memrobilia/9.jpg",
-      "img/services/Memrobilia/10.jpg",
-      "img/services/Memrobilia/11.jpg",
+      "img/services/Memrobilia/4.png",
+      "img/services/Memrobilia/5.png",
+      "img/services/Memrobilia/6.png",
+      "img/services/Memrobilia/7.png",
+      "img/services/Memrobilia/8.png",
+      "img/services/Memrobilia/9.png",
+      "img/services/Memrobilia/10.png",
     ];
 
     function makeAnimation(id) {
