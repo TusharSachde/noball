@@ -1692,6 +1692,11 @@ interes:""
         $scope.checkout.shippingcountry = data.billingcountry;
       }
     };
+    $scope.shippingChangeKarKeBataAb = function(){
+      if($scope.shipAtSame){
+        $scope.checkout.shippingpincode=$scope.checkout.billingpincode;
+      }
+    }
     $scope.shippingCheck = function(check) {
       if (check) {
         $scope.shipAtSame = true;
