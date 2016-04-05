@@ -17,42 +17,42 @@
                   <div class="col-md-4 col-sm-5">
                     <form name="loginForm" submit="">
 
-                    <div class="login-form">
-                      <h4 class="login">SIGN IN</h4>
-                      <div class="form-group">
-                        <input type="email" name="email" ng-model="login.email" class="form-control" required placeholder="Email">
-                        <div class="ab" ng-show="loginForm.email.$invalid && loginForm.email.$touched " role="alert">
-                          Please enter email
+                      <div class="login-form">
+                        <h4 class="login">SIGN IN</h4>
+                        <div class="form-group">
+                          <input type="email" name="email" ng-model="login.email" class="form-control" required placeholder="Email">
+                          <div class="ab" ng-show="loginForm.email.$invalid && loginForm.email.$touched " role="alert">
+                            Please enter email
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <!-- <input type="password" ng-model="login.password" class="form-control" ng-class="allvalidation[1].validation" placeholder="Password"> -->
+                          <input type="password" name="password" ng-model="login.password" class="form-control" required placeholder="Password">
+                          <div class="ab" ng-show="loginForm.password.$invalid && loginForm.password.$touched" role="alert">
+                            Please enter password
+                          </div>
+                          <div class="ab" ng-show="invalidinput" role="alert">
+                            Invalid email or password.
+                          </div>
                         </div>
                       </div>
-                      <div class="form-group">
-                        <!-- <input type="password" ng-model="login.password" class="form-control" ng-class="allvalidation[1].validation" placeholder="Password"> -->
-                        <input type="password" name="password" ng-model="login.password" class="form-control" required placeholder="Password">
-                        <div class="ab" ng-show="loginForm.password.$invalid && loginForm.password.$touched" role="alert">
-                          Please enter password
+                      <div class="row">
+                        <div class="col-xs-6">
+                          <button class="btn btn-outline btn-dark" ng-click="doLogin(login,loginForm)">SIGN IN</button>
                         </div>
-                        <div class="ab" ng-show="invalidinput" role="alert">
-                          Invalid email or password.
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-xs-6">
-                        <button class="btn btn-outline btn-dark" ng-click="doLogin(login,loginForm)">SIGN IN</button>
-                      </div>
-                      <div class="col-xs-6">
-                        <div class="class-forget">
-                          <p><a href="">Forgot Password?</a></p>
+                        <div class="col-xs-6">
+                          <div class="class-forget">
+                            <p><a href="">Forgot Password?</a></p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </form>
+                    </form>
                     <div class="text-center">
                       <p class="or">OR</p>
                       <p class="or">SIGN IN VIA</p>
                       <div class="social-icon mar-btm-10">
                         <button class="btn btn-facebook pad-btn" ng-click="facebooklogin()">
-                          <i class="fa fa-facebook social-f" ></i>
+                          <i class="fa fa-facebook social-f"></i>
                         </button>
                         <button class="btn btn-google pad-btn" ng-click="googlelogin()">
                           <i class="fa fa-google-plus"></i>
@@ -112,7 +112,7 @@
                             Please enter correct password.
                           </div>
                           <div class="ab" ng-show="noMatch">
-                                Passwords do not match.
+                            Passwords do not match.
                           </div>
                           <div class="ab" ng-show="signupForm.cfpassword.$error.minlength " role="alert">
                             Password too short.
@@ -126,43 +126,43 @@
                             <input type="checkbox" ng-change="acceptIt(accept)" id="cc" ng-model="accept">
                             <label for="cc" class="agree">
                               <span></span> I agree with the terms &amp; conditions &amp; privacy policy</label>
-                              <label for="" style="float:right;" ui-sref="termsconditions">Terms and Conditions</label>
+                            <label for="" style="float:right;" ui-sref="termsconditions">Terms and Conditions</label>
                           </div>
                         </div>
                       </div>
 
-                    <div class="text-center">
-                      <button class="btn btn-outline btn-dark" ng-click="doSignUp(accept, signup, signupForm)">REGISTER</button>
-                      <div class="ab" ng-show="acceptValidate">
-                        Please accept the terms and conditions to proceed.
+                      <div class="text-center">
+                        <button class="btn btn-outline btn-dark" ng-click="doSignUp(accept, signup, signupForm)">REGISTER</button>
+                        <div class="ab" ng-show="acceptValidate">
+                          Please accept the terms and conditions to proceed.
+                        </div>
+                        <div class="ab" ng-show="alreadyReg">
+                          Email ID is already registered
+                        </div>
+                        <div class="mg">
+                          <p class="or">OR</p>
+                          <p class="or">SIGN UP VIA</p>
+                        </div>
+                        <div class="social-icon">
+                          <button class="btn btn-facebook pad-btn" ng-click="facebooklogin()">
+                            <i class="fa fa-facebook social-f"></i>
+                          </button>
+                          <button class="btn btn-google pad-btn" ng-click="googlelogin()">
+                            <i class="fa fa-google-plus"></i>
+                          </button>
+                          <button class="btn btn-twitter pad-btn" ng-click="twitterlogin()">
+                            <i class="fa fa-twitter"></i>
+                          </button>
+                        </div>
+                        <p class="mg">Already Registerd? <a href="#">SIGN IN</a></p>
                       </div>
-                      <div class="ab" ng-show="alreadyReg">
-                        Email ID is already registered
-                      </div>
-                      <div class="mg">
-                        <p class="or">OR</p>
-                        <p class="or">SIGN UP VIA</p>
-                      </div>
-                      <div class="social-icon">
-                        <button class="btn btn-facebook pad-btn" ng-click="facebooklogin()">
-                          <i class="fa fa-facebook social-f" ></i>
-                        </button>
-                        <button class="btn btn-google pad-btn" ng-click="googlelogin()">
-                          <i class="fa fa-google-plus"></i>
-                        </button>
-                        <button class="btn btn-twitter pad-btn" ng-click="twitterlogin()">
-                          <i class="fa fa-twitter"></i>
-                        </button>
-                      </div>
-                      <p class="mg">Already Registerd? <a href="#">SIGN IN</a></p>
-                    </div>
-</form>
+                    </form>
                   </div>
                 </div>
               </div>
             </tab>
             <tab active="tabs[1].active" disable="tabs[1].disabled" heading="Step 2">
-               <h4 ng-if="msg!=''">{{msg}}</h4>
+              <h4 ng-if="msg!=''">{{msg}}</h4>
 
               <div class="row" ng-if="msg==''">
                 <div class="col-md-12">
@@ -180,10 +180,10 @@
                       <tbody>
                         <tr class="text-center" ng-repeat="cart in allcart">
                           <td>
-                              <figure>
-                                  <img ng-src="{{cart.image | resizeimage300}}">
-                                  <figcaption>{{cart.options.realname}}</figcaption>
-                              </figure>
+                            <figure>
+                              <img ng-src="{{cart.image | resizeimage300}}">
+                              <figcaption>{{cart.options.realname}}</figcaption>
+                            </figure>
                           </td>
                           <td class="capitalize">{{cart.options.colorname || '-'}}</td>
                           <td class="uppercase">{{cart.options.sizename || '-'}}</td>
@@ -392,15 +392,23 @@
                   <p>We Accept:</p>
                   <ul class="list-inline">
                     <li>
-                      <img src="img/visa.png">
+                      <img src="img/visacard.png" width="50">
                     </li>
                     <li>
-                      <img src="img/card.png">
+                      <img src="img/mastero.png" width="50">
                     </li>
                     <li>
-                      <img src="img/meastro.png">
+                      <img src="img/mastercard.png" width="50">
                     </li>
-
+                    <li>
+                      <img src="img/american.png" width="50">
+                    </li>
+                    <li>
+                      <img src="img/payu.jpg" width="50">
+                    </li>
+                    <li>
+                      <img src="img/netbanking.png" width="50">
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -408,141 +416,141 @@
             <tab active="tabs[3].active" disable="tabs[3].disabled" heading="Step 4">
               <div class="min-height">
                 <div class="row">
-              		<div class="col-md-12">
-              			<h4>Payment Gateway under testing.</h4>
-              			<div class="order-table checkout-detail">
-              				<form method="post" name="customerData" action="http://customcricketcompany.com/admin/paymentgateway/PayUMoney_form.php">
-              					<div class="">
-              					  <div class="row">
-              					    <div class="col-md-6">
-                            <table class="">
+                  <div class="col-md-12">
+                    <h4>Payment Gateway under testing.</h4>
+                    <div class="order-table checkout-detail">
+                      <form method="post" name="customerData" action="http://customcricketcompany.com/admin/paymentgateway/PayUMoney_form.php">
+                        <div class="">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <table class="">
                                 <tr style="display:none">
-                              <!-- <tr> -->
-                                <td>key :</td>
-                                <td>
-                                  <input type="text" name="key" value="gtKFFx" readonly />
-                                </td>
-                              </tr>
-                              <!-- <tr style="display:none"> -->
-                              <tr>
-                                <td> txnid :</td>
-                                <td>
-                                  <input type="text" name="txnid" ng-model="txnid"/>
-                                </td>
-                              </tr>
-                              <tr style="display:none">
-                              <!-- <tr> -->
-                                <td>Amount :</td>
-                                <td>
-                                  <input type="text" name="amount" ng-model="totalcart" />
-                                </td>
-                              </tr>
-                              <tr style="display:none">
-                              <!-- <tr> -->
-                                <td>firstname :</td>
-                                <td>
-                                  <input type="text" name="firstname" ng-model="checkout.firstname" />
-                                </td>
-                              </tr>
-                              <tr style="display:none">
-                              <!-- <tr> -->
-                                <td>phone :</td>
-                                <td>
-                                  <input type="text" name="phone" ng-model="checkout.phone" />
-                                </td>
-                              </tr>
-                              <tr style="display:none">
-                              <!-- <tr> -->
-                                <td>email :</td>
-                                <td>
-                                  <input type="text" name="email" ng-model="checkout.email" />
-                                </td>
-                              </tr>
-                              <tr style="display:none">
-                              <!-- <tr> -->
-                                <td>surl :</td>
-                                <td>
-                                  <input type="text" name="surl" value="http://customcricketcompany.com/admin/index.php/json/payumoneysuccess" />
-                                </td>
-                              </tr>
-                              <tr style="display:none">
-                              <!-- <tr> -->
-                                <td>furl :</td>
-                                <td>
-                                  <input type="text" name="furl" value="http://customcricketcompany.com/admin/index.php/json/payumoneyfailure" />
-                                </td>
-                              </tr>
-                              <tr style="display:none">
-                              <!-- <tr> -->
-                                <td>service_provider :</td>
-                                <td>
-                                  <input type="text" name="service_provider" value=""/>
-                                </td>
-                              </tr>
-                              <tr style="display:none">
-                              <!-- <tr> -->
-                                <td>productinfo :</td>
-                                <td>
-                                  <input type="text" name="productinfo" ng-model="order"/>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td colspan="2">
-                                  <h3>Billing Details</h3>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Billing Name :</td>
-                                <td>
-                                  <input type="text" style="border: none; width: 100%;" ng-model="checkout.firstname" />
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Billing Address :</td>
-                                <td>
-                                  <input type="text" style="border: none; width: 100%;" ng-model="billingfulladdress" />
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Billing City :</td>
-                                <td>
-                                  <input type="text" style="border: none; width: 100%;" ng-model="checkout.billingcity" />
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Billing State :</td>
-                                <td>
-                                  <input type="text" style="border: none; width: 100%;" ng-model="checkout.billingstate" />
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Billing Zip :</td>
-                                <td>
-                                  <input type="text" style="border: none; width: 100%;" ng-model="checkout.billingpincode" />
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Billing Country :</td>
-                                <td>
-                                  <input type="text" style="border: none; width: 100%;" ng-model="checkout.billingcountry" />
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Billing Tel :</td>
-                                <td>
-                                  <input type="text" style="border: none; width: 100%;" ng-model="checkout.phone" />
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Billing Email :</td>
-                                <td>
-                                  <input type="text" style="border: none; width: 100%;" ng-model="checkout.email" />
-                                </td>
-                              </tr>
-                            </table>
-              					    </div>
-              					    <div class="col-md-6">
-              					      <table class="">
+                                  <!-- <tr> -->
+                                  <td>key :</td>
+                                  <td>
+                                    <input type="text" name="key" value="gtKFFx" readonly />
+                                  </td>
+                                </tr>
+                                <!-- <tr style="display:none"> -->
+                                <tr>
+                                  <td> txnid :</td>
+                                  <td>
+                                    <input type="text" name="txnid" ng-model="txnid" />
+                                  </td>
+                                </tr>
+                                <tr style="display:none">
+                                  <!-- <tr> -->
+                                  <td>Amount :</td>
+                                  <td>
+                                    <input type="text" name="amount" ng-model="totalcart" />
+                                  </td>
+                                </tr>
+                                <tr style="display:none">
+                                  <!-- <tr> -->
+                                  <td>firstname :</td>
+                                  <td>
+                                    <input type="text" name="firstname" ng-model="checkout.firstname" />
+                                  </td>
+                                </tr>
+                                <tr style="display:none">
+                                  <!-- <tr> -->
+                                  <td>phone :</td>
+                                  <td>
+                                    <input type="text" name="phone" ng-model="checkout.phone" />
+                                  </td>
+                                </tr>
+                                <tr style="display:none">
+                                  <!-- <tr> -->
+                                  <td>email :</td>
+                                  <td>
+                                    <input type="text" name="email" ng-model="checkout.email" />
+                                  </td>
+                                </tr>
+                                <tr style="display:none">
+                                  <!-- <tr> -->
+                                  <td>surl :</td>
+                                  <td>
+                                    <input type="text" name="surl" value="http://customcricketcompany.com/admin/index.php/json/payumoneysuccess" />
+                                  </td>
+                                </tr>
+                                <tr style="display:none">
+                                  <!-- <tr> -->
+                                  <td>furl :</td>
+                                  <td>
+                                    <input type="text" name="furl" value="http://customcricketcompany.com/admin/index.php/json/payumoneyfailure" />
+                                  </td>
+                                </tr>
+                                <tr style="display:none">
+                                  <!-- <tr> -->
+                                  <td>service_provider :</td>
+                                  <td>
+                                    <input type="text" name="service_provider" value="" />
+                                  </td>
+                                </tr>
+                                <tr style="display:none">
+                                  <!-- <tr> -->
+                                  <td>productinfo :</td>
+                                  <td>
+                                    <input type="text" name="productinfo" ng-model="order" />
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td colspan="2">
+                                    <h3>Billing Details</h3>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>Billing Name :</td>
+                                  <td>
+                                    <input type="text" style="border: none; width: 100%;" ng-model="checkout.firstname" />
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>Billing Address :</td>
+                                  <td>
+                                    <input type="text" style="border: none; width: 100%;" ng-model="billingfulladdress" />
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>Billing City :</td>
+                                  <td>
+                                    <input type="text" style="border: none; width: 100%;" ng-model="checkout.billingcity" />
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>Billing State :</td>
+                                  <td>
+                                    <input type="text" style="border: none; width: 100%;" ng-model="checkout.billingstate" />
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>Billing Zip :</td>
+                                  <td>
+                                    <input type="text" style="border: none; width: 100%;" ng-model="checkout.billingpincode" />
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>Billing Country :</td>
+                                  <td>
+                                    <input type="text" style="border: none; width: 100%;" ng-model="checkout.billingcountry" />
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>Billing Tel :</td>
+                                  <td>
+                                    <input type="text" style="border: none; width: 100%;" ng-model="checkout.phone" />
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>Billing Email :</td>
+                                  <td>
+                                    <input type="text" style="border: none; width: 100%;" ng-model="checkout.email" />
+                                  </td>
+                                </tr>
+                              </table>
+                            </div>
+                            <div class="col-md-6">
+                              <table class="">
                                 <tr>
                                   <td colspan="2">
                                     <h3>Shipping Details</h3>
@@ -590,17 +598,17 @@
                                     <input type="text" style="border: none; width: 100%;" ng-model="checkout.phone" />
                                   </td>
                                 </tr>
-              					      </table>
-              					    </div>
-              					  </div>
-              					</div>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
                         <div class="text-center" style="margin: 40px 0 60px">
                           <button class="btn btn-outline btn-dark letter-spacing" type="submit">Place order</button>
                         </div>
-              				</form>
-              			</div>
-              		</div>
-              	</div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
               </div>
             </tab>
           </tabset>
