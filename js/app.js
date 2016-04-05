@@ -228,7 +228,13 @@ firstapp.filter('loginame', function() {
   return function(value) {
     if(value){
       var splitname = value.split(' ');
-      return splitname[0]+' ' + splitname[1].charAt(0)+'.';
+      if(splitname.length == 2){
+
+        return splitname[0]+' ' + splitname[1].charAt(0)+'.';
+      }
+      else {
+        return value;
+      }
     }else{
       return null;
     }

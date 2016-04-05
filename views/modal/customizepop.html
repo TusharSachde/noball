@@ -6,16 +6,25 @@
   <!-- <p class="descp">A Do-It-Yourself automated version of CCC will be launched soon. Stay tuned for our 2nd innings but meantime get started and let us kit you up before your season opener. CCC products are available for immediate despatch, team / club customisation takes up to 4 weeks for delivery to your doorstep.</p> -->
   <p class="descp">A DIY version will be launching soon, until then get a head start - you can send us your requests via the form below and we can begin kitting you up.</p>
   <form name="customForm" class="form-inline">
-  <div class="rl customize-img">
+  <!-- <div class="rl customize-img">
     <div class="show-upload">
       <img ng-src="" alt="" class="img-responsive">
     </div>
-  </div>
+  </div> -->
     <div class="form-group">
+      <div class='rl customize-img'>
+         <div class='show-upload'>
+           <img ng-src='{{customInfo.image}}' class="img-responsive">
+         </div>
+      </div>
       <label for="">Team Logo (required)</label>
-      <input type="file" ng-model="customInfo.image" class="form-control">
-      <p style="margin-top: 20px">max.file upload size 20MB jpeg/pdf/tiff etc.</p>
+
+
+<input type='file' name="logo" ng-model="customInfo.image" class="form-control" ng-file-select='onFileSelect($files,1,"single")' onclick='this.value=null' required>
+<p style="margin-top: 20px">max.file upload size 20MB jpeg/pdf/tiff etc.</p>
+
     </div>
+
     <div class="form-group">
       <label for="">Name (required)</label>
       <input type="text" name="name" required ng-model="customInfo.name" class="form-control" placeholder="Ex: Virat Kohli">
