@@ -11,7 +11,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, cfpL
   // for http request with session
   $httpProvider.defaults.withCredentials = true;
   cfpLoadingBarProvider.includeSpinner = true;
-  cfpLoadingBarProvider.latencyThreshold = 1000;
+  cfpLoadingBarProvider.latencyThreshold = 2000;
   cfpLoadingBarProvider.includeBar = false;
   cfpLoadingBarProvider.spinnerTemplate = '<div class="loading-bar"><span><img src="img/logo.png" class="rotate"></span></div>';
   $stateProvider
