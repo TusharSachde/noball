@@ -12,14 +12,15 @@
     </div>
   </div> -->
     <div class="form-group">
-      <div class='rl customize-img'>
+      <div ng-init='httpMethod=POST;howToSend = 1;'></div>
+      
+      <div class='rl customize-img' ng-if="customInfo.image">
          <div class='show-upload'>
-           <img ng-src='{{customInfo.image}}' class="img-responsive">
+           <img ng-src='{{customInfo.image | serverimage}}' class="img-responsive">
          </div>
       </div>
       <label for="">Team Logo (required)</label>
 
-<div ng-init='httpMethod=POST;howToSend = 1;'></div>
 <input type='file' name="file" class="form-control" ng-file-select='onFileSelect($files,1,"single")' onclick='this.value=null' required>
 <p style="margin-top: 20px">max.file upload size 20MB jpeg/pdf/tiff etc.</p>
 

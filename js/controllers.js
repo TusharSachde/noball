@@ -134,9 +134,9 @@ $scope.onFileSelect = function($files, whichone, uploadtype) {
     globalfunction.onFileSelect($files, function(image) {
       console.log(image);
         if (whichone == 1) {
-            $scope.banner.imgurl = image[0];
+            $scope.customInfo.image = image[0];
             if (uploadtype == 'single') {
-                $scope.banner.imgurl = image[0];
+                $scope.customInfo.image = image[0];
             }
         }
     })
@@ -2552,11 +2552,11 @@ interes:""
               console.log(response);
                 $timeout(function() {
                   console.log(response);
-                    $scope.uploadResult.push(response.data);
-                    imagejstupld = response.data;
+                    $scope.uploadResult.push(response.data.value);
+                    imagejstupld = response.data.value;
 
                     if (imagejstupld != "") {
-                        $scope.images.push(imagejstupld.fileId);
+                        $scope.images.push(imagejstupld);
                         console.log($scope.images);
                         imagejstupld = "";
                         if (arrLength == $scope.images.length) {
