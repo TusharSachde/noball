@@ -872,8 +872,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       $uibModal.open({
         animation: true,
         templateUrl: "views/modal/customizepop.html",
-        scope: $scope,
-        controller: 'Product-DetailCtrl'
+        controller: 'CustomiseInfoCtrl'
       });
     };
     $scope.submitCustomEnquiry = function() {
@@ -1782,8 +1781,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       $uibModal.open({
         animation: true,
         templateUrl: "views/modal/customizepop.html",
-        scope: $scope,
-        controller: 'ServicesCtrl'
+        controller: 'CustomiseInfoCtrl'
       });
     };
 

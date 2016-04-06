@@ -4,7 +4,7 @@
     <div class="explore-more-drop" ng-if="category== 'Apparel' || category == 'Bats'">
       <a class="btn btn-outline btn-dark" ng-click="hovered();">Explore More</a>
       <ul class="custom-menu-down" ng-show="hovermenu" ng-mouseleave="unhovered();">
-        <li ng-repeat="subcat in subCategories">
+        <li ng-repeat="subcat in subCategories" ng-if="subcat.name != 'promotion'">
           <a ui-sref="categories-inside({category:category,name:subcat.name})" ng-class="{'active':subcat.name===subcategory}">
               {{subcat.name}}
 
