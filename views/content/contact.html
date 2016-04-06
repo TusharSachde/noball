@@ -50,13 +50,13 @@
                 </div>
                 <div class="form-group">
                   <label for="msg"><i class="fa fa-comments-o"></i></label>
-                  <textarea id="msg" name="msg" ng-model="formenquire.msg" placeholder="Message" class="form-control" required></textarea>
+                  <textarea id="msg" name="msg" ng-model="formenquire.message" placeholder="Message" class="form-control" required></textarea>
                   <div class="" ng-show="enquiry.msg.$error.required && enquiry.msg.$touched">
                     Please enter your message.
                   </div>
                 </div>
                 <div class="text-right send">
-                  <button class="btn btn-outline letter-spacing btn-dark active" type="submit" ng-click="submit(enquiry);">SEND</button>
+                  <button class="btn btn-outline letter-spacing btn-dark active" type="submit" ng-click="submit(formenquire,enquiry);">SEND</button>
                 </div>
               </form>
               <div class="thankyou" ng-show="formComplete">Thanks for enquiring. We will revert to you soon.</div>
