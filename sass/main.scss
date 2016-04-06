@@ -1072,8 +1072,9 @@ footer {
     color: #fff;
   }
   &.contact {
-    min-height: 250px;
+    min-height: 200px;
     background-image: url("../img/page-banner/contact.jpg");
+    h3 { font-size: 40px; }
   }
   &.about {
     background-image: url("../img/page-banner/about.jpg");
