@@ -1279,9 +1279,9 @@ interes:""
         cfpLoadingBar.complete();
         $scope.msg="";
         if (data == "") {
+          $scope.allcart = [];
           $scope.msg = "No items in cart.";
         } else {
-          console.log(data);
           $scope.allcart = data;
 
           _.each($scope.allcart, function(key) {
@@ -1527,7 +1527,7 @@ interes:""
             if ($.jStorage.get("user")) {
               console.log($.jStorage.get("user").id);
               $scope.userid = $.jStorage.get("user").id;
-              NavigationService.getUserDetail($scope.userid, setPlaceOrder);
+              NavigationService.getUserDetail($scope.userid, setPlaceOrder,function(err){console.log(err);});
               window.scrollTo(0, 0);
             }
           } else {
@@ -1657,6 +1657,7 @@ interes:""
             msg: 'Removed successfully'
           });
           $scope.getCart();
+          console.log($scope.allcart);
           myfunction();
         } else {
           $scope.alerts = [];
