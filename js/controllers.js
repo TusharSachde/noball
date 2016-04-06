@@ -8,9 +8,9 @@ var globalfunction = {};
 var bigcount = {};
 window.uploadUrl = 'http://customcricketcompany.com/admin/index.php/json/uploadImage';
 
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'duScroll', 'cfp.loadingBar' ,'ngDialog', 'angularFileUpload', 'ngSanitize'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'duScroll', 'cfp.loadingBar', 'ngDialog', 'angularFileUpload', 'ngSanitize'])
 
-.controller('HomeCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $uibModal,cfpLoadingBar) {
+.controller('HomeCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $uibModal, cfpLoadingBar) {
     //Used to name the .html file
     cfpLoadingBar.start();
     $scope.template = TemplateService.changecontent("home");
@@ -120,55 +120,55 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   })
   .controller('CustomiseInfoCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $uibModal, cfpLoadingBar) {
-    $scope.customInfo={
-name:"",
-email:"",
-image:"",
-color:"",
-teamname:"",
-teaminitials:"",
-message:"",
-interest:""
-};
+    $scope.customInfo = {
+      name: "",
+      email: "",
+      image: "",
+      color: "",
+      teamname: "",
+      teaminitials: "",
+      message: "",
+      interest: ""
+    };
 
-$scope.onFileSelect = function($files, whichone, uploadtype) {
-cfpLoadingBar.start();
-    globalfunction.onFileSelect($files, function(image) {
-      cfpLoadingBar.complete();
+    $scope.onFileSelect = function($files, whichone, uploadtype) {
+      cfpLoadingBar.start();
+      globalfunction.onFileSelect($files, function(image) {
+        cfpLoadingBar.complete();
         if (whichone == 1) {
+          $scope.customInfo.image = image[0];
+          if (uploadtype == 'single') {
             $scope.customInfo.image = image[0];
-            if (uploadtype == 'single') {
-                $scope.customInfo.image = image[0];
-            }
+          }
         }
-    })
-}
-    $scope.customiseIt =  function(input,formValidate){
-      if(formValidate.$valid){
+      })
+    }
+    $scope.customiseIt = function(input, formValidate) {
+      if (formValidate.$valid) {
         cfpLoadingBar.start();
 
-        NavigationService.createCustom(input,function(data){
+        NavigationService.createCustom(input, function(data) {
           cfpLoadingBar.complete();
 
-          $scope.alerts=[];
+          $scope.alerts = [];
           $scope.customInfo = {};
           $scope.alerts.push({
-            type:'success',
-            msg:'Your details have been sent.'
+            type: 'success',
+            msg: 'Your details have been sent.'
           });
 
-        },function(err){
+        }, function(err) {
           console.log(err);
         })
-      }else{
+      } else {
         $scope.alerts = [];
         $scope.alerts.push({
-          type:'danger',
+          type: 'danger',
           msg: 'Please enter required details'
         });
       }
     };
-})
+  })
   .controller('CartCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("cart");
@@ -313,7 +313,7 @@ cfpLoadingBar.start();
 
     };
   })
-  .controller('ProfileCtrl', function($scope, $state, TemplateService, NavigationService, $timeout,cfpLoadingBar) {
+  .controller('ProfileCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, cfpLoadingBar) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("profile");
     $scope.menutitle = NavigationService.makeactive("Profile");
@@ -359,7 +359,7 @@ cfpLoadingBar.start();
 
 
       NavigationService.updateProfile($scope.updateuser.user, function(data) {
-                    cfpLoadingBar.complete();
+        cfpLoadingBar.complete();
       }, function(err) {
         console.log(err);
       })
@@ -837,33 +837,33 @@ cfpLoadingBar.start();
     $scope.navigation = NavigationService.getnav();
     $scope.alerts = [];
     $scope.menutab = [];
-    $scope.customInfo={
-name:"",
-email:"",
-image:"",
-color:"",
-teamname:"",
-teaminitials:"",
-message:"",
-interes:""
-};
-    $scope.customiseIt =  function(input,formValidate){
-      if(formValidate.$valid){
-        NavigationService.createCustom(input,function(data){
-          $scope.alerts=[];
+    $scope.customInfo = {
+      name: "",
+      email: "",
+      image: "",
+      color: "",
+      teamname: "",
+      teaminitials: "",
+      message: "",
+      interes: ""
+    };
+    $scope.customiseIt = function(input, formValidate) {
+      if (formValidate.$valid) {
+        NavigationService.createCustom(input, function(data) {
+          $scope.alerts = [];
           $scope.customInfo = {};
           $scope.alerts.push({
-            type:'success',
-            msg:'Your details have been sent.'
+            type: 'success',
+            msg: 'Your details have been sent.'
           });
 
-        },function(err){
+        }, function(err) {
           console.log(err);
         })
-      }else{
+      } else {
         $scope.alerts = [];
         $scope.alerts.push({
-          type:'danger',
+          type: 'danger',
           msg: 'Please enter required details'
         });
       }
@@ -876,7 +876,7 @@ interes:""
         controller: 'Product-DetailCtrl'
       });
     };
-    $scope.submitCustomEnquiry = function () {
+    $scope.submitCustomEnquiry = function() {
 
     };
     $scope.country = $.jStorage.get("myCurrency");
@@ -1013,9 +1013,9 @@ interes:""
             // });
             globalFunc.openUp();
 
-            $timeout(function(){
+            $timeout(function() {
               globalFunc.closeIt();
-            },3000);
+            }, 3000);
             // $('.cart-head').removeClass('hover'); // Remove the hover state
           } else {
             if (data.comment.indexOf("quantity") > -1) {
@@ -1131,22 +1131,22 @@ interes:""
     $scope.menutitle = NavigationService.makeactive("Contact Us");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    $scope.formenquire= {};
-    $scope.submit = function(input,enquiry) {
+    $scope.formenquire = {};
+    $scope.submit = function(input, enquiry) {
       if (enquiry.$valid) {
-        NavigationService.contactSubmit(input,function(data){
-          if(data){
-            $scope.formComplete=true;
-          $timeout(function () {
-              $scope.formComplete=false;
-          },2000)
+        NavigationService.contactSubmit(input, function(data) {
+          if (data) {
+            $scope.formComplete = true;
+            $timeout(function() {
+              $scope.formComplete = false;
+            }, 2000)
 
-          $scope.formenquire= {};
-          enquiry.name.$touched =false;
-          enquiry.subject.$touched =false;
-          enquiry.msg.$touched =false;
+            $scope.formenquire = {};
+            enquiry.name.$touched = false;
+            enquiry.subject.$touched = false;
+            enquiry.msg.$touched = false;
           }
-        },function(){
+        }, function() {
 
         })
 
@@ -1154,7 +1154,7 @@ interes:""
       }
     }
   })
-  .controller('OrderCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $window,cfpLoadingBar) {
+  .controller('OrderCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $window, cfpLoadingBar) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("order");
     $scope.menutitle = NavigationService.makeactive("Order");
@@ -1162,12 +1162,10 @@ interes:""
     $scope.navigation = NavigationService.getnav();
     $scope.msg = "Loading..";
     $scope.printInvoice = function(id) {
-      console.log(id);
       $window.open(mainurl + 'site/printorderinvoice?id=' + id, '_new');
     };
     $scope.trackFedex = function(order) {
       NavigationService.fedexTrack('', function(data) {
-        console.log(data.TrackPackagesResponse.packageList[0]);
         order.fedex = data.TrackPackagesResponse.packageList[0];
       })
     }
@@ -1175,7 +1173,6 @@ interes:""
     NavigationService.getOrders(function(data) {
       cfpLoadingBar.complete();
       $scope.msg = "";
-      console.log(data);
       if (data.value == false) {
         $scope.msg = "No orders";
       }
@@ -1212,7 +1209,6 @@ interes:""
       }
     };
     $scope.selectGuest = function(input) {
-      console.log(input);
       $scope.guestshow = true;
       if (input == "notguest") {
         $scope.guestshow = true;
@@ -1249,7 +1245,6 @@ interes:""
     };
     var authenticatesuccess = function(data, status) {
       if (data != "false") {
-        console.log(data);
         $.jStorage.set("user", data);
         user = data;
         $state.go('checkout');
@@ -1293,7 +1288,7 @@ interes:""
       $scope.totalcart = 0;
       NavigationService.showCart(function(data) {
         cfpLoadingBar.complete();
-        $scope.msg="";
+        $scope.msg = "";
         if (data == "") {
           $scope.allcart = [];
           $scope.msg = "No items in cart.";
@@ -1311,7 +1306,6 @@ interes:""
           })
         }
         NavigationService.getCurrency(function(data) {
-          console.log(data);
           if (data) {
             // var temp= _.find(data,{'name':$scope.country});
             var temp;
@@ -1320,13 +1314,9 @@ interes:""
                 temp = key;
               }
             });
-            console.log(temp);
             if (temp.name == $.jStorage.get("myCurrency")); {
-              console.log("herhusdhxyuashxuayhs");
               if (parseInt(temp.minorder) > $scope.totalcart) {
-                console.log(temp.shipping);
                 $scope.shippingcharges = parseInt(temp.shipping);
-                console.log($scope.shippingcharges);
 
               } else {
                 $scope.shippingcharges = 0;
@@ -1360,7 +1350,6 @@ interes:""
         if (formValidate.$valid) {
           NavigationService.login(input, function(data) {
             if (data.value === false) {
-              console.log("works I think");
               $scope.validatelogin = true;
             } else {
               NavigationService.setUser(data);
@@ -1373,39 +1362,36 @@ interes:""
           $scope.inputall = true;
         }
       }
-    // $scope.doLogin = function() {
-    //     console.log($scope.login);
-    //     $scope.allvalidation = [{
-    //       field: $scope.login.email,
-    //       validation: ""
-    //     }, {
-    //       field: $scope.login.password,
-    //       validation: ""
-    //     }];
-    //
-    //     var check = formvalidation($scope.allvalidation);
-    //
-    //     if (check) {
-    //       NavigationService.login($scope.login, function(data) {
-    //         console.log(data);
-    //         if (data.value == false) {
-    //           $scope.validation = true;
-    //         } else {
-    //           $scope.validation = false;
-    //           NavigationService.setUser(data);
-    //           window.location.reload();
-    //         }
-    //       }, function(err) {
-    //         console.log(err);
-    //       })
-    //     } else {
-    //       $scope.alerts = [];
-    //       $scope.alerts.push({
-    //         type: 'danger',
-    //         msg: 'Please input all information.'
-    //       });
-    //     }
-    //   }
+      // $scope.doLogin = function() {
+      //     $scope.allvalidation = [{
+      //       field: $scope.login.email,
+      //       validation: ""
+      //     }, {
+      //       field: $scope.login.password,
+      //       validation: ""
+      //     }];
+      //
+      //     var check = formvalidation($scope.allvalidation);
+      //
+      //     if (check) {
+      //       NavigationService.login($scope.login, function(data) {
+      //         if (data.value == false) {
+      //           $scope.validation = true;
+      //         } else {
+      //           $scope.validation = false;
+      //           NavigationService.setUser(data);
+      //           window.location.reload();
+      //         }
+      //       }, function(err) {
+      //       })
+      //     } else {
+      //       $scope.alerts = [];
+      //       $scope.alerts.push({
+      //         type: 'danger',
+      //         msg: 'Please input all information.'
+      //       });
+      //     }
+      //   }
       //signup
     $scope.signup = {};
     $scope.accept = false;
@@ -1414,7 +1400,6 @@ interes:""
     $scope.alreadyReg = false;
     $scope.noMatch = false;
     $scope.doSignUp = function(accept, input, formValidate) {
-      console.log(accept);
       $scope.acceptValidate = false;
       $scope.validateForm = false;
       $scope.alreadyReg = false;
@@ -1426,11 +1411,11 @@ interes:""
           if (accept == true) {
             NavigationService.signup(input, function(data) {
               if (data.value == false) {
-                $scope.alerts= [];
+                $scope.alerts = [];
                 $scope.alerts.push({
 
-                    type:'danger',
-                    msg:'Email already exists'
+                  type: 'danger',
+                  msg: 'Email already exists'
 
                 });
               } else {
@@ -1445,11 +1430,11 @@ interes:""
           }
         }
       } else {
-        $scope.alerts= [];
+        $scope.alerts = [];
         $scope.alerts.push({
 
-            type:'danger',
-            msg:'Please enter all details'
+          type: 'danger',
+          msg: 'Please enter all details'
 
         });
       }
@@ -1458,8 +1443,6 @@ interes:""
     }
 
     // $scope.doSignUp = function(accept) {
-    //   console.log(accept);
-    //   console.log($scope.signup);
     //   $scope.allvalidation = [{
     //     field: $scope.signup.firstname,
     //     validation: ""
@@ -1478,12 +1461,10 @@ interes:""
     //   }];
     //
     //   var check = formvalidation($scope.allvalidation);
-    //   console.log(check);
     //   if (check) {
     //     $scope.validation = false;
     //     if (accept == true && $scope.signup.password === $scope.signup.cpassword) {
     //       NavigationService.signup($scope.signup, function(data) {
-    //         console.log(data);
     //         if (data.value == false) {
     //           $scope.validation1 = true;
     //         } else {
@@ -1492,7 +1473,6 @@ interes:""
     //           window.location.reload();
     //         }
     //       }, function(err) {
-    //         console.log(err);
     //       })
     //     } else {
     //       $scope.validation1 = "Please accept the Terms and Conditions or Password and confirm password do not match!";
@@ -1506,7 +1486,6 @@ interes:""
     //   }
     // }
     var setPlaceOrder = function(data) {
-      console.log(data);
       $scope.checkout = data;
     };
     $scope.allcart = [];
@@ -1539,9 +1518,10 @@ interes:""
           if (data.value) {
             $scope.tabs[2].active = true;
             if ($.jStorage.get("user")) {
-              console.log($.jStorage.get("user").id);
               $scope.userid = $.jStorage.get("user").id;
-              NavigationService.getUserDetail($scope.userid, setPlaceOrder,function(err){console.log(err);});
+              NavigationService.getUserDetail($scope.userid, setPlaceOrder, function(err) {
+                console.log(err);
+              });
               window.scrollTo(0, 0);
             }
           } else {
@@ -1623,7 +1603,6 @@ interes:""
         $scope.tabs[3].active = true; // comment this later
         $scope.billingfulladdress = $scope.checkout.billingline1 + $scope.checkout.billingline2 + $scope.checkout.billingline3;
         $scope.shippingfulladdress = $scope.checkout.shippingline1 + $scope.checkout.shippingline2 + $scope.checkout.shippingline3;
-        console.log($scope.shippingcharges);
         $scope.checkout.shippingamount = $scope.shippingcharges;
         $scope.checkout.discountamount = $scope.discount;
         $scope.checkout.totalamount = $scope.totalcart;
@@ -1641,7 +1620,6 @@ interes:""
             });
           }
         }, function(err) {
-          console.log(err);
         })
       } else {
         $scope.invalidData = true;
@@ -1663,7 +1641,6 @@ interes:""
     };
     $scope.removeItem = function(cart) {
       NavigationService.removeFromCart(cart, function(data) {
-        console.log(data);
         if (data.value) {
           $scope.alerts = [];
           $scope.alerts.push({
@@ -1671,7 +1648,6 @@ interes:""
             msg: 'Removed successfully'
           });
           $scope.getCart();
-          console.log($scope.allcart);
           myfunction();
         } else {
           $scope.alerts = [];
@@ -1692,14 +1668,11 @@ interes:""
       } else if ($scope.validateQuantity(item)) {
         item.exceed = false;
         item.status = "2";
-        console.log("here");
         NavigationService.addToCart(item, function(data) {
-          console.log(data);
           if (data.value) {
             $scope.getCart();
           }
         }, function(err) {
-          console.log(err);
         })
       }
 
@@ -1726,9 +1699,9 @@ interes:""
         $scope.checkout.shippingcountry = data.billingcountry;
       }
     };
-    $scope.shippingChangeKarKeBataAb = function(){
-      if($scope.shipAtSame){
-        $scope.checkout.shippingpincode=$scope.checkout.billingpincode;
+    $scope.shippingChangeKarKeBataAb = function() {
+      if ($scope.shipAtSame) {
+        $scope.checkout.shippingpincode = $scope.checkout.billingpincode;
       }
     }
     $scope.shippingCheck = function(check) {
@@ -1781,7 +1754,6 @@ interes:""
     }];
 
     $scope.products = _.chunk($scope.product, 3);
-    console.log($scope.products);
 
   })
   .controller('SaveDesignCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
@@ -1798,9 +1770,8 @@ interes:""
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('ServicesCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $document, $stateParams,$uibModal) {
+  .controller('ServicesCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $document, $stateParams, $uibModal) {
     //Used to name the .html file
-    console.log($stateParams);
     $scope.template = TemplateService.changecontent("services");
     $scope.menutitle = NavigationService.makeactive("Services");
     TemplateService.title = $scope.menutitle;
@@ -1858,7 +1829,6 @@ interes:""
       }, 1000);
     });
     $scope.changeURL = function(id) {
-      console.log(id);
       $scope.menutitle = NavigationService.makeactive(id);
       $state.transitionTo('servicesid', {
         id: id,
@@ -1892,18 +1862,13 @@ interes:""
           $scope.msg = "No items in wishlist";
 
         }
-        console.log(status);
-        console.log(data);
         $scope.wishlist = data;
       }, function(err) {
-        console.log(err);
-        console.log(err);
       });
     };
     $scope.getWishlist();
     $scope.removeCart = function(id) {
       NavigationService.removeFromWishlist(id, function(data) {
-        console.log(data);
         if (data.value == true) {
           $scope.alerts = [];
           $scope.alerts.push({
@@ -1920,7 +1885,6 @@ interes:""
           });
         }
       }, function(err) {
-        console.log(err);
       })
 
     }
@@ -1954,7 +1918,6 @@ interes:""
           // }, 1000)
         }
       }, function(err) {
-        console.log(err);
       })
     }
   })
@@ -1993,7 +1956,6 @@ interes:""
         });
       } else {
         NavigationService.forgotPassword(request, function(data) {
-          console.log(data);
           if (data.value == true) {
             $scope.alerts = [];
             $scope.alerts.push({
@@ -2009,7 +1971,6 @@ interes:""
             });
           }
         }, function(err) {
-          console.log(err);
         });
       }
     };
@@ -2067,7 +2028,6 @@ interes:""
               });
             }
           }, function(err) {
-            console.log(err);
           });
         }
       } else {
@@ -2113,7 +2073,6 @@ interes:""
 
     NavigationService.getCategory(function(data) {
 
-      console.log(data);
 
       $scope.navigation[0].subnav = data;
 
@@ -2121,12 +2080,11 @@ interes:""
 
     }, function(err) {
 
-      console.log(err);
 
     });
 
   })
-  .controller('headerctrl', function($scope, $state, TemplateService, $uibModal, NavigationService, $interval,$upload,$timeout) {
+  .controller('headerctrl', function($scope, $state, TemplateService, $uibModal, NavigationService, $interval, $upload, $timeout) {
     $scope.template = TemplateService;
     $scope.logintab = {};
     $scope.login = {};
@@ -2141,8 +2099,8 @@ interes:""
     $scope.hovermenu = false;
     $scope.validation = false;
     $scope.validation1 = "";
-    $scope.wishlistcount=$.jStorage.get("wishlistCount");
-    $scope.quantity=$.jStorage.get("cartCount");
+    $scope.wishlistcount = $.jStorage.get("wishlistCount");
+    $scope.quantity = $.jStorage.get("cartCount");
     $scope.isLogin = false;
     $scope.user = user;
     $scope.alerts = [];
@@ -2165,25 +2123,23 @@ interes:""
     var changeClass = {};
 
 
-    $scope.hoverDown=function(){
+    $scope.hoverDown = function() {
       changeClass = setTimeout(function() {
         $scope.cartClass = "";
         $scope.$apply();
-      },500);
+      }, 500);
 
     };
-    globalFunc.closeIt= function(){
+    globalFunc.closeIt = function() {
       $scope.hoverDown();
     };
-    globalFunc.openUp= function(){
+    globalFunc.openUp = function() {
       $scope.getCart();
     };
 
     $scope.getCart = function() {
-      console.log($scope.cartClass);
-       clearTimeout(changeClass);
-      if($scope.cartClass == "" || !$scope.cartClass)
-      {
+      clearTimeout(changeClass);
+      if ($scope.cartClass == "" || !$scope.cartClass) {
         console.log("Inside");
         $scope.cartClass = "itsHover";
         $scope.addCart = [];
@@ -2268,11 +2224,9 @@ interes:""
       }
       //Global function
     NavigationService.getCategory(function(data) {
-      console.log(data);
       $scope.navigation[0].subnav = data;
       $scope.navigation[1].subnav = '';
     }, function(err) {
-      console.log(err);
     });
     $scope.services = [{
       name: "ADVANCED CUSTOMISATION",
@@ -2301,10 +2255,8 @@ interes:""
       if ($.jStorage.get("user")) {
         $scope.wishlistcountshow = true;
         NavigationService.getWishlistCount(function(data) {
-          console.log(data);
           $scope.wishlistcount = data;
         }, function(err) {
-          console.log(err);
         });
       }
       NavigationService.getCartCount(function(data) {
@@ -2319,14 +2271,12 @@ interes:""
         }
 
       }, function(err) {
-        console.log(err);
       });
       // NavigationService.totalcart(function(data) {
       //     $scope.amount = data;
       // });
     }
     $scope.changeTab = function(tab) {
-      console.log(tab);
       if (tab === 1) {
         $scope.signupmodal = true;
         $scope.loginmodal = false;
@@ -2350,7 +2300,6 @@ interes:""
     $scope.animationsEnabled = true;
 
     $scope.openLogin = function() {
-      console.log("login opened");
       $.jStorage.set("isExpert", false);
       $scope.changeTab(2);
       $uibModal.open({
@@ -2386,14 +2335,12 @@ interes:""
         if (formValidate.$valid) {
           NavigationService.login(input, function(data) {
             if (data.value === false) {
-              console.log("works I think");
               $scope.validatelogin = true;
             } else {
               NavigationService.setUser(data);
               window.location.reload();
             }
           }, function(err) {
-            console.log(err);
           })
         } else {
           $scope.inputall = true;
@@ -2409,7 +2356,6 @@ interes:""
     $scope.noMatch = false;
 
     $scope.doSignup = function(accept, input, formValidate) {
-      console.log(accept);
       $scope.acceptValidate = false;
       $scope.validateForm = false;
       $scope.alreadyReg = false;
@@ -2427,7 +2373,6 @@ interes:""
                 window.location.reload();
               }
             }, function(err) {
-              console.log(err);
             })
           } else {
             $scope.acceptValidate = true;
@@ -2443,14 +2388,12 @@ interes:""
     //logout
     $scope.logout = function() {
       NavigationService.logout(function(data) {
-        console.log(true);
         if (data == "true") {
           $.jStorage.flush();
           $state.go("home");
           window.location.reload();
         }
       }, function(err) {
-        console.log(err);
       })
     }
     var checktwitter = function(data, status) {
@@ -2469,7 +2412,6 @@ interes:""
     };
     var authenticatesuccess = function(data, status) {
       if (data != "false") {
-        console.log(data);
         $.jStorage.set("user", data);
         user = data;
         $state.go('home');
@@ -2519,136 +2461,126 @@ interes:""
     $scope.fileReaderSupported = window.FileReader != null && (window.FileAPI == null || FileAPI.html5 != false);
     $scope.uploadRightAway = true;
     $scope.changeAngularVersion = function() {
-        window.location.hash = $scope.angularVersion;
-        window.location.reload(true);
+      window.location.hash = $scope.angularVersion;
+      window.location.reload(true);
     };
     $scope.hasUploader = function(index) {
-        return $scope.upload[index] != null;
+      return $scope.upload[index] != null;
     };
     $scope.abort = function(index) {
-        $scope.upload[index].abort();
-        $scope.upload[index] = null;
+      $scope.upload[index].abort();
+      $scope.upload[index] = null;
     };
     $scope.angularVersion = window.location.hash.length > 1 ? (window.location.hash.indexOf('/') === 1 ?
-        window.location.hash.substring(2) : window.location.hash.substring(1)) : '1.2.20';
+      window.location.hash.substring(2) : window.location.hash.substring(1)) : '1.2.20';
 
     var arrLength = 0;
     globalfunction.onFileSelect = function($files, callback) {
-      console.log($files);
-        $scope.selectedFiles = [];
-        $scope.progress = [];
-        console.log($files);
-        if ($scope.upload && $scope.upload.length > 0) {
-            for (var i = 0; i < $scope.upload.length; i++) {
-                if ($scope.upload[i] != null) {
-                    $scope.upload[i].abort();
-                }
-            }
+      $scope.selectedFiles = [];
+      $scope.progress = [];
+      if ($scope.upload && $scope.upload.length > 0) {
+        for (var i = 0; i < $scope.upload.length; i++) {
+          if ($scope.upload[i] != null) {
+            $scope.upload[i].abort();
+          }
         }
-        $scope.upload = [];
-        $scope.uploadResult = uploadres;
-        $scope.selectedFiles = $files;
-        $scope.dataUrls = [];
-        arrLength = $files.length;
-        for (var i = 0; i < $files.length; i++) {
-            var $file = $files[i];
-            console.log($file);
-            if ($scope.fileReaderSupported && $file.type.indexOf('image') > -1) {
-                var fileReader = new FileReader();
-                fileReader.readAsDataURL($files[i]);
-                var loadFile = function(fileReader, index) {
-                    fileReader.onload = function(e) {
-                        $timeout(function() {
-                            $scope.dataUrls[index] = e.target.result;
-                        });
-                    }
-                }(fileReader, i);
+      }
+      $scope.upload = [];
+      $scope.uploadResult = uploadres;
+      $scope.selectedFiles = $files;
+      $scope.dataUrls = [];
+      arrLength = $files.length;
+      for (var i = 0; i < $files.length; i++) {
+        var $file = $files[i];
+        if ($scope.fileReaderSupported && $file.type.indexOf('image') > -1) {
+          var fileReader = new FileReader();
+          fileReader.readAsDataURL($files[i]);
+          var loadFile = function(fileReader, index) {
+            fileReader.onload = function(e) {
+              $timeout(function() {
+                $scope.dataUrls[index] = e.target.result;
+              });
             }
-            $scope.progress[i] = -1;
-            if ($scope.uploadRightAway) {
-                $scope.start(i, callback);
-            }
+          }(fileReader, i);
         }
+        $scope.progress[i] = -1;
+        if ($scope.uploadRightAway) {
+          $scope.start(i, callback);
+        }
+      }
     };
 
     $scope.start = function(index, callback) {
-      console.log(index);
-        $scope.progress[index] = 0;
-        $scope.errorMsg = null;
-        console.log($scope.howToSend = 1);
-        if ($scope.howToSend == 1) {
-            $scope.upload[index] = $upload.upload({
-                url: uploadUrl,
-                method: $scope.httpMethod,
-                headers: {
-                    'Content-Type': 'Content-Type'
-                },
-                data: {
-                    myModel: $scope.myModel
-                },
-                file: $scope.selectedFiles[index],
-                fileFormDataName: 'file'
-            });
-            $scope.upload[index].then(function(response) {
-              console.log(response);
-                $timeout(function() {
-                  console.log(response);
-                    $scope.uploadResult.push(response.data.value);
-                    imagejstupld = response.data.value;
+      $scope.progress[index] = 0;
+      $scope.errorMsg = null;
+      if ($scope.howToSend == 1) {
+        $scope.upload[index] = $upload.upload({
+          url: uploadUrl,
+          method: $scope.httpMethod,
+          headers: {
+            'Content-Type': 'Content-Type'
+          },
+          data: {
+            myModel: $scope.myModel
+          },
+          file: $scope.selectedFiles[index],
+          fileFormDataName: 'file'
+        });
+        $scope.upload[index].then(function(response) {
+          $timeout(function() {
+            $scope.uploadResult.push(response.data.value);
+            imagejstupld = response.data.value;
 
-                    if (imagejstupld != "") {
-                        $scope.images.push(imagejstupld);
-                        console.log($scope.images);
-                        imagejstupld = "";
-                        if (arrLength == $scope.images.length) {
-                            callback($scope.images);
-                            $scope.images = [];
-                        }
-                    }
-                });
-            }, function(response) {
-                if (response.status > 0) $scope.errorMsg = response.status + ': ' + response.data;
-            }, function(evt) {
-                $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-            });
-            $scope.upload[index].xhr(function(xhr) {});
-        } else {
-          console.log("hehraihdiuashdohsaiudh");
-          console.log(e.target.result);
-            var fileReader = new FileReader();
-            fileReader.onload = function(e) {
-                $scope.upload[index] = $upload.http({
-                    url: uploadUrl,
-                    headers: {
-                        'Content-Type': $scope.selectedFiles[index].type
-                    },
-                    data: e.target.result
-                }).then(function(response) {
-                    $scope.uploadResult.push(response.data);
-                }, function(response) {
-                    if (response.status > 0) $scope.errorMsg = response.status + ': ' + response.data;
-                }, function(evt) {
-                    $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-                });
+            if (imagejstupld != "") {
+              $scope.images.push(imagejstupld);
+              imagejstupld = "";
+              if (arrLength == $scope.images.length) {
+                callback($scope.images);
+                $scope.images = [];
+              }
             }
-            fileReader.readAsArrayBuffer($scope.selectedFiles[index]);
+          });
+        }, function(response) {
+          if (response.status > 0) $scope.errorMsg = response.status + ': ' + response.data;
+        }, function(evt) {
+          $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+        });
+        $scope.upload[index].xhr(function(xhr) {});
+      } else {
+        var fileReader = new FileReader();
+        fileReader.onload = function(e) {
+          $scope.upload[index] = $upload.http({
+            url: uploadUrl,
+            headers: {
+              'Content-Type': $scope.selectedFiles[index].type
+            },
+            data: e.target.result
+          }).then(function(response) {
+            $scope.uploadResult.push(response.data);
+          }, function(response) {
+            if (response.status > 0) $scope.errorMsg = response.status + ': ' + response.data;
+          }, function(evt) {
+            $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+          });
         }
+        fileReader.readAsArrayBuffer($scope.selectedFiles[index]);
+      }
     };
 
     $scope.dragOverClass = function($event) {
-        var items = $event.dataTransfer.items;
-        var hasFile = false;
-        if (items != null) {
-            for (var i = 0; i < items.length; i++) {
-                if (items[i].kind == 'file') {
-                    hasFile = true;
-                    break;
-                }
-            }
-        } else {
+      var items = $event.dataTransfer.items;
+      var hasFile = false;
+      if (items != null) {
+        for (var i = 0; i < items.length; i++) {
+          if (items[i].kind == 'file') {
             hasFile = true;
+            break;
+          }
         }
-        return hasFile ? "dragover" : "dragover-err";
+      } else {
+        hasFile = true;
+      }
+      return hasFile ? "dragover" : "dragover-err";
     };
 
   });
