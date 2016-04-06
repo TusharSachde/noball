@@ -1136,11 +1136,15 @@ interes:""
       if (enquiry.$valid) {
         NavigationService.contactSubmit(input,function(data){
           if(data){
+            $scope.formComplete=true;
           $timeout(function () {
-              $scope.formComplete=true;
+              $scope.formComplete=false;
           },2000)
-          $scope.formComplete=false;
+
           $scope.formenquire= {};
+          enquiry.name.$touched =false;
+          enquiry.subject.$touched =false;
+          enquiry.msg.$touched =false;
           }
         },function(){
 
