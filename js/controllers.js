@@ -1131,10 +1131,26 @@ interes:""
     $scope.menutitle = NavigationService.makeactive("Contact Us");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    $scope.submit = function(enquiry) {
+    $scope.formenquire= {};
+    $scope.submit = function(input,enquiry) {
       if (enquiry.$valid) {
-        // NavigationService.
-        $scope.formComplete = true;
+        NavigationService.contactSubmit(input,function(data){
+          if(data){
+            $scope.formComplete=true;
+          $timeout(function () {
+              $scope.formComplete=false;
+          },2000)
+
+          $scope.formenquire= {};
+          enquiry.name.$touched =false;
+          enquiry.subject.$touched =false;
+          enquiry.msg.$touched =false;
+          }
+        },function(){
+
+        })
+
+
       }
     }
   })
@@ -1508,8 +1524,6 @@ interes:""
       if ($scope.allcart.length == 0 || $scope.allcart == null) {
         $scope.alerts = [];
         $scope.alerts.push({
-
-
           type: 'danger',
           msg: 'No items in cart'
         });

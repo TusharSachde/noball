@@ -683,6 +683,18 @@ var navigationservice = angular.module('navigationservice', [])
         }
       }).success(callback).error(err);
     },
+    contactSubmit: function(contact, callback, err) {
+      return $http({
+        url: adminurl + "contactSubmit",
+        method: "POST",
+        data: {
+          "name": contact.name,
+"subject": contact.subject,
+"email": contact.email,
+"message": contact.message
+        }
+      }).success(callback).error(err);
+    },
         localCountry: function(callback) {
             $.getJSON("http://www.geoplugin.net/json.gp?jsoncallback=?", callback)
         },
