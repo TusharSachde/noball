@@ -143,6 +143,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
       })
     }
+    $scope.closeAlert = function(index) {
+      $scope.alerts.splice(index, 1);
+    };
     $scope.customiseIt = function(input, formValidate) {
       if (formValidate.$valid) {
         cfpLoadingBar.start();
