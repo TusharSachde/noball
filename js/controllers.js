@@ -8,11 +8,11 @@ var globalfunction = {};
 var bigcount = {};
 window.uploadUrl = 'http://customcricketcompany.com/admin/index.php/json/uploadImage';
 
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'duScroll', 'angular-loading-bar','ngDialog', 'angularFileUpload', 'ngSanitize'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'duScroll', 'cfp.loadingBar' ,'ngDialog', 'angularFileUpload', 'ngSanitize'])
 
-.controller('HomeCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
+.controller('HomeCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $uibModal,cfpLoadingBar) {
     //Used to name the .html file
-    // cfpLoadingBar.start();
+    cfpLoadingBar.start();
     $scope.template = TemplateService.changecontent("home");
     $scope.menutitle = NavigationService.makeactive("Home");
     TemplateService.title = $scope.menutitle;
@@ -28,6 +28,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     });
     NavigationService.getSlider(function(data) {
       console.log(data);
+      cfpLoadingBar.complete();
       $scope.mySlides = data;
     }, function(err) {
       console.log(err);
@@ -61,7 +62,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       })
     };
   })
-  .controller('CategoriesCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams) {
+  .controller('CategoriesCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, cfpLoadingBar) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("categories");
     $scope.menutitle = NavigationService.makeactive("Categories");
@@ -72,8 +73,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.msg = "";
 
+    cfpLoadingBar.start();
 
     NavigationService.getSubCategory($stateParams.name, function(data) {
+      cfpLoadingBar.complete();
+
       if (data == "") {
         $scope.msg = "No " + $scope.params + " found.";
       } else {
@@ -115,7 +119,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       console.log(err);
     })
   })
-  .controller('CustomiseInfoCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
+  .controller('CustomiseInfoCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $uibModal, cfpLoadingBar) {
     $scope.customInfo={
 name:"",
 email:"",
@@ -126,13 +130,11 @@ teaminitials:"",
 message:"",
 interest:""
 };
-console.log("here");
+
 $scope.onFileSelect = function($files, whichone, uploadtype) {
-  console.log($files);
-  console.log(whichone);
-  console.log(uploadtype);
+cfpLoadingBar.start();
     globalfunction.onFileSelect($files, function(image) {
-      console.log(image);
+      cfpLoadingBar.complete();
         if (whichone == 1) {
             $scope.customInfo.image = image[0];
             if (uploadtype == 'single') {
@@ -143,7 +145,11 @@ $scope.onFileSelect = function($files, whichone, uploadtype) {
 }
     $scope.customiseIt =  function(input,formValidate){
       if(formValidate.$valid){
+        cfpLoadingBar.start();
+
         NavigationService.createCustom(input,function(data){
+          cfpLoadingBar.complete();
+
           $scope.alerts=[];
           $scope.customInfo = {};
           $scope.alerts.push({
@@ -307,7 +313,7 @@ $scope.onFileSelect = function($files, whichone, uploadtype) {
 
     };
   })
-  .controller('ProfileCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
+  .controller('ProfileCtrl', function($scope, $state, TemplateService, NavigationService, $timeout,cfpLoadingBar) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("profile");
     $scope.menutitle = NavigationService.makeactive("Profile");
@@ -349,8 +355,11 @@ $scope.onFileSelect = function($files, whichone, uploadtype) {
     });
 
     $scope.saveUser = function() {
+      cfpLoadingBar.start();
+
+
       NavigationService.updateProfile($scope.updateuser.user, function(data) {
-        console.log(data);
+                    cfpLoadingBar.complete();
       }, function(err) {
         console.log(err);
       })
@@ -772,7 +781,7 @@ $scope.onFileSelect = function($files, whichone, uploadtype) {
     //    end
 
   })
-  .controller('CategoriesInsideCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams) {
+  .controller('CategoriesInsideCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, cfpLoadingBar) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("categories-inside");
     $scope.menutitle = NavigationService.makeactive("Categories");
@@ -785,16 +794,19 @@ $scope.onFileSelect = function($files, whichone, uploadtype) {
     $scope.products = [];
     $scope.country = $.jStorage.get("myCurrency");
     NavigationService.getSubCategory($stateParams.category, function(data) {
+
       $scope.subCategories = data;
     }, function(err) {
       console.log(err);
     })
 
 
+    cfpLoadingBar.start();
     NavigationService.getProductBySubCategory($stateParams.name, function(data) {
       if (data == "") {
         $scope.msg = "No " + $scope.subcategory + " found.";
       } else {
+        cfpLoadingBar.complete();
         $scope.products = _.chunk(data, 2);
       }
     }, function(err) {
@@ -816,7 +828,7 @@ $scope.onFileSelect = function($files, whichone, uploadtype) {
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('Product-DetailCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, ngDialog, $rootScope, $uibModal) {
+  .controller('Product-DetailCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, ngDialog, $rootScope, $uibModal, cfpLoadingBar) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("product-detail");
     $scope.menutitle = NavigationService.makeactive("Products");
@@ -899,9 +911,11 @@ interes:""
     };
     $scope.sizechartshirt = false;
     $scope.loadProduct = function(filter) {
-      console.log(filter);
+
+
       if (filter.size == null || filter.size == undefined) {
         filter.size = "";
+        cfpLoadingBar.start();
       }
       if ($scope.params.category == 'Apparel') {
         $scope.menutab[0].name = "Form + Function";
@@ -909,7 +923,8 @@ interes:""
         $scope.menutab[0].name = "Build + Features";
       }
       NavigationService.getProductDetail(filter, function(data) {
-        console.log(data);
+
+        cfpLoadingBar.complete();
         $scope.productdetail = data;
         if ($scope.productdetail.product.discountprice) {
           $scope.firstsale = true;
@@ -1123,7 +1138,7 @@ interes:""
       }
     }
   })
-  .controller('OrderCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $window) {
+  .controller('OrderCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $window,cfpLoadingBar) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("order");
     $scope.menutitle = NavigationService.makeactive("Order");
@@ -1140,7 +1155,9 @@ interes:""
         order.fedex = data.TrackPackagesResponse.packageList[0];
       })
     }
+    cfpLoadingBar.start();
     NavigationService.getOrders(function(data) {
+      cfpLoadingBar.complete();
       $scope.msg = "";
       console.log(data);
       if (data.value == false) {
@@ -1151,7 +1168,7 @@ interes:""
       console.log(err);
     });
   })
-  .controller('CheckoutCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $interval) {
+  .controller('CheckoutCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $interval, cfpLoadingBar) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("checkout");
     $scope.menutitle = NavigationService.makeactive("Checkout");
@@ -1255,9 +1272,11 @@ interes:""
     $scope.checkout = {};
     $scope.totalcart = 0;
     $scope.getCart = function() {
-      console.log("heree");
+
+      cfpLoadingBar.start();
       $scope.totalcart = 0;
       NavigationService.showCart(function(data) {
+        cfpLoadingBar.complete();
         $scope.msg="";
         if (data == "") {
           $scope.msg = "No items in cart.";
@@ -1837,7 +1856,7 @@ interes:""
     };
   })
 
-.controller('MyWishListCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
+.controller('MyWishListCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, cfpLoadingBar) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("mywishlist");
     $scope.menutitle = NavigationService.makeactive("My Wishlist");
@@ -1850,7 +1869,9 @@ interes:""
     };
     $scope.msg = "Loading..";
     $scope.getWishlist = function() {
+      cfpLoadingBar.start();
       NavigationService.getWishlist(function(data, status) {
+        cfpLoadingBar.complete();
         $scope.msg = "";
         if (data.length == 0) {
           $scope.msg = "No items in wishlist";
