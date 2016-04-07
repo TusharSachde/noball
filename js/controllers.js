@@ -27,7 +27,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       console.log(err);
     });
     NavigationService.getSlider(function(data) {
-      console.log(data);
       cfpLoadingBar.complete();
       $scope.mySlides = data;
     }, function(err) {
@@ -35,7 +34,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     });
     $scope.getMinOrder = function() {
       NavigationService.getCurrency(function(data) {
-        console.log(data);
         if (data) {
           // var temp= _.find(data,{'name':$scope.country});
           var temp;
@@ -44,7 +42,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
               temp = key;
             }
           });
-          console.log(temp);
           if (temp.name == $.jStorage.get("myCurrency")); {
             $scope.minorder = temp.minorder;
           }
@@ -204,13 +201,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
               key.exceed = false;
             }
           })
-          console.log(bigcount);
           $scope.bigcount = bigcount;
         } else {
           $scope.msg = "No items in cart.";
         }
         NavigationService.getCurrency(function(data) {
-          console.log(data);
           if (data) {
             // var temp= _.find(data,{'name':$scope.country});
             var temp;
@@ -219,12 +214,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 temp = key;
               }
             });
-            console.log(temp);
             if (temp.name == $.jStorage.get("myCurrency")); {
               if (parseInt(temp.minorder) > $scope.totalcart) {
-                console.log(temp.shipping);
                 $scope.shippingcharges = parseInt(temp.shipping);
-                console.log($scope.shippingcharges);
 
               } else {
                 $scope.shippingcharges = 0;
@@ -2185,8 +2177,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
     if (country == '') {
       NavigationService.localCountry(function(data) {
-        console.log(data);
-        console.log(data.geoplugin_currencyCode);
+
         country = data.geoplugin_currencyCode;
         if (country == "ZAR") {
           $.jStorage.set("myCurrency", "ZAF");
@@ -2211,9 +2202,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.sendEmail = function(request) {
         $scope.emailsent = false;
         $scope.noexist = false;
-        console.log(request);
         NavigationService.forgotPassword(request, function(data) {
-          console.log(data);
           if (data.value == true) {
             $scope.emailsent = true;
 
