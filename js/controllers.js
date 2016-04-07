@@ -271,7 +271,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.validateQuantity = function(item) {
-      if (item.qty > item.maxQuantity) {
+      if ((item.qty > item.maxQuantity) || item.qty < 1) {
         return false;
       } else {
         return true;
@@ -991,7 +991,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           type: 'danger',
           msg: 'Please input valid size'
         });
-      } else if ($scope.filter.qty == "" || $scope.filter.qty == undefined || $scope.filter.qty == null || $scope.filter.qty == 0) {
+      } else if ($scope.filter.qty == "" || $scope.filter.qty == undefined || $scope.filter.qty == null || $scope.filter.qty < 1) {
         $scope.alerts = [];
         $scope.alerts.push({
           type: 'danger',
@@ -1637,7 +1637,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.validateQuantity = function(item) {
-      if (item.qty > item.maxQuantity) {
+      if ((item.qty > item.maxQuantity) || item.qty < 1) {
         return false;
       } else {
         return true;
