@@ -2841,7 +2841,10 @@ background-size: cover;
   @include size(250px, auto);
   margin: 0 auto;
 }
-.custom-apparel { background-image: url('../img/services/apparel-bg.png');}
+.custom-apparel {
+  background-image: url('../img/services/apparel-bg.png');
+  .service-pd { padding: 12% 0 4%; }
+}
 .lounge {
   padding: 12% 0 6%;
   color: #fff;
@@ -2851,14 +2854,22 @@ background-size: cover;
 .tours { background-image: url('../img/services/tours.jpg'); }
 .match-detail { margin: 40px 0; }
 .in-bound { margin-bottom: 50px; }
-.consultancy { background-image: url('../img/services/apparel-bg.png'); }
+.consultancy {
+  background-image: url('../img/services/apparel-bg.png');
+  .service-pd { padding: 12% 0 4%; }
+  .consult-slider { margin-top: 80px; }
+}
 .foundation { background-color: #000; }
 .foundation-part {
   padding: 20px 30px;
   background-color: #000;
   color: #fff;
 }
-.memorable { background-image: url('../img/services/memorable.jpg');}
+.memorable {
+  background-image: url('../img/services/memorable.jpg');
+  .service-pd { padding: 12% 0 4%; }
+  .service-slider { margin-top: 25px; }
+}
 // end services
 
 // popup on product detail
