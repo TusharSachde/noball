@@ -1663,7 +1663,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       })
     };
     $scope.updateCartQuantity = function(item) {
-      item.subtotal = item.qty * item.price;
+
 
       if(item.qty < 1 ){
         item.qty = 1;
