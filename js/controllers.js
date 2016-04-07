@@ -1665,19 +1665,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.updateCartQuantity = function(item) {
       item.subtotal = item.qty * item.price;
 
-      if (!$scope.validateQuantity(item)) {
-        item.exceed = true;
-        //$scope.totalcart = null;
+      if(item.qty < 1 ){
+        item.qty = 1;
+      }else{
+        if (!$scope.validateQuantity(item)) {
+          item.exceed = true;
+          //$scope.totalcart = null;
 
-      } else if ($scope.validateQuantity(item)) {
-        item.exceed = false;
-        item.status = "2";
-        NavigationService.addToCart(item, function(data) {
-          if (data.value) {
-            $scope.getCart();
-          }
-        }, function(err) {
-        })
+        } else if ($scope.validateQuantity(item)) {
+          item.exceed = false;
+          item.status = "2";
+          NavigationService.addToCart(item, function(data) {
+            if (data.value) {
+              $scope.getCart();
+            }
+          }, function(err) {
+          })
+        }
       }
 
     };
