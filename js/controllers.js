@@ -127,10 +127,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       message: "",
       interest: ""
     };
-
+    $scope.showimage = false;
     $scope.onFileSelect = function($files, whichone, uploadtype) {
       cfpLoadingBar.start();
+      $scope.showimage=true;
       globalfunction.onFileSelect($files, function(image) {
+
         cfpLoadingBar.complete();
         if (whichone == 1) {
           $scope.customInfo.image = image[0];

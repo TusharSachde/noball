@@ -13,8 +13,8 @@
   </div> -->
     <div class="form-group">
       <div ng-init='httpMethod=POST;howToSend = 1;'></div>
-      
-      <div class='rl customize-img' ng-if="customInfo.image">
+
+      <div class='rl customize-img' ng-show="showimage">
          <div class='show-upload'>
            <img ng-src='{{customInfo.image | serverimage}}' class="img-responsive">
          </div>
