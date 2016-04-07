@@ -1422,6 +1422,9 @@ footer {
         font-weight: 600;
       }
     }
+    .step1 {
+      .form-group { margin-bottom: 25px; }
+    }
   }
 }
 .checkout-detail {
@@ -2288,14 +2291,19 @@ footer {
 }
 .accept {
   .checkbox input[type="checkbox"] + label {
-    padding-left: 0;
+    padding-left: 22px;
     color: #fff;
-    font-size: 12px;
+    font-size: 14px;
     text-transform: none;
+    position: relative;
+    word-spacing: 3px;
   }
   .checkbox input[type="checkbox"] + label span {
     @include square(15px);
     border: 1px solid #fff;
+    position: absolute;
+    top: 3px;
+    left: 0;
   }
   input[type="checkbox"]:checked + label span {
     background-color: #fff;

@@ -1,37 +1,51 @@
 <div class="enter-mail login-tab" ng-hide="forgotDone">
   <div class="forgot-heading">
-      <h2 class="text-uppercase text-center white m-clear">forgot password ?</h2>
+    <h2 class="text-uppercase text-center white m-clear">forgot password ?</h2>
   </div>
-<div class="forgot-main">
-  <h3 class=" text-center">Enter your registered email address
+  <div class="forgot-main">
+    <h3 class=" text-center">Enter your registered email address
   and we will send you instructions.</h3>
-  <div class="row">
-    <div class="col-md-12">
-      <form name="forgotpop" class="text-center forgot-form">
-        <div class="form-group">
-          <input name="forgotemail" ng-model="forgot.email" required type="email" class="form-control input-placeholder" placeholder="Email *">
-        </div>
-        <div class="" ng-show="forgotpop.forgotemail.$invalid && forgotpop.forgotemail.$touched" role="alert">
-          Please Enter Your Email Id.
-        </div>
-        <div class="form-group">
-          <div class="submit">
-            <button type="" class="btn btn-light letter-spacing" ng-click="sendEmail(forgot);" ng-show="forgotpop.$valid">SUBMIT</button>
+    <div class="row">
+      <div class="col-md-12">
+        <form name="forgotpop" class="text-center forgot-form">
+          <div class="form-group">
+            <input name="forgotemail" ng-model="forgot.email" required type="email" class="form-control input-placeholder" placeholder="Email *">
           </div>
-        </div>
-        <div class="form-group">
-          <div class="text-center"  ng-show="emailsent">
-            Email sent. Please check you mail for further instructions
+          <div class="" ng-show="forgotpop.forgotemail.$invalid && forgotpop.forgotemail.$touched" role="alert">
+            Please Enter Your Email Id.
           </div>
-          <div class="text-center"  ng-show="noexist">
-            Email is not registered
+          <div class="form-group">
+            <div class="submit">
+              <button type="" class="btn btn-light letter-spacing" ng-click="sendEmail(forgot);" ng-show="forgotpop.$valid">SUBMIT</button>
+            </div>
           </div>
-        </div>
-      </form>
+          <div class="form-group">
+            <div class="text-center" ng-show="emailsent">
+              Email sent. Please check you mail for further instructions
+            </div>
+            <div class="text-center" ng-show="noexist">
+              Email is not registered
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div style="margin-bottom: 20px">
+      <h5 class="text-center">* If you have previously used social login's to sign-up on our website please try them again. Thank you.</h5>
+    </div>
+    <div class="social-icon text-center">
+      <button class="btn btn-facebook pad-btn" ng-click="facebooklogin()">
+        <i class="fa fa-facebook social-f"></i>
+      </button>
+      <button class="btn btn-google pad-btn" ng-click="googlelogin()">
+        <i class="fa fa-google-plus"></i>
+      </button>
+      <button class="btn btn-twitter pad-btn" ng-click="twitterlogin()">
+        <i class="fa fa-twitter"></i>
+      </button>
     </div>
   </div>
 </div>
-</div>
 <div ng-show="forgotDone" class="email-sent relate">
-    <h3 class="ab">Email sent sucessfully.</h3>
+  <h3 class="ab">Email sent sucessfully.</h3>
 </div>
