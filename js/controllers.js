@@ -2416,7 +2416,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       if (data != "false") {
         $.jStorage.set("user", data);
         user = data;
-        $state.go('home');
         window.location.reload();
       }
     };
