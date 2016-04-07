@@ -1175,7 +1175,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       console.log(err);
     });
   })
-  .controller('CheckoutCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $interval, cfpLoadingBar) {
+  .controller('CheckoutCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $interval, cfpLoadingBar,$uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("checkout");
     $scope.menutitle = NavigationService.makeactive("Checkout");
@@ -1201,6 +1201,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.acceptValidate = true;
 
       }
+    };
+    $scope.openForgot=function(){
+      $uibModal.open({
+        animation: true,
+        templateUrl: 'views/modal/forgotpop.html',
+        controller: 'headerctrl',
+        scope: $scope
+      })
     };
     $scope.selectGuest = function(input) {
       $scope.guestshow = true;
