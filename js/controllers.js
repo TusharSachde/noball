@@ -2387,13 +2387,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     }
 
+
     //logout
     $scope.logout = function() {
       NavigationService.logout(function(data) {
         if (data == "true") {
           $.jStorage.flush();
-          $state.go("home");
-          window.location.reload();
+          window.location.href=window.location.origin + window.location.pathname;
+
         }
       }, function(err) {
       })
