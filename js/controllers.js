@@ -899,6 +899,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
     $scope.maxQuantity = false;
     $scope.changeQuantity = function(q) {
+      $scope.filter.qty = parseInt($scope.filter.qty);
       if ($scope.productdetail.product.quantity < q) {
         $scope.maxQuantity = true;
       } else {
