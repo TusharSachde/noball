@@ -146,7 +146,7 @@
                     <li>
                       <div class="form-group">
                         <div class="">
-                        <input type="number" ng-model="filter.qty">
+                        <input type="number" ng-change="changeQuantity(filter.qty)" required name="quantity" ng-model="filter.qty">
                           <span></span>
                         </div>
                       </div>
