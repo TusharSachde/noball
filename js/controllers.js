@@ -372,7 +372,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
               $scope.profile.nameemailedit = 'save';
             } else {
               $scope.profile.nameemailedit = 'edit';
-              $scope.saveUser()
+              var tempsplit = $scope.updateuser.user.name.split(' ');
+              if(tempsplit.length == 2){
+                $scope.updateuser.user.firstname = tempsplit[0];
+                $scope.updateuser.user.lastname = tempsplit[1];
+              }
+              else {
+                $scope.updateuser.user.firstname = $scope.updateuser.user.name;
+              }
+              $scope.saveUser();
             }
           }
           break;
