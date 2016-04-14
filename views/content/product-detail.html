@@ -85,7 +85,7 @@
                 </uib-accordion-group>
               </uib-accordion>
               <!-- apparels size section start -->
-              <div class="sel-qty" ng-if="params.category == 'Apparel'">
+              <div class="sel-qty" ng-if="params.category == 'Apparel' ">
                 <h3 class="letter-spacing">Select Quantity</h3>
                 <div class="choos quantity">
                   <div class="row">
@@ -109,7 +109,7 @@
                       </div>
                     </form>
                   </div>
-                  <div class="chart">
+                  <div class="chart" ng-if="params.subcategory !== 'Caps%2Fhats'">
                     <p>View:
                       <span data-toggle="modal" data-target="#myModal4">Size Chart</span>
                     </p>

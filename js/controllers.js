@@ -182,6 +182,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.msg = "";
     $scope.alerts = [];
     $scope.totalcart = 0;
+    $scope.country = $.jStorage.get("myCurrency");
+    console.log($scope.country);
     $scope.closeAlert = function(index) {
       $scope.alerts.splice(index, 1);
     };
@@ -1204,6 +1206,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.shippingfulladdress = "";
     $scope.shippingcharges = 0;
     $scope.discount = 0;
+    $scope.country = $.jStorage.get("myCurrency");
+    console.log($scope.country);
     $scope.acceptIt = function(flag) {
       if (flag === true) {
         $scope.acceptValidate = false;
