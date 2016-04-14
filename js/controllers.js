@@ -901,6 +901,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }];
     $scope.selectedImage = {};
     $scope.params = $stateParams;
+    console.log($scope.params);
     $scope.filter.id = $scope.params.id;
     $scope.oneAtATime = true;
     $scope.status = {
