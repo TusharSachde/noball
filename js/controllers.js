@@ -1563,66 +1563,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       }
 
     };
-    $scope.placeOrder = function() {
-      $scope.invalidData = false;
-      $scope.allvalidation = [{
-        field: $scope.checkout.firstname,
-        validation: ""
-      }, {
-        field: $scope.checkout.lastname,
-        validation: ""
-      }, {
-        field: $scope.checkout.phone,
-        validation: ""
-      }, {
-        field: $scope.checkout.email,
-        validation: ""
-      }, {
-        field: $scope.checkout.billingline1,
-        validation: ""
-      }, {
-        field: $scope.checkout.billingline2,
-        validation: ""
-      }, {
-        field: $scope.checkout.billingline3,
-        validation: ""
-      }, {
-        field: $scope.checkout.billingcity,
-        validation: ""
-      }, {
-        field: $scope.checkout.billingpincode,
-        validation: ""
-      }, {
-        field: $scope.checkout.billingstate,
-        validation: ""
-      }, {
-        field: $scope.checkout.billingcountry,
-        validation: ""
-      }, {
-        field: $scope.checkout.shippingline1,
-        validation: ""
-      }, {
-        field: $scope.checkout.shippingline2,
-        validation: ""
-      }, {
-        field: $scope.checkout.shippingline3,
-        validation: ""
-      }, {
-        field: $scope.checkout.shippingcity,
-        validation: ""
-      }, {
-        field: $scope.checkout.shippingpincode,
-        validation: ""
-      }, {
-        field: $scope.checkout.shippingstate,
-        validation: ""
-      }, {
-        field: $scope.checkout.shippingcountry,
-        validation: ""
-      }];
-
-      var check = formvalidation($scope.allvalidation);
-      if (check) {
+    $scope.placeOrder = function(formValidate) {
+      // $scope.invalidData = false;
+      if (formValidate.$valid) {
         $scope.checkout.cart = $scope.allcart;
         $scope.tabs[3].active = true; // comment this later
         $scope.billingfulladdress = $scope.checkout.billingline1 + $scope.checkout.billingline2 + $scope.checkout.billingline3;
@@ -1646,12 +1589,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }, function(err) {
         })
       } else {
-        $scope.invalidData = true;
-        $scope.alerts = [];
-        $scope.alerts.push({
-          type: 'danger',
-          msg: 'Input all information'
-        });
+        // $scope.invalidData = true;
+        // $scope.alerts = [];
+        // $scope.alerts.push({
+        //   type: 'danger',
+        //   msg: 'Input all information'
+        // });
       }
 
     };

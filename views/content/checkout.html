@@ -15,7 +15,7 @@
                 <div class="row">
 
                   <div class="col-md-4 col-sm-5">
-                    <form name="loginForm" submit="">
+                    <form name="loginForm" >
 
                       <div class="login-form step1">
                         <h4 class="login">SIGN IN</h4>
@@ -259,6 +259,7 @@
               </div>
             </tab>
             <tab active="tabs[2].active" disable="tabs[2].disabled" heading="Step 3">
+              <form name="detailForm">
               <div class="row">
                 <div class="col-md-12">
                   <h4 class="login">YOUR DETAILS</h4>
@@ -269,25 +270,25 @@
                 <div class="col-md-3">
                   <div class="form-group">
 
-                    <input type="text" ng-model="checkout.firstname" class="form-control" placeholder="First Name">
+                    <input type="text" name="firstname" required ng-model="checkout.firstname" class="form-control" placeholder="First Name">
                   </div>
                 </div>
                 <div class="col-md-3">
                   <div class="form-group">
 
-                    <input type="text" ng-model="checkout.lastname" class="form-control" placeholder="Last Name">
+                    <input type="text" name="lastname" required ng-model="checkout.lastname" class="form-control" placeholder="Last Name">
                   </div>
                 </div>
                 <div class="col-md-3">
                   <div class="form-group">
 
-                    <input type="tel" ng-model="checkout.phone" class="form-control" placeholder="Mobile Number">
+                    <input type="number" name="phone" required ng-model="checkout.phone" class="form-control" placeholder="Mobile Number">
                   </div>
                 </div>
                 <div class="col-md-3">
                   <div class="form-group">
 
-                    <input type="email" ng-model="checkout.email" class="form-control" placeholder="Email">
+                    <input type="email" name="email" required ng-model="checkout.email" class="form-control" placeholder="Email">
                   </div>
                 </div>
               </div>
@@ -296,27 +297,27 @@
                   <div class="login-form ">
                     <h4 class="login">BILLING ADDRESS</h4>
                     <div class="form-group">
-                      <input type="text" ng-change="sameShipping(checkout)" ng-model="checkout.billingline1" class="form-control" placeholder="Flat Number, Building Number *">
+                      <input type="text" name="billingline1" required ng-change="sameShipping(checkout)" ng-model="checkout.billingline1" class="form-control" placeholder="Flat Number, Building Number *">
                     </div>
                     <div class="form-group">
-                      <input type="text" ng-change="sameShipping(checkout)" ng-model="checkout.billingline2" class="form-control" placeholder="Street Address *">
+                      <input type="text" name="billingline2" required ng-change="sameShipping(checkout)" ng-model="checkout.billingline2" class="form-control" placeholder="Street Address *">
                     </div>
                     <div class="form-group">
-                      <input type="text" ng-change="sameShipping(checkout)" ng-model="checkout.billingline3" class="form-control" placeholder="Nearest Landmark">
+                      <input type="text" name="billingline3" required ng-change="sameShipping(checkout)" ng-model="checkout.billingline3" class="form-control" placeholder="Nearest Landmark">
                     </div>
                     <div class="form-group">
-                      <input type="text" ng-change="sameShipping(checkout)" ng-model="checkout.billingcity" class="form-control" placeholder="City">
+                      <input type="text" name="billingcity" required ng-change="sameShipping(checkout)" ng-model="checkout.billingcity" class="form-control" placeholder="City">
                     </div>
                     <div class="form-group">
-                      <input type="tel" ng-change="sameShipping(checkout)" ng-model="checkout.billingpincode" class="form-control" placeholder="Pin Code">
+                      <input type="tel" name="billingpincode" required ng-change="sameShipping(checkout)" ng-model="checkout.billingpincode" class="form-control" placeholder="Pin Code">
                     </div>
                     <div class="form-group">
-                      <input type="text" ng-change="sameShipping(checkout)" ng-model="checkout.billingstate" class="form-control" placeholder="State">
+                      <input type="text" name="billingstate" required ng-change="sameShipping(checkout)" ng-model="checkout.billingstate" class="form-control" placeholder="State">
                     </div>
                     <div class="form-group">
 
                       <div class="ccc-select">
-                        <select class="form-control" ng-change="sameShipping(checkout)" ng-model="checkout.billingcountry">
+                        <select class="form-control" name="billingcountry" required ng-change="sameShipping(checkout)" ng-model="checkout.billingcountry">
                           <option value="{{country.value}}" ng-repeat="country in countries">{{country.value}}</option>
                         </select>
                         <span></span>
@@ -335,27 +336,27 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <input type="text" ng-model="checkout.shippingline1" class="form-control" placeholder="Flat Number, Building Number *">
+                      <input type="text" name="shippingline1" required ng-model="checkout.shippingline1" class="form-control" placeholder="Flat Number, Building Number *">
                     </div>
                     <div class="form-group">
-                      <input type="text" ng-model="checkout.shippingline2" class="form-control" placeholder="Street Address *">
+                      <input type="text" name="shippingline2" required ng-model="checkout.shippingline2" class="form-control" placeholder="Street Address *">
                     </div>
                     <div class="form-group">
-                      <input type="text" ng-model="checkout.shippingline3" class="form-control" placeholder="Nearest Landmark *">
+                      <input type="text" name="shippingline3" required ng-model="checkout.shippingline3" class="form-control" placeholder="Nearest Landmark *">
                     </div>
                     <div class="form-group">
-                      <input type="text" ng-model="checkout.shippingcity" class="form-control" placeholder="City">
+                      <input type="text" name="shippingcity" required ng-model="checkout.shippingcity" class="form-control" placeholder="City">
                     </div>
                     <div class="form-group">
-                      <input type="tel" ng-change="shippingChangeKarKeBataAb()" ng-model="checkout.shippingpincode" class="form-control" placeholder="Pin Code">
+                      <input type="tel" name="shippingpincode" required ng-change="shippingChangeKarKeBataAb()" ng-model="checkout.shippingpincode" class="form-control" placeholder="Pin Code">
                     </div>
                     <div class="form-group">
-                      <input type="text" ng-model="checkout.shippingstate" class="form-control" placeholder="State">
+                      <input type="text" name="shippingstate" required ng-model="checkout.shippingstate" class="form-control" placeholder="State">
                     </div>
                     <div class="form-group">
 
                       <div class="ccc-select">
-                        <select class="form-control" ng-model="checkout.shippingcountry">
+                        <select class="form-control" name="shippingcountry" required ng-model="checkout.shippingcountry">
                           <option value="{{country.value}}" ng-repeat="country in countries">{{country.value}}</option>
                         </select>
                         <span></span>
@@ -409,7 +410,7 @@
               </div> -->
               <div class="back-2 no-bg">
                 <div class="text-center mg30">
-                  <button class="btn btn-outline btn-dark more-pd text-uppercase" ng-click="placeOrder()">Continue</button>
+                  <button class="btn btn-outline btn-dark more-pd text-uppercase" ng-click="placeOrder(detailForm)">Continue</button>
                 </div>
                 <div class="payment list text-center">
                   <p>We Accept:</p>
@@ -435,6 +436,7 @@
                   </ul>
                 </div>
               </div>
+            </form>
             </tab>
             <tab active="tabs[3].active" disable="tabs[3].disabled" heading="Step 4">
               <div class="min-height">
