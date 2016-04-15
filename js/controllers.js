@@ -116,7 +116,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       console.log(err);
     })
   })
-  .controller('CustomiseInfoCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $uibModal, cfpLoadingBar) {
+  .controller('CustomiseInfoCtrl', function($scope, $state,$log, TemplateService, NavigationService, $timeout, $uibModal, cfpLoadingBar) {
     $scope.customInfo = {
       name: "",
       email: "",
@@ -128,19 +128,28 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       interest: ""
     };
     $scope.showimage = false;
-    $scope.onFileSelect = function($files, whichone, uploadtype) {
-      cfpLoadingBar.start();
-      $scope.showimage=true;
-      globalfunction.onFileSelect($files, function(image) {
+    $scope.toolarge =  false;
 
-        cfpLoadingBar.complete();
-        if (whichone == 1) {
-          $scope.customInfo.image = image[0];
-          if (uploadtype == 'single') {
+    $scope.onFileSelect = function($files, whichone, uploadtype) {
+      $scope.toolarge =  false;
+      
+      if($files[0].size < 20000000){
+        cfpLoadingBar.start();
+        $scope.showimage=true;
+        globalfunction.onFileSelect($files, function(image) {
+
+          cfpLoadingBar.complete();
+          if (whichone == 1) {
             $scope.customInfo.image = image[0];
+            if (uploadtype == 'single') {
+              $scope.customInfo.image = image[0];
+            }
           }
-        }
-      })
+        })
+      } else {
+        $files=[];
+        $scope.toolarge =  true;
+      }
     }
     $scope.closeAlert = function(index) {
       $scope.alerts.splice(index, 1);
@@ -879,7 +888,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       $uibModal.open({
         animation: true,
         templateUrl: "views/modal/customizepop.html",
-        controller: 'CustomiseInfoCtrl'
+        controller: 'CustomiseInfoCtrl',
+        backdrop  : 'static',
+   keyboard  : false
       });
     };
     $scope.submitCustomEnquiry = function() {
@@ -1804,7 +1815,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       $uibModal.open({
         animation: true,
         templateUrl: "views/modal/customizepop.html",
-        controller: 'CustomiseInfoCtrl'
+        controller: 'CustomiseInfoCtrl',
+        backdrop  : 'static',
+   keyboard  : false
       });
     };
 
@@ -2114,7 +2127,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       $uibModal.open({
         animation: true,
         templateUrl: "views/modal/customizepop.html",
-        controller: 'CustomiseInfoCtrl'
+        controller: 'CustomiseInfoCtrl',
+        backdrop  : 'static',
+   keyboard  : false
       });
     };
     $scope.logintab.tab = 1;
