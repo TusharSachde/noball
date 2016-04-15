@@ -1152,12 +1152,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.formComplete = true;
             $timeout(function() {
               $scope.formComplete = false;
-            }, 2000)
+            }, 4000)
 
             $scope.formenquire = {};
             enquiry.name.$touched = false;
             enquiry.subject.$touched = false;
             enquiry.msg.$touched = false;
+            enquiry.email.$touched = false;
           }
         }, function() {
 
