@@ -1,4 +1,5 @@
 <section class="customize-now">
+  <span class="close"><i class="fa fa-close"  ng-click="$close();"></i></span>
   <div class="alert-postion">
     <!-- <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" class="text-center" >{{alert.msg}}</uib-alert> -->
     <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" class="text-center" dismiss-on-timeout="5000">{{alert.msg}}</uib-alert>

@@ -264,28 +264,38 @@ var formvalidation = function (allvalidation) {
 	return isvalid2;
 };
 firstapp.directive('fancyboxBox', function($document) {
-    return {
-        restrict: 'EA',
-        replace: false,
-        link: function(scope, element, attr) {
-            var $element = $(element);
-            if (attr.rel) {
-                var target = $("[rel='" + attr.rel + "']");
-            } else {
-                var target = element;
-            }
+  return {
+    restrict: 'EA',
+    replace: false,
+    link: function(scope, element, attr) {
+      var $element = $(element);
+      var $target;
+      if (attr.rel) {
+        $target = $("[rel='" + attr.rel + "']");
+      } else {
+        $target = element;
+      }
 
-            target.fancybox({
-                openEffect: 'fade',
-                closeEffect: 'fade',
-                closeBtn: true,
-                helpers: {
-                    media: {}
-                }
-            });
-
+      $target.fancybox({
+        openEffect: 'fade',
+        closeEffect: 'fade',
+        prevEffect: 'none',
+        nextEffect: 'none',
+        closeBtn: true,
+        helpers: {
+          media: {},
+          title: {
+            type: 'outside'
+          },
+          thumbs: {
+            width: 50,
+            height: 50
+          }
         }
+      });
+
     }
+  };
 });
 firstapp.directive('elevateZoom', function($document, $filter) {
     return {

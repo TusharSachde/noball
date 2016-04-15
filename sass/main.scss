@@ -5,6 +5,7 @@
 @import "../bower_components/flexslider/flexslider.css";
 @import "../bower_components/font-awesome/css/font-awesome.min.css";
 @import "../bower_components/angular-loading-bar/src/loading-bar.css";
+@import "../bower_components/fancyBox/source/jquery.fancybox.css";
 
 @font-face {
   font-family: "Facile Sans";
@@ -2743,7 +2744,10 @@ border-left: 7px solid #c3e701;
 }
 .pad,
 .glove { letter-spacing: 1px; }
-.bat-btn button { font-size: 18px; }
+.bat-btn button {
+  margin: 10px 0;
+  font-size: 18px;
+}
 .pad span { font-size: 13px; }
 // services
 .service-main {
