@@ -132,7 +132,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.onFileSelect = function($files, whichone, uploadtype) {
       $scope.toolarge =  false;
-      
+
       if($files[0].size < 20000000){
         cfpLoadingBar.start();
         $scope.showimage=true;
@@ -172,11 +172,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           console.log(err);
         })
       } else {
-        $scope.alerts = [];
-        $scope.alerts.push({
-          type: 'danger',
-          msg: 'Please enter required details'
-        });
+
       }
     };
   })
@@ -192,7 +188,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.alerts = [];
     $scope.totalcart = 0;
     $scope.country = $.jStorage.get("myCurrency");
-    console.log($scope.country);
     $scope.closeAlert = function(index) {
       $scope.alerts.splice(index, 1);
     };
@@ -200,7 +195,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
       NavigationService.showCart(function(data) {
-        console.log(data);
         if (data != '') {
           $scope.msg = "";
           $scope.addCart = data;
