@@ -136,7 +136,7 @@
                 <div class="sel-qty">
                   <!-- display button when bat opition is clicked -->
                   <div class="bat-btn" ng-show="params.category == 'Bats'">
-                    <button type="button" class="btn-orange letter-spacing text-uppercase">how to choose your bats</button>
+                    <button type="button" class="btn-orange letter-spacing text-uppercase">how to choose a willow</button>
                   </div>
                   <a href="https://www.youtube.com/v/Vc1g65sI4Uw&rel=0" fancybox-box class="bat-btn various fancybox.iframe" ng-if=" params.category == 'Bats' && params.subcategory=='Gladius Aero'">
                     <button class="btn-orange letter-spacing text-uppercase">watch video</button>
@@ -231,7 +231,12 @@
               </div>
             </div>
             <div class="border-top customise-sec">
-              <span>Select from a wide array of colors and customisation options</span>
+              <span ng-if="params.category == 'Apparel'">Select from a wide array of colors and customisation options.</span>
+              <span ng-if="params.category == 'Kit Bags'">Choose your kit bag colours and print your credentials.</span>
+              <span ng-if="params.category == 'Bats'">Personalise your bat with initials.</span>
+              <span ng-if="params.category == 'Balls'">Personalise your team balls with logo or initials.</span>
+              <span ng-if="params.category == 'Gloves'">Personalised gloves with your team logo and colours.</span>
+              <span ng-if="params.category == 'Pads'">Personalised pads with your team logo and colours.</span>
               <div class="mt20 ">
                 <button type="button" name="button" class="btn-green letter-spacing" ng-click="customize();">CUSTOMISE NOW</button>
               </div>
