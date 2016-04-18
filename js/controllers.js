@@ -809,7 +809,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }, function(err) {
       console.log(err);
     })
-
+    $scope.hasPromotion =  false;
 
     cfpLoadingBar.start();
     NavigationService.getProductBySubCategory($stateParams.name, function(data) {
@@ -817,6 +817,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.msg = "No " + $scope.subcategory + " found.";
       } else {
         cfpLoadingBar.complete();
+        if(data.length %2 == 0){
+          $scope.hasPromotion = false;
+        }else{
+          $scope.hasPromotion=true;
+        }
         $scope.products = _.chunk(data, 2);
       }
     }, function(err) {
