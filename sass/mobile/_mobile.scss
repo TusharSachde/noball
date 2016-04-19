@@ -444,6 +444,10 @@ font-size: 30px !important;
     .transaction-info h3 {
         font-size: 12px !important;
     }
+    .sorry {
+      font-size: 22px !important;
+      letter-spacing: 1px !important;
+    }
 }
 @media (max-width: $screen-mobile) {
     .message {
@@ -695,4 +699,5 @@ font-size: 30px !important;
   .message .btn-msg {
     padding: 9px 12px;
   }
+
 }

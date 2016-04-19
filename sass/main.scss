@@ -64,7 +64,7 @@ body {
 }
 @mixin transition($transition...) {
   -moz-transition: $transition;
-  -o-transition: $transition; 
+  -o-transition: $transition;
   -webkit-transition: $transition;
   transition: $transition;
 }
@@ -2565,7 +2565,7 @@ input[type=number]::-webkit-outer-spin-button {
     letter-spacing: 2px;
   }
   .error-msg {
-    font-size: 140px;
+    font-size: 140px !important;
   }
   .btn-msg {
     padding: 12px 20px;
