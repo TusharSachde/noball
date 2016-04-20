@@ -292,7 +292,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         item.exceed = false;
         item.status = "2";
         NavigationService.addToCart(item, function(data) {
-          console.log(data);
+
           myfunction();
           if (data.value) {
             $scope.getCart();
@@ -349,7 +349,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.myProfile = {};
 
     NavigationService.getUserDetail($scope.userid, function(data) { //remove two add userid
-      console.log(data);
+
       $scope.user = data;
       $scope.updateuser.user = data;
     }, function(err) {
@@ -371,8 +371,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       switch (num) {
         case 1:
           {
-            console.log("name email");
-            console.log($scope.profile.nameemailedit);
             if ($scope.profile.nameemailedit == 'edit') {
               $scope.profile.nameemailedit = 'save';
             } else {
@@ -414,7 +412,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     newpassword: $scope.password.newpassword,
                     oldpassword: $scope.password.oldpassword
                   }, function(data) {
-                    console.log(data);
                     if (data.value == true) {
                       $scope.addAlert("success", "Password changed successfully. ");
                       $scope.profile.changepasswordedit = 'edit';
@@ -911,7 +908,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }];
     $scope.selectedImage = {};
     $scope.params = $stateParams;
-    console.log($scope.params);
     $scope.filter.id = $scope.params.id;
     $scope.oneAtATime = true;
     $scope.status = {
@@ -979,7 +975,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
     $scope.loadProduct($scope.filter);
     $scope.selectSize = function(filter) {
-      console.log(filter);
 
       if (filter.size != null && filter.size != undefined) {
         $scope.loadProduct(filter);
@@ -996,7 +991,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     NavigationService.getTestimonial(function(data) {
-      console.log(data);
       $scope.testimonial = data;
     }, function(err) {
       console.log(err);
@@ -1021,7 +1015,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
       } else {
         NavigationService.addToCart($scope.filter, function(data) {
-          console.log(data);
           if (data.value == true) {
             myfunction();
             // $scope.alerts= [];
@@ -1063,7 +1056,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           id: id,
           qty: $scope.quantity
         }, function(data) {
-          console.log(data);
           if (data.value == true) {
             $scope.alerts = [];
             $scope.alerts.push({
@@ -1219,7 +1211,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.shippingcharges = 0;
     $scope.discount = 0;
     $scope.country = $.jStorage.get("myCurrency");
-    console.log($scope.country);
     $scope.acceptIt = function(flag) {
       if (flag === true) {
         $scope.acceptValidate = false;
@@ -2120,7 +2111,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.getCart = function() {
       clearTimeout(changeClass);
       if ($scope.cartClass == "" || !$scope.cartClass) {
-        console.log("Inside");
         $scope.cartClass = "itsHover";
         $scope.addCart = [];
         NavigationService.showCart(function(data) {
