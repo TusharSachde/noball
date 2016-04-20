@@ -1040,7 +1040,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
               $scope.alerts = [];
               $scope.alerts.push({
                 type: 'danger',
-                msg: 'Quantity not available'
+                msg: 'This product is currently out of stock'
               })
             } else {
               $scope.alerts = [];
@@ -1379,7 +1379,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         if (formValidate.$valid) {
           NavigationService.login(input, function(data) {
             if (data.value === false) {
-              $scope.alerts = [];   $scope.alerts.push({ type: 'danger', msg: 'Invalid email or password.'}); 
+              $scope.alerts = [];   $scope.alerts.push({ type: 'danger', msg: 'Invalid email or password.'});
             } else {
               NavigationService.setUser(data);
               window.location.reload();
