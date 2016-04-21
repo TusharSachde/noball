@@ -66,8 +66,27 @@ $screen-desktop: 1224px !default;
             font-size: 12px;
         }
     }
+    .service-heading{
+      padding:10px 0 10px;
+    }
+  .service-menu{
+    margin-top: 12px;
+    ul{
+      li{
+        a {
+            padding: 0px 0;
+          }
+        }
+      }
+  }
 }
 @media (max-width: $screen-sm-max) {
+  .lounge-detail{
+    margin-left: 12px;
+  }
+  .foundation-part {
+    padding: 0px 30px;
+  }
     .message {
         padding: 120px 0;
     }
