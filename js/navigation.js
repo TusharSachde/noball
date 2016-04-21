@@ -784,6 +784,16 @@ var navigationservice = angular.module('navigationservice', [])
       }).success(callback).error(err);
 
     },
+    checkCoupon: function (coupon, callback) {
+      return $http({
+        url: adminurl + "checkCoupon",
+        method: "POST",
+        data: {
+          "couponname":coupon,
+          "currency":$.jStorage.get("myCurrency")
+        }
+      }).success(callback);
+		},
     logout: function(callback, err) {
       $http.get(adminurl + 'logout').success(callback).error(err);
     },

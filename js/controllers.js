@@ -1314,7 +1314,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           $scope.msg = "No items in cart.";
         } else {
           $scope.allcart = data;
-
           _.each($scope.allcart, function(key) {
             $scope.totalcart = $scope.totalcart + parseInt(key.subtotal);
             key.qty = parseInt(key.qty);
@@ -1461,6 +1460,51 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     }
+
+    //START COUPON CODE
+    $scope.couponamount = 0;
+    $scope.showcoupontext = false;
+    $scope.checkCoupon = function(coupon) {
+      $scope.checkout.coupon = 0;
+      if (NavigationService.getUser()) {
+        if (coupon && coupon != "") {
+          NavigationService.checkCoupon(coupon, function(data) {
+            if (data.value == false) {
+              // $scope.amount  cart amount
+              $scope.addAlert("danger", data.comment);
+              $scope.totalamount = $scope.amount;
+            } else {
+              if (parseInt($scope.amount) >= parseInt(data.min)) {
+                $scope.couponamount = (data.discount / 100) * $scope.amount;
+                console.log($scope.couponamount);
+                if ($scope.couponamount <= data.max) {
+                  $scope.checkout.coupon = data.id;
+                  $scope.totalamount = $scope.amount - $scope.couponamount;
+                  $scope.showcoupontext = true;
+                  $timeout(function() {
+                    $scope.showcoupontext = false;
+                  }, 4000);
+                } else {
+                  $scope.checkout.coupon = data.id;
+                  $scope.totalamount = $scope.amount - data.max;
+                  $scope.couponamount = data.max;
+                }
+              } else {
+                $scope.totalamount = $scope.amount;
+              }
+            }
+          });
+        } else {
+          $scope.addAlert("danger", "Please enter Coupon Code.");
+          $scope.totalamount = $scope.amount;
+        }
+      } else {
+        $scope.addAlert("danger", "To Apply coupon login first.");
+        $scope.totalamount = $scope.amount;
+      }
+
+    }
+    //END COUPON CODE
 
     // $scope.doSignUp = function(accept) {
     //   $scope.allvalidation = [{
