@@ -103,11 +103,18 @@ $screen-desktop: 1224px !default;
       padding: 0 !important;
     }
   }
+  .slider-prd-detail {
+    width: 840px;
+  }
 }
 @media (max-width: $screen-sm-max) {
   .lounge-detail {
     margin-left: 12px;
   }
+  .zoomWindow {
+    width: 250px!important;
+    height: 250px!important;
+}
   .service-menu ul li {
     margin-bottom: 10px;
   }
@@ -284,6 +291,12 @@ $screen-desktop: 1224px !default;
   .no-row-flex {
     display: block!important;
   }
+  .slider-prd-detail {
+    width: 360px;
+  }
+  .product-detail-over {
+    overflow: hidden;
+  }
 }
 @media (max-width:$screen-xs-max) {
   .message {
@@ -384,7 +397,7 @@ $screen-desktop: 1224px !default;
     text-align: center;
   }
   .custom-sub {
-    position: relative;
+    position: static;
     padding: 0;
     background: #fff;
     li.mt-35 {
@@ -619,6 +632,18 @@ $screen-desktop: 1224px !default;
   section .flex-control-nav {
     display: none;
   }
+  .sel-qty ul {
+    text-align: center;
+  }
+  .testimonial .heading {
+    padding-top: 20px;
+    margin-bottom: 0;
+  }
+  .get-touch h5 {
+    margin-left: 0;
+    display: inline-block;
+    width: 100%;
+}
 }
 @media (max-width: $screen-mobile) {
   .message {
@@ -793,17 +818,6 @@ $screen-desktop: 1224px !default;
     width: 250px;
     height: 250px;
   }
-  .wish-back {
-    // .cart-btn {
-    //   // float: none;
-    //   // margin: 6px 0;
-    //   // text-align: center;
-    //   button {
-    //     padding: 4px 5px 3px;
-    //     letter-spacing: 0 !important;
-    //   }
-    // }
-  }
   .cat-img {
     height: 110px;
   }
@@ -903,5 +917,11 @@ $screen-desktop: 1224px !default;
     .flex-prev:before {
       @include transform(scale(0.15));
     }
+  }
+  footer .social-icons i {
+    padding: 0 5px !important;
+  }
+  .testimonial {
+    padding: 0 0 20px;
   }
 }
