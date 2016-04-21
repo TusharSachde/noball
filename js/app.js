@@ -212,10 +212,10 @@ firstapp.filter('resizeimage800', function() {
     }
   };
 });
-firstapp.filter('resizeimage1200', function() {
+firstapp.filter('resizeimage1300', function() {
   return function(input) {
     if (input) {
-      return  mainurl+'image/index?name=' + input+'&width=1200';
+      return  mainurl+'image/index?name=' + input+'&width=1300';
     } else {
       // return "img/logo.png";
       return "";
