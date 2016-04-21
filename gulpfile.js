@@ -316,7 +316,8 @@ gulp.task('production2', gulpSequence(["copy:img", "copy:fonts", "sass:productio
 gulp.task('cloudTest', shell.task([
   "rm -rf /var/www/html/test",
   "mv production test",
-  "mv test /var/www/html"
+  "mv test /var/www/html",
+  "mv /var/www/html/test/index.html /var/www/html/"
 ]));
 
 gulp.task('productioncloud', gulpSequence("production2","cloudTest"));
