@@ -21,7 +21,7 @@
           <div class="">
             <img ng-src="{{product.image | resizeimage800}}" alt="sweatshirts" class="img-responsive">
           </div>
-          <div class="overlay">
+          <div class="overlay pointer" ui-sref="product-detail({category:category,subcategory:subcategory,id:product.id})">
             <div class="text-above text-center">
               <h2 class="text-uppercase">{{product.name}}</h2>
               <a ui-sref="product-detail({category:category,subcategory:subcategory,id:product.id})" class="btn btn-outline btn-light uppercase letter-spacing">Explore</a>
