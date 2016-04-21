@@ -212,6 +212,16 @@ firstapp.filter('resizeimage800', function() {
     }
   };
 });
+firstapp.filter('resizeimage1200', function() {
+  return function(input) {
+    if (input) {
+      return  mainurl+'image/index?name=' + input+'&width=1200';
+    } else {
+      // return "img/logo.png";
+      return "";
+    }
+  };
+});
 
 firstapp.filter('largeImage', function() {
   return function(input) {

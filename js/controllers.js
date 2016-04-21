@@ -1465,41 +1465,42 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.couponamount = 0;
     $scope.showcoupontext = false;
     $scope.checkCoupon = function(coupon) {
+      $scope.couponamount = 0;
       $scope.checkout.coupon = 0;
       if (NavigationService.getUser()) {
         if (coupon && coupon != "") {
           NavigationService.checkCoupon(coupon, function(data) {
             if (data.value == false) {
               // $scope.amount  cart amount
-              $scope.addAlert("danger", data.comment);
-              $scope.totalamount = $scope.amount;
+              $scope.alerts.push({type:"danger",msg: data.comment});
+              // $scope.totalcart = $scope.totalcart;
             } else {
-              if (parseInt($scope.amount) >= parseInt(data.min)) {
-                $scope.couponamount = (data.discount / 100) * $scope.amount;
-                console.log($scope.couponamount);
+              if (parseInt($scope.totalcart) >= parseInt(data.min)) {
+                $scope.couponamount = (data.discount / 100) * $scope.totalcart;
+
                 if ($scope.couponamount <= data.max) {
                   $scope.checkout.coupon = data.id;
-                  $scope.totalamount = $scope.amount - $scope.couponamount;
+                  // $scope.totalamount = $scope.amount - $scope.couponamount;
                   $scope.showcoupontext = true;
                   $timeout(function() {
                     $scope.showcoupontext = false;
                   }, 4000);
                 } else {
                   $scope.checkout.coupon = data.id;
-                  $scope.totalamount = $scope.amount - data.max;
+                  // $scope.totalamount = $scope.amount - data.max;
                   $scope.couponamount = data.max;
                 }
               } else {
-                $scope.totalamount = $scope.amount;
+                // $scope.totalcart = $scope.totalcart;
               }
             }
           });
         } else {
-          $scope.addAlert("danger", "Please enter Coupon Code.");
+          $scope.alerts.push({type:"danger",msg: "Please enter Coupon Code."});
           $scope.totalamount = $scope.amount;
         }
       } else {
-        $scope.addAlert("danger", "To Apply coupon login first.");
+        $scope.alerts.push({type:"danger",msg: "To Apply coupon login first."});
         $scope.totalamount = $scope.amount;
       }
 
@@ -1613,7 +1614,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.checkout.shippingamount = $scope.shippingcharges;
         $scope.checkout.discountamount = $scope.discount;
         $scope.checkout.totalamount = $scope.totalcart;
-        $scope.checkout.finalamount = $scope.totalcart + $scope.shippingcharges;
+        $scope.checkout.finalamount = $scope.totalcart + $scope.shippingcharges - $scope.couponamount;
         NavigationService.placeOrder($scope.checkout, function(data) {
           if (data != "") {
             $scope.txnid = Date.now();

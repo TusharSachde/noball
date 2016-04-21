@@ -261,7 +261,7 @@
                 <i class="fa fa-eur" ng-if="country == 'EUR'"></i>
                 <i class="fa fa-usd" ng-if="country == 'USD'"></i>
                 <i ng-if="country == 'ZAF'">R</i>
-                <i class="fa fa-usd" ng-if="country == 'AUD'"></i> {{totalcart + shippingcharges}}</p>
+                <i class="fa fa-usd" ng-if="country == 'AUD'"></i> {{totalcart + shippingcharges - couponamount}}</p>
                         </div>
                       </div>
                     </div>
@@ -481,7 +481,7 @@
                                   <!-- <tr> -->
                                   <td>Amount :</td>
                                   <td>
-                                    <input type="text" name="amount" ng-model="totalcart" />
+                                    <input type="text" name="amount" ng-model="checkout.finalamount" />
                                   </td>
                                 </tr>
                                 <tr style="display:none">
