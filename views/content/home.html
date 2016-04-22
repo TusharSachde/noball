@@ -2,7 +2,7 @@
   <flex-slider flex-slide="s in mySlides track by $index">
     <li class="relative">
       <a href="{{s.link}}">
-        <img ng-src="{{s.src | resizeimage1300}}">
+        <img ng-src="{{s.src | serverimage}}">
       </a>
     </li>
   </flex-slider>
@@ -14,7 +14,7 @@
       <div class="col-flex" ng-repeat="cat in category">
         <a class="colorful" ui-sref="categories({name:cat.name})" ng-if="cat.name == 'Apparel' || cat.name == 'Bats'">
           <div class="cat-home">
-            <img ng-src="{{cat.image | serverimage}}" alt="bags" class="img-responsive">
+            <img ng-src="{{cat.image | resizeimage400}}" alt="bags" class="img-responsive">
           </div>
           <div class="line-hover letter-spacing hover-up">
             <p>{{cat.name}}</p>
