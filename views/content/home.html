@@ -14,7 +14,7 @@
       <div class="col-flex" ng-repeat="cat in category">
         <a class="colorful" ui-sref="categories({name:cat.name})" ng-if="cat.name == 'Apparel' || cat.name == 'Bats'">
           <div class="cat-home">
-            <img ng-src="{{cat.image | resizeimage400}}" alt="bags" class="img-responsive">
+            <img ng-src="{{cat.image}}" alt="bags" class="img-responsive">
           </div>
           <div class="line-hover letter-spacing hover-up">
             <p>{{cat.name}}</p>
