@@ -4,6 +4,9 @@ $screen-desktop: 1224px !default;
   .img-hold {
     height: 95px;
   }
+  .login-tab .tab-content {
+    padding: 35px 20px;
+  }
   .privacy-info {
     padding: 30px 0;
   }
@@ -307,6 +310,16 @@ $screen-desktop: 1224px !default;
   }
   .zoomContainer {
     display: none;
+  }
+  .login-tab {
+    width: 90%;
+    .tab-content {
+      padding: 35px 20px;
+      .nav-tabs li a {
+        padding: 10px 30px;
+        font-size: 16px;
+      }
+    }
   }
   .navbar-default .nav > li {
     min-height: auto;
@@ -972,5 +985,11 @@ $screen-desktop: 1224px !default;
   }
   .white-direction .flex-direction-nav .flex-next {
     right: 0 !important;
+  }
+  .login-tab {
+    width: 100%;
+    .nav-tabs li a {
+      padding: 10px;
+    }
   }
 }
