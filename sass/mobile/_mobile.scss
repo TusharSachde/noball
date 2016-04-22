@@ -4,6 +4,9 @@ $screen-desktop: 1224px !default;
   .img-hold {
     height: 95px;
   }
+  .privacy-info {
+    padding: 30px 0;
+  }
   .letter-spacing {
     letter-spacing: 2px;
   }
@@ -114,7 +117,7 @@ $screen-desktop: 1224px !default;
   .zoomWindow {
     width: 250px!important;
     height: 250px!important;
-}
+  }
   .service-menu ul li {
     margin-bottom: 10px;
   }
@@ -302,6 +305,12 @@ $screen-desktop: 1224px !default;
   .message {
     padding: 84px 0;
   }
+  .zoomContainer {
+    display: none;
+  }
+  .navbar-default .nav > li {
+    min-height: auto;
+  }
   .high-light {
     font-size: 26px;
   }
@@ -377,8 +386,17 @@ $screen-desktop: 1224px !default;
       background-color: #000;
     }
   }
-  ul.nav.navbar-nav.ng-scope {
-    margin: -4px 0 0;
+  .custom-sub:after {
+    display: none;
+  }
+  .navbar-nav {
+    margin: 0 -15px;
+  }
+  .smart-content p {
+    width: 100%;
+  }
+  p {
+    font-size: 12px !important;
   }
   .banners {
     .banner-inner {
@@ -547,7 +565,8 @@ $screen-desktop: 1224px !default;
     }
     .footermenu {
       li {
-        margin: 5px 2px;
+        margin: 10px 2px;
+        line-height: 100%;
       }
       .custom-sub {
         background: transparent;
@@ -643,7 +662,16 @@ $screen-desktop: 1224px !default;
     margin-left: 0;
     display: inline-block;
     width: 100%;
-}
+  }
+  .size input {
+    width: 100%;
+  }
+  .enquiry .send {
+    text-align: center;
+  }
+  .contact-bg {
+    background: #f3f3f3;
+  }
 }
 @media (max-width: $screen-mobile) {
   .message {
@@ -664,6 +692,9 @@ $screen-desktop: 1224px !default;
       }
     }
   }
+  .sel-qty h3 {
+    text-align: center;
+  }
   .service-main {
     .title {
       font-size: 20px;
@@ -672,6 +703,7 @@ $screen-desktop: 1224px !default;
   }
   .high-light {
     font-size: 24px;
+    text-align: center;
   }
   .smart-content {
     padding: 35px 0;
@@ -726,8 +758,9 @@ $screen-desktop: 1224px !default;
     letter-spacing: 1px;
   }
   .banner-inner h2 {
-    letter-spacing: 2px!important;
-    font-size: 12px!important;
+    letter-spacing: 1px!important;
+    font-size: 10px!important;
+    margin: 5px 0;
   }
   .product-desc {
     .pro-rp {
@@ -923,5 +956,21 @@ $screen-desktop: 1224px !default;
   }
   .testimonial {
     padding: 0 0 20px;
+    .slider-prd-detail {
+      zoom: 0.6;
+    }
+  }
+  .customise-sec {
+    text-align: center;
+  }
+  .customize-now .form-inline input,
+  .customize-now .form-inline textarea {
+    width: 100%;
+  }
+  .enquiry .form-control {
+    width: 220px;
+  }
+  .white-direction .flex-direction-nav .flex-next {
+    right: 0 !important;
   }
 }

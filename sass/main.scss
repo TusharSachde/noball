@@ -621,6 +621,7 @@ footer {
     outline: 0;
   }
 }
+
 .get-touch {
   padding-top: 7px;
   h5 {
@@ -1252,6 +1253,7 @@ footer {
     text-align: center;
     vertical-align: top;
   }
+  
   label[for="name"] {
     border-right: 3px solid #c4e701;
   }
@@ -1270,7 +1272,9 @@ footer {
     border: none;
     box-shadow: none;
     margin-left: -4px;
+    display: inline-block;
   }
+
   textarea.form-control {
     height: 120px;
     margin-bottom: 5px;
