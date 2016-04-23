@@ -292,7 +292,7 @@ $screen-desktop: 1224px !default;
   footer .custom-footer li a.active {
     margin-left: 36px;
     font-size: 12px;
-    padding: 5px;
+    padding: 10px 0;
   }
   .no-row-flex {
     display: block!important;
@@ -600,6 +600,7 @@ $screen-desktop: 1224px !default;
           }
           span.fl-l {
             padding-left: 15px;
+            padding-top: 2px;
           }
         }
       }
