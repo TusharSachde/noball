@@ -312,6 +312,9 @@ $screen-desktop: 1224px !default;
       box-shadow: none !important;
     }
   }
+  .custom-sub.service-head-menu.cart-hov {
+    display: none;
+  }
   .message {
     padding: 84px 0;
   }
