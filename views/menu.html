@@ -1,97 +1,124 @@
 <ul class="nav navbar-nav on-mobile">
-  <li ng-repeat="menu in navigation">
+    <li ng-repeat="menu in navigation">
+        <a ng-href="{{menu.link}}" class="{{menu.classis}}" ng-if="menu.name != 'Customise'">{{menu.name}}</a>
+        <a ng-click="customize();" class="{{menu.classis}}" ng-if="menu.name == 'Customise'">{{menu.name}}</a>
 
-    <a href="{{menu.link}}" class="{{menu.classis}}" ng-if="menu.name != 'Customise'">{{menu.name}}</a>
-    <a ng-click="customize();" class="{{menu.classis}}" ng-if="menu.name == 'Customise'">{{menu.name}}</a>
+        <ul class="dropdown-menu custom-sub service-head-menu {{menu.name}}" ng-if="menu.subnav!=[];" ng-if="menu.name != 'Customise'">
+            <li ng-repeat="submenu in menu.subnav" ng-if="menu.name != 'Services' && ( submenu.name == 'Apparel' || submenu.name == 'Bats')">
+                <a ui-sref="categories({name:submenu.name})" class="{{submenu.classis}}">{{submenu.name}}</a>
+            </li>
+            <li ng-repeat="submenu in menu.subnav" ng-if="menu.name != 'Services' && submenu.name != 'Apparel' && submenu.name != 'Bats'">
+                <a ui-sref="categories-inside({category:submenu.name,name:submenu.name})" class="{{submenu.classis}}">{{submenu.name}}</a>
+            </li>
+            <li class="blue-service" ng-repeat="submenu in services" ng-if="menu.name == 'Services'">
+                <a ui-sref="servicesid({id:submenu.anchor})" class="{{submenu.classis}}">{{submenu.name}}</a>
+            </li>
+        </ul>
 
-    <ul class="dropdown-menu custom-sub service-head-menu {{menu.name}}" ng-if="menu.subnav!=[];" ng-if="menu.name != 'Customise'">
-      <li ng-repeat="submenu in menu.subnav" ng-if="menu.name != 'Services' && ( submenu.name == 'Apparel' || submenu.name == 'Bats')">
-        <a ui-sref="categories({name:submenu.name})" class="{{submenu.classis}}">{{submenu.name}}</a>
-      </li>
-      <li ng-repeat="submenu in menu.subnav" ng-if="menu.name != 'Services' && submenu.name != 'Apparel' && submenu.name != 'Bats'">
-        <a ui-sref="categories-inside({category:submenu.name,name:submenu.name})" class="{{submenu.classis}}">{{submenu.name}}</a>
-      </li>
-      <li class="blue-service" ng-repeat="submenu in services" ng-if="menu.name == 'Services'">
-        <a ui-sref="servicesid({id:submenu.anchor})" class="{{submenu.classis}}">{{submenu.name}}</a>
-      </li>
-    </ul>
+        <div class="clearfix"></div>
 
-    <div class="dropdown-menu custom-sub customise service-head-menu  {{menu.name}} hidden-xs" ng-if="menu.name == 'Customise'">
-      <p>All our bespoke products are fully customisable for your team / club needs. A DIY version will be launching soon. Meantime get started with</p>
-      <div class="text-center">
-        <button type="button" class="btn btn-checkout btn-green" ng-click="customize()">Customise Now</button>
-      </div>
-    </div>
+        <div class="dropdown-menu custom-sub customise service-head-menu  {{menu.name}} hidden-xs" ng-if="menu.name == 'Customise'">
+            <p>All our bespoke products are fully customisable for your team / club needs. A DIY version will be launching soon. Meantime get started with</p>
+            <div class="text-center">
+                <button type="button" class="btn btn-checkout btn-green" ng-click="customize()">Customise Now</button>
+            </div>
+        </div>
+    </li>
 
-  </li>
+    <li ng-if="!isLogin">
+        <a class="btn-blue" ng-click="openLogin()">Log In | Sign Up</a>
+    </li>
 
-  <li ng-if="!isLogin"><a class="btn-blue" ng-click="openLogin()">Log In | Sign Up</a></li>
-
-  <!-- <li ng-if="isLogin">
+    <!-- <li ng-if="isLogin">
     <a href="#" class="btn-yellow" ng-click="logout()">Logout</a>
   </li> -->
-  <li ng-if="isLogin" class="user-sec">
-    <a ui-sref="profile" class="user-name" >Hi, {{::user.name | loginame | limitTo:12 }} <i class="fa fa-caret-down"></i></a>
-    <ul class="custom-sub service-head-menu profile-menu">
-      <li class="blue-service" ><a href="" ui-sref="profile"  class="text-uppercase">my profile</a></li>
-      <li class="blue-service"><a href="" ui-sref="order" class="text-uppercase">my orders</a></li>
-      <li class="blue-service"><a href="" ui-sref="mywishlist" class="text-uppercase">my wishlist</a></li>
-      <!-- <li class="blue-service"><a href="" ui-sref="" class="text-uppercase">saved designs</a></li> -->
-      <li class="blue-service"><a href="" class="text-uppercase" ng-click="logout()">logout</a></li>
-    </ul>
-  </li>
-  <li class="mt-35" ng-show="wishlistcountshow">
-    <a ui-sref="mywishlist" class="icon-btn">
-      <span class="fit">
-      <img src="img/star.png" class="w25">
-      </span>
-      <span>{{wishlistcount}}</span>
-    </a>
-  </li>
-  <li class="cart-head" ng-class="cartClass"  ng-mouseover="getCart()" ng-mouseleave="hoverDown()">
-    <a ui-sref="cart" class="icon-btn" >
-      <span class="fit">
-          <img src="img/cart.png" class="w25">
-      </span>
-      <span>{{quantity}}</span>
-    </a>
-    <div class="custom-sub service-head-menu cart-hov" >
-      <div ng-if="addCart.length == 0" class="text-center">{{msg}}</div>
-      <p class="text-bold cart-title" ng-if="addCart.length !=0 ">ADDED TO THE CART</p>
-      <div class="product-cart" ng-if="addCart.length !=0 " >
-        <div class="scroll-me">
-          <div class="product-scroll">
-            <div class="" ng-repeat= "product in addCart | reverse">
-              <div class="inline-block prd-info v-top" >
-                <h4 class="name">{{product.options.realname}}</h4>
-                <p class="text-light">TYPE : <span class="text-medium">{{product.options.sizename || '-'}}</span></p>
-                <p class="text-light">QUANTITY : <span class="text-medium">{{product.qty}}</span></p>
-                <p class="text-light">PRICE : <span class="text-medium"><i class="fa fa-inr"></i>{{product.subtotal}}</span></p>
-              </div>
-              <div class="inline-block">
-                <div class="cart-imghov">
-                  <img ng-src="{{product.image | resizeimage300}}" alt="" class="img-responsive">
+    <li ng-if="isLogin" class="user-sec">
+        <a ui-sref="profile" class="user-name">Hi,
+            {{::user.name | loginame | limitTo:12 }}
+            <i class="fa fa-caret-down"></i>
+        </a>
+        <ul class="custom-sub service-head-menu profile-menu">
+            <li class="blue-service">
+                <a href="" ui-sref="profile" class="text-uppercase">my profile</a>
+            </li>
+            <li class="blue-service">
+                <a href="" ui-sref="order" class="text-uppercase">my orders</a>
+            </li>
+            <li class="blue-service">
+                <a href="" ui-sref="mywishlist" class="text-uppercase">my wishlist</a>
+            </li>
+            <!-- <li class="blue-service"><a href="" ui-sref="" class="text-uppercase">saved designs</a></li> -->
+            <li class="blue-service">
+                <a href="" class="text-uppercase" ng-click="logout()">logout</a>
+            </li>
+        </ul>
+    </li>
+    <li class="mt-35" ng-show="wishlistcountshow">
+        <a ui-sref="mywishlist" class="icon-btn">
+            <span class="fit">
+                <img src="img/star.png" class="w25">
+            </span>
+            <span>{{wishlistcount}}</span>
+        </a>
+    </li>
+    <li class="cart-head" ng-class="cartClass" ng-mouseover="getCart()" ng-mouseleave="hoverDown()">
+        <a ui-sref="cart" class="icon-btn">
+            <span class="fit">
+                <img src="img/cart.png" class="w25">
+            </span>
+            <span>{{quantity}}</span>
+        </a>
+        <div class="custom-sub service-head-menu cart-hov">
+            <div ng-if="addCart.length == 0" class="text-center">{{msg}}</div>
+            <p class="text-bold cart-title" ng-if="addCart.length !=0 ">ADDED TO THE CART</p>
+            <div class="product-cart" ng-if="addCart.length !=0 ">
+                <div class="scroll-me">
+                    <div class="product-scroll">
+                        <div class="" ng-repeat="product in addCart | reverse">
+                            <div class="inline-block prd-info v-top">
+                                <h4 class="name">{{product.options.realname}}</h4>
+                                <p class="text-light">TYPE :
+                                    <span class="text-medium">{{product.options.sizename || '-'}}</span>
+                                </p>
+                                <p class="text-light">QUANTITY :
+                                    <span class="text-medium">{{product.qty}}</span>
+                                </p>
+                                <p class="text-light">PRICE :
+                                    <span class="text-medium">
+                                        <i class="fa fa-inr"></i>{{product.subtotal}}</span>
+                                </p>
+                            </div>
+                            <div class="inline-block">
+                                <div class="cart-imghov">
+                                    <img ng-src="{{product.image | resizeimage300}}" alt="" class="img-responsive">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
+                <div class="total-price">
+                    <!-- <h4 class="text-uppercase"><span>{{addCart.length}}</span> items total.</h4> -->
+                    <h4 class="text-uppercase">Quantity:
+                        <span>{{quantity}}</span>
+                    </h4>
+                    <h4 class="text-uppercase">total:
+                        <span>
+                            <i class="fa fa-inr"></i>{{totalcart}}</span>
+                    </h4>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-checkout btn-green text-uppercase" ng-if="addCart.length != 0" ui-sref="checkout">checkout</button>
+                    <p class="text-bold free">Free shipping on Orders above
+                        <i class="fa fa-inr" ng-if="country == 'INR'"></i>
+                        <i class="fa fa-gbp" ng-if="country == 'GBP'"></i>
+                        <i class="fa fa-usd" ng-if="country == 'NZD'"></i>
+                        <i class="fa fa-eur" ng-if="country == 'EUR'"></i>
+                        <i class="fa fa-usd" ng-if="country == 'USD'"></i>
+                        <i ng-if="country == 'ZAF'">R</i>
+                        <i class="fa fa-usd" ng-if="country == 'AUD'"></i>
+                        {{minorder}}</i>*</p>
             </div>
-          </div>
         </div>
-        <div class="total-price">
-          <!-- <h4 class="text-uppercase"><span>{{addCart.length}}</span> items total.</h4> -->
-          <h4 class="text-uppercase">Quantity: <span>{{quantity}}</span> </h4>
-          <h4 class="text-uppercase">total: <span><i class="fa fa-inr"></i>{{totalcart}}</span></h4>
-        </div>
-        <div class="text-center">
-          <button class="btn btn-checkout btn-green text-uppercase" ng-if="addCart.length != 0" ui-sref="checkout">checkout</button>
-          <p class="text-bold free">Free shipping on Orders above  <i class="fa fa-inr" ng-if="country == 'INR'"></i>
-<i class="fa fa-gbp" ng-if="country == 'GBP'"></i>
-<i class="fa fa-usd" ng-if="country == 'NZD'"></i>
-<i class="fa fa-eur" ng-if="country == 'EUR'"></i>
-<i class="fa fa-usd" ng-if="country == 'USD'"></i>
-<i ng-if="country == 'ZAF'">R</i>
-<i class="fa fa-usd" ng-if="country == 'AUD'"></i> {{minorder}}</i>*</p>
-        </div>
-      </div>
     </div>
-  </li>
+</li>
 </ul>

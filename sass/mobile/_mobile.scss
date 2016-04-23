@@ -131,7 +131,7 @@ $screen-desktop: 1224px !default;
     padding: 120px 0;
   }
   .navbar-brand {
-    padding: 12px 0;
+    padding: 12px 0 12px 15px;
     font-size: 14px;
     img {
       height: auto;
@@ -305,6 +305,13 @@ $screen-desktop: 1224px !default;
   }
 }
 @media (max-width:$screen-xs-max) {
+  .on-mobile {
+      margin: 0;
+      ul.dropdown-menu {
+        width: 100%;
+        box-shadow: none !important;
+    }
+  }
   .message {
     padding: 84px 0;
   }
