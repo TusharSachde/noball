@@ -1,29 +1,31 @@
-<ul class="nav navbar-nav hidden-xs">
+<ul class="nav navbar-nav on-mobile">
   <li ng-repeat="menu in navigation">
-    <a href="{{menu.link}}" class="{{menu.classis}}" ng-if="menu.name !='Customise'">{{menu.name}}</a>
-    <a href="" ng-click="customize()" class="{{menu.classis}}" ng-if="menu.name =='Customise'">{{menu.name}}</a>
-    <ul class="dropdown-menu custom-sub service-head-menu  {{menu.name}} hidden-xs" ng-if="menu.subnav!=[];" ng-if="menu.name != 'Customise'">
-      <li ui-sref="categories({name:submenu.name})" ng-repeat="submenu in menu.subnav" ng-if="menu.name != 'Services' && ( submenu.name == 'Apparel' || submenu.name == 'Bats')">
-        <a class="{{submenu.classis}}">{{submenu.name}}</a>
+
+    <a href="{{menu.link}}" class="{{menu.classis}}" ng-if="menu.name != 'Customise'">{{menu.name}}</a>
+    <a ng-click="customize();" class="{{menu.classis}}" ng-if="menu.name == 'Customise'">{{menu.name}}</a>
+
+    <ul class="dropdown-menu custom-sub service-head-menu {{menu.name}}" ng-if="menu.subnav!=[];" ng-if="menu.name != 'Customise'">
+      <li ng-repeat="submenu in menu.subnav" ng-if="menu.name != 'Services' && ( submenu.name == 'Apparel' || submenu.name == 'Bats')">
+        <a ui-sref="categories({name:submenu.name})" class="{{submenu.classis}}">{{submenu.name}}</a>
       </li>
-      <li ui-sref="categories-inside({category:submenu.name,name:submenu.name})" ng-repeat="submenu in menu.subnav" ng-if="menu.name != 'Services' && submenu.name != 'Apparel' && submenu.name != 'Bats'">
-        <a class="{{submenu.classis}}">{{submenu.name}}</a>
+      <li ng-repeat="submenu in menu.subnav" ng-if="menu.name != 'Services' && submenu.name != 'Apparel' && submenu.name != 'Bats'">
+        <a ui-sref="categories-inside({category:submenu.name,name:submenu.name})" class="{{submenu.classis}}">{{submenu.name}}</a>
       </li>
-      <li ui-sref="servicesid({id:submenu.anchor})" class="blue-service" ng-repeat="submenu in services" ng-if="menu.name == 'Services'">
-        <a class="{{submenu.classis}}">{{submenu.name}}</a>
+      <li class="blue-service" ng-repeat="submenu in services" ng-if="menu.name == 'Services'">
+        <a ui-sref="servicesid({id:submenu.anchor})" class="{{submenu.classis}}">{{submenu.name}}</a>
       </li>
     </ul>
+
     <div class="dropdown-menu custom-sub customise service-head-menu  {{menu.name}} hidden-xs" ng-if="menu.name == 'Customise'">
       <p>All our bespoke products are fully customisable for your team / club needs. A DIY version will be launching soon. Meantime get started with</p>
       <div class="text-center">
         <button type="button" class="btn btn-checkout btn-green" ng-click="customize()">Customise Now</button>
       </div>
     </div>
-  </li>
-  <li ng-if="!isLogin">
-    <a class="btn-blue" ng-click="openLogin()">Log In | Sign Up</a>
 
   </li>
+
+  <li ng-if="!isLogin"><a class="btn-blue" ng-click="openLogin()">Log In | Sign Up</a></li>
 
   <!-- <li ng-if="isLogin">
     <a href="#" class="btn-yellow" ng-click="logout()">Logout</a>
@@ -92,64 +94,4 @@
       </div>
     </div>
   </li>
-  <!-- <li>
-    <a href="" ng-mouseenter="hovered();">Account</a>
-    <ul class="custom-sub" ng-show="hovermenu">
-      <li>
-        <a href="#" class="active">Log In</a>
-      </li>
-      <li>
-        <a href="#" class="active">Sign Up</a>
-      </li>
-      <li class="mt-35">
-        <a href="#">Wishlist <span class="pull-right fit"><i class="fa fa-star"></i></span></a>
-      </li>
-      <li>
-        <a href="#">Cart <span class="pull-right fit"><i class="fa fa-shopping-cart"></i></span></a>
-      </li>
-    </ul>
-  </li> -->
 </ul>
-
-
-
-<ul class="nav navbar-nav visible-xs">
-  <li ng-repeat="menu in navigation">
-    <a href="{{menu.link}}" class="{{menu.classis}}" ng-click="hovered();">{{menu.name}}</a>
-    <ul class="custom-sub {{menu.name}}" ng-if="menu.subnav!='';">
-      <li ng-repeat="submenu in menu.subnav">
-        <a href="{{submenu.link}}" class="{{submenu.classis}}" ng-show="hovermenu">{{submenu.name}}</a>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <a href="" ng-click="hovered();">Account</a>
-    <ul class="custom-sub" ng-show="hovermenu">
-      <li>
-        <a href="#" class="active">Log In</a>
-      </li>
-      <li>
-        <a href="#" class="active">Sign Up</a>
-      </li>
-      <li class="mt-35">
-        <a href="#">Wishlist <span class="pull-right fit"><i class="fa fa-star"></i></span></a>
-      </li>
-      <li>
-        <a href="#">Cart <span class="pull-right fit"><i class="fa fa-shopping-cart"></i></span></a>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<!-- <div class="white-holder">
-  <ul class="shop-hover">
-      <li ng-repeat="shop in navigation[0].subnav">
-          <a href="{{shop.link}}">{{shop.name}}</a>
-      </li>
-  </ul>
-  <ul class="customize-hover">
-      <li ng-repeat="customize in navigation[1].subnav">
-          <a href="{{customize.link}}">{{customize.name}}</a>
-      </li>
-  </ul>
-</div> -->
