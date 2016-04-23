@@ -306,10 +306,10 @@ $screen-desktop: 1224px !default;
 }
 @media (max-width:$screen-xs-max) {
   .on-mobile {
-      margin: 0;
-      ul.dropdown-menu {
-        width: 100%;
-        box-shadow: none !important;
+    margin: 0;
+    ul.dropdown-menu {
+      width: 100%;
+      box-shadow: none !important;
     }
   }
   .message {
@@ -510,8 +510,13 @@ $screen-desktop: 1224px !default;
   .sub-holder {
     height: auto;
   }
-  .custom-sub .fit {
-    font-size: 12px;
+  .custom-sub {
+    .service-head-menu.cart-hov {
+      display: none;
+    }
+    .fit {
+      font-size: 12px;
+    }
   }
   .det-name {
     h3 {
