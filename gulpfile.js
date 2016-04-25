@@ -317,7 +317,9 @@ gulp.task('cloudTest', shell.task([
   "rm -rf /var/www/html/test",
   "mv production test",
   "mv test /var/www/html",
-  "mv /var/www/html/test/index.html /var/www/html/"
+  "mv /var/www/html/test/index.html /var/www/html/",
+  "rm -rf /var/www/html/img",
+  "mv /var/www/html/test/img /var/www/html/"
 ]));
 
 gulp.task('productioncloud', gulpSequence("production2","cloudTest"));
