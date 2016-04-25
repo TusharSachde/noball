@@ -58,6 +58,30 @@
           </div> -->
         </div>
       </div>
+
+    </div>
+    <div class="banner-inner banner-top-border" ng-if="params == 'Apparel' && (categories.length == ($index+1))">
+
+        <div class="banner-img">
+          <a href="">
+            <img ng-src="img/promotion/apparelpromo.png" alt="" class="img-responsive">
+          </a>
+        </div>
+
+      <!-- <div class="text-above">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-offset-6 col-md-6">
+              <div class="text-right">
+                <h2 class="uppercase">
+                  {{category.name}}
+                </h2>
+                <a class="btn btn-outline btn-light uppercase letter-spacing" ui-sref="categories-inside({category:params,name:category.name})">Know More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
     </div>
   </div>
   </div>
