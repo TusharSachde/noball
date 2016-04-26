@@ -182,6 +182,13 @@ firstapp.filter('serverimage', function() {
   };0
 });
 
+firstapp.filter('rawHtml', ['$sce',
+ function($sce) {
+   return function(val) {
+     return $sce.trustAsHtml(val);
+   };
+ }
+])
 firstapp.filter('resizeimage', function() {
   return function(input) {
     if (input) {
@@ -335,11 +342,11 @@ firstapp.directive('elevateZoom', function($document, $filter) {
                     var ez = $element.data("elevateZoom");
                                         if (!ez) {
                     $element.attr('data-zoom-image', $filter('serverimage')(image));
-                    $element.attr('src', $filter('resizeimage800')(image));
+                    $element.attr('src', $filter('serverimage')(image));
                     $element.elevateZoom();
                   } else {
                       var newImage = $filter('serverimage')(image);
-                      var smallImage =$filter('resizeimage800')(image);
+                      var smallImage =$filter('serverimage')(image);
                       ez.swaptheimage( smallImage,newImage);
                   }
                 }

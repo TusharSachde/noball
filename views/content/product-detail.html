@@ -25,7 +25,7 @@
               <li>
                 <div class="repeat-product" ng-click="selectImage(item)">
                   <div class="img-hold">
-                    <img ng-src="{{item.image | resizeimage300}}" class="img-responsive">
+                    <img ng-src="{{item.image | serverimage}}" class="img-responsive">
                   </div>
                 </div>
               </li>
@@ -40,17 +40,17 @@
               </div>
               <div class="get-me" ng-show="tab==1">
                 <div class="pro-descp">
-                  <p ng-bind-html="productdetail.product.detail || 'Loading..'"></p>
+                  <p ng-bind-html="productdetail.product.detail | rawHtml"></p>
                 </div>
               </div>
               <div class="get-me" ng-show="tab==2">
                 <div class="pro-descp">
-                  <p ng-bind-html="productdetail.product.delivery || 'Loading..'"></p>
+                  <p ng-bind-html="productdetail.product.delivery | rawHtml"></p>
                 </div>
               </div>
               <div class="get-me" ng-show="tab==3">
                 <div class="pro-descp">
-                  <p ng-bind-html="productdetail.product.care || 'Loading..'"></p>
+                  <p ng-bind-html="productdetail.product.care | rawHtml"></p>
                 </div>
               </div>
             </div>
@@ -75,13 +75,13 @@
                   <uib-accordion-heading>
                     DESCRIPTION <i class="fa" ng-class="{'fa-caret-down': status.isFirstOpen, 'fa-caret-right': !status.isFirstOpen}"></i>
                   </uib-accordion-heading>
-                  <div class="" ng-bind-html="productdetail.product.description || 'Loading..'"></div>
+                  <div class="" ng-bind-html="productdetail.product.description | rawHtml "></div>
                 </uib-accordion-group>
                 <uib-accordion-group is-open="status.open3">
                   <uib-accordion-heading>
                     NOTES <i class="fa" ng-class="{'fa-caret-down': status.open3, 'fa-caret-right': !status.open3}"></i>
                   </uib-accordion-heading>
-                  <div class="" ng-bind-html="productdetail.product.delivery || 'Loading..'"></div>
+                  <div class="" ng-bind-html="productdetail.product.delivery | rawHtml"></div>
                 </uib-accordion-group>
               </uib-accordion>
               <!-- apparels size section start -->
