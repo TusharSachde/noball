@@ -125,7 +125,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       teamname: "",
       teaminitials: "",
       message: "",
-      interest: ""
+      interest: "",
+      quantity:undefined
     };
     $scope.showimage = false;
     $scope.toolarge =  false;
