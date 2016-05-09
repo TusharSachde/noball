@@ -1,6 +1,17 @@
 $screen-mobile: 480px !default;
 $screen-desktop: 1224px !default;
 @media (max-width: 1224px) {
+  .ccc-quality {
+    p {
+      padding: 0 12px;
+    }
+  }
+  .ship {
+      height: 116px;
+    p {
+      padding: 0 7px;
+    }
+  }
   .img-hold {
     height: 95px;
   }
@@ -114,6 +125,18 @@ $screen-desktop: 1224px !default;
   }
 }
 @media (max-width: $screen-sm-max) {
+  .ccc-quality {
+    p {
+      padding: 0 8px;
+      font-size: 12px;
+    }
+  }
+  .ship {
+      height: 108px;
+    p {
+      padding: 0 3px;
+    }
+  }
   .lounge-detail {
     margin-left: 12px;
   }
@@ -675,6 +698,7 @@ $screen-desktop: 1224px !default;
     display: block;
     .ship {
       border-color: transparent;
+    margin: 28px 0 0px;
     }
   }
   section .flex-control-nav {
