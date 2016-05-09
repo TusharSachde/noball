@@ -449,22 +449,28 @@ a.icon-btn {
     width: 50px;
   }
   p {
-    padding: 0 70px;
+    padding: 0px;
     margin: 10px 0 0;
-    letter-spacing: 2px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
   }
 }
 .ship {
-  border-right: 2px solid #6e6e6e;
-  border-left: 2px solid #6e6e6e;
+  border-right: 2px solid #8d9797;
+  border-left: 2px solid #8d9797;
+  height: 98px;
   p {
-    padding: 0 50px;
+    padding: 0 10px;
   }
 }
 .assurance {
   padding: 15px 0;
-  background-color: rgba(0,0,0,0.5);
+  // background-color: rgba(0,0,0,0.5);
   color: #000;
+  background: url('../img/service-bar.png') no-repeat;
+  width: 100%;
+  background-size: 100% 100%;
 }
 .uppercase {
   text-transform: uppercase;
@@ -549,7 +555,7 @@ footer {
     }
   }
   .footermenu {
-    padding: 35px 0 0;
+    padding: 18px 0 0;
     font-size: 14px;
     letter-spacing: 2px;
     font-size: 12px;
