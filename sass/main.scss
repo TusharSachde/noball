@@ -554,7 +554,7 @@ footer {
       }
     }
   }
-  .footermenu { 
+  .footermenu {
     padding: 0px;
     font-size: 14px;
     letter-spacing: 2px;
@@ -3192,5 +3192,17 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .banner-top-border{
   border-top: 1px solid #ddd;
+}
+.to-choose {
+  padding: 30px;
+  background-color: #e6e6e6;
+  background-image: url('../img/slider-pop-bg.jpg');
+  background-repeat: no-repeat;
+  .head{
+  color:#051330;
+  font-family: $font-family-sans-serif;
+  font-weight: 600;
+  text-decoration: underline;
+  }
 }
 @import "mobile/mobile";

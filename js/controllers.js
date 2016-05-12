@@ -1118,6 +1118,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.classc = "active";
       }
     };
+    $scope.open = function () {
+        $uibModal.open({
+        animation: true,
+        templateUrl: "views/modal/slider.html"
+    });
+  };
 
   })
 
