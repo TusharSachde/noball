@@ -1823,7 +1823,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('ServicesCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $document, $stateParams, $uibModal) {
+  .controller('ServicesCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $document, $stateParams, $uibModal,$location) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("services");
     $scope.menutitle = NavigationService.makeactive("Services");
@@ -1896,7 +1896,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
   })
 
-.controller('ExtrasCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $document, $stateParams, $uibModal) {
+.controller('ExtrasCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $document, $stateParams, $uibModal,$location) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("extras");
   $scope.menutitle = NavigationService.makeactive("Extras");
