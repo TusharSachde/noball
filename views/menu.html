@@ -13,6 +13,9 @@
             <li class="blue-service" ng-repeat="submenu in services" ng-if="menu.name == 'Services'">
                 <a ui-sref="servicesid({id:submenu.anchor})" class="{{submenu.classis}}">{{submenu.name}}</a>
             </li>
+            <li class="blue-service" ng-repeat="submenu in extras" ng-if="menu.name == 'Extras'">
+                <a ui-sref="extrasid({id:submenu.anchor})" class="{{submenu.classis}}">{{submenu.name}}</a>
+            </li>
         </ul>
 
         <div class="clearfix"></div>

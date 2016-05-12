@@ -5,7 +5,7 @@ var websiteurl = "http://customcricketcompany.com/";
 // var websiteurl = "http://localhost:8080";
 var backendurl = "http://customcricketcompany.com/admin/";
 // var backendurl = "http://192.168.1.128/cccbackend/index.php/";
-var country="";
+var country = "";
 var imgurl = "http://customcricketcompany.com/admin/uploads/";
 // var imgurl = "http://192.168.1.128/cccbackend/uploads/";
 var adminurl = mainurl + "json/";
@@ -520,6 +520,10 @@ var navigationservice = angular.module('navigationservice', [])
     name: "Services",
     classis: "",
     link: "#/services"
+  }, {
+    name: "Extras",
+    classis: "",
+    link: "#/extras"
   }];
 
   var navigation2 = [{
@@ -528,32 +532,43 @@ var navigationservice = angular.module('navigationservice', [])
   }, {
     name: "CUSTOM SPORTS APPAREL",
     anchor: "customapparel",
-  },
-  {
+  }, {
     name: "CCC LOUNGE",
     anchor: "ccclounge",
-  },{
+  }, {
     name: "TOURS",
     anchor: "tours",
   }, {
     name: "FOUNDATION",
     anchor: "foundation",
-  }
-, {
+  }, {
     name: "CONSULTANCY",
     anchor: "consultancy",
-  }
-, {
+  }, {
     name: "MEMORABILIA",
     anchor: "memobrabilia",
-  }
-];
+  }];
+
+
+  var navigation3 = [{
+    name: "CLIENT EXAMPLES",
+    anchor: "clientexamples",
+  }, {
+    name: "PRESS",
+    anchor: "press",
+  }, {
+    name: "TESTIMONIALS",
+    anchor: "testimonials",
+  }];
 
   return {
     getnav: function() {
       return navigation;
     },
     getnav2: function() {
+      return navigation2;
+    },
+    getnav3: function() {
       return navigation2;
     },
     getSlider: function(callback, err) {
@@ -573,9 +588,9 @@ var navigationservice = angular.module('navigationservice', [])
         data: {
           "currency": currency
         }
-      }).success(function(data,status) {
-        $.jStorage.set("cartCount",data.quantity);
-        callback(data,status);
+      }).success(function(data, status) {
+        $.jStorage.set("cartCount", data.quantity);
+        callback(data, status);
       }).error(err);
     },
     getSubCategory: function(name, callback, err) {
@@ -583,7 +598,7 @@ var navigationservice = angular.module('navigationservice', [])
     },
     getProductBySubCategory: function(name, callback, err) {
       console.log(name);
-      $http.get(adminurl + 'getProductBySubCategory?name=' + name+'&currency='+$.jStorage.get("myCurrency")).success(callback).error(err);
+      $http.get(adminurl + 'getProductBySubCategory?name=' + name + '&currency=' + $.jStorage.get("myCurrency")).success(callback).error(err);
     },
     getTestimonial: function(callback, err) {
       $http.get(adminurl + 'getTestimonial').success(callback).error(err);
@@ -609,34 +624,34 @@ var navigationservice = angular.module('navigationservice', [])
       return $http({
         url: adminurl + "createCustom",
         method: "POST",
-        data : {
-"name":custom.name,
-"email":custom.email,
-"image":custom.image,
-"color":custom.color,
-"teamname":custom.teamname,
-"teaminitials":custom.teaminitials,
-"message":custom.message,
-"interest":custom.interest
-}
+        data: {
+          "name": custom.name,
+          "email": custom.email,
+          "image": custom.image,
+          "color": custom.color,
+          "teamname": custom.teamname,
+          "teaminitials": custom.teaminitials,
+          "message": custom.message,
+          "interest": custom.interest
+        }
       }).success(callback).error(err);
     },
-		fedexTrack: function (tracking_number,callback) {
+    fedexTrack: function(tracking_number, callback) {
       tracking_number = 123456789012;
-		    $http({
-				url: 'https://www.fedex.com/trackingCal/track?data={"TrackPackagesRequest":{"appType":"WTRK","uniqueKey":"","processingParameters":{},"trackingInfoList":[{"trackNumberInfo":{"trackingNumber":'+tracking_number+',"trackingQualifier":"","trackingCarrier":""}}]}}&action=trackpackages&locale=en_CA&version=1&formate=json',
-				method: 'GET',
-				withCredentials: false
-			}).success(callback);
+      $http({
+        url: 'https://www.fedex.com/trackingCal/track?data={"TrackPackagesRequest":{"appType":"WTRK","uniqueKey":"","processingParameters":{},"trackingInfoList":[{"trackNumberInfo":{"trackingNumber":' + tracking_number + ',"trackingQualifier":"","trackingCarrier":""}}]}}&action=trackpackages&locale=en_CA&version=1&formate=json',
+        method: 'GET',
+        withCredentials: false
+      }).success(callback);
 
-		},
+    },
     addToWishlist: function(wishlist, callback, err) {
       return $http({
         url: adminurl + "addToWishlist",
         method: "POST",
         data: {
           "product": wishlist.id,
-          "quantity":wishlist.qty
+          "quantity": wishlist.qty
         }
       }).success(callback).error(err);
     },
@@ -689,15 +704,15 @@ var navigationservice = angular.module('navigationservice', [])
         method: "POST",
         data: {
           "name": contact.name,
-"subject": contact.subject,
-"email": contact.email,
-"message": contact.message
+          "subject": contact.subject,
+          "email": contact.email,
+          "message": contact.message
         }
       }).success(callback).error(err);
     },
-        localCountry: function(callback) {
-            $.getJSON("http://www.geoplugin.net/json.gp?jsoncallback=?", callback)
-        },
+    localCountry: function(callback) {
+      $.getJSON("http://www.geoplugin.net/json.gp?jsoncallback=?", callback)
+    },
     updateProfile: function(profile, callback, err) {
       return $http({
         url: adminurl + "updateUser",
@@ -732,7 +747,7 @@ var navigationservice = angular.module('navigationservice', [])
         method: "POST",
         data: {
           "password": request.password,
-          "hashcode":request.hashcode
+          "hashcode": request.hashcode
         }
       }).success(callback).error(err);
     },
@@ -743,22 +758,22 @@ var navigationservice = angular.module('navigationservice', [])
         url: adminurl + "getWishlist",
         method: "POST",
         data: {
-          "currency":currency
+          "currency": currency
         }
       }).success(callback).error(err);
     },
     getWishlistCount: function(callback, err) {
-      $http.get(adminurl + 'getWishlistCount').success(function(data,status) {
-        $.jStorage.set("wishlistCount",data);
-        callback(data,status);
+      $http.get(adminurl + 'getWishlistCount').success(function(data, status) {
+        $.jStorage.set("wishlistCount", data);
+        callback(data, status);
       }).error(err);
     },
     checkoutCheck: function(callback, err) {
       $http.get(adminurl + 'checkoutCheck').success(callback).error(err);
     },
     placeOrder: function(order, callback, err) {
-      var currency= $.jStorage.get("myCurrency");
-      order.currency= currency;
+      var currency = $.jStorage.get("myCurrency");
+      order.currency = currency;
       return $http({
         url: adminurl + "placeOrder",
         method: "POST",
@@ -772,28 +787,28 @@ var navigationservice = angular.module('navigationservice', [])
       $http.get(adminurl + 'getUser?id=' + id).success(callback).error(err);
     },
     getProductDetail: function(req, callback, err) {
-      $http.get(adminurl + 'getProductDetail?id=' + req.id+'&size='+req.size+'&currency='+$.jStorage.get("myCurrency")).success(callback).error(err);
+      $http.get(adminurl + 'getProductDetail?id=' + req.id + '&size=' + req.size + '&currency=' + $.jStorage.get("myCurrency")).success(callback).error(err);
     },
     showCart: function(callback, err) {
       return $http({
         url: adminurl + "showCart",
         method: "POST",
         data: {
-          "currency":$.jStorage.get("myCurrency")
+          "currency": $.jStorage.get("myCurrency")
         }
       }).success(callback).error(err);
 
     },
-    checkCoupon: function (coupon, callback) {
+    checkCoupon: function(coupon, callback) {
       return $http({
         url: adminurl + "checkCoupon",
         method: "POST",
         data: {
-          "couponname":coupon,
-          "currency":$.jStorage.get("myCurrency")
+          "couponname": coupon,
+          "currency": $.jStorage.get("myCurrency")
         }
       }).success(callback);
-		},
+    },
     logout: function(callback, err) {
       $http.get(adminurl + 'logout').success(callback).error(err);
     },

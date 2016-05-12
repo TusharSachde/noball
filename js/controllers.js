@@ -2357,6 +2357,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       name: "MEMORABILIA",
       anchor: "memorabilia",
     }];
+    $scope.extras = [{
+      name: "CLIENT EXAMPLES",
+      anchor: "clientexamples",
+    }, {
+      name: "PRESS",
+      anchor: "press",
+    }, {
+      name: "TESTIMONIALS",
+      anchor: "testimonials",
+    }];
     $scope.wishlistcountshow = false;
     myfunction = function() {
       if ($.jStorage.get("user")) {
