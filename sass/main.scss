@@ -3198,7 +3198,8 @@ input[type=number]::-webkit-outer-spin-button {
   background-color: #e6e6e6;
   background-image: url('../img/slider-pop-bg.jpg');
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: cover;
+  background-position: -80px;
   .head{
   color:#051330;
   font-family: $font-family-sans-serif;
