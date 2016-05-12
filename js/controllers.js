@@ -1886,6 +1886,43 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
   })
 
+  .controller('ExtrasCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $document, $stateParams, $uibModal) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("extras");
+    $scope.menutitle = NavigationService.makeactive("Extras");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    $scope.navigation = NavigationService.getnav2();
+
+    $scope.examples = [
+      "img/extras/jsw202.png"
+    ];
+
+    function makeAnimation(id) {
+      if (_.isEmpty(id)) {
+        id = "services";
+      }
+      var someElement = angular.element(document.getElementById(id));
+      $document.scrollToElement(someElement, 0, 1400);
+    }
+    $scope.$on('$viewContentLoaded', function(event) {
+      setTimeout(function() {
+        makeAnimation($stateParams.id);
+      }, 1000);
+    });
+    $scope.changeURL = function(id) {
+      $scope.menutitle = NavigationService.makeactive(id);
+      $state.transitionTo('servicesid', {
+        id: id,
+        menu: "active"
+      }, {
+        notify: false
+      });
+      makeAnimation(id);
+      $location.replace();
+    };
+  })
+
 .controller('MyWishListCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, cfpLoadingBar) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("mywishlist");
