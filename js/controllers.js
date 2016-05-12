@@ -1121,10 +1121,35 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.open = function () {
         $uibModal.open({
         animation: true,
-        templateUrl: "views/modal/slider.html"
+        templateUrl: "views/modal/slider.html",
+        controller: "Product-DetailCtrl"
     });
   };
+  $scope.slides = [{
+    statement: "How to choose your bat online.",
+    paras1:"A carpenter can’t blame his tools. In this case it's a bit literal given that bats are wooden. A great bat won’t make you a great batsman but it’s the only thing that separates you from the elements of the game. So, the correct bat will give you the chance to be as good as you can be. Choosing is a bat is a crucial decision so how do know what’s right for you online?",
+    paras2:"Is it just a matter of buying the best one that you can afford and hoping you’ve made the right selection? Yes, but you also need to put a great deal of trust and faith in your abilities with your new willow. The beauty about bats is that the one suited to you personally isn’t necessarily the most expensive. It’s the one that feels right for you."
+  }, {
+    statement: "What can you learn by looking and reading: Theory of Bat selection.",
+    head1:"It helps to know your playing style:",
+    head2:"Bat index:",
+    para1:"Batsmen who are predominantly front foot players have success with bats with lower middles. Whereas batsman who play more on the back foot prefer high middles. The height of the middle is also dependant to the type of pitches you play on. Players being bought up on pitches that keep low like the subcontinent usually opt for bats with lower middles, whereas the bats with a higher middle are successful on bouncier wickets such as conditions in Australia, South Africa and even England.",
+    para2:"The bat-maker determines about what he feels is the best pick-up index which ranges from from 1 to 5. Number 1 means it is made for somebody who plays the ball late and pushes it through the gaps and manoeuvrability is of the essence rather than forcing muscle onto the ball. Index number 5 is for those who want to strike hell into the ball from word-go and are typically very hard hitting batsman. You might not be a 5 or 4 in most cases and our popular choices are usually indexed between 2 and 3. Though we make bats in the whole range and customers tend to keep two very different types of bats in their kit bags for both styles of play."
 
+  }, {
+    head1:"Quality of willow:",
+    head2:"Scoops:",
+    para1:"We use only English willow as our preferred choice of wood. No two cricket bats are the same, even though the wood (English willow) used to make these bats came from the same tree. The individual cell composition, natural density and weight will all fluctuate according to the tree’s pace of expansion, its environment, its moisture content etc. Heavy willow tends to be denser, less prone to damage and inherently more powerful than a light piece of willow, although a lighter bat will be easier to wield and generate faster bat speed. Depending on your built and strength you may already have a preference.",
+    para2:"One way of improving the pick up of a meaty bat is by concaving the back of the bat. This method of craftsmanship sees the spine of the middle keep its height but ‘scoops’ away either side to take off some weight. This reduces the amount of wood from the centre of the middle of the bat but still keeps the strength directly down the centre to give you the maximum power through a shot."
+
+  }, {
+    head1:"Blade length:",
+    head2:"Watermarks:",
+    head3:"Weight:",
+    para1:"Shorter blades tend to pick up lighter than standard blades due to the middle being placed closer to the batsman grip. These are not recommended for batsman of around the 6ft and taller mark as it can cause problems when taking your stance. Going for a standard blade length is a safe and tested way of choosing your bat.",
+    para2:"The stains and small dark brown spots you may see on bats are called watermarks. They have no bearing on the performance of the bat. They are simply a visual impediment to your selection and should have no bearing on the overall feel the bat gives you.",
+    para3:" If you know what weight bat suits you then you’re off to a flying start. Or else you will be best suited to pick bats in the range of 2.9lb to 2.12lb which is where most of the world’s batsman would figure when choosing a bat. However, do look at a balance reading because some heavier bats may pick up and feel lighter than some feather weight bats which tend to have a bottom heavy middle."
+  }];
   })
 
 .controller('TermsConditionsCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {

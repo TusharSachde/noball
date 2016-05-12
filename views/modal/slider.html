@@ -6,21 +6,31 @@
   </div>
 </section> -->
 <section class="to-choose">
-  <span class="close"><i class="fa fa-close"  ng-click="$close();"></i></span>
-  <!-- <div class="alert-postion"> -->
-    <!-- <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" class="text-center" >{{alert.msg}}</uib-alert> -->
-    <!-- <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" class="text-center" dismiss-on-timeout="5000">{{alert.msg}}</uib-alert>
-  </div> -->
-  <!-- <p class="descp">A Do-It-Yourself automated version of CCC will be launched soon. Stay tuned for our 2nd innings but meantime get started and let us kit you up before your season opener. CCC products are available for immediate despatch, team / club customisation takes up to 4 weeks for delivery to your doorstep.</p> -->
-  <h1 class="text-center text-uppercase text-underline head">How to choose a willow</h1>
-  <!-- <flex-slider flex-slide>
-    <li>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-    </li>
-    <li>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-    </li>
-  </flex-slider> -->
+    <span class="close"><i class="fa fa-close"  ng-click="$close();"></i></span>
+    <h3 class="text-center text-uppercase text-underline head">How to choose a willow</h3>
+ <!-- class="flex-active-slide" -->
+    <div class="head-slide">
+      <flex-slider class="carousel" flex-slide="list in slides track by $index" animation="slide" direction-nav="true" animationspeed="200">
+      <li>
+        <h4>
+          {{list.statement}}
+        </h4>
+        <p>
+          {{list.paras1}}
+        </p>
+        <p>
+          {{list.paras2}}
+        </p>
+        <p>
+          <span>{{list.head1}}</span>&nbsp;&nbsp;{{list.para1}}
+        </p>
+        <p>
+          <span>{{list.head2}}</span>&nbsp;&nbsp;{{list.para2}}
+        </p>
+        <p>
+          <span>{{list.head3}}</span>&nbsp;&nbsp;{{list.para3}}
+        </p>
+      </li>
+    </flex-slider>
+    </div>
 </section>
