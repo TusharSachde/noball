@@ -13,7 +13,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 /* Bootstrap Variables Goes Here */
 $brand-primary: #0d9dff !default;
 $brand-success: #C1E603 !default;
@@ -55,10 +54,6 @@ $color-orange: #ff7905;
     }
   }
 }
-
-
-
-
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -555,7 +550,7 @@ footer {
     }
   }
   .footermenu {
-    padding: 0px;
+    padding: 0;
     font-size: 14px;
     letter-spacing: 2px;
     font-size: 12px;
@@ -632,7 +627,6 @@ footer {
     outline: 0;
   }
 }
-
 .get-touch {
   padding-top: 7px;
   h5 {
@@ -1264,7 +1258,6 @@ footer {
     text-align: center;
     vertical-align: top;
   }
-
   label[for="name"] {
     border-right: 3px solid #c4e701;
   }
@@ -1285,7 +1278,6 @@ footer {
     margin-left: -4px;
     display: inline-block;
   }
-
   textarea.form-control {
     height: 120px;
     margin-bottom: 5px;
@@ -2197,7 +2189,6 @@ footer {
     font-size: 30px;
   }
 }
-
 .slider-prd-detail {
   // width: 80%; if container-fluid huwa to
   // width: 92%;
@@ -3190,7 +3181,7 @@ input[type=number]::-webkit-outer-spin-button {
     opacity: 1;
   }
 }
-.banner-top-border{
+.banner-top-border {
   border-top: 1px solid #ddd;
 }
 .to-choose {
@@ -3200,11 +3191,11 @@ input[type=number]::-webkit-outer-spin-button {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: -80px;
-  .head{
-  color:#051330;
-  font-family: $font-family-sans-serif;
-  font-weight: 600;
-  text-decoration: underline;
+  .head {
+    color: #051330;
+    font-family: $font-family-sans-serif;
+    font-weight: 600;
+    text-decoration: underline;
   }
   .flexslider .flex-direction-nav a:before {
     font-size: 30px;
@@ -3218,29 +3209,112 @@ input[type=number]::-webkit-outer-spin-button {
       border: 0;
       background: none;
     }
-    h4{
+    h4 {
       font-size: 16px;
-      color:#051330;
+      color: #051330;
       font-family: $font-family-sans-serif;
       font-weight: 600;
       text-align: justify;
       margin-bottom: 20px;
     }
-    p{
+    p {
+      font-size: 14px;
+      color: #051330;
+      font-family: $font-family-sans-serif;
+      font-weight: 500;
+      text-align: justify;
+      span {
         font-size: 14px;
-        color:#051330;
+        color: #051330;
         font-family: $font-family-sans-serif;
-        font-weight: 500;
+        font-weight: 600;
+        text-decoration: underline;
         text-align: justify;
-        span{
-          font-size: 14px;
-          color:#051330;
-          font-family: $font-family-sans-serif;
-          font-weight: 600;
-          text-decoration: underline;
-          text-align: justify;
-        }
+      }
     }
   }
+}
+.customize-main {
+  margin-top: 140px;
+}
+.bg-testimonials {
+  background: url('../img/extras/bg-testimonials.jpg');
+  background-size: cover;
+  color: #fff;
+  .service-slider.test-slider {
+    margin-top: 45px;
+  }
+  .test-cont {
+    position: relative;
+    .quote {
+      padding: 30px 60px;
+      &:before {
+        content: url('../img/extras/quote1.png');
+        display: block;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: -15px;
+        left: 0;
+        transform: scale(0.4);
+      }
+      &:after {
+        content: url('../img/extras/quote2.png');
+        display: block;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        bottom: 50px;
+        right: 25px;
+        transform: scale(0.4);
+      }
+    }
+  }
+  .test-img {
+    text-align: center;
+    margin-top: 100px;
+    img {
+      width: 55%;
+      text-align: center;
+      display: inline-block;
+    }
+  }
+  .white-direction .flex-direction-nav .flex-prev {
+    left: 0 !important;
+  }
+  .white-direction .flex-direction-nav .flex-next {
+    right: 0 !important;
+  }
+}
+.bg-press {
+  background: url('../img/extras/bg-press.jpg');
+  background-size: cover;
+  color: #fff;
+  .white-direction .flex-direction-nav .flex-prev {
+    left: 0 !important;
+  }
+  .white-direction .flex-direction-nav .flex-next {
+    right: 0 !important;
+  }
+  .btn {
+    color: #fff;
+    border: 1px solid;
+    padding: 6px 20px;
+  }
+  .cont-press {
+    padding-top: 20px;
+  }
+}
+.pd40 {
+  padding: 40px;
+}
+.mb20 {
+  margin-bottom: 20px;
+}
+.extra-pd {
+  padding: 220px 0 4%;
+}
+.testimonials-bg {
+  margin: 10px 0;
 }
 @import "mobile/mobile";

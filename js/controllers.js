@@ -116,7 +116,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       console.log(err);
     })
   })
-  .controller('CustomiseInfoCtrl', function($scope, $state,$log, TemplateService, NavigationService, $timeout, $uibModal, cfpLoadingBar) {
+  .controller('CustomiseInfoCtrl', function($scope, $state, $log, TemplateService, NavigationService, $timeout, $uibModal, cfpLoadingBar) {
     $scope.customInfo = {
       name: "",
       email: "",
@@ -128,14 +128,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       interest: ""
     };
     $scope.showimage = false;
-    $scope.toolarge =  false;
+    $scope.toolarge = false;
 
     $scope.onFileSelect = function($files, whichone, uploadtype) {
-      $scope.toolarge =  false;
+      $scope.toolarge = false;
 
-      if($files[0].size < 20000000){
+      if ($files[0].size < 20000000) {
         cfpLoadingBar.start();
-        $scope.showimage=true;
+        $scope.showimage = true;
         globalfunction.onFileSelect($files, function(image) {
 
           cfpLoadingBar.complete();
@@ -147,8 +147,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           }
         })
       } else {
-        $files=[];
-        $scope.toolarge =  true;
+        $files = [];
+        $scope.toolarge = true;
       }
     }
     $scope.closeAlert = function(index) {
@@ -376,11 +376,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             } else {
               $scope.profile.nameemailedit = 'edit';
               var tempsplit = $scope.updateuser.user.name.split(' ');
-              if(tempsplit.length == 2){
+              if (tempsplit.length == 2) {
                 $scope.updateuser.user.firstname = tempsplit[0];
                 $scope.updateuser.user.lastname = tempsplit[1];
-              }
-              else {
+              } else {
                 $scope.updateuser.user.firstname = $scope.updateuser.user.name;
               }
               $scope.saveUser();
@@ -806,7 +805,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }, function(err) {
       console.log(err);
     })
-    $scope.hasPromotion =  false;
+    $scope.hasPromotion = false;
 
     cfpLoadingBar.start();
     NavigationService.getProductBySubCategory($stateParams.name, function(data) {
@@ -814,10 +813,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.msg = "No " + $scope.subcategory + " found.";
       } else {
         cfpLoadingBar.complete();
-        if(data.length %2 == 0){
+        if (data.length % 2 == 0) {
           $scope.hasPromotion = false;
-        }else{
-          $scope.hasPromotion=true;
+        } else {
+          $scope.hasPromotion = true;
         }
         $scope.products = _.chunk(data, 2);
       }
@@ -885,8 +884,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         animation: true,
         templateUrl: "views/modal/customizepop.html",
         controller: 'CustomiseInfoCtrl',
-        backdrop  : 'static',
-   keyboard  : false
+        backdrop: 'static',
+        keyboard: false
       });
     };
     $scope.submitCustomEnquiry = function() {
@@ -1118,38 +1117,38 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.classc = "active";
       }
     };
-    $scope.open = function () {
-        $uibModal.open({
+    $scope.open = function() {
+      $uibModal.open({
         animation: true,
         templateUrl: "views/modal/slider.html",
         controller: "Product-DetailCtrl"
-    });
-  };
-  $scope.slides = [{
-    statement: "How to choose your bat online.",
-    paras1:"A carpenter can’t blame his tools. In this case it's a bit literal given that bats are wooden. A great bat won’t make you a great batsman but it’s the only thing that separates you from the elements of the game. So, the correct bat will give you the chance to be as good as you can be. Choosing is a bat is a crucial decision so how do know what’s right for you online?",
-    paras2:"Is it just a matter of buying the best one that you can afford and hoping you’ve made the right selection? Yes, but you also need to put a great deal of trust and faith in your abilities with your new willow. The beauty about bats is that the one suited to you personally isn’t necessarily the most expensive. It’s the one that feels right for you."
-  }, {
-    statement: "What can you learn by looking and reading: Theory of Bat selection.",
-    head1:"It helps to know your playing style:",
-    head2:"Bat index:",
-    para1:"Batsmen who are predominantly front foot players have success with bats with lower middles. Whereas batsman who play more on the back foot prefer high middles. The height of the middle is also dependant to the type of pitches you play on. Players being bought up on pitches that keep low like the subcontinent usually opt for bats with lower middles, whereas the bats with a higher middle are successful on bouncier wickets such as conditions in Australia, South Africa and even England.",
-    para2:"The bat-maker determines about what he feels is the best pick-up index which ranges from from 1 to 5. Number 1 means it is made for somebody who plays the ball late and pushes it through the gaps and manoeuvrability is of the essence rather than forcing muscle onto the ball. Index number 5 is for those who want to strike hell into the ball from word-go and are typically very hard hitting batsman. You might not be a 5 or 4 in most cases and our popular choices are usually indexed between 2 and 3. Though we make bats in the whole range and customers tend to keep two very different types of bats in their kit bags for both styles of play."
+      });
+    };
+    $scope.slides = [{
+      statement: "How to choose your bat online.",
+      paras1: "A carpenter can’t blame his tools. In this case it's a bit literal given that bats are wooden. A great bat won’t make you a great batsman but it’s the only thing that separates you from the elements of the game. So, the correct bat will give you the chance to be as good as you can be. Choosing is a bat is a crucial decision so how do know what’s right for you online?",
+      paras2: "Is it just a matter of buying the best one that you can afford and hoping you’ve made the right selection? Yes, but you also need to put a great deal of trust and faith in your abilities with your new willow. The beauty about bats is that the one suited to you personally isn’t necessarily the most expensive. It’s the one that feels right for you."
+    }, {
+      statement: "What can you learn by looking and reading: Theory of Bat selection.",
+      head1: "It helps to know your playing style:",
+      head2: "Bat index:",
+      para1: "Batsmen who are predominantly front foot players have success with bats with lower middles. Whereas batsman who play more on the back foot prefer high middles. The height of the middle is also dependant to the type of pitches you play on. Players being bought up on pitches that keep low like the subcontinent usually opt for bats with lower middles, whereas the bats with a higher middle are successful on bouncier wickets such as conditions in Australia, South Africa and even England.",
+      para2: "The bat-maker determines about what he feels is the best pick-up index which ranges from from 1 to 5. Number 1 means it is made for somebody who plays the ball late and pushes it through the gaps and manoeuvrability is of the essence rather than forcing muscle onto the ball. Index number 5 is for those who want to strike hell into the ball from word-go and are typically very hard hitting batsman. You might not be a 5 or 4 in most cases and our popular choices are usually indexed between 2 and 3. Though we make bats in the whole range and customers tend to keep two very different types of bats in their kit bags for both styles of play."
 
-  }, {
-    head1:"Quality of willow:",
-    head2:"Scoops:",
-    para1:"We use only English willow as our preferred choice of wood. No two cricket bats are the same, even though the wood (English willow) used to make these bats came from the same tree. The individual cell composition, natural density and weight will all fluctuate according to the tree’s pace of expansion, its environment, its moisture content etc. Heavy willow tends to be denser, less prone to damage and inherently more powerful than a light piece of willow, although a lighter bat will be easier to wield and generate faster bat speed. Depending on your built and strength you may already have a preference.",
-    para2:"One way of improving the pick up of a meaty bat is by concaving the back of the bat. This method of craftsmanship sees the spine of the middle keep its height but ‘scoops’ away either side to take off some weight. This reduces the amount of wood from the centre of the middle of the bat but still keeps the strength directly down the centre to give you the maximum power through a shot."
+    }, {
+      head1: "Quality of willow:",
+      head2: "Scoops:",
+      para1: "We use only English willow as our preferred choice of wood. No two cricket bats are the same, even though the wood (English willow) used to make these bats came from the same tree. The individual cell composition, natural density and weight will all fluctuate according to the tree’s pace of expansion, its environment, its moisture content etc. Heavy willow tends to be denser, less prone to damage and inherently more powerful than a light piece of willow, although a lighter bat will be easier to wield and generate faster bat speed. Depending on your built and strength you may already have a preference.",
+      para2: "One way of improving the pick up of a meaty bat is by concaving the back of the bat. This method of craftsmanship sees the spine of the middle keep its height but ‘scoops’ away either side to take off some weight. This reduces the amount of wood from the centre of the middle of the bat but still keeps the strength directly down the centre to give you the maximum power through a shot."
 
-  }, {
-    head1:"Blade length:",
-    head2:"Watermarks:",
-    head3:"Weight:",
-    para1:"Shorter blades tend to pick up lighter than standard blades due to the middle being placed closer to the batsman grip. These are not recommended for batsman of around the 6ft and taller mark as it can cause problems when taking your stance. Going for a standard blade length is a safe and tested way of choosing your bat.",
-    para2:"The stains and small dark brown spots you may see on bats are called watermarks. They have no bearing on the performance of the bat. They are simply a visual impediment to your selection and should have no bearing on the overall feel the bat gives you.",
-    para3:" If you know what weight bat suits you then you’re off to a flying start. Or else you will be best suited to pick bats in the range of 2.9lb to 2.12lb which is where most of the world’s batsman would figure when choosing a bat. However, do look at a balance reading because some heavier bats may pick up and feel lighter than some feather weight bats which tend to have a bottom heavy middle."
-  }];
+    }, {
+      head1: "Blade length:",
+      head2: "Watermarks:",
+      head3: "Weight:",
+      para1: "Shorter blades tend to pick up lighter than standard blades due to the middle being placed closer to the batsman grip. These are not recommended for batsman of around the 6ft and taller mark as it can cause problems when taking your stance. Going for a standard blade length is a safe and tested way of choosing your bat.",
+      para2: "The stains and small dark brown spots you may see on bats are called watermarks. They have no bearing on the performance of the bat. They are simply a visual impediment to your selection and should have no bearing on the overall feel the bat gives you.",
+      para3: " If you know what weight bat suits you then you’re off to a flying start. Or else you will be best suited to pick bats in the range of 2.9lb to 2.12lb which is where most of the world’s batsman would figure when choosing a bat. However, do look at a balance reading because some heavier bats may pick up and feel lighter than some feather weight bats which tend to have a bottom heavy middle."
+    }];
   })
 
 .controller('TermsConditionsCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
@@ -1223,7 +1222,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       console.log(err);
     });
   })
-  .controller('CheckoutCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $interval, cfpLoadingBar,$uibModal) {
+  .controller('CheckoutCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $interval, cfpLoadingBar, $uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("checkout");
     $scope.menutitle = NavigationService.makeactive("Checkout");
@@ -1251,7 +1250,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
       }
     };
-    $scope.openForgot=function(){
+    $scope.openForgot = function() {
       $uibModal.open({
         animation: true,
         templateUrl: 'views/modal/forgotpop.html',
@@ -1400,7 +1399,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         if (formValidate.$valid) {
           NavigationService.login(input, function(data) {
             if (data.value === false) {
-              $scope.alerts = [];   $scope.alerts.push({ type: 'danger', msg: 'Invalid email or password.'});
+              $scope.alerts = [];
+              $scope.alerts.push({
+                type: 'danger',
+                msg: 'Invalid email or password.'
+              });
             } else {
               NavigationService.setUser(data);
               window.location.reload();
@@ -1496,47 +1499,56 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.couponamount = 0;
     $scope.showcoupontext = false;
     $scope.checkCoupon = function(coupon) {
-      $scope.couponamount = 0;
-      $scope.checkout.coupon = 0;
-      if (NavigationService.getUser()) {
-        if (coupon && coupon != "") {
-          NavigationService.checkCoupon(coupon, function(data) {
-            if (data.value == false) {
-              // $scope.amount  cart amount
-              $scope.alerts.push({type:"danger",msg: data.comment});
-              // $scope.totalcart = $scope.totalcart;
-            } else {
-              if (parseInt($scope.totalcart) >= parseInt(data.min)) {
-                $scope.couponamount = (data.discount / 100) * $scope.totalcart;
-
-                if ($scope.couponamount <= data.max) {
-                  $scope.checkout.coupon = data.id;
-                  // $scope.totalamount = $scope.amount - $scope.couponamount;
-                  $scope.showcoupontext = true;
-                  $timeout(function() {
-                    $scope.showcoupontext = false;
-                  }, 4000);
-                } else {
-                  $scope.checkout.coupon = data.id;
-                  // $scope.totalamount = $scope.amount - data.max;
-                  $scope.couponamount = data.max;
-                }
-              } else {
+        $scope.couponamount = 0;
+        $scope.checkout.coupon = 0;
+        if (NavigationService.getUser()) {
+          if (coupon && coupon != "") {
+            NavigationService.checkCoupon(coupon, function(data) {
+              if (data.value == false) {
+                // $scope.amount  cart amount
+                $scope.alerts.push({
+                  type: "danger",
+                  msg: data.comment
+                });
                 // $scope.totalcart = $scope.totalcart;
+              } else {
+                if (parseInt($scope.totalcart) >= parseInt(data.min)) {
+                  $scope.couponamount = (data.discount / 100) * $scope.totalcart;
+
+                  if ($scope.couponamount <= data.max) {
+                    $scope.checkout.coupon = data.id;
+                    // $scope.totalamount = $scope.amount - $scope.couponamount;
+                    $scope.showcoupontext = true;
+                    $timeout(function() {
+                      $scope.showcoupontext = false;
+                    }, 4000);
+                  } else {
+                    $scope.checkout.coupon = data.id;
+                    // $scope.totalamount = $scope.amount - data.max;
+                    $scope.couponamount = data.max;
+                  }
+                } else {
+                  // $scope.totalcart = $scope.totalcart;
+                }
               }
-            }
-          });
+            });
+          } else {
+            $scope.alerts.push({
+              type: "danger",
+              msg: "Please enter Coupon Code."
+            });
+            $scope.totalamount = $scope.amount;
+          }
         } else {
-          $scope.alerts.push({type:"danger",msg: "Please enter Coupon Code."});
+          $scope.alerts.push({
+            type: "danger",
+            msg: "To Apply coupon login first."
+          });
           $scope.totalamount = $scope.amount;
         }
-      } else {
-        $scope.alerts.push({type:"danger",msg: "To Apply coupon login first."});
-        $scope.totalamount = $scope.amount;
-      }
 
-    }
-    //END COUPON CODE
+      }
+      //END COUPON CODE
 
     // $scope.doSignUp = function(accept) {
     //   $scope.allvalidation = [{
@@ -1658,8 +1670,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
               msg: 'Unable to place order. Try again.'
             });
           }
-        }, function(err) {
-        })
+        }, function(err) {})
       } else {
         // $scope.invalidData = true;
         // $scope.alerts = [];
@@ -1700,9 +1711,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.updateCartQuantity = function(item) {
 
 
-      if(item.qty < 1 ){
+      if (item.qty < 1) {
         item.qty = 1;
-      }else{
+      } else {
         if (!$scope.validateQuantity(item)) {
           item.exceed = true;
           //$scope.totalcart = null;
@@ -1714,8 +1725,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             if (data.value) {
               $scope.getCart();
             }
-          }, function(err) {
-          })
+          }, function(err) {})
         }
       }
 
@@ -1826,8 +1836,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         animation: true,
         templateUrl: "views/modal/customizepop.html",
         controller: 'CustomiseInfoCtrl',
-        backdrop  : 'static',
-   keyboard  : false
+        backdrop: 'static',
+        keyboard: false
       });
     };
 
@@ -1886,42 +1896,65 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
   })
 
-  .controller('ExtrasCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $document, $stateParams, $uibModal) {
-    //Used to name the .html file
-    $scope.template = TemplateService.changecontent("extras");
-    $scope.menutitle = NavigationService.makeactive("Extras");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-    $scope.navigation = NavigationService.getnav2();
+.controller('ExtrasCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $document, $stateParams, $uibModal) {
+  //Used to name the .html file
+  $scope.template = TemplateService.changecontent("extras");
+  $scope.menutitle = NavigationService.makeactive("Extras");
+  TemplateService.title = $scope.menutitle;
+  $scope.navigation = NavigationService.getnav();
+  $scope.navigation = NavigationService.getnav2();
 
-    $scope.examples = [
-      "img/extras/jsw202.png"
-    ];
+  $scope.examples = [{
+    image: "img/extras/jsw202.png"
+  }];
+  $scope.examplePress = [{
+    image: "img/extras/cricket.jpg",
+    content: "On creating a memorabilia market in India and our sports foundation.",
+    link: "http://www.thecricketmonthly.com/story/878895/collect-call",
+  }, {
+    image: "img/extras/ndtv.jpg",
+    content: "On building a base for sports and celebrity memorabilia in the eastern hemisphere.",
+    link: "https://www.youtube.com/watch?v=wOPV3MhU3rw&spfreload=5",
+  }, {
+    image: "img/extras/mm.jpg",
+    content: "On the foundation and bridging gaps to creating awareness and infrastructure for youth in India.",
+    link: "http://www.punemirror.in/columns/talk-of-the-town/Legendary-tribute/articleshow/46433742.cms",
+  }, {
+    image: "img/extras/afternoon.jpg",
+    content: "On tournaments in Mumbai that have been kitted-up by Custom Cricket Co.",
+    link: "http://www.afternoondc.in/sports/the-gannon-dunkerley-trophy-starts-this-sunday/article_164992",
+  }];
+  $scope.examplePress = _.chunk($scope.examplePress, 2);
+  $scope.examplestest = [{
+    image: "img/extras/sporta.jpg",
+    content: "The location and feel of the studio is great and it’s a lovely setting for clients to come and pick their new bat in a comfortable and relaxed environment. I don’t think I’ve come across anything similar in all my years in the cricket industry. I also think that you’re on to a winner with the bespoke nature of your product range. For clubs to have the option of adding their club logo in to pads and gloves as well as bags and clothing is surely unique. I’ll be watching with interest from the UK and look forward to seeing how it all develops in the coming months.",
+    name: "Roger Myall, Director – Sport Arabia"
+  }];
 
-    function makeAnimation(id) {
-      if (_.isEmpty(id)) {
-        id = "services";
-      }
-      var someElement = angular.element(document.getElementById(id));
-      $document.scrollToElement(someElement, 0, 1400);
+  function makeAnimation(id) {
+    if (_.isEmpty(id)) {
+      id = "extras";
     }
-    $scope.$on('$viewContentLoaded', function(event) {
-      setTimeout(function() {
-        makeAnimation($stateParams.id);
-      }, 1000);
+    var someElement = angular.element(document.getElementById(id));
+    $document.scrollToElement(someElement, 0, 1400);
+  }
+  $scope.$on('$viewContentLoaded', function(event) {
+    setTimeout(function() {
+      makeAnimation($stateParams.id);
+    }, 1000);
+  });
+  $scope.changeURL = function(id) {
+    $scope.menutitle = NavigationService.makeactive(id);
+    $state.transitionTo('extrasid', {
+      id: id,
+      menu: "active"
+    }, {
+      notify: false
     });
-    $scope.changeURL = function(id) {
-      $scope.menutitle = NavigationService.makeactive(id);
-      $state.transitionTo('servicesid', {
-        id: id,
-        menu: "active"
-      }, {
-        notify: false
-      });
-      makeAnimation(id);
-      $location.replace();
-    };
-  })
+    makeAnimation(id);
+    $location.replace();
+  };
+})
 
 .controller('MyWishListCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, cfpLoadingBar) {
     //Used to name the .html file
@@ -1945,8 +1978,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         }
         $scope.wishlist = data;
-      }, function(err) {
-      });
+      }, function(err) {});
     };
     $scope.getWishlist();
     $scope.removeCart = function(id) {
@@ -1966,8 +1998,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             msg: 'Not removed from wishlist'
           });
         }
-      }, function(err) {
-      })
+      }, function(err) {})
 
     }
     $scope.cartAdd = function(wish) {
@@ -1999,8 +2030,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           //     xyz.close();
           // }, 1000)
         }
-      }, function(err) {
-      })
+      }, function(err) {})
     }
   })
   //
@@ -2052,8 +2082,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
               msg: 'The email ID does not exist. Please proceed to signup.'
             });
           }
-        }, function(err) {
-        });
+        }, function(err) {});
       }
     };
   })
@@ -2109,8 +2138,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 msg: 'Unable to reset password. Try again'
               });
             }
-          }, function(err) {
-          });
+          }, function(err) {});
         }
       } else {
         $scope.alerts = [];
@@ -2175,8 +2203,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         animation: true,
         templateUrl: "views/modal/customizepop.html",
         controller: 'CustomiseInfoCtrl',
-        backdrop  : 'static',
-   keyboard  : false
+        backdrop: 'static',
+        keyboard: false
       });
     };
     $scope.logintab.tab = 1;
@@ -2306,8 +2334,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     NavigationService.getCategory(function(data) {
       $scope.navigation[0].subnav = data;
       $scope.navigation[1].subnav = '';
-    }, function(err) {
-    });
+    }, function(err) {});
     $scope.services = [{
       name: "ADVANCED CUSTOMISATION",
       anchor: "advancedcutomization",
@@ -2336,8 +2363,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.wishlistcountshow = true;
         NavigationService.getWishlistCount(function(data) {
           $scope.wishlistcount = data;
-        }, function(err) {
-        });
+        }, function(err) {});
       }
       NavigationService.getCartCount(function(data) {
         if (data.value == false) {
@@ -2350,8 +2376,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           count++;
         }
 
-      }, function(err) {
-      });
+      }, function(err) {});
       // NavigationService.totalcart(function(data) {
       //     $scope.amount = data;
       // });
@@ -2420,8 +2445,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
               NavigationService.setUser(data);
               window.location.reload();
             }
-          }, function(err) {
-          })
+          }, function(err) {})
         } else {
           $scope.inputall = true;
         }
@@ -2452,8 +2476,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 NavigationService.setUser(data);
                 window.location.reload();
               }
-            }, function(err) {
-            })
+            }, function(err) {})
           } else {
             $scope.acceptValidate = true;
           }
@@ -2471,11 +2494,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       NavigationService.logout(function(data) {
         if (data == "true") {
           $.jStorage.flush();
-          window.location.href=window.location.origin + window.location.pathname;
+          window.location.href = window.location.origin + window.location.pathname;
 
         }
-      }, function(err) {
-      })
+      }, function(err) {})
     }
     var checktwitter = function(data, status) {
       if (data != "false") {
@@ -2554,143 +2576,143 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.angularVersion = window.location.hash.length > 1 ? (window.location.hash.indexOf('/') === 1 ?
       window.location.hash.substring(2) : window.location.hash.substring(1)) : '1.2.20';
 
-      var arrLength = 0;
-      var imagejstupld = "";
-      $scope.images = [];
-      $scope.usingFlash = FileAPI && FileAPI.upload != null;
-      $scope.fileReaderSupported = window.FileReader != null && (window.FileAPI == null || FileAPI.html5 != false);
-      $scope.uploadRightAway = true;
-      $scope.changeAngularVersion = function() {
-          window.location.hash = $scope.angularVersion;
-          window.location.reload(true);
-      };
-      $scope.hasUploader = function(index) {
-          return $scope.upload[index] != null;
-      };
-      $scope.abort = function(index) {
-          $scope.upload[index].abort();
-          $scope.upload[index] = null;
-      };
-      $scope.angularVersion = window.location.hash.length > 1 ? (window.location.hash.indexOf('/') === 1 ?
-          window.location.hash.substring(2) : window.location.hash.substring(1)) : '1.2.20';
+    var arrLength = 0;
+    var imagejstupld = "";
+    $scope.images = [];
+    $scope.usingFlash = FileAPI && FileAPI.upload != null;
+    $scope.fileReaderSupported = window.FileReader != null && (window.FileAPI == null || FileAPI.html5 != false);
+    $scope.uploadRightAway = true;
+    $scope.changeAngularVersion = function() {
+      window.location.hash = $scope.angularVersion;
+      window.location.reload(true);
+    };
+    $scope.hasUploader = function(index) {
+      return $scope.upload[index] != null;
+    };
+    $scope.abort = function(index) {
+      $scope.upload[index].abort();
+      $scope.upload[index] = null;
+    };
+    $scope.angularVersion = window.location.hash.length > 1 ? (window.location.hash.indexOf('/') === 1 ?
+      window.location.hash.substring(2) : window.location.hash.substring(1)) : '1.2.20';
 
-      var arrLength = 0;
-      globalfunction.onFileSelect = function($files, callback) {
-        console.log($files);
-          $scope.selectedFiles = [];
-          $scope.progress = [];
-          console.log($files);
-          if ($scope.upload && $scope.upload.length > 0) {
-              for (var i = 0; i < $scope.upload.length; i++) {
-                  if ($scope.upload[i] != null) {
-                      $scope.upload[i].abort();
-                  }
-              }
+    var arrLength = 0;
+    globalfunction.onFileSelect = function($files, callback) {
+      console.log($files);
+      $scope.selectedFiles = [];
+      $scope.progress = [];
+      console.log($files);
+      if ($scope.upload && $scope.upload.length > 0) {
+        for (var i = 0; i < $scope.upload.length; i++) {
+          if ($scope.upload[i] != null) {
+            $scope.upload[i].abort();
           }
-          $scope.upload = [];
-          $scope.uploadResult = uploadres;
-          $scope.selectedFiles = $files;
-          $scope.dataUrls = [];
-          arrLength = $files.length;
-          for (var i = 0; i < $files.length; i++) {
-              var $file = $files[i];
-              console.log($file);
-              if ($scope.fileReaderSupported && $file.type.indexOf('image') > -1) {
-                  var fileReader = new FileReader();
-                  fileReader.readAsDataURL($files[i]);
-                  var loadFile = function(fileReader, index) {
-                      fileReader.onload = function(e) {
-                          $timeout(function() {
-                              $scope.dataUrls[index] = e.target.result;
-                          });
-                      }
-                  }(fileReader, i);
-              }
-              $scope.progress[i] = -1;
-              if ($scope.uploadRightAway) {
-                  $scope.start(i, callback);
-              }
-          }
-      };
-
-      $scope.start = function(index, callback) {
-        console.log(index);
-          $scope.progress[index] = 0;
-          $scope.errorMsg = null;
-          console.log($scope.howToSend = 1);
-          if ($scope.howToSend == 1) {
-              $scope.upload[index] = $upload.upload({
-                  url: uploadUrl,
-                  method: $scope.httpMethod,
-                  headers: {
-                      'Content-Type': 'Content-Type'
-                  },
-                  data: {
-                      myModel: $scope.myModel
-                  },
-                  file: $scope.selectedFiles[index],
-                  fileFormDataName: 'file'
+        }
+      }
+      $scope.upload = [];
+      $scope.uploadResult = uploadres;
+      $scope.selectedFiles = $files;
+      $scope.dataUrls = [];
+      arrLength = $files.length;
+      for (var i = 0; i < $files.length; i++) {
+        var $file = $files[i];
+        console.log($file);
+        if ($scope.fileReaderSupported && $file.type.indexOf('image') > -1) {
+          var fileReader = new FileReader();
+          fileReader.readAsDataURL($files[i]);
+          var loadFile = function(fileReader, index) {
+            fileReader.onload = function(e) {
+              $timeout(function() {
+                $scope.dataUrls[index] = e.target.result;
               });
-              $scope.upload[index].then(function(response) {
-                console.log(response);
-                  $timeout(function() {
-                    console.log(response);
-                      $scope.uploadResult.push(response.data.value);
-                      imagejstupld = response.data.value;
+            }
+          }(fileReader, i);
+        }
+        $scope.progress[i] = -1;
+        if ($scope.uploadRightAway) {
+          $scope.start(i, callback);
+        }
+      }
+    };
 
-                      if (imagejstupld != "") {
-                          $scope.images.push(imagejstupld);
-                          console.log($scope.images);
-                          imagejstupld = "";
-                          if (arrLength == $scope.images.length) {
-                              callback($scope.images);
-                              $scope.images = [];
-                          }
-                      }
-                  });
-              }, function(response) {
-                  if (response.status > 0) $scope.errorMsg = response.status + ': ' + response.data;
-              }, function(evt) {
-                  $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-              });
-              $scope.upload[index].xhr(function(xhr) {});
-          } else {
-            console.log("hehraihdiuashdohsaiudh");
-            console.log(e.target.result);
-              var fileReader = new FileReader();
-              fileReader.onload = function(e) {
-                  $scope.upload[index] = $upload.http({
-                      url: uploadUrl,
-                      headers: {
-                          'Content-Type': $scope.selectedFiles[index].type
-                      },
-                      data: e.target.result
-                  }).then(function(response) {
-                      $scope.uploadResult.push(response.data);
-                  }, function(response) {
-                      if (response.status > 0) $scope.errorMsg = response.status + ': ' + response.data;
-                  }, function(evt) {
-                      $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-                  });
-              }
-              fileReader.readAsArrayBuffer($scope.selectedFiles[index]);
-          }
-      };
+    $scope.start = function(index, callback) {
+      console.log(index);
+      $scope.progress[index] = 0;
+      $scope.errorMsg = null;
+      console.log($scope.howToSend = 1);
+      if ($scope.howToSend == 1) {
+        $scope.upload[index] = $upload.upload({
+          url: uploadUrl,
+          method: $scope.httpMethod,
+          headers: {
+            'Content-Type': 'Content-Type'
+          },
+          data: {
+            myModel: $scope.myModel
+          },
+          file: $scope.selectedFiles[index],
+          fileFormDataName: 'file'
+        });
+        $scope.upload[index].then(function(response) {
+          console.log(response);
+          $timeout(function() {
+            console.log(response);
+            $scope.uploadResult.push(response.data.value);
+            imagejstupld = response.data.value;
 
-      $scope.dragOverClass = function($event) {
-          var items = $event.dataTransfer.items;
-          var hasFile = false;
-          if (items != null) {
-              for (var i = 0; i < items.length; i++) {
-                  if (items[i].kind == 'file') {
-                      hasFile = true;
-                      break;
-                  }
+            if (imagejstupld != "") {
+              $scope.images.push(imagejstupld);
+              console.log($scope.images);
+              imagejstupld = "";
+              if (arrLength == $scope.images.length) {
+                callback($scope.images);
+                $scope.images = [];
               }
-          } else {
-              hasFile = true;
+            }
+          });
+        }, function(response) {
+          if (response.status > 0) $scope.errorMsg = response.status + ': ' + response.data;
+        }, function(evt) {
+          $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+        });
+        $scope.upload[index].xhr(function(xhr) {});
+      } else {
+        console.log("hehraihdiuashdohsaiudh");
+        console.log(e.target.result);
+        var fileReader = new FileReader();
+        fileReader.onload = function(e) {
+          $scope.upload[index] = $upload.http({
+            url: uploadUrl,
+            headers: {
+              'Content-Type': $scope.selectedFiles[index].type
+            },
+            data: e.target.result
+          }).then(function(response) {
+            $scope.uploadResult.push(response.data);
+          }, function(response) {
+            if (response.status > 0) $scope.errorMsg = response.status + ': ' + response.data;
+          }, function(evt) {
+            $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+          });
+        }
+        fileReader.readAsArrayBuffer($scope.selectedFiles[index]);
+      }
+    };
+
+    $scope.dragOverClass = function($event) {
+      var items = $event.dataTransfer.items;
+      var hasFile = false;
+      if (items != null) {
+        for (var i = 0; i < items.length; i++) {
+          if (items[i].kind == 'file') {
+            hasFile = true;
+            break;
           }
-          return hasFile ? "dragover" : "dragover-err";
-      };
+        }
+      } else {
+        hasFile = true;
+      }
+      return hasFile ? "dragover" : "dragover-err";
+    };
 
   });

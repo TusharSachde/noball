@@ -87,6 +87,17 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, cfpL
       templateUrl: "views/template.html",
       controller: 'ServicesCtrl'
     })
+    .state('extras', {
+      url: "/extras",
+      templateUrl: "views/template.html",
+      controller: 'ExtrasCtrl'
+    })
+
+    .state('extrasid', {
+      url: "/extras/:id",
+      templateUrl: "views/template.html",
+      controller: 'ExtrasCtrl'
+    })
 
     .state('savedesign', {
       url: "/save-design",

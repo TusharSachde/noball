@@ -2,32 +2,32 @@
   <div class="service-heading">
     <div class="container">
       <div class="service-title">
-        <!-- <h2 class="text-uppercase high-light text-center">Services</h2> -->
+        <h2 class="text-uppercase high-light text-center">Extras</h2>
       </div>
       <div class="service-menu text-center">
         <ul>
           <li>
-            <a href="#advancedcutomization" ng-class="{{active}}" ng-click="changeURL('clientexamples')"  du-smooth-scroll du-scrollspy>CLIENT EXAMPLES</a>
+            <a href="#clientexamples" ng-class="{{active}}" ng-click="changeURL('clientexamples')" du-smooth-scroll du-scrollspy>CLIENT EXAMPLES</a>
           </li>
           <li>
-            <a href="#customapparel" ng-class="{{active}}" ng-click="changeURL('press')"  du-smooth-scroll du-scrollspy>PRESS</a>
+            <a href="#press" ng-class="{{active}}" ng-click="changeURL('press')" du-smooth-scroll du-scrollspy>PRESS</a>
           </li>
           <li>
-            <a href="#ccclounge" ng-class="{{active}}" ng-click="changeURL('testimonials')"  du-smooth-scroll du-scrollspy>TESTIMONIALS</a>
+            <a href="#testimonials" ng-class="{{active}}" ng-click="changeURL('testimonials')" du-smooth-scroll du-scrollspy>TESTIMONIALS</a>
           </li>
         </ul>
       </div>
     </div>
   </div>
   <section class="advnc-customise service-bg" id="clientexamples">
-    <div class="service-pd">
+    <div class="extra-pd">
       <div class="container">
         <div class="row">
           <div class="col-md-5 col-sm-5 col-xs-12">
             <div class="customize-main">
-              <h2 class="title text-uppercase">CLIENT EXAMPLES</h2>
+              <h2 class="title text-uppercase letter-spacing">CLIENT EXAMPLES</h2>
               <div class="descp text-justify text-bold">
-                <p>Have a look at some of the work we've done for teams across the globe ranging from customized apparel, kit bags, pads, gloves and even team balls.</p>
+                <p>Have a look at some of the work we’ve done for teams across the globe ranging from customized apparel, kit bags, pads, gloves and even team balls.</p>
               </div>
             </div>
           </div>
@@ -36,7 +36,7 @@
               <flex-slider class="carousel" flex-slide="src in examples track by $index" animation="slide" control-nav="false">
                 <li>
                   <div class="tshirt-custmoize">
-                    <img alt="Custom Cricket Company" class="img-responsive" ng-src="{{src}}">
+                    <img alt="Custom Cricket Company" class="img-responsive" ng-src="{{src.image}}">
                   </div>
                 </li>
               </flex-slider>
@@ -47,23 +47,38 @@
     </div>
   </section>
 
-  <section class="tours testimonials-bg" id="testimonials">
-    <div class="bg-blurlightblack service-pd">
+  <section class="testimonials-bg" id="testimonials">
+    <div class="bg-testimonials extra-pd">
       <div class="container">
         <div class="tour-detail">
-          <h2 class="title text-uppercase text-center">Testimonials</h2>
+          <h2 class="title text-uppercase light text-center letter-spacing">Testimonials</h2>
           <div class="match-detail">
             <div class="in-bound bound">
-              <h4 class="text-bold">In-Bound (India)</h4>
-              <h4 class="text-bold">Mumbai | Udaipur (Rajasthan) | Kathiwada (Madhya Pradesh).</h4>
-              <p class="descp text-justify">Come to incredible India for a fine cricket experience; be it in-stadia to watch the IPL and other international fixtures or even bring your team to play a series spanning three states, we can arrange it all. Custom Cricket Company founders have had a wealth of experience in sports hospitality prior to launching the e-commerce products portal and excel to provide you the full customer experience just the way we did it. Curate your personal tour with us – we’ve done it and we’re just a phone call away!</p>
-              <p class="descp text-justify">Play matches at famous city maidaans of Mumbai, the capital cricket city of India and enjoy full treats the metro has to offer with our friendly ground team to show you around. Visit principalities and stay in palaces of Udaipur and Kathiwada for a full royal experience where you can indulge in rural life to capture the true essence of India with fixtures at their most exquisite cricket grounds.</p>
-            </div>
-            <div class="out-bound bound">
-              <h4 class="text-bold">Out-Bound</h4>
-              <div class="descp text-justify">
-                <p>We bring you unbeatable prices and a fine experience (tested and tried) from some of the world’s best sporting and tour agencies. We cover UAE, Sri Lanka and UK where you can fulfill childhood dreams of having fixtures at world-class grounds and international stadiums.</p>
-                <p>Combined with our ground staff, ticket partners, hotel &amp; travel agencies and event managers we handle turnkey tours so you needn’t lift a finger. For typical tour itineraries, budgets and detailed possibilities please write to us at <a style="text-decoration:underline; color: #fff;" href="mailto:umpire@customcricketcompany.com">umpire@customcricketcompany.com</a> or call us anytime.</p>
+              <div class="mb20">
+                <p class="text-center">Few of our clients who generously accepted our request to talk about the products and service we’ve offered thus far.</p>
+              </div>
+              <div class="service-slider test-slider white-direction">
+                <flex-slider class="carousel" flex-slide="src in examplestest track by $index" animation="slide" control-nav="false">
+                  <li>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="test-img">
+                          <img alt="Custom Cricket Company" class="" ng-src="{{src.image}}">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="test-cont">
+                          <p class="text-justify quote">
+                            {{src.content}}
+                          </p>
+                          <p class="text-right">
+                            - {{src.name}}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </flex-slider>
               </div>
             </div>
           </div>
@@ -71,28 +86,38 @@
       </div>
     </div>
   </section>
-  <section class="tours black-bg" id="press">
-    <div class="bg-blurlightblack service-pd">
+  <section class="bg-press" id="press">
+    <div class="extra-pd">
       <div class="container">
         <div class="tour-detail">
-          <h2 class="title text-uppercase text-center">tours</h2>
-          <div class="match-detail">
-            <div class="in-bound bound">
-              <h4 class="text-bold">In-Bound (India)</h4>
-              <h4 class="text-bold">Mumbai | Udaipur (Rajasthan) | Kathiwada (Madhya Pradesh).</h4>
-              <p class="descp text-justify">Come to incredible India for a fine cricket experience; be it in-stadia to watch the IPL and other international fixtures or even bring your team to play a series spanning three states, we can arrange it all. Custom Cricket Company founders have had a wealth of experience in sports hospitality prior to launching the e-commerce products portal and excel to provide you the full customer experience just the way we did it. Curate your personal tour with us – we’ve done it and we’re just a phone call away!</p>
-              <p class="descp text-justify">Play matches at famous city maidaans of Mumbai, the capital cricket city of India and enjoy full treats the metro has to offer with our friendly ground team to show you around. Visit principalities and stay in palaces of Udaipur and Kathiwada for a full royal experience where you can indulge in rural life to capture the true essence of India with fixtures at their most exquisite cricket grounds.</p>
-            </div>
-            <div class="out-bound bound">
-              <h4 class="text-bold">Out-Bound</h4>
-              <div class="descp text-justify">
-                <p>We bring you unbeatable prices and a fine experience (tested and tried) from some of the world’s best sporting and tour agencies. We cover UAE, Sri Lanka and UK where you can fulfill childhood dreams of having fixtures at world-class grounds and international stadiums.</p>
-                <p>Combined with our ground staff, ticket partners, hotel & travel agencies and event managers we handle turnkey tours so you needn’t lift a finger. For typical tour itineraries, budgets and detailed possibilities please write to us at <a style="text-decoration:underline; color: #fff;" href="mailto:umpire@customcricketcompany.com">umpire@customcricketcompany.com</a> or call us anytime.</p>
-              </div>
+          <h2 class="title text-uppercase text-center letter-spacing">Press</h2>
+          <p class="text-center">In quick time we’ve been covered but it all started even before we began our journey. Few insights into our culture as reported in media and journals.</p>
+          <div>
+            <div class="service-slider press-slider white-direction">
+              <flex-slider class="carousel" flex-slide="express in examplePress track by $index" animation="slide" control-nav="false">
+                <li>
+                  <div class="row pd40">
+                    <div class="col-md-6" ng-repeat="press in express">
+                      <div class="row">
+                        <div class="col-md-7">
+                          <div class="img-press">
+                            <img src="{{press.image}}" alt="" class="img-responsive">
+                          </div>
+                        </div>
+                        <div class="col-md-5">
+                          <div class="cont-press">
+                            <p>{{press.content}}</p>
+                            <a href="{{press.link}}" class="btn btn-outline" target="_blank"> Read More</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </flex-slider>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-</div>
