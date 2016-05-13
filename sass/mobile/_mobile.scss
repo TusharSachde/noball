@@ -7,7 +7,7 @@ $screen-desktop: 1224px !default;
     }
   }
   .ship {
-      height: 116px;
+    height: 116px;
     p {
       padding: 0 7px;
     }
@@ -132,7 +132,7 @@ $screen-desktop: 1224px !default;
     }
   }
   .ship {
-      height: 108px;
+    height: 108px;
     p {
       padding: 0 3px;
     }
@@ -698,7 +698,7 @@ $screen-desktop: 1224px !default;
     display: block;
     .ship {
       border-color: transparent;
-    margin: 28px 0 0px;
+      margin: 28px 0 0;
     }
   }
   section .flex-control-nav {
@@ -724,6 +724,12 @@ $screen-desktop: 1224px !default;
   }
   .contact-bg {
     background: #f3f3f3;
+  }
+  .extra-pd {
+    padding: 150px 0 4%;
+    .customize-main {
+      margin-top: 0;
+    }
   }
 }
 @media (max-width: $screen-mobile) {
