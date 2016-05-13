@@ -15,7 +15,7 @@
                 <div class="row">
 
                   <div class="col-md-4 col-sm-5">
-                    <form name="loginForm" >
+                    <form name="loginForm">
 
                       <div class="login-form step1">
                         <h4 class="login">SIGN IN</h4>
@@ -125,7 +125,8 @@
                           <div class="checkbox">
                             <input type="checkbox" ng-change="acceptIt(accept)" id="cc" ng-model="accept">
                             <label for="cc" class="agree">
-                              <span></span> I agree with the <a href="" target="_blank" ui-sref="termsconditions" style="text-decoration:underline">terms &amp; conditions</a> &amp; <a href="" style="text-decoration: underline;" ui-sref="privacypolicy" target="_blank">privacy policy</a> .</label>
+                              <span></span> I agree with the <a href="" target="_blank" ui-sref="termsconditions" style="text-decoration:underline">terms &amp; conditions</a> &amp; <a href="" style="text-decoration: underline;" ui-sref="privacypolicy"
+                                target="_blank">privacy policy</a> .</label>
                           </div>
                         </div>
                       </div>
@@ -196,12 +197,12 @@
                           </td>
                           <td>
                             <p><i class="fa fa-inr" ng-if="country == 'INR'"></i>
-                  <i class="fa fa-gbp" ng-if="country == 'GBP'"></i>
-                  <i class="fa fa-usd" ng-if="country == 'NZD'"></i>
-                  <i class="fa fa-eur" ng-if="country == 'EUR'"></i>
-                  <i class="fa fa-usd" ng-if="country == 'USD'"></i>
-                  <i ng-if="country == 'ZAF'">R</i>
-                  <i class="fa fa-usd" ng-if="country == 'AUD'"></i> {{cart.subtotal}}</p>
+                              <i class="fa fa-gbp" ng-if="country == 'GBP'"></i>
+                              <i class="fa fa-usd" ng-if="country == 'NZD'"></i>
+                              <i class="fa fa-eur" ng-if="country == 'EUR'"></i>
+                              <i class="fa fa-usd" ng-if="country == 'USD'"></i>
+                              <i ng-if="country == 'ZAF'">R</i>
+                              <i class="fa fa-usd" ng-if="country == 'AUD'"></i> {{cart.subtotal}}</p>
                             <div class="p65 clearfix">
                               <button class="btn btn-outline btn-dark " ng-click="removeItem(cart)">REMOVE</button>
                             </div>
@@ -235,33 +236,33 @@
                       <div class="col-xs-6">
                         <div class="list text-right">
                           <p><i class="fa fa-inr" ng-if="country == 'INR'"></i>
-                <i class="fa fa-gbp" ng-if="country == 'GBP'"></i>
-                <i class="fa fa-usd" ng-if="country == 'NZD'"></i>
-                <i class="fa fa-eur" ng-if="country == 'EUR'"></i>
-                <i class="fa fa-usd" ng-if="country == 'USD'"></i>
-                <i ng-if="country == 'ZAF'">R</i>
-                <i class="fa fa-usd" ng-if="country == 'AUD'"></i> {{totalcart}}</p>
+                            <i class="fa fa-gbp" ng-if="country == 'GBP'"></i>
+                            <i class="fa fa-usd" ng-if="country == 'NZD'"></i>
+                            <i class="fa fa-eur" ng-if="country == 'EUR'"></i>
+                            <i class="fa fa-usd" ng-if="country == 'USD'"></i>
+                            <i ng-if="country == 'ZAF'">R</i>
+                            <i class="fa fa-usd" ng-if="country == 'AUD'"></i> {{totalcart}}</p>
                           <p><i class="fa fa-inr" ng-if="country == 'INR'"></i>
-                <i class="fa fa-gbp" ng-if="country == 'GBP'"></i>
-                <i class="fa fa-usd" ng-if="country == 'NZD'"></i>
-                <i class="fa fa-eur" ng-if="country == 'EUR'"></i>
-                <i class="fa fa-usd" ng-if="country == 'USD'"></i>
-                <i ng-if="country == 'ZAF'">R</i>
-                <i class="fa fa-usd" ng-if="country == 'AUD'"></i>{{couponamount}}</p>
+                            <i class="fa fa-gbp" ng-if="country == 'GBP'"></i>
+                            <i class="fa fa-usd" ng-if="country == 'NZD'"></i>
+                            <i class="fa fa-eur" ng-if="country == 'EUR'"></i>
+                            <i class="fa fa-usd" ng-if="country == 'USD'"></i>
+                            <i ng-if="country == 'ZAF'">R</i>
+                            <i class="fa fa-usd" ng-if="country == 'AUD'"></i>{{couponamount}}</p>
                           <p><i class="fa fa-inr" ng-if="country == 'INR'"></i>
-                <i class="fa fa-gbp" ng-if="country == 'GBP'"></i>
-                <i class="fa fa-usd" ng-if="country == 'NZD'"></i>
-                <i class="fa fa-eur" ng-if="country == 'EUR'"></i>
-                <i class="fa fa-usd" ng-if="country == 'USD'"></i>
-                <i ng-if="country == 'ZAF'">R</i>
-                <i class="fa fa-usd" ng-if="country == 'AUD'"></i> {{shippingcharges}}</p>
+                            <i class="fa fa-gbp" ng-if="country == 'GBP'"></i>
+                            <i class="fa fa-usd" ng-if="country == 'NZD'"></i>
+                            <i class="fa fa-eur" ng-if="country == 'EUR'"></i>
+                            <i class="fa fa-usd" ng-if="country == 'USD'"></i>
+                            <i ng-if="country == 'ZAF'">R</i>
+                            <i class="fa fa-usd" ng-if="country == 'AUD'"></i> {{shippingcharges}}</p>
                           <p><i class="fa fa-inr" ng-if="country == 'INR'"></i>
-                <i class="fa fa-gbp" ng-if="country == 'GBP'"></i>
-                <i class="fa fa-usd" ng-if="country == 'NZD'"></i>
-                <i class="fa fa-eur" ng-if="country == 'EUR'"></i>
-                <i class="fa fa-usd" ng-if="country == 'USD'"></i>
-                <i ng-if="country == 'ZAF'">R</i>
-                <i class="fa fa-usd" ng-if="country == 'AUD'"></i> {{totalcart + shippingcharges - couponamount}}</p>
+                            <i class="fa fa-gbp" ng-if="country == 'GBP'"></i>
+                            <i class="fa fa-usd" ng-if="country == 'NZD'"></i>
+                            <i class="fa fa-eur" ng-if="country == 'EUR'"></i>
+                            <i class="fa fa-usd" ng-if="country == 'USD'"></i>
+                            <i ng-if="country == 'ZAF'">R</i>
+                            <i class="fa fa-usd" ng-if="country == 'AUD'"></i> {{totalcart + shippingcharges - couponamount}}</p>
                         </div>
                       </div>
                     </div>
@@ -274,112 +275,112 @@
             </tab>
             <tab active="tabs[2].active" disable="tabs[2].disabled" heading="Step 3">
               <form name="detailForm">
-              <div class="row">
-                <div class="col-md-12">
-                  <h4 class="login">YOUR DETAILS</h4>
+                <div class="row">
+                  <div class="col-md-12">
+                    <h4 class="login">YOUR DETAILS</h4>
+                  </div>
+
                 </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-group">
 
-              </div>
-              <div class="row">
-                <div class="col-md-3">
-                  <div class="form-group">
+                      <input type="text" name="firstname" required ng-model="checkout.firstname" class="form-control" placeholder="First Name">
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
 
-                    <input type="text" name="firstname" required ng-model="checkout.firstname" class="form-control" placeholder="First Name">
+                      <input type="text" name="lastname" required ng-model="checkout.lastname" class="form-control" placeholder="Last Name">
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+
+                      <input type="number" name="phone" required ng-model="checkout.phone" class="form-control" placeholder="Mobile Number">
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+
+                      <input type="email" name="email" required ng-model="checkout.email" class="form-control" placeholder="Email">
+                    </div>
                   </div>
                 </div>
-                <div class="col-md-3">
-                  <div class="form-group">
+                <div class="row">
+                  <div class="col-md-4 col-sm-5">
+                    <div class="login-form ">
+                      <h4 class="login">BILLING ADDRESS</h4>
+                      <div class="form-group">
+                        <input type="text" name="billingline1" required ng-change="sameShipping(checkout)" ng-model="checkout.billingline1" class="form-control" placeholder="Flat Number, Building Number *">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" name="billingline2" required ng-change="sameShipping(checkout)" ng-model="checkout.billingline2" class="form-control" placeholder="Street Address *">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" name="billingline3" required ng-change="sameShipping(checkout)" ng-model="checkout.billingline3" class="form-control" placeholder="Nearest Landmark">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" name="billingcity" required ng-change="sameShipping(checkout)" ng-model="checkout.billingcity" class="form-control" placeholder="City">
+                      </div>
+                      <div class="form-group">
+                        <input type="tel" name="billingpincode" required ng-change="sameShipping(checkout)" ng-model="checkout.billingpincode" class="form-control" placeholder="Pin Code">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" name="billingstate" required ng-change="sameShipping(checkout)" ng-model="checkout.billingstate" class="form-control" placeholder="State">
+                      </div>
+                      <div class="form-group">
 
-                    <input type="text" name="lastname" required ng-model="checkout.lastname" class="form-control" placeholder="Last Name">
+                        <div class="ccc-select">
+                          <select class="form-control" name="billingcountry" required ng-change="sameShipping(checkout)" ng-model="checkout.billingcountry">
+                            <option value="{{country.value}}" ng-repeat="country in countries">{{country.value}}</option>
+                          </select>
+                          <span></span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="form-group">
+                  <div class="col-md-offset-2 col-md-4 col-sm-offset-2 col-sm-5">
+                    <div class="login-form">
+                      <h4 class="login">SHIPPING ADDRESS</h4>
+                      <div class="form-group i-check">
+                        <div class="checkbox">
+                          <input type="checkbox" value="true" ng-model="checkShip" ng-click="shippingCheck(checkShip)" id="tc1">
+                          <label for="tc1" class="agree">
+                            <span></span> Same as billing address</label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <input type="text" name="shippingline1" required ng-model="checkout.shippingline1" class="form-control" placeholder="Flat Number, Building Number *">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" name="shippingline2" required ng-model="checkout.shippingline2" class="form-control" placeholder="Street Address *">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" name="shippingline3" required ng-model="checkout.shippingline3" class="form-control" placeholder="Nearest Landmark *">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" name="shippingcity" required ng-model="checkout.shippingcity" class="form-control" placeholder="City">
+                      </div>
+                      <div class="form-group">
+                        <input type="tel" name="shippingpincode" required ng-change="shippingChangeKarKeBataAb()" ng-model="checkout.shippingpincode" class="form-control" placeholder="Pin Code">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" name="shippingstate" required ng-model="checkout.shippingstate" class="form-control" placeholder="State">
+                      </div>
+                      <div class="form-group">
 
-                    <input type="number" name="phone" required ng-model="checkout.phone" class="form-control" placeholder="Mobile Number">
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="form-group">
-
-                    <input type="email" name="email" required ng-model="checkout.email" class="form-control" placeholder="Email">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-4 col-sm-5">
-                  <div class="login-form ">
-                    <h4 class="login">BILLING ADDRESS</h4>
-                    <div class="form-group">
-                      <input type="text" name="billingline1" required ng-change="sameShipping(checkout)" ng-model="checkout.billingline1" class="form-control" placeholder="Flat Number, Building Number *">
-                    </div>
-                    <div class="form-group">
-                      <input type="text" name="billingline2" required ng-change="sameShipping(checkout)" ng-model="checkout.billingline2" class="form-control" placeholder="Street Address *">
-                    </div>
-                    <div class="form-group">
-                      <input type="text" name="billingline3" required ng-change="sameShipping(checkout)" ng-model="checkout.billingline3" class="form-control" placeholder="Nearest Landmark">
-                    </div>
-                    <div class="form-group">
-                      <input type="text" name="billingcity" required ng-change="sameShipping(checkout)" ng-model="checkout.billingcity" class="form-control" placeholder="City">
-                    </div>
-                    <div class="form-group">
-                      <input type="tel" name="billingpincode" required ng-change="sameShipping(checkout)" ng-model="checkout.billingpincode" class="form-control" placeholder="Pin Code">
-                    </div>
-                    <div class="form-group">
-                      <input type="text" name="billingstate" required ng-change="sameShipping(checkout)" ng-model="checkout.billingstate" class="form-control" placeholder="State">
-                    </div>
-                    <div class="form-group">
-
-                      <div class="ccc-select">
-                        <select class="form-control" name="billingcountry" required ng-change="sameShipping(checkout)" ng-model="checkout.billingcountry">
-                          <option value="{{country.value}}" ng-repeat="country in countries">{{country.value}}</option>
-                        </select>
-                        <span></span>
+                        <div class="ccc-select">
+                          <select class="form-control" name="shippingcountry" required ng-model="checkout.shippingcountry">
+                            <option value="{{country.value}}" ng-repeat="country in countries">{{country.value}}</option>
+                          </select>
+                          <span></span>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-offset-2 col-md-4 col-sm-offset-2 col-sm-5">
-                  <div class="login-form">
-                    <h4 class="login">SHIPPING ADDRESS</h4>
-                    <div class="form-group i-check">
-                      <div class="checkbox">
-                        <input type="checkbox" value="true" ng-model="checkShip" ng-click="shippingCheck(checkShip)" id="tc1">
-                        <label for="tc1" class="agree">
-                          <span></span> Same as billing address</label>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <input type="text" name="shippingline1" required ng-model="checkout.shippingline1" class="form-control" placeholder="Flat Number, Building Number *">
-                    </div>
-                    <div class="form-group">
-                      <input type="text" name="shippingline2" required ng-model="checkout.shippingline2" class="form-control" placeholder="Street Address *">
-                    </div>
-                    <div class="form-group">
-                      <input type="text" name="shippingline3" required ng-model="checkout.shippingline3" class="form-control" placeholder="Nearest Landmark *">
-                    </div>
-                    <div class="form-group">
-                      <input type="text" name="shippingcity" required ng-model="checkout.shippingcity" class="form-control" placeholder="City">
-                    </div>
-                    <div class="form-group">
-                      <input type="tel" name="shippingpincode" required ng-change="shippingChangeKarKeBataAb()" ng-model="checkout.shippingpincode" class="form-control" placeholder="Pin Code">
-                    </div>
-                    <div class="form-group">
-                      <input type="text" name="shippingstate" required ng-model="checkout.shippingstate" class="form-control" placeholder="State">
-                    </div>
-                    <div class="form-group">
-
-                      <div class="ccc-select">
-                        <select class="form-control" name="shippingcountry" required ng-model="checkout.shippingcountry">
-                          <option value="{{country.value}}" ng-repeat="country in countries">{{country.value}}</option>
-                        </select>
-                        <span></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- <div class="row">
+                <!-- <div class="row">
                 <div class="col-md-12">
                   <h4 class="login">PAYMENT METHOD</h4>
                 </div>
@@ -422,35 +423,38 @@
                   </div>
                 </div>
               </div> -->
-              <div class="back-2 no-bg">
-                <div class="text-center mg30">
-                  <button class="btn btn-outline btn-dark more-pd text-uppercase" ng-click="placeOrder(detailForm)">Continue</button>
+                <div class="back-2 no-bg">
+                  <div class="text-center mg30">
+                    <button class="btn btn-outline btn-dark more-pd text-uppercase" ng-click="placeOrder(detailForm)">Continue</button>
+                  </div>
+                  <div class="payment list text-center">
+                    <p>We Accept:</p>
+                    <ul class="list-inline">
+                      <li>
+                        <img src="img/visacard.png" width="50">
+                      </li>
+                      <li>
+                        <img src="img/mastero.png" width="50">
+                      </li>
+                      <li>
+                        <img src="img/mastercard.png" width="50">
+                      </li>
+                      <li>
+                        <img src="img/american.png" width="50">
+                      </li>
+                      <li>
+                        <img src="img/payu.jpg" width="50">
+                      </li>
+                      <li>
+                        <img src="img/paypal.jpg">
+                      </li>
+                      <li>
+                        <img src="img/netbanking.png" width="50">
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-                <div class="payment list text-center">
-                  <p>We Accept:</p>
-                  <ul class="list-inline">
-                    <li>
-                      <img src="img/visacard.png" width="50">
-                    </li>
-                    <li>
-                      <img src="img/mastero.png" width="50">
-                    </li>
-                    <li>
-                      <img src="img/mastercard.png" width="50">
-                    </li>
-                    <li>
-                      <img src="img/american.png" width="50">
-                    </li>
-                    <li>
-                      <img src="img/payu.jpg" width="50">
-                    </li>
-                    <li>
-                      <img src="img/netbanking.png" width="50">
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </form>
+              </form>
             </tab>
             <tab active="tabs[3].active" disable="tabs[3].disabled" heading="Step 4">
               <div class="min-height">
