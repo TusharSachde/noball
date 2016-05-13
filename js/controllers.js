@@ -1823,7 +1823,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('ServicesCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $document, $stateParams, $uibModal,$location) {
+  .controller('ServicesCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $document, $stateParams, $uibModal, $location) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("services");
     $scope.menutitle = NavigationService.makeactive("Services");
@@ -1896,7 +1896,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
   })
 
-.controller('ExtrasCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $document, $stateParams, $uibModal,$location) {
+.controller('ExtrasCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $document, $stateParams, $uibModal, $location) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("extras");
   $scope.menutitle = NavigationService.makeactive("Extras");
@@ -1905,8 +1905,78 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.navigation = NavigationService.getnav2();
 
   $scope.examples = [{
-    image: "img/extras/jsw202.png"
-  }];
+    image: "img/extras/clientexample/1.png",
+  }, {
+    image: "img/extras/clientexample/2.png",
+  }, {
+    image: "img/extras/clientexample/3.png",
+  }, {
+    image: "img/extras/clientexample/4.png",
+  }, {
+    image: "img/extras/clientexample/5.png",
+  }, {
+    image: "img/extras/clientexample/6.png",
+  }, {
+    image: "img/extras/clientexample/7.png",
+  }, {
+    image: "img/extras/clientexample/8.png",
+  }, {
+    image: "img/extras/clientexample/9.png",
+  }, {
+    image: "img/extras/clientexample/10.png",
+  }, {
+    image: "img/extras/clientexample/11.png",
+  }, {
+    image: "img/extras/clientexample/12.png",
+  }, {
+    image: "img/extras/clientexample/13.png",
+  }, {
+    image: "img/extras/clientexample/14.png",
+  }, {
+    image: "img/extras/clientexample/15.png",
+  }, {
+    image: "img/extras/clientexample/16.png",
+  }, {
+    image: "img/extras/clientexample/17.png",
+  }, {
+    image: "img/extras/clientexample/18.png",
+  }, {
+    image: "img/extras/clientexample/19.png",
+  }, {
+    image: "img/extras/clientexample/20.png",
+  }, {
+    image: "img/extras/clientexample/21.png",
+  }, {
+    image: "img/extras/clientexample/22.png",
+  }, {
+    image: "img/extras/clientexample/23.png",
+  }, {
+    image: "img/extras/clientexample/24.png",
+  }, {
+    image: "img/extras/clientexample/25.png",
+  }, {
+    image: "img/extras/clientexample/26.png",
+  }, {
+    image: "img/extras/clientexample/27.png",
+  }, {
+    image: "img/extras/clientexample/28.png",
+  }, {
+    image: "img/extras/clientexample/29.png",
+  }, {
+    image: "img/extras/clientexample/30.png",
+  }, {
+    image: "img/extras/clientexample/31.png",
+  }, {
+    image: "img/extras/clientexample/32.png",
+  }, {
+    image: "img/extras/clientexample/33.png",
+  }, {
+    image: "img/extras/clientexample/34.png",
+  }, {
+    image: "img/extras/clientexample/35.png",
+  }, {
+    image: "img/extras/clientexample/36.png",
+  }, ];
   $scope.examplePress = [{
     image: "img/extras/cricket.jpg",
     content: "On creating a memorabilia market in India and our sports foundation.",
@@ -1926,10 +1996,34 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   }];
   $scope.examplePress = _.chunk($scope.examplePress, 2);
   $scope.examplestest = [{
-    image: "img/extras/sporta.jpg",
+    image: "img/extras/testimonials/5.png",
     content: "The location and feel of the studio is great and it’s a lovely setting for clients to come and pick their new bat in a comfortable and relaxed environment. I don’t think I’ve come across anything similar in all my years in the cricket industry. I also think that you’re on to a winner with the bespoke nature of your product range. For clubs to have the option of adding their club logo in to pads and gloves as well as bags and clothing is surely unique. I’ll be watching with interest from the UK and look forward to seeing how it all develops in the coming months.",
+    name: "Roger Myall, Director – Sport Arabia Worldwide"
+  }, {
+    image: "img/extras/testimonials/1.png",
+    content: "I was waiting for someone to come along and fill this gap in the market. A much needed service for India and the world. I’m amazed at the quality of production and bespoke customization. We’ve had a great experience with the NSCI team orders.",
+    name: "Sunil Tanwani, Convener of Sports at The National Sports Club of India"
+  }, {
+    image: "img/extras/testimonials/2.png",
+    content: "University of Southern California (USC) Cricket Club has been doing business with Custom Cricket Company for over a year now. Our club has over 200 members and each year we order about $7500 USD in cricket uniforms and equipment. We have used multiple vendors from US, India and Pakistan over the years. Like most clubs, we needed a vendor who would understand our clubs requirements for quality while giving us a great price and most importantly making sure that the order was delivered on-time. CCC did it all perfectly. We couldn’t be happier.",
     name: "Roger Myall, Director – Sport Arabia"
-  }];
+  }, {
+    image: "img/extras/testimonials/7.png",
+    content: "CCC offers a great selection of apparel and equipment and most importantly the opportunity to customise your equipment (kit bags) with your name and team logo. This is unique and no other vendor offers this. So far we have ordered over 250 uniforms, 10 customized kit bags along with other misc. cricket items and we are extremely pleased with the quality and reliability of CCC.",
+    name: "Joe Hamburg, Titans Cricket Club, England"
+  }, {
+    image: "img/extras/testimonials/6.png",
+    content: "For those who are looking for the ideal vendor, look no further. The staff at CCC is very proactive and experienced, they worked with our team to ensure that the design and quality was exactly what we required. The costs were very competitive compared to the vendors we worked with previously. But the most outstanding part was the delivery services. We had our products shipped and delivered to our doorstep within the stipulated time with peace of mind knowing there were no hidden costs and all items reached our doorstep without hassle.",
+    name: "Somesh Agarwal, CMD Rockwood Hotels (Corporate Cricket Team)"
+  }, {
+    image: "img/extras/testimonials/4.png",
+    content: "We’ve tried for a long time to find an Indian kit supplier who can deliver the quality, designs and styles we want – CCC have done this for us and we recommend their services.",
+    name: "Matt Greenwell, Chairman & Convenor – Malabar Pirates CC."
+  }, {
+    image: "img/extras/testimonials/3.png",
+    content: "Every team should use the Custom Cricket Company. Not only do they allow the amateur player to feel professional, with top-quality personalised kit and bags, but they can organise epic cricket tours on the maidaans of India. Lastly, all profits go to a wonderful cause, promoting the sport in rural areas there. There couldn’t be a better place to get your kit from.",
+    name: "Charlie Campbell, captain of the Authors Cricket Club, England."
+  }, ];
 
   function makeAnimation(id) {
     if (_.isEmpty(id)) {
