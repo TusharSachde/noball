@@ -87,8 +87,8 @@
                                     <span class="text-medium">{{product.qty}}</span>
                                 </p>
                                 <p class="text-light">PRICE :
-                                    <span class="text-medium">
-                                        <i class="fa fa-inr"></i>{{product.subtotal}}</span>
+                                  <span class="text-medium"><i class="fa fa-inr" ng-if="country == 'INR'"></i><i class="fa fa-gbp" ng-if="country == 'GBP'"></i><i class="fa fa-usd" ng-if="country == 'NZD'"></i><i class="fa fa-eur" ng-if="country == 'EUR'"></i><i class="fa fa-usd" ng-if="country == 'USD'"></i><i ng-if="country == 'ZAF'">R</i><i class="fa fa-usd" ng-if="country == 'AUD'"></i>{{product.subtotal}}</span>
+
                                 </p>
                             </div>
                             <div class="inline-block">
@@ -105,8 +105,8 @@
                         <span>{{quantity}}</span>
                     </h4>
                     <h4 class="text-uppercase">total:
-                        <span>
-                            <i class="fa fa-inr"></i>{{totalcart}}</span>
+                      <span><i class="fa fa-inr" ng-if="country == 'INR'"></i><i class="fa fa-gbp" ng-if="country == 'GBP'"></i><i class="fa fa-usd" ng-if="country == 'NZD'"></i><i class="fa fa-eur" ng-if="country == 'EUR'"></i><i class="fa fa-usd" ng-if="country == 'USD'"></i><i ng-if="country == 'ZAF'">R</i><i class="fa fa-usd" ng-if="country == 'AUD'"></i>{{totalcart}}</span>
+
                     </h4>
                 </div>
                 <div class="text-center">
