@@ -1916,9 +1916,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     image: "img/extras/clientexample/5.png",
   }, {
     image: "img/extras/clientexample/6.png",
-  }, {
-    image: "img/extras/clientexample/7.png",
-  }, {
+  }
+  // ,
+  // {
+  //   image: "img/extras/clientexample/7.png",
+  // }
+  , {
     image: "img/extras/clientexample/8.png",
   }, {
     image: "img/extras/clientexample/9.png",
@@ -2006,7 +2009,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   }, {
     image: "img/extras/testimonials/2.png",
     content: "University of Southern California (USC) Cricket Club has been doing business with Custom Cricket Company for over a year now. Our club has over 200 members and each year we order about $7500 USD in cricket uniforms and equipment. We have used multiple vendors from US, India and Pakistan over the years. Like most clubs, we needed a vendor who would understand our clubs requirements for quality while giving us a great price and most importantly making sure that the order was delivered on-time. CCC did it all perfectly. We couldn’t be happier.",
-    name: "Roger Myall, Director – Sport Arabia"
+    name: "Tarun Sandhu"
   }, {
     image: "img/extras/testimonials/7.png",
     content: "CCC offers a great selection of apparel and equipment and most importantly the opportunity to customise your equipment (kit bags) with your name and team logo. This is unique and no other vendor offers this. So far we have ordered over 250 uniforms, 10 customized kit bags along with other misc. cricket items and we are extremely pleased with the quality and reliability of CCC.",
@@ -2455,11 +2458,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       name: "CLIENT EXAMPLES",
       anchor: "clientexamples",
     }, {
-      name: "PRESS",
-      anchor: "press",
-    }, {
       name: "TESTIMONIALS",
       anchor: "testimonials",
+    }, {
+      name: "PRESS",
+      anchor: "press",
     }];
     $scope.wishlistcountshow = false;
     myfunction = function() {
