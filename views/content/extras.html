@@ -46,41 +46,6 @@
       </div>
     </div>
   </section>
-  <section class="bg-press" id="press">
-    <div class="extra-pd">
-      <div class="container">
-        <div class="tour-detail">
-          <h2 class="title text-uppercase text-center letter-spacing">Press</h2>
-          <p class="text-center">In quick time we’ve been covered but it all started even before we began our journey. Few insights into our culture as reported in media and journals.</p>
-          <div>
-            <div class="service-slider press-slider white-direction">
-              <flex-slider class="carousel" flex-slide="express in examplePress track by $index" animation="slide" control-nav="false">
-                <li>
-                  <div class="row pd40">
-                    <div class="col-md-6" ng-repeat="press in express">
-                      <div class="row">
-                        <div class="col-md-7">
-                          <div class="img-press">
-                            <img ng-src="{{press.image}}" alt="" class="img-responsive">
-                          </div>
-                        </div>
-                        <div class="col-md-5">
-                          <div class="cont-press">
-                            <p>{{press.content}}</p>
-                            <a href="{{press.link}}" class="btn btn-outline" target="_blank"> Read More</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              </flex-slider>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
   <section class="testimonials-bg" id="testimonials">
     <div class="bg-testimonials extra-pd">
       <div class="container">
@@ -114,6 +79,41 @@
                   </li>
                 </flex-slider>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="bg-press" id="press">
+    <div class="extra-pd">
+      <div class="container">
+        <div class="tour-detail">
+          <h2 class="title text-uppercase text-center letter-spacing">Press</h2>
+          <p class="text-center">In quick time we’ve been covered but it all started even before we began our journey. Few insights into our culture as reported in media and journals.</p>
+          <div>
+            <div class="service-slider press-slider white-direction">
+              <flex-slider class="carousel" flex-slide="express in examplePress track by $index" animation="slide" control-nav="false">
+                <li>
+                  <div class="row pd40">
+                    <div class="col-md-6" ng-repeat="press in express">
+                      <div class="row">
+                        <div class="col-md-7">
+                          <div class="img-press">
+                            <img ng-src="{{press.image}}" alt="" class="img-responsive">
+                          </div>
+                        </div>
+                        <div class="col-md-5">
+                          <div class="cont-press">
+                            <p>{{press.content}}</p>
+                            <a href="{{press.link}}" class="btn btn-outline" target="_blank"> Read More</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </flex-slider>
             </div>
           </div>
         </div>
