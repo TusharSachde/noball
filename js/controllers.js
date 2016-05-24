@@ -1655,7 +1655,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.billingfulladdress = $scope.checkout.billingline1 + $scope.checkout.billingline2 + $scope.checkout.billingline3;
         $scope.shippingfulladdress = $scope.checkout.shippingline1 + $scope.checkout.shippingline2 + $scope.checkout.shippingline3;
         $scope.checkout.shippingamount = $scope.shippingcharges;
-        $scope.checkout.discountamount = $scope.discount;
+        $scope.checkout.discountamount = parseInt($scope.couponamount);
         $scope.checkout.totalamount = $scope.totalcart;
         $scope.checkout.finalamount = $scope.totalcart + $scope.shippingcharges - $scope.couponamount;
         NavigationService.placeOrder($scope.checkout, function(data) {
