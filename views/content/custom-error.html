@@ -1,0 +1,17 @@
+<div class="message text-center">
+  <div class="container">
+    <div class="logo">
+      <img src="img/normal-logo.png" alt="" class="img-responsive">
+    </div>
+    <h2 class="head-msg text-uppercase"><span class="exclamate">Oh-no !</span></h2>
+    <div class="transaction-info trans-id">
+      <h4>Error Code : {{paypalError.L_ERRORCODE0}}</h4>
+      <h4>Desciption : {{paypalError.L_SHORTMESSAGE0}}</h4>
+      <h4>{{paypalError.L_LONGMESSAGE0}}</h4>
+    </div>
+    <h4 class="not-process">Your order could not be processed</h4>
+    <div class="re-direct text-uppercase">
+      <a ui-sref="home" class="btn btn-msg">continue shopping</a>
+    </div>
+  </div>
+</div>

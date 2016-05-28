@@ -241,7 +241,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.toCheckout = function() {
       NavigationService.checkoutCheck(function(data) {
-        if (data.value == true) {
+        if (data.value === true) {
           $state.go("checkout");
         } else {
           $scope.alerts = [];
@@ -254,7 +254,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log(err);
       });
 
-    }
+    };
     $scope.closeAlert = function(index) {
       $scope.alerts.splice(index, 1);
     };
@@ -490,6 +490,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     $scope.order = {};
     $scope.order.transactionid = $stateParams.orderid;
+  })
+  .controller('CustomErrorCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("custom-error");
+    $scope.menutitle = NavigationService.makeactive("customerror");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    $scope.order = {};
+    $scope.order.transactionid = $stateParams.orderid;
+    if ($stateParams.orderid === '0') {
+      $scope.paypalError = NavigationService.getPaypal();
+    }
   })
   .controller('CustomCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
@@ -1222,7 +1234,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       console.log(err);
     });
   })
-  .controller('CheckoutCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $interval, cfpLoadingBar, $uibModal) {
+  .controller('CheckoutCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $interval, cfpLoadingBar, $uibModal, $window) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("checkout");
     $scope.menutitle = NavigationService.makeactive("Checkout");
@@ -1250,6 +1262,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
       }
     };
+
     $scope.openForgot = function() {
       $uibModal.open({
         animation: true,
@@ -1647,6 +1660,37 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       }
 
     };
+    //pay with paypal starts
+    $scope.payWithPaypal = function(){
+      var data_paypal = {};
+      var cartify = [];
+      _.each($scope.allcart, function(n){
+        cartify.push({"name":n.options.realname,"amount":n.price,"number":n.id,"quantity":n.qty});
+      });
+      data_paypal.products = cartify;
+      $scope.tabs[3].active = true; // comment this later
+      data_paypal.shipping_amount = $scope.shippingcharges;
+      data_paypal.currency = $scope.checkout.currency;
+      data_paypal.type = "Order";
+      data_paypal.return_URL = adminurl+"catchReturnData";
+      data_paypal.cancel_URL = websiteurl+"#/checkout";
+      data_paypal.get_shipping = false;
+      data_paypal.tax_amount = 0;
+      data_paypal.handling_amount = 0;
+      data_paypal.dis_amount = parseInt($scope.couponamount);
+      data_paypal.order_id = $scope.order;
+      data_paypal.checkout = $scope.checkout;
+      $scope.checkout.discountamount = parseInt($scope.couponamount);
+      NavigationService.setCheckout(data_paypal,function(data){
+        if (data.ec_status) {
+          $window.open(data.paypal_url + data.TOKEN);
+        }else {
+          NavigationService.setPaypal(data);
+          $state.go("customerror",{"orderid":0});
+        }
+      });
+    }
+    //pay with paypal ends
     $scope.placeOrder = function(formValidate) {
       // $scope.invalidData = false;
       if (formValidate.$valid) {

@@ -9,6 +9,11 @@ var firstapp = angular.module('firstapp', [
 firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, cfpLoadingBarProvider) {
 
   // for http request with session
+  $httpProvider.defaults.headers.common = {};
+  $httpProvider.defaults.headers.post = {};
+  $httpProvider.defaults.headers.put = {};
+  $httpProvider.defaults.headers.patch = {};
+
   $httpProvider.defaults.withCredentials = true;
   cfpLoadingBarProvider.includeSpinner = true;
   cfpLoadingBarProvider.latencyThreshold = 2000;
@@ -175,6 +180,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, cfpL
       url: "/wrong/:orderid",
       templateUrl: "views/template.html",
       controller: 'WrongCtrl'
+    })
+    .state('customerror', {
+      url: "/error/:orderid",
+      templateUrl: "views/template.html",
+      controller: 'CustomErrorCtrl'
     })
 
   $urlRouterProvider.otherwise("/home");

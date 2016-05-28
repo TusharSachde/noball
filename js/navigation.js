@@ -1,5 +1,7 @@
 // var mainurl = "http://wohlig.io:81/callApi/noball/";
 var mainurl = "http://customcricketcompany.com/admin/index.php/";
+var mainurl = "http://localhost/cccbackend/index.php/";
+
 // var mainurl = "http://192.168.1.128/cccbackend/index.php/";
 var websiteurl = "http://customcricketcompany.com/";
 // var websiteurl = "http://localhost:8080";
@@ -809,6 +811,14 @@ var navigationservice = angular.module('navigationservice', [])
         }
       }).success(callback);
     },
+    setCheckout: function(checkout, callback) {
+      console.log(checkout);
+      return $http({
+        url: adminurl + "setCheckout",
+        method: "POST",
+        data: checkout
+      }).success(callback);
+    },
     logout: function(callback, err) {
       $http.get(adminurl + 'logout').success(callback).error(err);
     },
@@ -817,6 +827,12 @@ var navigationservice = angular.module('navigationservice', [])
     },
     getUser: function() {
       return $.jStorage.get("user");
+    },
+    setPaypal: function(error) {
+      $.jStorage.set("paypal_error", error);
+    },
+    getPaypal: function() {
+      return $.jStorage.get("paypal_error");
     },
     makeactive: function(menuname) {
       for (var i = 0; i < navigation.length; i++) {
