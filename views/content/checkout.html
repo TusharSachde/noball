@@ -644,10 +644,10 @@
                             </div>
                           </div>
                         </div>
-                        <div class="text-center" style="margin: 40px 0 60px">
-                          <img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" align="left" style="margin-right:7px;" ng-click="payWithPaypal()"/>
-                             OR
-                          <button class="btn btn-outline btn-dark letter-spacing" type="submit">Place order</button>
+                        <div class="text-center paypal">
+                          <img ng-if="country !== 'INR'" src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" class="pointer" align="left" style="margin-right:7px;" ng-click="payWithPaypal()"/>
+
+                          <button ng-if="country == 'INR'" class="btn btn-outline btn-dark letter-spacing" type="submit">Place order</button>
                         </div>
                       </form>
                     </div>
