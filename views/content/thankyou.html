@@ -10,7 +10,7 @@
           <h3>Transaction ID :<span>{{order.transactionid}}</span></h3>
         </div>
         <div class="pull-right">
-          <h3>TOTAL AMOUNT :<span>Rs. {{order.amount}}</span></h3>
+          <h3>TOTAL AMOUNT :<span><i class="fa fa-inr" ng-if="country == 'INR'"></i><i class="fa fa-gbp" ng-if="country == 'GBP'"></i><i class="fa fa-usd" ng-if="country == 'NZD'"></i><i class="fa fa-eur" ng-if="country == 'EUR'"></i><i class="fa fa-usd" ng-if="country == 'USD'"></i><i ng-if="country == 'ZAF'">R</i><i class="fa fa-usd" ng-if="country == 'AUD'"></i> {{order.amount}}</span></h3>
         </div>
       </div>
     </div>

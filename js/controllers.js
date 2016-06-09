@@ -479,6 +479,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.order = {};
+    $scope.country = $.jStorage.get("myCurrency");
+    
     $scope.order.transactionid = $stateParams.orderid;
     $scope.order.amount = $stateParams.amount;
   })
