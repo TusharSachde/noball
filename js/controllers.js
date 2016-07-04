@@ -480,7 +480,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     $scope.order = {};
     $scope.country = $.jStorage.get("myCurrency");
-    
+
     $scope.order.transactionid = $stateParams.orderid;
     $scope.order.amount = $stateParams.amount;
   })
@@ -505,7 +505,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       $scope.paypalError = NavigationService.getPaypal();
     }
   })
-  .controller('CustomCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
+  .controller('CustomCtrl', function($scope, $state, TemplateService, NavigationService, $timeout,$uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("custom");
     $scope.menutitle = NavigationService.makeactive("Custom");
@@ -799,6 +799,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     //    end
+
+
+
+    $scope.open = function(size) {
+
+        var modalInstance = $uibModal.open({
+            animation: $scope.animationsEnabled,
+            templateUrl: 'views/modal/tshirt-popup.html',
+            controller: '',
+            size: size,
+            resolve: {
+                items: function() {
+                    return $scope.items;
+                }
+            }
+        });
+
+    };
 
   })
   .controller('CategoriesInsideCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, cfpLoadingBar) {

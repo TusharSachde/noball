@@ -1789,6 +1789,54 @@ footer {
     }
   }
 }
+.customize-design{
+padding: 25px 0 50px 0;
+  span{
+    display: block;
+    margin-bottom: 2px;
+  }
+  a{
+    text-decoration: underline;
+  }
+}
+
+.prev{
+      cursor: pointer;
+      margin-right: 80px;
+      img{
+        margin: 0 auto;
+      }
+}
+.next{
+  cursor: pointer;
+  img{
+        transform: rotateY(180deg);
+        margin: 0 auto;
+  }
+}
+
+.tshirt-features{
+  li{
+    text-align: left;
+    font-size: 13px;
+    line-height: 20px;
+  }
+}
+
+.gully-shirt{
+  margin-bottom: 15px;
+    margin-top: 25px;
+}
+
+
+.feature-buttons{
+      margin: 20px 0;
+      .padding-btn {
+    padding: 6px 10px 4px;
+  }
+}
+
+
 .choos {
   p {
     font-size: 20px;
