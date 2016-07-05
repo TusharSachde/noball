@@ -1554,7 +1554,21 @@ footer {
   }
 }
 //ready
+.accordion{
+span{
+    font-size: 20px;
+  }
+  h2{
+    font-size: 18px;
+  }
+}
+.mr{
+  margin-right: 8px;
+}
+
 .chart {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ccc;
   span {
     font-size: 14px;
     text-decoration: underline;
@@ -1618,6 +1632,12 @@ footer {
 }
 .pad4{
   padding: 5px 26px;
+}
+.sp-logo{
+  .btn{
+      margin: 15px 0;
+  }
+
 }
 .step {
   ul {
@@ -1760,7 +1780,7 @@ footer {
   }
 }
 .size .ccc-select {
-  width: 100px;
+  width: 80px;
 }
 .zoomContainer {
   z-index: 10 !important;
@@ -1774,6 +1794,21 @@ footer {
       outline: none;
     }
   }
+
+  input[type="text"] {
+      width: 100%;
+      padding: 2px 6px;
+      text-align: center;
+  }
+
+.padding-btn{
+  margin-top: 3px;
+  padding: 0px 5px;
+}
+.letter-spacing{
+  letter-spacing: 2px;
+}
+
 }
 .back {
   min-height: 350px;
@@ -1904,9 +1939,7 @@ padding: 25px 0 50px 0;
     z-index: 9;
   }
 }
-.chart {
-  margin: 20px 0;
-}
+
 .margbotm {
   margin-bottom: 100px;
 }
