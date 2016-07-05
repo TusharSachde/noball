@@ -67,9 +67,9 @@
             <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">front</p>
             </div>
             <div class="feature-buttons">
-                <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing">FORM + FUNCTION</button>
-                <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing">DELIVERY</button>
-                <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing">CARE</button>
+                <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing">FORM + FUNCTION</button>
+                <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing">DELIVERY</button>
+                <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing">CARE</button>
             </div>
             <ul class="tshirt-features">
               <li>It features the Custom Cricket Company logo on the right chest</li>
@@ -114,7 +114,9 @@
             </div>
           </div>
           <!--                    //trim tab-->
-          <div class="choos m20-l" ng-show="tab=='trim'">
+          <div class="choos m20-l " ng-show="tab=='trim'">
+            <div class="outline">
+              <span>HIGHLIGHT 1</span>
             <p>Select The Trim Colour Of Your Choice</p>
             <div class="row">
               <div class="col-md-6">
@@ -128,16 +130,54 @@
             </div>
 
             <div class="edit-btn margintp">
-              <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">BACK</button>
-              <button  class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+              <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
+              <!-- <button  class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button> -->
             </div>
+              </div>
+            <div class="outline">
+              <span>HIGHLIGHT 2</span>
+            <p>Select The Trim Colour Of Your Choice</p>
+            <div class="row">
+              <!-- <div class="col-md-6">
+                <div class="gullyorange-shirt">
+                  <img src="img/orangeshirt.png" class="img-responsive" alt="">
+                </div>
+              </div> -->
+              <div class="col-md-6">
+                <div class="col-md-3 col-xs-3 paddingl" ng-repeat="col in color track by $index">
+                  <div class="colo-pallet text-center ">
+                    <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="edit-btn margintp">
+              <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
+              <!-- <button  class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button> -->
+            </div>
+              </div>
+              <div class="options">
+                    <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">PALETTE</button>
+                        <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">COLLAR</button>
+              </div>
+              <div class="edit-btn inline-block">
+                <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+              </div>
+              <div class="edit-btn inline-block">
+                <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+              </div>
+
+
           </div>
           <!--                    //trim tab-->
           <div class="choos m20-l" ng-show="tab=='team'">
-            <p>Upload Your Team Logo</p>
-            <div class="pic-up">
-              <p>File Type Format</p>
-              <span>jpeg, png, tiff, pdf, eps</span>
+            <p>Upload Your  Logo</p>
+            <div class="logo-text">
+                    <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15">TEAM LOGO</button>
+                    <span class="uppercase inline-block mright15">or</span>
+                    <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15">TEAM TEXT</button>
             </div>
             <!--
                         <div class="up-img">
@@ -149,15 +189,15 @@
                             </div>
                         </div>
 -->
-            <div class="pic-up">
+            <!-- <div class="pic-up">
               <p>Maximum Upload File Size 5MB</p>
               <span>File may take anywhere from a few seconds to a few minutes to upload</span>
 
-            </div>
-            <div class="row">
+            </div> -->
+            <!-- <div class="row">
               <div class="col-md-3">
                 <div class="up-img text-center">
-                  <!--                            <img src="img/custom/c4.jpg">-->
+
                   <div class="noti-imgs1" ng-style="{'background-image':'url(img/custom/c4.jpg)'}"></div>
                   <div class="edit-btn">
                     <button href="" class="btn btn-outline btn-dark letter-spacing marg10">CHANGE</button>
@@ -166,7 +206,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
 
 
             <!--
@@ -180,19 +220,25 @@
                 <input type="radio" id="radio1" name="radio" />
                 <label for="radio1">
                   <span></span>
-                  Embroidered</label>
+                  Embroidered <a href="" class="link mleft10">VIEW EXAMPLE</a></label>
                 <br>
                 <input type="radio" id="radio2" name="radio" />
                 <label for="radio2">
                   <span></span>
-                  Sublimated</label>
+                  Sublimated<a href="" class="link mleft22">VIEW EXAMPLE</a></label>
               </form>
-              <span class="pbotom">Note: The printed CCC Logo will always be sublimated on your t-shirt</span>
+              <div class="edit-btn">
+                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15">upload</button>
+                <!-- <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button> -->
+              </div>
+              <div class="pbotom">
+                <span class="block">Notes :</span>
+                <span class="block">1.The printed CCC Logo will always be embroidered on your t-shirt</span>
+                <span class="block">2.If you feel something is not great, our design team can fix it for you.</span>
+                <span><a href="">Click here</a> to find out how?</span>
+              </div>
             </div>
-            <div class="edit-btn">
-              <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing mright15">BACK</button>
-              <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
-            </div>
+
             <!-- Modal -->
             <div class="modal fade custom" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
               <div class="modal-dialog" role="document">

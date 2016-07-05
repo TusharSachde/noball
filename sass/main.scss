@@ -184,6 +184,9 @@ a {
 .inline-block {
   display: inline-block;
 }
+.block{
+  display: block;
+}
 .para {
   line-height: 180%;
   font-weight: 300;
@@ -337,6 +340,12 @@ a.icon-btn {
 }
 .btn.btn-outline.btn-dark {
   text-transform: uppercase;
+}
+.mleft10{
+  margin-left: 10px;
+}
+.mleft22{
+  margin-left: 22px;
 }
 .relative {
   position: relative;
@@ -1013,6 +1022,13 @@ footer {
     @include transform(translate(-50%,-50%));
   }
 }
+
+.link{
+  text-decoration: underline;
+  display: inline-block;
+  font-size: 9px;
+}
+
 .product-desc {
   width: 85%;
   margin: 0 auto;
@@ -1681,7 +1697,7 @@ footer {
   }
 }
 .product-detail {
-  margin-top: 40px;
+  margin: 40px 0 30px;
   .review {
     margin: 20px 0;
     .design {
@@ -1824,19 +1840,32 @@ padding: 25px 0 50px 0;
 }
 
 .gully-shirt{
-  margin-bottom: 15px;
+  margin-bottom: 25px;
     margin-top: 25px;
 }
 
-
 .feature-buttons{
-      margin: 20px 0;
+      margin: 30px 0;
       .padding-btn {
     padding: 6px 10px 4px;
   }
+  .btn{
+    border: transparent;
+    background-color: #e2e2e2;
+    color: #333;
+  }
 }
-
-
+.options{
+  .btn{
+    margin-top: 20px;
+    display: block;
+  }
+}
+.outline{
+  border: 1px solid #000;
+  margin-top: 30px;
+  padding: 20px;
+}
 .choos {
   p {
     font-size: 20px;
@@ -1964,6 +1993,9 @@ padding: 25px 0 50px 0;
   font-size: 10px;
   padding-bottom: 20px;
   display: block;
+  a{
+    text-decoration: underline;
+  }
 }
 .radio {
   label {
@@ -1983,6 +2015,7 @@ padding: 25px 0 50px 0;
     margin: -1px 4px 0 0;
     cursor: pointer;
     border: 1px solid #000;
+    border-radius: 100%;
   }
   input[type="radio"] + label span {
     background-color: transparent;
