@@ -1555,17 +1555,110 @@ footer {
 }
 //ready
 .accordion{
+  position: relative;
 span{
     font-size: 20px;
+    &:focus{
+      outline: 0;
+    }
   }
   h2{
     font-size: 18px;
   }
+  table{
+  // border-collapse: separate;
+  // border-spacing: 0 20px;
+  }
+  .table-responsive{
+    padding: 0 10px;
+  }
+  .table{
+    span{
+    font-size: 18px;
+    }
+    thead > tr {
+      border:1px solid #000;
+      th {
+        border-bottom: 1px solid #000;
+        border-top: 1px solid #000;
+        font-weight: 0;
+      }
+    }
+    tbody{
+      tr{
+        background-color: #e9e9e9;
+      }
+    }
+    select{
+      padding: 2px 15px;
+      border: 1px solid #000;
+    }
+    .padding-btn{
+        padding: 2px 15px;
+    }
+  }
+  .nothing{
+    td{
+      background-color: #fff;
+      padding: 10px 0;
+  }
+}
+.radio-options{
+  .form-group{
+    display: inline-block;
+    .radio {
+      label {
+        padding-left: 0;
+      }
+      input[type="radio"] {
+        display: none;
+      }
+      input[type="radio"] + label {
+        color: #515151;
+        font-size: 13px;
+      }
+      input[type="radio"] + label span {
+        display: inline-block;
+        width: 11px;
+        height: 11px;
+        margin: -1px 4px 0 0;
+        cursor: pointer;
+        border: 1px solid #000;
+        // border-radius: 100%;
+      }
+      input[type="radio"] + label span {
+        background-color: transparent;
+      }
+      input[type="radio"]:checked + label span {
+        background-color: #000;
+      }
+      input[type="radio"] + label span,
+      input[type="radio"]:checked + label span {
+        @include transition(background-color 0.4s linear);
+      }
+    }
+  }
+
+}
+}
+.pad6{
+  padding: 8px 20px;
 }
 .mr{
   margin-right: 8px;
 }
-
+.mr7{
+  margin-right: 7px;
+}
+.bin,.rubbish{
+  position: absolute;
+    top: 210px;
+    right: 5px;
+}
+.rubbish{
+  top: 150px;
+  right: 5px;
+}
 .chart {
   padding-bottom: 15px;
   border-bottom: 1px solid #ccc;
@@ -1801,13 +1894,13 @@ span{
       text-align: center;
   }
 
-.padding-btn{
-  margin-top: 3px;
-  padding: 0px 5px;
-}
-.letter-spacing{
-  letter-spacing: 2px;
-}
+// .padding-btn{
+//   margin-top: 3px;
+//   padding: 0px 5px;
+// }
+// .letter-spacing{
+//   letter-spacing: 2px;
+// }
 
 }
 .back {
