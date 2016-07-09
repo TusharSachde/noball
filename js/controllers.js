@@ -802,21 +802,73 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-    $scope.open = function(size) {
-
-        var modalInstance = $uibModal.open({
-            animation: $scope.animationsEnabled,
-            templateUrl: 'views/modal/tshirt-popup.html',
-            controller: '',
-            size: size,
-            resolve: {
-                items: function() {
-                    return $scope.items;
-                }
-            }
-        });
-
+    // $scope.open = function(size) {
+    //
+    //     var modalInstance = $uibModal.open({
+    //         animation: $scope.animationsEnabled,
+    //         templateUrl: 'views/modal/tshirt.html',
+    //         controller: '',
+    //         size: size,
+    //         resolve: {
+    //             items: function() {
+    //                 return $scope.items;
+    //             }
+    //         }
+    //     });
+    //
+    // };
+    $scope.openUpload = function() {
+      $uibModal.open({
+        templateUrl: "views/modal/tshirt.html",
+        controller: "CustomCtrl",
+        scope: $scope
+      })
     };
+
+    $scope.continue = function() {
+      $uibModal.open({
+        templateUrl: "views/modal/continue.html",
+        controller: "CustomCtrl",
+        scope: $scope
+      })
+    };
+
+    $scope.choose = function() {
+      $uibModal.open({
+        templateUrl: "views/modal/choosefile.html",
+        controller: "CustomCtrl",
+        scope: $scope
+      })
+    };
+
+    $scope.copyright = function() {
+      $uibModal.open({
+        templateUrl: "views/modal/copyrights.html",
+        controller: "CustomCtrl",
+        scope: $scope
+      })
+    };
+
+
+    $scope.tshirtUpload = function() {
+      $uibModal.open({
+        templateUrl: "views/modal/tshirt-popup.html",
+        controller: "CustomCtrl",
+        scope: $scope
+      })
+    };
+
+
+    $scope.matching = function() {
+      $uibModal.open({
+        templateUrl: "views/modal/matching.html",
+        controller: "CustomCtrl",
+        scope: $scope
+      })
+    };
+
+
+
 
   })
   .controller('CategoriesInsideCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, cfpLoadingBar) {

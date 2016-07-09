@@ -214,33 +214,34 @@
                             <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal">UPLOAD</button>
                         </div>
 -->
-            <div class="print-typ">
+            <div class="print-typ printing">
               <p>Select The Printing Type For Your Team Logo</p>
               <form action="" class="radio">
-                <input type="radio" id="radio1" name="radio" />
+                <input type="radio" id="radio1" name="radio"/>
                 <label for="radio1">
                   <span></span>
-                  Embroidered <a href="" class="link mleft10">VIEW EXAMPLE</a></label>
+                  Embroidered <a href="" class="link mleft10" ng-click="matching();">VIEW EXAMPLE</a></label>
+                  <!-- ng-click="choose();" -->
+                  <!-- ng-click="tshirtUpload();" -->
                 <br>
                 <input type="radio" id="radio2" name="radio" />
                 <label for="radio2">
                   <span></span>
-                  Sublimated<a href="" class="link mleft22">VIEW EXAMPLE</a></label>
+                  Sublimated<a href="" class="link mleft22" ng-click="copyright();">VIEW EXAMPLE</a></label>
               </form>
               <div class="edit-btn">
-                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15">upload</button>
-                <!-- <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button> -->
+                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUpload();">upload</button>
               </div>
               <div class="pbotom">
                 <span class="block">Notes :</span>
                 <span class="block">1.The printed CCC Logo will always be embroidered on your t-shirt</span>
                 <span class="block">2.If you feel something is not great, our design team can fix it for you.</span>
-                <span><a href="">Click here</a> to find out how?</span>
+                <span ng-click="continue();"><a href="">Click here</a> to find out how?</span>
               </div>
             </div>
 
-            <!-- Modal -->
-            <div class="modal fade custom" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+             <div class="modal fade custom" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -261,7 +262,40 @@
               </div>
             </div>
           </div>
-          <!--                    //logo tab-->
+<!-- -
+
+<!-
+changed page
+<div class="choos m20-l next-level">
+  <p>Upload Your  Logo</p>
+  <div class="logo-text">
+          <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15">TEAM LOGO</button>
+          <span class="uppercase inline-block mright15">or</span>
+          <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15">TEAM TEXT</button>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+              <div class="up-img">
+                <div class="mod-img ">
+                  <div class="noti-imgs" ng-style="{'background-image':'url(img/custom/c4.jpg)'}">
+                  </div>
+                  <div class="edit-btn">
+                      <button href="" class="btn btn-outline btn-dark">CHANGE</button>
+                      <br>
+                      <button href="" class="btn btn-outline btn-dark">REMOVE</button>
+                  </div>
+                  <div class="check">
+                      <input type="checkbox" class="form-control" id="login">
+                      <label for="login"><span></span>Remove Image From Background</label>
+                  </div>
+              </div>
+              </div>
+              </div>
+            </div>
+            changed page
+ -->
+
+          <!-- <!                  //logo tab-->
           <div class="choos m20-l" ng-show="tab=='logo'">
             <p>Upload Your Sponsor Logo (Optional)</p>
             <!-- <div class="pic-up">
@@ -491,6 +525,71 @@
             </div>
           </div>
 
+          <!-- <div class="choos m20-l nextest-level">
+            <p>Upload Your Sponsor Logo (Optional)</p>
+            <div class="row">
+              <div class="col-md-4">
+                        <div class="up-img">
+                          <div class="mod-img ">
+                            <div class="noti-imgs" ng-style="{'background-image':'url(img/custom/c4.jpg)'}">
+                            </div>
+                            <div class="edit-btn">
+                                <button href="" class="btn  btn-outline btn-dark">CHANGE</button>
+                                <br>
+                                <button href="" class="btn bits btn-outline btn-dark">REMOVE</button>
+                            </div>
+                            <div class="check">
+                                <input type="checkbox" class="form-control" id="login">
+                                <label for="login"><span></span>Remove Image From Background</label>
+                            </div>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                                <div class="up-img">
+                                  <div class="mod-img ">
+                                    <div class="noti-imgs" ng-style="{'background-image':'url(img/custom/c4.jpg)'}">
+                                    </div>
+                                    <div class="edit-btn">
+                                        <button href="" class="btn btn-outline btn-dark">CHANGE</button>
+                                        <br>
+                                        <button href="" class="btn btn-outline btn-dark">REMOVE</button>
+                                    </div>
+                                    <div class="check">
+                                        <input type="checkbox" class="form-control" id="login">
+                                        <label for="login"><span></span>Remove Image From Background</label>
+                                    </div>
+                                </div>
+                                </div>
+                              </div>
+                    </div>
+            <div class="sp-logo">
+                <button href="" class="btn bit pad4 btn-outline btn-dark block" data-toggle="modal" data-target="#myModal1">RIGHT SLEEVE SPONSOR</button>
+
+                <button href="" class="btn bit pad2 btn-outline btn-dark  block " data-toggle="modal" data-target="#myModal1">BACK SPONSOR 1</button>
+
+                <button href="" class="btn pad2 btn-outline btn-dark  block " data-toggle="modal" data-target="#myModal1">BACK SPONSOR 2</button>
+            </div>
+
+            <div class="print-typ">
+              <div class="pbotom">
+                <span class="block">Notes :</span>
+                <span class="block">1. The logo of your sponsors will be sublimated. </span>
+                <span class="block">2. The logo on the sleeves are not cut in half. It’s just to provide realistic
+                    feel.</span>
+                    <span class="block">3. If you feel something is not great, our design team can fix it for you.</span>
+                <span><a href="">Click here</a> to find out how?</span>
+              </div>
+            </div>
+            <div class="eds">
+            <div class="edit-btn inline-block">
+              <button href="" class=" btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+            </div>
+          </div>
+            <div class="edit-btn inline-block">
+              <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+            </div>
+</div> -->
           <div class="choos quantity m20-l" ng-show="tab=='quantity'">
             <div class="chart mar15">
               <p>view:
@@ -564,6 +663,7 @@
      </tr>
    </thead>
    <tbody>
+        <tr class="nothing"><td></td></tr>
      <tr>
        <td>
          <select>

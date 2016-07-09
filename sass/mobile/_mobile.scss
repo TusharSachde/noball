@@ -731,6 +731,10 @@ $screen-desktop: 1224px !default;
       margin-top: 0;
     }
   }
+
+  .next-level .noti-imgs {
+    margin: 10px 0 0;
+}
 }
 @media (max-width: $screen-mobile) {
   .message {
