@@ -3,6 +3,7 @@
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
 @import "../bower_components/flexslider/flexslider.css";
+// @import "angular-rangeslider/scss/rangeSlider";
 @import "../bower_components/font-awesome/css/font-awesome.min.css";
 @import "../bower_components/angular-loading-bar/src/loading-bar.css";
 @import "../bower_components/fancyBox/source/jquery.fancybox.css";
@@ -3672,40 +3673,42 @@ padding-left: 0;
   }
     }
 }
-.cap-pant{
+.cap-pants{
+padding-top: 60px;
+margin-top: 60px;
+}
+.checker{
   input[type="checkbox"] {
     display: none;
   }
-    input[type="checkbox"] + label {
-      color: #515151;
-      font-weight: 300;
-      font-size: 13px;
-      padding-left: 10px;
-    }
-    input[type="checkbox"] + label span {
-      display: inline-block;
-      width: 13px;
-      height: 13px;
-      // margin: -1px 4px 0 0;
-        margin-left: -17px;
-        margin-right: 5px;
-      vertical-align: middle;
-      cursor: pointer;
-      border: 1px solid #000;
-    }
-    input[type="checkbox"] + label span {
-      background-color: transparent;
-    }
-    input[type="checkbox"]:checked + label span {
-      background-color: #000;
-    }
-    input[type="checkbox"] + label span,
-    input[type="checkbox"]:checked + label span {
-      @include transition(background-color 0.4s linear);
-    }
-
+  input[type="checkbox"] + label {
+    color: #515151;
+    font-weight: 300;
+    font-size: 13px;
+    padding-left: 10px;
+  }
+  input[type="checkbox"] + label span {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    // margin: -1px 4px 0 0;
+      margin-left: -17px;
+      margin-right: 5px;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid #000;
+  }
+  input[type="checkbox"] + label span {
+    background-color: transparent;
+  }
+  input[type="checkbox"]:checked + label span {
+    background-color: #000;
+  }
+  input[type="checkbox"] + label span,
+  input[type="checkbox"]:checked + label span {
+    @include transition(background-color 0.4s linear);
+  }
 }
-
 
 // checkout paypal
   .paypal {
@@ -3908,40 +3911,10 @@ a{
   .headings{
     padding: 35px 0 0;
   }
-  input[type="checkbox"] {
-    display: none;
-  }
-  input[type="checkbox"] + label {
-    color: #515151;
-    font-size: 13px;
-    padding-left: 10px;
-  }
-  input[type="checkbox"] + label span {
-    display: inline-block;
-    width: 13px;
-    height: 13px;
-    margin: -1px 4px 0 0;
-    vertical-align: middle;
-    cursor: pointer;
-    border: 1px solid #000;
-  }
-  input[type="checkbox"] + label span {
-    background-color: transparent;
-  }
-  input[type="checkbox"]:checked + label span {
-    background-color: #000;
-  }
-  input[type="checkbox"] + label span,
-  input[type="checkbox"]:checked + label span {
-    @include transition(background-color 0.4s linear);
-  }
-  // .cap-pant{
-  //   img{
-  //     width: 30%;
-  //     margin: 0 25px;
-  //   }
-  //
-  // }
+.head{
+  padding: 10px 0 0 0;
+}
+
   .mr50{
     margin-right: 50px;
   }
@@ -3954,17 +3927,168 @@ a{
   .f600{
     font-weight: 600;
   }
+  .continue-buttons{
+    padding-bottom: 20px;
+  }
 }
-
-
 //modals//
 .mt12{
   margin-top: -12px;
 }
 
+.no-outline{
+  .btn.btn-outline.btn-dark {
+      text-transform: none;
+  }
+}
+.final-shirt{
+  .product-detail{
+    margin: 0;
+  }
+  .border-grey{
+    border-bottom: 1px solid #aaa;
+  }
+  .tshirt-features{ padding-bottom: 40px;}
 
+.pad-btn{
+  padding: 6px 62px 4px;
+}
+.padd-btn{
+  padding: 6px 67px 4px;
+}
 
+.mb5{
+  margin-bottom: 10px;
+}
 
+}
+.final-pant{
+     padding: 45px 0 0 0;
+  .gully-pant{
+    margin-left: 60px;
+  }
+  a{
+    margin-right: 10%;
+  }
+  .together{
+    padding-top: 40px;
+    margin-left: 25%;
+  }
+  .product-detail{
+    margin: 40px 0 0;
+  }
+  .product-detail .agree{
+    margin: 0 0 15px 0;
+  }
+
+}
+.range{
+  background-color: #ccc;
+  span{
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .ngrs-runner{
+    &:focus{
+      outline: 0;
+    }
+  }
+  .ngrs-range-slider{
+    margin: 5px 0;
+    padding: 0;
+    background: transparent;
+    border: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    &:active{
+        &:focus{outline: 0;}
+    }
+    .ngrs-join{
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      left: 0;
+      right: 100%;
+      height: 4px;
+      margin: -4px 0 0 0;
+      border-radius: 0;
+      background-color: #000;
+      background-size: 100%;
+      background-image: none;
+}
+.ngrs-handle {
+   position: absolute;
+   z-index: 2;
+   height: 10px;
+   width: 10px;
+   top: 2px;
+   margin: 0 0 0 -9px;
+   background: #000;
+   border-radius: 100%;
+   border:none;
+}
+    }
+
+  }
+
+  .range-slidings {
+    input{
+      width: 50%;
+      padding: 5px 0;
+      margin-bottom: 10px;
+    }
+    a{
+      position: absolute;
+      top: 70px;
+      left: 330px;
+    }
+  }
+
+  //
+  // .rzslider {
+  //     margin: 25px 0 15px;
+  //     .rz-bar {
+  //         z-index: 1;
+  //         width: 100%;
+  //         height: 6px;
+  //         background: transparent;
+  //         border: 1px solid white;
+  //         -webkit-border-radius: 2px;
+  //         -moz-border-radius: 2px;
+  //         border-radius: 2px;
+  //     }
+  //     .rz-bar.rz-selection {
+  //         background: $color-white;
+  //     }
+  //     .rz-pointer {
+  //         width: 16px;
+  //         height: 16px;
+  //         top: -6px;
+  //         background-color: #f2eff5;
+  //         &:hover::after {
+  //             background-color: #f2eff5;
+  //         }
+  //         &:after {
+  //             width: 4px;
+  //             height: 4px;
+  //             top: 8px;
+  //             left: 8px;
+  //             background-color: #f2eff5;
+  //         }
+  //     }
+  //     .rz-pointer.rz-active {
+  //         &:focus {
+  //             outline: none;
+  //         }
+  //         &:after {
+  //             background-color: #f2eff5;
+  //         }
+  //     }
+  //     .rz-bubble {
+  //         display: none;
+  //     }
+  // }
 
 
 @import "mobile/mobile";

@@ -60,6 +60,13 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, cfpL
       templateUrl: "views/template.html",
       controller: 'ReviewCtrl'
     })
+
+    .state('final', {
+      url: "/final",
+      templateUrl: "views/template.html",
+      controller: 'FinalCtrl'
+    })
+
     .state('ready', {
       url: "/ready",
       templateUrl: "views/template.html",

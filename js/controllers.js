@@ -8,7 +8,7 @@ var globalfunction = {};
 var bigcount = {};
 window.uploadUrl = 'http://customcricketcompany.com/admin/index.php/json/uploadImage';
 
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'duScroll', 'cfp.loadingBar', 'ngDialog', 'angularFileUpload', 'ngSanitize'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'duScroll', 'cfp.loadingBar', 'ngDialog', 'angularFileUpload', 'ngSanitize','ui-rangeSlider'])
 
 .controller('HomeCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $uibModal, cfpLoadingBar) {
     //Used to name the .html file
@@ -465,6 +465,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
+  .controller('FinalCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("final");
+    $scope.menutitle = NavigationService.makeactive("Final");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+  })
+
+
+
+
   .controller('ErrorCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("error");
@@ -797,6 +808,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
       }
     };
+    $scope.demo2 = {
+        range: {
+            min: 0,
+            max: 10050
+        },
+        minPrice: 1000,
+        maxPrice: 4000
+    };
+
 
     //    end
 
@@ -820,6 +840,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.openUpload = function() {
       $uibModal.open({
         templateUrl: "views/modal/tshirt.html",
+        controller: "CustomCtrl",
+        scope: $scope
+      })
+    };
+
+    $scope.copy = function() {
+      $uibModal.open({
+        templateUrl: "views/modal/outofplace.html",
         controller: "CustomCtrl",
         scope: $scope
       })
