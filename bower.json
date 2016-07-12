@@ -32,7 +32,7 @@
     "lodash": "~3.10.1",
     "ui-router": "~0.2.15",
     "jStorage": "~0.4.12",
-    "angular-animate": "~1.4.6",
+    "angular-animate": "~1.5.3",
     "ngDialog": "~0.4.0",
     "threejs": "*",
     "angular-loading-bar": "^0.8.0",

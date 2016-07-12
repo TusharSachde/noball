@@ -530,6 +530,62 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Custom");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    var check = 1;
+
+    $scope.UploadTeamLogo = function(){
+      check = 2;
+      console.log("team logo click");
+        $uibModal.open({
+          templateUrl: "views/modal/copyrights.html",
+          scope: $scope
+        })
+    }
+    $scope.UploadTeamLogo1 = function(){
+      check = 3;
+      console.log("team logo click");
+        $uibModal.open({
+          templateUrl: "views/modal/copyrights.html",
+          scope: $scope
+        })
+    }
+    $scope.openChooseFile = function(){
+      $uibModal.open({
+        templateUrl: "views/modal/choosefile.html",
+        scope: $scope
+      })
+    }
+    $scope.openUploads = function(){
+      $uibModal.open({
+        templateUrl: "views/modal/tshirt.html",
+        scope: $scope
+      })
+    }
+    $scope.doneUploading = function(){
+      console.log(check);
+      if (check == 3) {
+        $scope.tab = "sponsorlogo"
+      }else {
+          $scope.tab = "teamlogo";
+      }
+
+    }
+    $scope.openUploadNew = function(){
+      $uibModal.open({
+        templateUrl: "views/modal/tshirt-popup.html",
+        scope: $scope
+      })
+    }
+    $scope.openColor = function(){
+      $uibModal.open({
+        templateUrl: "views/modal/continue.html",
+        scope: $scope
+      })
+    }
+    $scope.showColorTab = function(){
+      console.log(check);
+      $scope.tab = "teamcolor";
+    }
+
 
     $scope.$on('$viewContentLoaded', function(event) {
       $timeout(function() {
@@ -894,7 +950,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       })
     };
 
-
+    $scope.outplace = function() {
+      $uibModal.open({
+        templateUrl: "views/modal/outofplace.html",
+        controller: "CustomCtrl",
+        scope: $scope
+      })
+    };
 
 
 

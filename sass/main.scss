@@ -3,10 +3,10 @@
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
 @import "../bower_components/flexslider/flexslider.css";
-// @import "angular-rangeslider/scss/rangeSlider";
 @import "../bower_components/font-awesome/css/font-awesome.min.css";
 @import "../bower_components/angular-loading-bar/src/loading-bar.css";
 @import "../bower_components/fancyBox/source/jquery.fancybox.css";
+@import "../bower_components/angular-rangeslider/angular.rangeSlider.css";
 @font-face {
   font-family: "Facile Sans";
   src: url("../fonts/Facile-Sans.otf");
@@ -3985,8 +3985,8 @@ a{
 }
 .nexter-level{
   .noti-img {
-    height: 35px;
-    width: 35px;
+    height: 45px;
+    width: 45px;
     border-radius: 100%;
 }
   .radio-options{
@@ -4073,7 +4073,7 @@ padding: 10px 5px 0;
   a{
     margin-top: 20px;
 margin-right: 15px;
-  }
+  }}
   // .slant-col{
   //   transform: skew(10deg);
   //   position: relative;
@@ -4136,5 +4136,7 @@ h2{
   // padding: 10px 0;
 }
 }
+.border-left{
+  border-left: 2px solid #53c8eb!important;
 }
 @import "mobile/mobile";

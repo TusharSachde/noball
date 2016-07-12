@@ -1,27 +1,33 @@
 var jsArray = [
   './bower_components/jquery/dist/jquery.min.js',
-  './bower_components/flexslider/jquery.flexslider-min.js',
   './bower_components/threejs/build/three.min.js',
   './js/OrbitControls.js',
   './bower_components/threejs/examples/js/loaders/OBJLoader.js',
+  './bower_components/flexslider/jquery.flexslider-min.js',
   './bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
+
   './bower_components/angular/angular.js',
+  './bower_components/elevatezoom/jquery.elevatezoom.js',
   './bower_components/angular-animate/angular-animate.min.js',
   './bower_components/angular-flexslider/angular-flexslider.js',
   './bower_components/angular-sanitize/angular-sanitize.min.js',
+  './bower_components/angular-rangeslider/angular.rangeSlider.js',
+  './bower_components/angular-loading-bar/src/loading-bar.js',
   './bower_components/ui-router/release/angular-ui-router.min.js',
+  './lib/js/ngDialog.js',
+  './lib/js/angular-route.min.js',
+  './lib/js/angular-animate.min.js',
+  './lib/js/angular-file-upload.js',
+  './lib/js/upload.js',
+  './lib/js/lodash.min.js',
   './bower_components/angular-bootstrap/ui-bootstrap.min.js',
   './bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
-  './bower_components/elevatezoom/jquery.elevatezoom.js',
   './bower_components/fancyBox/source/jquery.fancybox.pack.js',
   './bower_components/jStorage/jstorage.min.js',
   './bower_components/lodash/lodash.min.js',
   './bower_components/ngDialog/js/ngDialog.min.js',
   './bower_components/angular-scroll/angular-scroll.min.js',
-  './bower_components/angular-loading-bar/src/loading-bar.js',
-'./lib/js/angular-file-upload.js',
-'./lib/js/FileAPI.min.js',
-'./lib/js/upload.js',
+
   './js/app.js',
   './js/controllers.js',
   './js/navigation.js',
@@ -35,7 +41,7 @@ var replacehostTo = "http://wohlig.co.in/demo2/";
 
 
 var ftpString = "U2FsdGVkX19OXECHaTbIHxHTQOh4GxHCnQD7OC3nYFBBpW2jFEJPGQZQ/UHcr32VYJWMRCBs1SYGhee8kl5+YKp7HU70KOifhW4cgO0uOk8LHQgrDZGnRn+8jaoeDgXmpexlYapczPBMlTPTcuybtg==";
-var uploadingFolder = "testing123";
+var uploadingFolder = "ccctest";
 var password = "";
 
 
