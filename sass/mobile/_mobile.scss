@@ -125,6 +125,7 @@ $screen-desktop: 1224px !default;
   }
 }
 @media (max-width: $screen-sm-max) {
+
   .ccc-quality {
     p {
       padding: 0 8px;
@@ -328,6 +329,8 @@ $screen-desktop: 1224px !default;
   }
 }
 @media (max-width:$screen-xs-max) {
+
+
   .on-mobile {
     margin: 0;
     ul.dropdown-menu {
@@ -737,6 +740,68 @@ $screen-desktop: 1224px !default;
 }
 }
 @media (max-width: $screen-mobile) {
+  .out-place{
+    padding: 30px 0;
+    .place-image{
+      display: none;
+    }
+    a {
+      margin-top: 0;
+  }
+  .place-text {
+    display: block;
+    width: 100%;
+    padding-right: 0;
+    margin: 0;
+    padding: 0 20px;
+    float: none!important;
+}
+  }
+  
+  .product-detail .review {
+    margin: 20px 5px;
+}
+.matching .mr50 {
+    margin-right: 10px;
+}
+.cap-pants{
+  margin-top: 0;
+}
+.final-pant .together {
+    margin-left: 15%;
+}
+  .tshirt-features{
+    li{
+      font-size: 10px;
+    }
+  }
+  .accordion .table-responsive {
+    width: 94%;
+}
+p,span{
+  font-size: 10px!important;
+}
+
+  .accordion{
+    span{
+          font-size: 13px;
+    }
+    .radio input[type="radio"] + label {
+    color: #515151;
+    font-size: 12px;
+    padding-left: 10px;
+  }
+  .noti-img {
+      height: 25px;
+      width: 25px;
+  }
+  .table thead > tr th {
+      font-size: 10px;
+  }
+  h2{
+    font-size: 14px;
+  }
+}
   .message {
     .head-msg {
       width: 100%;

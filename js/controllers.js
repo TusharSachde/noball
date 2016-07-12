@@ -458,12 +458,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       }
     };
   })
-  .controller('ReviewCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
+  .controller('ReviewCtrl', function($scope, $state, TemplateService, NavigationService, $timeout,$uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("review");
     $scope.menutitle = NavigationService.makeactive("Review");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.matching = function() {
+      $uibModal.open({
+        templateUrl: "views/modal/matching.html",
+        controller: "ReviewCtrl",
+        scope: $scope
+      })
+    };
+
   })
   .controller('FinalCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
@@ -887,13 +895,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
 
-    $scope.matching = function() {
-      $uibModal.open({
-        templateUrl: "views/modal/matching.html",
-        controller: "CustomCtrl",
-        scope: $scope
-      })
-    };
 
 
 

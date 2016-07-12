@@ -220,10 +220,12 @@
                 <input type="radio" id="radio1" name="radio"/>
                 <label for="radio1">
                   <span></span>
-                  Embroidered <a href="" class="link mleft10" ng-click="copyright();">VIEW EXAMPLE</a></label>
-                  <!-- ng-click="choose();" -->
-                  <!-- ng-click="tshirtUpload();"
-                       ng-click="matching();"-->
+                  Embroidered <a href="" class="link mleft10" >VIEW EXAMPLE</a></label>
+                  <!-- ng-click="choose();"
+                  ng-click="tshirtUpload();"
+                      ng-click="copyright();"
+                    ng-click="openUpload();"
+                  ng-click="continue();"-->
                 <br>
                 <input type="radio" id="radio2" name="radio" />
                 <label for="radio2">
@@ -231,13 +233,13 @@
                   Sublimated<a href="" class="link mleft22" ng-click="copy();">VIEW EXAMPLE</a></label>
               </form>
               <div class="edit-btn">
-                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUpload();">upload</button>
+                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15">upload</button>
               </div>
               <div class="pbotom">
                 <span class="block">Notes :</span>
                 <span class="block">1.The printed CCC Logo will always be embroidered on your t-shirt</span>
                 <span class="block">2.If you feel something is not great, our design team can fix it for you.</span>
-                <span ng-click="continue();"><a href="">Click here</a> to find out how?</span>
+                <span><a href="">Click here</a> to find out how?</span>
               </div>
             </div>
 
@@ -317,6 +319,7 @@ changed page
   <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
 </div>        changed page
  -->
+ <!-- changed page2
  <div class="choos m20-l nexter-level">
    <p>Upload Your  Text</p>
    <div class="logo-text">
@@ -324,8 +327,9 @@ changed page
            <span class="uppercase inline-block mright15">or</span>
            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15">TEAM TEXT</button>
    </div>
-      <h4>Select The Font For Your Jersey Name</h4>
+
       <div class="radio-options">
+          <h4>Select The Font For Your Jersey Name</h4>
       <form action="" class="radio">
         <div class="form-group inline-block">
         <input type="radio" id="textradio1" name="textradio" />
@@ -349,7 +353,7 @@ changed page
       </div>
       <div class="row">
         <div class="col-md-12">
-          <h2 >Select The Colour</h2>
+          <h4>Select The Colour</h4>
           <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
             <div class="colo-pallet text-center ">
               <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
@@ -359,15 +363,14 @@ changed page
         </div>
       </div>
       <div class="notes">
-        <span class="block">Notes :</span>
-        <span>please note that your tshirt name can be upto 10 characters</span>
+        <span class="capitalize">please note that your tshirt name can be upto 10 characters</span>
       </div>
 <div class="range-slidings relative">
-<h4>enter your text below</h4>
-<input type="text" class="block " name="name1">
+<h4 class="capitalize">enter your text below</h4>
+<input type="text" class="block" name="name1">
 <input type="text" class="block " name="name2">
 <a href=""><i class="fa fa-2x fa-plus-circle" aria-hidden="true"></i></a>
-<input type="text" class="block " name="name2">
+<input type="text" class="block" name="name3" >
 </div>
 <div class="range">
   <div class="row">
@@ -422,7 +425,7 @@ changed page
 <div class="edit-btn inline-block">
   <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
 </div>
-</div>
+</div> changed page 2-->
           <!-- <!                  //logo tab-->
           <div class="choos m20-l" ng-show="tab=='logo'">
             <p>Upload Your Sponsor Logo (Optional)</p>
