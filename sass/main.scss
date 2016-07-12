@@ -3984,10 +3984,18 @@ a{
 }
 .range{
   background-color: #ccc;
+padding: 10px 5px 0;
+  width: 50%;
   span{
+    display: inline-block;
+    margin: 0 0 0 15px;
     font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
+  }
+  input[type="text"]{
+    padding: 0 5px;
+    width: 120%;
   }
   .ngrs-runner{
     &:focus{
