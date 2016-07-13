@@ -533,8 +533,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     var check = 1;
 
     $scope.UploadTeamLogo = function(){
-      check = 2;
-      console.log("team logo click");
+      // check = 2;
+      // console.log("team logo click");
         $uibModal.open({
           templateUrl: "views/modal/copyrights.html",
           scope: $scope
@@ -542,7 +542,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
     $scope.UploadTeamLogo1 = function(){
       check = 3;
-      console.log("team logo click");
+      // console.log("team logo click");
         $uibModal.open({
           templateUrl: "views/modal/copyrights.html",
           scope: $scope
@@ -561,7 +561,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       })
     }
     $scope.doneUploading = function(){
-      console.log(check);
+      // console.log(check);
       if (check == 3) {
         $scope.tab = "sponsorlogo"
       }else {
