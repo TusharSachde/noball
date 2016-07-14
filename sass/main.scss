@@ -3830,7 +3830,7 @@ a:focus{
   padding: 10px 30px 80px;
   background-color: #fff;
   img{
-    margin: 0 auto;
+  margin: 20px auto 0;
     width: 40%;
   }
   .checkbox{
@@ -4060,6 +4060,7 @@ padding: 10px 5px 0;
 
   }
 
+
   .range-slidings {
     padding: 10px 0;
     input{
@@ -4067,7 +4068,7 @@ padding: 10px 5px 0;
       padding: 5px 0;
       margin-bottom: 10px;
     }
-    a{
+    .plus{
       position: absolute;
       top: 95px;
       left: 330px;
