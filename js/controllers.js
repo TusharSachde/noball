@@ -530,14 +530,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Custom");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+      var check = 1;
 
     $scope.UploadTeamLogo = function(){
+      check = 2;
         $uibModal.open({
           templateUrl: "views/modal/copyrights.html",
           scope: $scope
         })
     }
     $scope.UploadTeamLogo1 = function(){
+       check = 3;
         $uibModal.open({
           templateUrl: "views/modal/copyrights.html",
           scope: $scope
