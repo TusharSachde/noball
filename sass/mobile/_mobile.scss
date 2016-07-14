@@ -740,6 +740,23 @@ $screen-desktop: 1224px !default;
 }
 }
 @media (max-width: $screen-mobile) {
+  .logo-text{
+    .btn-dark.btn-outline {
+    padding: 4px 4px 3px 4px;
+}
+  }
+  .product-detail .review .design {
+    .but-outline{
+        display: block;
+    }
+}
+  .range input[type="text"] {
+    border: none;
+}
+  .copyrights .check input[type="checkbox"] + label {
+    font-size: 11px;
+    padding-left: 0px;
+}
   .range-slidings {
     input {
       width: 94%;
@@ -802,7 +819,11 @@ $screen-desktop: 1224px !default;
 p,span{
   font-size: 10px!important;
 }
-
+.tshirt{
+  .format-type{
+        margin: 20px 0 20px 0;
+  }
+}
   .accordion{
     span{
           font-size: 13px;
@@ -1155,11 +1176,16 @@ input[type="text"] {
     }
       .plus{
         position: absolute;
-        top: 168px;
+        top: 155px;
         left: 289px;
            .fa{
              font-size: 1em;
            }
       }
+}
+.logo-text{
+  .btn-dark.btn-outline {
+padding: 4px 2px 3px 2px;
+}
 }
 }

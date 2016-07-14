@@ -1956,7 +1956,6 @@ span{
 .customize-design{
 padding: 25px 0 50px 0;
   span{
-    display: block;
     margin-bottom: 2px;
   }
   a{
@@ -2012,7 +2011,10 @@ padding: 25px 0 50px 0;
 .outline{
   border: 1px solid #000;
   margin-top: 30px;
-  padding: 20px;
+  padding: 15px 20px 0;
+  .margintp {
+    margin-top: 0;
+}
 }
 .choos {
   p {
@@ -2072,6 +2074,14 @@ padding: 25px 0 50px 0;
 .padding-btn {
   padding: 6px 45px 4px;
   outline: 0;
+}
+.logo-text{
+  .padding-btn {
+      padding: 6px 30px 4px;
+}
+    .mright15{
+      margin-right: 5px;
+    }
 }
 .vertical-icon {
   position: absolute;
@@ -3840,6 +3850,9 @@ a:focus{
   padding: 20px 0;
   p,span{
     font-size: 11px;
+  }
+  ul{
+    padding: 0 20px;
   }
   li {
     font-size: 10px;
