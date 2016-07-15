@@ -176,8 +176,8 @@ a {
   text-transform: uppercase;
   margin: 0 0 10px;
   font-weight: 300;
-  font-size: 55px;
-  letter-spacing: 3px;
+  font-size: 35px;
+  letter-spacing: 5px;
 }
 .main-head {
   padding: 20px 0 10px;
@@ -1734,6 +1734,14 @@ span{
 .pad4{
   padding: 5px 26px;
 }
+
+.pad5{
+    padding: 5px 33px;
+}
+
+
+
+
 .sp-logo{
   .btn{
       margin: 15px 0;
@@ -3979,7 +3987,9 @@ a{
 .mb5{
   margin-bottom: 10px;
 }
-
+.print-typ{
+  padding: 25px 0 0;
+}
 }
 
 .final-pant{
@@ -4000,7 +4010,11 @@ a{
   .product-detail .agree{
     margin: 0 0 15px 0;
   }
-
+  .print-typ{
+    a{
+      margin-right: 0;
+    }
+  }
 }
 .nexter-level{
   .noti-img {
@@ -4159,4 +4173,41 @@ h2{
 .border-left{
   border-left: 2px solid #53c8eb!important;
 }
+
+.checkboxing{
+  input[type="checkbox"] {
+    display: none;
+  }
+  input[type="checkbox"] + label {
+    color: #515151;
+    font-weight: 300;
+      font-size: 16px;
+      padding: 10px 20px;
+  }
+  input[type="checkbox"] + label span {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+      margin-left: -17px;
+      margin-right: 5px;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid #000;
+  }
+  input[type="checkbox"] + label span {
+    background-color: transparent;
+  }
+  input[type="checkbox"]:checked + label span {
+    background-color: #000;
+  }
+  input[type="checkbox"] + label span,
+  input[type="checkbox"]:checked + label span {
+    @include transition(background-color 0.4s linear);
+  }
+}
+
+
+
+
+
 @import "mobile/mobile";

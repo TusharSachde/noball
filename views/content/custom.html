@@ -102,8 +102,9 @@
                             <span>HIGHLIGHT 1</span>
                             <p>Select The Trim Colour Of Your Choice</p>
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="col-md-3 col-xs-3 paddingl" ng-repeat="col in color track by $index">
+                                <div class="col-md-12">
+                                    <h4>Select The Colour</h4>
+                                    <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
                                         <div class="colo-pallet text-center ">
                                             <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
                                         </div>
@@ -120,8 +121,9 @@
                             <span>HIGHLIGHT 2</span>
                             <p>Select The Trim Colour Of Your Choice</p>
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="col-md-3 col-xs-3 paddingl" ng-repeat="col in color track by $index">
+                                <div class="col-md-12">
+                                    <h4>Select The Colour</h4>
+                                    <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
                                         <div class="colo-pallet text-center ">
                                             <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
                                         </div>
@@ -150,7 +152,11 @@
                     </div>
                     <!--                    //trim tab-->
                     <div class="choos m20-l" ng-show="tab=='team'">
-                        <p>Upload Logo or Team Text Or "SEND LATER"</p>
+                        <p>Upload Your Logo</p>
+                        <div class="checkboxing">
+                            <input type="checkbox" class="form-control" id="later">
+                            <label for="later"><span></span>SEND LATER</label>
+                        </div>
                         <div class="logo-text">
                             <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="UploadTeamLogo()">TEAM LOGO</button>
                             <span class="uppercase inline-block mright15">or</span>
@@ -372,6 +378,10 @@
 
 
                             <button href="" class="btn pad4 btn-outline btn-dark block" data-toggle="modal" data-target="#myModal1">RIGHT SLEEVE SPONSOR</button>
+
+                              <button href="" class="btn pad5 btn-outline btn-dark  block" data-toggle="modal" data-target="#myModal1">LEFT CHEST SPONSOR</button>
+
+                                  <button href="" class="btn pad3 btn-outline btn-dark block" data-toggle="modal" data-target="#myModal1">RIGHT CHEST SPONSOR</button>
                         </div>
                         <div class="print-typ">
                             <div class="pbotom">
