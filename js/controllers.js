@@ -572,6 +572,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         scope: $scope
       })
     }
+
+    $scope.proceed = function(){
+      $uibModal.open({
+        templateUrl: "views/modal/proceed.html",
+        scope: $scope
+      })
+    }
     $scope.openColor = function(){
       $uibModal.open({
         templateUrl: "views/modal/continue.html",
@@ -581,7 +588,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.showColorTab = function(){
       $scope.tab = "teamcolor";
     }
-
+    // $scope.showproceedTab() = function(){
+    //   $scope.tab = "sponsorlogo";
+    // }
 
     $scope.$on('$viewContentLoaded', function(event) {
       $timeout(function() {

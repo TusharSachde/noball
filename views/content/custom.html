@@ -396,9 +396,9 @@
                             <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing"  ng-click="UploadTeamLogo1()">NEXT</button>
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="proceed()" >NEXT</button>
                         </div>
-
+<!--  -->
                     </div>
                     <div class="choos m20-l nextest-level" ng-show="tab=='sponsorlogo'">
                         <p>Upload Your Sponsor Logo (Optional)</p>
@@ -468,6 +468,58 @@
 
 
                     <div class="choos quantity m20-l" ng-show="tab=='quantity'">
+                           <div class="questionare">
+                             <p>Would you like to add  name and numbers to <br>your jersey at an additional charge of 2 GBP <br>per jersey?</p>
+                             <div class="continue-buttons mr">
+                                 <button ng-click="UploadTeamLogo1()" class="btn btn-outline btn-dark mar15 mr10 padding-btn letter-spacing uppercase">yes,continue</button>
+                                 <button href="" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase">no</button>
+                             </div>
+
+                           </div>
+                         </div>
+<div class="choos quantity m20-l nexterest-level">
+<div class="table-detail relative">
+  <p class="capitalize">Select the size for your jersey</p>
+  <div class="option-shirt relative">
+    <div class="size inline-block">
+      <span class="uppercase">size</span>
+      <select>
+        <option value="XL">XL</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
+    </select>
+    </div>
+    <div class="size inline-block">
+      <span class="uppercase">sleeve</span>
+    <select>
+      <option value="XL">XL</option>
+      <option value="20">20</option>
+      <option value="30">30</option>
+      <option value="40">40</option>
+  </select></div>
+    <div class="size inline-block">
+        <span class="inline-block uppercase">quantity</span>
+        <input type="text" class="form-control" name="name" value="">
+    </div>
+  </div>
+  <a href="" class="bins"><img src="img/rubbishbin.png" class="img-responsive" alt=""></a>
+    <div class="add-button">
+      <p><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</p>
+    </div>
+    <div class="total-amount">
+        <span class="pull-right uppercase">Total:20</span>
+    </div>
+
+  <div class="edit-btn">
+      <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>
+      <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5">next</button>
+      <br>
+  </div>
+</div>
+</div>
+
+<div class="choos quantity m20-l">
                         <div class="chart mar15">
                             <p>view:
                                 <span data-toggle="modal" data-target="#myModal4">Size Chart</span>
@@ -608,6 +660,10 @@
                                                 <tr class="nothing">
                                                     <td></td>
                                                 </tr>
+
+
+
+
                                                 <tr>
                                                     <td class="pad6"><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</td>
                                                     <td></td>
@@ -616,11 +672,113 @@
                                                     <td></td>
                                                     <td></td>
                                                 </tr>
+                                                <tr class="nothing">
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                  <td class="name">
+                                                       <span>size</span>
+                                                     </td>
+                                                     <td class="sliding">
+                                                       <div range-slider min="0" max="100" model-max="max" pin-handle="min">
+                                                       </div>
+                                                     </td>
+                                                     <td class="texting">
+                                                         <input type="text" name="size">
+                                                     </td>
+                                                   </tr>
+                                                   <tr>
+                                                     <td class="name">
+                                                          <span>arc</span>
+                                                        </td>
+                                                        <td class="sliding">
+                                                          <div range-slider min="0" max="100" model-max="max" pin-handle="min">
+                                                          </div>
+                                                        </td>
+                                                        <td class="texting">
+                                                            <input type="text" name="size">
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td class="name">
+                                                             <span>rotation</span>
+                                                           </td>
+                                                           <td class="sliding">
+                                                             <div range-slider min="0" max="100" model-max="max" pin-handle="min">
+                                                             </div>
+                                                           </td>
+                                                           <td class="texting">
+                                                               <input type="text" name="size">
+                                                           </td>
+                                                         </tr>
+                                                         <tr>
+                                                           <td class="name">
+                                                                <span>spacing</span>
+                                                              </td>
+                                                              <td class="sliding">
+                                                                <div range-slider min="0" max="100" model-max="max" pin-handle="min">
+                                                                </div>
+                                                              </td>
+                                                              <td class="texting">
+                                                                  <input type="text" name="size">
+                                                              </td>
+                                                            </tr>
+                                                            <tr class="nothing">
+                                                                <td></td>
+                                                            </tr>
                                             </tbody>
                                         </table>
+
                                         <a href="" class="bin"><img src="img/rubbishbin.png" class="img-responsive" alt=""></a>
                                         <a href="" class="rubbish"><img src="img/rubbishbin.png" class="img-responsive" alt=""></a>
                                         <span class="pull-right uppercase">Total</span>
+                                        <!-- <div class="range">
+                                              <div class="row">
+                                                  <div class="col-md-1 col-sm-1 col-xs-1">
+                                                      <span>size</span>
+                                                  </div>
+                                                  <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                                      <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
+                                                  </div>
+                                                  <div class="col-md-3 col-sm-3 col-xs-3">
+                                                      <input type="text" name="size">
+                                                  </div>
+                                              </div>
+                                              <div class="row">
+                                                  <div class="col-md-1 col-sm-1 col-xs-1">
+                                                      <span>arc</span>
+                                                  </div>
+                                                  <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                                      <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
+                                                  </div>
+                                                  <div class="col-md-3 col-sm-3 col-xs-3">
+                                                      <input type="text" name="size">
+                                                  </div>
+                                              </div>
+                                              <div class="row">
+                                                  <div class="col-md-1 col-sm-1 col-xs-1">
+                                                      <span>rotation</span>
+                                                  </div>
+                                                  <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                                      <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
+                                                  </div>
+                                                  <div class="col-md-3 col-sm-3 col-xs-3">
+                                                      <input type="text" name="size">
+                                                  </div>
+                                              </div>
+                                              <div class="row">
+                                                  <div class="col-md-1 col-sm-1 col-xs-1">
+                                                      <span>spacing</span>
+                                                  </div>
+                                                  <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                                      <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
+                                                  </div>
+                                                  <div class="col-md-3 col-sm-3 col-xs-3">
+                                                      <input type="text" name="size">
+                                                  </div>
+                                              </div>
+
+                                          </div> -->
                                     </div>
                                 </uib-accordion-group>
                         </div>
