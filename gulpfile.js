@@ -331,3 +331,4 @@ gulp.task('cloudTest', shell.task([
 ]));
 
 gulp.task('productioncloud', gulpSequence("production2","cloudTest"));
+gulp.task('productionc', gulpSequence(["copy:img", "copy:fonts", "sass:production", "minify:indexproduction", "minify:views"], 'clean:tmp', "concat:js", 'clean:tmp', "templatecache", "uglify:js", "minify:css", 'clean:tmp', "inlinesource", 'clean:tmp', 'clean:production', "gzipfile", 'clean:tmp', 'clean:tmp', "zip", 'deploy'));
