@@ -329,8 +329,33 @@ $screen-desktop: 1224px !default;
   }
 }
 @media (max-width:$screen-xs-max) {
+.option-shirt{
+  .sizes{
+    padding: 10px 4px;
+  }
+}
+.nexterest-level{
+  .table-detail{
+    .option-shirt{
+      .sizes{
+        input{
+          width: 50px !important;
 
 
+        }
+        .form-control{
+          display:inline-block;
+        }
+      }
+    }
+  }
+}
+
+
+
+.bins{
+  top: 45px;
+}
   .on-mobile {
     margin: 0;
     ul.dropdown-menu {
