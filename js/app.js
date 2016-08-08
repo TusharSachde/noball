@@ -37,6 +37,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, cfpL
       templateUrl: "views/template.html",
       controller: 'CustomCtrl'
     })
+    .state('odi-shirt', {
+      url: "/odi-shirt",
+      templateUrl: "views/template.html",
+      controller: 'OdiCtrl'
+    })
     .state('customisation', {
       url: "/customisation",
       templateUrl: "views/template.html",
