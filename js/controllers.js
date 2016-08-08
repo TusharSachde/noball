@@ -524,7 +524,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       $scope.paypalError = NavigationService.getPaypal();
     }
   })
-  .controller('OdiCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams) {
+  .controller('OdiCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams,$uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("odi-shirt");
     $scope.menutitle = NavigationService.makeactive("odi shirt");
@@ -579,6 +579,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       scope: $scope
     })
   }
+  $scope.copyrighting = function(){
+    $uibModal.open({
+      templateUrl: "views/modal/copyrighting.html",
+      scope: $scope
+    })
+  }
   $scope.openColor = function(){
     $uibModal.open({
       templateUrl: "views/modal/continue.html",
@@ -588,10 +594,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.showColorTab = function(){
     $scope.tab = "teamcolor";
   }
-  // $scope.showproceedTab() = function(){
-  //   $scope.tab = "sponsorlogo";
-  // }
+  $scope.showQuantiyTab = function(){
+    $scope.tab = "quantiy";
+  }
+  $scope.showQuantyTab = function(){
+    $scope.tab = "quanty";
+  }
 
+  $scope.proceedNext = function(){
+    $scope.tab = "sponsorlogo";
+  }
+
+  $scope.teamloging = function(){
+    $scope.tab = "teamlogo";
+  }
   $scope.$on('$viewContentLoaded', function(event) {
     $timeout(function() {
       var scene, camera, renderer, width, height, controls, light, loader, texture, geometry, material, mesh;
@@ -815,15 +831,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   }];
 
   $scope.images = [{
-    src: "img/custom/c2.jpg"
+    src:"img/odi.png"
   }, {
-    src: "img/custom/c3.jpg"
+    src: "img/odi-black.png"
   }, {
-    src: "img/custom/c2.jpg"
+    src: "img/odi-orange.png"
   }, {
-    src: "img/custom/c3.jpg"
+    src: "img/odi-purple.png"
   }, {
-    src: "img/custom/c2.jpg"
+    src: "img/odi-green.png"
   }];
   //tab changes
 

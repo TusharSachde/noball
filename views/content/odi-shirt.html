@@ -1,6 +1,6 @@
 <section>
     <div class="text-center">
-        <h3 class="high-light main-head">CUSTOMISE YOUR T-shirt</h3>
+        <h3 class="high-light main-head">CUSTOMISE YOUR ODI T SHIRT</h3>
     </div>
     <div class="container">
         <div class="row">
@@ -39,7 +39,7 @@
                 <div class="col-md-5">
                     <div class="text-center">
                         <div class="gully-shirt">
-                            <img src="img/kolkatashirt.png" class="img-responsive" alt="">
+                            <img src="img/odi.png" class="img-responsive" alt="">
                         </div>
                         <div class="prev inline-block">
                             <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">back</p>
@@ -63,7 +63,7 @@
                 </div>
                 <div class="col-md-7">
                     <div class="det-name">
-                        <h4>GULLY</h4>
+                        <h4>MATT B&amp;Y</h4>
                         <p>The Custom Cricket company cricket shirt is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest
                             .
                         </p>
@@ -158,7 +158,7 @@
                             <label for="later"><span></span>SEND LATER</label>
                         </div>
                         <div class="logo-text">
-                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="UploadTeamLogo()">TEAM LOGO</button>
+                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="copyrighting()">TEAM LOGO</button>
                             <span class="uppercase inline-block mright15">or</span>
                             <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor();">TEAM TEXT</button>
                         </div>
@@ -212,7 +212,7 @@
                     <div class="choos m20-l next-level" ng-show="tab=='teamlogo'">
                         <p>Upload Your Logo</p>
                         <div class="logo-text">
-                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="UploadTeamLogo()">TEAM LOGO</button>
+                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15">TEAM LOGO</button>
                             <span class="uppercase inline-block mright15">or</span>
                             <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor();">TEAM TEXT</button>
                         </div>
@@ -396,9 +396,9 @@
                             <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="UploadTeamLogo1()" >NEXT</button>
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="proceed()">NEXT</button>
                         </div>
-<!--  -->
+<!-- ng-click="UploadTeamLogo1()" -->
                     </div>
                     <div class="choos m20-l nextest-level" ng-show="tab=='sponsorlogo'">
                         <p>Upload Your Sponsor Logo (Optional)</p>
@@ -462,7 +462,7 @@
                             </div>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="openUploadNew()">NEXT</button>
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" >NEXT</button>
                         </div>
                     </div>
 
@@ -471,13 +471,13 @@
                            <div class="questionare">
                              <p>Would you like to add  name and numbers to <br>your jersey at an additional charge of 2 GBP <br>per jersey?</p>
                              <div class="continue-buttons mr">
-                                 <button ng-click="UploadTeamLogo1()" class="btn btn-outline btn-dark mar15 mr10 padding-btn letter-spacing uppercase">yes,continue</button>
+                                 <button ng-click="showQuantiyTab()" class="btn btn-outline btn-dark mar15 mr10 padding-btn letter-spacing uppercase">yes,continue</button>
                                  <button href="" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase">no</button>
                              </div>
 
                            </div>
 </div>
-<div class="choos quantity m20-l nexterest-level">
+<div class="choos quantity m20-l nexterest-level" ng-show="tab=='quanty'">
 <div class="table-detail relative">
   <p class="capitalize">Select the size for your jersey</p>
   <div class="option-shirt relative">
@@ -519,7 +519,7 @@
 </div>
 </div>
 
-<div class="choos quantity m20-l">
+<div class="choos quantity m20-l" ng-show="tab=='quantiy'">
                         <div class="chart mar15">
                             <p>view:
                                 <span data-toggle="modal" data-target="#myModal4">Size Chart</span>
@@ -738,7 +738,7 @@
                         </div>
                         <div class="edit-btn">
                             <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>
-                            <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5">next</button>
+                            <button href="" ng-click="showQuantyTab()" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5">next</button>
                             <br>
                         </div>
                     </div>
