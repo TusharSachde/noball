@@ -4300,19 +4300,9 @@ h2{
 
 }
 
-.option-shirt{
-  background-color: #ccc;
-width: 95%;
-  .size{
-    padding: 10px 30px;
-    input{
-      width: 50%;
-      display: inline-block;
-      border: none;
-    }
-  }
 
-}
+
+
 .table-detail{
   p{
     margin-bottom: 15px;
@@ -4335,5 +4325,19 @@ width: 95%;
 
 .total-amount{
   padding: 20px 32px;
+}
+.table-detail{
+  .option-shirt{
+    background-color: #ccc;
+  width: 95%;
+    .size{
+      padding: 10px 30px !important;
+      input{
+        width: 50% !important;
+        display: inline-block;
+        border: none;
+      }
+    }
+  }
 }
 @import "mobile/mobile";
