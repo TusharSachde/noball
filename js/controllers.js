@@ -524,6 +524,445 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       $scope.paypalError = NavigationService.getPaypal();
     }
   })
+  .controller('GlovesCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams,$uibModal) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("gloves");
+    $scope.menutitle = NavigationService.makeactive("Gloves");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    var check = 1;
+
+  $scope.UploadTeamLogo = function(){
+    check = 2;
+      $uibModal.open({
+        templateUrl: "views/modal/copyrights.html",
+        scope: $scope
+      })
+  }
+  $scope.UploadTeamLogo1 = function(){
+     check = 3;
+      $uibModal.open({
+        templateUrl: "views/modal/copyrights.html",
+        scope: $scope
+      })
+  }
+  $scope.openChooseFile = function(){
+    $uibModal.open({
+      templateUrl: "views/modal/choosefile.html",
+      scope: $scope
+    })
+  }
+  $scope.openUploads = function(){
+    $uibModal.open({
+      templateUrl: "views/modal/tshirt.html",
+      scope: $scope
+    })
+  }
+  $scope.doneUploading = function(){
+    if (check == 3) {
+      $scope.tab = "sponsorlogo"
+    }else {
+        $scope.tab = "teamlogo";
+    }
+
+  }
+  $scope.openUploadNew = function(){
+    $uibModal.open({
+      templateUrl: "views/modal/tshirt-popup.html",
+      scope: $scope
+    })
+  }
+
+  $scope.proceed = function(){
+    $uibModal.open({
+      templateUrl: "views/modal/proceed.html",
+      scope: $scope
+    })
+  }
+  // $scope.copyrighting = function(){
+  //   $uibModal.open({
+  //     templateUrl: "views/modal/copyrighting.html",
+  //     scope: $scope
+  //   })
+  // }
+  // $scope.openColor = function(){
+  //   $uibModal.open({
+  //     templateUrl: "views/modal/continue.html",
+  //     scope: $scope
+  //   })
+  // }
+  $scope.showColorTab = function(){
+    $scope.tab = "teamcolor";
+  }
+  $scope.showQuantiyTab = function(){
+    $scope.tab = "quantiy";
+  }
+  $scope.showQuantyTab = function(){
+    $scope.tab = "quanty";
+  }
+
+  $scope.proceedNext = function(){
+    $scope.tab = "sponsorlogo";
+  }
+
+  $scope.teamloging = function(){
+    $scope.tab = "teamlogo";
+  }
+  $scope.$on('$viewContentLoaded', function(event) {
+    $timeout(function() {
+      var scene, camera, renderer, width, height, controls, light, loader, texture, geometry, material, mesh;
+      var three = document.getElementsByClassName("threed-ball");
+      init();
+      animate();
+
+      function init() {
+        scene = new THREE.Scene();
+        width = 400;
+        height = 400;
+
+        renderer = new THREE.WebGLRenderer({
+          antialias: true,
+          alpha: true
+        });
+        renderer.setSize(width, height);
+        document.getElementById("threed-ball").appendChild(renderer.domElement);
+        renderer.setClearColor(0xFFFFFF, 1);
+
+        camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 10000);
+        camera.position.set(0, 0, 4.5);
+        scene.add(camera);
+
+        controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableZoom = false;
+
+        var amblight = new THREE.AmbientLight(0xFFFFFF);
+        scene.add(amblight);
+
+        var dirlight = new THREE.DirectionalLight(0xFFFFFF, 0.5);
+        dirlight.castShadow = true;
+
+        var spotlight = new THREE.SpotLight(0xFFFFFF);
+        spotlight.position.set(1000, 1000, 1000);
+        spotlight.castShadow = true;
+        camera.add(spotlight);
+
+        geometry = new THREE.SphereGeometry(1, 50, 50);
+        texture = new THREE.TextureLoader();
+        texture.load(
+          'img/textures/ball_texture.jpg',
+          function(texture) {
+            material = new THREE.MeshPhongMaterial({
+              map: texture
+            });
+            var sphere = new THREE.Mesh(geometry, material);
+            sphere.castShadow = true;
+            sphere.rotation.x = 1;
+            sphere.rotation.y = -5.5;
+            sphere.rotation.z = -1;
+            scene.add(sphere);
+          },
+          function(xhr) {
+            console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+          },
+          function(xhr) {
+            console.log('An error happened');
+          }
+        );
+      }
+
+      var canvas = document.createElement("canvas");
+      canvas.width = 1000;
+      canvas.height = 667;
+      var c = canvas.getContext("2d");
+
+      function readURL(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function(e) {
+            $('#ball_logo').attr('src', e.target.result);
+            src = $('#ball_logo').attr('src');
+            var image = new Image();
+            image.src = src;
+            var selectImg = '';
+            var canvas = document.createElement("canvas");
+            var ctx = canvas.getContext("2d");
+            var canvasx = document.createElement("canvas");
+            var ctxx = canvasx.getContext("2d");
+            var originalPixels, currentPixels = null;
+            var color, fullimg = '';
+            canvas.width = canvasx.width = 1000;
+            canvas.height = canvasx.height = 667;
+
+            function HexToRGB(Hex) {
+              var Long = parseInt(Hex.replace(/^#/, ""), 16);
+              return {
+                R: (Long >>> 16) & 0xff,
+                G: (Long >>> 8) & 0xff,
+                B: Long & 0xff
+              };
+            }
+
+            function fillColor(path) {
+              color = path;
+              if (!originalPixels) return;
+              var newColor = HexToRGB(color);
+              for (var I = 0, L = originalPixels.data.length; I < L; I += 4) {
+                if (currentPixels.data[I + 3] > 0) {
+                  currentPixels.data[I] = newColor.R;
+                  currentPixels.data[I + 1] = newColor.G;
+                  currentPixels.data[I + 2] = newColor.B;
+                }
+              }
+
+              var cann = document.createElement("canvas");
+              cann.width = selectImg.width;
+              cann.height = selectImg.height;
+              var ctc = cann.getContext("2d");
+              ctc.putImageData(currentPixels, 0, 0);
+              var newImm = new Image();
+              newImm.src = cann.toDataURL("image/png");
+              var imageSize = 250;
+              var newImmWidth = newImm.width;
+              var newImmHeight = newImm.height;
+              var newImmWidthQu = newImmWidth / imageSize;
+              var newImmHeightQu = newImmHeight / imageSize;
+              var newImmWidthDp = 300 * newImmWidthQu;
+              var newImmHeightDp = 300 * newImmHeightQu;
+              var exWidth = (imageSize - newImmWidth) / 2;
+              var exHeight = (imageSize - newImmHeight) / 2;
+
+              if (newImmWidth == imageSize && newImmHeight == imageSize) {
+                ctx.drawImage(newImm, 0, 0, 300, 300, 10, 120, imageSize, imageSize);
+              } else if (newImmWidth < imageSize && newImmHeight == imageSize) {
+                ctx.drawImage(newImm, 0, 0, 300, 300, (10 + exWidth), 120, imageSize, imageSize);
+              } else if (newImmWidth == imageSize && newImmHeight < imageSize) {
+                ctx.drawImage(newImm, 0, 0, 300, 300, 10, (120 + exHeight), imageSize, imageSize);
+              } else if (newImmWidth < imageSize && newImmHeight < imageSize) {
+                ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
+              } else if (newImmWidth > imageSize && newImmHeight == imageSize) {
+                ctx.drawImage(newImm, 0, 0, 300, 300, (10 + exWidth), 120, imageSize, imageSize);
+              } else if (newImmWidth == imageSize && newImmHeight > imageSize) {
+                ctx.drawImage(newImm, 0, 0, 300, 300, 10, (120 + exHeight), imageSize, imageSize);
+              } else if (newImmWidth > imageSize && newImmHeight > imageSize) {
+                ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
+              } else if (newImmWidth > imageSize && newImmHeight < imageSize) {
+                ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
+              } else if (newImmWidth < imageSize && newImmHeight > imageSize) {
+                ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
+              }
+
+              //ctx.clearRect(0, 0, canvas.width, canvas.height);
+              //ctx.drawImage(newImm, 0, 0, 300, 300, 10, 80, 250, 250);
+              fullimg = canvas.toDataURL("image/png");
+            }
+
+            function overalayColor(himg, color) {
+              fullimg = himg[0];
+              img = new Image();
+              img.src = himg.src;
+              selectImg = himg;
+              canvas.width = 1000;
+              canvas.height = 667;
+
+              ctxx.clearRect(0, 0, canvasx.width, canvasx.height);
+              ctxx.drawImage(selectImg, 0, 0, selectImg.naturalWidth, selectImg.naturalHeight, 0, 0, selectImg.width, selectImg.height);
+              originalPixels = ctxx.getImageData(0, 0, selectImg.width, selectImg.height);
+              currentPixels = ctxx.getImageData(0, 0, selectImg.width, selectImg.height);
+
+              selectImg.onload = null;
+              fillColor(color);
+            }
+            overalayColor(document.getElementById('ball_logo'), "#ffd700");
+            var imgsrc = canvas.toDataURL("image/png", 1.0);
+            var geometry = new THREE.SphereGeometry(1, 500, 500);
+            var textur = new THREE.TextureLoader();
+            textur.load(
+              fullimg,
+              function(texture) {
+                var material = new THREE.MeshPhongMaterial({
+                  map: texture,
+                  transparent: true
+                });
+                material.map.needsUpdate = true;
+                var mysphere = new THREE.Mesh(geometry, material);
+                mysphere.rotation.x = 0.1;
+                mysphere.rotation.y = -5.0;
+                mysphere.rotation.z = -1;
+                scene.add(mysphere);
+              },
+              function(xhr) {
+                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+              },
+              function(xhr) {
+                console.log('An error happened');
+              }
+            );
+          };
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+      $("#upload").change(function() {
+        readURL(this);
+      });
+
+      function animate() {
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+      }
+    }, 100);
+  });
+
+  $scope.color = [{
+    colr: "#f5b122"
+  }, {
+    colr: "#c80d28"
+  }, {
+    colr: "#318db2"
+  }, {
+    colr: "#2c8b47"
+  }, {
+    colr: "#0036ff"
+  }, {
+    colr: "#491f61"
+  }, {
+    colr: "#e87024"
+  }, {
+    colr: "#501e1f"
+  }];
+
+  $scope.images = [{
+    src:"img/odi.png"
+  }, {
+    src: "img/odi-orange.png"
+  }, {
+    src: "img/odi-green.png"
+  }];
+  //tab changes
+
+
+  $scope.tab = "design";
+  $scope.classa = 'active';
+  $scope.classb = '';
+  $scope.classc = '';
+  $scope.classd = '';
+  $scope.classe = '';
+
+  $scope.tabchange = function(tab, a) {
+    $scope.tab = tab;
+    if (a == 1) {
+      $scope.classa = 'active';
+      $scope.classb = '';
+      $scope.classc = '';
+      $scope.classd = '';
+      $scope.classe = '';
+
+    }
+    if (a == 2) {
+      $scope.classb = 'active';
+      $scope.classa = '';
+      $scope.classc = '';
+      $scope.classd = '';
+      $scope.classe = '';
+
+    }
+    if (a == 3) {
+      $scope.classc = 'active';
+      $scope.classb = '';
+      $scope.classa = '';
+      $scope.classd = '';
+      $scope.classe = '';
+
+    }
+    if (a == 4) {
+      $scope.classd = 'active';
+      $scope.classb = '';
+      $scope.classc = '';
+      $scope.classa = '';
+      $scope.classe = '';
+
+    } else if (a == 5) {
+      $scope.classe = 'active';
+      $scope.classb = '';
+      $scope.classc = '';
+      $scope.classd = '';
+      $scope.classa = '';
+
+    }
+  };
+  $scope.demo2 = {
+      range: {
+          min: 0,
+          max: 10050
+      },
+      minPrice: 1000,
+      maxPrice: 4000
+  };
+
+
+  //    end
+
+
+  $scope.openUpload = function() {
+    $uibModal.open({
+      templateUrl: "views/modal/tshirt.html",
+      controller: "GloveCtrl",
+      scope: $scope
+    })
+  };
+
+  $scope.copy = function() {
+    $uibModal.open({
+      templateUrl: "views/modal/outofplace.html",
+      controller: "GloveCtrl",
+      scope: $scope
+    })
+  };
+
+  $scope.continue = function() {
+    $uibModal.open({
+      templateUrl: "views/modal/continue.html",
+      controller: "GloveCtrl",
+      scope: $scope
+    })
+  };
+
+  $scope.choose = function() {
+    $uibModal.open({
+      templateUrl: "views/modal/choosefile.html",
+      controller: "GloveCtrl",
+      scope: $scope
+    })
+  };
+
+  $scope.copyright = function() {
+    $uibModal.open({
+      templateUrl: "views/modal/copyrights.html",
+      controller: "GloveCtrl",
+      scope: $scope
+    })
+  };
+
+
+  $scope.tshirtUpload = function() {
+    $uibModal.open({
+      templateUrl: "views/modal/tshirt-popup.html",
+      controller: "OdiCtrl",
+      scope: $scope
+    })
+  };
+
+  $scope.outplace = function() {
+    $uibModal.open({
+      templateUrl: "views/modal/outofplace.html",
+      controller: "OdiCtrl",
+      scope: $scope
+    })
+  };
+
+
+
+  })
+
   .controller('OdiCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams,$uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("odi-shirt");
@@ -905,23 +1344,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
   //    end
 
-
-
-  // $scope.open = function(size) {
-  //
-  //     var modalInstance = $uibModal.open({
-  //         animation: $scope.animationsEnabled,
-  //         templateUrl: 'views/modal/tshirt.html',
-  //         controller: '',
-  //         size: size,
-  //         resolve: {
-  //             items: function() {
-  //                 return $scope.items;
-  //             }
-  //         }
-  //     });
-  //
-  // };
   $scope.openUpload = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt.html",

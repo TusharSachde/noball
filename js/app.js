@@ -42,6 +42,13 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, cfpL
       templateUrl: "views/template.html",
       controller: 'OdiCtrl'
     })
+
+    .state('gloves', {
+      url: "/gloves",
+      templateUrl: "views/template.html",
+      controller: 'GlovesCtrl'
+    })
+
     .state('customisation', {
       url: "/customisation",
       templateUrl: "views/template.html",

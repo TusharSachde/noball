@@ -1714,6 +1714,9 @@ text-transform: uppercase;
 .mr{
   margin-right: 8px;
 }
+.mr21{
+  margin-right: 21px;
+}
 .mr7{
   margin-right: 7px;
 }
@@ -4337,6 +4340,11 @@ h2{
         display: inline-block;
         border: none;
       }
+    }
+  }
+  .gloves{
+    .size{
+        padding: 10px 15px !important;
     }
   }
 }
