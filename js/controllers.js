@@ -853,11 +853,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   }];
 
   $scope.images = [{
-    src:"img/odi.png"
+    src:"img/gloves/Gloves.png"
   }, {
-    src: "img/odi-orange.png"
+    src: "img/gloves/gloveslemon.png"
   }, {
-    src: "img/odi-green.png"
+    src: "img/gloves/glovesorange.png"
   }];
   //tab changes
 
