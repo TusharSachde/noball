@@ -73,11 +73,22 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, cfpL
       controller: 'ReviewCtrl'
     })
 
+    .state('review-glove', {
+      url: "/review-glove",
+      templateUrl: "views/template.html",
+      controller: 'ReviewGloveCtrl'
+    })
 
     .state('final', {
       url: "/final",
       templateUrl: "views/template.html",
       controller: 'FinalCtrl'
+    })
+
+    .state('final-glove', {
+      url: "/final-glove",
+      templateUrl: "views/template.html",
+      controller: 'FinalReviewCtrl'
     })
 
     .state('ready', {
