@@ -2031,7 +2031,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           id: "",
           name: "--"
         });
-        if ($scope.productdetail.product.name.toUpperCase().includes('shorts'.toUpperCase()) || $scope.productdetail.product.name.toUpperCase().includes('trousers'.toUpperCase())) {
+        if ($scope.productdetail.product.name.toUpperCase().includes('sprint'.toUpperCase()) || $scope.productdetail.product.name.toUpperCase().includes('leg'.toUpperCase()) || $scope.productdetail.product.name.toUpperCase().includes('crossfit'.toUpperCase()) || $scope.productdetail.product.name.toUpperCase().includes('stride'.toUpperCase()) || $scope.productdetail.product.name.toUpperCase().includes('scamper'.toUpperCase())) {
           $scope.sizechartshirt = false;
         } else {
           $scope.sizechartshirt = true;
