@@ -20,7 +20,6 @@ var jsArray = [
   './lib/js/angular-file-upload.js',
   './lib/js/FileAPI.min.js',
   './lib/js/upload.js',
-  './lib/js/bootstrap.min.js',
   './lib/js/lodash.min.js',
   './bower_components/angular-bootstrap/ui-bootstrap.min.js',
   './bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
