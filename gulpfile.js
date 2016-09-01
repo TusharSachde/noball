@@ -1,8 +1,8 @@
 var jsArray = [
   './bower_components/jquery/dist/jquery.min.js',
-  './bower_components/threejs/build/three.min.js',
-  './js/OrbitControls.js',
-  './bower_components/threejs/examples/js/loaders/OBJLoader.js',
+  './js/threejs/three.min.js',
+  './js/threejs/OrbitControls.js',
+  './js/threejs/OBJLoader.js',
   './bower_components/flexslider/jquery.flexslider-min.js',
   './bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
 

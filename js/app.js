@@ -49,6 +49,64 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, cfpL
       controller: 'GlovesCtrl'
     })
 
+    .state('balls', {
+      url: "/balls",
+      templateUrl: "views/template.html",
+      controller: 'BallsCtrl'
+    })
+
+    .state('pads', {
+      url: "/pads",
+      templateUrl: "views/template.html",
+      controller: 'PadsCtrl'
+    })
+
+    .state('shorts', {
+      url: "/shorts",
+      templateUrl: "views/template.html",
+      controller: 'ShortsCtrl'
+    })
+
+    .state('trousers', {
+      url: "/trousers",
+      templateUrl: "views/template.html",
+      controller: 'TrousersCtrl'
+    })
+
+    .state('trouser-review', {
+      url: "/trouser-review",
+      templateUrl: "views/template.html",
+      controller: 'TrouserReviewCtrl'
+    })
+
+    .state('pads-review', {
+      url: "/pads-review",
+      templateUrl: "views/template.html",
+      controller: 'PadsreviewCtrl'
+    })
+    .state('shorts-review', {
+      url: "/shorts-review",
+      templateUrl: "views/template.html",
+      controller: 'ShortsReviewCtrl'
+    })
+
+    .state('final-trouser', {
+      url: "/final-trouser",
+      templateUrl: "views/template.html",
+      controller: 'FinalTrouserReviewCtrl'
+    })
+    .state('final-shorts', {
+      url: "/final-shorts",
+      templateUrl: "views/template.html",
+      controller: 'FinalShortsReviewCtrl'
+    })
+
+    .state('final-pad', {
+      url: "/final-pad",
+      templateUrl: "views/template.html",
+      controller: 'FinalPadReviewCtrl'
+    })
+
     .state('customisation', {
       url: "/customisation",
       templateUrl: "views/template.html",
