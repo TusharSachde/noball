@@ -39,7 +39,8 @@
                 <div class="col-md-5">
                     <div class="text-center">
                         <div class="gully-shirt">
-                            <img src="img/gloves/Gloves.png" class="img-responsive" alt="">
+                          <img src="img/ball/Balls.png" class="img-responsive" alt="">
+
                         </div>
                         <div class="prev inline-block">
                             <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">back</p>
@@ -96,7 +97,7 @@
                         </div>
                     </div>
                     <!--                    //trim tab-->
-                    <div class="choos m20-l " ng-show="tab=='trim'">
+                    <!-- <div class="choos m20-l ">
                         <div class="outline">
                             <span>HIGHLIGHT </span>
                             <p>Select The Trim Colour Of Your Choice</p>
@@ -115,7 +116,7 @@
                             <div class="edit-btn margintp">
                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- <div class="outline">
                             <span>HIGHLIGHT 2</span>
                             <p>Select The Trim Colour Of Your Choice</p>
@@ -140,7 +141,7 @@
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">PALETTE</button>
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">COLLAR</button>
                         </div> -->
-                        <div class="edit-btn inline-block">
+                        <!-- <div class="edit-btn inline-block">
                             <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
                         <div class="edit-btn inline-block">
@@ -148,47 +149,77 @@
                         </div>
 
 
-                    </div>
+                    </div> -->
                     <!--                    //trim tab-->
-                    <div class="choos m20-l" ng-show="tab=='team'">
+                    <div class="choos m20-l" ng-show="tab=='trim'">
+                      <!-- ng-show="tab=='team'" -->
                         <p>Upload Your Logo</p>
                         <div class="checkboxing">
                             <input type="checkbox" class="form-control" id="later">
                             <label for="later"><span></span>Send it Later</label>
                         </div>
                         <div class="logo-text">
-                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="teamloging()">TEAM LOGO</button>
+                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15">outer text</button>
                             <span class="uppercase inline-block mright15">or</span>
-                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click = "showColorTab()">TEAM TEXT</button>
+                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click = "showColorTab()">inner TEXT</button>
                         </div>
-                        <div class="print-typ printing">
-                            <p>Select The Printing Type For Your Team Logo</p>
-                            <form action="" class="radio">
-                                <input type="radio" id="radio1" name="radio" />
-                                <label for="radio1">
-                                    <span></span> Embroidered <a href="" class="link mleft10">VIEW EXAMPLE</a></label>
-
-                                <br>
-                                <input type="radio" id="radio2" name="radio" />
-                                <label for="radio2">
-                                    <span></span> Sublimated
-                                    <a href="" class="link mleft22">VIEW EXAMPLE</a></label>
-                            </form>
-                            <div class="edit-btn">
-                                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15">upload</button>
-                            </div>
-                            <div class="pbotom">
-                                <span class="block">Notes :</span>
-                                <span class="block">1. The printed CCC Logo will always be embroidered on your gloves.</span>
-                                <span class="block">2. Embossing your logo will incur a one time cost of  `5000 or your
-                                    logo can be screen printed at no additional cost.</span>
-                                <span class="block">3. If you feel something is not great, our design team can fix it for you.</span>
-                                  <span class="block"><a href="" ng-click="outplace();">Click here</a> to find out how?</span>
-                                <span class="block">4.CCC logo colour will match colour of the trim.</span>
-
-                            </div>
+                        <div class="range-slidings relative">
+                            <h4 class="capitalize">enter your text below</h4>
+                            <input type="text" class="block" name="name1">
                         </div>
+                        <div class="range">
+                            <div class="row">
+                                <div class="col-md-1 col-sm-1 col-xs-1">
+                                    <span>size</span>
+                                </div>
+                                <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                    <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="text" name="size">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1 col-sm-1 col-xs-1">
+                                    <span>arc</span>
+                                </div>
+                                <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                    <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="text" name="size">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1 col-sm-1 col-xs-1">
+                                    <span>rotation</span>
+                                </div>
+                                <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                    <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="text" name="size">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1 col-sm-1 col-xs-1">
+                                    <span>spacing</span>
+                                </div>
+                                <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                    <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="text" name="size">
+                                </div>
+                            </div>
 
+                        </div>
+                        <div class="edit-btn inline-block">
+                            <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                        </div>
+                        <div class="edit-btn inline-block">
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+                        </div>
 
                         <div class="modal fade custom" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog" role="document">
@@ -271,11 +302,11 @@
                       </div>
                       <div class="choos m20-l nexter-level"  ng-show="tab=='teamcolor'">
                             <p>Upload Your Text</p>
-                            <div class="logo-text">
+                            <!-- <div class="logo-text">
                                 <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="UploadTeamLogo()">TEAM LOGO</button>
                                 <span class="uppercase inline-block mright15">or</span>
                                 <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor();">TEAM TEXT</button>
-                            </div>
+                            </div> -->
 
                             <div class="radio-options">
                                 <h4>Select The Font For Your Ball Name</h4>
@@ -318,7 +349,7 @@
                                 <button href="" class="btn btn-outline btn-dark letter-spacing">OUTER TEXT</button>
                             </div>
                             <div class="edit-btn inline-block">
-                                <button class="btn btn-outline btn-dark padding-btn letter-spacing">INNER TEXT</button>
+                                <button href="" class="btn btn-outline btn-dark letter-spacing">INNER TEXT</button>
                             </div>
                             <div class="range-slidings relative">
                                 <h4 class="capitalize">enter your text below</h4>
@@ -487,7 +518,7 @@
                     <div class="choos quantity m20-l" ng-show="tab=='quantity'">
                       <div class="table-detail relative">
                         <p class="capitalize">Place Your Order</p>
-                        <div class="option-shirt relative gloves">
+                        <div class="option-shirt grey-back relative gloves">
                           <!-- <div class="sizes size inline-block">
                             <span class="uppercase">L/R</span>
                             <select>
@@ -496,9 +527,9 @@
                           </select>
                           </div> -->
                           <div class="sizes size inline-block">
-                              <span class="inline-block uppercase">Select Quantity</span>
+                              <span class="inline-block">Select Quantity</span>
                               <input type="text" class="form-control inline-block" name="name" value="">
-                                    <span class="inline-block uppercase">Boxes</span>
+                                    <span class="inline-block ">Boxes</span>
                           </div>
                           <!-- <div class="sizes size inline-block">
                               <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">preview</button>

@@ -513,9 +513,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-    $scope.matching = function() {
+    $scope.matchings = function() {
       $uibModal.open({
-        templateUrl: "views/modal/matching.html",
+        templateUrl: "views/modal/matchings.html",
         controller: "ReviewCtrl",
         scope: $scope
       })
@@ -537,6 +537,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
   })
+
+  .controller('BallsReviewCtrl', function($scope, $state, TemplateService, NavigationService, $timeout,$uibModal) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("review-balls");
+    $scope.menutitle = NavigationService.makeactive("Review Balls");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    // $scope.shortsmatching = function() {
+    //   $uibModal.open({
+    //     templateUrl: "views/modal/shorts-matching.html",
+    //     controller: "BallsReviewCtrl",
+    //     scope: $scope
+    //   })
+    // };
+
+  })
+
 
   .controller('FinalCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
@@ -561,6 +578,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
+
 
   .controller('FinalShortsReviewCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file

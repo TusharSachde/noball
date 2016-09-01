@@ -4000,7 +4000,7 @@ a{
 }
 }
 
-.matching{
+.matching,.trouser-matching{
   background-color: #e0e0df;
 
     background-position: center;
@@ -4031,6 +4031,25 @@ a{
   }
   .continue-buttons{
     padding-bottom: 20px;
+  }
+}
+
+.trouser-matching,.pad-matching{
+  img{
+    width: 20%;
+  }
+  .cap-pant,.cap-pants{
+    img{
+      width: 100%;
+    }
+  }
+
+}
+.pad-matching{
+  .cap-pant,.cap-pants{
+    img{
+      width: 50%;
+    }
   }
 }
 //modals//
@@ -4330,7 +4349,7 @@ h2{
   padding: 20px 32px;
 }
 .table-detail{
-  .option-shirt{
+  .option-shirt,.grey-back{
     background-color: #ccc;
   width: 95%;
     .size{
@@ -4348,4 +4367,36 @@ h2{
     }
   }
 }
+.table-detail{
+  .grey-back{
+    width: 60%;
+    .size{
+      input{
+        width: 45%!important;
+      }
+    }
+  }
+}
+.trousers{
+  .gully-pant{
+    margin: 0!important;
+  }
+}
+.trouser-shirt{
+  img{
+    margin: 0 auto!important;
+  }
+}
+.marg{
+  margin: 0 auto;
+}
+.balls{
+    margin: 10px auto !important;
+}
+.spacings{
+  .mb5{
+    margin-bottom: 10px !important;
+  }
+}
+
 @import "mobile/mobile";

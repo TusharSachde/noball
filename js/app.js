@@ -90,6 +90,12 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, cfpL
       controller: 'ShortsReviewCtrl'
     })
 
+    .state('review-balls', {
+      url: "/review-balls",
+      templateUrl: "views/template.html",
+      controller: 'BallsReviewCtrl'
+    })
+
     .state('final-trouser', {
       url: "/final-trouser",
       templateUrl: "views/template.html",
