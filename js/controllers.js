@@ -3282,7 +3282,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.navigation = NavigationService.getnav();
   var check = 1;
   console.log("jagrti");
-  $scope.displayImage = "img/tshirt 7.png";
+  $scope.displayImage = "img/tinytshirt 7.png";
 
   $scope.UploadTeamLogo = function() {
     check = 2;
