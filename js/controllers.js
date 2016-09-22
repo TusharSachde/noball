@@ -3291,6 +3291,27 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       scope: $scope
     })
   }
+  $scope.onFileSelect = function($files, whichone, uploadtype) {
+    $scope.toolarge = false;
+
+    if ($files[0].size < 20000000) {
+      cfpLoadingBar.start();
+      $scope.showimage = true;
+      globalfunction.onFileSelect($files, function(image) {
+
+        cfpLoadingBar.complete();
+        if (whichone == 1) {
+          $scope.customInfo.image = image[0];
+          if (uploadtype == 'single') {
+            $scope.customInfo.image = image[0];
+          }
+        }
+      })
+    } else {
+      $files = [];
+      $scope.toolarge = true;
+    }
+  }
   $scope.UploadTeamLogo1 = function() {
     check = 3;
     $uibModal.open({
