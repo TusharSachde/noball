@@ -119,6 +119,28 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, cfpL
       controller: 'CustomisationCtrl'
     })
 
+    
+    .state('bat', {
+      url: "/bat",
+      templateUrl: "views/template.html",
+      controller: 'BatCtrl'
+    })
+    .state('sweater', {
+      url: "/sweater",
+      templateUrl: "views/template.html",
+      controller: 'SweaterCtrl'
+    })
+    .state('odi-trouser', {
+      url: "/odi-trouser",
+      templateUrl: "views/template.html",
+      controller: 'OdiTrouserCtrl'
+    })
+    .state('kit-bag', {
+      url: "/kit-bag",
+      templateUrl: "views/template.html",
+      controller: 'KitBagCtrl'
+    })
+
 
   .state('categories-inside', {
     url: "/categories/:category/:name",

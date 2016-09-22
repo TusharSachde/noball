@@ -1,0 +1,747 @@
+<section>
+    <div class="text-center">
+        <h3 class="high-light main-head">CUSTOMISE YOUR ODI TROUSER</h3>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="step">
+                <ul>
+                  <li class="tab-item breadcrums {{classa}}" ng-click="tabchange('design',1)">
+                      <span class="bread-frnt"></span>
+                      <p>1. DESIGN</p>
+                      <span class="bread-back"></span>
+                  </li>
+                  <li class="tab-item breadcrums {{classb}}" ng-click="tabchange('trim',2)">
+                      <span class="bread-frnt"></span>
+                      <p>2. COLOUR</p>
+                      <span class="bread-back"></span>
+                  </li>
+                  <li class="tab-item breadcrums {{classc}}" ng-click="tabchange('team',3)">
+                      <span class="bread-frnt"></span>
+                      <p>3. TEAM LOGO</p>
+                      <span class="bread-back"></span>
+                  </li>
+                  <li class="tab-item breadcrums {{classd}}" ng-click="tabchange('quantity',5)">
+                      <span class="bread-frnt"></span>
+                      <p>4. QUANTITY</p>
+                      <span class="bread-back"></span>
+                  </li>
+
+
+                </ul>
+            </div>
+        </div>
+        <div class="product-detail">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="text-center">
+                        <div class="gully-shirt">
+                            <img src="img/odi-trouser/odi-1.png" class="img-responsive" alt="">
+                        </div>
+                        <div class="prev inline-block">
+                            <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">back</p>
+                        </div>
+                        <div class="next inline-block">
+                            <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">front</p>
+                        </div>
+                        <div class="feature-buttons">
+                            <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing">FORM + FUNCTION</button>
+                            <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing">DELIVERY</button>
+                            <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing">CARE</button>
+                        </div>
+                        <ul class="tshirt-features">
+                            <li>It features the Custom Cricket Company logo on the right chest</li>
+                            <li>100% polyester dri-fit</li>
+                            <li>180 GSM in weight</li>
+                            <li>Ribbed polo collar with 3-button placket</li>
+                            <li>Tested and fitted for optimum performance for all playing conditions</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="det-name">
+                        <h4>LEG SLIP B&Y</h4>
+                        <p>The Custom Cricket company cricket shirt is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest .
+                        </p>
+                        <h3><i class="fa fa-inr"></i>995</h3>
+                        <span>Minimum order to be placed for Playing T-Shirts is 20.</span>
+                    </div>
+                    <!--                    // design tab-->
+
+
+                    <div class="choos m20-l" ng-show="tab=='design'">
+                        <p>Choose Your Type Of Design</p>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images track by $index">
+                                    <div class="cat-img">
+                                        <img ng-src="{{img.src}}" class="img-responsive">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="edit-btn inline-block">
+                            <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                        </div>
+                        <div class="edit-btn inline-block">
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+                        </div>
+                        <div class="customize-design">
+                            <span>Learn How To Customise Your Design By </span>
+                            <a href="" class="text-bold">Clicking Here</a>
+                        </div>
+                    </div>
+                    <!--                    //trim tab-->
+                    <div class="choos m20-l " ng-show="tab=='trim'">
+                        <div class="outline">
+                            <span>HIGHLIGHT 1</span>
+                            <p>Select The Trim Colour Of Your Choice</p>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4>Select The Colour</h4>
+                                    <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
+                                        <div class="colo-pallet text-center ">
+                                            <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="edit-btn margintp">
+                                <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
+                            </div>
+                        </div>
+                        <div class="outline">
+                            <span>HIGHLIGHT 2</span>
+                            <p>Select The Trim Colour Of Your Choice</p>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4>Select The Colour</h4>
+                                    <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
+                                        <div class="colo-pallet text-center ">
+                                            <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="edit-btn margintp">
+                                <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
+
+                            </div>
+                        </div>
+                        <div class="options">
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">PALETTE</button>
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">COLLAR</button>
+                        </div>
+                        <div class="edit-btn inline-block">
+                            <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                        </div>
+                        <div class="edit-btn inline-block">
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+                        </div>
+
+
+                    </div>
+                    <!--                    //trim tab-->
+                    <div class="choos m20-l" ng-show="tab=='team'">
+                        <p>Upload Your Logo</p>
+                        <div class="checkboxing">
+                            <input type="checkbox" class="form-control" id="later">
+                            <label for="later"><span></span>SEND LATER</label>
+                        </div>
+                        <div class="logo-text">
+                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="UploadTeamLogo()">TEAM LOGO</button>
+                            <span class="uppercase inline-block mright15">or</span>
+                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor();">TEAM TEXT</button>
+                        </div>
+                        <div class="print-typ printing">
+                            <p>Select The Printing Type For Your Team Logo</p>
+                            <form action="" class="radio">
+                                <input type="radio" id="radio1" name="radio" />
+                                <label for="radio1">
+                                    <span></span> Embroidered <a href="" class="link mleft10">VIEW EXAMPLE</a></label>
+
+                                <br>
+                                <input type="radio" id="radio2" name="radio" />
+                                <label for="radio2">
+                                    <span></span> Sublimated
+                                    <a href="" class="link mleft22">VIEW EXAMPLE</a></label>
+                            </form>
+                            <div class="edit-btn">
+                                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15">upload</button>
+                            </div>
+                            <div class="pbotom">
+                                <span class="block">Notes :</span>
+                                <span class="block">1.The printed CCC Logo will always be embroidered on your t-shirt</span>
+                                <span class="block">2.If you feel something is not great, our design team can fix it for you.</span>
+                                <span><a href="" ng-click="outplace();">Click here</a> to find out how?</span>
+                            </div>
+                        </div>
+
+
+                        <div class="modal fade custom" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <div class="mod-img ">
+
+                                            <div class="noti-imgs" ng-style="{'background-image':'url(img/custom/c4.jpg)'}"></div>
+                                            <button href="" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing">SUBMIT</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="choos m20-l next-level" ng-show="tab=='teamlogo'">
+                        <p>Upload Your Logo</p>
+                        <div class="logo-text">
+                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="UploadTeamLogo()">TEAM LOGO</button>
+                            <span class="uppercase inline-block mright15">or</span>
+                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor();">TEAM TEXT</button>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="up-img">
+                                    <div class="mod-img ">
+                                        <div class="noti-imgs" ng-style="{'background-image':'url(img/custom/c4.jpg)'}">
+                                        </div>
+                                        <div class="edit-btn">
+                                            <button href="" class="btn btn-outline btn-dark">CHANGE</button>
+                                            <br>
+                                            <button href="" class="btn btn-outline btn-dark">REMOVE</button>
+                                        </div>
+                                        <div class="check">
+                                            <input type="checkbox" class="form-control" id="login">
+                                            <label for="login"><span></span>Remove Image From Background</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="print-typ printing">
+                            <p>Select The Printing Type For Your Team Logo</p>
+                            <form action="" class="radio">
+                                <input type="radio" id="radio1" name="radio" />
+                                <label for="radio1">
+                                    <span></span> Embroidered <a href="" class="link mleft10">VIEW EXAMPLE</a></label>
+                                <br>
+                                <input type="radio" id="radio2" name="radio" />
+                                <label for="radio2">
+                                    <span></span> Sublimated
+                                    <a href="" class="link mleft22">VIEW EXAMPLE</a></label>
+                            </form>
+                            <div class="note">
+                                <span class="block">Notes :</span>
+                                <span>The printed CCC Logo will always be embroidered on your t-shirt</span>
+                            </div>
+                            <div class="edit-btn inline-block">
+                                <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                            </div>
+                            <div class="edit-btn inline-block">
+                                <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="openColor()">NEXT</button>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="choos m20-l nexter-level"  ng-show="tab=='teamcolor'">
+                            <p>Upload Your Text</p>
+                            <div class="logo-text">
+                                <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="UploadTeamLogo()">TEAM LOGO</button>
+                                <span class="uppercase inline-block mright15">or</span>
+                                <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor();">TEAM TEXT</button>
+                            </div>
+
+                            <div class="radio-options">
+                                <h4>Select The Font For Your Jersey Name</h4>
+                                <form action="" class="radio">
+                                    <div class="form-group inline-block">
+                                        <input type="radio" id="textradio1" name="textradio" />
+                                        <label for="textradio1">
+                                            <span></span> Arial
+                                        </label>
+                                    </div>
+                                    <div class="form-group inline-block">
+                                        <input type="radio" id="textradio2" name="textradio" />
+                                        <label for="textradio2">
+                                            <span></span> Times roman</label>
+                                    </div>
+                                    <div class="form-group inline-block">
+                                        <input type="radio" id="textradio3" name="textradio" />
+                                        <label for="textradio3">
+                                            <span></span> Helvetica
+                                        </label>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4>Select The Colour</h4>
+                                    <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
+                                        <div class="colo-pallet text-center ">
+                                            <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="notes">
+                                <span class="capitalize">please note that your tshirt name can be upto 10 characters</span>
+                            </div>
+                            <div class="range-slidings relative">
+                                <h4 class="capitalize">enter your text below</h4>
+                                <input type="text" class="block" name="name1">
+                                <input type="text" class="block " name="name2">
+                                <a class="plus" href=""><i class="fa fa-2x fa-plus-circle" aria-hidden="true"></i></a>
+                                <input type="text" class="block" name="name3">
+                            </div>
+                            <div class="range">
+                                <div class="row">
+                                    <div class="col-md-1 col-sm-1 col-xs-1">
+                                        <span>size</span>
+                                    </div>
+                                    <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                        <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                        <input type="text" name="size">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-1 col-sm-1 col-xs-1">
+                                        <span>arc</span>
+                                    </div>
+                                    <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                        <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                        <input type="text" name="size">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-1 col-sm-1 col-xs-1">
+                                        <span>rotation</span>
+                                    </div>
+                                    <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                        <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                        <input type="text" name="size">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-1 col-sm-1 col-xs-1">
+                                        <span>spacing</span>
+                                    </div>
+                                    <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                        <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                        <input type="text" name="size">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="edit-btn inline-block">
+                                <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                            </div>
+                            <div class="edit-btn inline-block">
+                                <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+                            </div>
+                        </div>
+
+                    <div class="choos m20-l" ng-show="tab=='logo'">
+                        <p>Upload Your Sponsor Logo (Optional)</p>
+                        <div class="sp-logo">
+                            <button href="" class="btn pad1 btn-outline btn-dark  block" data-toggle="modal" data-target="#myModal1">MAIN SPONSOR</button>
+
+                            <button href="" class="btn pad2 btn-outline btn-dark  block " data-toggle="modal" data-target="#myModal1">BACK SPONSOR 1</button>
+
+                            <button href="" class="btn pad2 btn-outline btn-dark  block " data-toggle="modal" data-target="#myModal1">BACK SPONSOR 2</button>
+
+                            <button href="" class="btn pad3 btn-outline btn-dark  block" data-toggle="modal" data-target="#myModal1">LEFT SLEEVE SPONSOR</button>
+
+
+                            <button href="" class="btn pad4 btn-outline btn-dark block" data-toggle="modal" data-target="#myModal1">RIGHT SLEEVE SPONSOR</button>
+
+                              <button href="" class="btn pad5 btn-outline btn-dark  block" data-toggle="modal" data-target="#myModal1">LEFT CHEST SPONSOR</button>
+
+                                  <button href="" class="btn pad3 btn-outline btn-dark block" data-toggle="modal" data-target="#myModal1">RIGHT CHEST SPONSOR</button>
+                        </div>
+                        <div class="print-typ">
+                            <div class="pbotom">
+                                <span class="block">Notes :</span>
+                                <span class="block">1. The logo of your sponsors will be sublimated. </span>
+                                <span class="block">2. The logo on the sleeves are not cut in half. It’s just to provide realistic feel.</span>
+                                <span class="block">3. If you feel something is not great, our design team can fix it for you.</span>
+                                <span><a href="">Click here</a> to find out how?</span>
+                            </div>
+                        </div>
+                        <div class="edit-btn inline-block">
+                            <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                        </div>
+                        <div class="edit-btn inline-block">
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="UploadTeamLogo1()" >NEXT</button>
+                        </div>
+<!--  -->
+                    </div>
+                    <div class="choos m20-l nextest-level" ng-show="tab=='sponsorlogo'">
+                        <p>Upload Your Sponsor Logo (Optional)</p>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="up-img">
+                                    <div class="mod-img ">
+                                        <div class="noti-imgs" ng-style="{'background-image':'url(img/custom/c4.jpg)'}">
+                                        </div>
+                                        <div class="edit-btn">
+                                            <button href="" class="btn  btn-outline btn-dark">CHANGE</button>
+                                            <br>
+                                            <button href="" class="btn bits btn-outline btn-dark">REMOVE</button>
+                                        </div>
+                                        <div class="check">
+                                            <input type="checkbox" class="form-control" id="login">
+                                            <label for="login"><span></span>Remove Image From Background</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="up-img">
+                                    <div class="mod-img ">
+                                        <div class="noti-imgs" ng-style="{'background-image':'url(img/custom/c4.jpg)'}">
+                                        </div>
+                                        <div class="edit-btn">
+                                            <button href="" class="btn btn-outline btn-dark">CHANGE</button>
+                                            <br>
+                                            <button href="" class="btn btn-outline btn-dark">REMOVE</button>
+                                        </div>
+                                        <div class="check">
+                                            <input type="checkbox" class="form-control" id="login">
+                                            <label for="login"><span></span>Remove Image From Background</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sp-logo">
+                            <button href="" class="btn bit pad4 btn-outline btn-dark block" data-toggle="modal" data-target="#myModal1">RIGHT SLEEVE SPONSOR</button>
+
+                            <button href="" class="btn bit pad2 btn-outline btn-dark  block " data-toggle="modal" data-target="#myModal1">BACK SPONSOR 1</button>
+
+                            <button href="" class="btn pad2 btn-outline btn-dark  block " data-toggle="modal" data-target="#myModal1">BACK SPONSOR 2</button>
+                        </div>
+
+                        <div class="print-typ">
+                            <div class="pbotom">
+                                <span class="block">Notes :</span>
+                                <span class="block">1. The logo of your sponsors will be sublimated. </span>
+                                <span class="block">2. The logo on the sleeves are not cut in half. It’s just to provide realistic
+                    feel.</span>
+                                <span class="block">3. If you feel something is not great, our design team can fix it for you.</span>
+                                <span><a href="">Click here</a> to find out how?</span>
+                            </div>
+                        </div>
+                        <div class="eds">
+                            <div class="edit-btn inline-block">
+                                <button href="" class=" btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                            </div>
+                        </div>
+                        <div class="edit-btn inline-block">
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="openUploadNew()">NEXT</button>
+                        </div>
+                    </div>
+
+
+                    <div class="choos quantity m20-l" ng-show="tab=='quantity'">
+                           <!-- <div class="questionare">
+                             <p>Would you like to add  name and numbers to <br>your jersey at an additional charge of 2 GBP <br>per jersey?</p>
+                             <div class="continue-buttons mr">
+                                 <button ng-click="UploadTeamLogo1()" class="btn btn-outline btn-dark mar15 mr10 padding-btn letter-spacing uppercase">yes,continue</button>
+                                 <button href="" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase">no</button>
+                             </div>
+
+                           </div> -->
+
+<!-- <div class="choos quantity m20-l nexterest-level">
+<div class="table-detail relative">
+  <p class="capitalize">Select the size for your jersey</p>
+  <div class="option-shirt relative">
+    <div class="size inline-block">
+      <span class="uppercase">size</span>
+      <select>
+        <option value="XL">XL</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
+    </select>
+    </div>
+    <div class="size inline-block">
+      <span class="uppercase">sleeve</span>
+    <select>
+      <option value="XL">XL</option>
+      <option value="20">20</option>
+      <option value="30">30</option>
+      <option value="40">40</option>
+  </select></div>
+    <div class="size inline-block">
+        <span class="inline-block uppercase">quantity</span>
+        <input type="text" class="form-control" name="name" value="">
+    </div>
+  </div>
+  <a href="" class="bins"><img src="img/rubbishbin.png" class="img-responsive" alt=""></a>
+    <div class="add-button">
+      <p><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</p>
+    </div>
+    <div class="total-amount">
+        <span class="pull-right uppercase">Total:20</span>
+    </div>
+
+  <div class="edit-btn">
+      <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>
+      <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5">next</button>
+      <br>
+  </div>
+</div>
+</div> -->
+
+
+                        <div class="chart mar15">
+                            <p>view:
+                                <span data-toggle="modal" data-target="#myModal4">Size Chart</span>
+                            </p>
+                        </div>
+                        <div class="accordion">
+
+                            <uib-accordion close-others="oneAtATime">
+                                <uib-accordion-group is-open="status.open1">
+                                    <uib-accordion-heading>
+                                        <i class="pull-left fa " ng-class="{'fa fa-minus': status.open1, 'fa fa-plus': !status.open1}"></i>Select The Font For Your Jersey Name
+                                    </uib-accordion-heading>
+                                    <div class="radio-options">
+                                        <form action="" class="radio">
+                                            <div class="form-group">
+                                                <input type="radio" id="jerseyradio1" name="jerseyradio" />
+                                                <label for="jerseyradio1">
+                                                    <span></span> Arial
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="radio" id="jerseyradio2" name="jerseyradio" />
+                                                <label for="jerseyradio2">
+                                                    <span></span> Times roman</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="radio" id="jerseyradio3" name="jerseyradio" />
+                                                <label for="jerseyradio3">
+                                                    <span></span> Helvetica
+                                                </label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h2>Select The Colour</h2>
+                                            <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
+                                                <div class="colo-pallet text-center ">
+                                                    <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </uib-accordion-group>
+                        </div>
+                        <div class="pbotom">
+                            <span class="block">Note </span>
+                            <span class="block">1. Your t-shirt name can be up to 10 characters and t-shirt number can be selected from 0 to 999.</span>
+                            <span class="block">2. You can select sleeves from being short (S.S) or long (L.S).</span>
+                            <span class="block">3. (*) - this denotes the field is mandatory.</span>
+                        </div>
+                        <div class="accordion">
+                            <uib-accordion close-others="oneAtATime">
+                                <uib-accordion-group is-open="status.open1">
+                                    <uib-accordion-heading>
+                                        <i class="pull-left fa " ng-class="{'fa fa-minus': status.open1, 'fa fa-plus': !status.open1}"></i>Select The Dimensions For Your Jersey
+                                    </uib-accordion-heading>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th class="uppercase">sizeup <sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></th>
+                                                    <th class="uppercase">sleeve <sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></th>
+                                                    <th class="uppercase">qty <sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></th>
+                                                    <th class="uppercase">name</th>
+                                                    <th class="uppercase">number</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="nothing">
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <select>
+                                                            <option value="XL">XL</option>
+                                                            <option value="20">20</option>
+                                                            <option value="30">30</option>
+                                                            <option value="40">40</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <select>
+                                                            <option value="L.S">L.S</option>
+                                                            <option value="30">30</option>
+                                                            <option value="40">40</option>
+                                                            <option value="40">40</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="quantity" value="10">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="name" value="MANAN">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="number" value="07">
+                                                    </td>
+                                                    <td>
+                                                        <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">preview</button>
+                                                    </td>
+                                                </tr>
+                                                <tr class="nothing">
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <select>
+                                                            <option value="XL">M</option>
+                                                            <option value="20">20</option>
+                                                            <option value="30">30</option>
+                                                            <option value="40">40</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <select>
+                                                            <option value="L.S">S.S</option>
+                                                            <option value="30">30</option>
+                                                            <option value="40">40</option>
+                                                            <option value="40">40</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="quantity" value="10">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="name" value="HARSHIT">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="number" value="09">
+                                                    </td>
+                                                    <td>
+                                                        <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">preview</button>
+                                                    </td>
+                                                </tr>
+                                                <tr class="nothing">
+                                                    <td></td>
+                                                </tr>
+
+
+
+
+                                                <tr>
+                                                    <td class="pad6"><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                <!-- <tr class="nothing">
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                  <td class="name">
+                                                       <span>size</span>
+                                                     </td>
+                                                     <td class="sliding">
+                                                       <div range-slider min="0" max="100" model-max="max" pin-handle="min">
+                                                       </div>
+                                                     </td>
+                                                     <td class="texting">
+                                                         <input type="text" name="size">
+                                                     </td>
+                                                   </tr>
+                                                   <tr>
+                                                     <td class="name">
+                                                          <span>arc</span>
+                                                        </td>
+                                                        <td class="sliding">
+                                                          <div range-slider min="0" max="100" model-max="max" pin-handle="min">
+                                                          </div>
+                                                        </td>
+                                                        <td class="texting">
+                                                            <input type="text" name="size">
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td class="name">
+                                                             <span>rotation</span>
+                                                           </td>
+                                                           <td class="sliding">
+                                                             <div range-slider min="0" max="100" model-max="max" pin-handle="min">
+                                                             </div>
+                                                           </td>
+                                                           <td class="texting">
+                                                               <input type="text" name="size">
+                                                           </td>
+
+                                                       </tr>
+                                                         <tr>
+                                                           <td class="name">
+                                                                <span>spacing</span>
+                                                              </td>
+                                                              <td class="sliding">
+                                                                <div range-slider min="0" max="100" model-max="max" pin-handle="min">
+                                                                </div>
+                                                              </td>
+                                                              <td class="texting">
+                                                                  <input type="text" name="size">
+                                                              </td>
+                                                            </tr>
+                                                            <tr class="nothing">
+                                                                <td></td>
+                                                            </tr> -->
+                                            </tbody>
+                                        </table>
+                                        <a href="" class="bin"><img src="img/rubbishbin.png" class="img-responsive" alt=""></a>
+                                        <a href="" class="rubbish"><img src="img/rubbishbin.png" class="img-responsive" alt=""></a>
+                                        <span class="pull-right uppercase">Total</span>
+
+                                    </div>
+                                </uib-accordion-group>
+                        </div>
+                        <div class="edit-btn">
+                            <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>
+                            <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5">next</button>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
