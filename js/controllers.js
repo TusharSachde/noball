@@ -4207,9 +4207,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       scope: $scope
     })
   }
-
-  $scope.proceed = function(){
-=======
+  //
+  // $scope.proceed = function(){
   // $scope.copyrighting = function(){
   //   $uibModal.open({
   //     templateUrl: "views/modal/copyrighting.html",
@@ -5053,8 +5052,8 @@ $scope.outplace = function() {
               scope: $scope
             })
         }
-        $scope.openChooseFile = function(){
-    =======
+        // $scope.openChooseFile = function(){
+
         // $scope.copyrighting = function(){
         //   $uibModal.open({
         //     templateUrl: "views/modal/copyrighting.html",
@@ -5488,8 +5487,8 @@ $scope.outplace = function() {
         })
       }
 
-      $scope.proceed = function(){
-  =======
+      // $scope.proceed = function(){
+
       // $scope.copyrighting = function(){
       //   $uibModal.open({
       //     templateUrl: "views/modal/copyrighting.html",
