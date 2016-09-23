@@ -41,7 +41,7 @@
                         <div class="gully-shirt">
                           <img ng-src="{{displayImage}}" class="img-responsive" alt="">
                             <img ng-src="img/tinytshirt 7 back.png" class="backdrop img-responsive" alt="">
-                            <img class="main-logo" src="img/people.png" alt="">
+                            <img class="main-logo" ng-src="{{customizedShirt.mainlogo | serverimage}}" alt="">
                             <img class="left-chest" src="img/people.png" alt="">
                             <img class="left-sleeve" src="img/people.png" alt="">
                             <img class="right-chest" src="img/people.png" alt="">
@@ -376,11 +376,13 @@
                     <div class="choos m20-l" ng-show="tab=='logo'">
                         <p>Upload Your Sponsor Logo (Optional)</p>
                         <div class="sp-logo">
-                            <button type="button" class="btn pad1 btn-outline btn-dark block" aria-label="File" for="selector"><label for="selector">MAIN SPONSOR</label>
-                              <input style="display:none;" onclick='this.value=null' type="file" id="selector"/>
+                            <button type="button" ng-class="{'button-done':customizedShirt.mainlogo}" class="btn pad1 btn-outline btn-dark block" aria-label="File" for="selector1"><label for="selector">MAIN SPONSOR</label>
+                              <input style="display:none;" ng-file-select="onFileSelect($files,1,'single','mainlogo')" onclick='this.value=null' type="file" id="selector1"/>
                             </button>
 
-                            <button href="" class="btn pad2 btn-outline btn-dark  block " data-toggle="modal" data-target="#myModal1">BACK SPONSOR 1</button>
+                            <button type="button" ng-class="{'button-done':customizedShirt.mainlogo}" class="btn pad2 btn-outline btn-dark  block " data-toggle="modal" data-target="#myModal1">BACK SPONSOR 1
+                            <input style="display:none;" ng-file-select="onFileSelect($files,1,'single','mainlogo')" onclick='this.value=null' type="file" id="selector1"/>
+                          </button>
 
                             <button href="" class="btn pad2 btn-outline btn-dark  block " data-toggle="modal" data-target="#myModal1">BACK SPONSOR 2</button>
 

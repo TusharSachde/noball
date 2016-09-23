@@ -3274,7 +3274,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('OdiCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
+.controller('OdiCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal,cfpLoadingBar) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("odi-shirt");
   $scope.menutitle = NavigationService.makeactive("odi shirt");
@@ -3292,7 +3292,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       scope: $scope
     })
   }
-  $scope.onFileSelect = function($files, whichone, uploadtype) {
+  $scope.onFileSelect = function($files, whichone, uploadtype,variable) {
     $scope.toolarge = false;
 
     if ($files[0].size < 20000000) {
@@ -3302,10 +3302,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         cfpLoadingBar.complete();
         if (whichone == 1) {
-          $scope.customInfo.image = image[0];
-          if (uploadtype == 'single') {
-            $scope.customInfo.image = image[0];
-          }
+          console.log(image);
+          $scope.customizedShirt[variable] = image[0];
+          // if (uploadtype == 'single') {
+          //   $scope.customInfo.image = image[0];
+          // }
         }
       })
     } else {

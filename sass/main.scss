@@ -2530,8 +2530,9 @@ footer {
         margin-top: 12px;
         margin-bottom: 15px;
     }
-    label{
-  font-weight: normal;
+
+    label {
+        font-weight: normal;
     }
 }
 
@@ -4614,6 +4615,7 @@ input[type=number]::-webkit-outer-spin-button {
     }
 }
 // checkout paypal
+
 .paypal {
     width: 145px;
     min-height: 42px;
@@ -5145,7 +5147,6 @@ h2 {
     //   margin: 34px 0 0 0;
     //   font-size: 20px;
     // }
-
     h2 {
         margin: -1px 0 0;
         font-size: 20px;
@@ -5310,9 +5311,10 @@ h2 {
         margin-right: 15px;
     }
 }
-.button-done{
-  background-color: #90c73e;
-color: white;
-border-color: #90c73e;
+
+.button-done {
+    background-color: #90c73e !important;
+    color: white !important;
+    border-color: #90c73e !important;
 }
 @import "mobile/mobile";
