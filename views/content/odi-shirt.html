@@ -376,7 +376,9 @@
                     <div class="choos m20-l" ng-show="tab=='logo'">
                         <p>Upload Your Sponsor Logo (Optional)</p>
                         <div class="sp-logo">
-                            <button href="" class="btn pad1 btn-outline btn-dark  block" data-toggle="modal" ng-click="copyrighting()" data-target="#myModal1">MAIN SPONSOR</button>
+                            <button type="button" class="btn pad1 btn-outline btn-dark block" aria-label="File" for="selector"><label for="selector">MAIN SPONSOR</label>
+                              <input style="display:none;" onclick='this.value=null' type="file" id="selector"/>
+                            </button>
 
                             <button href="" class="btn pad2 btn-outline btn-dark  block " data-toggle="modal" data-target="#myModal1">BACK SPONSOR 1</button>
 
