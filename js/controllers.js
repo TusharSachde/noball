@@ -3283,6 +3283,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   var check = 1;
   console.log("jagrti");
   $scope.displayImage = "img/tinytshirt 7.png";
+  $scope.customizedShirt = {};
 
   $scope.UploadTeamLogo = function() {
     check = 2;
@@ -3353,6 +3354,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   }
   $scope.copyrighting = function() {
+    console.log("here");
     $uibModal.open({
       templateUrl: "views/modal/copyrighting.html",
       scope: $scope
