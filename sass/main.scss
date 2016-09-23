@@ -83,7 +83,9 @@ body {
         @include transition(all 300ms ease);
     }
 }
-
+.no-margin{
+  margin: 0;
+}
 button {
     &:focus {
         box-shadow: none !important;
