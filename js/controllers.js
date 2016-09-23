@@ -3283,7 +3283,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.navigation = NavigationService.getnav();
   var check = 1;
   console.log("jagrti");
-  $scope.displayImage = "img/tinytshirt 7.png";
+  // $scope.displayImage = "img/tinytshirt 7.png";
   $scope.customizedShirt = {};
 
   $scope.UploadTeamLogo = function() {
@@ -3293,6 +3293,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       scope: $scope
     })
   }
+  $scope.switchFrontBack = function (front) {
+    $scope.customizedShirt.front = front;
+    $scope.customizedShirt.back = !front;
+    if(front){
+      $scope.customizedShirt.cloth = 'img/tinytshirt 7.png';
+      $scope.customizedShirt.backdrop = 'img/tinytshirt 7 back.png';
+    }else{
+      $scope.customizedShirt.cloth = 'img/tinytshirt 1 back.png';
+      $scope.customizedShirt.backdrop = 'img/tinytshirt 1 back back.png';
+    }
+  }
+  $scope.switchFrontBack(true);
+
   $scope.onFileSelect = function($files, whichone, uploadtype,variable) {
     $scope.toolarge = false;
 
