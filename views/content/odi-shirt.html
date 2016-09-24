@@ -41,10 +41,12 @@
                         <div class="gully-shirt">
                             <img ng-src="{{customizedShirt.cloth}}" class="img-responsive" alt="">
                             <img ng-src="{{customizedShirt.backdrop}}" class="backdrop img-responsive" alt="">
-                            <img class="main-logo" ng-if="customizedShirt.mainlogo" ng-src="{{customizedShirt.mainlogo | serverimage}}" alt="">
-                            <img class="left-chest" ng-if="customizedShirt.leftchest" ng-src="{{customizedShirt.leftchest | serverimage}}" alt="">
+                            <img class="main-logo" ng-if="customizedShirt.front && customizedShirt.mainlogo" ng-src="{{customizedShirt.mainlogo | serverimage}}" alt="">
+                            <img class="back-sponsor1" ng-if="customizedShirt.back && customizedShirt.backsponsor1" ng-src="{{customizedShirt.backsponsor1 | serverimage}}" alt="">
+                            <img class="back-sponsor2" ng-if="customizedShirt.back && customizedShirt.backsponsor2" ng-src="{{customizedShirt.backsponsor2 | serverimage}}" alt="">
+                            <img class="left-chest" ng-if="customizedShirt.front && customizedShirt.leftchest" ng-src="{{customizedShirt.leftchest | serverimage}}" alt="">
                             <img ng-class="{'left-sleeve':customizedShirt.front,'right-sleeve':customizedShirt.back}" ng-if="customizedShirt.leftsleeve" ng-src="{{customizedShirt.leftsleeve | serverimage}}" alt="">
-                            <img class="right-chest" ng-if="customizedShirt.rightchest" ng-src="{{customizedShirt.rightchest | serverimage}}" alt="">
+                            <img class="right-chest" ng-if="customizedShirt.front && customizedShirt.rightchest" ng-src="{{customizedShirt.rightchest | serverimage}}" alt="">
                             <img ng-class="{'right-sleeve':customizedShirt.front,'left-sleeve':customizedShirt.back}" ng-if="customizedShirt.rightsleeve" ng-src="{{customizedShirt.rightsleeve | serverimage}}" alt="">
                             <!-- <img class="" src="img/people.png" alt=""> -->
                             <!-- <img class="" src="img/people.png" alt=""> -->

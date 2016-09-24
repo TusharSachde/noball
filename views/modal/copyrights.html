@@ -14,11 +14,11 @@
     </ul>
   </div>
   <div class="check">
-      <input type="checkbox" class="form-control" id="loginings">
-      <label for="loginings"><span></span>I hereby declare I have permission to use this file. </label>
+      <input type="checkbox" ng-model="statuses.copyright" class="form-control" id="loginings">
+      <label for="loginings"><span></span>I hereby declare I have permission to use this file. statuses{{statuses.copyright}}</label>
   </div>
   <div class="copyrights-buttons pull-right">
       <button href="" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase">cancel</button>
-      <button href="" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase" ng-click="openChooseFile()">ok</button>
+      <button href="" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase" ng-if="statuses.copyright" ng-click="openChooseFile()">ok</button>
   </div>
 </div>

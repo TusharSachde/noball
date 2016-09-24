@@ -2455,6 +2455,18 @@ footer {
         right: 200px;
         width: 50px;
     }
+    .back-sponsor1 {
+        position: absolute;
+        top: 100px;
+        right: 200px;
+        width: 50px;
+    }
+    .back-sponsor2 {
+        position: absolute;
+        top: 200px;
+        right: 200px;
+        width: 50px;
+    }
 
     .left-chest {
         position: absolute;
@@ -2489,7 +2501,7 @@ footer {
     .backdrop {
         position: absolute;
         top: 0;
-        z-index: 999;
+        z-index: 90;
     }
 }
 
