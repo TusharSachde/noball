@@ -385,9 +385,14 @@
 
                     <div class="choos m20-l" ng-show="tab=='logo'">
                         <p>Upload Your Sponsor Logo (Optional)</p>
-                        <div class="default">
+                        <div class="default inline-block">
                             <div class="mod-img ">
                                 <div class="noti-imgs" ng-style="{'background-image':'url(img/custom/c4.jpg)'}">
+                                </div>
+                                <div class="sliding">
+                                    <span>size</span>
+                                    <div range-slider min="0" max="100" model-max="max" pin-handle="min">
+                                    </div>
                                 </div>
                                 <div class="edit-btn">
                                     <button href="" class="btn btn-outline btn-dark">CHANGE</button>
