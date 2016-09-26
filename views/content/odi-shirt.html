@@ -41,13 +41,20 @@
                         <div class="gully-shirt">
                             <img ng-src="{{customizedShirt.cloth}}" class="img-responsive" alt="">
                             <img ng-src="{{customizedShirt.backdrop}}" class="backdrop img-responsive" alt="">
-                            <img class="main-logo" ng-if="customizedShirt.front && customizedShirt.mainlogo" ng-src="{{customizedShirt.mainlogo | serverimage}}" alt="">
-                            <img class="back-sponsor1" ng-if="customizedShirt.back && customizedShirt.backsponsor1" ng-src="{{customizedShirt.backsponsor1 | serverimage}}" alt="">
-                            <img class="back-sponsor2" ng-if="customizedShirt.back && customizedShirt.backsponsor2" ng-src="{{customizedShirt.backsponsor2 | serverimage}}" alt="">
-                            <img class="left-chest" ng-if="customizedShirt.front && customizedShirt.leftchest" ng-src="{{customizedShirt.leftchest | serverimage}}" alt="">
-                            <img ng-class="{'left-sleeve':customizedShirt.front,'right-sleeve':customizedShirt.back}" ng-if="customizedShirt.leftsleeve" ng-src="{{customizedShirt.leftsleeve | serverimage}}" alt="">
-                            <img class="right-chest" ng-if="customizedShirt.front && customizedShirt.rightchest" ng-src="{{customizedShirt.rightchest | serverimage}}" alt="">
-                            <img ng-class="{'right-sleeve':customizedShirt.front,'left-sleeve':customizedShirt.back}" ng-if="customizedShirt.rightsleeve" ng-src="{{customizedShirt.rightsleeve | serverimage}}" alt="">
+                            <img class="main-logo" ng-if="customizedShirt.front && customizedShirt.mainlogo" ng-src="{{customizedShirt.mainlogo | serverimage}}"
+                                alt="">
+                            <img class="back-sponsor1" ng-if="customizedShirt.back && customizedShirt.backsponsor1" ng-src="{{customizedShirt.backsponsor1 | serverimage}}"
+                                alt="">
+                            <img class="back-sponsor2" ng-if="customizedShirt.back && customizedShirt.backsponsor2" ng-src="{{customizedShirt.backsponsor2 | serverimage}}"
+                                alt="">
+                            <img class="left-chest" ng-if="customizedShirt.front && customizedShirt.leftchest" ng-src="{{customizedShirt.leftchest | serverimage}}"
+                                alt="">
+                            <img ng-class="{'left-sleeve':customizedShirt.front,'right-sleeve':customizedShirt.back}" ng-if="customizedShirt.leftsleeve"
+                                ng-src="{{customizedShirt.leftsleeve | serverimage}}" alt="">
+                            <img class="right-chest" ng-if="customizedShirt.front && customizedShirt.rightchest" ng-src="{{customizedShirt.rightchest | serverimage}}"
+                                alt="">
+                            <img ng-class="{'right-sleeve':customizedShirt.front,'left-sleeve':customizedShirt.back}" ng-if="customizedShirt.rightsleeve"
+                                ng-src="{{customizedShirt.rightsleeve | serverimage}}" alt="">
                             <!-- <img class="" src="img/people.png" alt=""> -->
                             <!-- <img class="" src="img/people.png" alt=""> -->
                         </div>
@@ -74,8 +81,9 @@
                 <div class="col-md-7">
                     <div class="det-name">
                         <h4>MATT B&amp;Y</h4>
-                        <p>The Custom Cricket company cricket shirt is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest
-                            .
+                        <p>The Custom Cricket company cricket shirt is made from wicking fabric that lifts moisture from your
+                            body. Tested and built to perform in warm and cold climate conditions. It features the Custom
+                            Cricket company on the right chest .
                         </p>
                         <h3><i class="fa fa-inr"></i>995</h3>
                         <span>Minimum order to be placed for Playing T-Shirts is 20.</span>
@@ -168,7 +176,7 @@
                             <label for="later"><span></span>SEND LATER</label>
                         </div>
                         <div class="logo-text">
-                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="copyrighting()">TEAM LOGO</button>
+                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openChooseFile()">TEAM LOGO</button>
                             <span class="uppercase inline-block mright15">or</span>
                             <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor();">TEAM TEXT</button>
                         </div>
@@ -378,32 +386,39 @@
                     <div class="choos m20-l" ng-show="tab=='logo'">
                         <p>Upload Your Sponsor Logo (Optional)</p>
                         <div class="sp-logo">
-                            <button type="button" ng-if="customizedShirt.front" ng-class="{'button-done':customizedShirt.mainlogo}" class="btn pad1 btn-outline btn-dark block" aria-label="File"><label class="no-margin" for="selector1">MAIN SPONSOR <i ng-if="customizedShirt.mainlogo" class="fa fa-check-circle"></i></label>
+                            <button type="button" ng-if="customizedShirt.front" ng-class="{'button-done':customizedShirt.mainlogo}" class="btn pad1 btn-outline btn-dark block"
+                                aria-label="File"><label class="no-margin" for="selector1">MAIN SPONSOR <i ng-if="customizedShirt.mainlogo" class="fa fa-check-circle"></i></label>
                               <input style="display:none;" ng-file-select="onFileSelect($files,1,'single','mainlogo')" onclick='this.value=null' type="file" id="selector1"/>
                             </button>
 
-                            <button type="button" ng-if="customizedShirt.back" ng-class="{'button-done':customizedShirt.backsponsor1}" class="btn pad2 btn-outline btn-dark block" aria-label="File"><label class="no-margin" for="selector2">BACK SPONSOR 1 <i ng-if="customizedShirt.backsponsor1" class="fa fa-check-circle"></i></label>
+                            <button type="button" ng-if="customizedShirt.back" ng-class="{'button-done':customizedShirt.backsponsor1}" class="btn pad2 btn-outline btn-dark block"
+                                aria-label="File"><label class="no-margin" for="selector2">BACK SPONSOR 1 <i ng-if="customizedShirt.backsponsor1" class="fa fa-check-circle"></i></label>
                               <input style="display:none;" ng-file-select="onFileSelect($files,1,'single','backsponsor1')" onclick='this.value=null' type="file" id="selector2"/>
                             </button>
 
-                            <button type="button" ng-if="customizedShirt.back" ng-class="{'button-done':customizedShirt.backsponsor2}" class="btn pad2 btn-outline btn-dark block" aria-label="File"><label class="no-margin" for="selector3">BACK SPONSOR 2 <i ng-if="customizedShirt.backsponsor2" class="fa fa-check-circle"></i></label>
+                            <button type="button" ng-if="customizedShirt.back" ng-class="{'button-done':customizedShirt.backsponsor2}" class="btn pad2 btn-outline btn-dark block"
+                                aria-label="File"><label class="no-margin" for="selector3">BACK SPONSOR 2 <i ng-if="customizedShirt.backsponsor2" class="fa fa-check-circle"></i></label>
                               <input style="display:none;" ng-file-select="onFileSelect($files,1,'single','backsponsor2')" onclick='this.value=null' type="file" id="selector3"/>
                             </button>
 
-                            <button type="button" ng-if="customizedShirt.front" ng-class="{'button-done':customizedShirt.leftsleeve}" class="btn pad3 btn-outline btn-dark block" aria-label="File"><label class="no-margin" for="selector4">LEFT SLEEVE SPONSOR <i ng-if="customizedShirt.leftsleeve" class="fa fa-check-circle"></i></label>
+                            <button type="button" ng-if="customizedShirt.front" ng-class="{'button-done':customizedShirt.leftsleeve}" class="btn pad3 btn-outline btn-dark block"
+                                aria-label="File"><label class="no-margin" for="selector4">LEFT SLEEVE SPONSOR <i ng-if="customizedShirt.leftsleeve" class="fa fa-check-circle"></i></label>
                             <input style="display:none;" ng-file-select="onFileSelect($files,1,'single','leftsleeve')" onclick='this.value=null' type="file" id="selector4"/>
                           </button>
 
 
-                            <button type="button" ng-if="customizedShirt.front" ng-class="{'button-done':customizedShirt.rightsleeve}" class="btn pad4 btn-outline btn-dark block" aria-label="File"><label class="no-margin" for="selector5">RIGHT SLEEVE SPONSOR <i ng-if="customizedShirt.rightsleeve" class="fa fa-check-circle"></i></label>
+                            <button type="button" ng-if="customizedShirt.front" ng-class="{'button-done':customizedShirt.rightsleeve}" class="btn pad4 btn-outline btn-dark block"
+                                aria-label="File"><label class="no-margin" for="selector5">RIGHT SLEEVE SPONSOR <i ng-if="customizedShirt.rightsleeve" class="fa fa-check-circle"></i></label>
                             <input style="display:none;" ng-file-select="onFileSelect($files,1,'single','rightsleeve')" onclick='this.value=null' type="file" id="selector5"/>
                           </button>
 
-                            <button type="button" ng-if="customizedShirt.front" ng-class="{'button-done':customizedShirt.leftchest}" class="btn pad5 btn-outline btn-dark block" aria-label="File"><label class="no-margin" for="selector6">LEFT CHEST SPONSOR <i ng-if="customizedShirt.leftchest" class="fa fa-check-circle"></i></label>
+                            <button type="button" ng-if="customizedShirt.front" ng-class="{'button-done':customizedShirt.leftchest}" class="btn pad5 btn-outline btn-dark block"
+                                aria-label="File"><label class="no-margin" for="selector6">LEFT CHEST SPONSOR <i ng-if="customizedShirt.leftchest" class="fa fa-check-circle"></i></label>
                             <input style="display:none;" ng-file-select="onFileSelect($files,1,'single','leftchest')" onclick='this.value=null' type="file" id="selector6"/>
                           </button>
 
-                            <button type="button" ng-if="customizedShirt.front" ng-class="{'button-done':customizedShirt.rightchest}" class="btn pad3 btn-outline btn-dark block" aria-label="File"><label class="no-margin" for="selector7">RIGHT CHEST SPONSOR <i ng-if="customizedShirt.rightchest" class="fa fa-check-circle"></i></label>
+                            <button type="button" ng-if="customizedShirt.front" ng-class="{'button-done':customizedShirt.rightchest}" class="btn pad3 btn-outline btn-dark block"
+                                aria-label="File"><label class="no-margin" for="selector7">RIGHT CHEST SPONSOR <i ng-if="customizedShirt.rightchest" class="fa fa-check-circle"></i></label>
                             <input style="display:none;" ng-file-select="onFileSelect($files,1,'single','rightchest')" onclick='this.value=null' type="file" id="selector7"/>
                           </button>
                         </div>
@@ -493,7 +508,9 @@
 
                     <div class="choos quantity m20-l" ng-show="tab=='quantity'">
                         <div class="questionare">
-                            <p class="hidden-xs">Would you like to add name and numbers to <br>your jersey at an additional charge of 2 GBP <br>per jersey?</p>
+                            <p class="hidden-xs">Would you like to add name and numbers to <br>your jersey at an additional charge of 2 GBP <br>per
+                                jersey?
+                            </p>
                             <p class="hidden-md hidden-lg">Would you like to add name and numbers to your jersey at an additional charge of 2 GBP per jersey?</p>
                             <div class="continue-buttons mr">
                                 <button ng-click="showQuantiyTab()" class="btn btn-outline btn-dark mar15 mr10 padding-btn letter-spacing uppercase">yes,continue</button>
@@ -555,7 +572,8 @@
                             <uib-accordion close-others="oneAtATime">
                                 <uib-accordion-group is-open="status.open1">
                                     <uib-accordion-heading>
-                                        <i class="pull-left fa " ng-class="{'fa fa-minus': status.open1, 'fa fa-plus': !status.open1}"></i>Select The Font For Your Jersey Name
+                                        <i class="pull-left fa " ng-class="{'fa fa-minus': status.open1, 'fa fa-plus': !status.open1}"></i>Select
+                                        The Font For Your Jersey Name
                                     </uib-accordion-heading>
                                     <div class="radio-options">
                                         <form action="" class="radio">
@@ -601,7 +619,8 @@
                             <uib-accordion close-others="oneAtATime">
                                 <uib-accordion-group is-open="status.open1">
                                     <uib-accordion-heading>
-                                        <i class="pull-left fa " ng-class="{'fa fa-minus': status.open1, 'fa fa-plus': !status.open1}"></i>Select The Dimensions For Your Jersey
+                                        <i class="pull-left fa " ng-class="{'fa fa-minus': status.open1, 'fa fa-plus': !status.open1}"></i>Select
+                                        The Dimensions For Your Jersey
                                     </uib-accordion-heading>
                                     <div class="table-responsive">
                                         <table class="table">
