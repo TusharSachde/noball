@@ -6,8 +6,8 @@ var tabvalue = 1;
 var user = $.jStorage.get("user");
 var globalfunction = {};
 var bigcount = {};
-window.uploadUrl = "http://customcricketcompany.com/admin/index.php/json/uploadImage";
-// window.uploadUrl = "http://192.168.0.103/cccbackend/index.php/json/uploadImage";
+// window.uploadUrl = "http://customcricketcompany.com/admin/index.php/json/uploadImage";
+window.uploadUrl = "http://192.168.0.110/cccbackend/index.php/json/uploadImage";
 
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'duScroll', 'cfp.loadingBar', 'ngDialog', 'angularFileUpload', 'ngSanitize', 'ui-rangeSlider'])
 
@@ -3271,11 +3271,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-
-
 })
 
-.controller('OdiCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
+.controller('OdiCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar,$filter) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("odi-shirt");
   $scope.menutitle = NavigationService.makeactive("odi shirt");
@@ -3286,6 +3284,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   // $scope.displayImage = "img/tinytshirt 7.png";
   $scope.customizedShirt = {};
   $scope.statuses = {};
+  $scope.previewImages = {};
+
+  // image upload variables
+  $scope.variable = "";
   // $scope.statuses.copyright = false;
 
   $scope.UploadTeamLogo = function () {
@@ -3307,11 +3309,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
   }
   $scope.switchFrontBack(true);
+  $scope.statuses.uploadStatus = false;
+  $scope.tempImage = "";
 
   $scope.onFileSelect = function ($files, whichone, uploadtype, variable) {
     $scope.toolarge = false;
-
+    console.log($files);
     if ($files[0].size < 20000000) {
+      $scope.statuses.uploadStatus = true;
       cfpLoadingBar.start();
       $scope.showimage = true;
       globalfunction.onFileSelect($files, function (image) {
@@ -3319,11 +3324,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         cfpLoadingBar.complete();
         if (whichone == 1) {
           console.log(image);
-          $scope.customizedShirt[variable] = image[0];
-          console.log($scope.customizedShirt);
-          // if (uploadtype == 'single') {
-          //   $scope.customInfo.image = image[0];
-          // }
+          $scope.tempImage = image[0];
+          //$scope.customizedShirt[variable] = image[0];
+          console.log($scope.tempImage);
+          // $scope.previewImages.image = $filter('serverimage')($scope.customizedShirt[variable]);
         }
       })
     } else {
@@ -3331,6 +3335,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       $scope.toolarge = true;
     }
   }
+  $scope.confirmUpload = function(variable) {
+    //$dismiss();
+    $scope.statuses.modal.close();
+    $scope.customizedShirt[variable] = $scope.tempImage;
+    console.log($scope.customizedShirt[variable]);
+  }
+
   $scope.UploadTeamLogo1 = function () {
     check = 3;
     $uibModal.open({
@@ -3353,13 +3364,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   // $scope.showVideo = true;
   $scope.showVid = function () {
     $scope.showVideo = false;
-
   }
 
-
-
-  $scope.openUploads = function () {
-    $uibModal.open({
+  $scope.openUploads = function (variable) {
+    $scope.statuses.uploadStatus = false;
+    $scope.variable = variable;
+    $scope.statuses.modal = $uibModal.open({
       templateUrl: "views/modal/tshirt.html",
       scope: $scope
     })

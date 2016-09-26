@@ -5,19 +5,25 @@
   <div class="row">
   <div class="col-md-5">
     <div class="mod-img ">
-      <div class="noti-imgs" ng-style="{}"></div>
+      <div class="noti-imgs" ng-style="{}">
+        
+      </div>
     </div>
   </div>
     <div class="col-md-7">
 <div class="format-type">
-<h2>File Type Format</h2>
+<h2>File {{variable}} Type Format</h2>
 <span>jpeg, png, tiff, pdf, eps</span>
 </div>
 <div class="file-size">
 <h2>Maximum Upload File Size 20MB </h2>
 <span>File may take anywhere from a few seconds to a few minutes to upload.</span>
 </div>
-  <button href="" class="btn btn-outline btn-dark  padding-btn letter-spacing" ng-click="openUploads()">choose your file</button>
+  <!--<button href="" class="btn btn-outline btn-dark  padding-btn letter-spacing" ng-click="openUploads()">choose your file</button>-->
+  <button type="button" class="btn pad4 btn-outline btn-dark block" aria-label="File">
+    <label class="no-margin" for="selector5">Upload Image</label>
+    <input style="display:none;" ng-file-select="onFileSelect($files, 1, 'single', variable)" onclick='this.value=null' type="file" id="selector5"/>
+  </button>
     </div>
     </div>
 </div>
