@@ -35,12 +35,13 @@
           <span>jpeg, png, tiff, pdf, eps</span>
         </div>
         <div class="file-size">
-          <h2>Maximum Upload File Size 20MB </h2>
+          <h2>Maximum Upload File Size 20MB</h2>
           <span>File may take anywhere from a few seconds to a few minutes to upload.</span>
         </div>
+        <span ng-if="toolarge" style="font-weight: bold">Please upload images below 20MB</span>
         <div ng-if="statuses.uploadStatus">
           <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" ng-class="{'width-full': tempImage}"></div>
           </div>
           <span class="pull-right mt12">100% completed</span>
         </div>
@@ -54,8 +55,8 @@
   </div>
 </div>
 <div class="copyrights">
-  <!-- <a href="" ng-click="$dismiss();" class="pull-right"><i class="fa fa-times" aria-hidden="true"></i></a> -->
-  <div class="copies" ng-hide="showVideo">
+  <!-- <a ng-click="$dismiss();" class="pull-right"><i class="fa fa-times" aria-hidden="true"></i></a> -->
+  <div class="copies" ng-if="!statuses.showcopy">
     <div class="text-center">
       <h2>Confirm Copyrights Permission</h2>
       <!-- <img src="img/normal-logo.png" class="img-responsive" alt=""> -->
@@ -71,16 +72,18 @@
       </ul>
     </div>
   </div>
-  <div class="check">
-    <input type="checkbox" class="form-control" id="log">
+  <form ng-submit="confirmUpload(variable)" name="uploadform">
+    <div class="check" ng-if="!statuses.showcopy">
+    <input type="checkbox" class="form-control" id="log" name="hereby" ng-required="!statuses.showcopy">
     <label for="log"><span></span>I hereby declare I have permission to use this file.</label>
   </div>
-  <div class="check">
-    <input type="checkbox" ng-model="showVideo" class="form-control" id="dont">
+  <div class="check" ng-if="!statuses.showcopy">
+    <input type="checkbox" ng-model="statuses.showcopy" class="form-control" id="dont" >
     <label for="dont"><span></span>Don't ask again</label>
   </div>
   <div class="copyrights-buttons pull-right">
-    <button href="" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase">cancel</button>
-    <button href="" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase" ng-if="statuses.uploadStatus" ng-click="confirmUpload(variable)">ok</button>
+    <button class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase">cancel</button>
+    <button type="submit" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase" ng-if="statuses.uploadStatus">ok</button>
   </div>
+  </form>
 </div>

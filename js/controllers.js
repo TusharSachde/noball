@@ -3284,6 +3284,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   // $scope.displayImage = "img/tinytshirt 7.png";
   $scope.customizedShirt = {};
   $scope.statuses = {};
+  $scope.statuses.showcopy = false;
   $scope.previewImages = {};
 
   // image upload variables
@@ -3340,6 +3341,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.statuses.modal.close();
     $scope.customizedShirt[variable] = $scope.tempImage;
     console.log($scope.customizedShirt[variable]);
+    $scope.tempImage = "";
   }
 
   $scope.UploadTeamLogo1 = function () {
