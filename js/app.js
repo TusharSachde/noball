@@ -313,7 +313,11 @@ firstapp.filter('serverimage', function() {
   return function(input) {
     console.log(input);
     if (input) {
-      return  imgurl + input;
+      if (input.substring(0, 4) === "img/" ) {
+        return input;
+      } else {
+        return  imgurl + input;
+      }
     } else {
       // return "img/logo.png";
       return "";

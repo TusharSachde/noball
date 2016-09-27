@@ -3291,6 +3291,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.variable = "";
   // $scope.statuses.copyright = false;
 
+  $scope.customizedShirt.leftchest = {};
+    $scope.customizedShirt.leftchest.image = "img/logo_black.png";
+  
+  
   $scope.UploadTeamLogo = function() {
     check = 2;
     $uibModal.open({
@@ -3308,6 +3312,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       $scope.customizedShirt.cloth = 'img/tinytshirt 1 back.png';
       $scope.customizedShirt.backdrop = 'img/tinytshirt 1 back back.png';
     }
+  // _.each($scope.customizedShirt,function(value,property){
+  //   console.log(angular.isObject($scope.customizedShirt[property]));
+  // });
   }
   $scope.switchFrontBack(true);
   $scope.statuses.uploadStatus = false;
@@ -3326,6 +3333,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         if (whichone == 1) {
           console.log(image);
           $scope.tempImage = image[0];
+          if(!$scope.customizedShirt[variable]) {
+            $scope.customizedShirt[variable] = {};
+            console.log($scope.customizedShirt);
+          }
           //$scope.customizedShirt[variable] = image[0];
           console.log($scope.tempImage);
           // $scope.previewImages.image = $filter('serverimage')($scope.customizedShirt[variable]);
@@ -3339,7 +3350,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.confirmUpload = function(variable) {
     //$dismiss();
     $scope.statuses.modal.close();
-    $scope.customizedShirt[variable] = $scope.tempImage;
+    $scope.customizedShirt[variable].image = $scope.tempImage;
     console.log($scope.customizedShirt[variable]);
     $scope.tempImage = "";
   }
