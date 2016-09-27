@@ -47,6 +47,7 @@
                             <div class="gully-shirt">
                                 <img ng-src="{{customizedShirt.cloth}}" class="img-responsive" alt="">
                                 <img ng-src="{{customizedShirt.backdrop}}" class="backdrop img-responsive" alt="">
+                                <img ng-src="{{trimTshirt.highlightOne}}" class="trimshirt img-responsive" alt="">
                                 <div class="div-main-logo" ng-if="customizedShirt.front && customizedShirt.mainlogo.image">
                                     <img class="main-logo" ng-src="{{customizedShirt.mainlogo.image | serverimage}}"
                                     alt="" ng-style="customizedShirt.mainlogo.attributes">
@@ -148,7 +149,7 @@
                                         <h4>Select The Colour</h4>
                                         <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
                                             <div class="colo-pallet text-center ">
-                                                <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
+                                                <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-click="trimHighlighOne(col.name)"></div>
                                             </div>
                                         </div>
 
@@ -411,7 +412,7 @@
                             <p>Upload Your Sponsor Logo (Optional)</p>
                             <div class="default inline-block" ng-repeat="(key, value) in customizedShirt" ng-if="checkCustomizeShirt(key)">
                                 <div class="mod-img">
-                                    <div class="noti-imgs" ng-style="{'background-image':'{{customizedShirt[key].image | serverimage2}}'}">
+                                    <div class="noti-imgs" style='background-image:url({{customizedShirt[key].image | serverimage}});'>
                                     </div>
 
                                     <div class="sliding">

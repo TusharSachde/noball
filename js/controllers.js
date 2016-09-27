@@ -6,8 +6,8 @@ var tabvalue = 1;
 var user = $.jStorage.get("user");
 var globalfunction = {};
 var bigcount = {};
-// window.uploadUrl = "http://customcricketcompany.com/admin/index.php/json/uploadImage";
-window.uploadUrl = "http://192.168.0.110/cccbackend/index.php/json/uploadImage";
+window.uploadUrl = "http://customcricketcompany.com/admin/index.php/json/uploadImage";
+// window.uploadUrl = "http://192.168.0.110/cccbackend/index.php/json/uploadImage";
 
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'duScroll', 'cfp.loadingBar', 'ngDialog', 'angularFileUpload', 'ngSanitize', 'ui-rangeSlider'])
 
@@ -3296,7 +3296,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     max: 100
   };
   // $scope.statuses.copyright = false;
-
+  $scope.trimTshirt = {};
   $scope.customizedShirt.leftchest = {};
   $scope.customizedShirt.leftchest.image = "img/logo_black.png";
   $scope.customizedShirt.leftchest.attributes = {};
@@ -3385,6 +3385,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       templateUrl: "views/modal/choosefile.html",
       scope: $scope
     })
+  }
+  $scope.trimHighlighOne = function(color) {
+    $scope.trimTshirt.highlightOne = "img/trim/highlight1/trim-" + color + ".png";
   }
 
   // $scope.showCheck = true;
@@ -3661,11 +3664,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   });
 
   $scope.color = [{
-    colr: "#c80d28"
+    colr: "#c80d28",
+    name: "red"
   }, {
-    colr: "#2c8b47"
+    colr: "#2c8b47",
+    name: "green"
   }, {
-    colr: "#e87024"
+    colr: "#e87024",
+    name: "orange"
   }];
 
   $scope.color2 = [{
