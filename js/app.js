@@ -318,7 +318,7 @@ firstapp.filter('serverimage', function() {
       // return "img/logo.png";
       return "";
     }
-  };0
+  };
 });
 
 firstapp.filter('rawHtml', ['$sce',
@@ -596,4 +596,34 @@ firstapp.directive('img', function($compile, $parse) {
       }
     }
   };
+});
+firstapp.directive('equalHeight', function($compile, $parse) {
+    return {
+        restrict: 'EA',
+        replace: false,
+        link: function($scope, element, attrs) {
+            var $element = $(element);
+            var wid = $element.width();
+            $element.css({'height': wid});
+            $( window ).resize(function() {
+              var wid = $element.width();
+              $element.css({'height': wid});
+            });
+        }
+    };
+});
+firstapp.directive('equalWidth', function($compile, $parse) {
+    return {
+        restrict: 'EA',
+        replace: false,
+        link: function($scope, element, attrs) {
+            var $element = $(element);
+            var height = $element.height();
+            $element.css({'width': height});
+            $( window ).resize(function() {
+              var height = $element.width();
+              $element.css({'width': height});
+            });
+        }
+    };
 });

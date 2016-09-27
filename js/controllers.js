@@ -11,7 +11,7 @@ window.uploadUrl = "http://192.168.0.110/cccbackend/index.php/json/uploadImage";
 
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'duScroll', 'cfp.loadingBar', 'ngDialog', 'angularFileUpload', 'ngSanitize', 'ui-rangeSlider'])
 
-.controller('HomeCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $uibModal, cfpLoadingBar) {
+.controller('HomeCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $uibModal, cfpLoadingBar) {
     //Used to name the .html file
     cfpLoadingBar.start();
     $scope.template = TemplateService.changecontent("home");
@@ -22,23 +22,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     // $scope.country = "GBP";
     $scope.country = $.jStorage.get("myCurrency");
-    NavigationService.getCategory(function (data) {
+    NavigationService.getCategory(function(data) {
       $scope.categories = _.chunk(data, 3);
-    }, function (err) {
+    }, function(err) {
       console.log(err);
     });
-    NavigationService.getSlider(function (data) {
+    NavigationService.getSlider(function(data) {
       cfpLoadingBar.complete();
       $scope.mySlides = data;
-    }, function (err) {
+    }, function(err) {
       console.log(err);
     });
-    $scope.getMinOrder = function () {
-      NavigationService.getCurrency(function (data) {
+    $scope.getMinOrder = function() {
+      NavigationService.getCurrency(function(data) {
         if (data) {
           // var temp= _.find(data,{'name':$scope.country});
           var temp;
-          _.each(data, function (key) {
+          _.each(data, function(key) {
             if (key.name == $.jStorage.get("myCurrency")) {
               temp = key;
             }
@@ -47,20 +47,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.minorder = temp.minorder;
           }
         }
-      }, function (err) {
+      }, function(err) {
         console.log(err);
       });
-    }
+    };
     $scope.getMinOrder();
-    $scope.openAppoinment = function () {
+    $scope.openAppoinment = function() {
       $uibModal.open({
         animation: true,
         templateUrl: 'views/modal/appoinment.html',
         controller: 'HomeCtrl'
-      })
+      });
     };
   })
-  .controller('CategoriesCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, cfpLoadingBar) {
+  .controller('CategoriesCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, cfpLoadingBar) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("categories");
     $scope.menutitle = NavigationService.makeactive("Categories");
@@ -73,19 +73,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     cfpLoadingBar.start();
 
-    NavigationService.getSubCategory($stateParams.name, function (data) {
+    NavigationService.getSubCategory($stateParams.name, function(data) {
       cfpLoadingBar.complete();
 
       if (data == "") {
         $scope.msg = "No " + $scope.params + " found.";
       } else {
         $scope.pusharray = [];
-        _.each(data, function (n) {
+        _.each(data, function(n) {
           if (n.type == 1) {
             if ($scope.pusharray.length == 0) {
               $scope.categories.push(n);
             } else {
-              _.each(_.chunk($scope.pusharray, 2), function (m) {
+              _.each(_.chunk($scope.pusharray, 2), function(m) {
                 if (m.length == 2) {
                   $scope.categories.push(m);
                 } else {
@@ -103,7 +103,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           }
         });
         if ($scope.pusharray.length != 0) {
-          _.each(_.chunk($scope.pusharray, 2), function (m) {
+          _.each(_.chunk($scope.pusharray, 2), function(m) {
             if (m.length == 2) {
               $scope.categories.push(m);
             } else {
@@ -113,11 +113,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           });
         }
       }
-    }, function (err) {
+    }, function(err) {
       console.log(err);
     })
   })
-  .controller('CustomiseInfoCtrl', function ($scope, $state, $log, TemplateService, NavigationService, $timeout, $uibModal, cfpLoadingBar) {
+  .controller('CustomiseInfoCtrl', function($scope, $state, $log, TemplateService, NavigationService, $timeout, $uibModal, cfpLoadingBar) {
     $scope.customInfo = {
       name: "",
       email: "",
@@ -131,13 +131,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.showimage = false;
     $scope.toolarge = false;
 
-    $scope.onFileSelect = function ($files, whichone, uploadtype) {
+    $scope.onFileSelect = function($files, whichone, uploadtype) {
       $scope.toolarge = false;
 
       if ($files[0].size < 20000000) {
         cfpLoadingBar.start();
         $scope.showimage = true;
-        globalfunction.onFileSelect($files, function (image) {
+        globalfunction.onFileSelect($files, function(image) {
 
           cfpLoadingBar.complete();
           if (whichone == 1) {
@@ -152,14 +152,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.toolarge = true;
       }
     }
-    $scope.closeAlert = function (index) {
+    $scope.closeAlert = function(index) {
       $scope.alerts.splice(index, 1);
     };
-    $scope.customiseIt = function (input, formValidate) {
+    $scope.customiseIt = function(input, formValidate) {
       if (formValidate.$valid) {
         cfpLoadingBar.start();
 
-        NavigationService.createCustom(input, function (data) {
+        NavigationService.createCustom(input, function(data) {
           cfpLoadingBar.complete();
 
           $scope.alerts = [];
@@ -169,7 +169,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             msg: 'Your details have been sent.'
           });
 
-        }, function (err) {
+        }, function(err) {
           console.log(err);
         })
       } else {
@@ -177,7 +177,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       }
     };
   })
-  .controller('CartCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
+  .controller('CartCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("cart");
     $scope.menutitle = NavigationService.makeactive("Cart");
@@ -189,18 +189,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.alerts = [];
     $scope.totalcart = 0;
     $scope.country = $.jStorage.get("myCurrency");
-    $scope.closeAlert = function (index) {
+    $scope.closeAlert = function(index) {
       $scope.alerts.splice(index, 1);
     };
-    $scope.getCart = function () {
+    $scope.getCart = function() {
 
 
-      NavigationService.showCart(function (data) {
+      NavigationService.showCart(function(data) {
         if (data != '') {
           $scope.msg = "";
           $scope.addCart = data;
           $scope.totalcart = 0;
-          _.each($scope.addCart, function (key) {
+          _.each($scope.addCart, function(key) {
             key.qty = parseInt(key.qty);
             $scope.totalcart = $scope.totalcart + parseInt(key.subtotal);
             if (!$scope.validateQuantity(key)) {
@@ -213,11 +213,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         } else {
           $scope.msg = "No items in cart.";
         }
-        NavigationService.getCurrency(function (data) {
+        NavigationService.getCurrency(function(data) {
           if (data) {
             // var temp= _.find(data,{'name':$scope.country});
             var temp;
-            _.each(data, function (key) {
+            _.each(data, function(key) {
               if (key.name == $.jStorage.get("myCurrency")) {
                 temp = key;
               }
@@ -231,17 +231,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
               }
             }
           }
-        }, function (err) {
+        }, function(err) {
           console.log(err);
         });
-      }, function (err) {
+      }, function(err) {
         console.log(err);
       });
     };
     $scope.getCart();
 
-    $scope.toCheckout = function () {
-      NavigationService.checkoutCheck(function (data) {
+    $scope.toCheckout = function() {
+      NavigationService.checkoutCheck(function(data) {
         if (data.value === true) {
           $state.go("checkout");
         } else {
@@ -251,16 +251,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             msg: 'Some items went out of stock. Remove them'
           });
         }
-      }, function (err) {
+      }, function(err) {
         console.log(err);
       });
 
     };
-    $scope.closeAlert = function (index) {
+    $scope.closeAlert = function(index) {
       $scope.alerts.splice(index, 1);
     };
-    $scope.removeItem = function (cart) {
-      NavigationService.removeFromCart(cart, function (data) {
+    $scope.removeItem = function(cart) {
+      NavigationService.removeFromCart(cart, function(data) {
         if (data.value) {
           $scope.getCart();
           $scope.alerts = [];
@@ -271,19 +271,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
           myfunction();
         }
-      }, function (err) {
+      }, function(err) {
         console.log(err);
       })
     };
 
-    $scope.validateQuantity = function (item) {
+    $scope.validateQuantity = function(item) {
       if ((item.qty > item.maxQuantity) || item.qty < 1) {
         return false;
       } else {
         return true;
       }
     }
-    $scope.updateCartQuantity = function (item) {
+    $scope.updateCartQuantity = function(item) {
       item.subtotal = item.qty * item.price;
       if (item.qty <= 0) {
         item.exceed = true;
@@ -292,23 +292,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       } else if ($scope.validateQuantity(item)) {
         item.exceed = false;
         item.status = "2";
-        NavigationService.addToCart(item, function (data) {
+        NavigationService.addToCart(item, function(data) {
 
           myfunction();
           if (data.value) {
             $scope.getCart();
           }
-        }, function (err) {
+        }, function(err) {
           console.log(err);
         });
       }
 
     };
-    $scope.addQuantity = function (item) {
+    $scope.addQuantity = function(item) {
       item.qty++;
       $scope.updateCartQuantity(item);
     };
-    $scope.subtractQuantity = function (item) {
+    $scope.subtractQuantity = function(item) {
       if (item.qty > 1) {
         item.qty--;
         $scope.updateCartQuantity(item);
@@ -316,7 +316,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     };
   })
-  .controller('ProfileCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, cfpLoadingBar) {
+  .controller('ProfileCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, cfpLoadingBar) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("profile");
     $scope.menutitle = NavigationService.makeactive("Profile");
@@ -335,7 +335,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.updateuser.user = {};
     $scope.userid = NavigationService.getUser().id;
 
-    $scope.addAlert = function (type, msg) {
+    $scope.addAlert = function(type, msg) {
       $scope.alerts = [];
       $scope.alerts.push({
         type: type,
@@ -343,32 +343,32 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       });
     };
 
-    $scope.closeAlert = function (index) {
+    $scope.closeAlert = function(index) {
       $scope.alerts.splice(index, 1);
     };
 
     $scope.myProfile = {};
 
-    NavigationService.getUserDetail($scope.userid, function (data) { //remove two add userid
+    NavigationService.getUserDetail($scope.userid, function(data) { //remove two add userid
 
       $scope.user = data;
       $scope.updateuser.user = data;
-    }, function (err) {
+    }, function(err) {
       console.log(err);
     });
 
-    $scope.saveUser = function () {
+    $scope.saveUser = function() {
       cfpLoadingBar.start();
 
 
-      NavigationService.updateProfile($scope.updateuser.user, function (data) {
+      NavigationService.updateProfile($scope.updateuser.user, function(data) {
         cfpLoadingBar.complete();
-      }, function (err) {
+      }, function(err) {
         console.log(err);
       })
     }
 
-    $scope.editProfile = function (num) {
+    $scope.editProfile = function(num) {
       switch (num) {
         case 1:
           {
@@ -411,14 +411,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     email: $scope.user.email,
                     newpassword: $scope.password.newpassword,
                     oldpassword: $scope.password.oldpassword
-                  }, function (data) {
+                  }, function(data) {
                     if (data.value == true) {
                       $scope.addAlert("success", "Password changed successfully. ");
                       $scope.profile.changepasswordedit = 'edit';
                     } else {
                       $scope.addAlert("danger", "Wrong password");
                     }
-                  }, function (err) {
+                  }, function(err) {
                     console.log(err);
                   });
                 } else {
@@ -459,13 +459,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       }
     };
   })
-  .controller('ReviewCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
+  .controller('ReviewCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("review");
     $scope.menutitle = NavigationService.makeactive("Review");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    $scope.matching = function () {
+    $scope.matching = function() {
       $uibModal.open({
         templateUrl: "views/modal/matching.html",
         controller: "ReviewCtrl",
@@ -475,13 +475,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
   })
 
-.controller('PadsreviewCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
+.controller('PadsreviewCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("pads-review");
   $scope.menutitle = NavigationService.makeactive("Pads Review");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
-  $scope.padmatching = function () {
+  $scope.padmatching = function() {
     $uibModal.open({
       templateUrl: "views/modal/pads-matching.html",
       controller: "PadsreviewCtrl",
@@ -491,13 +491,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('TrouserReviewCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
+.controller('TrouserReviewCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("trouser-review");
   $scope.menutitle = NavigationService.makeactive("Trouser-review");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
-  $scope.trousermatching = function () {
+  $scope.trousermatching = function() {
     $uibModal.open({
       templateUrl: "views/modal/trouser-matching.html",
       controller: "TrouserReviewCtrl",
@@ -507,14 +507,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('ReviewGloveCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
+.controller('ReviewGloveCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("review-glove");
   $scope.menutitle = NavigationService.makeactive("Review Glove");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
 
-  $scope.matchings = function () {
+  $scope.matchings = function() {
     $uibModal.open({
       templateUrl: "views/modal/matchings.html",
       controller: "ReviewCtrl",
@@ -523,13 +523,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   };
 })
 
-.controller('ShortsReviewCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
+.controller('ShortsReviewCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("shorts-review");
   $scope.menutitle = NavigationService.makeactive("Review Shorts");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
-  $scope.shortsmatching = function () {
+  $scope.shortsmatching = function() {
     $uibModal.open({
       templateUrl: "views/modal/shorts-matching.html",
       controller: "ShortsReviewCtrl",
@@ -539,7 +539,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('BallsReviewCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
+.controller('BallsReviewCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("review-balls");
   $scope.menutitle = NavigationService.makeactive("Review Balls");
@@ -556,7 +556,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 })
 
 
-.controller('FinalCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
+.controller('FinalCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("final");
   $scope.menutitle = NavigationService.makeactive("Final");
@@ -564,7 +564,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.navigation = NavigationService.getnav();
 })
 
-.controller('FinalReviewCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
+.controller('FinalReviewCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("final-glove");
   $scope.menutitle = NavigationService.makeactive("Final Review");
@@ -572,7 +572,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.navigation = NavigationService.getnav();
 })
 
-.controller('FinalTrouserReviewCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
+.controller('FinalTrouserReviewCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("final-trouser");
   $scope.menutitle = NavigationService.makeactive("Final Trouser Review");
@@ -581,7 +581,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 })
 
 
-.controller('FinalShortsReviewCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
+.controller('FinalShortsReviewCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("final-shorts");
   $scope.menutitle = NavigationService.makeactive("Final Trouser Review");
@@ -589,7 +589,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.navigation = NavigationService.getnav();
 })
 
-.controller('FinalPadReviewCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
+.controller('FinalPadReviewCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("final-pad");
   $scope.menutitle = NavigationService.makeactive("Final Pad Review");
@@ -598,14 +598,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 })
 
 
-.controller('ErrorCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
+.controller('ErrorCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("error");
     $scope.menutitle = NavigationService.makeactive("Error");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('ThankyouCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams) {
+  .controller('ThankyouCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("thankyou");
     $scope.menutitle = NavigationService.makeactive("Thankyou");
@@ -617,7 +617,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.order.transactionid = $stateParams.orderid;
     $scope.order.amount = $stateParams.amount;
   })
-  .controller('WrongCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams) {
+  .controller('WrongCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("wrong");
     $scope.menutitle = NavigationService.makeactive("Wrong");
@@ -626,7 +626,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.order = {};
     $scope.order.transactionid = $stateParams.orderid;
   })
-  .controller('CustomErrorCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams) {
+  .controller('CustomErrorCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("custom-error");
     $scope.menutitle = NavigationService.makeactive("customerror");
@@ -640,7 +640,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   })
 
 
-.controller('TrousersCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
+.controller('TrousersCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("trousers");
     $scope.menutitle = NavigationService.makeactive("Trousers");
@@ -648,33 +648,33 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     var check = 1;
 
-    $scope.UploadTeamLogo = function () {
+    $scope.UploadTeamLogo = function() {
       check = 2;
       $uibModal.open({
         templateUrl: "views/modal/copyrights.html",
         scope: $scope
       })
     }
-    $scope.UploadTeamLogo1 = function () {
+    $scope.UploadTeamLogo1 = function() {
       check = 3;
       $uibModal.open({
         templateUrl: "views/modal/copyrights.html",
         scope: $scope
       })
     }
-    $scope.openChooseFile = function () {
+    $scope.openChooseFile = function() {
       $uibModal.open({
         templateUrl: "views/modal/choosefile.html",
         scope: $scope
       })
     }
-    $scope.openUploads = function () {
+    $scope.openUploads = function() {
       $uibModal.open({
         templateUrl: "views/modal/tshirt.html",
         scope: $scope
       })
     }
-    $scope.doneUploading = function () {
+    $scope.doneUploading = function() {
       if (check == 3) {
         $scope.tab = "sponsorlogo"
       } else {
@@ -682,14 +682,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       }
 
     }
-    $scope.openUploadNew = function () {
+    $scope.openUploadNew = function() {
       $uibModal.open({
         templateUrl: "views/modal/tshirt-popup.html",
         scope: $scope
       })
     }
 
-    $scope.proceed = function () {
+    $scope.proceed = function() {
         $uibModal.open({
           templateUrl: "views/modal/proceed.html",
           scope: $scope
@@ -707,25 +707,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       //     scope: $scope
       //   })
       // }
-    $scope.showColorTab = function () {
+    $scope.showColorTab = function() {
       $scope.tab = "teamcolor";
     }
-    $scope.showQuantiyTab = function () {
+    $scope.showQuantiyTab = function() {
       $scope.tab = "quantiy";
     }
-    $scope.showQuantyTab = function () {
+    $scope.showQuantyTab = function() {
       $scope.tab = "quanty";
     }
 
-    $scope.proceedNext = function () {
+    $scope.proceedNext = function() {
       $scope.tab = "sponsorlogo";
     }
 
-    $scope.teamloging = function () {
+    $scope.teamloging = function() {
       $scope.tab = "teamlogo";
     }
-    $scope.$on('$viewContentLoaded', function (event) {
-      $timeout(function () {
+    $scope.$on('$viewContentLoaded', function(event) {
+      $timeout(function() {
         var scene, camera, renderer, width, height, controls, light, loader, texture, geometry, material, mesh;
         var three = document.getElementsByClassName("threed-ball");
         init();
@@ -766,7 +766,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           texture = new THREE.TextureLoader();
           texture.load(
             'img/textures/ball_texture.jpg',
-            function (texture) {
+            function(texture) {
               material = new THREE.MeshPhongMaterial({
                 map: texture
               });
@@ -777,10 +777,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
               sphere.rotation.z = -1;
               scene.add(sphere);
             },
-            function (xhr) {
+            function(xhr) {
               console.log((xhr.loaded / xhr.total * 100) + '% loaded');
             },
-            function (xhr) {
+            function(xhr) {
               console.log('An error happened');
             }
           );
@@ -794,7 +794,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         function readURL(input) {
           if (input.files && input.files[0]) {
             var reader = new FileReader();
-            reader.onload = function (e) {
+            reader.onload = function(e) {
               $('#ball_logo').attr('src', e.target.result);
               src = $('#ball_logo').attr('src');
               var image = new Image();
@@ -894,7 +894,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
               var textur = new THREE.TextureLoader();
               textur.load(
                 fullimg,
-                function (texture) {
+                function(texture) {
                   var material = new THREE.MeshPhongMaterial({
                     map: texture,
                     transparent: true
@@ -906,10 +906,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                   mysphere.rotation.z = -1;
                   scene.add(mysphere);
                 },
-                function (xhr) {
+                function(xhr) {
                   console.log((xhr.loaded / xhr.total * 100) + '% loaded');
                 },
-                function (xhr) {
+                function(xhr) {
                   console.log('An error happened');
                 }
               );
@@ -917,7 +917,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             reader.readAsDataURL(input.files[0]);
           }
         }
-        $("#upload").change(function () {
+        $("#upload").change(function() {
           readURL(this);
         });
 
@@ -963,7 +963,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.classd = '';
     $scope.classe = '';
 
-    $scope.tabchange = function (tab, a) {
+    $scope.tabchange = function(tab, a) {
       $scope.tab = tab;
       if (a == 1) {
         $scope.classa = 'active';
@@ -1018,7 +1018,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //    end
 
 
-    $scope.openUpload = function () {
+    $scope.openUpload = function() {
       $uibModal.open({
         templateUrl: "views/modal/tshirt.html",
         controller: "GloveCtrl",
@@ -1026,7 +1026,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       })
     };
 
-    $scope.copy = function () {
+    $scope.copy = function() {
       $uibModal.open({
         templateUrl: "views/modal/outofplace.html",
         controller: "GloveCtrl",
@@ -1034,7 +1034,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       })
     };
 
-    $scope.continue = function () {
+    $scope.continue = function() {
       $uibModal.open({
         templateUrl: "views/modal/continue.html",
         controller: "GloveCtrl",
@@ -1042,7 +1042,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       })
     };
 
-    $scope.choose = function () {
+    $scope.choose = function() {
       $uibModal.open({
         templateUrl: "views/modal/choosefile.html",
         controller: "GloveCtrl",
@@ -1050,7 +1050,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       })
     };
 
-    $scope.copyright = function () {
+    $scope.copyright = function() {
       $uibModal.open({
         templateUrl: "views/modal/copyrights.html",
         controller: "GloveCtrl",
@@ -1059,7 +1059,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
 
-    $scope.tshirtUpload = function () {
+    $scope.tshirtUpload = function() {
       $uibModal.open({
         templateUrl: "views/modal/tshirt-popup.html",
         controller: "OdiCtrl",
@@ -1067,7 +1067,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       })
     };
 
-    $scope.outplace = function () {
+    $scope.outplace = function() {
       $uibModal.open({
         templateUrl: "views/modal/outofplace.html",
         controller: "OdiCtrl",
@@ -1078,7 +1078,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
   })
-  .controller('BallsCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
+  .controller('BallsCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("balls");
     $scope.menutitle = NavigationService.makeactive("Balls");
@@ -1086,33 +1086,33 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     var check = 1;
 
-    $scope.UploadTeamLogo = function () {
+    $scope.UploadTeamLogo = function() {
       check = 2;
       $uibModal.open({
         templateUrl: "views/modal/copyrights.html",
         scope: $scope
       })
     }
-    $scope.UploadTeamLogo1 = function () {
+    $scope.UploadTeamLogo1 = function() {
       check = 3;
       $uibModal.open({
         templateUrl: "views/modal/copyrights.html",
         scope: $scope
       })
     }
-    $scope.openChooseFile = function () {
+    $scope.openChooseFile = function() {
       $uibModal.open({
         templateUrl: "views/modal/choosefile.html",
         scope: $scope
       })
     }
-    $scope.openUploads = function () {
+    $scope.openUploads = function() {
       $uibModal.open({
         templateUrl: "views/modal/tshirt.html",
         scope: $scope
       })
     }
-    $scope.doneUploading = function () {
+    $scope.doneUploading = function() {
       if (check == 3) {
         $scope.tab = "sponsorlogo"
       } else {
@@ -1120,14 +1120,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       }
 
     }
-    $scope.openUploadNew = function () {
+    $scope.openUploadNew = function() {
       $uibModal.open({
         templateUrl: "views/modal/tshirt-popup.html",
         scope: $scope
       })
     }
 
-    $scope.proceed = function () {
+    $scope.proceed = function() {
         $uibModal.open({
           templateUrl: "views/modal/proceed.html",
           scope: $scope
@@ -1145,25 +1145,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       //     scope: $scope
       //   })
       // }
-    $scope.showColorTab = function () {
+    $scope.showColorTab = function() {
       $scope.tab = "teamcolor";
     }
-    $scope.showQuantiyTab = function () {
+    $scope.showQuantiyTab = function() {
       $scope.tab = "quantiy";
     }
-    $scope.showQuantyTab = function () {
+    $scope.showQuantyTab = function() {
       $scope.tab = "quanty";
     }
 
-    $scope.proceedNext = function () {
+    $scope.proceedNext = function() {
       $scope.tab = "sponsorlogo";
     }
 
-    $scope.teamloging = function () {
+    $scope.teamloging = function() {
       $scope.tab = "teamlogo";
     }
-    $scope.$on('$viewContentLoaded', function (event) {
-      $timeout(function () {
+    $scope.$on('$viewContentLoaded', function(event) {
+      $timeout(function() {
         var scene, camera, renderer, width, height, controls, light, loader, texture, geometry, material, mesh;
         var three = document.getElementsByClassName("threed-ball");
         init();
@@ -1204,7 +1204,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           texture = new THREE.TextureLoader();
           texture.load(
             'img/textures/ball_texture.jpg',
-            function (texture) {
+            function(texture) {
               material = new THREE.MeshPhongMaterial({
                 map: texture
               });
@@ -1215,10 +1215,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
               sphere.rotation.z = -1;
               scene.add(sphere);
             },
-            function (xhr) {
+            function(xhr) {
               console.log((xhr.loaded / xhr.total * 100) + '% loaded');
             },
-            function (xhr) {
+            function(xhr) {
               console.log('An error happened');
             }
           );
@@ -1232,7 +1232,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         function readURL(input) {
           if (input.files && input.files[0]) {
             var reader = new FileReader();
-            reader.onload = function (e) {
+            reader.onload = function(e) {
               $('#ball_logo').attr('src', e.target.result);
               src = $('#ball_logo').attr('src');
               var image = new Image();
@@ -1332,7 +1332,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
               var textur = new THREE.TextureLoader();
               textur.load(
                 fullimg,
-                function (texture) {
+                function(texture) {
                   var material = new THREE.MeshPhongMaterial({
                     map: texture,
                     transparent: true
@@ -1344,10 +1344,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                   mysphere.rotation.z = -1;
                   scene.add(mysphere);
                 },
-                function (xhr) {
+                function(xhr) {
                   console.log((xhr.loaded / xhr.total * 100) + '% loaded');
                 },
-                function (xhr) {
+                function(xhr) {
                   console.log('An error happened');
                 }
               );
@@ -1355,7 +1355,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             reader.readAsDataURL(input.files[0]);
           }
         }
-        $("#upload").change(function () {
+        $("#upload").change(function() {
           readURL(this);
         });
 
@@ -1403,7 +1403,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.classd = '';
     $scope.classe = '';
 
-    $scope.tabchange = function (tab, a) {
+    $scope.tabchange = function(tab, a) {
       $scope.tab = tab;
       if (a == 1) {
         $scope.classa = 'active';
@@ -1458,7 +1458,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //    end
 
 
-    $scope.openUpload = function () {
+    $scope.openUpload = function() {
       $uibModal.open({
         templateUrl: "views/modal/tshirt.html",
         controller: "GloveCtrl",
@@ -1466,7 +1466,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       })
     };
 
-    $scope.copy = function () {
+    $scope.copy = function() {
       $uibModal.open({
         templateUrl: "views/modal/outofplace.html",
         controller: "GloveCtrl",
@@ -1474,7 +1474,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       })
     };
 
-    $scope.continue = function () {
+    $scope.continue = function() {
       $uibModal.open({
         templateUrl: "views/modal/continue.html",
         controller: "GloveCtrl",
@@ -1482,7 +1482,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       })
     };
 
-    $scope.choose = function () {
+    $scope.choose = function() {
       $uibModal.open({
         templateUrl: "views/modal/choosefile.html",
         controller: "GloveCtrl",
@@ -1490,7 +1490,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       })
     };
 
-    $scope.copyright = function () {
+    $scope.copyright = function() {
       $uibModal.open({
         templateUrl: "views/modal/copyrights.html",
         controller: "GloveCtrl",
@@ -1499,7 +1499,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
 
-    $scope.tshirtUpload = function () {
+    $scope.tshirtUpload = function() {
       $uibModal.open({
         templateUrl: "views/modal/tshirt-popup.html",
         controller: "OdiCtrl",
@@ -1507,7 +1507,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       })
     };
 
-    $scope.outplace = function () {
+    $scope.outplace = function() {
       $uibModal.open({
         templateUrl: "views/modal/outofplace.html",
         controller: "OdiCtrl",
@@ -1519,7 +1519,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
   })
 
-.controller('PadsCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
+.controller('PadsCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("pads");
   $scope.menutitle = NavigationService.makeactive("Pads");
@@ -1527,33 +1527,33 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.navigation = NavigationService.getnav();
   var check = 1;
 
-  $scope.UploadTeamLogo = function () {
+  $scope.UploadTeamLogo = function() {
     check = 2;
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       scope: $scope
     })
   }
-  $scope.UploadTeamLogo1 = function () {
+  $scope.UploadTeamLogo1 = function() {
     check = 3;
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       scope: $scope
     })
   }
-  $scope.openChooseFile = function () {
+  $scope.openChooseFile = function() {
     $uibModal.open({
       templateUrl: "views/modal/choosefile.html",
       scope: $scope
     })
   }
-  $scope.openUploads = function () {
+  $scope.openUploads = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt.html",
       scope: $scope
     })
   }
-  $scope.doneUploading = function () {
+  $scope.doneUploading = function() {
     if (check == 3) {
       $scope.tab = "sponsorlogo"
     } else {
@@ -1561,14 +1561,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 
   }
-  $scope.openUploadNew = function () {
+  $scope.openUploadNew = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt-popup.html",
       scope: $scope
     })
   }
 
-  $scope.proceed = function () {
+  $scope.proceed = function() {
       $uibModal.open({
         templateUrl: "views/modal/proceed.html",
         scope: $scope
@@ -1586,25 +1586,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //     scope: $scope
     //   })
     // }
-  $scope.showColorTab = function () {
+  $scope.showColorTab = function() {
     $scope.tab = "teamcolor";
   }
-  $scope.showQuantiyTab = function () {
+  $scope.showQuantiyTab = function() {
     $scope.tab = "quantiy";
   }
-  $scope.showQuantyTab = function () {
+  $scope.showQuantyTab = function() {
     $scope.tab = "quanty";
   }
 
-  $scope.proceedNext = function () {
+  $scope.proceedNext = function() {
     $scope.tab = "sponsorlogo";
   }
 
-  $scope.teamloging = function () {
+  $scope.teamloging = function() {
     $scope.tab = "teamlogo";
   }
-  $scope.$on('$viewContentLoaded', function (event) {
-    $timeout(function () {
+  $scope.$on('$viewContentLoaded', function(event) {
+    $timeout(function() {
       var scene, camera, renderer, width, height, controls, light, loader, texture, geometry, material, mesh;
       var three = document.getElementsByClassName("threed-ball");
       init();
@@ -1645,7 +1645,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         texture = new THREE.TextureLoader();
         texture.load(
           'img/textures/ball_texture.jpg',
-          function (texture) {
+          function(texture) {
             material = new THREE.MeshPhongMaterial({
               map: texture
             });
@@ -1656,10 +1656,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             sphere.rotation.z = -1;
             scene.add(sphere);
           },
-          function (xhr) {
+          function(xhr) {
             console.log((xhr.loaded / xhr.total * 100) + '% loaded');
           },
-          function (xhr) {
+          function(xhr) {
             console.log('An error happened');
           }
         );
@@ -1673,7 +1673,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       function readURL(input) {
         if (input.files && input.files[0]) {
           var reader = new FileReader();
-          reader.onload = function (e) {
+          reader.onload = function(e) {
             $('#ball_logo').attr('src', e.target.result);
             src = $('#ball_logo').attr('src');
             var image = new Image();
@@ -1773,7 +1773,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             var textur = new THREE.TextureLoader();
             textur.load(
               fullimg,
-              function (texture) {
+              function(texture) {
                 var material = new THREE.MeshPhongMaterial({
                   map: texture,
                   transparent: true
@@ -1785,10 +1785,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 mysphere.rotation.z = -1;
                 scene.add(mysphere);
               },
-              function (xhr) {
+              function(xhr) {
                 console.log((xhr.loaded / xhr.total * 100) + '% loaded');
               },
-              function (xhr) {
+              function(xhr) {
                 console.log('An error happened');
               }
             );
@@ -1796,7 +1796,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           reader.readAsDataURL(input.files[0]);
         }
       }
-      $("#upload").change(function () {
+      $("#upload").change(function() {
         readURL(this);
       });
 
@@ -1842,7 +1842,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.classd = '';
   $scope.classe = '';
 
-  $scope.tabchange = function (tab, a) {
+  $scope.tabchange = function(tab, a) {
     $scope.tab = tab;
     if (a == 1) {
       $scope.classa = 'active';
@@ -1897,7 +1897,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   //    end
 
 
-  $scope.openUpload = function () {
+  $scope.openUpload = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt.html",
       controller: "GloveCtrl",
@@ -1905,7 +1905,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.copy = function () {
+  $scope.copy = function() {
     $uibModal.open({
       templateUrl: "views/modal/outofplace.html",
       controller: "GloveCtrl",
@@ -1913,7 +1913,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.continue = function () {
+  $scope.continue = function() {
     $uibModal.open({
       templateUrl: "views/modal/continue.html",
       controller: "GloveCtrl",
@@ -1921,7 +1921,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.choose = function () {
+  $scope.choose = function() {
     $uibModal.open({
       templateUrl: "views/modal/choosefile.html",
       controller: "GloveCtrl",
@@ -1929,7 +1929,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.copyright = function () {
+  $scope.copyright = function() {
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       controller: "GloveCtrl",
@@ -1938,7 +1938,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   };
 
 
-  $scope.tshirtUpload = function () {
+  $scope.tshirtUpload = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt-popup.html",
       controller: "OdiCtrl",
@@ -1946,7 +1946,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.outplace = function () {
+  $scope.outplace = function() {
     $uibModal.open({
       templateUrl: "views/modal/outofplace.html",
       controller: "OdiCtrl",
@@ -1958,7 +1958,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('ShortsCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
+.controller('ShortsCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("shorts");
   $scope.menutitle = NavigationService.makeactive("Shorts");
@@ -1966,33 +1966,33 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.navigation = NavigationService.getnav();
   var check = 1;
 
-  $scope.UploadTeamLogo = function () {
+  $scope.UploadTeamLogo = function() {
     check = 2;
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       scope: $scope
     })
   }
-  $scope.UploadTeamLogo1 = function () {
+  $scope.UploadTeamLogo1 = function() {
     check = 3;
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       scope: $scope
     })
   }
-  $scope.openChooseFile = function () {
+  $scope.openChooseFile = function() {
     $uibModal.open({
       templateUrl: "views/modal/choosefile.html",
       scope: $scope
     })
   }
-  $scope.openUploads = function () {
+  $scope.openUploads = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt.html",
       scope: $scope
     })
   }
-  $scope.doneUploading = function () {
+  $scope.doneUploading = function() {
     if (check == 3) {
       $scope.tab = "sponsorlogo"
     } else {
@@ -2000,14 +2000,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 
   }
-  $scope.openUploadNew = function () {
+  $scope.openUploadNew = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt-popup.html",
       scope: $scope
     })
   }
 
-  $scope.proceed = function () {
+  $scope.proceed = function() {
       $uibModal.open({
         templateUrl: "views/modal/proceed.html",
         scope: $scope
@@ -2025,25 +2025,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //     scope: $scope
     //   })
     // }
-  $scope.showColorTab = function () {
+  $scope.showColorTab = function() {
     $scope.tab = "teamcolor";
   }
-  $scope.showQuantiyTab = function () {
+  $scope.showQuantiyTab = function() {
     $scope.tab = "quantiy";
   }
-  $scope.showQuantyTab = function () {
+  $scope.showQuantyTab = function() {
     $scope.tab = "quanty";
   }
 
-  $scope.proceedNext = function () {
+  $scope.proceedNext = function() {
     $scope.tab = "sponsorlogo";
   }
 
-  $scope.teamloging = function () {
+  $scope.teamloging = function() {
     $scope.tab = "teamlogo";
   }
-  $scope.$on('$viewContentLoaded', function (event) {
-    $timeout(function () {
+  $scope.$on('$viewContentLoaded', function(event) {
+    $timeout(function() {
       var scene, camera, renderer, width, height, controls, light, loader, texture, geometry, material, mesh;
       var three = document.getElementsByClassName("threed-ball");
       init();
@@ -2084,7 +2084,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         texture = new THREE.TextureLoader();
         texture.load(
           'img/textures/ball_texture.jpg',
-          function (texture) {
+          function(texture) {
             material = new THREE.MeshPhongMaterial({
               map: texture
             });
@@ -2095,10 +2095,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             sphere.rotation.z = -1;
             scene.add(sphere);
           },
-          function (xhr) {
+          function(xhr) {
             console.log((xhr.loaded / xhr.total * 100) + '% loaded');
           },
-          function (xhr) {
+          function(xhr) {
             console.log('An error happened');
           }
         );
@@ -2112,7 +2112,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       function readURL(input) {
         if (input.files && input.files[0]) {
           var reader = new FileReader();
-          reader.onload = function (e) {
+          reader.onload = function(e) {
             $('#ball_logo').attr('src', e.target.result);
             src = $('#ball_logo').attr('src');
             var image = new Image();
@@ -2212,7 +2212,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             var textur = new THREE.TextureLoader();
             textur.load(
               fullimg,
-              function (texture) {
+              function(texture) {
                 var material = new THREE.MeshPhongMaterial({
                   map: texture,
                   transparent: true
@@ -2224,10 +2224,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 mysphere.rotation.z = -1;
                 scene.add(mysphere);
               },
-              function (xhr) {
+              function(xhr) {
                 console.log((xhr.loaded / xhr.total * 100) + '% loaded');
               },
-              function (xhr) {
+              function(xhr) {
                 console.log('An error happened');
               }
             );
@@ -2235,7 +2235,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           reader.readAsDataURL(input.files[0]);
         }
       }
-      $("#upload").change(function () {
+      $("#upload").change(function() {
         readURL(this);
       });
 
@@ -2281,7 +2281,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.classd = '';
   $scope.classe = '';
 
-  $scope.tabchange = function (tab, a) {
+  $scope.tabchange = function(tab, a) {
     $scope.tab = tab;
     if (a == 1) {
       $scope.classa = 'active';
@@ -2336,7 +2336,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   //    end
 
 
-  $scope.openUpload = function () {
+  $scope.openUpload = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt.html",
       controller: "GloveCtrl",
@@ -2344,7 +2344,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.copy = function () {
+  $scope.copy = function() {
     $uibModal.open({
       templateUrl: "views/modal/outofplace.html",
       controller: "GloveCtrl",
@@ -2352,7 +2352,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.continue = function () {
+  $scope.continue = function() {
     $uibModal.open({
       templateUrl: "views/modal/continue.html",
       controller: "GloveCtrl",
@@ -2360,7 +2360,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.choose = function () {
+  $scope.choose = function() {
     $uibModal.open({
       templateUrl: "views/modal/choosefile.html",
       controller: "GloveCtrl",
@@ -2368,7 +2368,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.copyright = function () {
+  $scope.copyright = function() {
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       controller: "GloveCtrl",
@@ -2377,7 +2377,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   };
 
 
-  $scope.tshirtUpload = function () {
+  $scope.tshirtUpload = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt-popup.html",
       controller: "OdiCtrl",
@@ -2385,7 +2385,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.outplace = function () {
+  $scope.outplace = function() {
     $uibModal.open({
       templateUrl: "views/modal/outofplace.html",
       controller: "OdiCtrl",
@@ -2836,7 +2836,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 //
 // })
 
-.controller('GlovesCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
+.controller('GlovesCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("gloves");
   $scope.menutitle = NavigationService.makeactive("Gloves");
@@ -2844,33 +2844,33 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.navigation = NavigationService.getnav();
   var check = 1;
 
-  $scope.UploadTeamLogo = function () {
+  $scope.UploadTeamLogo = function() {
     check = 2;
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       scope: $scope
     })
   }
-  $scope.UploadTeamLogo1 = function () {
+  $scope.UploadTeamLogo1 = function() {
     check = 3;
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       scope: $scope
     })
   }
-  $scope.openChooseFile = function () {
+  $scope.openChooseFile = function() {
     $uibModal.open({
       templateUrl: "views/modal/choosefile.html",
       scope: $scope
     })
   }
-  $scope.openUploads = function () {
+  $scope.openUploads = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt.html",
       scope: $scope
     })
   }
-  $scope.doneUploading = function () {
+  $scope.doneUploading = function() {
     if (check == 3) {
       $scope.tab = "sponsorlogo"
     } else {
@@ -2878,14 +2878,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 
   }
-  $scope.openUploadNew = function () {
+  $scope.openUploadNew = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt-popup.html",
       scope: $scope
     })
   }
 
-  $scope.proceed = function () {
+  $scope.proceed = function() {
       $uibModal.open({
         templateUrl: "views/modal/proceed.html",
         scope: $scope
@@ -2903,25 +2903,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //     scope: $scope
     //   })
     // }
-  $scope.showColorTab = function () {
+  $scope.showColorTab = function() {
     $scope.tab = "teamcolor";
   }
-  $scope.showQuantiyTab = function () {
+  $scope.showQuantiyTab = function() {
     $scope.tab = "quantiy";
   }
-  $scope.showQuantyTab = function () {
+  $scope.showQuantyTab = function() {
     $scope.tab = "quanty";
   }
 
-  $scope.proceedNext = function () {
+  $scope.proceedNext = function() {
     $scope.tab = "sponsorlogo";
   }
 
-  $scope.teamloging = function () {
+  $scope.teamloging = function() {
     $scope.tab = "teamlogo";
   }
-  $scope.$on('$viewContentLoaded', function (event) {
-    $timeout(function () {
+  $scope.$on('$viewContentLoaded', function(event) {
+    $timeout(function() {
       var scene, camera, renderer, width, height, controls, light, loader, texture, geometry, material, mesh;
       var three = document.getElementsByClassName("threed-ball");
       init();
@@ -2962,7 +2962,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         texture = new THREE.TextureLoader();
         texture.load(
           'img/textures/ball_texture.jpg',
-          function (texture) {
+          function(texture) {
             material = new THREE.MeshPhongMaterial({
               map: texture
             });
@@ -2973,10 +2973,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             sphere.rotation.z = -1;
             scene.add(sphere);
           },
-          function (xhr) {
+          function(xhr) {
             console.log((xhr.loaded / xhr.total * 100) + '% loaded');
           },
-          function (xhr) {
+          function(xhr) {
             console.log('An error happened');
           }
         );
@@ -2990,7 +2990,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       function readURL(input) {
         if (input.files && input.files[0]) {
           var reader = new FileReader();
-          reader.onload = function (e) {
+          reader.onload = function(e) {
             $('#ball_logo').attr('src', e.target.result);
             src = $('#ball_logo').attr('src');
             var image = new Image();
@@ -3090,7 +3090,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             var textur = new THREE.TextureLoader();
             textur.load(
               fullimg,
-              function (texture) {
+              function(texture) {
                 var material = new THREE.MeshPhongMaterial({
                   map: texture,
                   transparent: true
@@ -3102,10 +3102,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 mysphere.rotation.z = -1;
                 scene.add(mysphere);
               },
-              function (xhr) {
+              function(xhr) {
                 console.log((xhr.loaded / xhr.total * 100) + '% loaded');
               },
-              function (xhr) {
+              function(xhr) {
                 console.log('An error happened');
               }
             );
@@ -3113,7 +3113,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           reader.readAsDataURL(input.files[0]);
         }
       }
-      $("#upload").change(function () {
+      $("#upload").change(function() {
         readURL(this);
       });
 
@@ -3159,7 +3159,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.classd = '';
   $scope.classe = '';
 
-  $scope.tabchange = function (tab, a) {
+  $scope.tabchange = function(tab, a) {
     $scope.tab = tab;
     if (a == 1) {
       $scope.classa = 'active';
@@ -3214,7 +3214,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   //    end
 
 
-  $scope.openUpload = function () {
+  $scope.openUpload = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt.html",
       controller: "GloveCtrl",
@@ -3222,7 +3222,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.copy = function () {
+  $scope.copy = function() {
     $uibModal.open({
       templateUrl: "views/modal/outofplace.html",
       controller: "GloveCtrl",
@@ -3230,7 +3230,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.continue = function () {
+  $scope.continue = function() {
     $uibModal.open({
       templateUrl: "views/modal/continue.html",
       controller: "GloveCtrl",
@@ -3238,7 +3238,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.choose = function () {
+  $scope.choose = function() {
     $uibModal.open({
       templateUrl: "views/modal/choosefile.html",
       controller: "GloveCtrl",
@@ -3246,7 +3246,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.copyright = function () {
+  $scope.copyright = function() {
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       controller: "GloveCtrl",
@@ -3255,7 +3255,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   };
 
 
-  $scope.tshirtUpload = function () {
+  $scope.tshirtUpload = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt-popup.html",
       controller: "OdiCtrl",
@@ -3263,7 +3263,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.outplace = function () {
+  $scope.outplace = function() {
     $uibModal.open({
       templateUrl: "views/modal/outofplace.html",
       controller: "OdiCtrl",
@@ -3273,7 +3273,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('OdiCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar,$filter) {
+.controller('OdiCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar, $filter) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("odi-shirt");
   $scope.menutitle = NavigationService.makeactive("odi shirt");
@@ -3291,14 +3291,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.variable = "";
   // $scope.statuses.copyright = false;
 
-  $scope.UploadTeamLogo = function () {
+  $scope.UploadTeamLogo = function() {
     check = 2;
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       scope: $scope
     })
   }
-  $scope.switchFrontBack = function (front) {
+  $scope.switchFrontBack = function(front) {
     $scope.customizedShirt.front =  front;
     $scope.customizedShirt.back =  !front;
     if (front) {
@@ -3313,14 +3313,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.statuses.uploadStatus = false;
   $scope.tempImage = "";
 
-  $scope.onFileSelect = function ($files, whichone, uploadtype, variable) {
+  $scope.onFileSelect = function($files, whichone, uploadtype, variable) {
     $scope.toolarge = false;
     console.log($files);
     if ($files[0].size < 20000000) {
       $scope.statuses.uploadStatus = true;
       cfpLoadingBar.start();
       $scope.showimage = true;
-      globalfunction.onFileSelect($files, function (image) {
+      globalfunction.onFileSelect($files, function(image) {
 
         cfpLoadingBar.complete();
         if (whichone == 1) {
@@ -3344,14 +3344,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.tempImage = "";
   }
 
-  $scope.UploadTeamLogo1 = function () {
+  $scope.UploadTeamLogo1 = function() {
     check = 3;
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       scope: $scope
     })
   }
-  $scope.openChooseFile = function () {
+  $scope.openChooseFile = function() {
     $uibModal.open({
       templateUrl: "views/modal/choosefile.html",
       scope: $scope
@@ -3364,11 +3364,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
   // }
   // $scope.showVideo = true;
-  $scope.showVid = function () {
+  $scope.showVid = function() {
     $scope.showVideo = false;
   }
 
-  $scope.openUploads = function (variable) {
+  $scope.openUploads = function(variable) {
     $scope.statuses.uploadStatus = false;
     $scope.variable = variable;
     $scope.statuses.modal = $uibModal.open({
@@ -3376,7 +3376,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       scope: $scope
     })
   }
-  $scope.doneUploading = function () {
+  $scope.doneUploading = function() {
     if (check == 3) {
       $scope.tab = "sponsorlogo"
     } else {
@@ -3384,51 +3384,51 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 
   }
-  $scope.openUploadNew = function () {
+  $scope.openUploadNew = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt-popup.html",
       scope: $scope
     })
   }
 
-  $scope.proceed = function () {
+  $scope.proceed = function() {
     $uibModal.open({
       templateUrl: "views/modal/proceed.html",
       scope: $scope
     })
   }
-  $scope.copyrighting = function () {
+  $scope.copyrighting = function() {
     console.log("here");
     $uibModal.open({
       templateUrl: "views/modal/copyrighting.html",
       scope: $scope
     })
   }
-  $scope.openColor = function () {
+  $scope.openColor = function() {
     $uibModal.open({
       templateUrl: "views/modal/continue.html",
       scope: $scope
     })
   }
-  $scope.showColorTab = function () {
+  $scope.showColorTab = function() {
     $scope.tab = "teamcolor";
   }
-  $scope.showQuantiyTab = function () {
+  $scope.showQuantiyTab = function() {
     $scope.tab = "quantiy";
   }
-  $scope.showQuantyTab = function () {
+  $scope.showQuantyTab = function() {
     $scope.tab = "quanty";
   }
 
-  $scope.proceedNext = function () {
+  $scope.proceedNext = function() {
     $scope.tab = "sponsorlogo";
   }
 
-  $scope.teamloging = function () {
+  $scope.teamloging = function() {
     $scope.tab = "teamlogo";
   }
-  $scope.$on('$viewContentLoaded', function (event) {
-    $timeout(function () {
+  $scope.$on('$viewContentLoaded', function(event) {
+    $timeout(function() {
       var scene, camera, renderer, width, height, controls, light, loader, texture, geometry, material, mesh;
       var three = document.getElementsByClassName("threed-ball");
       init();
@@ -3469,7 +3469,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         texture = new THREE.TextureLoader();
         texture.load(
           'img/textures/ball_texture.jpg',
-          function (texture) {
+          function(texture) {
             material = new THREE.MeshPhongMaterial({
               map: texture
             });
@@ -3480,10 +3480,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             sphere.rotation.z = -1;
             scene.add(sphere);
           },
-          function (xhr) {
+          function(xhr) {
             console.log((xhr.loaded / xhr.total * 100) + '% loaded');
           },
-          function (xhr) {
+          function(xhr) {
             console.log('An error happened');
           }
         );
@@ -3497,7 +3497,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       function readURL(input) {
         if (input.files && input.files[0]) {
           var reader = new FileReader();
-          reader.onload = function (e) {
+          reader.onload = function(e) {
             $('#ball_logo').attr('src', e.target.result);
             src = $('#ball_logo').attr('src');
             var image = new Image();
@@ -3597,7 +3597,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             var textur = new THREE.TextureLoader();
             textur.load(
               fullimg,
-              function (texture) {
+              function(texture) {
                 var material = new THREE.MeshPhongMaterial({
                   map: texture,
                   transparent: true
@@ -3609,10 +3609,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 mysphere.rotation.z = -1;
                 scene.add(mysphere);
               },
-              function (xhr) {
+              function(xhr) {
                 console.log((xhr.loaded / xhr.total * 100) + '% loaded');
               },
-              function (xhr) {
+              function(xhr) {
                 console.log('An error happened');
               }
             );
@@ -3620,7 +3620,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           reader.readAsDataURL(input.files[0]);
         }
       }
-      $("#upload").change(function () {
+      $("#upload").change(function() {
         readURL(this);
       });
 
@@ -3670,7 +3670,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.classd = '';
   $scope.classe = '';
 
-  $scope.tabchange = function (tab, a) {
+  $scope.tabchange = function(tab, a) {
     $scope.tab = tab;
     if (a == 1) {
       $scope.classa = 'active';
@@ -3724,7 +3724,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
   //    end
 
-  $scope.openUpload = function () {
+  $scope.openUpload = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt.html",
       controller: "OdiCtrl",
@@ -3732,7 +3732,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.copy = function () {
+  $scope.copy = function() {
     $uibModal.open({
       templateUrl: "views/modal/outofplace.html",
       controller: "OdiCtrl",
@@ -3740,7 +3740,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.continue = function () {
+  $scope.continue = function() {
     $uibModal.open({
       templateUrl: "views/modal/continue.html",
       controller: "OdiCtrl",
@@ -3748,7 +3748,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.choose = function () {
+  $scope.choose = function() {
     $uibModal.open({
       templateUrl: "views/modal/choosefile.html",
       controller: "OdiCtrl",
@@ -3756,7 +3756,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.copyright = function () {
+  $scope.copyright = function() {
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       // controller: "OdiCtrl",
@@ -3765,7 +3765,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   };
 
 
-  $scope.tshirtUpload = function () {
+  $scope.tshirtUpload = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt-popup.html",
       controller: "OdiCtrl",
@@ -3773,7 +3773,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.outplace = function () {
+  $scope.outplace = function() {
     $uibModal.open({
       templateUrl: "views/modal/outofplace.html",
       controller: "OdiCtrl",
@@ -3785,7 +3785,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('CustomCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
+.controller('CustomCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("custom");
   $scope.menutitle = NavigationService.makeactive("Custom");
@@ -3793,33 +3793,33 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.navigation = NavigationService.getnav();
   var check = 1;
 
-  $scope.UploadTeamLogo = function () {
+  $scope.UploadTeamLogo = function() {
     check = 2;
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       scope: $scope
     })
   }
-  $scope.UploadTeamLogo1 = function () {
+  $scope.UploadTeamLogo1 = function() {
     check = 3;
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       scope: $scope
     })
   }
-  $scope.openChooseFile = function () {
+  $scope.openChooseFile = function() {
     $uibModal.open({
       templateUrl: "views/modal/choosefile.html",
       scope: $scope
     })
   }
-  $scope.openUploads = function () {
+  $scope.openUploads = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt.html",
       scope: $scope
     })
   }
-  $scope.doneUploading = function () {
+  $scope.doneUploading = function() {
     if (check == 3) {
       $scope.tab = "sponsorlogo"
     } else {
@@ -3827,34 +3827,34 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 
   }
-  $scope.openUploadNew = function () {
+  $scope.openUploadNew = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt-popup.html",
       scope: $scope
     })
   }
 
-  $scope.proceed = function () {
+  $scope.proceed = function() {
     $uibModal.open({
       templateUrl: "views/modal/proceed.html",
       scope: $scope
     })
   }
-  $scope.openColor = function () {
+  $scope.openColor = function() {
     $uibModal.open({
       templateUrl: "views/modal/continue.html",
       scope: $scope
     })
   }
-  $scope.showColorTab = function () {
+  $scope.showColorTab = function() {
       $scope.tab = "teamcolor";
     }
     // $scope.showproceedTab() = function(){
     //   $scope.tab = "sponsorlogo";
     // }
 
-  $scope.$on('$viewContentLoaded', function (event) {
-    $timeout(function () {
+  $scope.$on('$viewContentLoaded', function(event) {
+    $timeout(function() {
       var scene, camera, renderer, width, height, controls, light, loader, texture, geometry, material, mesh;
       var three = document.getElementsByClassName("threed-ball");
       init();
@@ -3895,7 +3895,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         texture = new THREE.TextureLoader();
         texture.load(
           'img/textures/ball_texture.jpg',
-          function (texture) {
+          function(texture) {
             material = new THREE.MeshPhongMaterial({
               map: texture
             });
@@ -3906,10 +3906,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             sphere.rotation.z = -1;
             scene.add(sphere);
           },
-          function (xhr) {
+          function(xhr) {
             console.log((xhr.loaded / xhr.total * 100) + '% loaded');
           },
-          function (xhr) {
+          function(xhr) {
             console.log('An error happened');
           }
         );
@@ -3923,7 +3923,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       function readURL(input) {
         if (input.files && input.files[0]) {
           var reader = new FileReader();
-          reader.onload = function (e) {
+          reader.onload = function(e) {
             $('#ball_logo').attr('src', e.target.result);
             src = $('#ball_logo').attr('src');
             var image = new Image();
@@ -4023,7 +4023,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             var textur = new THREE.TextureLoader();
             textur.load(
               fullimg,
-              function (texture) {
+              function(texture) {
                 var material = new THREE.MeshPhongMaterial({
                   map: texture,
                   transparent: true
@@ -4035,10 +4035,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 mysphere.rotation.z = -1;
                 scene.add(mysphere);
               },
-              function (xhr) {
+              function(xhr) {
                 console.log((xhr.loaded / xhr.total * 100) + '% loaded');
               },
-              function (xhr) {
+              function(xhr) {
                 console.log('An error happened');
               }
             );
@@ -4046,7 +4046,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           reader.readAsDataURL(input.files[0]);
         }
       }
-      $("#upload").change(function () {
+      $("#upload").change(function() {
         readURL(this);
       });
 
@@ -4096,7 +4096,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.classd = '';
   $scope.classe = '';
 
-  $scope.tabchange = function (tab, a) {
+  $scope.tabchange = function(tab, a) {
     $scope.tab = tab;
     if (a == 1) {
       $scope.classa = 'active';
@@ -4167,7 +4167,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   //     });
   //
   // };
-  $scope.openUpload = function () {
+  $scope.openUpload = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt.html",
       controller: "CustomCtrl",
@@ -4175,7 +4175,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.copy = function () {
+  $scope.copy = function() {
     $uibModal.open({
       templateUrl: "views/modal/outofplace.html",
       controller: "CustomCtrl",
@@ -4183,7 +4183,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.continue = function () {
+  $scope.continue = function() {
     $uibModal.open({
       templateUrl: "views/modal/continue.html",
       controller: "CustomCtrl",
@@ -4191,7 +4191,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.choose = function () {
+  $scope.choose = function() {
     $uibModal.open({
       templateUrl: "views/modal/choosefile.html",
       controller: "CustomCtrl",
@@ -4199,7 +4199,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.copyright = function () {
+  $scope.copyright = function() {
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       controller: "CustomCtrl",
@@ -4208,7 +4208,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   };
 
 
-  $scope.tshirtUpload = function () {
+  $scope.tshirtUpload = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt-popup.html",
       controller: "CustomCtrl",
@@ -4216,7 +4216,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.outplace = function () {
+  $scope.outplace = function() {
     $uibModal.open({
       templateUrl: "views/modal/outofplace.html",
       controller: "CustomCtrl",
@@ -4226,7 +4226,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('SweaterCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
+.controller('SweaterCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("sweater");
   $scope.menutitle = NavigationService.makeactive("Sweater");
@@ -4234,33 +4234,33 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.navigation = NavigationService.getnav();
   var check = 1;
 
-  $scope.UploadTeamLogo = function () {
+  $scope.UploadTeamLogo = function() {
     check = 2;
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       scope: $scope
     })
   }
-  $scope.UploadTeamLogo1 = function () {
+  $scope.UploadTeamLogo1 = function() {
     check = 3;
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       scope: $scope
     })
   }
-  $scope.openChooseFile = function () {
+  $scope.openChooseFile = function() {
     $uibModal.open({
       templateUrl: "views/modal/choosefile.html",
       scope: $scope
     })
   }
-  $scope.openUploads = function () {
+  $scope.openUploads = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt.html",
       scope: $scope
     })
   }
-  $scope.doneUploading = function () {
+  $scope.doneUploading = function() {
     if (check == 3) {
       $scope.tab = "sponsorlogo"
     } else {
@@ -4268,7 +4268,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 
   }
-  $scope.openUploadNew = function () {
+  $scope.openUploadNew = function() {
       $uibModal.open({
         templateUrl: "views/modal/tshirt-popup.html",
         scope: $scope
@@ -4288,25 +4288,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //     scope: $scope
     //   })
     // }
-  $scope.showColorTab = function () {
+  $scope.showColorTab = function() {
     $scope.tab = "teamcolor";
   }
-  $scope.showQuantiyTab = function () {
+  $scope.showQuantiyTab = function() {
     $scope.tab = "quantiy";
   }
-  $scope.showQuantyTab = function () {
+  $scope.showQuantyTab = function() {
     $scope.tab = "quanty";
   }
 
-  $scope.proceedNext = function () {
+  $scope.proceedNext = function() {
     $scope.tab = "sponsorlogo";
   }
 
-  $scope.teamloging = function () {
+  $scope.teamloging = function() {
     $scope.tab = "teamlogo";
   }
-  $scope.$on('$viewContentLoaded', function (event) {
-    $timeout(function () {
+  $scope.$on('$viewContentLoaded', function(event) {
+    $timeout(function() {
       var scene, camera, renderer, width, height, controls, light, loader, texture, geometry, material, mesh;
       var three = document.getElementsByClassName("threed-ball");
       init();
@@ -4347,7 +4347,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         texture = new THREE.TextureLoader();
         texture.load(
           'img/textures/ball_texture.jpg',
-          function (texture) {
+          function(texture) {
             material = new THREE.MeshPhongMaterial({
               map: texture
             });
@@ -4358,10 +4358,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             sphere.rotation.z = -1;
             scene.add(sphere);
           },
-          function (xhr) {
+          function(xhr) {
             console.log((xhr.loaded / xhr.total * 100) + '% loaded');
           },
-          function (xhr) {
+          function(xhr) {
             console.log('An error happened');
           }
         );
@@ -4375,7 +4375,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       function readURL(input) {
         if (input.files && input.files[0]) {
           var reader = new FileReader();
-          reader.onload = function (e) {
+          reader.onload = function(e) {
             $('#ball_logo').attr('src', e.target.result);
             src = $('#ball_logo').attr('src');
             var image = new Image();
@@ -4475,7 +4475,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             var textur = new THREE.TextureLoader();
             textur.load(
               fullimg,
-              function (texture) {
+              function(texture) {
                 var material = new THREE.MeshPhongMaterial({
                   map: texture,
                   transparent: true
@@ -4487,10 +4487,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 mysphere.rotation.z = -1;
                 scene.add(mysphere);
               },
-              function (xhr) {
+              function(xhr) {
                 console.log((xhr.loaded / xhr.total * 100) + '% loaded');
               },
-              function (xhr) {
+              function(xhr) {
                 console.log('An error happened');
               }
             );
@@ -4498,7 +4498,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           reader.readAsDataURL(input.files[0]);
         }
       }
-      $("#upload").change(function () {
+      $("#upload").change(function() {
         readURL(this);
       });
 
@@ -4544,7 +4544,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.classd = '';
   $scope.classe = '';
 
-  $scope.tabchange = function (tab, a) {
+  $scope.tabchange = function(tab, a) {
     $scope.tab = tab;
     if (a == 1) {
       $scope.classa = 'active';
@@ -4599,7 +4599,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   //    end
 
 
-  $scope.openUpload = function () {
+  $scope.openUpload = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt.html",
       controller: "GloveCtrl",
@@ -4607,7 +4607,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.copy = function () {
+  $scope.copy = function() {
     $uibModal.open({
       templateUrl: "views/modal/outofplace.html",
       controller: "GloveCtrl",
@@ -4615,7 +4615,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.continue = function () {
+  $scope.continue = function() {
     $uibModal.open({
       templateUrl: "views/modal/continue.html",
       controller: "GloveCtrl",
@@ -4623,7 +4623,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.choose = function () {
+  $scope.choose = function() {
     $uibModal.open({
       templateUrl: "views/modal/choosefile.html",
       controller: "GloveCtrl",
@@ -4631,7 +4631,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.copyright = function () {
+  $scope.copyright = function() {
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       controller: "GloveCtrl",
@@ -4640,7 +4640,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   };
 
 
-  $scope.tshirtUpload = function () {
+  $scope.tshirtUpload = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt-popup.html",
       controller: "OdiCtrl",
@@ -4648,7 +4648,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.outplace = function () {
+  $scope.outplace = function() {
     $uibModal.open({
       templateUrl: "views/modal/outofplace.html",
       controller: "OdiCtrl",
@@ -4661,7 +4661,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 })
 
 
-.controller('KitBagCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
+.controller('KitBagCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("kit-bag");
   $scope.menutitle = NavigationService.makeactive("Kit-bag");
@@ -4669,33 +4669,33 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.navigation = NavigationService.getnav();
   var check = 1;
 
-  $scope.UploadTeamLogo = function () {
+  $scope.UploadTeamLogo = function() {
     check = 2;
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       scope: $scope
     })
   }
-  $scope.UploadTeamLogo1 = function () {
+  $scope.UploadTeamLogo1 = function() {
     check = 3;
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       scope: $scope
     })
   }
-  $scope.openChooseFile = function () {
+  $scope.openChooseFile = function() {
     $uibModal.open({
       templateUrl: "views/modal/choosefile.html",
       scope: $scope
     })
   }
-  $scope.openUploads = function () {
+  $scope.openUploads = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt.html",
       scope: $scope
     })
   }
-  $scope.doneUploading = function () {
+  $scope.doneUploading = function() {
     if (check == 3) {
       $scope.tab = "sponsorlogo"
     } else {
@@ -4703,34 +4703,34 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 
   }
-  $scope.openUploadNew = function () {
+  $scope.openUploadNew = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt-popup.html",
       scope: $scope
     })
   }
 
-  $scope.proceed = function () {
+  $scope.proceed = function() {
     $uibModal.open({
       templateUrl: "views/modal/proceed.html",
       scope: $scope
     })
   }
-  $scope.openColor = function () {
+  $scope.openColor = function() {
     $uibModal.open({
       templateUrl: "views/modal/continue.html",
       scope: $scope
     })
   }
-  $scope.showColorTab = function () {
+  $scope.showColorTab = function() {
       $scope.tab = "teamcolor";
     }
     // $scope.showproceedTab() = function(){
     //   $scope.tab = "sponsorlogo";
     // }
 
-  $scope.$on('$viewContentLoaded', function (event) {
-    $timeout(function () {
+  $scope.$on('$viewContentLoaded', function(event) {
+    $timeout(function() {
       var scene, camera, renderer, width, height, controls, light, loader, texture, geometry, material, mesh;
       var three = document.getElementsByClassName("threed-ball");
       init();
@@ -4771,7 +4771,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         texture = new THREE.TextureLoader();
         texture.load(
           'img/textures/ball_texture.jpg',
-          function (texture) {
+          function(texture) {
             material = new THREE.MeshPhongMaterial({
               map: texture
             });
@@ -4782,10 +4782,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             sphere.rotation.z = -1;
             scene.add(sphere);
           },
-          function (xhr) {
+          function(xhr) {
             console.log((xhr.loaded / xhr.total * 100) + '% loaded');
           },
-          function (xhr) {
+          function(xhr) {
             console.log('An error happened');
           }
         );
@@ -4799,7 +4799,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       function readURL(input) {
         if (input.files && input.files[0]) {
           var reader = new FileReader();
-          reader.onload = function (e) {
+          reader.onload = function(e) {
             $('#ball_logo').attr('src', e.target.result);
             src = $('#ball_logo').attr('src');
             var image = new Image();
@@ -4899,7 +4899,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             var textur = new THREE.TextureLoader();
             textur.load(
               fullimg,
-              function (texture) {
+              function(texture) {
                 var material = new THREE.MeshPhongMaterial({
                   map: texture,
                   transparent: true
@@ -4911,10 +4911,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 mysphere.rotation.z = -1;
                 scene.add(mysphere);
               },
-              function (xhr) {
+              function(xhr) {
                 console.log((xhr.loaded / xhr.total * 100) + '% loaded');
               },
-              function (xhr) {
+              function(xhr) {
                 console.log('An error happened');
               }
             );
@@ -4922,7 +4922,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           reader.readAsDataURL(input.files[0]);
         }
       }
-      $("#upload").change(function () {
+      $("#upload").change(function() {
         readURL(this);
       });
 
@@ -4966,7 +4966,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.classd = '';
   $scope.classe = '';
 
-  $scope.tabchange = function (tab, a) {
+  $scope.tabchange = function(tab, a) {
     $scope.tab = tab;
     if (a == 1) {
       $scope.classa = 'active';
@@ -5037,7 +5037,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   //     });
   //
   // };
-  $scope.openUpload = function () {
+  $scope.openUpload = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt.html",
       controller: "CustomCtrl",
@@ -5045,7 +5045,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.copy = function () {
+  $scope.copy = function() {
     $uibModal.open({
       templateUrl: "views/modal/outofplace.html",
       controller: "CustomCtrl",
@@ -5053,7 +5053,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.continue = function () {
+  $scope.continue = function() {
     $uibModal.open({
       templateUrl: "views/modal/continue.html",
       controller: "CustomCtrl",
@@ -5061,7 +5061,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.choose = function () {
+  $scope.choose = function() {
     $uibModal.open({
       templateUrl: "views/modal/choosefile.html",
       controller: "CustomCtrl",
@@ -5069,7 +5069,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.copyright = function () {
+  $scope.copyright = function() {
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       controller: "CustomCtrl",
@@ -5078,7 +5078,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   };
 
 
-  $scope.tshirtUpload = function () {
+  $scope.tshirtUpload = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt-popup.html",
       controller: "CustomCtrl",
@@ -5086,7 +5086,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.outplace = function () {
+  $scope.outplace = function() {
     $uibModal.open({
       templateUrl: "views/modal/outofplace.html",
       controller: "CustomCtrl",
@@ -5097,7 +5097,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('OdiTrouserCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
+.controller('OdiTrouserCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("odi-trouser");
   $scope.menutitle = NavigationService.makeactive("Odi-trouser");
@@ -5105,14 +5105,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.navigation = NavigationService.getnav();
   var check = 1;
 
-  $scope.UploadTeamLogo = function () {
+  $scope.UploadTeamLogo = function() {
     check = 2;
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       scope: $scope
     })
   }
-  $scope.UploadTeamLogo1 = function () {
+  $scope.UploadTeamLogo1 = function() {
       check = 3;
       $uibModal.open({
         templateUrl: "views/modal/copyrights.html",
@@ -5133,25 +5133,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   //     scope: $scope
   //   })
   // }
-  $scope.showColorTab = function () {
+  $scope.showColorTab = function() {
     $scope.tab = "teamcolor";
   }
-  $scope.showQuantiyTab = function () {
+  $scope.showQuantiyTab = function() {
     $scope.tab = "quantiy";
   }
-  $scope.showQuantyTab = function () {
+  $scope.showQuantyTab = function() {
     $scope.tab = "quanty";
   }
 
-  $scope.proceedNext = function () {
+  $scope.proceedNext = function() {
     $scope.tab = "sponsorlogo";
   }
 
-  $scope.teamloging = function () {
+  $scope.teamloging = function() {
     $scope.tab = "teamlogo";
   }
-  $scope.$on('$viewContentLoaded', function (event) {
-    $timeout(function () {
+  $scope.$on('$viewContentLoaded', function(event) {
+    $timeout(function() {
       var scene, camera, renderer, width, height, controls, light, loader, texture, geometry, material, mesh;
       var three = document.getElementsByClassName("threed-ball");
       init();
@@ -5192,7 +5192,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         texture = new THREE.TextureLoader();
         texture.load(
           'img/textures/ball_texture.jpg',
-          function (texture) {
+          function(texture) {
             material = new THREE.MeshPhongMaterial({
               map: texture
             });
@@ -5203,10 +5203,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             sphere.rotation.z = -1;
             scene.add(sphere);
           },
-          function (xhr) {
+          function(xhr) {
             console.log((xhr.loaded / xhr.total * 100) + '% loaded');
           },
-          function (xhr) {
+          function(xhr) {
             console.log('An error happened');
           }
         );
@@ -5220,7 +5220,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       function readURL(input) {
         if (input.files && input.files[0]) {
           var reader = new FileReader();
-          reader.onload = function (e) {
+          reader.onload = function(e) {
             $('#ball_logo').attr('src', e.target.result);
             src = $('#ball_logo').attr('src');
             var image = new Image();
@@ -5320,7 +5320,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             var textur = new THREE.TextureLoader();
             textur.load(
               fullimg,
-              function (texture) {
+              function(texture) {
                 var material = new THREE.MeshPhongMaterial({
                   map: texture,
                   transparent: true
@@ -5332,10 +5332,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 mysphere.rotation.z = -1;
                 scene.add(mysphere);
               },
-              function (xhr) {
+              function(xhr) {
                 console.log((xhr.loaded / xhr.total * 100) + '% loaded');
               },
-              function (xhr) {
+              function(xhr) {
                 console.log('An error happened');
               }
             );
@@ -5343,7 +5343,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           reader.readAsDataURL(input.files[0]);
         }
       }
-      $("#upload").change(function () {
+      $("#upload").change(function() {
         readURL(this);
       });
 
@@ -5389,7 +5389,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.classd = '';
   $scope.classe = '';
 
-  $scope.tabchange = function (tab, a) {
+  $scope.tabchange = function(tab, a) {
     $scope.tab = tab;
     if (a == 1) {
       $scope.classa = 'active';
@@ -5444,7 +5444,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   //    end
 
 
-  $scope.openUpload = function () {
+  $scope.openUpload = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt.html",
       controller: "GloveCtrl",
@@ -5452,7 +5452,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.copy = function () {
+  $scope.copy = function() {
     $uibModal.open({
       templateUrl: "views/modal/outofplace.html",
       controller: "GloveCtrl",
@@ -5460,7 +5460,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.continue = function () {
+  $scope.continue = function() {
     $uibModal.open({
       templateUrl: "views/modal/continue.html",
       controller: "GloveCtrl",
@@ -5468,7 +5468,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.choose = function () {
+  $scope.choose = function() {
     $uibModal.open({
       templateUrl: "views/modal/choosefile.html",
       controller: "GloveCtrl",
@@ -5476,7 +5476,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.copyright = function () {
+  $scope.copyright = function() {
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       controller: "GloveCtrl",
@@ -5485,7 +5485,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   };
 
 
-  $scope.tshirtUpload = function () {
+  $scope.tshirtUpload = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt-popup.html",
       controller: "OdiCtrl",
@@ -5493,7 +5493,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.outplace = function () {
+  $scope.outplace = function() {
     $uibModal.open({
       templateUrl: "views/modal/outofplace.html",
       controller: "OdiCtrl",
@@ -5505,7 +5505,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('BatCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
+.controller('BatCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("bat");
   $scope.menutitle = NavigationService.makeactive("Bat");
@@ -5513,33 +5513,33 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.navigation = NavigationService.getnav();
   var check = 1;
 
-  $scope.UploadTeamLogo = function () {
+  $scope.UploadTeamLogo = function() {
     check = 2;
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       scope: $scope
     })
   }
-  $scope.UploadTeamLogo1 = function () {
+  $scope.UploadTeamLogo1 = function() {
     check = 3;
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       scope: $scope
     })
   }
-  $scope.openChooseFile = function () {
+  $scope.openChooseFile = function() {
     $uibModal.open({
       templateUrl: "views/modal/choosefile.html",
       scope: $scope
     })
   }
-  $scope.openUploads = function () {
+  $scope.openUploads = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt.html",
       scope: $scope
     })
   }
-  $scope.doneUploading = function () {
+  $scope.doneUploading = function() {
     if (check == 3) {
       $scope.tab = "sponsorlogo"
     } else {
@@ -5547,7 +5547,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 
   }
-  $scope.openUploadNew = function () {
+  $scope.openUploadNew = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt-popup.html",
       scope: $scope
@@ -5568,25 +5568,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   //     scope: $scope
   //   })
   // }
-  $scope.showColorTab = function () {
+  $scope.showColorTab = function() {
     $scope.tab = "teamcolor";
   }
-  $scope.showQuantiyTab = function () {
+  $scope.showQuantiyTab = function() {
     $scope.tab = "quantiy";
   }
-  $scope.showQuantyTab = function () {
+  $scope.showQuantyTab = function() {
     $scope.tab = "quanty";
   }
 
-  $scope.proceedNext = function () {
+  $scope.proceedNext = function() {
     $scope.tab = "sponsorlogo";
   }
 
-  $scope.teamloging = function () {
+  $scope.teamloging = function() {
     $scope.tab = "teamlogo";
   }
-  $scope.$on('$viewContentLoaded', function (event) {
-    $timeout(function () {
+  $scope.$on('$viewContentLoaded', function(event) {
+    $timeout(function() {
       var scene, camera, renderer, width, height, controls, light, loader, texture, geometry, material, mesh;
       var three = document.getElementsByClassName("threed-ball");
       init();
@@ -5627,7 +5627,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         texture = new THREE.TextureLoader();
         texture.load(
           'img/textures/ball_texture.jpg',
-          function (texture) {
+          function(texture) {
             material = new THREE.MeshPhongMaterial({
               map: texture
             });
@@ -5638,10 +5638,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             sphere.rotation.z = -1;
             scene.add(sphere);
           },
-          function (xhr) {
+          function(xhr) {
             console.log((xhr.loaded / xhr.total * 100) + '% loaded');
           },
-          function (xhr) {
+          function(xhr) {
             console.log('An error happened');
           }
         );
@@ -5655,7 +5655,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       function readURL(input) {
         if (input.files && input.files[0]) {
           var reader = new FileReader();
-          reader.onload = function (e) {
+          reader.onload = function(e) {
             $('#ball_logo').attr('src', e.target.result);
             src = $('#ball_logo').attr('src');
             var image = new Image();
@@ -5755,7 +5755,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             var textur = new THREE.TextureLoader();
             textur.load(
               fullimg,
-              function (texture) {
+              function(texture) {
                 var material = new THREE.MeshPhongMaterial({
                   map: texture,
                   transparent: true
@@ -5767,10 +5767,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 mysphere.rotation.z = -1;
                 scene.add(mysphere);
               },
-              function (xhr) {
+              function(xhr) {
                 console.log((xhr.loaded / xhr.total * 100) + '% loaded');
               },
-              function (xhr) {
+              function(xhr) {
                 console.log('An error happened');
               }
             );
@@ -5778,7 +5778,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           reader.readAsDataURL(input.files[0]);
         }
       }
-      $("#upload").change(function () {
+      $("#upload").change(function() {
         readURL(this);
       });
 
@@ -5824,7 +5824,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.classd = '';
   $scope.classe = '';
 
-  $scope.tabchange = function (tab, a) {
+  $scope.tabchange = function(tab, a) {
     $scope.tab = tab;
     if (a == 1) {
       $scope.classa = 'active';
@@ -5879,7 +5879,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   //    end
 
 
-  $scope.openUpload = function () {
+  $scope.openUpload = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt.html",
       controller: "GloveCtrl",
@@ -5887,7 +5887,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.copy = function () {
+  $scope.copy = function() {
     $uibModal.open({
       templateUrl: "views/modal/outofplace.html",
       controller: "GloveCtrl",
@@ -5895,7 +5895,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.continue = function () {
+  $scope.continue = function() {
     $uibModal.open({
       templateUrl: "views/modal/continue.html",
       controller: "GloveCtrl",
@@ -5903,7 +5903,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.choose = function () {
+  $scope.choose = function() {
     $uibModal.open({
       templateUrl: "views/modal/choosefile.html",
       controller: "GloveCtrl",
@@ -5911,7 +5911,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.copyright = function () {
+  $scope.copyright = function() {
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       controller: "GloveCtrl",
@@ -5920,7 +5920,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   };
 
 
-  $scope.tshirtUpload = function () {
+  $scope.tshirtUpload = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt-popup.html",
       controller: "OdiCtrl",
@@ -5928,7 +5928,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
   };
 
-  $scope.outplace = function () {
+  $scope.outplace = function() {
     $uibModal.open({
       templateUrl: "views/modal/outofplace.html",
       controller: "OdiCtrl",
@@ -5942,7 +5942,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-.controller('CategoriesInsideCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, cfpLoadingBar) {
+.controller('CategoriesInsideCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, cfpLoadingBar) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("categories-inside");
     $scope.menutitle = NavigationService.makeactive("Categories");
@@ -5954,16 +5954,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.msg = "";
     $scope.products = [];
     $scope.country = $.jStorage.get("myCurrency");
-    NavigationService.getSubCategory($stateParams.category, function (data) {
+    NavigationService.getSubCategory($stateParams.category, function(data) {
 
       $scope.subCategories = data;
-    }, function (err) {
+    }, function(err) {
       console.log(err);
     })
     $scope.hasPromotion = false;
 
     cfpLoadingBar.start();
-    NavigationService.getProductBySubCategory($stateParams.name, function (data) {
+    NavigationService.getProductBySubCategory($stateParams.name, function(data) {
       if (data == "") {
         $scope.msg = "No " + $scope.subcategory + " found.";
       } else {
@@ -5975,26 +5975,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
         $scope.products = _.chunk(data, 2);
       }
-    }, function (err) {
+    }, function(err) {
       console.log(err);
     })
-    $scope.hovered = function () {
+    $scope.hovered = function() {
       $scope.hovermenu = true;
     }
-    $scope.unhovered = function () {
+    $scope.unhovered = function() {
       $scope.hovermenu = false;
     }
-  }, function (err) {
+  }, function(err) {
     console.log(err);
   })
-  .controller('PrivacyPolicyCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
+  .controller('PrivacyPolicyCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("privacypolicy");
     $scope.menutitle = NavigationService.makeactive("Privacy Policy");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('Product-DetailCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, ngDialog, $rootScope, $uibModal, cfpLoadingBar) {
+  .controller('Product-DetailCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, ngDialog, $rootScope, $uibModal, cfpLoadingBar) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("product-detail");
     $scope.menutitle = NavigationService.makeactive("Products");
@@ -6013,9 +6013,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       message: "",
       interes: ""
     };
-    $scope.customiseIt = function (input, formValidate) {
+    $scope.customiseIt = function(input, formValidate) {
       if (formValidate.$valid) {
-        NavigationService.createCustom(input, function (data) {
+        NavigationService.createCustom(input, function(data) {
           $scope.alerts = [];
           $scope.customInfo = {};
           $scope.alerts.push({
@@ -6023,7 +6023,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             msg: 'Your details have been sent.'
           });
 
-        }, function (err) {
+        }, function(err) {
           console.log(err);
         })
       } else {
@@ -6034,7 +6034,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
       }
     };
-    $scope.customize = function () {
+    $scope.customize = function() {
       $uibModal.open({
         animation: true,
         templateUrl: "views/modal/customizepop.html",
@@ -6043,7 +6043,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         keyboard: false
       });
     };
-    $scope.submitCustomEnquiry = function () {
+    $scope.submitCustomEnquiry = function() {
 
     };
     $scope.country = $.jStorage.get("myCurrency");
@@ -6069,7 +6069,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       isFirstDisabled: false
     };
     $scope.maxQuantity = false;
-    $scope.changeQuantity = function (q) {
+    $scope.changeQuantity = function(q) {
       $scope.filter.qty = parseInt($scope.filter.qty);
       if ($scope.productdetail.product.quantity < q) {
         $scope.maxQuantity = true;
@@ -6078,7 +6078,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       }
     };
     $scope.sizechartshirt = false;
-    $scope.loadProduct = function (filter) {
+    $scope.loadProduct = function(filter) {
 
 
       if (filter.size == null || filter.size == undefined) {
@@ -6090,7 +6090,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       } else {
         $scope.menutab[0].name = "Build + Features";
       }
-      NavigationService.getProductDetail(filter, function (data) {
+      NavigationService.getProductDetail(filter, function(data) {
 
         cfpLoadingBar.complete();
         $scope.productdetail = data;
@@ -6123,12 +6123,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         } else {
           $scope.outofstock = false;
         }
-      }, function (err) {
+      }, function(err) {
         console.log(err);
       });
     };
     $scope.loadProduct($scope.filter);
-    $scope.selectSize = function (filter) {
+    $scope.selectSize = function(filter) {
 
       if (filter.size != null && filter.size != undefined) {
         $scope.loadProduct(filter);
@@ -6140,21 +6140,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.firstsale = false;
     $scope.productid = $stateParams.id;
     $scope.testimonial = [];
-    $scope.closeAlert = function (index) {
+    $scope.closeAlert = function(index) {
       $scope.alerts.splice(index, 1);
     };
 
-    NavigationService.getTestimonial(function (data) {
+    NavigationService.getTestimonial(function(data) {
       $scope.testimonial = data;
-    }, function (err) {
+    }, function(err) {
       console.log(err);
     });
-    $scope.selectImage = function (object) {
+    $scope.selectImage = function(object) {
       $scope.selectedImage.image = object.image;
       $rootScope.$broadcast('changeImage', {});
     };
 
-    $scope.cartAdd = function () {
+    $scope.cartAdd = function() {
       if (($scope.params.category == 'Apparel' || $scope.params.category == 'Gloves' || $scope.params.category == 'Pads') && $scope.filter.size == '') {
         $scope.alerts = [];
         $scope.alerts.push({
@@ -6168,7 +6168,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           msg: 'Please input valid quantity'
         });
       } else {
-        NavigationService.addToCart($scope.filter, function (data) {
+        NavigationService.addToCart($scope.filter, function(data) {
           if (data.value == true) {
             myfunction();
             // $scope.alerts= [];
@@ -6178,7 +6178,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             // });
             globalFunc.openUp();
 
-            $timeout(function () {
+            $timeout(function() {
               globalFunc.closeIt();
             }, 3000);
             // $('.cart-head').removeClass('hover'); // Remove the hover state
@@ -6197,19 +6197,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
               })
             }
           }
-        }, function (err) {
+        }, function(err) {
           console.log(err);
         })
       }
     }
     $scope.quantity = 0;
-    $scope.wishlistAdd = function (id) {
+    $scope.wishlistAdd = function(id) {
       $scope.quantity = 1;
       if ($.jStorage.get("user")) {
         NavigationService.addToWishlist({
           id: id,
           qty: $scope.quantity
-        }, function (data) {
+        }, function(data) {
           if (data.value == true) {
             $scope.alerts = [];
             $scope.alerts.push({
@@ -6225,7 +6225,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
               msg: 'Unable to add to wishlist. Already in wishlist.'
             });
           }
-        }, function (err) {
+        }, function(err) {
           console.log(err);
         })
       } else {
@@ -6245,14 +6245,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-    $scope.makeActive = function (menu, index) {
+    $scope.makeActive = function(menu, index) {
       $scope.tab = menu.id;
-      _.each($scope.menutab, function (n) {
+      _.each($scope.menutab, function(n) {
         n.class = "";
       })
       $scope.menutab[index].class = "pro-btn-active";
     }
-    $scope.tabchange = function (tab, a) {
+    $scope.tabchange = function(tab, a) {
       //        console.log(tab);
       $scope.tab = tab;
       if (a == 1) {
@@ -6272,7 +6272,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.classc = "active";
       }
     };
-    $scope.open = function () {
+    $scope.open = function() {
       $uibModal.open({
         animation: true,
         templateUrl: "views/modal/slider.html",
@@ -6306,33 +6306,33 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }];
   })
 
-.controller('TermsConditionsCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
+.controller('TermsConditionsCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("terms-conditions");
     $scope.menutitle = NavigationService.makeactive("Terms & Conditions");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('AboutCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
+  .controller('AboutCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("about");
     $scope.menutitle = NavigationService.makeactive("About Us");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('ContactCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
+  .controller('ContactCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("contact");
     $scope.menutitle = NavigationService.makeactive("Contact Us");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.formenquire = {};
-    $scope.submit = function (input, enquiry) {
+    $scope.submit = function(input, enquiry) {
       if (enquiry.$valid) {
-        NavigationService.contactSubmit(input, function (data) {
+        NavigationService.contactSubmit(input, function(data) {
           if (data) {
             $scope.formComplete = true;
-            $timeout(function () {
+            $timeout(function() {
               $scope.formComplete = false;
             }, 4000)
 
@@ -6342,7 +6342,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             enquiry.msg.$touched = false;
             enquiry.email.$touched = false;
           }
-        }, function () {
+        }, function() {
 
         })
 
@@ -6350,34 +6350,34 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       }
     }
   })
-  .controller('OrderCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $window, cfpLoadingBar) {
+  .controller('OrderCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $window, cfpLoadingBar) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("order");
     $scope.menutitle = NavigationService.makeactive("Order");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.msg = "Loading..";
-    $scope.printInvoice = function (id) {
+    $scope.printInvoice = function(id) {
       $window.open(mainurl + 'site/printorderinvoice?id=' + id, '_new');
     };
-    $scope.trackFedex = function (order) {
-      NavigationService.fedexTrack('', function (data) {
+    $scope.trackFedex = function(order) {
+      NavigationService.fedexTrack('', function(data) {
         order.fedex = data.TrackPackagesResponse.packageList[0];
       })
     }
     cfpLoadingBar.start();
-    NavigationService.getOrders(function (data) {
+    NavigationService.getOrders(function(data) {
       cfpLoadingBar.complete();
       $scope.msg = "";
       if (data.value == false) {
         $scope.msg = "No orders";
       }
       $scope.orders = data;
-    }, function (err) {
+    }, function(err) {
       console.log(err);
     });
   })
-  .controller('CheckoutCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $interval, cfpLoadingBar, $uibModal, $window) {
+  .controller('CheckoutCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $interval, cfpLoadingBar, $uibModal, $window) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("checkout");
     $scope.menutitle = NavigationService.makeactive("Checkout");
@@ -6396,7 +6396,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.shippingcharges = 0;
     $scope.discount = 0;
     $scope.country = $.jStorage.get("myCurrency");
-    $scope.acceptIt = function (flag) {
+    $scope.acceptIt = function(flag) {
       if (flag === true) {
         $scope.acceptValidate = false;
 
@@ -6406,7 +6406,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       }
     };
 
-    $scope.openForgot = function () {
+    $scope.openForgot = function() {
       $uibModal.open({
         animation: true,
         templateUrl: 'views/modal/forgotpop.html',
@@ -6414,7 +6414,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         scope: $scope
       })
     };
-    $scope.selectGuest = function (input) {
+    $scope.selectGuest = function(input) {
       $scope.guestshow = true;
       if (input == "notguest") {
         $scope.guestshow = true;
@@ -6435,7 +6435,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       active: false,
       disabled: true
     }];
-    var checktwitter = function (data, status) {
+    var checktwitter = function(data, status) {
       if (data != "false") {
         $interval.cancel(stopinterval);
         ref.close();
@@ -6446,10 +6446,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     };
 
-    var callAtIntervaltwitter = function () {
+    var callAtIntervaltwitter = function() {
       NavigationService.authenticate(checktwitter);
     };
-    var authenticatesuccess = function (data, status) {
+    var authenticatesuccess = function(data, status) {
       if (data != "false") {
         $.jStorage.set("user", data);
         user = data;
@@ -6458,27 +6458,27 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       }
     };
 
-    $scope.facebooklogin = function () {
+    $scope.facebooklogin = function() {
       ref = window.open(mainurl + 'hauth/login/Facebook?returnurl=' + websiteurl, '_blank', 'location=yes');
       stopinterval = $interval(callAtIntervaltwitter, 2000);
-      ref.addEventListener('exit', function (event) {
+      ref.addEventListener('exit', function(event) {
         NavigationService.authenticate(authenticatesuccess);
         $interval.cancel(stopinterval);
       });
     }
-    $scope.googlelogin = function () {
+    $scope.googlelogin = function() {
       ref = window.open(mainurl + 'hauth/login/Google?returnurl=' + websiteurl, '_blank', 'location=yes');
       stopinterval = $interval(callAtIntervaltwitter, 2000);
-      ref.addEventListener('exit', function (event) {
+      ref.addEventListener('exit', function(event) {
         NavigationService.authenticate(authenticatesuccess);
         $interval.cancel(stopinterval);
       });
     }
 
-    $scope.twitterlogin = function () {
+    $scope.twitterlogin = function() {
       ref = window.open(mainurl + 'hauth/login/Twitter?returnurl=' + websiteurl, '_blank', 'location=yes');
       stopinterval = $interval(callAtIntervaltwitter, 2000);
-      ref.addEventListener('exit', function (event) {
+      ref.addEventListener('exit', function(event) {
         NavigationService.authenticate(authenticatesuccess);
         $interval.cancel(stopinterval);
       });
@@ -6488,11 +6488,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.userid = null;
     $scope.checkout = {};
     $scope.totalcart = 0;
-    $scope.getCart = function () {
+    $scope.getCart = function() {
 
       cfpLoadingBar.start();
       $scope.totalcart = 0;
-      NavigationService.showCart(function (data) {
+      NavigationService.showCart(function(data) {
         cfpLoadingBar.complete();
         $scope.msg = "";
         if (data == "") {
@@ -6500,7 +6500,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           $scope.msg = "No items in cart.";
         } else {
           $scope.allcart = data;
-          _.each($scope.allcart, function (key) {
+          _.each($scope.allcart, function(key) {
             $scope.totalcart = $scope.totalcart + parseInt(key.subtotal);
             key.qty = parseInt(key.qty);
             if (!$scope.validateQuantity(key)) {
@@ -6510,11 +6510,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
           })
         }
-        NavigationService.getCurrency(function (data) {
+        NavigationService.getCurrency(function(data) {
           if (data) {
             // var temp= _.find(data,{'name':$scope.country});
             var temp;
-            _.each(data, function (key) {
+            _.each(data, function(key) {
               if (key.name == $.jStorage.get("myCurrency")) {
                 temp = key;
               }
@@ -6528,10 +6528,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
               }
             }
           }
-        }, function (err) {
+        }, function(err) {
           console.log(err);
         });
-      }, function (err) {
+      }, function(err) {
         console.log(err);
       })
     };
@@ -6539,21 +6539,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       $scope.tabs[1].active = true;
       $scope.getCart();
     }
-    $scope.proceedToCart = function (checkoutGuest) {
+    $scope.proceedToCart = function(checkoutGuest) {
       if (checkoutGuest) {
-        $timeout(function () {
+        $timeout(function() {
           $scope.getCart();
           $scope.tabs[1].active = true;
           window.scrollTo(0, 0);
         }, 1000);
       }
     };
-    $scope.doLogin = function (input, formValidate) {
+    $scope.doLogin = function(input, formValidate) {
         $scope.validatelogin = false;
         $scope.inputall = false;
 
         if (formValidate.$valid) {
-          NavigationService.login(input, function (data) {
+          NavigationService.login(input, function(data) {
             if (data.value === false) {
               $scope.alerts = [];
               $scope.alerts.push({
@@ -6564,7 +6564,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
               NavigationService.setUser(data);
               window.location.reload();
             }
-          }, function (err) {
+          }, function(err) {
             console.log(err);
           })
         } else {
@@ -6608,7 +6608,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.validateForm = false;
     $scope.alreadyReg = false;
     $scope.noMatch = false;
-    $scope.doSignUp = function (accept, input, formValidate) {
+    $scope.doSignUp = function(accept, input, formValidate) {
       $scope.acceptValidate = false;
       $scope.validateForm = false;
       $scope.alreadyReg = false;
@@ -6618,7 +6618,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           $scope.noMatch = true;
         } else {
           if (accept == true) {
-            NavigationService.signup(input, function (data) {
+            NavigationService.signup(input, function(data) {
               if (data.value == false) {
                 $scope.alerts = [];
                 $scope.alerts.push({
@@ -6631,7 +6631,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 NavigationService.setUser(data);
                 window.location.reload();
               }
-            }, function (err) {
+            }, function(err) {
               console.log(err);
             })
           } else {
@@ -6654,12 +6654,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //START COUPON CODE
     $scope.couponamount = 0;
     $scope.showcoupontext = false;
-    $scope.checkCoupon = function (coupon) {
+    $scope.checkCoupon = function(coupon) {
         $scope.couponamount = 0;
         $scope.checkout.coupon = 0;
         if (NavigationService.getUser()) {
           if (coupon && coupon != "") {
-            NavigationService.checkCoupon(coupon, function (data) {
+            NavigationService.checkCoupon(coupon, function(data) {
               if (data.value == false) {
                 // $scope.amount  cart amount
                 $scope.alerts.push({
@@ -6675,7 +6675,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.checkout.coupon = data.id;
                     // $scope.totalamount = $scope.amount - $scope.couponamount;
                     $scope.showcoupontext = true;
-                    $timeout(function () {
+                    $timeout(function() {
                       $scope.showcoupontext = false;
                     }, 4000);
                   } else {
@@ -6749,13 +6749,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //     });
     //   }
     // }
-    var setPlaceOrder = function (data) {
+    var setPlaceOrder = function(data) {
       $scope.checkout = data;
     };
     $scope.allcart = [];
-    $scope.isCartValid = function () {
+    $scope.isCartValid = function() {
       var isValid = true;
-      _.each($scope.allcart, function (key) {
+      _.each($scope.allcart, function(key) {
         if (key.exceed == true) {
           isValid = false;
         }
@@ -6763,7 +6763,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       return isValid;
     };
 
-    $scope.proceedToDeliveryDetails = function () {
+    $scope.proceedToDeliveryDetails = function() {
       if ($scope.allcart.length == 0 || $scope.allcart == null) {
         $scope.alerts = [];
         $scope.alerts.push({
@@ -6778,12 +6778,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
 
       } else {
-        NavigationService.checkoutCheck(function (data) {
+        NavigationService.checkoutCheck(function(data) {
           if (data.value) {
             $scope.tabs[2].active = true;
             if ($.jStorage.get("user")) {
               $scope.userid = $.jStorage.get("user").id;
-              NavigationService.getUserDetail($scope.userid, setPlaceOrder, function (err) {
+              NavigationService.getUserDetail($scope.userid, setPlaceOrder, function(err) {
                 console.log(err);
               });
               window.scrollTo(0, 0);
@@ -6796,7 +6796,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
               msg: 'Some items went out of stock. Remove them'
             });
           }
-        }, function (err) {
+        }, function(err) {
           console.log(err);
         })
 
@@ -6804,10 +6804,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     };
     //pay with paypal starts
-    $scope.payWithPaypal = function () {
+    $scope.payWithPaypal = function() {
         var data_paypal = {};
         var cartify = [];
-        _.each($scope.allcart, function (n) {
+        _.each($scope.allcart, function(n) {
           cartify.push({
             "name": n.options.realname,
             "amount": n.price,
@@ -6829,7 +6829,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         data_paypal.order_id = $scope.order;
         data_paypal.checkout = $scope.checkout;
         $scope.checkout.discountamount = parseInt($scope.couponamount);
-        NavigationService.setCheckout(data_paypal, function (data) {
+        NavigationService.setCheckout(data_paypal, function(data) {
           if (data.ec_status) {
             $window.open(data.paypal_url + data.TOKEN);
           } else {
@@ -6841,7 +6841,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
       }
       //pay with paypal ends
-    $scope.placeOrder = function (formValidate) {
+    $scope.placeOrder = function(formValidate) {
       // $scope.invalidData = false;
       if (formValidate.$valid) {
         $scope.checkout.cart = $scope.allcart;
@@ -6852,7 +6852,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.checkout.discountamount = parseInt($scope.couponamount);
         $scope.checkout.totalamount = $scope.totalcart;
         $scope.checkout.finalamount = $scope.totalcart + $scope.shippingcharges - $scope.couponamount;
-        NavigationService.placeOrder($scope.checkout, function (data) {
+        NavigationService.placeOrder($scope.checkout, function(data) {
           if (data != "") {
             $scope.txnid = Date.now();
             $scope.order = data
@@ -6864,7 +6864,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
               msg: 'Unable to place order. Try again.'
             });
           }
-        }, function (err) {})
+        }, function(err) {})
       } else {
         // $scope.invalidData = true;
         // $scope.alerts = [];
@@ -6876,15 +6876,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     };
 
-    $scope.validateQuantity = function (item) {
+    $scope.validateQuantity = function(item) {
       if ((item.qty > item.maxQuantity) || item.qty < 1) {
         return false;
       } else {
         return true;
       }
     };
-    $scope.removeItem = function (cart) {
-      NavigationService.removeFromCart(cart, function (data) {
+    $scope.removeItem = function(cart) {
+      NavigationService.removeFromCart(cart, function(data) {
         if (data.value) {
           $scope.alerts = [];
           $scope.alerts.push({
@@ -6902,7 +6902,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
       })
     };
-    $scope.updateCartQuantity = function (item) {
+    $scope.updateCartQuantity = function(item) {
 
 
       if (item.qty < 1) {
@@ -6915,27 +6915,27 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         } else if ($scope.validateQuantity(item)) {
           item.exceed = false;
           item.status = "2";
-          NavigationService.addToCart(item, function (data) {
+          NavigationService.addToCart(item, function(data) {
             if (data.value) {
               $scope.getCart();
             }
-          }, function (err) {})
+          }, function(err) {})
         }
       }
 
     };
-    $scope.addQuantity = function (item) {
+    $scope.addQuantity = function(item) {
       item.qty++;
       $scope.updateCartQuantity(item);
     };
-    $scope.subtractQuantity = function (item) {
+    $scope.subtractQuantity = function(item) {
       item.qty--;
       $scope.updateCartQuantity(item);
     };
-    $scope.closeAlert = function (index) {
+    $scope.closeAlert = function(index) {
       $scope.alerts.splice(index, 1);
     };
-    $scope.sameShipping = function (data) {
+    $scope.sameShipping = function(data) {
       if ($scope.shipAtSame) {
         $scope.checkout.shippingline1 = data.billingline1;
         $scope.checkout.shippingline2 = data.billingline2;
@@ -6946,12 +6946,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.checkout.shippingcountry = data.billingcountry;
       }
     };
-    $scope.shippingChangeKarKeBataAb = function () {
+    $scope.shippingChangeKarKeBataAb = function() {
       if ($scope.shipAtSame) {
         $scope.checkout.shippingpincode = $scope.checkout.billingpincode;
       }
     }
-    $scope.shippingCheck = function (check) {
+    $scope.shippingCheck = function(check) {
       if (check) {
         $scope.shipAtSame = true;
         $scope.sameShipping($scope.checkout);
@@ -6968,7 +6968,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
   })
-  .controller('ReadyCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
+  .controller('ReadyCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("ready");
     $scope.menutitle = NavigationService.makeactive("Ready");
@@ -7003,21 +7003,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.products = _.chunk($scope.product, 3);
 
   })
-  .controller('SaveDesignCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
+  .controller('SaveDesignCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("save-design");
     $scope.menutitle = NavigationService.makeactive("Save Design");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('WishlistCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
+  .controller('WishlistCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("wishlist");
     $scope.menutitle = NavigationService.makeactive("Wishlist");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('ServicesCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $document, $stateParams, $uibModal, $location) {
+  .controller('ServicesCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $document, $stateParams, $uibModal, $location) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("services");
     $scope.menutitle = NavigationService.makeactive("Services");
@@ -7025,7 +7025,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     $scope.navigation = NavigationService.getnav2();
 
-    $scope.customizeNow = function () {
+    $scope.customizeNow = function() {
       $uibModal.open({
         animation: true,
         templateUrl: "views/modal/customizepop.html",
@@ -7072,12 +7072,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       var someElement = angular.element(document.getElementById(id));
       $document.scrollToElement(someElement, 0, 1400);
     }
-    $scope.$on('$viewContentLoaded', function (event) {
-      setTimeout(function () {
+    $scope.$on('$viewContentLoaded', function(event) {
+      setTimeout(function() {
         makeAnimation($stateParams.id);
       }, 1000);
     });
-    $scope.changeURL = function (id) {
+    $scope.changeURL = function(id) {
       $scope.menutitle = NavigationService.makeactive(id);
       $state.transitionTo('servicesid', {
         id: id,
@@ -7090,7 +7090,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
   })
 
-.controller('ExtrasCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $document, $stateParams, $uibModal, $location) {
+.controller('ExtrasCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $document, $stateParams, $uibModal, $location) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("extras");
   $scope.menutitle = NavigationService.makeactive("Extras");
@@ -7230,12 +7230,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     var someElement = angular.element(document.getElementById(id));
     $document.scrollToElement(someElement, 0, 1400);
   }
-  $scope.$on('$viewContentLoaded', function (event) {
-    setTimeout(function () {
+  $scope.$on('$viewContentLoaded', function(event) {
+    setTimeout(function() {
       makeAnimation($stateParams.id);
     }, 1000);
   });
-  $scope.changeURL = function (id) {
+  $scope.changeURL = function(id) {
     $scope.menutitle = NavigationService.makeactive(id);
     $state.transitionTo('extrasid', {
       id: id,
@@ -7248,7 +7248,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   };
 })
 
-.controller('MyWishListCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, cfpLoadingBar) {
+.controller('MyWishListCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, cfpLoadingBar) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("mywishlist");
     $scope.menutitle = NavigationService.makeactive("My Wishlist");
@@ -7256,13 +7256,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     $scope.wishlist = [];
     $scope.alerts = [];
-    $scope.closeAlert = function (index) {
+    $scope.closeAlert = function(index) {
       $scope.alerts.splice(index, 1);
     };
     $scope.msg = "Loading..";
-    $scope.getWishlist = function () {
+    $scope.getWishlist = function() {
       cfpLoadingBar.start();
-      NavigationService.getWishlist(function (data, status) {
+      NavigationService.getWishlist(function(data, status) {
         cfpLoadingBar.complete();
         $scope.msg = "";
         if (data.length == 0) {
@@ -7270,11 +7270,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         }
         $scope.wishlist = data;
-      }, function (err) {});
+      }, function(err) {});
     };
     $scope.getWishlist();
-    $scope.removeCart = function (id) {
-      NavigationService.removeFromWishlist(id, function (data) {
+    $scope.removeCart = function(id) {
+      NavigationService.removeFromWishlist(id, function(data) {
         if (data.value == true) {
           $scope.alerts = [];
           $scope.alerts.push({
@@ -7290,16 +7290,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             msg: 'Not removed from wishlist'
           });
         }
-      }, function (err) {})
+      }, function(err) {})
 
     }
-    $scope.cartAdd = function (wish) {
+    $scope.cartAdd = function(wish) {
 
       NavigationService.addToCart({
         id: wish.id,
         qty: wish.qty,
         status: "1"
-      }, function (data) {
+      }, function(data) {
         if (data.value == true) {
           myfunction();
           $scope.alerts = [];
@@ -7322,7 +7322,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           //     xyz.close();
           // }, 1000)
         }
-      }, function (err) {})
+      }, function(err) {})
     }
   })
   //
@@ -7340,7 +7340,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   //   });
   // });
 
-.controller('ForgotCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
+.controller('ForgotCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("forgot");
     $scope.menutitle = NavigationService.makeactive("Forgot Password");
@@ -7348,10 +7348,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     $scope.forgotpassword = {};
     $scope.alerts = [];
-    $scope.closeAlert = function (index) {
+    $scope.closeAlert = function(index) {
       $scope.alerts.splice(index, 1);
     };
-    $scope.sendEmail = function (request) {
+    $scope.sendEmail = function(request) {
       if ($scope.forgotpassword.email == "" || $scope.forgotpassword.email == null || $scope.forgotpassword.email == undefined) {
         $scope.alerts = [];
         $scope.alerts.push({
@@ -7359,7 +7359,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           msg: 'Please input an email address.'
         });
       } else {
-        NavigationService.forgotPassword(request, function (data) {
+        NavigationService.forgotPassword(request, function(data) {
           if (data.value == true) {
             $scope.alerts = [];
             $scope.alerts.push({
@@ -7374,11 +7374,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
               msg: 'The email ID does not exist. Please proceed to signup.'
             });
           }
-        }, function (err) {});
+        }, function(err) {});
       }
     };
   })
-  .controller('ForgotPasswordCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams) {
+  .controller('ForgotPasswordCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("forgot-password");
     $scope.menutitle = NavigationService.makeactive("Forgot Password");
@@ -7387,10 +7387,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.resetpassword = {};
     $scope.alerts = [];
     $scope.params = $stateParams;
-    $scope.closeAlert = function (index) {
+    $scope.closeAlert = function(index) {
       $scope.alerts.splice(index, 1);
     };
-    $scope.resetPassword = function () {
+    $scope.resetPassword = function() {
       $scope.allvalidation = [{
         field: $scope.resetpassword.newpassword,
         validation: ""
@@ -7412,14 +7412,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           NavigationService.resetPassword({
             password: $scope.resetpassword.newpassword,
             hashcode: $scope.params.hash
-          }, function (data) {
+          }, function(data) {
             if (data.value == true) {
               $scope.alerts = [];
               $scope.alerts.push({
                 type: 'success',
                 msg: 'Password reset successful. Please wait while we redirect you to login..'
               });
-              $timeout(function () {
+              $timeout(function() {
                 $state.go("home");
               }, 5000);
 
@@ -7430,7 +7430,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 msg: 'Unable to reset password. Try again'
               });
             }
-          }, function (err) {});
+          }, function(err) {});
         }
       } else {
         $scope.alerts = [];
@@ -7441,21 +7441,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       }
     };
   })
-  .controller('ThankCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
+  .controller('ThankCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("thank");
     $scope.menutitle = NavigationService.makeactive("Thank You");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('CustomDirectCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
+  .controller('CustomDirectCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("custom-direct");
     $scope.menutitle = NavigationService.makeactive("Custom Direct");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
   })
-  .controller('CustomisationCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
+  .controller('CustomisationCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("customisation");
     // $scope.menutitle = NavigationService.makeactive("Custom Direct");
@@ -7463,7 +7463,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
   })
 
-.controller('footerctrl', function ($scope, $state, TemplateService, $uibModal, NavigationService) {
+.controller('footerctrl', function($scope, $state, TemplateService, $uibModal, NavigationService) {
     $scope.template = TemplateService;
     $scope.wishlistshow = false;
     if ($.jStorage.get("user")) {
@@ -7473,24 +7473,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
     $scope.navigation = NavigationService.getnav();
 
-    NavigationService.getCategory(function (data) {
+    NavigationService.getCategory(function(data) {
 
 
       $scope.navigation[0].subnav = data;
 
       $scope.navigation[1].subnav = '';
 
-    }, function (err) {
+    }, function(err) {
 
 
     });
 
   })
-  .controller('headerctrl', function ($scope, $state, TemplateService, $uibModal, NavigationService, $interval, $upload, $timeout) {
+  .controller('headerctrl', function($scope, $state, TemplateService, $uibModal, NavigationService, $interval, $upload, $timeout) {
     $scope.template = TemplateService;
     $scope.logintab = {};
     $scope.login = {};
-    $scope.customize = function () {
+    $scope.customize = function() {
       $uibModal.open({
         animation: true,
         templateUrl: "views/modal/customizepop.html",
@@ -7527,33 +7527,33 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     var changeClass = {};
 
 
-    $scope.hoverDown = function () {
-      changeClass = setTimeout(function () {
+    $scope.hoverDown = function() {
+      changeClass = setTimeout(function() {
         $scope.cartClass = "";
         $scope.$apply();
       }, 500);
 
     };
-    globalFunc.closeIt = function () {
+    globalFunc.closeIt = function() {
       $scope.hoverDown();
     };
-    globalFunc.openUp = function () {
+    globalFunc.openUp = function() {
       $scope.getCart();
     };
 
-    $scope.getCart = function () {
+    $scope.getCart = function() {
       clearTimeout(changeClass);
       if ($scope.cartClass == "" || !$scope.cartClass) {
         $scope.cartClass = "itsHover";
         $scope.addCart = [];
-        NavigationService.showCart(function (data) {
+        NavigationService.showCart(function(data) {
 
           $scope.msg = "";
           if (data != '') {
             $scope.msg = "";
             $scope.addCart = data;
             $scope.totalcart = 0;
-            _.each($scope.addCart, function (key) {
+            _.each($scope.addCart, function(key) {
               key.qty = parseInt(key.qty);
               $scope.totalcart = $scope.totalcart + parseInt(key.subtotal);
 
@@ -7562,11 +7562,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           } else {
             $scope.msg = "No items in cart.";
           }
-          NavigationService.getCurrency(function (data) {
+          NavigationService.getCurrency(function(data) {
             if (data) {
               // var temp= _.find(data,{'name':$scope.country});
               var temp;
-              _.each(data, function (key) {
+              _.each(data, function(key) {
                 if (key.name == $.jStorage.get("myCurrency")) {
                   temp = key;
                 }
@@ -7575,17 +7575,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.minorder = temp.minorder;
               }
             }
-          }, function (err) {
+          }, function(err) {
             console.log(err);
           });
-        }, function (err) {
+        }, function(err) {
           console.log(err);
         });
       }
 
     };
     if (country == '') {
-      NavigationService.localCountry(function (data) {
+      NavigationService.localCountry(function(data) {
 
         country = data.geoplugin_currencyCode;
         if (country == "ZAR") {
@@ -7599,7 +7599,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
       });
     }
-    $scope.acceptIt = function (flag) {
+    $scope.acceptIt = function(flag) {
       if (flag === true) {
         $scope.acceptValidate = false;
 
@@ -7608,25 +7608,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
       }
     };
-    $scope.sendEmail = function (request) {
+    $scope.sendEmail = function(request) {
         $scope.emailsent = false;
         $scope.noexist = false;
-        NavigationService.forgotPassword(request, function (data) {
+        NavigationService.forgotPassword(request, function(data) {
           if (data.value == true) {
             $scope.emailsent = true;
 
           } else {
             $scope.noexist = true;
           }
-        }, function (err) {
+        }, function(err) {
           console.log(err);
         });
       }
       //Global function
-    NavigationService.getCategory(function (data) {
+    NavigationService.getCategory(function(data) {
       $scope.navigation[0].subnav = data;
       $scope.navigation[1].subnav = '';
-    }, function (err) {});
+    }, function(err) {});
     $scope.services = [{
       name: "ADVANCED CUSTOMISATION",
       anchor: "advancedcutomization",
@@ -7660,14 +7660,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       anchor: "press",
     }];
     $scope.wishlistcountshow = false;
-    myfunction = function () {
+    myfunction = function() {
       if ($.jStorage.get("user")) {
         $scope.wishlistcountshow = true;
-        NavigationService.getWishlistCount(function (data) {
+        NavigationService.getWishlistCount(function(data) {
           $scope.wishlistcount = data;
-        }, function (err) {});
+        }, function(err) {});
       }
-      NavigationService.getCartCount(function (data) {
+      NavigationService.getCartCount(function(data) {
         if (data.value == false) {
           $scope.amount = 0;
           $scope.quantity = 0;
@@ -7678,12 +7678,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           count++;
         }
 
-      }, function (err) {});
+      }, function(err) {});
       // NavigationService.totalcart(function(data) {
       //     $scope.amount = data;
       // });
     }
-    $scope.changeTab = function (tab) {
+    $scope.changeTab = function(tab) {
       if (tab === 1) {
         $scope.signupmodal = true;
         $scope.loginmodal = false;
@@ -7695,18 +7695,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
     myfunction();
 
-    $scope.hovered = function () {
+    $scope.hovered = function() {
       $scope.hovermenu = true;
     }
-    $scope.unhovered = function () {
+    $scope.unhovered = function() {
       $scope.hovermenu = false;
     }
-    $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+    $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
       $(window).scrollTop(0);
     });
     $scope.animationsEnabled = true;
 
-    $scope.openLogin = function () {
+    $scope.openLogin = function() {
       $.jStorage.set("isExpert", false);
       $scope.changeTab(2);
       $uibModal.open({
@@ -7717,7 +7717,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       })
     };
 
-    $scope.openSignup = function () {
+    $scope.openSignup = function() {
       $.jStorage.set("isExpert", true);
       $uibModal.open({
         animation: true,
@@ -7727,7 +7727,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       })
       $scope.changeTab(1);
     };
-    $scope.cancel = function () {
+    $scope.cancel = function() {
       $uibModalInstance.dismiss('cancel');
     };
 
@@ -7735,19 +7735,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.inputall = false;
 
     //login
-    $scope.doLogin = function (input, formValidate) {
+    $scope.doLogin = function(input, formValidate) {
         $scope.validatelogin = false;
         $scope.inputall = false;
 
         if (formValidate.$valid) {
-          NavigationService.login(input, function (data) {
+          NavigationService.login(input, function(data) {
             if (data.value === false) {
               $scope.validatelogin = true;
             } else {
               NavigationService.setUser(data);
               window.location.reload();
             }
-          }, function (err) {})
+          }, function(err) {})
         } else {
           $scope.inputall = true;
         }
@@ -7761,7 +7761,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.validateForm = false;
     $scope.noMatch = false;
 
-    $scope.doSignup = function (accept, input, formValidate) {
+    $scope.doSignup = function(accept, input, formValidate) {
       $scope.acceptValidate = false;
       $scope.validateForm = false;
       $scope.alreadyReg = false;
@@ -7771,14 +7771,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           $scope.noMatch = true;
         } else {
           if (accept == true) {
-            NavigationService.signup(input, function (data) {
+            NavigationService.signup(input, function(data) {
               if (data.value == false) {
                 $scope.alreadyReg = true;
               } else {
                 NavigationService.setUser(data);
                 window.location.reload();
               }
-            }, function (err) {})
+            }, function(err) {})
           } else {
             $scope.acceptValidate = true;
           }
@@ -7792,16 +7792,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     //logout
-    $scope.logout = function () {
-      NavigationService.logout(function (data) {
+    $scope.logout = function() {
+      NavigationService.logout(function(data) {
         if (data == "true") {
           $.jStorage.flush();
           window.location.href = window.location.origin + window.location.pathname;
 
         }
-      }, function (err) {})
+      }, function(err) {})
     }
-    var checktwitter = function (data, status) {
+    var checktwitter = function(data, status) {
       if (data != "false") {
         $interval.cancel(stopinterval);
         ref.close();
@@ -7812,10 +7812,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     };
 
-    var callAtIntervaltwitter = function () {
+    var callAtIntervaltwitter = function() {
       NavigationService.authenticate(checktwitter);
     };
-    var authenticatesuccess = function (data, status) {
+    var authenticatesuccess = function(data, status) {
       if (data != "false") {
         $.jStorage.set("user", data);
         user = data;
@@ -7823,34 +7823,34 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       }
     };
 
-    $scope.facebooklogin = function () {
+    $scope.facebooklogin = function() {
       ref = window.open(mainurl + 'hauth/login/Facebook?returnurl=' + websiteurl, '_blank', 'location=yes');
       stopinterval = $interval(callAtIntervaltwitter, 2000);
-      ref.addEventListener('exit', function (event) {
+      ref.addEventListener('exit', function(event) {
         NavigationService.authenticate(authenticatesuccess);
         $interval.cancel(stopinterval);
       });
     }
-    $scope.googlelogin = function () {
+    $scope.googlelogin = function() {
       ref = window.open(mainurl + 'hauth/login/Google?returnurl=' + websiteurl, '_blank', 'location=yes');
       stopinterval = $interval(callAtIntervaltwitter, 2000);
-      ref.addEventListener('exit', function (event) {
+      ref.addEventListener('exit', function(event) {
         NavigationService.authenticate(authenticatesuccess);
         $interval.cancel(stopinterval);
       });
     }
 
-    $scope.twitterlogin = function () {
+    $scope.twitterlogin = function() {
       ref = window.open(mainurl + 'hauth/login/Twitter?returnurl=' + websiteurl, '_blank', 'location=yes');
       stopinterval = $interval(callAtIntervaltwitter, 2000);
-      ref.addEventListener('exit', function (event) {
+      ref.addEventListener('exit', function(event) {
         NavigationService.authenticate(authenticatesuccess);
         $interval.cancel(stopinterval);
       });
     }
 
     //forgot
-    $scope.openForgot = function () {
+    $scope.openForgot = function() {
       $uibModal.open({
         animation: true,
         templateUrl: 'views/modal/forgotpop.html',
@@ -7864,14 +7864,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.usingFlash = FileAPI && FileAPI.upload != null;
     $scope.fileReaderSupported = window.FileReader != null && (window.FileAPI == null || FileAPI.html5 != false);
     $scope.uploadRightAway = true;
-    $scope.changeAngularVersion = function () {
+    $scope.changeAngularVersion = function() {
       window.location.hash = $scope.angularVersion;
       window.location.reload(true);
     };
-    $scope.hasUploader = function (index) {
+    $scope.hasUploader = function(index) {
       return $scope.upload[index] != null;
     };
-    $scope.abort = function (index) {
+    $scope.abort = function(index) {
       $scope.upload[index].abort();
       $scope.upload[index] = null;
     };
@@ -7884,14 +7884,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.usingFlash = FileAPI && FileAPI.upload != null;
     $scope.fileReaderSupported = window.FileReader != null && (window.FileAPI == null || FileAPI.html5 != false);
     $scope.uploadRightAway = true;
-    $scope.changeAngularVersion = function () {
+    $scope.changeAngularVersion = function() {
       window.location.hash = $scope.angularVersion;
       window.location.reload(true);
     };
-    $scope.hasUploader = function (index) {
+    $scope.hasUploader = function(index) {
       return $scope.upload[index] != null;
     };
-    $scope.abort = function (index) {
+    $scope.abort = function(index) {
       $scope.upload[index].abort();
       $scope.upload[index] = null;
     };
@@ -7899,7 +7899,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       window.location.hash.substring(2) : window.location.hash.substring(1)) : '1.2.20';
 
     var arrLength = 0;
-    globalfunction.onFileSelect = function ($files, callback) {
+    globalfunction.onFileSelect = function($files, callback) {
       console.log($files);
       $scope.selectedFiles = [];
       $scope.progress = [];
@@ -7922,9 +7922,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         if ($scope.fileReaderSupported && $file.type.indexOf('image') > -1) {
           var fileReader = new FileReader();
           fileReader.readAsDataURL($files[i]);
-          var loadFile = function (fileReader, index) {
-            fileReader.onload = function (e) {
-              $timeout(function () {
+          var loadFile = function(fileReader, index) {
+            fileReader.onload = function(e) {
+              $timeout(function() {
                 $scope.dataUrls[index] = e.target.result;
               });
             }
@@ -7937,7 +7937,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       }
     };
 
-    $scope.start = function (index, callback) {
+    $scope.start = function(index, callback) {
       console.log(index);
       $scope.progress[index] = 0;
       $scope.errorMsg = null;
@@ -7955,9 +7955,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           file: $scope.selectedFiles[index],
           fileFormDataName: 'file'
         });
-        $scope.upload[index].then(function (response) {
+        $scope.upload[index].then(function(response) {
           console.log(response);
-          $timeout(function () {
+          $timeout(function() {
             console.log(response);
             $scope.uploadResult.push(response.data.value);
             imagejstupld = response.data.value;
@@ -7972,28 +7972,28 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
               }
             }
           });
-        }, function (response) {
+        }, function(response) {
           if (response.status > 0) $scope.errorMsg = response.status + ': ' + response.data;
-        }, function (evt) {
+        }, function(evt) {
           $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
         });
-        $scope.upload[index].xhr(function (xhr) {});
+        $scope.upload[index].xhr(function(xhr) {});
       } else {
         console.log("hehraihdiuashdohsaiudh");
         console.log(e.target.result);
         var fileReader = new FileReader();
-        fileReader.onload = function (e) {
+        fileReader.onload = function(e) {
           $scope.upload[index] = $upload.http({
             url: uploadUrl,
             headers: {
               'Content-Type': $scope.selectedFiles[index].type
             },
             data: e.target.result
-          }).then(function (response) {
+          }).then(function(response) {
             $scope.uploadResult.push(response.data);
-          }, function (response) {
+          }, function(response) {
             if (response.status > 0) $scope.errorMsg = response.status + ': ' + response.data;
-          }, function (evt) {
+          }, function(evt) {
             $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
           });
         }
@@ -8001,7 +8001,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       }
     };
 
-    $scope.dragOverClass = function ($event) {
+    $scope.dragOverClass = function($event) {
       var items = $event.dataTransfer.items;
       var hasFile = false;
       if (items != null) {

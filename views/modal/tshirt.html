@@ -25,7 +25,7 @@
       <div class="col-md-5">
         <div class="mod-img ">
           <div class="noti-imgs"> <!--ng-style="{'background-image':'url(img/custom/c4.jpg)'}"-->
-          <img ng-src="{{tempImage | serverimage}}" src="" alt="" class="img-responsive" ng-if="tempImage">
+          <img equalHeight equalWidth ng-src="{{tempImage | serverimage}}" src="" alt="" class="img-responsive" ng-if="tempImage">
           </div>
         </div>
       </div>
@@ -43,7 +43,7 @@
           <div class="progress">
             <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" ng-class="{'width-full': tempImage}"></div>
           </div>
-          <span class="pull-right mt12">100% completed</span>
+          <span class="pull-right mt12" ng-if="tempImage">100% completed</span>
         </div>
         <button type="button" class="btn pad4 btn-outline btn-dark block" aria-label="File" ng-if="!statuses.uploadStatus">
           <label class="no-margin" for="selector5">Upload Image</label>
