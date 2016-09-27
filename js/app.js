@@ -315,7 +315,22 @@
         if (input.substring(0, 4) === "img/") {
           return input;
         } else {
-          return imgurl + input;
+          return (imgurl + input).toString();
+        }
+      } else {
+        // return "img/logo.png";
+        return "";
+      }
+    };
+  });
+
+  firstapp.filter('serverimage2', function () {
+    return function (input) {
+      if (input) {
+        if (input.substring(0, 4) === "img/") {
+          return 'url(\"' + input + '\")';
+        } else {
+          return 'url(\"' + imgurl + input + '\")';
         }
       } else {
         // return "img/logo.png";

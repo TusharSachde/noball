@@ -3289,10 +3289,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
   // image upload variables
   $scope.variable = "";
+
+  // slider
+  $scope.rslider = {
+    min: 10,
+    max: 100
+  };
   // $scope.statuses.copyright = false;
 
   $scope.customizedShirt.leftchest = {};
   $scope.customizedShirt.leftchest.image = "img/logo_black.png";
+  $scope.customizedShirt.leftchest.attributes = {};
+  $scope.customizedShirt.leftchest.attributes.width = 25;
   
   $scope.UploadTeamLogo = function() {
     check = 2;
@@ -3320,6 +3328,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.tempImage = "";
   $scope.changeLogo = function(key){
     console.log(key);
+    $scope.customizedShirt[key].attributes.width = "calc(50px + " + $scope.customizedShirt[key].attributes.width + "px)"
   };
   $scope.onFileSelect = function($files, whichone, uploadtype, variable) {
     $scope.toolarge = false;
@@ -3336,6 +3345,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           $scope.tempImage = image[0];
           if(!$scope.customizedShirt[variable]) {
             $scope.customizedShirt[variable] = {};
+            $scope.customizedShirt[variable].attributes = {};
+            $scope.customizedShirt[variable].attributes.width = 25;
             console.log($scope.customizedShirt);
           }
           //$scope.customizedShirt[variable] = image[0];
@@ -3650,6 +3661,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   });
 
   $scope.color = [{
+    colr: "#c80d28"
+  }, {
+    colr: "#2c8b47"
+  }, {
+    colr: "#e87024"
+  }];
+
+  $scope.color2 = [{
     colr: "#f5b122"
   }, {
     colr: "#c80d28"

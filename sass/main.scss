@@ -2230,45 +2230,50 @@ footer {
     margin-bottom: 25px;
     margin-top: 25px;
     position: relative;
-    .main-logo {
+    .div-main-logo {
+        max-width: 50px;
+        max-height: 50px;
+        overflow: hidden;
         position: absolute;
         top: 250px;
         right: 200px;
         width: 50px;
     }
-    .back-sponsor1 {
+    .div-back-sponsor1 {
         position: absolute;
         top: 100px;
         right: 200px;
         width: 50px;
     }
-    .back-sponsor2 {
+    .div-back-sponsor2 {
         position: absolute;
         top: 200px;
         right: 200px;
         width: 50px;
     }
-    .left-chest {
+    .div-left-chest {
+        max-width: 75px;
+        max-height: 75px;
         position: absolute;
-        top: 150px;
-        right: 150px;
+        top: 140px;
+        right: 160px;
         width: 50px;
     }
-    .left-sleeve {
+    .div-left-sleeve {
         position: absolute;
         top: 130px;
         right: 65px;
         width: 50px;
         transform: rotate(-10deg);
     }
-    .right-sleeve {
+    .div-right-sleeve {
         position: absolute;
         top: 130px;
         left: 65px;
         transform: rotate(10deg);
         width: 50px;
     }
-    .right-chest {
+    .div-right-chest {
         position: absolute;
         top: 150px;
         left: 150px;
@@ -4201,6 +4206,9 @@ input[type=number]::-webkit-outer-spin-button {
         font-size: 12px;
     }
     .noti-imgs {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         height: 188px;
     }
     .progress {
