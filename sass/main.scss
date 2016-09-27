@@ -4922,10 +4922,12 @@ h2 {
     @include transition(width 1s ease);
 }
 
-.heading {
+.addfixed {
     position: fixed;
     width: 100%;
+    height: 150px;
     z-index: 9999;
+    background-color: #fff;
 }
 
 @import "mobile/mobile";
