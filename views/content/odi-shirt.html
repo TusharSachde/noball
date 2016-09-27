@@ -1,39 +1,44 @@
 <section>
-    <div class="text-center">
-        <h3 class="high-light main-head">CUSTOMISE YOUR ODI T SHIRT</h3>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="step">
-                <ul>
-                    <li class="tab-item breadcrums {{classa}}" ng-click="tabchange('design',1)">
-                        <span class="bread-frnt"></span>
-                        <p>1. DESIGN</p>
-                        <span class="bread-back"></span>
-                    </li>
-                    <li class="tab-item breadcrums {{classb}}" ng-click="tabchange('trim',2)">
-                        <span class="bread-frnt"></span>
-                        <p>2. TRIM</p>
-                        <span class="bread-back"></span>
-                    </li>
-                    <li class="tab-item breadcrums {{classc}}" ng-click="tabchange('team',3)">
-                        <span class="bread-frnt"></span>
-                        <p>3. TEAM LOGO</p>
-                        <span class="bread-back"></span>
-                    </li>
-                    <li class="tab-item breadcrums {{classd}}" ng-click="tabchange('logo',4)">
-                        <span class="bread-frnt"></span>
-                        <p>4. SPONSOR LOGOS</p>
-                        <span class="bread-back"></span>
-                    </li>
-                    <li class="tab-item breadcrums {{classe}}" ng-click="tabchange('quantity',5)">
-                        <span class="bread-frnt"></span>
-                        <p>5. QUANTITY</p>
-                        <span class="bread-back"></span>
-                    </li>
-                </ul>
+    <div class="heading">
+        <div class="container">
+            <div class="text-center">
+                <h3 class="high-light main-head">CUSTOMISE YOUR ODI T SHIRT</h3>
+            </div>
+            <div class="row">
+                <div class="step">
+                    <ul>
+                        <li class="tab-item breadcrums {{classa}}" ng-click="tabchange('design',1)">
+                            <span class="bread-frnt"></span>
+                            <p>1. DESIGN</p>
+                            <span class="bread-back"></span>
+                        </li>
+                        <li class="tab-item breadcrums {{classb}}" ng-click="tabchange('trim',2)">
+                            <span class="bread-frnt"></span>
+                            <p>2. TRIM</p>
+                            <span class="bread-back"></span>
+                        </li>
+                        <li class="tab-item breadcrums {{classc}}" ng-click="tabchange('team',3)">
+                            <span class="bread-frnt"></span>
+                            <p>3. TEAM LOGO</p>
+                            <span class="bread-back"></span>
+                        </li>
+                        <li class="tab-item breadcrums {{classd}}" ng-click="tabchange('logo',4)">
+                            <span class="bread-frnt"></span>
+                            <p>4. SPONSOR LOGOS</p>
+                            <span class="bread-back"></span>
+                        </li>
+                        <li class="tab-item breadcrums {{classe}}" ng-click="tabchange('quantity',5)">
+                            <span class="bread-frnt"></span>
+                            <p>5. QUANTITY</p>
+                            <span class="bread-back"></span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
+    </div>
+    <div class="container">
+
         <div class="product-detail">
             <div class="row">
                 <div class="col-md-5">
@@ -179,7 +184,7 @@
                                 <label for="later"><span></span>SEND LATER</label>
                             </div>
                             <div class="logo-text">
-                                <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openChooseFile()">TEAM LOGO</button>
+                                <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15">TEAM LOGO</button>
                                 <span class="uppercase inline-block mright15">or</span>
                                 <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor();">TEAM TEXT</button>
                             </div>
@@ -197,7 +202,7 @@
                                     <a href="" class="link mleft22">VIEW EXAMPLE</a></label>
                                 </form>
                                 <div class="edit-btn">
-                                    <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15">upload</button>
+                                    <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openChooseFile()">upload</button>
                                 </div>
                                 <div class="pbotom">
                                     <span class="block">Notes :</span>
@@ -388,12 +393,11 @@
 
                         <div class="choos m20-l" ng-show="tab=='logo'">
                             <p>Upload Your Sponsor Logo (Optional)</p>
-                            <div class="default inline-block" ng-repeat="(key, value) in customizedShirt" ng-if="angular.isObject(customizedShirt[key]) == true">
-                                {{key}} in {{value}}
-                                {{customizedShirt[key]}}
+                            <div class="default inline-block" ng-repeat="(key, value) in customizedShirt" ng-if="checkCustomizeShirt(key)">
                                 <div class="mod-img">
-                                    <div class="noti-imgs" ng-style="{'background-image':'url(img/logo_black.png)'}">
+                                    <div class="noti-imgs" ng-style="{'background-image':'url({{customizedShirt[key].image | serverimage}})'}">
                                     </div>
+
                                     <div class="sliding">
                                         <span>size</span>
                                         <div range-slider min="0" max="100" model-max="max" pin-handle="min">
@@ -402,12 +406,13 @@
                                     <div class="edit-btn">
                                         <button class="btn btn-outline btn-dark" ng-click="openUploads('mainlogo')">CHANGE</button>
                                         <br>
-                                        <button class="btn btn-outline btn-dark" ng-click="customizedShirt.mainlogo = {}">REMOVE</button>
+                                        <button class="btn btn-outline btn-dark" ng-click="emptyImage(key)">REMOVE</button>
                                     </div>
                                     <div class="check">
                                         <input type="checkbox" class="form-control" id="remove">
                                         <label for="remove"><span></span>Remove Image From Background</label>
                                     </div>
+
                                 </div>
                                 <!--<button type="button" ng-if="customizedShirt.front" ng-class="{'button-done':customizedShirt.leftchest}" class="btn pad5 btn-outline btn-dark block"
                                     aria-label="File"><label class="no-margin" for="selector6">LEFT CHEST SPONSOR <i ng-if="customizedShirt.leftchest" class="fa fa-check-circle"></i></label>

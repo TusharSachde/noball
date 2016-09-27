@@ -1986,7 +1986,7 @@ footer {
                 border: 1px solid $bread-crumb;
                 padding: 4px 49px;
                 cursor: pointer;
-                height: 30px;
+                height: 29px;
             }
             &.active p,
             &:hover p {
@@ -2023,7 +2023,7 @@ footer {
                     border-left: 13px solid #FFFFFF;
                     position: absolute;
                     left: 0;
-                    top: 1px;
+                    top: 2px;
                     z-index: 9;
                 }
                 span.bread-back {
@@ -2031,7 +2031,7 @@ footer {
                     border-bottom: 14px solid transparent;
                     border-left: 14px solid #FFFFFF;
                     position: absolute;
-                    right: -13px;
+                    right: -12px;
                     top: 1px;
                     z-index: 9;
                     // @include transition (all ease 300ms );
@@ -2041,7 +2041,7 @@ footer {
                     border-top: 15px solid transparent;
                     border-bottom: 15px solid transparent;
                     border-left: 15px solid $bread-crumb;
-                    right: -14px;
+                    right: -12px;
                     top: 0;
                 }
             }
@@ -2064,7 +2064,7 @@ footer {
 }
 
 .product-detail {
-    margin: 40px 0 30px;
+    margin: 96px 0 30px;
     .review {
         margin: 20px 0;
         .design {
@@ -4800,6 +4800,14 @@ h2 {
 }
 
 .default {
+    margin-right: 20px;
+    display: inline-block;
+    vertical-align: top;
+    .mod-img {
+        padding-right: 10px;
+        width: 160px;
+        display: inline-block;
+    }
     .noti-imgs {
         height: 120px;
         width: 120px;
@@ -4867,8 +4875,13 @@ h2 {
     }
 }
 
+.border-grey {
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+}
+
 .scroll-image {
-    height: 500px;
+    height: 400px;
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -4881,6 +4894,7 @@ h2 {
 #style-1::-webkit-scrollbar {
     width: 10px;
     background-color: #F5F5F5;
+    display: none;
 }
 
 #style-1::-webkit-scrollbar-thumb {
@@ -4896,6 +4910,7 @@ h2 {
 #style-2::-webkit-scrollbar {
     width: 10px;
     background-color: #F5F5F5;
+    display: none;
 }
 
 #style-2::-webkit-scrollbar-thumb {
@@ -4905,6 +4920,12 @@ h2 {
 
 .progress-bar {
     @include transition(width 1s ease);
+}
+
+.heading {
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
 }
 
 @import "mobile/mobile";
