@@ -311,7 +311,6 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, cfpL
 
 firstapp.filter('serverimage', function() {
   return function(input) {
-    console.log(input);
     if (input) {
       if (input.substring(0, 4) === "img/" ) {
         return input;

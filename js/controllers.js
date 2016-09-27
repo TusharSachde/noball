@@ -3292,8 +3292,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   // $scope.statuses.copyright = false;
 
   $scope.customizedShirt.leftchest = {};
-    $scope.customizedShirt.leftchest.image = "img/logo_black.png";
-  
+  $scope.customizedShirt.leftchest.image = "img/logo_black.png";
   
   $scope.UploadTeamLogo = function() {
     check = 2;
@@ -3319,7 +3318,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.switchFrontBack(true);
   $scope.statuses.uploadStatus = false;
   $scope.tempImage = "";
-
+  $scope.changeLogo = function(key){
+    console.log(key);
+  };
   $scope.onFileSelect = function($files, whichone, uploadtype, variable) {
     $scope.toolarge = false;
     console.log($files);
@@ -3346,6 +3347,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       $files = [];
       $scope.toolarge = true;
     }
+  }
+  $scope.emptyImage = function(key) {
+    $scope.customizedShirt[key] = null;
+  }
+  $scope.checkCustomizeShirt = function(key) {
+    return angular.isObject($scope.customizedShirt[key]);
   }
   $scope.confirmUpload = function(variable) {
     //$dismiss();
