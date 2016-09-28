@@ -2226,20 +2226,28 @@ footer {
     }
 }
 
+.div-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
 .gully-shirt {
     margin-bottom: 25px;
     margin-top: 25px;
     position: relative;
     .div-main-logo {
-        max-width: 50px;
-        max-height: 50px;
+        max-width: 150px;
+        max-height: 150px;
         overflow: hidden;
         position: absolute;
-        top: 250px;
-        right: 200px;
-        width: 50px;
-        height: 50px;
+        top: 215px;
+        right: 155px;
+        width: 150px;
+        height: 150px;
         z-index: 99;
+        @extend .div-flex;
     }
     .div-back-sponsor1 {
         position: absolute;
@@ -2249,6 +2257,7 @@ footer {
         height: 50px;
         z-index: 99;
         overflow: hidden;
+        @extend .div-flex;
     }
     .div-back-sponsor2 {
         position: absolute;
@@ -2258,6 +2267,7 @@ footer {
         height: 50px;
         z-index: 99;
         overflow: hidden;
+        @extend .div-flex;
     }
     .div-left-chest {
         // max-width: 75px;
@@ -2269,6 +2279,7 @@ footer {
         height: 50px;
         z-index: 99;
         overflow: hidden;
+        @extend .div-flex;
     }
     .div-left-sleeve {
         position: absolute;
@@ -2279,6 +2290,7 @@ footer {
         transform: rotate(-10deg);
         z-index: 99;
         overflow: hidden;
+        @extend .div-flex;
     }
     .div-right-sleeve {
         position: absolute;
@@ -2289,6 +2301,7 @@ footer {
         height: 50px;
         z-index: 99;
         overflow: hidden;
+        @extend .div-flex;
     }
     .div-right-chest {
         position: absolute;
@@ -2298,6 +2311,7 @@ footer {
         height: 50px;
         z-index: 99;
         overflow: hidden;
+        @extend .div-flex;
     }
     .backdrop {
         position: absolute;
