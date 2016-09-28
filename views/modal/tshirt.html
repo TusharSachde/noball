@@ -72,7 +72,7 @@
       </ul>
     </div>
   </div>
-  <form ng-submit="confirmUpload(variable)" name="uploadform">
+  <form ng-submit="confirmUpload(variable, name)" name="uploadform">
     <div class="check" ng-if="!statuses.showcopy">
     <input type="checkbox" class="form-control" id="log" name="hereby" ng-required="!statuses.showcopy">
     <label for="log"><span></span>I hereby declare I have permission to use this file.</label>

@@ -2238,6 +2238,7 @@ footer {
         top: 250px;
         right: 200px;
         width: 50px;
+        height: 50px;
         z-index: 99;
     }
     .div-back-sponsor1 {
@@ -2245,6 +2246,7 @@ footer {
         top: 100px;
         right: 200px;
         width: 50px;
+        height: 50px;
         z-index: 99;
         overflow: hidden;
     }
@@ -2253,6 +2255,7 @@ footer {
         top: 200px;
         right: 200px;
         width: 50px;
+        height: 50px;
         z-index: 99;
         overflow: hidden;
     }
@@ -2272,6 +2275,7 @@ footer {
         top: 130px;
         right: 65px;
         width: 50px;
+        height: 50px;
         transform: rotate(-10deg);
         z-index: 99;
         overflow: hidden;
@@ -2282,6 +2286,7 @@ footer {
         left: 65px;
         transform: rotate(10deg);
         width: 50px;
+        height: 50px;
         z-index: 99;
         overflow: hidden;
     }
@@ -2290,6 +2295,7 @@ footer {
         top: 150px;
         left: 150px;
         width: 50px;
+        height: 50px;
         z-index: 99;
         overflow: hidden;
     }
@@ -2303,6 +2309,11 @@ footer {
         top: 0;
         z-index: 99;
     }
+}
+
+.tshirt-name {
+    min-width: 120px;
+    height: 32px;
 }
 
 .feature-buttons {

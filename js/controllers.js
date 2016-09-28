@@ -3298,8 +3298,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   // $scope.statuses.copyright = false;
   $scope.trimTshirt = {};
   $scope.customizedShirt.leftchest = {};
+  $scope.customizedShirt.leftchest.name = "Left Chest";
   $scope.customizedShirt.leftchest.image = "img/logo_black.png";
   $scope.customizedShirt.leftchest.attributes = {};
+  $scope.customizedShirt.leftchest.divattributes = {};
   $scope.customizedShirt.leftchest.attributes.width = 50;
   
   $scope.UploadTeamLogo = function() {
@@ -3329,9 +3331,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.changeLogo = function(key){
     console.log(key);
     //$scope.customizedShirt[key].attributes.width = "calc(50px + " + $scope.customizedShirt[key].attributes.width + "px)"
-    $scope.customizedShirt[key].attributes.position = "relative"
-    $scope.customizedShirt[key].attributes.top = "calc(50px + " + $scope.customizedShirt[key].attributes.width / 2 + "px)"
-    $scope.customizedShirt[key].attributes.left = "calc(50px + " + $scope.customizedShirt[key].attributes.width / 2 + "px)"
+    //$scope.customizedShirt[key].attributes.position = "relative"
+    //$scope.customizedShirt[key].attributes.top = "calc(25px - " + $scope.customizedShirt[key].attributes.width / 2 + "px)"
+    //$scope.customizedShirt[key].attributes.left = "calc(25px - " + $scope.customizedShirt[key].attributes.width / 2 + "px)"
+    $scope.customizedShirt[key].divattributes.border = "1px solid #ccc";
+  };
+  $scope.resetLogoStyle = function(key){
+    $scope.customizedShirt[key].divattributes.border = "none";
+    $scope.$apply();
   };
   $scope.onFileSelect = function($files, whichone, uploadtype, variable) {
     $scope.toolarge = false;
@@ -3349,6 +3356,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           if(!$scope.customizedShirt[variable]) {
             $scope.customizedShirt[variable] = {};
             $scope.customizedShirt[variable].attributes = {};
+            $scope.customizedShirt[variable].divattributes = {};
             $scope.customizedShirt[variable].attributes.width = 50;
             console.log($scope.customizedShirt);
           }
@@ -3368,10 +3376,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.checkCustomizeShirt = function(key) {
     return angular.isObject($scope.customizedShirt[key]);
   }
-  $scope.confirmUpload = function(variable) {
+  $scope.confirmUpload = function(variable, name) {
     //$dismiss();
     $scope.statuses.modal.close();
     $scope.customizedShirt[variable].image = $scope.tempImage;
+    $scope.customizedShirt[variable].name = name;
     console.log($scope.customizedShirt[variable]);
     $scope.tempImage = "";
   }
@@ -3409,9 +3418,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.showVideo = false;
   }
 
-  $scope.openUploads = function(variable) {
+  $scope.openUploads = function(variable, name) {
     $scope.statuses.uploadStatus = false;
     $scope.variable = variable;
+    $scope.name = name;
     $scope.statuses.modal = $uibModal.open({
       templateUrl: "views/modal/tshirt.html",
       scope: $scope

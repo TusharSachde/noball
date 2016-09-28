@@ -47,29 +47,29 @@
                             <div class="gully-shirt">
                                 <img ng-src="{{customizedShirt.cloth}}" class="img-responsive" alt="">
                                 <img ng-src="{{customizedShirt.backdrop}}" class="backdrop img-responsive" alt="">
-                                <img ng-src="{{trimTshirt.highlightOne}}" class="trimshirt img-responsive" alt="">
-                                <img ng-src="{{trimTshirt.highlightTwo}}" class="trimshirt img-responsive" alt="">
-                                <img ng-src="{{trimTshirt.collar}}" class="trimshirt img-responsive" alt="">
-                                <div class="div-main-logo" ng-if="customizedShirt.front && customizedShirt.mainlogo.image">
+                                <img ng-src="{{trimTshirt.highlightOne}}" ng-if="trimTshirt.highlightOne" class="trimshirt img-responsive" alt="">
+                                <img ng-src="{{trimTshirt.highlightTwo}}" ng-if="trimTshirt.highlightTwo" class="trimshirt img-responsive" alt="">
+                                <img ng-src="{{trimTshirt.collar}}" ng-if="trimTshirt.collar" class="trimshirt img-responsive" alt="">
+                                <div class="div-main-logo" ng-if="customizedShirt.front && customizedShirt.mainlogo.image"  ng-style="customizedShirt.mainlogo.divattributes">
                                     <img class="main-logo" ng-src="{{customizedShirt.mainlogo.image | serverimage}}" alt="" ng-style="customizedShirt.mainlogo.attributes">
                                 </div>
-                                <div class="div-back-sponsor1" ng-if="customizedShirt.back && customizedShirt.backsponsor1.image">
+                                <div class="div-back-sponsor1" ng-if="customizedShirt.back && customizedShirt.backsponsor1.image" ng-style="customizedShirt.backsponsor1.divattributes">
                                     <img class="back-sponsor1" ng-src="{{customizedShirt.backsponsor1.image | serverimage}}" alt="" ng-style="customizedShirt.backsponsor1.attributes">
                                 </div>
-                                <div class="div-back-sponsor2" ng-if="customizedShirt.back && customizedShirt.backsponsor2.image">
+                                <div class="div-back-sponsor2" ng-if="customizedShirt.back && customizedShirt.backsponsor2.image" ng-style="customizedShirt.backsponsor2.divattributes">
                                     <img class="back-sponsor2" ng-src="{{customizedShirt.backsponsor2.image | serverimage}}" alt="" ng-style="customizedShirt.backsponsor2.attributes">
                                 </div>
-                                <div class="div-left-chest" ng-if="customizedShirt.front && customizedShirt.leftchest.image">
+                                <div class="div-left-chest" ng-if="customizedShirt.front && customizedShirt.leftchest.image" ng-style="customizedShirt.leftchest.divattributes">
                                     <img class="left-chest" ng-src="{{customizedShirt.leftchest.image | serverimage}}" alt="" ng-style="customizedShirt.leftchest.attributes">
                                 </div>
-                                <div class="div-left-sleeve" ng-if="customizedShirt.leftsleeve.image" ng-class="{'div-left-sleeve':customizedShirt.front,'div-right-sleeve':customizedShirt.back}">
+                                <div class="div-left-sleeve" ng-if="customizedShirt.leftsleeve.image" ng-style="customizedShirt.leftsleeve.divattributes" ng-class="{'div-left-sleeve':customizedShirt.front,'div-right-sleeve':customizedShirt.back}">
                                     <img ng-class="{'left-sleeve':customizedShirt.front,'right-sleeve':customizedShirt.back}" ng-src="{{customizedShirt.leftsleeve.image | serverimage}}"
                                         alt="" ng-style="customizedShirt.leftsleeve.attributes">
                                 </div>
-                                <div class="div-right-chest" ng-if="customizedShirt.front && customizedShirt.rightchest.image">
+                                <div class="div-right-chest" ng-if="customizedShirt.front && customizedShirt.rightchest.image" ng-style="customizedShirt.rightchest.divattributes">
                                     <img class="right-chest" ng-src="{{customizedShirt.rightchest.image | serverimage}}" alt="" ng-style="customizedShirt.rightchest.attributes">
                                 </div>
-                                <div class="div-right-sleeve" ng-if="customizedShirt.rightsleeve.image" ng-class="{'div-right-sleeve':customizedShirt.front,'div-left-sleeve':customizedShirt.back}">
+                                <div class="div-right-sleeve" ng-if="customizedShirt.rightsleeve.image" ng-style="customizedShirt.rightsleeve.divattributes" ng-class="{'div-right-sleeve':customizedShirt.front,'div-left-sleeve':customizedShirt.back}">
                                     <img ng-class="{'right-sleeve':customizedShirt.front,'left-sleeve':customizedShirt.back}" ng-src="{{customizedShirt.rightsleeve.image | serverimage}}"
                                         alt="" ng-style="customizedShirt.rightsleeve.attributes">
                                 </div>
@@ -412,13 +412,13 @@
                             <p>Upload Your Sponsor Logo (Optional)</p>
                             <div class="default inline-block" ng-repeat="(key, value) in customizedShirt" ng-if="checkCustomizeShirt(key)">
                                 <div class="mod-img">
-                                    <button class="btn  btn-outline btn-dark mb10">main sponsor</button>
+                                    <button class="btn btn-outline btn-dark mb10 tshirt-name">{{customizedShirt[key].name}}</button>
                                     <div class="noti-imgs" style='background-image:url({{customizedShirt[key].image | serverimage}});'>
                                     </div>
 
                                     <div class="sliding">
                                         <span>size</span>
-                                        <div range-slider on-handle-down="changeLogo(key)" ng-model="customizedShirt[key].attributes.width" min="0" max="200" model-max="customizedShirt[key].attributes.width"
+                                        <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShirt[key].attributes.width" min="0" max="200" model-max="customizedShirt[key].attributes.width"
                                             model-min="rslider.min" pin-handle="min">
                                         </div>
                                     </div>
@@ -440,29 +440,29 @@
                             </div>
 
                             <div class="sp-logo">
-                                <button type="button" ng-if="customizedShirt.front" ng-click="openUploads('mainlogo')" ng-class="{'button-done':customizedShirt.mainlogo.image}"
+                                <button type="button" ng-if="customizedShirt.front" ng-click="openUploads('mainlogo', 'Main Sponsor')" ng-class="{'button-done':customizedShirt.mainlogo.image}"
                                     class="btn pad2 btn-outline btn-dark block" aria-label="File">MAIN SPONSOR
                             </button>
                                 <!-- onFileSelect($files,1,'single','backsponsor1')-->
 
-                                <button type="button" ng-if="customizedShirt.back" ng-click="openUploads('backsponsor1')" ng-class="{'button-done':customizedShirt.backsponsor1.image}"
+                                <button type="button" ng-if="customizedShirt.back" ng-click="openUploads('backsponsor1', 'Back Sponsor 1')" ng-class="{'button-done':customizedShirt.backsponsor1.image}"
                                     class="btn pad2 btn-outline btn-dark block" aria-label="File">BACK SPONSOR 1
                             </button>
                                 <!-- onFileSelect($files,1,'single','backsponsor1')-->
 
-                                <button type="button" ng-if="customizedShirt.back" ng-click="openUploads('backsponsor2')" ng-class="{'button-done':customizedShirt.backsponsor2.image}"
+                                <button type="button" ng-if="customizedShirt.back" ng-click="openUploads('backsponsor2', 'Back Sponsor 2')" ng-class="{'button-done':customizedShirt.backsponsor2.image}"
                                     class="btn pad2 btn-outline btn-dark block" aria-label="File">BACK SPONSOR 2
                             </button>
 
-                                <button type="button" ng-if="customizedShirt.front" ng-click="openUploads('leftchest')" ng-class="{'button-done':customizedShirt.leftchest.image}"
+                                <button type="button" ng-if="customizedShirt.front" ng-click="openUploads('leftchest', 'Left Chest')" ng-class="{'button-done':customizedShirt.leftchest.image}"
                                     class="btn pad2 btn-outline btn-dark block" aria-label="File">LEFT CHEST SPONSOR
                             </button>
 
-                                <button type="button" ng-if="customizedShirt.front" ng-click="openUploads('leftsleeve')" ng-class="{'button-done':customizedShirt.leftsleeve.image}"
+                                <button type="button" ng-if="customizedShirt.front" ng-click="openUploads('leftsleeve', 'Left Sleeve')" ng-class="{'button-done':customizedShirt.leftsleeve.image}"
                                     class="btn pad2 btn-outline btn-dark block" aria-label="File">LEFT SLEEVE SPONSOR
                             </button>
 
-                                <button type="button" ng-if="customizedShirt.front" ng-click="openUploads('rightsleeve')" ng-class="{'button-done':customizedShirt.rightsleeve.image}"
+                                <button type="button" ng-if="customizedShirt.front" ng-click="openUploads('rightsleeve', 'Right Sleeve')" ng-class="{'button-done':customizedShirt.rightsleeve.image}"
                                     class="btn pad2 btn-outline btn-dark block" aria-label="File">RIGHT SLEEVE SPONSOR
                             </button>
 
