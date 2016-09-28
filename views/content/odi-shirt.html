@@ -48,6 +48,8 @@
                                 <img ng-src="{{customizedShirt.cloth}}" class="img-responsive" alt="">
                                 <img ng-src="{{customizedShirt.backdrop}}" class="backdrop img-responsive" alt="">
                                 <img ng-src="{{trimTshirt.highlightOne}}" class="trimshirt img-responsive" alt="">
+                                <img ng-src="{{trimTshirt.highlightTwo}}" class="trimshirt img-responsive" alt="">
+                                <img ng-src="{{trimTshirt.collar}}" class="trimshirt img-responsive" alt="">
                                 <div class="div-main-logo" ng-if="customizedShirt.front && customizedShirt.mainlogo.image">
                                     <img class="main-logo" ng-src="{{customizedShirt.mainlogo.image | serverimage}}"
                                     alt="" ng-style="customizedShirt.mainlogo.attributes">
@@ -160,7 +162,7 @@
                                     <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
                                 </div>
                             </div>
-                            <div class="outline" style="display: none;">
+                            <div class="outline">
                                 <span>HIGHLIGHT 2</span>
                                 <p>Select The Trim Colour Of Your Choice</p>
                                 <div class="row">
@@ -168,7 +170,7 @@
                                         <h4>Select The Colour</h4>
                                         <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
                                             <div class="colo-pallet text-center ">
-                                                <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
+                                                <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-click="trimHighlighTwo(col.name)"></div>
                                             </div>
                                         </div>
 
@@ -180,7 +182,7 @@
 
                                 </div>
                             </div>
-                            <div class="options" style="display: none;">
+                            <div class="options">
                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">PALETTE</button>
                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">COLLAR</button>
                             </div>

@@ -3389,6 +3389,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.trimHighlighOne = function(color) {
     $scope.trimTshirt.highlightOne = "img/trim/highlight1/trim-" + color + ".png";
   }
+  $scope.trimHighlighTwo = function(color) {
+    $scope.trimTshirt.highlightTwo = "img/trim/highlight2/trim-" + color + ".png";
+  }
+  $scope.trimCollar = function(color) {
+    $scope.trimTshirt.collar = "img/trim/collar/trim-" + color + ".png";
+  }
 
   // $scope.showCheck = true;
   // $scope.showVid = function () {
