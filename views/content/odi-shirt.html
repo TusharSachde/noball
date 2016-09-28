@@ -458,6 +458,10 @@
                                     class="btn pad2 btn-outline btn-dark block" aria-label="File">LEFT CHEST SPONSOR
                             </button>
 
+                            <button type="button" ng-if="customizedShirt.front" ng-click="openUploads('rightchest', 'Right Chest')" ng-class="{'button-done':customizedShirt.rightchest.image}"
+                                    class="btn pad2 btn-outline btn-dark block" aria-label="File">RIGHT CHEST SPONSOR
+                            </button>
+
                                 <button type="button" ng-if="customizedShirt.front" ng-click="openUploads('leftsleeve', 'Left Sleeve')" ng-class="{'button-done':customizedShirt.leftsleeve.image}"
                                     class="btn pad2 btn-outline btn-dark block" aria-label="File">LEFT SLEEVE SPONSOR
                             </button>
