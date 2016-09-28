@@ -3300,7 +3300,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.customizedShirt.leftchest = {};
   $scope.customizedShirt.leftchest.image = "img/logo_black.png";
   $scope.customizedShirt.leftchest.attributes = {};
-  $scope.customizedShirt.leftchest.attributes.width = 25;
+  $scope.customizedShirt.leftchest.attributes.width = 50;
   
   $scope.UploadTeamLogo = function() {
     check = 2;
@@ -3328,7 +3328,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.tempImage = "";
   $scope.changeLogo = function(key){
     console.log(key);
-    $scope.customizedShirt[key].attributes.width = "calc(50px + " + $scope.customizedShirt[key].attributes.width + "px)"
+    //$scope.customizedShirt[key].attributes.width = "calc(50px + " + $scope.customizedShirt[key].attributes.width + "px)"
+    $scope.customizedShirt[key].attributes.position = "relative"
+    $scope.customizedShirt[key].attributes.top = "calc(50px + " + $scope.customizedShirt[key].attributes.width / 2 + "px)"
+    $scope.customizedShirt[key].attributes.left = "calc(50px + " + $scope.customizedShirt[key].attributes.width / 2 + "px)"
   };
   $scope.onFileSelect = function($files, whichone, uploadtype, variable) {
     $scope.toolarge = false;
@@ -3346,7 +3349,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           if(!$scope.customizedShirt[variable]) {
             $scope.customizedShirt[variable] = {};
             $scope.customizedShirt[variable].attributes = {};
-            $scope.customizedShirt[variable].attributes.width = 25;
+            $scope.customizedShirt[variable].attributes.width = 50;
             console.log($scope.customizedShirt);
           }
           //$scope.customizedShirt[variable] = image[0];
