@@ -2239,13 +2239,13 @@ footer {
     position: relative;
     .div-main-logo {
         max-width: 150px;
-        max-height: 150px;
+        max-height: 130px;
         overflow: hidden;
         position: absolute;
-        top: 215px;
-        right: 155px;
+        top: 182px;
+        right: 154px;
         width: 150px;
-        height: 150px;
+        height: 130px;
         z-index: 99;
         @extend .div-flex;
     }

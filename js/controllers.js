@@ -653,27 +653,27 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       $uibModal.open({
         templateUrl: "views/modal/copyrights.html",
         scope: $scope
-      })
-    }
+      });
+    };
     $scope.UploadTeamLogo1 = function() {
       check = 3;
       $uibModal.open({
         templateUrl: "views/modal/copyrights.html",
         scope: $scope
-      })
-    }
+      });
+    };
     $scope.openChooseFile = function() {
       $uibModal.open({
         templateUrl: "views/modal/choosefile.html",
         scope: $scope
-      })
-    }
+      });
+    };
     $scope.openUploads = function() {
       $uibModal.open({
         templateUrl: "views/modal/tshirt.html",
         scope: $scope
-      })
-    }
+      });
+    };
     $scope.doneUploading = function() {
       if (check == 3) {
         $scope.tab = "sponsorlogo"
@@ -681,20 +681,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.tab = "teamlogo";
       }
 
-    }
+    };
     $scope.openUploadNew = function() {
       $uibModal.open({
         templateUrl: "views/modal/tshirt-popup.html",
         scope: $scope
-      })
-    }
+      });
+    };
 
     $scope.proceed = function() {
         $uibModal.open({
           templateUrl: "views/modal/proceed.html",
           scope: $scope
-        })
-      }
+        });
+      };
       // $scope.copyrighting = function(){
       //   $uibModal.open({
       //     templateUrl: "views/modal/copyrighting.html",
@@ -709,21 +709,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       // }
     $scope.showColorTab = function() {
       $scope.tab = "teamcolor";
-    }
+    };
     $scope.showQuantiyTab = function() {
       $scope.tab = "quantiy";
-    }
+    };
     $scope.showQuantyTab = function() {
       $scope.tab = "quanty";
-    }
+    };
 
     $scope.proceedNext = function() {
       $scope.tab = "sponsorlogo";
-    }
+    };
 
     $scope.teamloging = function() {
       $scope.tab = "teamlogo";
-    }
+    };
     $scope.$on('$viewContentLoaded', function(event) {
       $timeout(function() {
         var scene, camera, renderer, width, height, controls, light, loader, texture, geometry, material, mesh;
@@ -3280,7 +3280,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
   var check = 1;
-  console.log("jagrti");
   // $scope.displayImage = "img/tinytshirt 7.png";
   $scope.customizedShirt = {};
   $scope.statuses = {};
@@ -3297,13 +3296,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   };
   // $scope.statuses.copyright = false;
   $scope.trimTshirt = {};
+  $scope.trimTshirt.highlightOne = {};
+  $scope.trimTshirt.highlightTwo = {};
   $scope.customizedShirt.leftchest = {};
   $scope.customizedShirt.leftchest.name = "Left Chest";
   $scope.customizedShirt.leftchest.image = "img/logo_black.png";
   $scope.customizedShirt.leftchest.attributes = {};
   $scope.customizedShirt.leftchest.divattributes = {};
   $scope.customizedShirt.leftchest.attributes.width = 50;
-  
+
   $scope.UploadTeamLogo = function() {
     check = 2;
     $uibModal.open({
@@ -3398,11 +3399,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       scope: $scope
     })
   }
-  $scope.trimHighlighOne = function(color) {
-    $scope.trimTshirt.highlightOne = "img/trim/highlight1/trim-" + color + ".png";
+  $scope.trimTshirt.highlightOne.flag = true;
+  $scope.trimTshirt.highlightTwo.flag = true;
+  $scope.switchTrimHighlightOne = function (flag, color) {
+    $scope.trimTshirt.highlightOne.flag = flag;
+    $scope.trimTshirt.highlightOne.tcolor = color;
+    if (flag) {
+      $scope.trimTshirt.highlightOne.image = "img/trim/highlight1/front/trim-" + color + ".png";
+    } else {
+      $scope.trimTshirt.highlightOne.image = "img/trim/highlight1/back/trim-" + color + ".png";
+    }
   }
-  $scope.trimHighlighTwo = function(color) {
-    $scope.trimTshirt.highlightTwo = "img/trim/highlight2/trim-" + color + ".png";
+  $scope.switchTrimHighlightTwo = function(flag, color) {
+    $scope.trimTshirt.highlightTwo.flag = flag;
+    $scope.trimTshirt.highlightTwo.tcolor = color;
+    if (flag) {
+      $scope.trimTshirt.highlightTwo.image = "img/trim/highlight2/front/trim-" + color + ".png";
+    } else {
+      $scope.trimTshirt.highlightTwo.image = "img/trim/highlight2/back/trim-" + color + ".png";
+    }
   }
   $scope.trimCollar = function(color) {
     $scope.trimTshirt.collar = "img/trim/collar/trim-" + color + ".png";

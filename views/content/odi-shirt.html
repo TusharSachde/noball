@@ -47,8 +47,8 @@
                             <div class="gully-shirt">
                                 <img ng-src="{{customizedShirt.cloth}}" class="img-responsive" alt="">
                                 <img ng-src="{{customizedShirt.backdrop}}" class="backdrop img-responsive" alt="">
-                                <img ng-src="{{trimTshirt.highlightOne}}" ng-if="trimTshirt.highlightOne" class="trimshirt img-responsive" alt="">
-                                <img ng-src="{{trimTshirt.highlightTwo}}" ng-if="trimTshirt.highlightTwo" class="trimshirt img-responsive" alt="">
+                                <img ng-src="{{trimTshirt.highlightOne.image}}" ng-if="trimTshirt.highlightOne.image" class="trimshirt img-responsive" alt="">
+                                <img ng-src="{{trimTshirt.highlightTwo.image}}" ng-if="trimTshirt.highlightTwo.image" class="trimshirt img-responsive" alt="">
                                 <img ng-src="{{trimTshirt.collar}}" ng-if="trimTshirt.collar" class="trimshirt img-responsive" alt="">
                                 <div class="div-main-logo" ng-if="customizedShirt.front && customizedShirt.mainlogo.image"  ng-style="customizedShirt.mainlogo.divattributes">
                                     <img class="main-logo" ng-src="{{customizedShirt.mainlogo.image | serverimage}}" alt="" ng-style="customizedShirt.mainlogo.attributes">
@@ -77,10 +77,10 @@
                                 <!-- <img class="" src="img/people.png" alt=""> -->
                             </div>
                             <div class="prev inline-block">
-                                <p class="uppercase" ng-click="switchFrontBack(false)"><img src="img/back.png" class="img-responsive" alt="">back</p>
+                                <p class="uppercase" ng-click="switchFrontBack(false); switchTrimHighlightOne(false, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(false, trimTshirt.highlightTwo.tcolor)"><img src="img/back.png" class="img-responsive" alt="">back</p>
                             </div>
                             <div class="next inline-block">
-                                <p class="uppercase" ng-click="switchFrontBack(true)"><img src="img/back.png" class="img-responsive" alt="">front</p>
+                                <p class="uppercase" ng-click="switchFrontBack(true); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor)"><img src="img/back.png" class="img-responsive" alt="">front</p>
                             </div>
                             <div class="feature-buttons">
                                 <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing">FORM + FUNCTION</button>
@@ -151,7 +151,7 @@
                                         <h4>Select The Colour</h4>
                                         <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
                                             <div class="colo-pallet text-center ">
-                                                <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-click="trimHighlighOne(col.name)"></div>
+                                                <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightOne(trimTshirt.highlightOne.flag, col.name)"></div> <!-- switchTrimHighlightOne(trimTshirt.highlightOne.flag, col.name) -->
                                             </div>
                                         </div>
 
@@ -171,7 +171,7 @@
 
                                         <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
                                             <div class="colo-pallet text-center ">
-                                                <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-click="trimHighlighTwo(col.name)"></div>
+                                                <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightTwo(trimTshirt.highlightTwo.flag, col.name)"></div>
                                             </div>
                                         </div>
 
