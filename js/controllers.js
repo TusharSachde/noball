@@ -76,13 +76,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     NavigationService.getSubCategory($stateParams.name, function(data) {
       cfpLoadingBar.complete();
 
-      if (data == "") {
+      if (data === "") {
         $scope.msg = "No " + $scope.params + " found.";
       } else {
         $scope.pusharray = [];
         _.each(data, function(n) {
           if (n.type == 1) {
-            if ($scope.pusharray.length == 0) {
+            if ($scope.pusharray.length === 0) {
               $scope.categories.push(n);
             } else {
               _.each(_.chunk($scope.pusharray, 2), function(m) {
@@ -146,12 +146,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
               $scope.customInfo.image = image[0];
             }
           }
-        })
+        });
       } else {
         $files = [];
         $scope.toolarge = true;
       }
-    }
+    };
     $scope.closeAlert = function(index) {
       $scope.alerts.splice(index, 1);
     };
@@ -196,7 +196,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
       NavigationService.showCart(function(data) {
-        if (data != '') {
+        if (data !== '') {
           $scope.msg = "";
           $scope.addCart = data;
           $scope.totalcart = 0;
@@ -208,7 +208,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             } else {
               key.exceed = false;
             }
-          })
+          });
           $scope.bigcount = bigcount;
         } else {
           $scope.msg = "No items in cart.";
@@ -273,7 +273,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
       }, function(err) {
         console.log(err);
-      })
+      });
     };
 
     $scope.validateQuantity = function(item) {
@@ -282,7 +282,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       } else {
         return true;
       }
-    }
+    };
     $scope.updateCartQuantity = function(item) {
       item.subtotal = item.qty * item.price;
       if (item.qty <= 0) {
@@ -365,8 +365,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         cfpLoadingBar.complete();
       }, function(err) {
         console.log(err);
-      })
-    }
+      });
+    };
 
     $scope.editProfile = function(num) {
       switch (num) {
@@ -412,7 +412,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     newpassword: $scope.password.newpassword,
                     oldpassword: $scope.password.oldpassword
                   }, function(data) {
-                    if (data.value == true) {
+                    if (data.value === true) {
                       $scope.addAlert("success", "Password changed successfully. ");
                       $scope.profile.changepasswordedit = 'edit';
                     } else {
@@ -470,7 +470,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         templateUrl: "views/modal/matching.html",
         controller: "ReviewCtrl",
         scope: $scope
-      })
+      });
     };
 
   })
@@ -519,7 +519,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       templateUrl: "views/modal/matchings.html",
       controller: "ReviewCtrl",
       scope: $scope
-    })
+    });
   };
 })
 
@@ -534,7 +534,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       templateUrl: "views/modal/shorts-matching.html",
       controller: "ShortsReviewCtrl",
       scope: $scope
-    })
+    });
   };
 
 })
@@ -676,7 +676,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
     $scope.doneUploading = function() {
       if (check == 3) {
-        $scope.tab = "sponsorlogo"
+        $scope.tab = "sponsorlogo";
       } else {
         $scope.tab = "teamlogo";
       }
@@ -1039,7 +1039,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         templateUrl: "views/modal/continue.html",
         controller: "GloveCtrl",
         scope: $scope
-      })
+      });
     };
 
     $scope.choose = function() {
@@ -1047,7 +1047,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         templateUrl: "views/modal/choosefile.html",
         controller: "GloveCtrl",
         scope: $scope
-      })
+      });
     };
 
     $scope.copyright = function() {
@@ -1055,7 +1055,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         templateUrl: "views/modal/copyrights.html",
         controller: "GloveCtrl",
         scope: $scope
-      })
+      });
     };
 
 
@@ -1064,7 +1064,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         templateUrl: "views/modal/tshirt-popup.html",
         controller: "OdiCtrl",
         scope: $scope
-      })
+      });
     };
 
     $scope.outplace = function() {
@@ -1072,7 +1072,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         templateUrl: "views/modal/outofplace.html",
         controller: "OdiCtrl",
         scope: $scope
-      })
+      });
     };
 
 
@@ -1091,41 +1091,41 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       $uibModal.open({
         templateUrl: "views/modal/copyrights.html",
         scope: $scope
-      })
-    }
+      });
+    };
     $scope.UploadTeamLogo1 = function() {
       check = 3;
       $uibModal.open({
         templateUrl: "views/modal/copyrights.html",
         scope: $scope
-      })
-    }
+      });
+    };
     $scope.openChooseFile = function() {
       $uibModal.open({
         templateUrl: "views/modal/choosefile.html",
         scope: $scope
-      })
-    }
+      });
+    };
     $scope.openUploads = function() {
       $uibModal.open({
         templateUrl: "views/modal/tshirt.html",
         scope: $scope
-      })
-    }
+      });
+    };
     $scope.doneUploading = function() {
       if (check == 3) {
-        $scope.tab = "sponsorlogo"
+        $scope.tab = "sponsorlogo";
       } else {
         $scope.tab = "teamlogo";
       }
 
-    }
+    };
     $scope.openUploadNew = function() {
       $uibModal.open({
         templateUrl: "views/modal/tshirt-popup.html",
         scope: $scope
-      })
-    }
+      });
+    };
 
     $scope.proceed = function() {
         $uibModal.open({
@@ -1147,21 +1147,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       // }
     $scope.showColorTab = function() {
       $scope.tab = "teamcolor";
-    }
+    };
     $scope.showQuantiyTab = function() {
       $scope.tab = "quantiy";
-    }
+    };
     $scope.showQuantyTab = function() {
       $scope.tab = "quanty";
-    }
+    };
 
     $scope.proceedNext = function() {
       $scope.tab = "sponsorlogo";
-    }
+    };
 
     $scope.teamloging = function() {
       $scope.tab = "teamlogo";
-    }
+    };
     $scope.$on('$viewContentLoaded', function(event) {
       $timeout(function() {
         var scene, camera, renderer, width, height, controls, light, loader, texture, geometry, material, mesh;
@@ -1463,7 +1463,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         templateUrl: "views/modal/tshirt.html",
         controller: "GloveCtrl",
         scope: $scope
-      })
+      });
     };
 
     $scope.copy = function() {
@@ -1471,7 +1471,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         templateUrl: "views/modal/outofplace.html",
         controller: "GloveCtrl",
         scope: $scope
-      })
+      });
     };
 
     $scope.continue = function() {
@@ -1479,7 +1479,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         templateUrl: "views/modal/continue.html",
         controller: "GloveCtrl",
         scope: $scope
-      })
+      });
     };
 
     $scope.choose = function() {
@@ -1487,7 +1487,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         templateUrl: "views/modal/choosefile.html",
         controller: "GloveCtrl",
         scope: $scope
-      })
+      });
     };
 
     $scope.copyright = function() {
@@ -1495,7 +1495,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         templateUrl: "views/modal/copyrights.html",
         controller: "GloveCtrl",
         scope: $scope
-      })
+      });
     };
 
 
@@ -1504,7 +1504,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         templateUrl: "views/modal/tshirt-popup.html",
         controller: "OdiCtrl",
         scope: $scope
-      })
+      });
     };
 
     $scope.outplace = function() {
@@ -1532,15 +1532,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       scope: $scope
-    })
-  }
+    });
+  };
   $scope.UploadTeamLogo1 = function() {
     check = 3;
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       scope: $scope
-    })
-  }
+    });
+  };
   $scope.openChooseFile = function() {
     $uibModal.open({
       templateUrl: "views/modal/choosefile.html",
@@ -1551,29 +1551,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $uibModal.open({
       templateUrl: "views/modal/tshirt.html",
       scope: $scope
-    })
-  }
+    });
+  };
   $scope.doneUploading = function() {
     if (check == 3) {
-      $scope.tab = "sponsorlogo"
+      $scope.tab = "sponsorlogo";
     } else {
       $scope.tab = "teamlogo";
     }
 
-  }
+  };
   $scope.openUploadNew = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt-popup.html",
       scope: $scope
-    })
-  }
+    });
+  };
 
   $scope.proceed = function() {
       $uibModal.open({
         templateUrl: "views/modal/proceed.html",
         scope: $scope
-      })
-    }
+      });
+    };
     // $scope.copyrighting = function(){
     //   $uibModal.open({
     //     templateUrl: "views/modal/copyrighting.html",
@@ -1588,21 +1588,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     // }
   $scope.showColorTab = function() {
     $scope.tab = "teamcolor";
-  }
+  };
   $scope.showQuantiyTab = function() {
     $scope.tab = "quantiy";
-  }
+  };
   $scope.showQuantyTab = function() {
     $scope.tab = "quanty";
-  }
+  };
 
   $scope.proceedNext = function() {
     $scope.tab = "sponsorlogo";
-  }
+  };
 
   $scope.teamloging = function() {
     $scope.tab = "teamlogo";
-  }
+  };
   $scope.$on('$viewContentLoaded', function(event) {
     $timeout(function() {
       var scene, camera, renderer, width, height, controls, light, loader, texture, geometry, material, mesh;
@@ -1910,7 +1910,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       templateUrl: "views/modal/outofplace.html",
       controller: "GloveCtrl",
       scope: $scope
-    })
+    });
   };
 
   $scope.continue = function() {
@@ -1918,7 +1918,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       templateUrl: "views/modal/continue.html",
       controller: "GloveCtrl",
       scope: $scope
-    })
+    });
   };
 
   $scope.choose = function() {
@@ -1926,7 +1926,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       templateUrl: "views/modal/choosefile.html",
       controller: "GloveCtrl",
       scope: $scope
-    })
+    });
   };
 
   $scope.copyright = function() {
@@ -1934,7 +1934,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       templateUrl: "views/modal/copyrights.html",
       controller: "GloveCtrl",
       scope: $scope
-    })
+    });
   };
 
 
@@ -1943,7 +1943,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       templateUrl: "views/modal/tshirt-popup.html",
       controller: "OdiCtrl",
       scope: $scope
-    })
+    });
   };
 
   $scope.outplace = function() {
@@ -1951,7 +1951,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       templateUrl: "views/modal/outofplace.html",
       controller: "OdiCtrl",
       scope: $scope
-    })
+    });
   };
 
 
@@ -1971,48 +1971,48 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       scope: $scope
-    })
-  }
+    });
+  };
   $scope.UploadTeamLogo1 = function() {
     check = 3;
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       scope: $scope
-    })
-  }
+    });
+  };
   $scope.openChooseFile = function() {
     $uibModal.open({
       templateUrl: "views/modal/choosefile.html",
       scope: $scope
-    })
-  }
+    });
+  };
   $scope.openUploads = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt.html",
       scope: $scope
-    })
-  }
+    });
+  };
   $scope.doneUploading = function() {
     if (check == 3) {
-      $scope.tab = "sponsorlogo"
+      $scope.tab = "sponsorlogo";
     } else {
       $scope.tab = "teamlogo";
     }
 
-  }
+  };
   $scope.openUploadNew = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt-popup.html",
       scope: $scope
-    })
-  }
+    });
+  };
 
   $scope.proceed = function() {
       $uibModal.open({
         templateUrl: "views/modal/proceed.html",
         scope: $scope
-      })
-    }
+      });
+    };
     // $scope.copyrighting = function(){
     //   $uibModal.open({
     //     templateUrl: "views/modal/copyrighting.html",
@@ -2027,21 +2027,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     // }
   $scope.showColorTab = function() {
     $scope.tab = "teamcolor";
-  }
+  };
   $scope.showQuantiyTab = function() {
     $scope.tab = "quantiy";
-  }
+  };
   $scope.showQuantyTab = function() {
     $scope.tab = "quanty";
-  }
+  };
 
   $scope.proceedNext = function() {
     $scope.tab = "sponsorlogo";
-  }
+  };
 
   $scope.teamloging = function() {
     $scope.tab = "teamlogo";
-  }
+  };
   $scope.$on('$viewContentLoaded', function(event) {
     $timeout(function() {
       var scene, camera, renderer, width, height, controls, light, loader, texture, geometry, material, mesh;
@@ -2349,7 +2349,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       templateUrl: "views/modal/outofplace.html",
       controller: "GloveCtrl",
       scope: $scope
-    })
+    });
   };
 
   $scope.continue = function() {
@@ -2357,7 +2357,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       templateUrl: "views/modal/continue.html",
       controller: "GloveCtrl",
       scope: $scope
-    })
+    });
   };
 
   $scope.choose = function() {
@@ -2365,7 +2365,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       templateUrl: "views/modal/choosefile.html",
       controller: "GloveCtrl",
       scope: $scope
-    })
+    });
   };
 
   $scope.copyright = function() {
@@ -3219,7 +3219,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       templateUrl: "views/modal/tshirt.html",
       controller: "GloveCtrl",
       scope: $scope
-    })
+    });
   };
 
   $scope.copy = function() {
@@ -3227,7 +3227,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       templateUrl: "views/modal/outofplace.html",
       controller: "GloveCtrl",
       scope: $scope
-    })
+    });
   };
 
   $scope.continue = function() {
@@ -3235,7 +3235,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       templateUrl: "views/modal/continue.html",
       controller: "GloveCtrl",
       scope: $scope
-    })
+    });
   };
 
   $scope.choose = function() {
@@ -3243,7 +3243,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       templateUrl: "views/modal/choosefile.html",
       controller: "GloveCtrl",
       scope: $scope
-    })
+    });
   };
 
   $scope.copyright = function() {
@@ -3251,7 +3251,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       templateUrl: "views/modal/copyrights.html",
       controller: "GloveCtrl",
       scope: $scope
-    })
+    });
   };
 
 
@@ -3260,7 +3260,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       templateUrl: "views/modal/tshirt-popup.html",
       controller: "OdiCtrl",
       scope: $scope
-    })
+    });
   };
 
   $scope.outplace = function() {
@@ -3268,7 +3268,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       templateUrl: "views/modal/outofplace.html",
       controller: "OdiCtrl",
       scope: $scope
-    })
+    });
   };
 
 })
@@ -3310,22 +3310,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       scope: $scope
-    })
-  }
+    });
+  };
   $scope.switchFrontBack = function(front) {
     $scope.customizedShirt.front =  front;
     $scope.customizedShirt.back =  !front;
     if (front) {
-      $scope.customizedShirt.cloth = 'img/tinytshirt 7.png';
-      $scope.customizedShirt.backdrop = 'img/tinytshirt 7 back.png';
+      $scope.customizedShirt.cloth = 'img/odi-tshirts/cloth/front.png'; //'img/tinytshirt 7.png';
+      $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/front.png'; //'img/tinytshirt 7 back.png';
     } else {
-      $scope.customizedShirt.cloth = 'img/tinytshirt 1 back.png';
-      $scope.customizedShirt.backdrop = 'img/tinytshirt 1 back back.png';
+      $scope.customizedShirt.cloth = 'img/odi-tshirts/cloth/back.png'; //'img/tinytshirt 1 back.png';
+      $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/back.png'; //'img/tinytshirt 1 back back.png';
     }
   // _.each($scope.customizedShirt,function(value,property){
   //   console.log(angular.isObject($scope.customizedShirt[property]));
   // });
-  }
+};
   $scope.switchFrontBack(true);
   $scope.statuses.uploadStatus = false;
   $scope.tempImage = "";
@@ -3365,18 +3365,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           console.log($scope.tempImage);
           // $scope.previewImages.image = $filter('serverimage')($scope.customizedShirt[variable]);
         }
-      })
+      });
     } else {
       $files = [];
       $scope.toolarge = true;
     }
-  }
+  };
   $scope.emptyImage = function(key) {
     $scope.customizedShirt[key] = null;
-  }
+  };
   $scope.checkCustomizeShirt = function(key) {
     return angular.isObject($scope.customizedShirt[key]);
-  }
+  };
   $scope.confirmUpload = function(variable, name) {
     //$dismiss();
     $scope.statuses.modal.close();
@@ -3384,44 +3384,44 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.customizedShirt[variable].name = name;
     console.log($scope.customizedShirt[variable]);
     $scope.tempImage = "";
-  }
+  };
 
   $scope.UploadTeamLogo1 = function() {
     check = 3;
     $uibModal.open({
       templateUrl: "views/modal/copyrights.html",
       scope: $scope
-    })
-  }
+    });
+  };
   $scope.openChooseFile = function() {
     $uibModal.open({
       templateUrl: "views/modal/choosefile.html",
       scope: $scope
-    })
-  }
+    });
+  };
   $scope.trimTshirt.highlightOne.flag = true;
   $scope.trimTshirt.highlightTwo.flag = true;
   $scope.switchTrimHighlightOne = function (flag, color) {
     $scope.trimTshirt.highlightOne.flag = flag;
     $scope.trimTshirt.highlightOne.tcolor = color;
     if (flag) {
-      $scope.trimTshirt.highlightOne.image = "img/trim/highlight1/front/trim-" + color + ".png";
+      $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
     } else {
-      $scope.trimTshirt.highlightOne.image = "img/trim/highlight1/back/trim-" + color + ".png";
+      $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/highlight1/back/trim_" + color + ".png";
     }
-  }
+  };
   $scope.switchTrimHighlightTwo = function(flag, color) {
     $scope.trimTshirt.highlightTwo.flag = flag;
     $scope.trimTshirt.highlightTwo.tcolor = color;
     if (flag) {
-      $scope.trimTshirt.highlightTwo.image = "img/trim/highlight2/front/trim-" + color + ".png";
+      $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/highlight2/front/trim_" + color + ".png";
     } else {
-      $scope.trimTshirt.highlightTwo.image = "img/trim/highlight2/back/trim-" + color + ".png";
+      $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/highlight2/back/trim_" + color + ".png";
     }
-  }
+  };
   $scope.trimCollar = function(color) {
     $scope.trimTshirt.collar = "img/trim/collar/trim-" + color + ".png";
-  }
+  };
 
   // $scope.showCheck = true;
   // $scope.showVid = function () {
@@ -3431,7 +3431,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   // $scope.showVideo = true;
   $scope.showVid = function() {
     $scope.showVideo = false;
-  }
+  };
 
   $scope.openUploads = function(variable, name) {
     $scope.statuses.uploadStatus = false;
@@ -3440,59 +3440,59 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.statuses.modal = $uibModal.open({
       templateUrl: "views/modal/tshirt.html",
       scope: $scope
-    })
-  }
+    });
+  };
   $scope.doneUploading = function() {
     if (check == 3) {
-      $scope.tab = "sponsorlogo"
+      $scope.tab = "sponsorlogo";
     } else {
       $scope.tab = "teamlogo";
     }
 
-  }
+  };
   $scope.openUploadNew = function() {
     $uibModal.open({
       templateUrl: "views/modal/tshirt-popup.html",
       scope: $scope
-    })
-  }
+    });
+  };
 
   $scope.proceed = function() {
     $uibModal.open({
       templateUrl: "views/modal/proceed.html",
       scope: $scope
-    })
-  }
+    });
+  };
   $scope.copyrighting = function() {
     console.log("here");
     $uibModal.open({
       templateUrl: "views/modal/copyrighting.html",
       scope: $scope
-    })
-  }
+    });
+  };
   $scope.openColor = function() {
     $uibModal.open({
       templateUrl: "views/modal/continue.html",
       scope: $scope
-    })
-  }
+    });
+  };
   $scope.showColorTab = function() {
     $scope.tab = "teamcolor";
-  }
+  };
   $scope.showQuantiyTab = function() {
     $scope.tab = "quantiy";
-  }
+  };
   $scope.showQuantyTab = function() {
     $scope.tab = "quanty";
-  }
+  };
 
   $scope.proceedNext = function() {
     $scope.tab = "sponsorlogo";
-  }
+  };
 
   $scope.teamloging = function() {
     $scope.tab = "teamlogo";
-  }
+  };
   $scope.$on('$viewContentLoaded', function(event) {
     $timeout(function() {
       var scene, camera, renderer, width, height, controls, light, loader, texture, geometry, material, mesh;
@@ -3706,6 +3706,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   }, {
     colr: "#e87024",
     name: "orange"
+  }];
+
+  $scope.odicolor = [{
+    colr: "#000000",
+    name: "black"
+  }, {
+    colr: "#bf0000",
+    name: "red"
+  }, {
+    colr: "#00308f",
+    name: "royal_blue"
+  }, {
+    colr: "#2175d9",
+    name: "indian_blue"
+  }, {
+    colr: "#008000",
+    name: "green"
   }];
 
   $scope.color2 = [{
