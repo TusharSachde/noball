@@ -499,7 +499,7 @@
       link: function ($scope, element, attr) {
         $scope.$watch(attr.image, function () {
           $scope.changeImage = function () {
-            console.log(attr.image);
+            console.log($scope[attr.image]);
             var $element = $(element);
             var image = $scope[attr.image].image;
             console.log(image);
