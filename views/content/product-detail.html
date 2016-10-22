@@ -1,352 +1,293 @@
 <div class="container-fluid">
-    <div class="alert-postion">
-        <!-- <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" class="text-center" >{{alert.msg}}</uib-alert> -->
-        <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" class="text-center" dismiss-on-timeout="5000">{{alert.msg}}</uib-alert>
-    </div>
-    <section>
-        <div class="margin-bottom">
-            <div class="text-center main-head">
-                <h3 class="high-light">{{productdetail.product.name}}</h3>
-            </div>
-            <div class="row-flex no-row-flex">
-                <div class="col-flex">
-                    <div class="img-holder">
-                        <!-- <img ng-src="{{selectedImage || productdetail.productimages[0].image | serverimage}}" class="img-responsive"> -->
-                        <!-- <a class="light-make light-shade" fancybox-box href="{{selectedImage || productdetail.productimages[0].image | serverimage}}">
+  <div class="alert-postion">
+    <!-- <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" class="text-center" >{{alert.msg}}</uib-alert> -->
+    <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" class="text-center" dismiss-on-timeout="5000">{{alert.msg}}</uib-alert>
+  </div>
+  <section>
+    <div class="margin-bottom">
+      <div class="text-center main-head">
+        <h3 class="high-light">{{productdetail.product.name}}</h3>
+      </div>
+      <div class="row-flex no-row-flex">
+        <div class="col-flex">
+          <div class="img-holder">
+            <!-- <img ng-src="{{selectedImage || productdetail.productimages[0].image | serverimage}}" class="img-responsive"> -->
+            <!-- <a class="light-make light-shade" fancybox-box href="{{selectedImage || productdetail.productimages[0].image | serverimage}}">
                         Enlarge<i class="fa fa-arrows-alt"></i>
                        </a> -->
-                        <!-- <img elevate-zoom small-image="{{selectedImage || productdetail.productimages[0].image | serverimage}}" big-image="{{selectedImage || productdetail.productimages[0].image | serverimage}}" class="fix-img" /> -->
-                        <img elevate-zoom image="selectedImage" ng-if="selectedImage.image" />
-                        <!-- <a href="#" elevate-zoom data-image="small/image1.jpg" data-zoom-image="large/image1.jpg">
+            <!-- <img elevate-zoom small-image="{{selectedImage || productdetail.productimages[0].image | serverimage}}" big-image="{{selectedImage || productdetail.productimages[0].image | serverimage}}" class="fix-img" /> -->
+            <img elevate-zoom image="selectedImage" ng-if="selectedImage.image" />
+            <!-- <a href="#" elevate-zoom data-image="small/image1.jpg" data-zoom-image="large/image1.jpg">
                          <img id="img_01" ng-src="{{selectedImage || productdetail.productimages[0].image | serverimage}}" /> </a> -->
-                    </div>
-                    <div class="related-product">
-                        <flex-slider class="carousel" ng-if="productdetail.productimages.length > 0 && !padColors" flex-slide="item in productdetail.productimages track by $index" animation="slide" item-width="200" item-margin="5">
-                            <li>
-                                <div class="repeat-product" ng-click="selectImage(item)">
-                                    <div class="img-hold">
-                                        <img ng-src="{{ !item.local && (item.image | serverimage) || item.image}}" class="img-responsive">
-                                    </div>
-                                </div>
-                            </li>
-                        </flex-slider>
-
-                        <!-- pads flex-slider -->
-                        <div ng-repeat="c in color" ng-if="c.name == padColors && params.category == 'Pads'">
-                            <flex-slider class="carousel" flex-slide="item in padImages[c.name] track by $index" animation="slide" item-width="200" item-margin="5">
-                                <li>
-                                    <div class="repeat-product" ng-click="selectColoredImages($index)">
-                                        <div class="img-hold">
-                                            <img ng-src="{{item}}" class="img-responsive">
-                                        </div>
-                                    </div>
-                                </li>
-                            </flex-slider>
-                        </div>
-                        <div ng-repeat="c in color" ng-if="c.name == padColors && params.category == 'Gloves'">
-                            <flex-slider class="carousel" flex-slide="item in glovesImages[c.name] track by $index" animation="slide" item-width="200" item-margin="5">
-                                <li>
-                                    <div class="repeat-product" ng-click="selectColoredImages(item)">
-                                        <div class="img-hold">
-                                            <img ng-src="{{item}}" class="img-responsive">
-                                        </div>
-                                    </div>
-                                </li>
-                            </flex-slider>
-                        </div>
-
-
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="detail-descptab">
-                                <ul>
-                                    <li ng-repeat="detail in menutab"><a href="" class="{{detail.class}} text-uppercase text-medium letter-spacing pro-detail-btn" ng-click="makeActive(detail,$index);">{{detail.name}}</a></li>
-                                </ul>
-                            </div>
-                            <div class="get-me" ng-show="tab==1">
-                                <div class="pro-descp">
-                                    <p ng-bind-html="productdetail.product.detail | rawHtml"></p>
-                                </div>
-                            </div>
-                            <div class="get-me" ng-show="tab==2">
-                                <div class="pro-descp">
-                                    <p ng-bind-html="productdetail.product.delivery | rawHtml"></p>
-                                </div>
-                            </div>
-                            <div class="get-me" ng-show="tab==3">
-                                <div class="pro-descp">
-                                    <p ng-bind-html="productdetail.product.care | rawHtml"></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+          </div>
+          <div class="related-product">
+            <flex-slider class="carousel" flex-slide="item in productdetail.productimages track by $index"  animation="slide" item-width="200" item-margin="5">
+              <li>
+                <div class="repeat-product" ng-click="selectImage(item)">
+                  <div class="img-hold">
+                    <img ng-src="{{item.image | serverimage}}" class="img-responsive">
+                  </div>
                 </div>
-                <div class="col-flex">
-                    <div class="product-desc">
-                        <div class="pro-rp">
-                            <p ng-class="{'strike-text':firstsale}" ng-if="country == 'INR'"><i class="fa fa-inr"></i>{{productdetail.product.price}}</p>
-                            <p ng-class="{'strike-text':firstsale}" ng-if="country == 'GBP'"><i class="fa fa-gbp"></i>{{productdetail.product.price}}</p>
-                            <p ng-class="{'strike-text':firstsale}" ng-if="country == 'NZD'"><i class="fa fa-usd"></i>{{productdetail.product.price}}</p>
-                            <p ng-class="{'strike-text':firstsale}" ng-if="country == 'EUR'"><i class="fa fa-eur"></i>{{productdetail.product.price}}</p>
-                            <p ng-class="{'strike-text':firstsale}" ng-if="country == 'USD'"><i class="fa fa-usd"></i>{{productdetail.product.price}}</p>
-                            <p ng-class="{'strike-text':firstsale}" ng-if="country == 'ZAF'"><i>R</i>{{productdetail.product.price}}</p>
-                            <p ng-class="{'strike-text':firstsale}" ng-if="country == 'AUD'"><i class="fa fa-usd"></i>{{productdetail.product.price}}</p>
-                            <span ng-show="firstsale"><i class="fa fa-inr"></i>{{productdetail.product.discountprice}}</span>
+              </li>
+            </flex-slider>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="detail-descptab">
+                <ul>
+                  <li ng-repeat="detail in menutab"><a href="" class="{{detail.class}} text-uppercase text-medium letter-spacing pro-detail-btn" ng-click="makeActive(detail,$index);">{{detail.name}}</a></li>
+                </ul>
+              </div>
+              <div class="get-me" ng-show="tab==1">
+                <div class="pro-descp">
+                  <p ng-bind-html="productdetail.product.detail | rawHtml"></p>
+                </div>
+              </div>
+              <div class="get-me" ng-show="tab==2">
+                <div class="pro-descp">
+                  <p ng-bind-html="productdetail.product.delivery | rawHtml"></p>
+                </div>
+              </div>
+              <div class="get-me" ng-show="tab==3">
+                <div class="pro-descp">
+                  <p ng-bind-html="productdetail.product.care | rawHtml"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-flex">
+          <div class="product-desc">
+            <div class="pro-rp">
+              <p ng-class="{'strike-text':firstsale}" ng-if="country == 'INR'"><i class="fa fa-inr"></i>{{productdetail.product.price}}</p>
+              <p ng-class="{'strike-text':firstsale}" ng-if="country == 'GBP'"><i class="fa fa-gbp"></i>{{productdetail.product.price}}</p>
+              <p ng-class="{'strike-text':firstsale}" ng-if="country == 'NZD'"><i class="fa fa-usd"></i>{{productdetail.product.price}}</p>
+              <p ng-class="{'strike-text':firstsale}" ng-if="country == 'EUR'"><i class="fa fa-eur"></i>{{productdetail.product.price}}</p>
+              <p ng-class="{'strike-text':firstsale}" ng-if="country == 'USD'"><i class="fa fa-usd"></i>{{productdetail.product.price}}</p>
+              <p ng-class="{'strike-text':firstsale}" ng-if="country == 'ZAF'"><i>R</i>{{productdetail.product.price}}</p>
+              <p ng-class="{'strike-text':firstsale}" ng-if="country == 'AUD'"><i class="fa fa-usd"></i>{{productdetail.product.price}}</p>
+              <span ng-show="firstsale"><i class="fa fa-inr"></i>{{productdetail.product.discountprice}}</span>
+            </div>
+            <div class="clearfix"></div>
+            <div class="pro-detail">
+              <uib-accordion close-others="oneAtATime" is-open="status.open">
+                <uib-accordion-group is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+                  <uib-accordion-heading>
+                    DESCRIPTION <i class="fa" ng-class="{'fa-caret-down': status.isFirstOpen, 'fa-caret-right': !status.isFirstOpen}"></i>
+                  </uib-accordion-heading>
+                  <div class="" ng-bind-html="productdetail.product.description | rawHtml "></div>
+                </uib-accordion-group>
+                <uib-accordion-group is-open="status.open3">
+                  <uib-accordion-heading>
+                    NOTES <i class="fa" ng-class="{'fa-caret-down': status.open3, 'fa-caret-right': !status.open3}"></i>
+                  </uib-accordion-heading>
+                  <div class="" ng-bind-html="productdetail.product.note | rawHtml"></div>
+                </uib-accordion-group>
+              </uib-accordion>
+              <!-- apparels size section start -->
+              <div class="sel-qty" ng-if="params.category == 'Apparel' ">
+                <h3 class="letter-spacing">Select Quantity</h3>
+                <div class="choos quantity">
+                  <div class="row">
+                    <form name="qForm">
+                      <div class="col-md-4 col-xs-6">
+                        <div class="size ">
+                          <p>Size</p>
+                          <div class="ccc-select" style="margin: 0;">
+                            <select class="text-uppercase" ng-options="size.id as size.name for size in productdetail.size" ng-model="filter.size" ng-click="selectSize(filter)"></select>
+                          </div>
                         </div>
-                        <div class="clearfix"></div>
-                        <div class="pro-detail">
-                            <uib-accordion close-others="oneAtATime" is-open="status.open">
-                                <uib-accordion-group is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
-                                    <uib-accordion-heading>
-                                        DESCRIPTION <i class="fa" ng-class="{'fa-caret-down': status.isFirstOpen, 'fa-caret-right': !status.isFirstOpen}"></i>
-                                    </uib-accordion-heading>
-                                    <div class="" ng-bind-html="productdetail.product.description | rawHtml "></div>
-                                </uib-accordion-group>
-                                <uib-accordion-group is-open="status.open3">
-                                    <uib-accordion-heading>
-                                        NOTES <i class="fa" ng-class="{'fa-caret-down': status.open3, 'fa-caret-right': !status.open3}"></i>
-                                    </uib-accordion-heading>
-                                    <div class="" ng-bind-html="productdetail.product.note | rawHtml"></div>
-                                </uib-accordion-group>
-                            </uib-accordion>
-                            <!-- apparels size section start -->
-                            <div class="sel-qty" ng-if="params.category == 'Apparel' ">
-                                <h3 class="letter-spacing">Select Quantity</h3>
-                                <div class="choos quantity">
-                                    <div class="row">
-                                        <form name="qForm">
-                                            <div class="col-md-4 col-xs-6">
-                                                <div class="size ">
-                                                    <p>Size</p>
-                                                    <div class="ccc-select" style="margin: 0;">
-                                                        <select class="text-uppercase" ng-options="size.id as size.name for size in productdetail.size" ng-model="filter.size" ng-click="selectSize(filter)"></select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-xs-6">
-                                                <div class="size">
-                                                    <p>Quantity</p>
-                                                    <div class="quantity">
-                                                        <input type="number" ng-change="changeQuantity(filter.qty)" required name="quantity" ng-model="filter.qty">
-                                                    </div>
-                                                </div>
-                                                <h6 ng-show="maxQuantity">This product is currently out of stock.</h6>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="chart" ng-if="params.subcategory !== 'Caps/hats'">
-                                        <p>View:
-                                            <span data-toggle="modal" data-target="#myModal4">Size Chart</span>
-                                        </p>
-                                    </div>
-                                    <div class="modal fade specialSizeChart" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-body text-center">
-                                                    <p>SIZE CHART</p>
-                                                    <div class="mod-img ">
-                                                        <img src="img/sizechart.jpg" class="img-responsive" ng-show="sizechartshirt">
-                                                        <img src="img/trouserpop.jpg" class="img-responsive" ng-hide="sizechartshirt">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- apparels size section end -->
-                            <!-- if bat , ball , kit bag -->
+                      </div>
+                      <div class="col-md-4 col-xs-6">
+                        <div class="size">
+                          <p>Quantity</p>
+                          <div class="quantity">
+                            <input type="number" ng-change="changeQuantity(filter.qty)" required name="quantity" ng-model="filter.qty">
+                          </div>
+                        </div>
+                        <h6 ng-show="maxQuantity">This product is currently out of stock.</h6>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="chart" ng-if="params.subcategory !== 'Caps/hats'">
+                    <p>View:
+                      <span data-toggle="modal" data-target="#myModal4">Size Chart</span>
+                    </p>
+                  </div>
+                  <div class="modal fade specialSizeChart" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-body text-center">
+                          <p>SIZE CHART</p>
+                          <div class="mod-img ">
+                            <img src="img/sizechart.jpg" class="img-responsive" ng-show="sizechartshirt">
+                            <img src="img/trouserpop.jpg" class="img-responsive" ng-hide="sizechartshirt">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- apparels size section end -->
+              <!-- if bat , ball , kit bag -->
 
-                            <div class="show-pads" ng-if="params.category == 'Balls' || params.category == 'Bats' || params.category == 'Kit Bags'">
-                                <div class="sel-qty">
-                                    <!-- display button when bat opition is clicked -->
-                                    <div class="bat-btn" ng-show="params.category == 'Bats'">
-                                        <button type="button" ng-click="open();" class="btn-orange letter-spacing text-uppercase">how to choose a willow</button>
-                                    </div>
-                                    <a href="https://www.youtube.com/v/JJcChSDofjM&rel=0" fancybox-box class="bat-btn various fancybox.iframe" ng-if=" params.category == 'Bats' && params.subcategory=='Gladius Aero'">
-                                        <button class="btn-orange letter-spacing text-uppercase">watch video</button>
-                                    </a>
-                                    <a href="https://www.youtube.com/v/Yja-2-VkCaE&rel=0" fancybox-box class="bat-btn various fancybox.iframe" ng-if=" params.category == 'Kit Bags' && productdetail.product.name=='Proton Maxima'">
-                                        <button class="btn-orange letter-spacing text-uppercase">watch video</button>
-                                    </a>
-                                    <!-- end display button when bat opition is clicked -->
-                                    <ul class="padding0">
-                                        <li>
-                                            <h3 class="letter-spacing">Select Quantity</h3>
-                                        </li>
-                                        <li>
-                                            <div class="form-group">
-                                                <div class="">
-                                                    <input type="number" ng-change="changeQuantity(filter.qty)" required name="quantity" ng-model="filter.qty">
-                                                    <span></span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li> <span class="f15" ng-if="params.category == 'Balls' ">boxes</span></li>
-                                    </ul>
-                                </div>
-                            </div>
+              <div class="show-pads" ng-if="params.category == 'Balls' || params.category == 'Bats' || params.category == 'Kit Bags'">
+                <div class="sel-qty">
+                  <!-- display button when bat opition is clicked -->
+                  <div class="bat-btn" ng-show="params.category == 'Bats'">
+                    <button type="button" ng-click="open();" class="btn-orange letter-spacing text-uppercase">how to choose a willow</button>
+                  </div>
+                  <a href="https://www.youtube.com/v/JJcChSDofjM&rel=0" fancybox-box class="bat-btn various fancybox.iframe" ng-if=" params.category == 'Bats' && params.subcategory=='Gladius Aero'">
+                    <button class="btn-orange letter-spacing text-uppercase">watch video</button>
+                  </a>
+                  <a href="https://www.youtube.com/v/Yja-2-VkCaE&rel=0" fancybox-box class="bat-btn various fancybox.iframe" ng-if=" params.category == 'Kit Bags' && productdetail.product.name=='Proton Maxima'">
+                    <button class="btn-orange letter-spacing text-uppercase">watch video</button>
+                  </a>
+                  <!-- end display button when bat opition is clicked -->
+                  <ul class="padding0">
+                    <li>
+                      <h3 class="letter-spacing">Select Quantity</h3>
+                    </li>
+                    <li>
+                      <div class="form-group">
+                        <div class="">
+                        <input type="number" ng-change="changeQuantity(filter.qty)" required name="quantity" ng-model="filter.qty">
+                          <span></span>
                         </div>
-                        <!-- if bat , ball , kit bag end -->
-                        <!-- if pads section -->
-                        <div class="show-pads" ng-if="params.category == 'Pads'">
-                            <div class="sel-qty">
-                                <!-- <div class="outline choos">
-                                    <p>Select The Pads Colour Of Your Choice</p>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <h4>Select The Colour</h4>
-                                            <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
-                                                <div class="colo-pallet text-center ">
-                                                    <div class="noti-img notihov" ng-click="changePadImages(col.name)" ng-style="{'background-color':'{{col.colr}}'}"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="edit-btn margintp">
-                                        <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
-                                    </div>
-                                </div> -->
-                                <h3 class="letter-spacing">Select Pairs</h3>
-                                <div class="choos quantity">
-                                    <div class="row">
-                                        <form name="qForm">
-                                            <div class="col-md-4 col-xs-6">
-                                                <div class="size">
-                                                    <p>Left/Right</p>
-                                                    <div class="ccc-select" style="margin: 0;">
-                                                        <select class="text-uppercase" ng-options="size.id as size.name for size in productdetail.size" ng-model="filter.size" ng-click="selectSize(filter)"></select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-xs-6">
-                                                <div class="size">
-                                                    <p>Quantity</p>
-                                                    <div class="quantity">
-                                                        <input type="number" ng-change="changeQuantity(filter.qty)" required name="quantity" ng-model="filter.qty">
-                                                    </div>
-                                                </div>
-                                                <h6 ng-show="maxQuantity">This product is currently out of stock.</h6>
-                                            </div>
-                                        </form>
-                                    </div>
+                      </div>
+                    </li>
+                  <li> <span class="f15" ng-if="params.category == 'Balls' ">boxes</span></li>
+               </ul>
+</div>
+          </div>
+        </div>
+        <!-- if bat , ball , kit bag end -->
+        <!-- if pads section -->
+        <div class="show-pads" ng-if="params.category == 'Pads'">
+            <div class="sel-qty">
+                  <h3 class="letter-spacing">Select Pairs</h3>
+                      <div class="choos quantity">
+                        <div class="row">
+                          <form name="qForm">
+                            <div class="col-md-4 col-xs-6">
+                              <div class="size">
+                                <p>Left/Right</p>
+                                <div class="ccc-select"  style="margin: 0;">
+                                  <select class="text-uppercase" ng-options="size.id as size.name for size in productdetail.size" ng-model="filter.size" ng-click="selectSize(filter)"></select>
                                 </div>
+                              </div>
                             </div>
-                        </div>
-                        <!-- pads section ends -->
-                        <!-- glove -->
-                        <div class="show-pads" ng-if="params.category == 'Gloves'">
-                            <div class="sel-qty">
-                                <!-- <div class="outline choos">
-                                    <p>Select The Gloves Colour Of Your Choice</p>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <h4>Select The Colour</h4>
-                                            <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
-                                                <div class="colo-pallet text-center ">
-                                                    <div class="noti-img notihov" ng-click="changeGlovesImages(col.name)" ng-style="{'background-color':'{{col.colr}}'}"></div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="edit-btn margintp">
-                                        <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
-                                    </div>
-                                </div> -->
-                                <h3 class="letter-spacing">Select Pairs</h3>
-                                <div class="choos quantity">
-                                    <div class="row">
-                                        <form name="qForm">
-                                            <div class="col-md-4 col-xs-6">
-                                                <div class="size">
-                                                    <p>Left/Right</p>
-                                                    <div class="ccc-select" style="margin: 0;">
-                                                        <select class="text-uppercase" ng-options="size.id as size.name for size in productdetail.size" ng-model="filter.size" ng-click="selectSize(filter)"></select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-xs-6">
-                                                <div class="size">
-                                                    <p>Quantity</p>
-                                                    <div class="quantity">
-                                                        <input type="number" ng-change="changeQuantity(filter.qty)" required name="quantity" ng-model="filter.qty">
-                                                    </div>
-                                                </div>
-                                                <h6 ng-show="maxQuantity">This product is currently out of stock.</h6>
-                                            </div>
-                                        </form>
-                                    </div>
+                            <div class="col-md-4 col-xs-6">
+                              <div class="size">
+                                <p>Quantity</p>
+                                <div class="quantity">
+                                  <input type="number" ng-change="changeQuantity(filter.qty)" required name="quantity" ng-model="filter.qty">
                                 </div>
+                              </div>
+                              <h6 ng-show="maxQuantity">This product is currently out of stock.</h6>
                             </div>
+                          </form>
                         </div>
-                        <!-- glove ends -->
-                        <div class="custom-btn mt30">
-                            <!-- <a class="btn btn-outline btn-dark letter-spacing" href="#/custom">CUSTOMIZE</a>
+                      </div>
+                </div>
+              </div>
+              <!-- pads section ends -->
+              <!-- glove -->
+              <div class="show-pads" ng-if="params.category == 'Gloves'">
+                <div class="sel-qty">
+                  <h3 class="letter-spacing">Select Pairs</h3>
+                  <div class="choos quantity">
+                    <div class="row">
+                      <form name="qForm">
+                        <div class="col-md-4 col-xs-6">
+                          <div class="size">
+                            <p>Left/Right</p>
+                            <div class="ccc-select"  style="margin: 0;">
+                              <select class="text-uppercase" ng-options="size.id as size.name for size in productdetail.size" ng-model="filter.size" ng-click="selectSize(filter)"></select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4 col-xs-6">
+                          <div class="size">
+                            <p>Quantity</p>
+                            <div class="quantity">
+                              <input type="number" ng-change="changeQuantity(filter.qty)" required name="quantity" ng-model="filter.qty">
+                            </div>
+                          </div>
+                          <h6 ng-show="maxQuantity">This product is currently out of stock.</h6>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- glove ends -->
+              <div class="custom-btn mt30">
+                <!-- <a class="btn btn-outline btn-dark letter-spacing" href="#/custom">CUSTOMIZE</a>
                             <br> -->
                             <a class="btn btn-outline btn-dark letter-spacing mright15" ng-click="cartAdd()" ng-hide="outofstock">ADD TO CART</a>
-                            <!-- <a class="btn btn-outline btn-dark letter-spacing mright15" ng-click="cartAdd()" ng-hide="outofstock" data-target="#successcart" data-toggle="modal">ADD TO CART</a> -->
-                            <p ng-show="outofstock"> Out of Stock.</p>
-                            <a class="btn btn-outline btn-dark letter-spacing" ng-click="wishlistAdd(productdetail.product.id)">Add to wishlist</a>
-                            <br>
-                        </div>
-                    </div>
-                    <div class="border-top customise-sec">
-                        <span ng-if="params.category == 'Apparel'">Select from a wide array of colors and customisation options.</span>
-                        <span ng-if="params.category == 'Kit Bags'">Choose your kit bag colours and print your credentials.</span>
-                        <span ng-if="params.category == 'Bats'">Personalise your bat with initials.</span>
-                        <span ng-if="params.category == 'Balls'">Personalise your team balls with logo or initials.</span>
-                        <span ng-if="params.category == 'Gloves'">Personalised gloves with your team logo and colours.</span>
-                        <span ng-if="params.category == 'Pads'">Personalised pads with your team logo and colours.</span>
-                        <div class="mt20 ">
-                            <button type="button" name="button" class="btn-green letter-spacing" ng-click="customize();">CUSTOMISE NOW</button>
-                        </div>
-                    </div>
-                </div>
+                <!-- <a class="btn btn-outline btn-dark letter-spacing mright15" ng-click="cartAdd()" ng-hide="outofstock" data-target="#successcart" data-toggle="modal">ADD TO CART</a> -->
+                <p ng-show="outofstock"> Out of Stock.</p>
+                <a class="btn btn-outline btn-dark letter-spacing" ng-click="wishlistAdd(productdetail.product.id)">Add to wishlist</a>
+                <br>
+              </div>
             </div>
+            <div class="border-top customise-sec">
+              <span ng-if="params.category == 'Apparel'">Select from a wide array of colors and customisation options.</span>
+              <span ng-if="params.category == 'Kit Bags'">Choose your kit bag colours and print your credentials.</span>
+              <span ng-if="params.category == 'Bats'">Personalise your bat with initials.</span>
+              <span ng-if="params.category == 'Balls'">Personalise your team balls with logo or initials.</span>
+              <span ng-if="params.category == 'Gloves'">Personalised gloves with your team logo and colours.</span>
+              <span ng-if="params.category == 'Pads'">Personalised pads with your team logo and colours.</span>
+              <div class="mt20 ">
+                <button type="button" name="button" class="btn-green letter-spacing" ng-click="customize();">CUSTOMISE NOW</button>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <div class="testimonial">
-            <div class="container" ng-if="productdetail.relatedproduct.length != 0">
+    <div class="testimonial">
+      <div class="container" ng-if="productdetail.relatedproduct.length != 0">
 
-                <div class="heading">
-                    <h4 class="text-uppercase high-light">you may also like</h4>
-                </div>
-                <div class="slider-prd-detail">
-                    <flex-slider class="carousel" flex-slide="pro in productdetail.relatedproduct track by $index" animation="slide" item-width="350">
-                        <li>
-                            <div class="slider-info" ui-sref="product-detail({
+        <div class="heading">
+          <h4 class="text-uppercase high-light">you may also like</h4>
+        </div>
+        <div class="slider-prd-detail">
+          <flex-slider class="carousel" flex-slide="pro in productdetail.relatedproduct track by $index" animation="slide" item-width="350">
+            <li>
+              <div class="slider-info" ui-sref="product-detail({
                 category:pro.category,
                 subcategory:pro.subcategory,
                 id:pro.id
               })">
-                                <div class="slider-imgholder">
-                                    <img ng-src="{{pro.image1 | resizeimage800}}" alt="" class=" pointer img-responsive">
-                                </div>
-                                <div class="slider-infodetaiil">
-                                    <h3 class="prd-name">{{pro.name}}</h3>
-                                    <h4 class="price"><i class="fa fa-inr" ng-if="country == 'INR'"></i><i class="fa fa-gbp" ng-if="country == 'GBP'"></i><i class="fa fa-usd" ng-if="country == 'NZD'"></i><i class="fa fa-eur" ng-if="country == 'EUR'"></i><i class="fa fa-usd" ng-if="country == 'USD'"></i><i ng-if="country == 'ZAF'">R</i><i class="fa fa-usd" ng-if="country == 'AUD'"></i>{{pro.price}}</h4>
-                                </div>
-                            </div>
-                        </li>
-                    </flex-slider>
+                <div class="slider-imgholder">
+                  <img ng-src="{{pro.image1 | resizeimage800}}" alt="" class=" pointer img-responsive">
                 </div>
-            </div>
+                <div class="slider-infodetaiil">
+                  <h3 class="prd-name">{{pro.name}}</h3>
+                  <h4 class="price"><i class="fa fa-inr" ng-if="country == 'INR'"></i><i class="fa fa-gbp" ng-if="country == 'GBP'"></i><i class="fa fa-usd" ng-if="country == 'NZD'"></i><i class="fa fa-eur" ng-if="country == 'EUR'"></i><i class="fa fa-usd" ng-if="country == 'USD'"></i><i ng-if="country == 'ZAF'">R</i><i class="fa fa-usd" ng-if="country == 'AUD'"></i>{{pro.price}}</h4>
+                </div>
+              </div>
+            </li>
+          </flex-slider>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 </div>
 <div class="success">
-    <div class="modal fade" id="successcart">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h3>Your product has been added to the cart, successfully!</h3>
-                <div class="cart-btn clearfix">
-                    <button class="btn btn-outline btn-dark marg10" data-dismiss="modal">CONTINUE SHOPPING</button>
-                    <button class="btn btn-outline btn-dark marg10" ng-click="toCheckout()">PROCEED TO CHECKOUT</button>
-                </div>
-            </div>
+  <div class="modal fade" id="successcart">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h3>Your product has been added to the cart, successfully!</h3>
+        <div class="cart-btn clearfix">
+            <button class="btn btn-outline btn-dark marg10" data-dismiss="modal">CONTINUE SHOPPING</button>
+            <button class="btn btn-outline btn-dark marg10" ng-click="toCheckout()">PROCEED TO CHECKOUT</button>
         </div>
+      </div>
     </div>
+  </div>
 </div>

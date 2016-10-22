@@ -1,4 +1,4 @@
-  // JavaScript Document
+// JavaScript Document
   var firstapp = angular.module('firstapp', [
     'ui.router',
     'phonecatControllers',
@@ -493,7 +493,6 @@
       });
     };
   });
-
   firstapp.directive('elevateZoom', function ($document, $filter) {
     return {
       restrict: 'EA',
@@ -502,27 +501,21 @@
           $scope.changeImage = function () {
             console.log($scope[attr.image]);
             var $element = $(element);
-            var image = $scope[attr.image];
+            var image = $scope[attr.image].image;
             console.log(image);
             // image = image.productdetail.image[0];
             var smallimg = attr.smallImage;
             var bigimg = attr.bigImage;
-            $element.attr('data-zoom-image', image);
-            $element.attr('src', image);
+            // $element.attr('data-zoom-image', image);
+            // $element.attr('src', image);
             var ez = $element.data("elevateZoom");
             if (!ez) {
-              console.log('tyfghjfgh');
-              $element.attr('data-zoom-image',(image));
-              $element.attr('src',(image));
-              // $element.attr('data-zoom-image', $filter('serverimage')(image));
-              // $element.attr('src', $filter('serverimage')(image));
+              $element.attr('data-zoom-image', $filter('serverimage')(image));
+              $element.attr('src', $filter('serverimage')(image));
               $element.elevateZoom();
             } else {
-              console.log('elseeeeeeeee');
-              // var newImage = $filter('serverimage')(image);
-              // var smallImage = $filter('serverimage')(image);
-              var newImage = image;
-              var smallImage = image;
+              var newImage = $filter('serverimage')(image);
+              var smallImage = $filter('serverimage')(image);
               ez.swaptheimage(smallImage, newImage);
             }
           }
@@ -534,40 +527,6 @@
       }
     }
   });
-  // firstapp.directive('elevateZoom', function ($document, $filter) {
-  //   return {
-  //     restrict: 'EA',
-  //     link: function ($scope, element, attr) {
-  //       $scope.$watch(attr.image, function () {
-  //         $scope.changeImage = function () {
-  //           console.log($scope[attr.image]);
-  //           var $element = $(element);
-  //           var image = $scope[attr.image].image;
-  //           console.log(image);
-  //           // image = image.productdetail.image[0];
-  //           var smallimg = attr.smallImage;
-  //           var bigimg = attr.bigImage;
-  //           // $element.attr('data-zoom-image', image);
-  //           // $element.attr('src', image);
-  //           var ez = $element.data("elevateZoom");
-  //           if (!ez) {
-  //             $element.attr('data-zoom-image', $filter('serverimage')(image));
-  //             $element.attr('src', $filter('serverimage')(image));
-  //             $element.elevateZoom();
-  //           } else {
-  //             var newImage = $filter('serverimage')(image);
-  //             var smallImage = $filter('serverimage')(image);
-  //             ez.swaptheimage(smallImage, newImage);
-  //           }
-  //         }
-  //         $scope.$on('changeImage', function (event, data) {
-  //           $scope.changeImage();
-  //         });
-  //         $scope.changeImage();
-  //       })
-  //     }
-  //   }
-  // });
   firstapp.directive('zoomContainer', function () {
     return {
       restrict: 'A',
