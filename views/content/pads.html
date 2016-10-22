@@ -38,14 +38,27 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="text-center">
-                        <div class="gully-shirt">
-                            <img src="img/pads/blll.png" class="img-responsive" alt="">
-                        </div>
-                        <div class="prev inline-block">
-                            <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">back</p>
-                        </div>
-                        <div class="next inline-block">
-                            <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">front</p>
+                      <div ng-repeat="c in color" ng-if="c.name == padColors && params.category == 'Pads'">
+                          <flex-slider class="carousel" flex-slide="item in padImages[c.name] track by $index" animation="slide" item-width="200" item-margin="5">
+                              <li>
+                                  <div class="repeat-product" ng-click="selectColoredImages(item)">
+                                      <div class="img-hold">
+                                          <img ng-src="{{item}}" class="img-responsive">
+                                      </div>
+                                  </div>
+                              </li>
+                          </flex-slider>
+                      </div>
+                        <div>
+                            <div class="gully-shirt">
+                                <img src="img/pads/blll.png" class="img-responsive" alt="">
+                            </div>
+                            <div class="prev inline-block">
+                                <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">back</p>
+                            </div>
+                            <div class="next inline-block">
+                                <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">front</p>
+                            </div>
                         </div>
                         <div class="feature-buttons">
                             <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing">FORM + FUNCTION</button>
@@ -57,15 +70,16 @@
                             <li>Ergonomically shaped 3-piece shin bolster</li>
                             <li>Lightweight design using tested and tried materials</li>
                             <li>7 cane width, front and back pads to remove the bulkiness of modern pads keeping a lightweight structure in place while offering the best protection
-</li>
+                            </li>
                             <li>Shin bolster forms perfectly around the lower leg providing immense comfort and protection</li>
                         </ul>
-                      </div>
+                    </div>
                 </div>
                 <div class="col-md-7">
                     <div class="det-name">
                         <h4>INSIDE EDGE 202</h4>
-                        <p>The Custom Cricket company cricket pads is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest .
+                        <p>The Custom Cricket company cricket pads is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest
+                            .
                         </p>
                         <h3><i class="fa fa-inr"></i>995</h3>
                         <span>Minimum order to be placed for pads is 12</span>
@@ -160,7 +174,7 @@
                         <div class="logo-text">
                             <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="teamloging()">TEAM LOGO</button>
                             <span class="uppercase inline-block mright15">or</span>
-                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click = "showColorTab()">TEAM TEXT</button>
+                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="showColorTab()">TEAM TEXT</button>
                         </div>
                         <div class="print-typ printing">
                             <p>Select The Printing Type For Your Team Logo</p>
@@ -185,7 +199,7 @@
                                 <span class="block">2. Embossing your logo will incur a one time cost of  `5000 or your
                                     logo can be screen printed at no additional cost.</span>
                                 <span class="block">3. If you feel something is not great, our design team can fix it for you.</span>
-                                  <span class="block"><a href="" ng-click="outplace();">Click here</a> to find out how?</span>
+                                <span class="block"><a href="" ng-click="outplace();">Click here</a> to find out how?</span>
                                 <span class="block">4.CCC logo colour will match colour of the trim.</span>
 
                             </div>
@@ -263,7 +277,7 @@
                                 <span class="block">2. Embossing your logo will incur a one time cost of  `5000 or your
                                     logo can be screen printed at no additional cost.</span>
                                 <span class="block">3. If you feel something is not great, our design team can fix it for you.</span>
-                                  <span class="block"><a href="" ng-click="outplace();">Click here</a> to find out how?</span>
+                                <span class="block"><a href="" ng-click="outplace();">Click here</a> to find out how?</span>
                                 <span class="block">4.CCC logo colour will match colour of the trim.</span>
 
                             </div>
@@ -274,116 +288,116 @@
                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="openColor()">NEXT</button>
                             </div>
                         </div>
-                      </div>
-                      <div class="choos m20-l nexter-level"  ng-show="tab=='teamcolor'">
-                            <p>Upload Your Text</p>
-                            <div class="checkboxing">
-                                <input type="checkbox" class="form-control" id="later">
-                                <label for="later"><span></span>Send it Later</label>
-                            </div>
-                            <div class="logo-text">
-                                <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="UploadTeamLogo()">TEAM LOGO</button>
-                                <span class="uppercase inline-block mright15">or</span>
-                                <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor();">TEAM TEXT</button>
-                            </div>
+                    </div>
+                    <div class="choos m20-l nexter-level" ng-show="tab=='teamcolor'">
+                        <p>Upload Your Text</p>
+                        <div class="checkboxing">
+                            <input type="checkbox" class="form-control" id="later">
+                            <label for="later"><span></span>Send it Later</label>
+                        </div>
+                        <div class="logo-text">
+                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="UploadTeamLogo()">TEAM LOGO</button>
+                            <span class="uppercase inline-block mright15">or</span>
+                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor();">TEAM TEXT</button>
+                        </div>
 
-                            <div class="radio-options">
-                                <h4>Select The Font For Your Jersey Name</h4>
-                                <form action="" class="radio">
-                                    <div class="form-group inline-block">
-                                        <input type="radio" id="textradio1" name="textradio" />
-                                        <label for="textradio1">
+                        <div class="radio-options">
+                            <h4>Select The Font For Your Jersey Name</h4>
+                            <form action="" class="radio">
+                                <div class="form-group inline-block">
+                                    <input type="radio" id="textradio1" name="textradio" />
+                                    <label for="textradio1">
                                             <span></span> Arial
                                         </label>
-                                    </div>
-                                    <div class="form-group inline-block">
-                                        <input type="radio" id="textradio2" name="textradio" />
-                                        <label for="textradio2">
+                                </div>
+                                <div class="form-group inline-block">
+                                    <input type="radio" id="textradio2" name="textradio" />
+                                    <label for="textradio2">
                                             <span></span> Times roman</label>
-                                    </div>
-                                    <div class="form-group inline-block">
-                                        <input type="radio" id="textradio3" name="textradio" />
-                                        <label for="textradio3">
+                                </div>
+                                <div class="form-group inline-block">
+                                    <input type="radio" id="textradio3" name="textradio" />
+                                    <label for="textradio3">
                                             <span></span> Helvetica
                                         </label>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h4>Select The Colour</h4>
-                                    <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
-                                        <div class="colo-pallet text-center ">
-                                            <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
-                                        </div>
-                                    </div>
-
                                 </div>
-                            </div>
-                            <div class="notes">
-                                <span class="capitalize">please note that your tshirt name can be upto 10 characters</span>
-                            </div>
-                            <div class="range-slidings relative">
-                                <h4 class="capitalize">enter your text below</h4>
-                                <input type="text" class="block" name="name1">
-                                <input type="text" class="block " name="name2">
-                                <a class="plus" href=""><i class="fa fa-2x fa-plus-circle" aria-hidden="true"></i></a>
-                                <input type="text" class="block" name="name3">
-                            </div>
-                            <div class="range">
-                                <div class="row">
-                                    <div class="col-md-1 col-sm-1 col-xs-1">
-                                        <span>size</span>
-                                    </div>
-                                    <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                                        <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-3">
-                                        <input type="text" name="size">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-1 col-sm-1 col-xs-1">
-                                        <span>arc</span>
-                                    </div>
-                                    <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                                        <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-3">
-                                        <input type="text" name="size">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-1 col-sm-1 col-xs-1">
-                                        <span>rotation</span>
-                                    </div>
-                                    <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                                        <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-3">
-                                        <input type="text" name="size">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-1 col-sm-1 col-xs-1">
-                                        <span>spacing</span>
-                                    </div>
-                                    <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                                        <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-3">
-                                        <input type="text" name="size">
+                            </form>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>Select The Colour</h4>
+                                <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
+                                    <div class="colo-pallet text-center ">
+                                        <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
                                     </div>
                                 </div>
 
-                            </div>
-                            <div class="edit-btn inline-block">
-                                <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
-                            </div>
-                            <div class="edit-btn inline-block">
-                                <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
                             </div>
                         </div>
+                        <div class="notes">
+                            <span class="capitalize">please note that your tshirt name can be upto 10 characters</span>
+                        </div>
+                        <div class="range-slidings relative">
+                            <h4 class="capitalize">enter your text below</h4>
+                            <input type="text" class="block" name="name1">
+                            <input type="text" class="block " name="name2">
+                            <a class="plus" href=""><i class="fa fa-2x fa-plus-circle" aria-hidden="true"></i></a>
+                            <input type="text" class="block" name="name3">
+                        </div>
+                        <div class="range">
+                            <div class="row">
+                                <div class="col-md-1 col-sm-1 col-xs-1">
+                                    <span>size</span>
+                                </div>
+                                <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                    <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="text" name="size">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1 col-sm-1 col-xs-1">
+                                    <span>arc</span>
+                                </div>
+                                <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                    <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="text" name="size">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1 col-sm-1 col-xs-1">
+                                    <span>rotation</span>
+                                </div>
+                                <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                    <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="text" name="size">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1 col-sm-1 col-xs-1">
+                                    <span>spacing</span>
+                                </div>
+                                <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                    <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="text" name="size">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="edit-btn inline-block">
+                            <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                        </div>
+                        <div class="edit-btn inline-block">
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+                        </div>
+                    </div>
 
                     <div class="choos m20-l" ng-show="tab=='logo'">
                         <p>Upload Your Sponsor Logo (Optional)</p>
@@ -399,9 +413,9 @@
 
                             <button href="" class="btn pad4 btn-outline btn-dark block" data-toggle="modal" data-target="#myModal1">RIGHT SLEEVE SPONSOR</button>
 
-                              <button href="" class="btn pad5 btn-outline btn-dark  block" data-toggle="modal" data-target="#myModal1">LEFT CHEST SPONSOR</button>
+                            <button href="" class="btn pad5 btn-outline btn-dark  block" data-toggle="modal" data-target="#myModal1">LEFT CHEST SPONSOR</button>
 
-                                  <button href="" class="btn pad3 btn-outline btn-dark block" data-toggle="modal" data-target="#myModal1">RIGHT CHEST SPONSOR</button>
+                            <button href="" class="btn pad3 btn-outline btn-dark block" data-toggle="modal" data-target="#myModal1">RIGHT CHEST SPONSOR</button>
                         </div>
                         <div class="print-typ">
                             <div class="pbotom">
@@ -418,7 +432,7 @@
                         <div class="edit-btn inline-block">
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="proceed()">NEXT</button>
                         </div>
-<!-- ng-click="UploadTeamLogo1()" -->
+                        <!-- ng-click="UploadTeamLogo1()" -->
                     </div>
                     <div class="choos m20-l nextest-level" ng-show="tab=='sponsorlogo'">
                         <p>Upload Your Sponsor Logo (Optional)</p>
@@ -482,32 +496,32 @@
                             </div>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" >NEXT</button>
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
                         </div>
                     </div>
 
 
                     <div class="choos quantity m20-l" ng-show="tab=='quantity'">
-                      <div class="table-detail relative">
-                        <p class="capitalize">Select the size for your jersey</p>
-                        <div class="option-shirt relative gloves">
-                          <div class="sizes size inline-block">
-                            <span class="uppercase">size</span>
-                            <select>
+                        <div class="table-detail relative">
+                            <p class="capitalize">Select the size for your jersey</p>
+                            <div class="option-shirt relative gloves">
+                                <div class="sizes size inline-block">
+                                    <span class="uppercase">size</span>
+                                    <select>
                               <option value="XL">XL</option>
                               <option value="20">20</option>
                               <option value="30">30</option>
                               <option value="40">40</option>
                           </select>
-                          </div>
-                          <div class="sizes size inline-block">
-                              <span class="inline-block uppercase">quantity</span>
-                              <input type="text" class="form-control inline-block" name="name" value="">
-                          </div>
-                          <div class="sizes size inline-block">
-                              <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">preview</button>
-                          </div>
-                          <!-- <div class="sizes size inline-block">
+                                </div>
+                                <div class="sizes size inline-block">
+                                    <span class="inline-block uppercase">quantity</span>
+                                    <input type="text" class="form-control inline-block" name="name" value="">
+                                </div>
+                                <div class="sizes size inline-block">
+                                    <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">preview</button>
+                                </div>
+                                <!-- <div class="sizes size inline-block">
                             <span class="uppercase">sleeve</span>
                           <select>
                             <option value="XL">XL</option>
@@ -516,23 +530,23 @@
                             <option value="40">40</option>
                         </select></div> -->
 
-                        </div>
-                        <a href="" class="bins"><img src="img/rubbishbin.png" class="img-responsive" alt=""></a>
-                          <div class="add-button">
-                            <p><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</p>
-                          </div>
-                          <div class="total-amount">
-                              <span class="pull-right uppercase">Total:20</span>
-                          </div>
+                            </div>
+                            <a href="" class="bins"><img src="img/rubbishbin.png" class="img-responsive" alt=""></a>
+                            <div class="add-button">
+                                <p><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</p>
+                            </div>
+                            <div class="total-amount">
+                                <span class="pull-right uppercase">Total:20</span>
+                            </div>
 
-                        <div class="edit-btn">
-                            <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>
-                            <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5">next</button>
-                            <br>
+                            <div class="edit-btn">
+                                <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>
+                                <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5">next</button>
+                                <br>
+                            </div>
                         </div>
-                      </div>
 
-                             <!-- <div class="eds inline-block">
+                        <!-- <div class="eds inline-block">
                                  <div class="edit-btn inline-block">
                                      <button href="" class=" btn btn-outline btn-dark letter-spacing">SAVE DESIGN</button>
                                  </div>
@@ -540,56 +554,56 @@
                              <div class="edit-btn inline-block">
                                  <button class="btn btn-outline btn-dark padding-btn letter-spacing" >NEXT</button>
                              </div> -->
-                             <!-- <div class="continue-buttons mr">
+                        <!-- <div class="continue-buttons mr">
                                  <button ng-click="showQuantiyTab()" class="btn btn-outline btn-dark mar15 mr10 padding-btn letter-spacing uppercase">yes,continue</button>
                                  <button href="" ng-click="showQuantyTab()" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase">no</button>
                              </div> -->
 
 
-</div>
-<div class="choos quantity m20-l nexterest-level" ng-show="tab=='quanty'">
-<div class="table-detail relative">
-  <p class="capitalize">Select the size for your jersey</p>
-  <div class="option-shirt relative">
-    <div class="sizes size inline-block">
-      <span class="uppercase">size</span>
-      <select>
+                    </div>
+                    <div class="choos quantity m20-l nexterest-level" ng-show="tab=='quanty'">
+                        <div class="table-detail relative">
+                            <p class="capitalize">Select the size for your jersey</p>
+                            <div class="option-shirt relative">
+                                <div class="sizes size inline-block">
+                                    <span class="uppercase">size</span>
+                                    <select>
         <option value="XL">XL</option>
         <option value="20">20</option>
         <option value="30">30</option>
         <option value="40">40</option>
     </select>
-    </div>
-    <div class="sizes size inline-block">
-      <span class="uppercase">sleeve</span>
-    <select>
+                                </div>
+                                <div class="sizes size inline-block">
+                                    <span class="uppercase">sleeve</span>
+                                    <select>
       <option value="XL">XL</option>
       <option value="20">20</option>
       <option value="30">30</option>
       <option value="40">40</option>
   </select></div>
-    <div class="sizes size inline-block">
-        <span class="inline-block uppercase">quantity</span>
-        <input type="text" class="form-control inline-block" name="name" value="">
-    </div>
-  </div>
-  <a href="" class="bins"><img src="img/rubbishbin.png" class="img-responsive" alt=""></a>
-    <div class="add-button">
-      <p><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</p>
-    </div>
-    <div class="total-amount">
-        <span class="pull-right uppercase">Total:20</span>
-    </div>
+                                <div class="sizes size inline-block">
+                                    <span class="inline-block uppercase">quantity</span>
+                                    <input type="text" class="form-control inline-block" name="name" value="">
+                                </div>
+                            </div>
+                            <a href="" class="bins"><img src="img/rubbishbin.png" class="img-responsive" alt=""></a>
+                            <div class="add-button">
+                                <p><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</p>
+                            </div>
+                            <div class="total-amount">
+                                <span class="pull-right uppercase">Total:20</span>
+                            </div>
 
-  <div class="edit-btn">
-      <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>
-      <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5">next</button>
-      <br>
-  </div>
-</div>
-</div>
+                            <div class="edit-btn">
+                                <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>
+                                <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5">next</button>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
 
-<div class="choos quantity m20-l" ng-show="tab=='quantiy'">
+                    <div class="choos quantity m20-l" ng-show="tab=='quantiy'">
                         <div class="chart mar15">
                             <p>view:
                                 <span data-toggle="modal" data-target="#myModal4">Size Chart</span>
@@ -746,57 +760,57 @@
                                                     <td></td>
                                                 </tr>
                                                 <tr>
-                                                  <td class="name">
-                                                       <span>size</span>
-                                                     </td>
-                                                     <td class="sliding">
-                                                       <div range-slider min="0" max="100" model-max="max" pin-handle="min">
-                                                       </div>
-                                                     </td>
-                                                     <td class="texting">
-                                                         <input type="text" name="size">
-                                                     </td>
-                                                   </tr>
-                                                   <tr>
-                                                     <td class="name">
-                                                          <span>arc</span>
-                                                        </td>
-                                                        <td class="sliding">
-                                                          <div range-slider min="0" max="100" model-max="max" pin-handle="min">
-                                                          </div>
-                                                        </td>
-                                                        <td class="texting">
-                                                            <input type="text" name="size">
-                                                        </td>
-                                                      </tr>
-                                                      <tr>
-                                                        <td class="name">
-                                                             <span>rotation</span>
-                                                           </td>
-                                                           <td class="sliding">
-                                                             <div range-slider min="0" max="100" model-max="max" pin-handle="min">
-                                                             </div>
-                                                           </td>
-                                                           <td class="texting">
-                                                               <input type="text" name="size">
-                                                           </td>
+                                                    <td class="name">
+                                                        <span>size</span>
+                                                    </td>
+                                                    <td class="sliding">
+                                                        <div range-slider min="0" max="100" model-max="max" pin-handle="min">
+                                                        </div>
+                                                    </td>
+                                                    <td class="texting">
+                                                        <input type="text" name="size">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="name">
+                                                        <span>arc</span>
+                                                    </td>
+                                                    <td class="sliding">
+                                                        <div range-slider min="0" max="100" model-max="max" pin-handle="min">
+                                                        </div>
+                                                    </td>
+                                                    <td class="texting">
+                                                        <input type="text" name="size">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="name">
+                                                        <span>rotation</span>
+                                                    </td>
+                                                    <td class="sliding">
+                                                        <div range-slider min="0" max="100" model-max="max" pin-handle="min">
+                                                        </div>
+                                                    </td>
+                                                    <td class="texting">
+                                                        <input type="text" name="size">
+                                                    </td>
 
-                                                       </tr>
-                                                         <tr>
-                                                           <td class="name">
-                                                                <span>spacing</span>
-                                                              </td>
-                                                              <td class="sliding">
-                                                                <div range-slider min="0" max="100" model-max="max" pin-handle="min">
-                                                                </div>
-                                                              </td>
-                                                              <td class="texting">
-                                                                  <input type="text" name="size">
-                                                              </td>
-                                                            </tr>
-                                                            <tr class="nothing">
-                                                                <td></td>
-                                                            </tr>
+                                                </tr>
+                                                <tr>
+                                                    <td class="name">
+                                                        <span>spacing</span>
+                                                    </td>
+                                                    <td class="sliding">
+                                                        <div range-slider min="0" max="100" model-max="max" pin-handle="min">
+                                                        </div>
+                                                    </td>
+                                                    <td class="texting">
+                                                        <input type="text" name="size">
+                                                    </td>
+                                                </tr>
+                                                <tr class="nothing">
+                                                    <td></td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                         <a href="" class="bin"><img src="img/rubbishbin.png" class="img-responsive" alt=""></a>
@@ -808,7 +822,7 @@
                         </div>
                         <div class="edit-btn">
                             <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>
-                            <button href=""  class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5">next</button>
+                            <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5">next</button>
                             <br>
                         </div>
                     </div>
