@@ -35,7 +35,7 @@
                         <div ng-repeat="c in color" ng-if="c.name == padColors && params.category == 'Pads'">
                             <flex-slider class="carousel" flex-slide="item in padImages[c.name] track by $index" animation="slide" item-width="200" item-margin="5">
                                 <li>
-                                    <div class="repeat-product" ng-click="selectColoredImages(item)">
+                                    <div class="repeat-product" ng-click="selectColoredImages($index)">
                                         <div class="img-hold">
                                             <img ng-src="{{item}}" class="img-responsive">
                                         </div>

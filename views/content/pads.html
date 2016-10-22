@@ -112,7 +112,24 @@
                     </div>
                     <!--                    //trim tab-->
                     <div class="choos m20-l " ng-show="tab=='trim'">
-                        <div class="outline">
+                      <div class="outline choos">
+                          <p>Select The Gloves Colour Of Your Choice</p>
+                          <div class="row">
+                              <div class="col-md-12">
+                                  <h4>Select The Colour</h4>
+                                  <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in padscolor track by $index">
+                                      <div class="colo-pallet text-center ">
+                                          <div class="noti-img notihov" ng-click="changeGlovesImages(col.name)" ng-style="{'background-color':'{{col.colr}}'}"></div>
+                                      </div>
+                                  </div>
+
+                              </div>
+                          </div>
+                          <div class="edit-btn margintp">
+                              <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
+                          </div>
+                      </div>
+                        <!-- <div class="outline">
                             <span>HIGHLIGHT </span>
                             <p>Select The Trim Colour Of Your Choice</p>
                             <div class="row">
@@ -130,7 +147,7 @@
                             <div class="edit-btn margintp">
                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- <div class="outline">
                             <span>HIGHLIGHT 2</span>
                             <p>Select The Trim Colour Of Your Choice</p>

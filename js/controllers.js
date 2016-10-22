@@ -2895,7 +2895,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 //
 // })
 
-.controller('GlovesCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
+.controller('GlovesCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal,$rootScope) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("gloves");
     $scope.menutitle = NavigationService.makeactive("Gloves");
@@ -2947,9 +2947,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             };
 
             $scope.changeGlovesImages = function(color) {
-                console.log(glovescolor);
-                $scope.padColors = glovescolor;
-                $scope.selectedImage.image = $scope.glovesImages[glovescolor][0];
+                console.log(color);
+                $scope.padColors = color;
+                $scope.selectedImage = $scope.glovesImages[color][0];
                 $rootScope.$broadcast('changeImage', {});
 
             }
@@ -2960,6 +2960,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
                 $rootScope.$broadcast('changeImage', {});
 
+            };
+            $scope.selectColoredImages = function(image) {
+              console.log(image);
+                $scope.selectedImage = image;
+                $scope.selectedImage.local = true;
+                $rootScope.$broadcast('changeImage', {});
             };
 
     var check = 1;
@@ -6366,7 +6372,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $rootScope.$broadcast('changeImage', {});
         };
         $scope.selectColoredImages = function(image) {
-            $scope.selectedImage.image = image;
+          console.log(image);
+            $scope.selectedImage = image;
             $scope.selectedImage.local = true;
             $rootScope.$broadcast('changeImage', {});
         };

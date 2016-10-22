@@ -38,19 +38,32 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="text-center">
+                        <!-- <div ng-if="classb">
+                            <div class="img-holder">
 
-                        <div ng-repeat="c in color" ng-if="c.name == padColors && params.category == 'Gloves'">
-                            <flex-slider class="carousel" flex-slide="item in glovesImages[c.name] track by $index" animation="slide" item-width="200" item-margin="5">
-                                <li>
-                                    <div class="repeat-product" ng-click="selectColoredImages(item)">
-                                        <div class="img-hold">
-                                            <img ng-src="{{item}}" class="img-responsive">
+                                <img elevate-zoom image="selectedImage" /> -->
+                                <!-- <img ng-src="{{selectedImage}}" /> -->
+
+                            <!-- </div> -->
+                            <!-- trim display -->
+                            <!-- <div ng-repeat="c in glovescolor" ng-if="c.name == padColors || params.category == 'Gloves'"> -->
+                                <!-- <div ng-repeat="c in glovescolor" ng-if="classb || classc || classd"> -->
+                                <!-- <flex-slider class="carousel" flex-slide="item in glovesImages[c.name]" animation="slide" item-width="200" item-margin="5" >
+
+                                    <li>
+                                        <div class="repeat-product" ng-click="selectColoredImages(item)">
+
+                                            <div class="img-hold">
+                                                <img ng-src="{{item}}" class="img-responsive">
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                            </flex-slider>
-                        </div>
-                        <div>
+                                    </li>
+                                </flex-slider>
+                            </div>
+                        </div> -->
+                        <!-- disabled on trim -->
+                        <!-- <div ng-if="classa"> -->
+
                             <div class="gully-shirt">
                                 <img src="img/gloves/Gloves.png" class="img-responsive" alt="">
                             </div>
@@ -60,7 +73,7 @@
                             <div class="next inline-block">
                                 <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">front</p>
                             </div>
-                        </div>
+                        <!-- </div> -->
                         <div class="feature-buttons">
                             <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing">FORM + FUNCTION</button>
                             <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing">DELIVERY</button>
@@ -75,7 +88,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-6">
                     <div class="det-name">
                         <h4>SWITCH</h4>
                         <p>The Custom Cricket company cricket gloves is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest
@@ -315,19 +328,19 @@
                                 <div class="form-group inline-block">
                                     <input type="radio" id="textradio1" name="textradio" />
                                     <label for="textradio1">
-                                            <span></span> Arial
-                                        </label>
+                                        <span></span> Arial
+                                    </label>
                                 </div>
                                 <div class="form-group inline-block">
                                     <input type="radio" id="textradio2" name="textradio" />
                                     <label for="textradio2">
-                                            <span></span> Times roman</label>
+                                        <span></span> Times roman</label>
                                 </div>
                                 <div class="form-group inline-block">
                                     <input type="radio" id="textradio3" name="textradio" />
                                     <label for="textradio3">
-                                            <span></span> Helvetica
-                                        </label>
+                                        <span></span> Helvetica
+                                    </label>
                                 </div>
                             </form>
                         </div>
@@ -516,9 +529,9 @@
                                 <div class="sizes size inline-block">
                                     <span class="uppercase">L/R</span>
                                     <select>
-                              <option value="L">Left</option>
-                              <option value="R">Right</option>
-                          </select>
+                                        <option value="L">Left</option>
+                                        <option value="R">Right</option>
+                                    </select>
                                 </div>
                                 <div class="sizes size inline-block">
                                     <span class="inline-block uppercase">quantity</span>
@@ -574,20 +587,21 @@
                                 <div class="sizes size inline-block">
                                     <span class="uppercase">size</span>
                                     <select>
-        <option value="XL">XL</option>
-        <option value="20">20</option>
-        <option value="30">30</option>
-        <option value="40">40</option>
-    </select>
+                                        <option value="XL">XL</option>
+                                        <option value="20">20</option>
+                                        <option value="30">30</option>
+                                        <option value="40">40</option>
+                                    </select>
                                 </div>
                                 <div class="sizes size inline-block">
                                     <span class="uppercase">sleeve</span>
                                     <select>
-      <option value="XL">XL</option>
-      <option value="20">20</option>
-      <option value="30">30</option>
-      <option value="40">40</option>
-  </select></div>
+                                        <option value="XL">XL</option>
+                                        <option value="20">20</option>
+                                        <option value="30">30</option>
+                                        <option value="40">40</option>
+                                    </select>
+                                </div>
                                 <div class="sizes size inline-block">
                                     <span class="inline-block uppercase">quantity</span>
                                     <input type="text" class="form-control inline-block" name="name" value="">
