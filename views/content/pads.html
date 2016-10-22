@@ -38,28 +38,24 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="text-center">
-                      <div ng-repeat="c in color" ng-if="c.name == padColors && params.category == 'Pads'">
-                          <flex-slider class="carousel" flex-slide="item in padImages[c.name] track by $index" animation="slide" item-width="200" item-margin="5">
-                              <li>
-                                  <div class="repeat-product" ng-click="selectColoredImages(item)">
-                                      <div class="img-hold">
-                                          <img ng-src="{{item}}" class="img-responsive">
-                                      </div>
-                                  </div>
-                              </li>
-                          </flex-slider>
+
+
+                      <div class="gully-shirt" ng-if="Arrayname=='$scope.padImages1'">
+                          <img src="{{selectedImage}}" class="img-responsive" alt="">
                       </div>
-                        <div>
-                            <div class="gully-shirt">
-                                <img src="img/pads/blll.png" class="img-responsive" alt="">
-                            </div>
+                      <div class="gully-shirt" ng-if="Arrayname=='$scope.padImages2'">
+                          <img src="{{selectedImage}}" class="img-responsive" alt="">
+                      </div>
+                      <div class="gully-shirt" ng-if="Arrayname=='$scope.padImages3'">
+                          <img src="{{selectedImage}}" class="img-responsive" alt="">
+                      </div>
                             <div class="prev inline-block">
                                 <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">back</p>
                             </div>
                             <div class="next inline-block">
                                 <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">front</p>
                             </div>
-                        </div>
+
                         <div class="feature-buttons">
                             <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing">FORM + FUNCTION</button>
                             <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing">DELIVERY</button>
@@ -91,9 +87,9 @@
                         <p>Choose Your Type Of Design</p>
                         <div class="row">
                             <div class="col-md-10">
-                                <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images track by $index">
-                                    <div class="cat-img">
-                                        <img ng-src="{{img.src}}" class="img-responsive">
+                                <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in myArr track by $index">
+                                    <div class="cat-img" ng-click="selectPadsDesign(img)">
+                                        <img ng-src="{{img.img[0]}}" class="img-responsive">
                                     </div>
                                 </div>
 
@@ -119,7 +115,7 @@
                                   <h4>Select The Colour</h4>
                                   <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in padscolor track by $index">
                                       <div class="colo-pallet text-center ">
-                                          <div class="noti-img notihov" ng-click="changeGlovesImages(col.name)" ng-style="{'background-color':'{{col.colr}}'}"></div>
+                                          <div class="noti-img notihov" ng-click="changePadsImages(col.name)" ng-style="{'background-color':'{{col.colr}}'}"></div>
                                       </div>
                                   </div>
 
