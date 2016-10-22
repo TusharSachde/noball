@@ -1554,19 +1554,43 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         colr: "#d2b48c",
         name: "gold"
     }];
-    //padImages path
-    $scope.padImages = {
-        "yellow": ["img/padscolor/yellow/1.png", "img/padscolor/yellow/2.png", "img/padscolor/yellow/3.png", "img/padscolor/yellow/4.png", "img/padscolor/yellow/5.png", "img/padscolor/yellow/6.png"],
-        "red": ["img/padscolor/red/1.png", "img/padscolor/red/2.png", "img/padscolor/red/3.png", "img/padscolor/red/4.png", "img/padscolor/red/5.png", "img/padscolor/red/6.png"],
-        "lblue": ["img/padscolor/lblue/1.png", "img/padscolor/lblue/2.png", "img/padscolor/lblue/3.png", "img/padscolor/lblue/4.png", "img/padscolor/lblue/5.png", "img/padscolor/lblue/6.png"],
-        "dblue": ["img/padscolor/dblue/1.png", "img/padscolor/dblue/2.png", "img/padscolor/dblue/3.png", "img/padscolor/dblue/4.png", "img/padscolor/dblue/5.png"],
-        "lgreen": ["img/padscolor/lgreen/1.png", "img/padscolor/lgreen/2.png", "img/padscolor/lgreen/3.png", "img/padscolor/lgreen/4.png", "img/padscolor/lgreen/5.png", "img/padscolor/lgreen/6.png"],
-        "dgreen": ["img/padscolor/dgreen/1.png", "img/padscolor/dgreen/2.png", "img/padscolor/dgreen/3.png", "img/padscolor/dgreen/4.png", "img/padscolor/dgreen/5.png", "img/padscolor/dgreen/6.png"],
-        "lorange": ["img/padscolor/lorange/1.png", "img/padscolor/lorange/2.png", "img/padscolor/lorange/3.png", "img/padscolor/lorange/4.png", "img/padscolor/lorange/5.png", "img/padscolor/lorange/6.png"],
-        "dorange": ["img/padscolor/dorange/1.png", "img/padscolor/dorange/2.png", "img/padscolor/dorange/3.png", "img/padscolor/dorange/4.png", "img/padscolor/dorange/5.png", "img/padscolor/dorange/6.png"],
-        "gold": ["img/padscolor/gold/1.png", "img/padscolor/gold/2.png", "img/padscolor/gold/3.png", "img/padscolor/gold/4.png", "img/padscolor/gold/5.png", "img/padscolor/gold/6.png"],
+    $scope.padImages1 = {
+        "yellow": ["img/padscolor/yellow/1.png"],
+        "red": ["img/padscolor/red/1.png"],
+        "lblue": ["img/padscolor/lblue/1.png"],
+        "dblue": ["img/padscolor/dblue/1.png"],
+        "lgreen": ["img/padscolor/lgreen/1.png"],
+        "dgreen": ["img/padscolor/dgreen/1.png"],
+        "lorange": ["img/padscolor/lorange/1.png"],
+        "dorange": ["img/padscolor/dorange/1.png"],
+        "gold": ["img/padscolor/gold/1.png"]
 
     };
+    $scope.padImages2 = {
+        "yellow": ["img/padscolor/yellow/2.png"],
+        "red": ["img/padscolor/red/2.png"],
+        "lblue": ["img/padscolor/lblue/2.png"],
+        "dblue": ["img/padscolor/dblue/2.png"],
+        "lgreen": ["img/padscolor/lgreen/2.png"],
+        "dgreen": ["img/padscolor/dgreen/2.png"],
+        "lorange": ["img/padscolor/lorange/2.png"],
+        "dorange": ["img/padscolor/dorange/2.png"],
+        "gold": ["img/padscolor/gold/2.png"]
+
+    };
+    $scope.padImages3 = {
+        "yellow": ["img/padscolor/yellow/3.png"],
+        "red": ["img/padscolor/red/3.png"],
+        "lblue": ["img/padscolor/lblue/3.png"],
+        "dblue": ["img/padscolor/dblue/3.png"],
+        "lgreen": ["img/padscolor/lgreen/3.png"],
+        "dgreen": ["img/padscolor/dgreen/3.png"],
+        "lorange": ["img/padscolor/lorange/3.png"],
+        "dorange": ["img/padscolor/dorange/3.png"],
+        "gold": ["img/padscolor/gold/3.png"]
+
+    };
+
 
     $scope.changePadImages = function(padscolor) {
         console.log(padscolor);
@@ -2933,16 +2957,42 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
             //glovesImages path
-            $scope.glovesImages = {
-                "yellow": ["img/glovescolor/yellow/1.png", "img/glovescolor/yellow/2.png", "img/glovescolor/yellow/3.png", "img/glovescolor/yellow/4.png", "img/glovescolor/yellow/5.png", "img/glovescolor/yellow/6.png", "img/glovescolor/yellow/7.png"],
-                "red": ["img/glovescolor/red/1.png", "img/glovescolor/red/2.png", "img/glovescolor/red/3.png", "img/glovescolor/red/4.png", "img/glovescolor/red/5.png", "img/glovescolor/red/6.png", "img/glovescolor/red/7.png"],
-                "lblue": ["img/glovescolor/lblue/1.png", "img/glovescolor/lblue/2.png", "img/glovescolor/lblue/3.png", "img/glovescolor/lblue/4.png", "img/glovescolor/lblue/5.png", "img/glovescolor/lblue/6.png", "img/glovescolor/lblue/7.png"],
-                "dblue": ["img/glovescolor/dblue/1.png", "img/glovescolor/dblue/2.png", "img/glovescolor/dblue/3.png", "img/glovescolor/dblue/4.png", "img/glovescolor/dblue/5.png", "img/glovescolor/dblue/6.png", "img/glovescolor/dblue/7.png"],
-                "lgreen": ["img/glovescolor/lgreen/1.png", "img/glovescolor/lgreen/2.png", "img/glovescolor/lgreen/3.png", "img/glovescolor/lgreen/4.png", "img/glovescolor/lgreen/5.png", "img/glovescolor/lgreen/6.png", "img/glovescolor/lgreen/7.png"],
-                "dgreen": ["img/glovescolor/dgreen/1.png", "img/glovescolor/dgreen/2.png", "img/glovescolor/dgreen/3.png", "img/glovescolor/dgreen/4.png", "img/glovescolor/dgreen/5.png", "img/glovescolor/dgreen/6.png", "img/glovescolor/dgreen/7.png"],
-                "lorange": ["img/glovescolor/lorange/1.png", "img/glovescolor/lorange/2.png", "img/glovescolor/lorange/3.png", "img/glovescolor/lorange/4.png", "img/glovescolor/lorange/5.png", "img/glovescolor/lorange/6.png"],
-                "dorange": ["img/glovescolor/dorange/1.png", "img/glovescolor/dorange/2.png", "img/glovescolor/dorange/3.png", "img/glovescolor/dorange/4.png", "img/glovescolor/dorange/5.png", "img/glovescolor/dorange/6.png", "img/glovescolor/dorange/7.png"],
-                "gold": ["img/glovescolor/gold/1.png", "img/glovescolor/gold/2.png", "img/glovescolor/gold/3.png", "img/glovescolor/gold/4.png", "img/glovescolor/gold/5.png", "img/glovescolor/gold/6.png", "img/glovescolor/gold/7.png"],
+            $scope.glovesImages1 = {
+                "yellow": ["img/glovescolor/yellow/1.png"],
+                "red": ["img/glovescolor/red/1.png"],
+                "lblue": ["img/glovescolor/lblue/1.png"],
+                "dblue": ["img/glovescolor/dblue/1.png"],
+                "lgreen": ["img/glovescolor/lgreen/1.png"],
+                "dgreen": ["img/glovescolor/dgreen/1.png"],
+                "lorange": ["img/glovescolor/lorange/1.png"],
+                "dorange": ["img/glovescolor/dorange/1.png"],
+                "gold": ["img/glovescolor/gold/1.png"]
+
+            };
+            //glovesImages path
+            $scope.glovesImages2 = {
+                "yellow": ["img/glovescolor/yellow/2.png"],
+                "red": ["img/glovescolor/red/2.png"],
+                "lblue": ["img/glovescolor/lblue/2.png"],
+                "dblue": ["img/glovescolor/dblue/2.png"],
+                "lgreen": ["img/glovescolor/lgreen/2.png"],
+                "dgreen": ["img/glovescolor/dgreen/2.png"],
+                "lorange": ["img/glovescolor/lorange/2.png"],
+                "dorange": ["img/glovescolor/dorange/2.png"],
+                "gold": ["img/glovescolor/gold/2.png"]
+
+            };
+            //glovesImages path
+            $scope.glovesImages3 = {
+                "yellow": ["img/glovescolor/yellow/3.png"],
+                "red": ["img/glovescolor/red/3.png"],
+                "lblue": ["img/glovescolor/lblue/3.png"],
+                "dblue": ["img/glovescolor/dblue/3.png"],
+                "lgreen": ["img/glovescolor/lgreen/3.png"],
+                "dgreen": ["img/glovescolor/dgreen/3.png"],
+                "lorange": ["img/glovescolor/lorange/3.png"],
+                "dorange": ["img/glovescolor/dorange/3.png"],
+                "gold": ["img/glovescolor/gold/3.png"]
 
             };
 
