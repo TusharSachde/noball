@@ -125,7 +125,7 @@
                             <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="nextChange()">NEXT</button>
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('trim',2)">NEXT</button>
                         </div>
                         <div class="customize-design">
                             <span>Learn How To Customise Your Design By </span>
@@ -138,7 +138,7 @@
                             <p>Select The Gloves Colour Of Your Choice</p>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h4>Select The Colour5555</h4>
+                                    <h4>Select The Colour</h4>
                                     <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in glovescolor track by $index">
                                         <div class="colo-pallet text-center ">
                                             <div class="noti-img notihov" ng-click="changeGlovesImages(col.name)" ng-style="{'background-color':'{{col.colr}}'}"></div>
@@ -198,7 +198,7 @@
                             <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="nextChange()">NEXT</button>
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('team',3)">NEXT</button>
                         </div>
 
 
@@ -319,7 +319,7 @@
                                 <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                             </div>
                             <div class="edit-btn inline-block">
-                                <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="nextChange()">NEXT</button>
+                                <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
                                 <!-- <button class="btn btn-outline btn-dark padding-btn letter-spacing/" ng-click="openColor()">NEXT</button> -->
                             </div>
                         </div>
@@ -570,7 +570,7 @@
 
                             <div class="edit-btn">
                                 <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>
-                                <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5" ng-click="nextChange()">next</button>
+                                <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5" ng-click="tabchange('design',1)">next</button>
                                 <br>
                             </div>
                         </div>

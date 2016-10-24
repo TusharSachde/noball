@@ -3394,7 +3394,7 @@ console.log($scope.myArr[0]);
     $scope.classe = '';
 
     $scope.tabchange = function(tab, a) {
-      $scope.a =a;
+      $scope.axd =a;
         $scope.tab = tab;
         if (a == 1) {
             $scope.classa = 'active';
@@ -3405,7 +3405,7 @@ console.log($scope.myArr[0]);
 
         }
         if (a == 2) {
-          $scope.a =a;
+          // $scope.a =a;
             $scope.classb = 'active';
             $scope.classa = '';
             $scope.classc = '';
@@ -3414,7 +3414,7 @@ console.log($scope.myArr[0]);
 
         }
         if (a == 3) {
-          $scope.a =a;
+          // $scope.a =a;
             $scope.classc = 'active';
             $scope.classb = '';
             $scope.classa = '';
@@ -3423,7 +3423,7 @@ console.log($scope.myArr[0]);
 
         }
         if (a == 4) {
-          $scope.a =a;
+          // $scope.a =a;
             $scope.classd = 'active';
             $scope.classb = '';
             $scope.classc = '';
@@ -3431,7 +3431,7 @@ console.log($scope.myArr[0]);
             $scope.classe = '';
 
         } else if (a == 5) {
-          $scope.a =a;
+          // $scope.a =a;
             $scope.classe = 'active';
             $scope.classb = '';
             $scope.classc = '';
@@ -3439,46 +3439,8 @@ console.log($scope.myArr[0]);
             $scope.classa = '';
 
         }
-        $scope.nextChange = function(){
-          console.log($scope.a);
-          if($scope.tab=='design'){
-            console.log('yes m in design');
-            $scope.classc = '';
-            $scope.classd = '';
-            $scope.classe = '';
-            $scope.classa = '';
-            $scope.classb = 'active';
-            $scope.tabactive1=true;
-          }
-          if($scope.tab=='trim'){
-              console.log('yes m in trim');
-            $scope.classa = '';
-            $scope.classb = '';
-            $scope.classd = '';
-            $scope.classe = '';
-            $scope.classc = 'active';
-              $scope.tabactive2=true;
-          }
-          if($scope.tab=='team'){
-              console.log('yes m in team');
-            $scope.classa = '';
-            $scope.classb = '';
-            $scope.classd = 'active';
-            $scope.classe = '';
-            $scope.classc = '';
-              $scope.tabactive3=true;
-          }
-          if($scope.tab=='quantity'){
-              console.log('yes m in quantity');
-            $scope.classa = 'active';
-            $scope.classb = '';
-            $scope.classd = '';
-            $scope.classe = '';
-            $scope.classc = '';
-              $scope.tabactive4=true;
-          }
-        }
     };
+
 
     $scope.demo2 = {
         range: {
