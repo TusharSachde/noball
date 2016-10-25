@@ -84,8 +84,9 @@
     <input type="checkbox" ng-model="statuses.showcopy" class="form-control" id="dont" >
     <label for="dont"><span></span>Don't ask again</label>
   </div>
-  <div class="copyrights-buttons pull-right">
-    <button class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase" ng-click="emptyImage(variable)">cancel</button>
+  <div class="copyrights-buttons pull-right">ng-click="$dismiss()"
+    <!-- <button class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase" ng-click="emptyImage(variable)">cancel</button> -->
+    <button class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase" ng-click="$dismiss()">cancel</button>
     <button type="submit" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase" ng-if="statuses.uploadStatus">ok</button>
   </div>
   </form>

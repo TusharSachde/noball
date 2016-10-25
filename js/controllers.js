@@ -3575,11 +3575,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.customizedShirt.front =  front;
         $scope.customizedShirt.back =  !front;
         if (front) {
-            $scope.customizedShirt.cloth = 'img/tinytshirt 7.png';
-            $scope.customizedShirt.backdrop = 'img/tinytshirt 7 back.png';
+            $scope.customizedShirt.cloth = 'img/odi-tshirts/cloth/front.png'; //'img/tinytshirt 7.png';
+            $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/front.png'; //'img/tinytshirt 7 back.png';
         } else {
-            $scope.customizedShirt.cloth = 'img/tinytshirt 1 back.png';
-            $scope.customizedShirt.backdrop = 'img/tinytshirt 1 back back.png';
+            $scope.customizedShirt.cloth = 'img/odi-tshirts/cloth/back.png'; //'img/tinytshirt 1 back.png';
+            $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/back.png'; //'img/tinytshirt 1 back back.png';
         }
         // _.each($scope.customizedShirt,function(value,property){
         //   console.log(angular.isObject($scope.customizedShirt[property]));
@@ -3666,11 +3666,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.trimTshirt.highlightOne.flag = flag;
         $scope.trimTshirt.highlightOne.tcolor = color;
         if (flag) {
-            $scope.trimTshirt.highlightOne.image = "img/trim/highlight1/front/trim-" + color + ".png";
+            $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
         } else {
-            $scope.trimTshirt.highlightOne.image = "img/trim/highlight1/back/trim-" + color + ".png";
+            $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/highlight1/back/trim_" + color + ".png";
         }
-    }
+    };
     $scope.switchTrimHighlightTwo = function(flag, color) {
         console.log('two');
         console.log(color);
@@ -3678,14 +3678,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.trimTshirt.highlightTwo.flag = flag;
         $scope.trimTshirt.highlightTwo.tcolor = color;
         if (flag) {
-            $scope.trimTshirt.highlightTwo.image = "img/trim/highlight2/front/trim-" + color + ".png";
+            $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/highlight2/front/trim_" + color + ".png";
         } else {
-            $scope.trimTshirt.highlightTwo.image = "img/trim/highlight2/back/trim-" + color + ".png";
+            $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/highlight2/back/trim_" + color + ".png";
         }
-    }
+    };
     $scope.trimCollar = function(color) {
         $scope.trimTshirt.collar = "img/trim/collar/trim-" + color + ".png";
-    }
+    };
 
     // $scope.showCheck = true;
     // $scope.showVid = function () {
@@ -3741,7 +3741,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         })
     }
     $scope.showColorTab = function() {
-        
+
         $scope.tab = "teamcolor";
         $scope.myModal.close();
     }
@@ -3974,6 +3974,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         colr: "#e87024",
         name: "orange"
     }];
+
+    $scope.odicolor = [{
+     colr: "#000000",
+     name: "black"
+   }, {
+     colr: "#bf0000",
+     name: "red"
+   }, {
+     colr: "#00308f",
+     name: "royal_blue"
+   }, {
+     colr: "#2175d9",
+     name: "indian_blue"
+   }, {
+     colr: "#008000",
+     name: "green"
+   }];
 
     $scope.color2 = [{
         colr: "#f5b122",
