@@ -50,7 +50,7 @@
                                 <img ng-src="{{trimTshirt.highlightOne.image}}" ng-if="trimTshirt.highlightOne.image" class="trimshirt img-responsive" alt="">
                                 <img ng-src="{{trimTshirt.highlightTwo.image}}" ng-if="trimTshirt.highlightTwo.image" class="trimshirt img-responsive" alt="">
                                 <img ng-src="{{trimTshirt.collar}}" ng-if="trimTshirt.collar" class="trimshirt img-responsive" alt="">
-                                <div class="div-main-logo" ng-if="customizedShirt.front && customizedShirt.mainlogo.image"  ng-style="customizedShirt.mainlogo.divattributes">
+                                <div class="div-main-logo" ng-if="customizedShirt.front && customizedShirt.mainlogo.image" ng-style="customizedShirt.mainlogo.divattributes">
                                     <img class="main-logo" ng-src="{{customizedShirt.mainlogo.image | serverimage}}" alt="" ng-style="customizedShirt.mainlogo.attributes">
                                 </div>
                                 <div class="div-back-sponsor1" ng-if="customizedShirt.back && customizedShirt.backsponsor1.image" ng-style="customizedShirt.backsponsor1.divattributes">
@@ -63,15 +63,13 @@
                                     <img class="left-chest" ng-src="{{customizedShirt.leftchest.image | serverimage}}" alt="" ng-style="customizedShirt.leftchest.attributes">
                                 </div>
                                 <div class="div-left-sleeve" ng-if="customizedShirt.leftsleeve.image" ng-style="customizedShirt.leftsleeve.divattributes" ng-class="{'div-left-sleeve':customizedShirt.front,'div-right-sleeve':customizedShirt.back}">
-                                    <img ng-class="{'left-sleeve':customizedShirt.front,'right-sleeve':customizedShirt.back}" ng-src="{{customizedShirt.leftsleeve.image | serverimage}}"
-                                        alt="" ng-style="customizedShirt.leftsleeve.attributes">
+                                    <img ng-class="{'left-sleeve':customizedShirt.front,'right-sleeve':customizedShirt.back}" ng-src="{{customizedShirt.leftsleeve.image | serverimage}}" alt="" ng-style="customizedShirt.leftsleeve.attributes">
                                 </div>
                                 <div class="div-right-chest" ng-if="customizedShirt.front && customizedShirt.rightchest.image" ng-style="customizedShirt.rightchest.divattributes">
                                     <img class="right-chest" ng-src="{{customizedShirt.rightchest.image | serverimage}}" alt="" ng-style="customizedShirt.rightchest.attributes">
                                 </div>
                                 <div class="div-right-sleeve" ng-if="customizedShirt.rightsleeve.image" ng-style="customizedShirt.rightsleeve.divattributes" ng-class="{'div-right-sleeve':customizedShirt.front,'div-left-sleeve':customizedShirt.back}">
-                                    <img ng-class="{'right-sleeve':customizedShirt.front,'left-sleeve':customizedShirt.back}" ng-src="{{customizedShirt.rightsleeve.image | serverimage}}"
-                                        alt="" ng-style="customizedShirt.rightsleeve.attributes">
+                                    <img ng-class="{'right-sleeve':customizedShirt.front,'left-sleeve':customizedShirt.back}" ng-src="{{customizedShirt.rightsleeve.image | serverimage}}" alt="" ng-style="customizedShirt.rightsleeve.attributes">
                                 </div>
                                 <!-- <img class="" src="img/people.png" alt=""> -->
                                 <!-- <img class="" src="img/people.png" alt=""> -->
@@ -127,7 +125,7 @@
                                 <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                             </div>
                             <div class="edit-btn inline-block">
-                                <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+                                <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('trim',2)">NEXT</button>
                             </div>
                             <div class="customize-design">
                                 <span>Learn How To Customise Your Design By </span>
@@ -137,21 +135,22 @@
                         <!--                    //trim tab-->
                         <div class="choos m20-l " ng-show="tab=='trim'">
                             <div class="options">
-                                <button class="btn btn-outline btn-dark padding-btn letter-spacing  inline-block">HIGHLIGHT 1</button>
-                                <button class="btn btn-outline btn-dark padding-btn letter-spacing  inline-block">HIGHLIGHT 2</button>
-                                <button class="btn btn-outline btn-dark padding-btn letter-spacing  inline-block">PALETTE</button>
-                                <button class="btn btn-outline btn-dark padding-btn letter-spacing  inline-block">COLLAR</button>
+                                <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing  inline-block" ng-click="tabchanges('light1',1)">HIGHLIGHT 1</button>
+                                <button class="{{classhide}} btn btn-outline btn-dark padding-btn letter-spacing  inline-block" ng-click="tabchanges('light2',2)">HIGHLIGHT 2</button>
+                                <button class="{{classhide1} btn btn-outline btn-dark padding-btn letter-spacing  inline-block" ng-click="tabchanges('light3',3)">PALETTE</button>
+                                <button class="{{classhide2} btn btn-outline btn-dark padding-btn letter-spacing  inline-block" ng-click="tabchanges('light4',4)">COLLAR</button>
                             </div>
-                            <div class="outline">
+                            <div class="{{classp}} outline disnon" ng-if="tabs=='light1'">
 
                                 <span>HIGHLIGHT 1</span>
                                 <p>Select The Trim Colour Of Your Choice</p>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <h4>Select The Colour</h4>
-                                        <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in odicolor track by $index">
+                                        <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
                                             <div class="colo-pallet text-center ">
-                                                <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightOne(trimTshirt.highlightOne.flag, col.name)"></div> <!-- switchTrimHighlightOne(trimTshirt.highlightOne.flag, col.name) -->
+                                                <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightOne(trimTshirt.highlightOne.flag, col.name)"></div>
+                                                <!-- switchTrimHighlightOne(trimTshirt.highlightOne.flag, col.name) -->
                                             </div>
                                         </div>
 
@@ -162,14 +161,14 @@
                                     <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
                                 </div>
                             </div>
-                            <div class="outline">
+                            <div class="{{classv}} outline disnon" ng-if="tabs=='light2'">
                                 <span>HIGHLIGHT 2</span>
                                 <p>Select The Trim Colour Of Your Choice</p>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <h4>Select The Colour</h4>
 
-                                        <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in odicolor track by $index">
+                                        <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
                                             <div class="colo-pallet text-center ">
                                                 <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightTwo(trimTshirt.highlightTwo.flag, col.name)"></div>
                                             </div>
@@ -188,7 +187,7 @@
                                 <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                             </div>
                             <div class="edit-btn inline-block">
-                                <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+                                <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('team',3)">NEXT</button>
                             </div>
 
 
@@ -337,7 +336,8 @@
                                     <h4>Select The Colour</h4>
                                     <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
                                         <div class="colo-pallet text-center ">
-                                            <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
+                                          <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightOne(trimTshirt.highlightOne.flag, col.name)"></div>
+                                            <!-- <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div> -->
                                         </div>
                                     </div>
 
@@ -404,7 +404,7 @@
                                 <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                             </div>
                             <div class="edit-btn inline-block">
-                                <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+                                <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('logo',4)">NEXT</button>
                             </div>
                         </div>
 
@@ -418,8 +418,7 @@
 
                                     <div class="sliding">
                                         <span>size</span>
-                                        <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShirt[key].attributes.width" min="0" max="200" model-max="customizedShirt[key].attributes.width"
-                                            model-min="rslider.min" pin-handle="min">
+                                        <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShirt[key].attributes.width" min="0" max="200" model-max="customizedShirt[key].attributes.width" model-min="rslider.min" pin-handle="min">
                                         </div>
                                     </div>
                                     <div class="edit-btn">
@@ -440,34 +439,27 @@
                             </div>
 
                             <div class="sp-logo">
-                                <button type="button" ng-if="customizedShirt.front" ng-click="openUploads('mainlogo', 'Main Sponsor')" ng-class="{'button-done':customizedShirt.mainlogo.image}"
-                                    class="btn pad2 btn-outline btn-dark block" aria-label="File">MAIN SPONSOR
+                                <button type="button" ng-if="customizedShirt.front" ng-click="openUploads('mainlogo', 'Main Sponsor')" ng-class="{'button-done':customizedShirt.mainlogo.image}" class="btn pad2 btn-outline btn-dark block" aria-label="File">MAIN SPONSOR
                             </button>
                                 <!-- onFileSelect($files,1,'single','backsponsor1')-->
 
-                                <button type="button" ng-if="customizedShirt.back" ng-click="openUploads('backsponsor1', 'Back Sponsor 1')" ng-class="{'button-done':customizedShirt.backsponsor1.image}"
-                                    class="btn pad2 btn-outline btn-dark block" aria-label="File">BACK SPONSOR 1
+                                <button type="button" ng-if="customizedShirt.back" ng-click="openUploads('backsponsor1', 'Back Sponsor 1')" ng-class="{'button-done':customizedShirt.backsponsor1.image}" class="btn pad2 btn-outline btn-dark block" aria-label="File">BACK SPONSOR 1
                             </button>
                                 <!-- onFileSelect($files,1,'single','backsponsor1')-->
 
-                                <button type="button" ng-if="customizedShirt.back" ng-click="openUploads('backsponsor2', 'Back Sponsor 2')" ng-class="{'button-done':customizedShirt.backsponsor2.image}"
-                                    class="btn pad2 btn-outline btn-dark block" aria-label="File">BACK SPONSOR 2
+                                <button type="button" ng-if="customizedShirt.back" ng-click="openUploads('backsponsor2', 'Back Sponsor 2')" ng-class="{'button-done':customizedShirt.backsponsor2.image}" class="btn pad2 btn-outline btn-dark block" aria-label="File">BACK SPONSOR 2
                             </button>
 
-                                <button type="button" ng-if="customizedShirt.front" ng-click="openUploads('leftchest', 'Left Chest')" ng-class="{'button-done':customizedShirt.leftchest.image}"
-                                    class="btn pad2 btn-outline btn-dark block" aria-label="File">LEFT CHEST SPONSOR
+                                <button type="button" ng-if="customizedShirt.front" ng-click="openUploads('leftchest', 'Left Chest')" ng-class="{'button-done':customizedShirt.leftchest.image}" class="btn pad2 btn-outline btn-dark block" aria-label="File">LEFT CHEST SPONSOR
                             </button>
 
-                            <button type="button" ng-if="customizedShirt.front" ng-click="openUploads('rightchest', 'Right Chest')" ng-class="{'button-done':customizedShirt.rightchest.image}"
-                                    class="btn pad2 btn-outline btn-dark block" aria-label="File">RIGHT CHEST SPONSOR
+                                <button type="button" ng-if="customizedShirt.front" ng-click="openUploads('rightchest', 'Right Chest')" ng-class="{'button-done':customizedShirt.rightchest.image}" class="btn pad2 btn-outline btn-dark block" aria-label="File">RIGHT CHEST SPONSOR
                             </button>
 
-                                <button type="button" ng-if="customizedShirt.front" ng-click="openUploads('leftsleeve', 'Left Sleeve')" ng-class="{'button-done':customizedShirt.leftsleeve.image}"
-                                    class="btn pad2 btn-outline btn-dark block" aria-label="File">LEFT SLEEVE SPONSOR
+                                <button type="button" ng-if="customizedShirt.front" ng-click="openUploads('leftsleeve', 'Left Sleeve')" ng-class="{'button-done':customizedShirt.leftsleeve.image}" class="btn pad2 btn-outline btn-dark block" aria-label="File">LEFT SLEEVE SPONSOR
                             </button>
 
-                                <button type="button" ng-if="customizedShirt.front" ng-click="openUploads('rightsleeve', 'Right Sleeve')" ng-class="{'button-done':customizedShirt.rightsleeve.image}"
-                                    class="btn pad2 btn-outline btn-dark block" aria-label="File">RIGHT SLEEVE SPONSOR
+                                <button type="button" ng-if="customizedShirt.front" ng-click="openUploads('rightsleeve', 'Right Sleeve')" ng-class="{'button-done':customizedShirt.rightsleeve.image}" class="btn pad2 btn-outline btn-dark block" aria-label="File">RIGHT SLEEVE SPONSOR
                             </button>
 
 
@@ -544,8 +536,7 @@
                                 <div class="pbotom">
                                     <span class="block">Notes :</span>
                                     <span class="block">1. The logo of your sponsors will be sublimated. </span>
-                                    <span class="block">2. The logo on the sleeves are not cut in half. It’s just to provide realistic
-                    feel.</span>
+                                    <span class="block">2. The logo on the sleeves are not cut in half. It’s just to provide realistic feel.</span>
                                     <span class="block">3. If you feel something is not great, our design team can fix it for you.</span>
                                     <span><a href="">Click here</a> to find out how?</span>
                                 </div>
@@ -556,7 +547,7 @@
                                 </div>
                             </div>
                             <div class="edit-btn inline-block">
-                                <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+                                <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('quantity',5)">NEXT</button>
                             </div>
                         </div>
 
@@ -566,8 +557,7 @@
                                 <p class="hidden-xs">Would you like to add name and numbers to <br>your jersey at an additional charge of 2 GBP
                                     <br>per jersey?
                                 </p>
-                                <p class="hidden-md hidden-lg">Would you like to add name and numbers to your jersey at an additional charge of 2 GBP per
-                                    jersey?
+                                <p class="hidden-md hidden-lg">Would you like to add name and numbers to your jersey at an additional charge of 2 GBP per jersey?
                                 </p>
                                 <div class="continue-buttons mr">
                                     <button ng-click="showQuantiyTab()" class="btn btn-outline btn-dark mar15 mr10 padding-btn letter-spacing uppercase">yes,continue</button>
@@ -583,20 +573,20 @@
                                     <div class="sizes size inline-block">
                                         <span class="uppercase">size</span>
                                         <select>
-        <option value="XL">XL</option>
-        <option value="20">20</option>
-        <option value="30">30</option>
-        <option value="40">40</option>
-    </select>
+                                          <option value="XL">XL</option>
+                                          <option value="20">20</option>
+                                          <option value="30">30</option>
+                                          <option value="40">40</option>
+                                      </select>
                                     </div>
                                     <div class="sizes size inline-block">
                                         <span class="uppercase">sleeve</span>
                                         <select>
-      <option value="XL">XL</option>
-      <option value="20">20</option>
-      <option value="30">30</option>
-      <option value="40">40</option>
-  </select></div>
+                                            <option value="XL">XL</option>
+                                            <option value="20">20</option>
+                                            <option value="30">30</option>
+                                            <option value="40">40</option>
+                                        </select></div>
                                     <div class="sizes size inline-block">
                                         <span class="inline-block uppercase">quantity</span>
                                         <input type="text" class="form-control inline-block" name="name" value="">
@@ -629,8 +619,7 @@
                                 <uib-accordion close-others="oneAtATime">
                                     <uib-accordion-group is-open="status.open1">
                                         <uib-accordion-heading>
-                                            <i class="pull-left fa " ng-class="{'fa fa-minus': status.open1, 'fa fa-plus': !status.open1}"></i>Select
-                                            The Font For Your Jersey Name
+                                            <i class="pull-left fa " ng-class="{'fa fa-minus': status.open1, 'fa fa-plus': !status.open1}"></i>Select The Font For Your Jersey Name
                                         </uib-accordion-heading>
                                         <div class="radio-options">
                                             <form action="" class="radio">
@@ -658,7 +647,7 @@
                                                 <h2>Select The Colour</h2>
                                                 <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
                                                     <div class="colo-pallet text-center ">
-                                                        <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
+                                                      <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightOne(trimTshirt.highlightOne.flag, col.name)"></div>
                                                     </div>
                                                 </div>
 
@@ -676,8 +665,7 @@
                                 <uib-accordion close-others="oneAtATime">
                                     <uib-accordion-group is-open="status.open1">
                                         <uib-accordion-heading>
-                                            <i class="pull-left fa " ng-class="{'fa fa-minus': status.open1, 'fa fa-plus': !status.open1}"></i>Select
-                                            The Dimensions For Your Jersey
+                                            <i class="pull-left fa " ng-class="{'fa fa-minus': status.open1, 'fa fa-plus': !status.open1}"></i>Select The Dimensions For Your Jersey
                                         </uib-accordion-heading>
                                         <div class="table-responsive">
                                             <table class="table">

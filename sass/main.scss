@@ -5585,4 +5585,17 @@ h2 {
 .check input[type="checkbox"]:checked + label {
     font-weight: bolder !important;
 }
+
+.disnon {
+    display: none;
+}
+
+.active-tab {
+    display: block !important;
+}
+
+.activeme {
+    background-color: #1b1b1b !important;
+    color: white !important;
+}
 @import "mobile/mobile";

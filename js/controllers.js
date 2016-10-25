@@ -1592,33 +1592,42 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
 
-    $scope.myArr=[{name:"$scope.padImages1",img:$scope.padImages1.yellow},{name:"$scope.padImages2",img:$scope.padImages2.yellow},{name:"$scope.padImages3",img:$scope.padImages3.yellow}];
-    $scope.selectPadsDesign=function(item){
-      console.log(item);
-      $scope.Arrayname = item.name;
-      $scope.selectedImage=item.img[0];
-      console.log($scope.Arrayname);
-      $scope.changePadsImages = function(color) {
-          console.log(color);
-          $scope.padColors = color;
-          if($scope.Arrayname == '$scope.padImages1'){
-            console.log('here');
-            $scope.selectedImage = $scope.padImages1[color][0];
-          }
-          if($scope.Arrayname == '$scope.padImages2'){
-            $scope.selectedImage = $scope.padImages2[color][0];
-          }
-          if($scope.Arrayname == '$scope.padImages3'){
-            $scope.selectedImage = $scope.padImages3[color][0];
-          }
+    $scope.myArr = [{
+        name: "$scope.padImages1",
+        img: $scope.padImages1.yellow
+    }, {
+        name: "$scope.padImages2",
+        img: $scope.padImages2.yellow
+    }, {
+        name: "$scope.padImages3",
+        img: $scope.padImages3.yellow
+    }];
+    $scope.selectPadsDesign = function(item) {
+        console.log(item);
+        $scope.Arrayname = item.name;
+        $scope.selectedImage = item.img[0];
+        console.log($scope.Arrayname);
+        $scope.changePadsImages = function(color) {
+                console.log(color);
+                $scope.padColors = color;
+                if ($scope.Arrayname == '$scope.padImages1') {
+                    console.log('here');
+                    $scope.selectedImage = $scope.padImages1[color][0];
+                }
+                if ($scope.Arrayname == '$scope.padImages2') {
+                    $scope.selectedImage = $scope.padImages2[color][0];
+                }
+                if ($scope.Arrayname == '$scope.padImages3') {
+                    $scope.selectedImage = $scope.padImages3[color][0];
+                }
 
-          $rootScope.$broadcast('changeImage', {});
+                $rootScope.$broadcast('changeImage', {});
 
-      }
-      // $scope.myChoice=item;
+            }
+            // $scope.myChoice=item;
     }
-      $scope.selectPadsDesign($scope.myArr[0]);
-console.log($scope.myArr[0]);
+    $scope.selectPadsDesign($scope.myArr[0]);
+    console.log($scope.myArr[0]);
 
 
 
@@ -2949,7 +2958,7 @@ console.log($scope.myArr[0]);
 //
 // })
 
-.controller('GlovesCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal,$rootScope) {
+.controller('GlovesCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $rootScope) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("gloves");
     $scope.menutitle = NavigationService.makeactive("Gloves");
@@ -2986,95 +2995,104 @@ console.log($scope.myArr[0]);
     }];
 
 
-            //glovesImages path
-            $scope.glovesImages1 = {
-                "yellow": ["img/glovescolor/yellow/1.png"],
-                "red": ["img/glovescolor/red/1.png"],
-                "lblue": ["img/glovescolor/lblue/1.png"],
-                "dblue": ["img/glovescolor/dblue/1.png"],
-                "lgreen": ["img/glovescolor/lgreen/1.png"],
-                "dgreen": ["img/glovescolor/dgreen/1.png"],
-                "lorange": ["img/glovescolor/lorange/1.png"],
-                "dorange": ["img/glovescolor/dorange/1.png"],
-                "gold": ["img/glovescolor/gold/1.png"]
+    //glovesImages path
+    $scope.glovesImages1 = {
+        "yellow": ["img/glovescolor/yellow/1.png"],
+        "red": ["img/glovescolor/red/1.png"],
+        "lblue": ["img/glovescolor/lblue/1.png"],
+        "dblue": ["img/glovescolor/dblue/1.png"],
+        "lgreen": ["img/glovescolor/lgreen/1.png"],
+        "dgreen": ["img/glovescolor/dgreen/1.png"],
+        "lorange": ["img/glovescolor/lorange/1.png"],
+        "dorange": ["img/glovescolor/dorange/1.png"],
+        "gold": ["img/glovescolor/gold/1.png"]
 
-            };
-            //glovesImages path
-            $scope.glovesImages2 = {
-                "yellow": ["img/glovescolor/yellow/2.png"],
-                "red": ["img/glovescolor/red/2.png"],
-                "lblue": ["img/glovescolor/lblue/2.png"],
-                "dblue": ["img/glovescolor/dblue/2.png"],
-                "lgreen": ["img/glovescolor/lgreen/2.png"],
-                "dgreen": ["img/glovescolor/dgreen/2.png"],
-                "lorange": ["img/glovescolor/lorange/2.png"],
-                "dorange": ["img/glovescolor/dorange/2.png"],
-                "gold": ["img/glovescolor/gold/2.png"]
+    };
+    //glovesImages path
+    $scope.glovesImages2 = {
+        "yellow": ["img/glovescolor/yellow/2.png"],
+        "red": ["img/glovescolor/red/2.png"],
+        "lblue": ["img/glovescolor/lblue/2.png"],
+        "dblue": ["img/glovescolor/dblue/2.png"],
+        "lgreen": ["img/glovescolor/lgreen/2.png"],
+        "dgreen": ["img/glovescolor/dgreen/2.png"],
+        "lorange": ["img/glovescolor/lorange/2.png"],
+        "dorange": ["img/glovescolor/dorange/2.png"],
+        "gold": ["img/glovescolor/gold/2.png"]
 
-            };
-            //glovesImages path
-            $scope.glovesImages3 = {
-                "yellow": ["img/glovescolor/yellow/3.png"],
-                "red": ["img/glovescolor/red/3.png"],
-                "lblue": ["img/glovescolor/lblue/3.png"],
-                "dblue": ["img/glovescolor/dblue/3.png"],
-                "lgreen": ["img/glovescolor/lgreen/3.png"],
-                "dgreen": ["img/glovescolor/dgreen/3.png"],
-                "lorange": ["img/glovescolor/lorange/3.png"],
-                "dorange": ["img/glovescolor/dorange/3.png"],
-                "gold": ["img/glovescolor/gold/3.png"]
+    };
+    //glovesImages path
+    $scope.glovesImages3 = {
+        "yellow": ["img/glovescolor/yellow/3.png"],
+        "red": ["img/glovescolor/red/3.png"],
+        "lblue": ["img/glovescolor/lblue/3.png"],
+        "dblue": ["img/glovescolor/dblue/3.png"],
+        "lgreen": ["img/glovescolor/lgreen/3.png"],
+        "dgreen": ["img/glovescolor/dgreen/3.png"],
+        "lorange": ["img/glovescolor/lorange/3.png"],
+        "dorange": ["img/glovescolor/dorange/3.png"],
+        "gold": ["img/glovescolor/gold/3.png"]
 
-            };
+    };
 
-            // $scope.myArr=[$scope.glovesImages1.yellow,$scope.glovesImages2.yellow,$scope.glovesImages3.yellow];
-            $scope.myArr=[{name:"$scope.glovesImages1",img:$scope.glovesImages1.yellow},{name:"$scope.glovesImages2",img:$scope.glovesImages2.yellow},{name:"$scope.glovesImages3",img:$scope.glovesImages3.yellow}];
-            $scope.selectDesign=function(item){
-              console.log(item);
-              $scope.Arrayname = item.name;
-              $scope.selectedImage=item.img[0];
-              console.log($scope.Arrayname);
-              $scope.changeGlovesImages = function(color) {
-                  console.log(color);
-                  $scope.padColors = color;
-                  if($scope.Arrayname == '$scope.glovesImages1'){
+    // $scope.myArr=[$scope.glovesImages1.yellow,$scope.glovesImages2.yellow,$scope.glovesImages3.yellow];
+    $scope.myArr = [{
+        name: "$scope.glovesImages1",
+        img: $scope.glovesImages1.yellow
+    }, {
+        name: "$scope.glovesImages2",
+        img: $scope.glovesImages2.yellow
+    }, {
+        name: "$scope.glovesImages3",
+        img: $scope.glovesImages3.yellow
+    }];
+    $scope.selectDesign = function(item) {
+        console.log(item);
+        $scope.Arrayname = item.name;
+        $scope.selectedImage = item.img[0];
+        console.log($scope.Arrayname);
+        $scope.changeGlovesImages = function(color) {
+                console.log(color);
+                $scope.padColors = color;
+                if ($scope.Arrayname == '$scope.glovesImages1') {
                     console.log('here');
                     $scope.selectedImage = $scope.glovesImages1[color][0];
-                  }
-                  if($scope.Arrayname == '$scope.glovesImages2'){
-                    $scope.selectedImage = $scope.glovesImages2[color][0];
-                  }
-                  if($scope.Arrayname == '$scope.glovesImages3'){
-                    $scope.selectedImage = $scope.glovesImages3[color][0];
-                  }
-
-                  $rootScope.$broadcast('changeImage', {});
-
-              }
-              // $scope.myChoice=item;
-            }
-              $scope.selectDesign($scope.myArr[0]);
-    console.log($scope.myArr[0]);
-            // $scope.changeGlovesImages = function(color) {
-            //     console.log(color);
-            //     $scope.padColors = color;
-            //     $scope.selectedImage = $scope.glovesImages1[color][0];
-            //     $rootScope.$broadcast('changeImage', {});
-            //
-            // }
-            $scope.selectGlovesImage = function(image) {
-                console.log(image);
-                $scope.selectedImage = {
-                    image: image
                 }
+                if ($scope.Arrayname == '$scope.glovesImages2') {
+                    $scope.selectedImage = $scope.glovesImages2[color][0];
+                }
+                if ($scope.Arrayname == '$scope.glovesImages3') {
+                    $scope.selectedImage = $scope.glovesImages3[color][0];
+                }
+
                 $rootScope.$broadcast('changeImage', {});
 
-            };
-            $scope.selectColoredImages = function(image) {
-              console.log(image);
-                $scope.selectedImage = image;
-                $scope.selectedImage.local = true;
-                $rootScope.$broadcast('changeImage', {});
-            };
+            }
+            // $scope.myChoice=item;
+    }
+    $scope.selectDesign($scope.myArr[0]);
+    console.log($scope.myArr[0]);
+    // $scope.changeGlovesImages = function(color) {
+    //     console.log(color);
+    //     $scope.padColors = color;
+    //     $scope.selectedImage = $scope.glovesImages1[color][0];
+    //     $rootScope.$broadcast('changeImage', {});
+    //
+    // }
+    $scope.selectGlovesImage = function(image) {
+        console.log(image);
+        $scope.selectedImage = {
+            image: image
+        }
+        $rootScope.$broadcast('changeImage', {});
+
+    };
+    $scope.selectColoredImages = function(image) {
+        console.log(image);
+        $scope.selectedImage = image;
+        $scope.selectedImage.local = true;
+        $rootScope.$broadcast('changeImage', {});
+    };
 
     var check = 1;
 
@@ -3394,7 +3412,7 @@ console.log($scope.myArr[0]);
     $scope.classe = '';
 
     $scope.tabchange = function(tab, a) {
-      $scope.axd =a;
+        $scope.axd = a;
         $scope.tab = tab;
         if (a == 1) {
             $scope.classa = 'active';
@@ -3405,7 +3423,7 @@ console.log($scope.myArr[0]);
 
         }
         if (a == 2) {
-          // $scope.a =a;
+            // $scope.a =a;
             $scope.classb = 'active';
             $scope.classa = '';
             $scope.classc = '';
@@ -3414,7 +3432,7 @@ console.log($scope.myArr[0]);
 
         }
         if (a == 3) {
-          // $scope.a =a;
+            // $scope.a =a;
             $scope.classc = 'active';
             $scope.classb = '';
             $scope.classa = '';
@@ -3423,7 +3441,7 @@ console.log($scope.myArr[0]);
 
         }
         if (a == 4) {
-          // $scope.a =a;
+            // $scope.a =a;
             $scope.classd = 'active';
             $scope.classb = '';
             $scope.classc = '';
@@ -3431,7 +3449,7 @@ console.log($scope.myArr[0]);
             $scope.classe = '';
 
         } else if (a == 5) {
-          // $scope.a =a;
+            // $scope.a =a;
             $scope.classe = 'active';
             $scope.classb = '';
             $scope.classc = '';
@@ -3643,6 +3661,8 @@ console.log($scope.myArr[0]);
     $scope.trimTshirt.highlightOne.flag = true;
     $scope.trimTshirt.highlightTwo.flag = true;
     $scope.switchTrimHighlightOne = function(flag, color) {
+        console.log(flag);
+        console.log(color);
         $scope.trimTshirt.highlightOne.flag = flag;
         $scope.trimTshirt.highlightOne.tcolor = color;
         if (flag) {
@@ -3652,6 +3672,9 @@ console.log($scope.myArr[0]);
         }
     }
     $scope.switchTrimHighlightTwo = function(flag, color) {
+        console.log('two');
+        console.log(color);
+        console.log(flag);
         $scope.trimTshirt.highlightTwo.flag = flag;
         $scope.trimTshirt.highlightTwo.tcolor = color;
         if (flag) {
@@ -3699,7 +3722,7 @@ console.log($scope.myArr[0]);
     }
 
     $scope.proceed = function() {
-        $uibModal.open({
+        $scope.proceedCModal = $uibModal.open({
             templateUrl: "views/modal/proceed.html",
             scope: $scope
         })
@@ -3712,13 +3735,15 @@ console.log($scope.myArr[0]);
         })
     }
     $scope.openColor = function() {
-        $uibModal.open({
+        $scope.myModal = $uibModal.open({
             templateUrl: "views/modal/continue.html",
             scope: $scope
         })
     }
     $scope.showColorTab = function() {
+        
         $scope.tab = "teamcolor";
+        $scope.myModal.close();
     }
     $scope.showQuantiyTab = function() {
         $scope.tab = "quantiy";
@@ -3729,6 +3754,7 @@ console.log($scope.myArr[0]);
 
     $scope.proceedNext = function() {
         $scope.tab = "sponsorlogo";
+        $scope.proceedCModal.close();
     }
 
     $scope.teamloging = function() {
@@ -3950,7 +3976,8 @@ console.log($scope.myArr[0]);
     }];
 
     $scope.color2 = [{
-        colr: "#f5b122"
+        colr: "#f5b122",
+
     }, {
         colr: "#c80d28"
     }, {
@@ -4030,6 +4057,62 @@ console.log($scope.myArr[0]);
 
         }
     };
+
+    $scope.tabs = 'light1';
+    $scope.classp = 'active-tab';
+    $scope.classv = '';
+    $scope.classshow = 'activeme';
+    $scope.classhide = '';
+
+    $scope.tabchanges = function(tabs, b) {
+
+        $scope.tabs = tabs;
+        if (b == 1) {
+
+            $scope.classp = "active-tab";
+            $scope.classv = '';
+            $scope.classshow = 'activeme';
+            $scope.classhide = '';
+            $scope.classhide1 = '';
+            $scope.classhide2 = '';
+
+
+
+        }
+        if (b == 2) {
+
+            $scope.classv = "active-tab";
+            $scope.classp = '';
+            $scope.classshow = '';
+            $scope.classhide = 'activeme';
+            $scope.classhide1 = '';
+            $scope.classhide2 = '';
+
+
+
+        }
+        if (b == 3) {
+
+
+            $scope.classshow = '';
+            $scope.classhide = '';
+            $scope.classhide1 = 'activeme';
+            $scope.classhide2 = '';
+
+
+
+        } else if (b == 4) {
+
+            $scope.classshow = '';
+            $scope.classhide = '';
+            $scope.classhide1 = '';
+            $scope.classhide2 = 'activeme';
+
+
+
+        }
+    };
+
     $scope.demo2 = {
         range: {
             min: 0,
@@ -6487,7 +6570,7 @@ console.log($scope.myArr[0]);
             $rootScope.$broadcast('changeImage', {});
         };
         $scope.selectColoredImages = function(image) {
-          console.log(image);
+            console.log(image);
             $scope.selectedImage = image;
             $scope.selectedImage.local = true;
             $rootScope.$broadcast('changeImage', {});

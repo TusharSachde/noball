@@ -56,7 +56,8 @@
 </div>
 <div class="copyrights">
   <!-- <a ng-click="$dismiss();" class="pull-right"><i class="fa fa-times" aria-hidden="true"></i></a> -->
-  <div class="copies" ng-if="!statuses.showcopy">
+  <!-- <div class="copies" ng-if="!statuses.showcopy"> -->
+  <div class="copies">
     <div class="text-center">
       <h2>Confirm Copyrights Permission</h2>
       <!-- <img src="img/normal-logo.png" class="img-responsive" alt=""> -->
@@ -73,11 +74,13 @@
     </div>
   </div>
   <form ng-submit="confirmUpload(variable, name)" name="uploadform">
-    <div class="check" ng-if="!statuses.showcopy">
+    <!-- <div class="check" ng-if="!statuses.showcopy"> -->
+    <div class="check">
     <input type="checkbox" class="form-control" id="log" name="hereby" ng-required="!statuses.showcopy">
     <label for="log"><span></span>I hereby declare I have permission to use this file.</label>
   </div>
-  <div class="check" ng-if="!statuses.showcopy">
+  <!-- <div class="check" ng-if="!statuses.showcopy"> -->
+  <div class="check">
     <input type="checkbox" ng-model="statuses.showcopy" class="form-control" id="dont" >
     <label for="dont"><span></span>Don't ask again</label>
   </div>
