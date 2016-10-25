@@ -14,6 +14,10 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: "Raleway-Medium";
+    src: url("../fonts/Raleway-Medium.ttf");
+}
 /* Bootstrap Variables Goes Here */
 $brand-primary: #0d9dff !default;
 $brand-success: #C1E603 !default;
@@ -74,6 +78,10 @@ body {
     -webkit-appearance: $value;
     -moz-appearance: $value;
     appearance: $value;
+}
+
+.Raleway-Medium {
+    font-family: "Raleway-Medium";
 }
 
 .btn {
@@ -2171,6 +2179,7 @@ footer {
     ul {
         display: block;
         list-style: none;
+        padding: 0 !important;
 
         li {
             display: inline-block;
@@ -2180,7 +2189,7 @@ footer {
             p {
                 @extend .margin0;
                 border: 1px solid $bread-crumb;
-                padding: 4px 49px;
+                padding: 4px 64px;
                 cursor: pointer;
                 height: 29px;
             }
@@ -5074,16 +5083,16 @@ a:focus {
         border-radius: 100%;
     }
 
-
-
     .radio-options {
         padding: 20px 0 0;
     }
 }
-.noti-img:focus{
-        border: 3px solid #888888;
-            outline: none;
+
+.noti-img:focus {
+    border: 3px solid #888888;
+    outline: none;
 }
+
 .notes {
     font-size: 12px;
 }
@@ -5174,9 +5183,18 @@ a:focus {
     background-color: #fff;
 
     a {
-        margin-top: 20px;
-        margin-right: 15px;
+        top: 15px;
+        margin-right: 13px;
+        position: absolute;
+        right: 9px;
     }
+}
+
+.noti-imghover {
+    height: 45px;
+    width: 45px;
+    border-radius: 100%;
+    border: 3px solid #cacaca;
 }
 // .slant-col{
 //   transform: skew(10deg);
@@ -5417,7 +5435,7 @@ h2 {
 
     .mod-img {
         padding-right: 10px;
-        width: 160px;
+        width: 200px;
         display: inline-block;
     }
 
@@ -5556,6 +5574,14 @@ h2 {
 .mb10 {
     margin-bottom: 10px;
 }
-.radio input[type="radio"] + label span, .radio input[type="radio"]:checked + label{  font-weight: bolder;}
 
+.radio input[type="radio"] + label span,
+.radio input[type="radio"]:checked + label {
+    font-weight: bolder;
+}
+
+.check input[type="checkbox"] + label span,
+.check input[type="checkbox"]:checked + label {
+    font-weight: bolder !important;
+}
 @import "mobile/mobile";
