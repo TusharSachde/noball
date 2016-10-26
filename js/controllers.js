@@ -3701,6 +3701,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.statuses.uploadStatus = false;
         $scope.variable = variable;
         $scope.name = name;
+        if($scope.teamModal){
+          $scope.teamModal.close();
+        }
         $scope.statuses.modal = $uibModal.open({
             templateUrl: "views/modal/tshirt.html",
             scope: $scope
@@ -3739,6 +3742,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             templateUrl: "views/modal/continue.html",
             scope: $scope
         })
+    }
+
+    $scope.openTeam = function() {
+        $scope.teamModal = $uibModal.open({
+            templateUrl: "views/modal/team-logo.html",
+            scope: $scope
+        });
     }
     $scope.showColorTab = function() {
 
@@ -4195,6 +4205,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $uibModal.open({
             templateUrl: "views/modal/outofplace.html",
             controller: "OdiCtrl",
+            windowClass: "modal-dialogintro",
             scope: $scope
         })
     };
