@@ -3535,7 +3535,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 .controller('OdiCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar, $filter) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("odi-shirt");
-    $scope.menutitle = NavigationService.makeactive("Odi T-Shirts");
+    $scope.menutitle = NavigationService.makeactive("Odi T-shirt");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     var check = 1;
@@ -3564,13 +3564,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.customizedShirt.leftchest.divattributes = {};
     $scope.customizedShirt.leftchest.attributes.width = 50;
 
-    $scope.jerseyBack = {
-        'name': 'Name',
-        'no': '00',
-        'font': 'arial',
-        'color': '#c80d28'
-    };
-
     $scope.UploadTeamLogo = function () {
         check = 2;
         $uibModal.open({
@@ -3578,6 +3571,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             scope: $scope
         })
     }
+
+    $scope.jerseyBack = {
+        'name': 'Name',
+        'no': '00',
+        'font': 'arial',
+        'color': '#c80d28'
+    };
+
     $scope.switchFrontBack = function (front) {
         $scope.customizedShirt.front =  front;
         $scope.customizedShirt.back =  !front;
@@ -3708,8 +3709,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.statuses.uploadStatus = false;
         $scope.variable = variable;
         $scope.name = name;
-        if($scope.teamModal){
-          $scope.teamModal.close();
+        if ($scope.teamModal) {
+            $scope.teamModal.close();
         }
         $scope.statuses.modal = $uibModal.open({
             templateUrl: "views/modal/tshirt.html",
@@ -3750,18 +3751,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             scope: $scope
         })
     }
-<<<<<<< HEAD
 
-    $scope.openTeam = function() {
+    $scope.openTeam = function () {
         $scope.teamModal = $uibModal.open({
             templateUrl: "views/modal/team-logo.html",
             scope: $scope
         });
     }
-    $scope.showColorTab = function() {
-=======
     $scope.showColorTab = function () {
->>>>>>> dacc491aac492aebb59757db3d3dd79f2d0c451c
 
         $scope.tab = "teamcolor";
         $scope.myModal.close();

@@ -2512,12 +2512,7 @@ footer {
     }
     &.activated:after,
     &:hover:after {
-<<<<<<< HEAD
-        // border: 3px solid $dark-grey;
-        @include transition(all 300ms ease-in-out);
-=======
         border: 3px solid $dark-grey;
->>>>>>> dacc491aac492aebb59757db3d3dd79f2d0c451c
     }
 }
 
@@ -4574,10 +4569,10 @@ a:focus {
     }
 }
 
-// .noti-img:focus {
-//     border: 3px solid #888888;
-//     outline: none;
-// }
+.noti-img:focus {
+    border: 3px solid #888888;
+    outline: none;
+}
 
 .notes {
     font-size: 12px;
@@ -4646,7 +4641,7 @@ a:focus {
     padding: 10px 0;
     input {
         width: 50%;
-        padding: 5px 10px;
+        padding: 5px 0;
         margin-bottom: 10px;
     }
     .plus {
@@ -4670,7 +4665,7 @@ a:focus {
     height: 45px;
     width: 45px;
     border-radius: 100%;
-      border: 3px solid #cacaca;
+    border: 3px solid #cacaca;
 }
 
 // .slant-col{
@@ -5051,16 +5046,6 @@ h2 {
     background-color: #1b1b1b !important;
     color: white !important;
 }
-<<<<<<< HEAD
-.modal-dialogintro .modal-dialog {
-    width: 68% !important;
-    left: 19% !important;
-    top: 8% !important;
-}
-.coloracive{    border: 3px solid #888888;}
-.clickinfo{    font-size: 14px;}
-@import "mobile/mobile";
-=======
 
 .arial-font {
     font-family: 'Arial';
@@ -5093,5 +5078,18 @@ h2 {
     }
 }
 
+.modal-dialogintro .modal-dialog {
+    width: 68% !important;
+    left: 19% !important;
+    top: 8% !important;
+}
+
+.coloracive {
+    border: 3px solid #888888;
+}
+
+.clickinfo {
+    font-size: 14px;
+}
+
 @import "mobile/mobile";
->>>>>>> dacc491aac492aebb59757db3d3dd79f2d0c451c
