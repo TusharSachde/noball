@@ -67,6 +67,15 @@
                                 <div class="div-right-chest" ng-if="customizedShirt.front && customizedShirt.rightchest.image" ng-style="customizedShirt.rightchest.divattributes">
                                     <img class="right-chest" ng-src="{{customizedShirt.rightchest.image | serverimage}}" alt="" ng-style="customizedShirt.rightchest.attributes">
                                 </div>
+                                <div class="div-right-chest " ng-if="customizedShirt.front && myhide" ng-style="customizedShirt.rightchest.divattributes">
+                                    <div style="color:{{myClolr}};transform: rotate({{myArc}}deg);font-size:{{mySize}}px;transform: rotate({{myRotate}}deg);letter-spacing: {{myWordSpace}}px;">{{mymodel}} <br></div>
+                                    <div style="color:{{myClolr}};transform: rotate({{myArc1}}deg);font-size:{{mySize1}}px;transform: rotate({{myRotate1}}deg);letter-spacing: {{myWordSpace1}}px;"> {{addtxt10}}</div>
+
+                                    <!-- <img class="right-chest" ng-src="{{customizedShirt.rightchest.image | serverimage}}" alt="" ng-style="customizedShirt.rightchest.attributes"> -->
+                                </div>
+                                <!-- <br>
+                                <div class="div-right-chest" ng-if="customizedShirt.front" ng-style="customizedShirt.rightchest.divattributes"><!-- <img class="right-chest" ng-src="{{customizedShirt.rightchest.image | serverimage}}" alt="" ng-style="customizedShirt.rightchest.attributes"> -->
+                                <!-- </div> -->
                                 <div class="div-right-sleeve" ng-if="customizedShirt.rightsleeve.image" ng-style="customizedShirt.rightsleeve.divattributes" ng-class="{'div-right-sleeve':customizedShirt.front,'div-left-sleeve':customizedShirt.back}">
                                     <img ng-class="{'right-sleeve':customizedShirt.front,'left-sleeve':customizedShirt.back}" ng-src="{{customizedShirt.rightsleeve.image | serverimage}}" alt="" ng-style="customizedShirt.rightsleeve.attributes">
                                 </div>
@@ -198,9 +207,9 @@
                                     <label for="later"><span></span>SEND LATER</label>
                                 </div>
                                 <div class="logo-text">
-                                    <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openUploads('rightchest', 'Right Chest')">TEAM LOGO</button>
+                                    <button class="{{classshow}} btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="tabchanges('s',1)">TEAM LOGO</button>
                                     <span class="uppercase inline-block mright15">or</span>
-                                    <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor();">TEAM TEXT</button>
+                                    <button class="{{classhide}}  btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor()">TEAM TEXT</button>
                                 </div>
                                 <div class="print-typ printing">
                                     <p>Select The Printing Type For Your Team Logo</p>
@@ -215,7 +224,7 @@
                                     <a href="" class="link mleft22">VIEW EXAMPLE</a></label>
                                     </form>
                                     <div class="edit-btn">
-                                        <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="">upload</button>
+                                        <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('rightchest', 'Right Chest')">upload</button>
                                     </div>
 
                                 </div>
@@ -301,7 +310,7 @@
                             <div class="logo-text">
                                 <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openTeam();">TEAM LOGO</button>
                                 <span class="uppercase inline-block mright15">or</span>
-                                <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor();">TEAM TEXT</button>
+                                <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor()">TEAM TEXT</button>
                             </div>
                             <div class="radio-options">
                                 <h4>Select The Font For Your Jersey Name</h4>
@@ -325,13 +334,16 @@
                                     </div>
                                 </form>
                             </div>
+
+                            <!-- Fornt Chest Text Color -->
                             <div class="row">
                                 <div class="col-md-12">
                                     <h4>Select The Colour</h4>
                                     <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
                                         <div class="colo-pallet text-center ">
                                             <!-- <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightOne(trimTshirt.highlightOne.flag, col.name)"></div> -->
-                                            <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-class="{'activated': jerseyBack.color == col.colr}" ng-click="jerseyBack.color=col.colr"></div>
+                                            <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-class="{'activated': jerseyBack.color == col.colr}" ng-click="ChaangeTextColor(col.name)"></div>
+                                            <!-- <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-class="{'activated': jerseyBack.color == col.colr}" ng-click="jerseyBack.color=col.colr"></div> -->
                                         </div>
                                     </div>
                                 </div>
@@ -341,12 +353,15 @@
                             </div>
                             <div class="range-slidings relative">
                                 <h4 class="capitalize">enter your text below</h4>
-                                <input type="text" class="block" name="name1">
-                                <input type="text" class="block " name="name2">
-                                <a class="plus" href=""><i class="fa fa-2x fa-plus-circle" aria-hidden="true"></i></a>
-                                <input type="text" class="block" name="name3">
+                                <input type="text" class="block" name="name1" ng-model="mymodel">
+                                <!-- <input type="text" class="block" ng-repeat="txtt in TextBoxDetails" ng-model="txtt.title"> -->
+                                <input type="text" class="block" ng-show="addedTxt" name="addtxt10" ng-model="addtxt10">
+
+                                <a class="plus" ng-click="addMore();"><i class="fa fa-2x fa-plus-circle" aria-hidden="true"></i></a>
+
                             </div>
-                            <div class="range">
+                            <!-- Initial state -->
+                            <div class="range" ng-hide="addedTxt">
                                 <div class="row">
                                     <div class="col-md-1 col-sm-1 col-xs-1">
                                         <span>size</span>
@@ -355,7 +370,7 @@
                                         <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
                                     </div>
                                     <div class="col-md-3 col-sm-3 col-xs-3">
-                                        <input type="text" name="size">
+                                        <input class="inputtext" type="number" name="mySize" ng-model="mySize">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -366,7 +381,7 @@
                                         <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
                                     </div>
                                     <div class="col-md-3 col-sm-3 col-xs-3">
-                                        <input type="text" name="size">
+                                        <input class="inputtext" type="number" ng-model="myArc" name="size">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -377,7 +392,7 @@
                                         <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
                                     </div>
                                     <div class="col-md-3 col-sm-3 col-xs-3">
-                                        <input type="text" name="size">
+                                        <input class="inputtext" type="number" name="myRotate" ng-model="myRotate">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -388,10 +403,61 @@
                                         <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
                                     </div>
                                     <div class="col-md-3 col-sm-3 col-xs-3">
-                                        <input type="text" name="size">
+                                        <input class="inputtext" type="number" name="myWordSpace" ng-model="myWordSpace">
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- when addtxt -->
+                            <div class="range" ng-show="addedTxt">
+                                <div class="row">
+                                    <div class="col-md-1 col-sm-1 col-xs-1">
+                                        <span>size</span>
+                                    </div>
+                                    <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                        <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                        <input class="inputtext" type="number" name="mySize" ng-model="mySize1">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-1 col-sm-1 col-xs-1">
+                                        <span>arc</span>
+                                    </div>
+                                    <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                        <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                        <input class="inputtext" type="number" ng-model="myArc1" name="size">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-1 col-sm-1 col-xs-1">
+                                        <span>rotation</span>
+                                    </div>
+                                    <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                        <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                        <input class="inputtext" type="number" name="myRotate" ng-model="myRotate1">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-1 col-sm-1 col-xs-1">
+                                        <span>spacing</span>
+                                    </div>
+                                    <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                        <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                        <input class="inputtext" type="number" name="myWordSpace1" ng-model="myWordSpace1">
+                                    </div>
+                                </div>
+                            </div>
+
+
+
                             <div class="edit-btn inline-block">
                                 <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                             </div>
@@ -526,9 +592,9 @@
                                 </div>
                             </div>
 
-                                <div class="edit-btn inline-block">
-                                    <button href="" class=" btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
-                                </div>
+                            <div class="edit-btn inline-block">
+                                <button href="" class=" btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                            </div>
 
                             <div class="edit-btn inline-block">
                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('quantity',5)">NEXT</button>
