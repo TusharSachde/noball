@@ -2072,6 +2072,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $uibModal.open({
             templateUrl: "views/modal/outofplace.html",
             controller: "OdiCtrl",
+            windowClass: "modal-dialogintro",
             scope: $scope
         })
     };
@@ -2997,41 +2998,41 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     //glovesImages path
     $scope.glovesImages1 = {
-        "yellow": ["img/glovescolor/yellow/1.png"],
-        "red": ["img/glovescolor/red/1.png"],
-        "lblue": ["img/glovescolor/lblue/1.png"],
-        "dblue": ["img/glovescolor/dblue/1.png"],
-        "lgreen": ["img/glovescolor/lgreen/1.png"],
-        "dgreen": ["img/glovescolor/dgreen/1.png"],
-        "lorange": ["img/glovescolor/lorange/1.png"],
-        "dorange": ["img/glovescolor/dorange/1.png"],
-        "gold": ["img/glovescolor/gold/1.png"]
+        "yellow": ["img/glovescolor/yellow/4.png"],
+        "red": ["img/glovescolor/red/4.png"],
+        "lblue": ["img/glovescolor/lblue/4.png"],
+        "dblue": ["img/glovescolor/dblue/4.png"],
+        "lgreen": ["img/glovescolor/lgreen/4.png"],
+        "dgreen": ["img/glovescolor/dgreen/4.png"],
+        "lorange": ["img/glovescolor/lorange/4.png"],
+        "dorange": ["img/glovescolor/dorange/4.png"],
+        "gold": ["img/glovescolor/gold/4.png"]
 
     };
     //glovesImages path
     $scope.glovesImages2 = {
-        "yellow": ["img/glovescolor/yellow/2.png"],
-        "red": ["img/glovescolor/red/2.png"],
-        "lblue": ["img/glovescolor/lblue/2.png"],
-        "dblue": ["img/glovescolor/dblue/2.png"],
-        "lgreen": ["img/glovescolor/lgreen/2.png"],
-        "dgreen": ["img/glovescolor/dgreen/2.png"],
-        "lorange": ["img/glovescolor/lorange/2.png"],
-        "dorange": ["img/glovescolor/dorange/2.png"],
-        "gold": ["img/glovescolor/gold/2.png"]
+        "yellow": ["img/glovescolor/yellow/5.png"],
+        "red": ["img/glovescolor/red/5.png"],
+        "lblue": ["img/glovescolor/lblue/5.png"],
+        "dblue": ["img/glovescolor/dblue/5.png"],
+        "lgreen": ["img/glovescolor/lgreen/5.png"],
+        "dgreen": ["img/glovescolor/dgreen/5.png"],
+        "lorange": ["img/glovescolor/lorange/5.png"],
+        "dorange": ["img/glovescolor/dorange/5.png"],
+        "gold": ["img/glovescolor/gold/5.png"]
 
     };
     //glovesImages path
     $scope.glovesImages3 = {
-        "yellow": ["img/glovescolor/yellow/3.png"],
-        "red": ["img/glovescolor/red/3.png"],
-        "lblue": ["img/glovescolor/lblue/3.png"],
-        "dblue": ["img/glovescolor/dblue/3.png"],
-        "lgreen": ["img/glovescolor/lgreen/3.png"],
-        "dgreen": ["img/glovescolor/dgreen/3.png"],
-        "lorange": ["img/glovescolor/lorange/3.png"],
-        "dorange": ["img/glovescolor/dorange/3.png"],
-        "gold": ["img/glovescolor/gold/3.png"]
+        "yellow": ["img/glovescolor/yellow/6.png"],
+        "red": ["img/glovescolor/red/6.png"],
+        "lblue": ["img/glovescolor/lblue/6.png"],
+        "dblue": ["img/glovescolor/dblue/6.png"],
+        "lgreen": ["img/glovescolor/lgreen/6.png"],
+        "dgreen": ["img/glovescolor/dgreen/6.png"],
+        "lorange": ["img/glovescolor/lorange/6.png"],
+        "dorange": ["img/glovescolor/dorange/6.png"],
+        "gold": ["img/glovescolor/gold/6.png"]
 
     };
 
@@ -3053,7 +3054,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log($scope.Arrayname);
         $scope.changeGlovesImages = function (color) {
                 console.log(color);
-                $scope.padColors = color;
+                $scope.glovesColors = color;
                 if ($scope.Arrayname == '$scope.glovesImages1') {
                     console.log('here');
                     $scope.selectedImage = $scope.glovesImages1[color][0];
@@ -3440,22 +3441,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.classe = '';
 
         }
-        if (a == 4) {
-            // $scope.a =a;
-            $scope.classd = 'active';
-            $scope.classb = '';
-            $scope.classc = '';
-            $scope.classa = '';
-            $scope.classe = '';
-
-        } else if (a == 5) {
+        else if (a == 4) {
             // $scope.a =a;
             $scope.classe = 'active';
             $scope.classb = '';
             $scope.classc = '';
             $scope.classd = '';
             $scope.classa = '';
-
         }
     };
 
@@ -3526,6 +3518,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $uibModal.open({
             templateUrl: "views/modal/outofplace.html",
             controller: "OdiCtrl",
+            windowClass: "modal-dialogintro",
             scope: $scope
         })
     };
@@ -3709,6 +3702,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.statuses.uploadStatus = false;
         $scope.variable = variable;
         $scope.name = name;
+        if($scope.teamModal){
+         $scope.teamModal.close();
+       }
         if ($scope.teamModal) {
             $scope.teamModal.close();
         }

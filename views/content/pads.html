@@ -99,11 +99,11 @@
                             <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing"  ng-click="tabchange('trim',2)">NEXT</button>
                         </div>
                         <div class="customize-design">
                             <span>Learn How To Customise Your Design By </span>
-                            <a href="" class="text-bold">Clicking Here</a>
+                            <a href=""  ng-click="outplace();" class="text-bold">Clicking Here</a>
                         </div>
                     </div>
                     <!--                    //trim tab-->
@@ -115,15 +115,15 @@
                                   <h4>Select The Colour</h4>
                                   <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in padscolor track by $index">
                                       <div class="colo-pallet text-center ">
-                                          <div class="noti-img notihov" ng-click="changePadsImages(col.name)" ng-style="{'background-color':'{{col.colr}}'}"></div>
+                                          <div class="noti-img notihov" ng-class="{'coloracive':padColors == col.name}" ng-click="changePadsImages(col.name)" ng-style="{'background-color':'{{col.colr}}'}"></div>
                                       </div>
                                   </div>
 
                               </div>
                           </div>
-                          <div class="edit-btn margintp">
+                          <!-- <div class="edit-btn margintp">
                               <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
-                          </div>
+                          </div> -->
                       </div>
                         <!-- <div class="outline">
                             <span>HIGHLIGHT </span>
@@ -172,12 +172,12 @@
                             <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('team',2)">NEXT</button>
                         </div>
 
 
                     </div>
-                    <!--                    //trim tab-->
+                    <!--  team logo-->
                     <div class="choos m20-l" ng-show="tab=='team'">
                         <p>Upload Your Logo</p>
                         <div class="checkboxing">
@@ -212,7 +212,7 @@
                                 <span class="block">2. Embossing your logo will incur a one time cost of  `5000 or your
                                     logo can be screen printed at no additional cost.</span>
                                 <span class="block">3. If you feel something is not great, our design team can fix it for you.</span>
-                                <span class="block"><a href="" ng-click="outplace();">Click here</a> to find out how?</span>
+                                <span class="block"><a href="" class="clickinfo"  ng-click="outplace();">Click here</a> to find out how?</span>
                                 <span class="block">4.CCC logo colour will match colour of the trim.</span>
 
                             </div>
@@ -220,7 +220,7 @@
                                 <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                             </div>
                             <div class="edit-btn inline-block">
-                                <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+                                <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('quantity',5)">NEXT</button>
                             </div>
                         </div>
                         <div class="modal fade custom" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -266,7 +266,7 @@
                                         </div>
                                         <div class="check">
                                             <input type="checkbox" class="form-control" id="login">
-                                            <label for="login"><span></span>Remove Image From Background</label>
+                                            <label for="login"><span></span>Remove Image Background</label>
                                         </div>
                                     </div>
                                 </div>
@@ -290,7 +290,7 @@
                                 <span class="block">2. Embossing your logo will incur a one time cost of  `5000 or your
                                     logo can be screen printed at no additional cost.</span>
                                 <span class="block">3. If you feel something is not great, our design team can fix it for you.</span>
-                                <span class="block"><a href="" ng-click="outplace();">Click here</a> to find out how?</span>
+                                <span class="block"><a href="" class="clickinfo"  ng-click="outplace();">Click here</a> to find out how?</span>
                                 <span class="block">4.CCC logo colour will match colour of the trim.</span>
 
                             </div>
@@ -298,7 +298,7 @@
                                 <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                             </div>
                             <div class="edit-btn inline-block">
-                                <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="openColor()">NEXT</button>
+                                <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('quantity',5)">NEXT</button>
                             </div>
                         </div>
                     </div>
@@ -408,7 +408,7 @@
                             <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing"  ng-click="tabchange('quantity',5)">NEXT</button>
                         </div>
                     </div>
 
@@ -436,7 +436,7 @@
                                 <span class="block">1. The logo of your sponsors will be sublimated. </span>
                                 <span class="block">2. The logo on the sleeves are not cut in half. It’s just to provide realistic feel.</span>
                                 <span class="block">3. If you feel something is not great, our design team can fix it for you.</span>
-                                <span><a href="">Click here</a> to find out how?</span>
+                                <span><a href="" class="clickinfo"  ng-click="outplace();">Click here</a> to find out how?</span>
                             </div>
                         </div>
                         <div class="edit-btn inline-block">
@@ -462,7 +462,7 @@
                                         </div>
                                         <div class="check">
                                             <input type="checkbox" class="form-control" id="login">
-                                            <label for="login"><span></span>Remove Image From Background</label>
+                                            <label for="login"><span></span>Remove Image Background</label>
                                         </div>
                                     </div>
                                 </div>
@@ -479,7 +479,7 @@
                                         </div>
                                         <div class="check">
                                             <input type="checkbox" class="form-control" id="login">
-                                            <label for="login"><span></span>Remove Image From Background</label>
+                                            <label for="login"><span></span>Remove Image Background</label>
                                         </div>
                                     </div>
                                 </div>
@@ -500,7 +500,7 @@
                                 <span class="block">2. The logo on the sleeves are not cut in half. It’s just to provide realistic
                     feel.</span>
                                 <span class="block">3. If you feel something is not great, our design team can fix it for you.</span>
-                                <span><a href="">Click here</a> to find out how?</span>
+                                <span><a href="" class="clickinfo"  ng-click="outplace();">Click here</a> to find out how?</span>
                             </div>
                         </div>
                         <div class="eds">

@@ -2510,10 +2510,10 @@ footer {
         border-radius: 100%;
         @include transition(all 300ms ease);
     }
-    &.activated:after,
-    &:hover:after {
-        border: 3px solid $dark-grey;
-    }
+    // &.activated:after,
+    // &:hover:after {
+    //     border: 3px solid $dark-grey;
+    // }
 }
 
 .pic-up {
@@ -4569,10 +4569,10 @@ a:focus {
     }
 }
 
-.noti-img:focus {
-    border: 3px solid #888888;
-    outline: none;
-}
+// .noti-img:focus {
+//     border: 3px solid #888888;
+//     outline: none;
+// }
 
 .notes {
     font-size: 12px;
@@ -4641,7 +4641,7 @@ a:focus {
     padding: 10px 0;
     input {
         width: 50%;
-        padding: 5px 0;
+        padding: 5px 10px;
         margin-bottom: 10px;
     }
     .plus {
@@ -5084,7 +5084,7 @@ h2 {
     top: 8% !important;
 }
 
-.coloracive {
+.coloracive,.activated {
     border: 3px solid #888888;
 }
 
