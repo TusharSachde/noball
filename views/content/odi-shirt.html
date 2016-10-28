@@ -662,8 +662,9 @@
                                     <span data-toggle="modal" data-target="#myModal4">Size Chart</span>
                                 </p>
                             </div>
+
                             <div class="accordion">
-                                <uib-accordion close-others="oneAtATime">
+                                <uib-accordion>
                                     <uib-accordion-group is-open="status.open1">
                                         <uib-accordion-heading>
                                             <i class="pull-left fa " ng-class="{'fa fa-minus': status.open1, 'fa fa-plus': !status.open1}"></i>Select The Font For Your Jersey Name
@@ -701,18 +702,17 @@
                                             </div>
                                         </div>
                                     </uib-accordion-group>
-                            </div>
-                            <div class="pbotom">
-                                <span class="block">Note </span>
-                                <span class="block">1. Your t-shirt name can be up to 10 characters and t-shirt number can be selected from 0 to 999.</span>
-                                <span class="block">2. You can select sleeves from being short (S.S) or long (L.S).</span>
-                                <span class="block">3. (*) - this denotes the field is mandatory.</span>
-                            </div>
-                            <div class="accordion">
-                                <uib-accordion close-others="oneAtATime">
-                                    <uib-accordion-group is-open="status.open1">
+
+                                    <div class="pbotom">
+                                        <span class="block">Note </span>
+                                        <span class="block">1. Your t-shirt name can be up to 10 characters and t-shirt number can be selected from 0 to 999.</span>
+                                        <span class="block">2. You can select sleeves from being short (S.S) or long (L.S).</span>
+                                        <span class="block">3. (*) - this denotes the field is mandatory.</span>
+                                    </div>
+
+                                    <uib-accordion-group is-open="status.open2">
                                         <uib-accordion-heading>
-                                            <i class="pull-left fa " ng-class="{'fa fa-minus': status.open1, 'fa fa-plus': !status.open1}"></i>Select The Dimensions For Your Jersey
+                                            <i class="pull-left fa " ng-class="{'fa fa-minus': status.open2, 'fa fa-plus': !status.open2}"></i>Select The Dimensions For Your Jersey
                                         </uib-accordion-heading>
                                         <div class="table-responsive">
                                             <table class="table">
@@ -724,6 +724,7 @@
                                                         <th class="uppercase">name</th>
                                                         <th class="uppercase">number</th>
                                                         <th></th>
+                                                        <th></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -733,19 +734,21 @@
                                                     <tr>
                                                         <td>
                                                             <select>
-                                                            <option value="XL">XL</option>
-                                                            <option value="20">20</option>
-                                                            <option value="30">30</option>
-                                                            <option value="40">40</option>
-                                                        </select>
+                                                                <option value="XL">S</option>
+                                                                <option value="20">M</option>
+                                                                <option value="30">L</option>
+                                                                <option value="40">XL</option>
+                                                                <option value="40">XXL</option>
+                                                                <option value="40">XXXL</option>
+                                                            </select>
                                                         </td>
                                                         <td>
                                                             <select>
-                                                            <option value="L.S">L.S</option>
-                                                            <option value="30">30</option>
-                                                            <option value="40">40</option>
-                                                            <option value="40">40</option>
-                                                        </select>
+                                                                <option value="L.S">L.S</option>
+                                                                <option value="30">30</option>
+                                                                <option value="40">40</option>
+                                                                <option value="40">40</option>
+                                                            </select>
                                                         </td>
                                                         <td>
                                                             <input type="text" name="quantity" value="10">
@@ -759,112 +762,70 @@
                                                         <td>
                                                             <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">GBP2</button>
                                                         </td>
-                                                    </tr>
-                                                    <tr class="nothing">
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <select>
-                                                            <option value="XL">M</option>
-                                                            <option value="20">20</option>
-                                                            <option value="30">30</option>
-                                                            <option value="40">40</option>
-                                                        </select>
-                                                        </td>
-                                                        <td>
-                                                            <select>
-                                                            <option value="L.S">S.S</option>
-                                                            <option value="30">30</option>
-                                                            <option value="40">40</option>
-                                                            <option value="40">40</option>
-                                                        </select>
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" name="quantity" value="10">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" name="name" value="HARSHIT">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" name="number" value="09">
-                                                        </td>
-                                                        <td>
-                                                            <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">GBP2</button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="nothing">
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="pad6"><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr class="nothing">
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="name">
-                                                            <span>size</span>
-                                                        </td>
-                                                        <td class="sliding">
-                                                            <div range-slider min="0" max="100" model-max="max" pin-handle="min">
-                                                            </div>
-                                                        </td>
-                                                        <td class="texting">
-                                                            <input type="text" name="size">
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="name">
-                                                            <span>arc</span>
-                                                        </td>
-                                                        <td class="sliding">
-                                                            <div range-slider min="0" max="100" model-max="max" pin-handle="min">
-                                                            </div>
-                                                        </td>
-                                                        <td class="texting">
-                                                            <input type="text" name="size">
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="name">
-                                                            <span>rotation</span>
-                                                        </td>
-                                                        <td class="sliding">
-                                                            <div range-slider min="0" max="100" model-max="max" pin-handle="min">
-                                                            </div>
-                                                        </td>
-                                                        <td class="texting">
-                                                            <input type="text" name="size">
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="name">
-                                                            <span>spacing</span>
-                                                        </td>
-                                                        <td class="sliding">
-                                                            <div range-slider min="0" max="100" model-max="max" pin-handle="min">
-                                                            </div>
-                                                        </td>
-                                                        <td class="texting">
-                                                            <input type="text" name="size">
-                                                        </td>
+
+                                                        <td><img src="img/rubbishbin.png" class="img-responsive doneLoading" alt=""></td>
                                                     </tr>
                                                     <tr class="nothing">
                                                         <td></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                            <a href="" class="bin"><img src="img/rubbishbin.png" class="img-responsive" alt=""></a>
-                                            <a href="" class="rubbish"><img src="img/rubbishbin.png" class="img-responsive" alt=""></a>
-                                            <span class="pull-right uppercase">Total</span>
+                                            <p class="addtable"><i class="fa mr7 fa-plus" aria-hidden="true"></i> ADD</p>
+                                            <div class="range">
+                                                <div class="row pad5">
+                                                    <div class="col-md-1 col-sm-1 col-xs-1">
+                                                        <span>size</span>
+                                                    </div>
+                                                    <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                                        <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
+                                                    </div>
+                                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                                        <input class="inputtext" type="number" name="mySize" ng-model="mySize">
+                                                    </div>
+                                                </div>
+                                                <div class="row pad5">
+                                                    <div class="col-md-1 col-sm-1 col-xs-1">
+                                                        <span>arc</span>
+                                                    </div>
+                                                    <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                                        <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
+                                                    </div>
+                                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                                        <input class="inputtext" type="number" ng-model="myArc" name="size">
+                                                    </div>
+                                                </div>
+                                                <div class="row pad5">
+                                                    <div class="col-md-1 col-sm-1 col-xs-1">
+                                                        <span>rotation</span>
+                                                    </div>
+                                                    <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                                        <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
+                                                    </div>
+                                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                                        <input class="inputtext" type="number" name="myRotate" ng-model="myRotate">
+                                                    </div>
+                                                </div>
+                                                <div class="row pad5">
+                                                    <div class="col-md-1 col-sm-1 col-xs-1">
+                                                        <span>spacing</span>
+                                                    </div>
+                                                    <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                                        <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
+                                                    </div>
+                                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                                        <input class="inputtext" type="number" name="myWordSpace" ng-model="myWordSpace">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <span class="pull-right uppercase fontfam">Total:255</span>
                                         </div>
                                     </uib-accordion-group>
+                                </uib-accordion>
+                                <div class="edit-btn">
+                                    <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>
+                                    <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5">next</button>
+                                    <br>
+                                </div>
                             </div>
                             <div class="edit-btn">
                                 <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>

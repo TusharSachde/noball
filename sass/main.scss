@@ -1368,6 +1368,7 @@ footer {
     padding-top: 30px;
 }
 //save-design
+
 .design-patt {
     margin: 20px 0;
 
@@ -1412,6 +1413,7 @@ footer {
     @include transform(translate(-50%, -50%));
 }
 //privacy-policy
+
 .banner {
     min-height: 295px;
     position: relative;
@@ -1573,6 +1575,7 @@ footer {
     }
 }
 //cart page
+
 .order-table {
     color: #515151;
 
@@ -1682,6 +1685,7 @@ footer {
     }
 }
 //wishlist page
+
 .wish-table {
     .table {
         tbody {
@@ -1697,6 +1701,7 @@ footer {
     }
 }
 //checkout page
+
 .check-out {
     .nav-tabs {
         padding: 20px 40px;
@@ -1865,6 +1870,7 @@ footer {
     }
 }
 //ready
+
 .accordion {
     position: relative;
 
@@ -3009,6 +3015,7 @@ footer {
     }
 }
 ////
+
 .choose-product {
     border-top: 2px solid #c0c0c0;
     padding: 20px 100px;
@@ -3298,6 +3305,7 @@ footer {
     }
 }
 // login signup
+
 .modal-content {
     border: none;
     box-shadow: none;
@@ -3455,6 +3463,7 @@ footer {
     margin: 40px 0 20px;
 }
 // end login signup
+
 .thank-you.text-center {
     padding: 50px;
 
@@ -3472,6 +3481,7 @@ footer {
     }
 }
 //pop-up wishlist
+
 .pop-up {
     width: 400px;
     position: absolute;
@@ -3660,6 +3670,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 // thankyou,error,sorry
+
 .message {
     padding: 50px 0;
 
@@ -3769,6 +3780,7 @@ input[type=number]::-webkit-outer-spin-button {
     width: 25px;
 }
 // 3D Modals
+
 .ballmodal {
     width: 100%;
     height: 100%;
@@ -3963,6 +3975,7 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 13px;
 }
 // services
+
 .service-main {
     // section { margin-bottom: 15px; }
     .title {
@@ -4190,9 +4203,9 @@ input[type=number]::-webkit-outer-spin-button {
 .modal.in .modal-dialog {
     height: 100%;
     position: absolute;
-    top: 27%;
+    top: 10%;
     left: 27%;
-    bottom: 0;
+    bottom: 5%;
 }
 // end
 // size chart
@@ -4215,6 +4228,7 @@ input[type=number]::-webkit-outer-spin-button {
     }
 }
 // end size chart
+
 .customize-now {
     padding: 30px;
     background-color: #e6e6e6;
@@ -4689,6 +4703,7 @@ input[type=number]::-webkit-outer-spin-button {
     }
 }
 // checkout paypal
+
 .paypal {
     width: 145px;
     min-height: 42px;
@@ -4988,6 +5003,7 @@ a:focus {
     }
 }
 //modals//
+
 .mt12 {
     margin-top: -12px;
 }
@@ -5626,12 +5642,30 @@ h2 {
 }
 
 .clickinfo {
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .fontfam {
     font-family: fantasy;
 }
 
-.inputtext{    width: 70px;}
+.inputtext {
+    width: 70px;
+}
+
+.pbotom span {
+    font-size: 13px;
+}
+
+.addtable {
+    background-color: #ccc;
+    padding: 7px 4px !important;
+    font-size: 15px !important;
+    letter-spacing: 0 !important;
+    margin: 20px 0 !important;
+}
+
+.pad5 {
+    padding: 5px 0;
+}
 @import "mobile/mobile";
