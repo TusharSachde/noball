@@ -3605,6 +3605,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.customizedShirt[key].divattributes.border = "none";
         $scope.$apply();
     };
+    $scope.changeText = function() {
+        console.log();
+        //$scope.customizedShirt[key].attributes.width = "calc(50px + " + $scope.customizedShirt[key].attributes.width + "px)"
+        //$scope.customizedShirt[key].attributes.position = "relative"
+        //$scope.customizedShirt[key].attributes.top = "calc(25px - " + $scope.customizedShirt[key].attributes.width / 2 + "px)"
+        //$scope.customizedShirt[key].attributes.left = "calc(25px - " + $scope.customizedShirt[key].attributes.width / 2 + "px)"
+        $scope.mymodel.name.border = "1px solid #ccc";
+    };
+    $scope.resetTextStyle = function() {
+        $scope.mymodel.name.border = "none";
+        $scope.$apply();
+    };
     $scope.onFileSelect = function($files, whichone, uploadtype, variable) {
         $scope.toolarge = false;
         console.log($files);
@@ -3704,8 +3716,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 $scope.myhide = true;
     $scope.openUploads = function(variable, name) {
         console.log('m here');
+        $scope.tab='team';
         $scope.myhide = false;
-        $scope.mymodel = "";
+        // $scope.mymodel = "";
+        $scope.mymodel = {};
         $scope.addtxt10 = "";
         $scope.statuses.uploadStatus = false;
         $scope.variable = variable;
@@ -3760,7 +3774,9 @@ $scope.myhide = true;
     $scope.TextBoxDetails = [{
         title: ''
     }];
-    $scope.mymodel = "";
+    // $scope.mymodel = "";
+    $scope.mymodel = {};
+    $scope.mymodel.width = 50;
     $scope.addedTxt = false;
     $scope.addMore = function() {
         console.log('inside fun');
@@ -3771,7 +3787,8 @@ $scope.myhide = true;
         //      'id': '' + addtxt
         //  });
     };
-    $scope.mymodel = "";
+    // $scope.mymodel = "";
+    $scope.mymodel = {};
     $scope.addtxt10 = "";
     $scope.openTeam = function() {
         $scope.teamModal = $uibModal.open({

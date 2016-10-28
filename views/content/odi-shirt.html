@@ -68,7 +68,7 @@
                                     <img class="right-chest" ng-src="{{customizedShirt.rightchest.image | serverimage}}" alt="" ng-style="customizedShirt.rightchest.attributes">
                                 </div>
                                 <div class="div-right-chest " ng-if="customizedShirt.front && myhide" ng-style="customizedShirt.rightchest.divattributes">
-                                    <div style="color:{{myClolr}};transform: rotate({{myArc}}deg);font-size:{{mySize}}px;transform: rotate({{myRotate}}deg);letter-spacing: {{myWordSpace}}px;">{{mymodel}} <br></div>
+                                    <div style="color:{{myClolr}};transform: rotate({{myArc}}deg);font-size:{{mySize}}px;transform: rotate({{myRotate}}deg);letter-spacing: {{myWordSpace}}px;mymodel.name">{{mymodel.name}} <br></div>
                                     <div style="color:{{myClolr}};transform: rotate({{myArc1}}deg);font-size:{{mySize1}}px;transform: rotate({{myRotate1}}deg);letter-spacing: {{myWordSpace1}}px;"> {{addtxt10}}</div>
 
                                     <!-- <img class="right-chest" ng-src="{{customizedShirt.rightchest.image | serverimage}}" alt="" ng-style="customizedShirt.rightchest.attributes"> -->
@@ -353,7 +353,7 @@
                             </div>
                             <div class="range-slidings relative">
                                 <h4 class="capitalize">enter your text below</h4>
-                                <input type="text" class="block" name="name1" ng-model="mymodel">
+                                <input type="text" class="block" name="name1" ng-model="mymodel.name">
                                 <!-- <input type="text" class="block" ng-repeat="txtt in TextBoxDetails" ng-model="txtt.title"> -->
                                 <input type="text" class="block" ng-show="addedTxt" name="addtxt10" ng-model="addtxt10">
 
@@ -364,10 +364,12 @@
                             <div class="range" ng-hide="addedTxt">
                                 <div class="row">
                                     <div class="col-md-1 col-sm-1 col-xs-1">
-                                        <span>size</span>
+                                        <span>size 111</span>
                                     </div>
+                                    <!-- <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShirt[key].attributes.width" min="0" max="200" model-max="customizedShirt[key].attributes.width" model-min="rslider.min" pin-handle="min">
+                                    </div> -->
                                     <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                                        <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
+                                        <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="mymodel.width" min="0" max="100" model-max="mymodel.width" pin-handle="min" model-min="rslider.min"></div>
                                     </div>
                                     <div class="col-md-3 col-sm-3 col-xs-3">
                                         <input class="inputtext" type="number" name="mySize" ng-model="mySize">
