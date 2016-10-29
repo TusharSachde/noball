@@ -3554,8 +3554,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.customizedShirt.leftchest.image = "img/logo_black.png";
     $scope.customizedShirt.leftchest.attributes = {};
     $scope.customizedShirt.leftchest.divattributes = {};
-    $scope.customizedShirt.leftchest.attributes.width = 50;
-    $scope.myClolr = 'black';
+    $scope.customizedShirt.leftchest.attributes.width = 30;
+    $scope.myClolr = 'red';
     $scope.ChaangeTextColor = function(mycolor) {
         console.log(mycolor);
         $scope.myClolr = mycolor;
@@ -3767,6 +3767,7 @@ $scope.myhide = true;
         $scope.tabchanges('b', 2);
         $scope.myModal = $uibModal.open({
             templateUrl: "views/modal/continue.html",
+              windowClass: "modal-conti",
             scope: $scope
         })
     }
@@ -3793,6 +3794,7 @@ $scope.myhide = true;
     $scope.openTeam = function() {
         $scope.teamModal = $uibModal.open({
             templateUrl: "views/modal/team-logo.html",
+              windowClass: "modal-teammem",
             scope: $scope
         });
     }
@@ -4326,6 +4328,7 @@ $scope.myhide = true;
     $scope.openColor = function() {
         $uibModal.open({
             templateUrl: "views/modal/continue.html",
+              windowClass: "modal-conti",
             scope: $scope
         })
     }
@@ -5202,6 +5205,7 @@ $scope.myhide = true;
     $scope.openColor = function() {
         $uibModal.open({
             templateUrl: "views/modal/continue.html",
+              windowClass: "modal-conti",
             scope: $scope
         })
     }
