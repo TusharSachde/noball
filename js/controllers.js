@@ -2088,7 +2088,36 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     var check = 1;
+    // $scope.displayImage = "img/tinytshirt 7.png";
+    $scope.customizedShirt = {};
+    $scope.statuses = {};
+    $scope.statuses.showcopy = false;
+    $scope.previewImages = {};
 
+    // image upload variables
+    $scope.variable = "";
+
+    // slider
+    $scope.rslider = {
+        min: 10,
+        max: 100
+    };
+    // $scope.statuses.copyright = false;
+    $scope.trimTshirt = {};
+    $scope.trimTshirt.highlightOne = {};
+    $scope.trimTshirt.highlightTwo = {};
+    $scope.customizedShirt.leftchest = {};
+    $scope.customizedShirt.leftchest.name = "Left Chest";
+    $scope.customizedShirt.leftchest.image = "img/logo_black.png";
+    $scope.customizedShirt.leftchest.attributes = {};
+    $scope.customizedShirt.leftchest.divattributes = {};
+    $scope.customizedShirt.leftchest.attributes.width = 30;
+    $scope.myClolr = 'red';
+    $scope.ChaangeTextColor = function(mycolor) {
+        console.log(mycolor);
+        $scope.myClolr = mycolor;
+    }
+    $scope.ChaangeTextColor($scope.myClolr);
     $scope.UploadTeamLogo = function() {
         check = 2;
         $uibModal.open({
@@ -2096,6 +2125,100 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             scope: $scope
         })
     }
+
+    $scope.jerseyBack = {
+        'name': 'Name',
+        'no': '00',
+        'font': 'arial',
+        'color': '#c80d28'
+    };
+
+    $scope.switchFrontBack = function(front) {
+        $scope.customizedShirt.front =  front;
+        $scope.customizedShirt.back =  !front;
+        if (front) {
+            $scope.customizedShirt.cloth = 'img/shorts/front/01.png'; //'img/tinytshirt 7.png';
+            $scope.customizedShirt.backdrop = 'img/shorts/front/02.png'; //'img/tinytshirt 7 back.png';
+        } else {
+            $scope.customizedShirt.cloth = 'img/shorts/back/01.png'; //'img/tinytshirt 1 back.png';
+            $scope.customizedShirt.backdrop = 'img/shorts/back/02.png'; //'img/tinytshirt 1 back back.png';
+        }
+        // _.each($scope.customizedShirt,function(value,property){
+        //   console.log(angular.isObject($scope.customizedShirt[property]));
+        // });
+    }
+    $scope.switchFrontBack(true);
+    $scope.statuses.uploadStatus = false;
+    $scope.tempImage = "";
+    $scope.changeLogo = function(key) {
+        console.log(key);
+        //$scope.customizedShirt[key].attributes.width = "calc(50px + " + $scope.customizedShirt[key].attributes.width + "px)"
+        //$scope.customizedShirt[key].attributes.position = "relative"
+        //$scope.customizedShirt[key].attributes.top = "calc(25px - " + $scope.customizedShirt[key].attributes.width / 2 + "px)"
+        //$scope.customizedShirt[key].attributes.left = "calc(25px - " + $scope.customizedShirt[key].attributes.width / 2 + "px)"
+        $scope.customizedShirt[key].divattributes.border = "1px solid #ccc";
+    };
+    $scope.resetLogoStyle = function(key) {
+        $scope.customizedShirt[key].divattributes.border = "none";
+        $scope.$apply();
+    };
+    $scope.changeText = function() {
+        console.log();
+        //$scope.customizedShirt[key].attributes.width = "calc(50px + " + $scope.customizedShirt[key].attributes.width + "px)"
+        //$scope.customizedShirt[key].attributes.position = "relative"
+        //$scope.customizedShirt[key].attributes.top = "calc(25px - " + $scope.customizedShirt[key].attributes.width / 2 + "px)"
+        //$scope.customizedShirt[key].attributes.left = "calc(25px - " + $scope.customizedShirt[key].attributes.width / 2 + "px)"
+        $scope.mymodel.name.border = "1px solid #ccc";
+    };
+    $scope.resetTextStyle = function() {
+        $scope.mymodel.name.border = "none";
+        $scope.$apply();
+    };
+    $scope.onFileSelect = function($files, whichone, uploadtype, variable) {
+        $scope.toolarge = false;
+        console.log($files);
+        if ($files[0].size < 20000000) {
+            $scope.statuses.uploadStatus = true;
+            cfpLoadingBar.start();
+            $scope.showimage = true;
+            globalfunction.onFileSelect($files, function(image) {
+
+                cfpLoadingBar.complete();
+                if (whichone == 1) {
+                    console.log(image);
+                    $scope.tempImage = image[0];
+                    if (!$scope.customizedShirt[variable]) {
+                        $scope.customizedShirt[variable] = {};
+                        $scope.customizedShirt[variable].attributes = {};
+                        $scope.customizedShirt[variable].divattributes = {};
+                        $scope.customizedShirt[variable].attributes.width = 200;
+                        console.log($scope.customizedShirt);
+                    }
+                    //$scope.customizedShirt[variable] = image[0];
+                    console.log($scope.tempImage);
+                    // $scope.previewImages.image = $filter('serverimage')($scope.customizedShirt[variable]);
+                }
+            })
+        } else {
+            $files = [];
+            $scope.toolarge = true;
+        }
+    }
+    $scope.emptyImage = function(key) {
+        $scope.customizedShirt[key] = null;
+    }
+    $scope.checkCustomizeShirt = function(key) {
+        return angular.isObject($scope.customizedShirt[key]);
+    }
+    $scope.confirmUpload = function(variable, name) {
+        //$dismiss();
+        $scope.statuses.modal.close();
+        $scope.customizedShirt[variable].image = $scope.tempImage;
+        $scope.customizedShirt[variable].name = name;
+        console.log($scope.customizedShirt[variable]);
+        $scope.tempImage = "";
+    }
+
     $scope.UploadTeamLogo1 = function() {
         check = 3;
         $uibModal.open({
@@ -2109,8 +2232,62 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             scope: $scope
         })
     }
-    $scope.openUploads = function() {
-        $uibModal.open({
+    $scope.trimTshirt.highlightOne.flag = true;
+    $scope.trimTshirt.highlightTwo.flag = true;
+    $scope.switchTrimHighlightOne = function(flag, color) {
+        console.log(flag);
+        console.log(color);
+        $scope.trimTshirt.highlightOne.flag = flag;
+        $scope.trimTshirt.highlightOne.tcolor = color;
+        if (flag) {
+            $scope.trimTshirt.highlightOne.image = "img/shorts/front/" + color + ".png";
+        } else {
+            $scope.trimTshirt.highlightOne.image = "img/shorts/front/" + color + ".png";
+        }
+    };
+    $scope.switchTrimHighlightTwo = function(flag, color) {
+        console.log('two');
+        console.log(color);
+        console.log(flag);
+        $scope.trimTshirt.highlightTwo.flag = flag;
+        $scope.trimTshirt.highlightTwo.tcolor = color;
+        if (flag) {
+            $scope.trimTshirt.highlightTwo.image = "img/shorts/back/" + color + ".png";
+        } else {
+            $scope.trimTshirt.highlightTwo.image = "img/shorts/back/" + color + ".png";
+        }
+    };
+    $scope.trimCollar = function(color) {
+        $scope.trimTshirt.collar = "img/trim/collar/trim-" + color + ".png";
+    };
+
+    // $scope.showCheck = true;
+    // $scope.showVid = function () {
+    //   $scope.showCheck = false;
+
+    // }
+    // $scope.showVideo = true;
+    $scope.showVid = function() {
+        $scope.showVideo = false;
+    }
+$scope.myhide = true;
+    $scope.openUploads = function(variable, name) {
+        // console.log('m here');
+        $scope.tab='team';
+        $scope.myhide = false;
+        // $scope.mymodel = "";
+        $scope.mymodel = {};
+        $scope.addtxt10 = "";
+        $scope.statuses.uploadStatus = false;
+        $scope.variable = variable;
+        $scope.name = name;
+        if ($scope.teamModal) {
+            $scope.teamModal.close();
+        }
+        if ($scope.teamModal) {
+            $scope.teamModal.close();
+        }
+        $scope.statuses.modal = $uibModal.open({
             templateUrl: "views/modal/tshirt.html",
             scope: $scope
         })
@@ -2131,36 +2308,74 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 
     $scope.proceed = function() {
-            $uibModal.open({
-                templateUrl: "views/modal/proceed.html",
-                scope: $scope
-            })
-        }
-        // $scope.copyrighting = function(){
-        //   $uibModal.open({
-        //     templateUrl: "views/modal/copyrighting.html",
-        //     scope: $scope
-        //   })
-        // }
-        // $scope.openColor = function(){
-        //   $uibModal.open({
-        //     templateUrl: "views/modal/continue.html",
-        //     scope: $scope
-        //   })
-        // }
-    $scope.showColorTab = function() {
-        $scope.tab = "teamcolor";
+        $scope.proceedCModal = $uibModal.open({
+            templateUrl: "views/modal/proceed.html",
+            scope: $scope
+        })
     }
-    $scope.showQuantiyTab = function() {
-        $scope.tab = "quantiy";
+    $scope.copyrighting = function() {
+        console.log("here");
+        $uibModal.open({
+            templateUrl: "views/modal/copyrighting.html",
+            scope: $scope
+        })
     }
-    $scope.showQuantyTab = function() {
-        $scope.tab = "quanty";
+    $scope.openColor = function() {
+        $scope.tabchanges('b', 2);
+        $scope.myModal = $uibModal.open({
+            templateUrl: "views/modal/continue.html",
+              windowClass: "modal-conti",
+            scope: $scope
+        })
     }
 
-    $scope.proceedNext = function() {
-        $scope.tab = "sponsorlogo";
+    $scope.TextBoxDetails = [{
+        title: ''
+    }];
+    // $scope.mymodel = "";
+    $scope.mymodel = {};
+    $scope.mymodel.width = 50;
+    $scope.addedTxt = false;
+    $scope.addMore = function() {
+        console.log('inside fun');
+        // $scope.mymodel = "";
+        $scope.addedTxt = true;
+        //  var addtxt = $scope.TextBoxDetails.length + 1;
+        //  $scope.TextBoxDetails.splice(0, 0, {
+        //      'id': '' + addtxt
+        //  });
+    };
+    // $scope.mymodel = "";
+    $scope.mymodel = {};
+    $scope.addtxt10 = "";
+    $scope.openTeam = function() {
+        $scope.teamModal = $uibModal.open({
+            templateUrl: "views/modal/team-logo.html",
+              windowClass: "modal-teammem",
+            scope: $scope
+        });
     }
+    $scope.showColorTab = function() {
+      $scope.myhide = true;
+        if ($scope.customizedShirt.rightchest) {
+            $scope.customizedShirt.rightchest.image = "";
+            $scope.tab = "teamcolor";
+            $scope.myModal.close();
+        } else {
+$scope.myhide = true;
+            $scope.tab = "teamcolor";
+            $scope.myModal.close();
+        }
+
+    }
+    $scope.showQuantiyTab = function() {
+        $scope.tab = "design";
+    }
+    $scope.showQuantyTab = function() {
+        $scope.tab = "design";
+    }
+
+
 
     $scope.teamloging = function() {
         $scope.tab = "teamlogo";
@@ -2370,7 +2585,64 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     });
 
     $scope.color = [{
-        colr: "#f5b122"
+        colr: "#c80d28",
+        name: "red"
+    }, {
+        colr: "#2c8b47",
+        name: "green"
+    }, {
+        colr: "#e87024",
+        name: "orange"
+    }];
+
+    $scope.odicolor = [{
+        colr: "#000000",
+        name: "black"
+    }, {
+        colr: "#66cd00",
+        name: "dark-green"
+    }, {
+        colr: "#ffd700",
+        name: "yellow"
+    }, {
+        colr: "#2175d9",
+        name: "indian_blue"
+    }, {
+        colr: "#ccff00",
+        name: "neon-green"
+    }, {
+        colr: "#c0c2ce",
+        name: "grey"
+    }, {
+        colr: "#ffff00",
+        name: "neon-yellow"
+    }, {
+        colr: "#032149",
+        name: "neon-blue"
+    }, {
+        colr: "#bcee68",
+        name: "light-green"
+    }, {
+        colr: "#ff8247",
+        name: "neon-orange"
+    }, {
+        colr: "#ff3030",
+        name: "orange"
+    }, {
+        colr: "#cd3700",
+        name: "red"
+    }, {
+        colr: "#00008b",
+        name: "royal-blue"
+    }, {
+        colr: "#800000",
+        name: "maroon"
+    }];
+
+
+    $scope.color2 = [{
+        colr: "#f5b122",
+
     }, {
         colr: "#c80d28"
     }, {
@@ -2390,9 +2662,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.images = [{
         src: "img/shorts/shorts.png"
     }, {
-        src: "img/shorts/orange-shorts.png"
-    }, {
         src: "img/shorts/white-shorts.png"
+    }, {
+        src: "img/shorts/orange-shorts.png"
     }];
     //tab changes
 
@@ -2446,6 +2718,62 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         }
     };
+
+    $scope.tabs = 'light1';
+    $scope.classp = 'active-tab';
+    $scope.classv = '';
+    $scope.classshow = 'activeme';
+    $scope.classhide = '';
+
+    $scope.tabchanges = function(tabs, b) {
+
+        $scope.tabs = tabs;
+        if (b == 1) {
+
+            $scope.classp = "active-tab";
+            $scope.classv = '';
+            $scope.classshow = 'activeme';
+            $scope.classhide = '';
+            $scope.classhide1 = '';
+            $scope.classhide2 = '';
+
+
+
+        }
+        if (b == 2) {
+
+            $scope.classv = "active-tab";
+            $scope.classp = '';
+            $scope.classshow = '';
+            $scope.classhide = 'activeme';
+            $scope.classhide1 = '';
+            $scope.classhide2 = '';
+
+
+
+        }
+        if (b == 3) {
+
+
+            $scope.classshow = '';
+            $scope.classhide = '';
+            $scope.classhide1 = 'activeme';
+            $scope.classhide2 = '';
+
+
+
+        } else if (b == 4) {
+
+            $scope.classshow = '';
+            $scope.classhide = '';
+            $scope.classhide1 = '';
+            $scope.classhide2 = 'activeme';
+
+
+
+        }
+    };
+
     $scope.demo2 = {
         range: {
             min: 0,
@@ -2458,11 +2786,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     //    end
 
-
     $scope.openUpload = function() {
         $uibModal.open({
             templateUrl: "views/modal/tshirt.html",
-            controller: "GloveCtrl",
+            controller: "ShortsCtrl",
             scope: $scope
         })
     };
@@ -2470,7 +2797,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.copy = function() {
         $uibModal.open({
             templateUrl: "views/modal/outofplace.html",
-            controller: "GloveCtrl",
+            controller: "ShortsCtrl",
             scope: $scope
         })
     };
@@ -2478,7 +2805,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.continue = function() {
         $uibModal.open({
             templateUrl: "views/modal/continue.html",
-            controller: "GloveCtrl",
+            controller: "ShortsCtrl",
             scope: $scope
         })
     };
@@ -2486,7 +2813,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.choose = function() {
         $uibModal.open({
             templateUrl: "views/modal/choosefile.html",
-            controller: "GloveCtrl",
+            controller: "ShortsCtrl",
             scope: $scope
         })
     };
@@ -2494,8 +2821,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.copyright = function() {
         $uibModal.open({
             templateUrl: "views/modal/copyrights.html",
-            controller: "GloveCtrl",
-            scope: $scope
+            // controller: "OdiCtrl",
+            scope: $scope.$new()
         })
     };
 
@@ -2503,7 +2830,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.tshirtUpload = function() {
         $uibModal.open({
             templateUrl: "views/modal/tshirt-popup.html",
-            controller: "OdiCtrl",
+            controller: "ShortsCtrl",
             scope: $scope
         })
     };
@@ -2511,11 +2838,458 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.outplace = function() {
         $uibModal.open({
             templateUrl: "views/modal/outofplace.html",
-            controller: "OdiCtrl",
+            controller: "ShortsCtrl",
+            windowClass: "modal-dialogintro",
             scope: $scope
         })
     };
 
+    //
+    //
+    // var check = 1;
+    //
+    // $scope.switchFrontBack = function(front) {
+    //     $scope.customizedShirt.front =  front;
+    //     $scope.customizedShirt.back =  !front;
+    //     if (front) {
+    //         $scope.customizedShirt.cloth = 'img/shorts/front/01.png'; //'img/tinytshirt 7.png';
+    //         $scope.customizedShirt.backdrop = 'img/shorts/front/02.png'; //'img/tinytshirt 7 back.png';
+    //     } else {
+    //         $scope.customizedShirt.cloth = 'img/odi-tshirts/cloth/back.png'; //'img/tinytshirt 1 back.png';
+    //         $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/back.png'; //'img/tinytshirt 1 back back.png';
+    //     }
+    //     // _.each($scope.customizedShirt,function(value,property){
+    //     //   console.log(angular.isObject($scope.customizedShirt[property]));
+    //     // });
+    // }
+    //
+    // $scope.UploadTeamLogo = function() {
+    //     check = 2;
+    //     $uibModal.open({
+    //         templateUrl: "views/modal/copyrights.html",
+    //         scope: $scope
+    //     })
+    // }
+    // $scope.UploadTeamLogo1 = function() {
+    //     check = 3;
+    //     $uibModal.open({
+    //         templateUrl: "views/modal/copyrights.html",
+    //         scope: $scope
+    //     })
+    // }
+    // $scope.openChooseFile = function() {
+    //     $uibModal.open({
+    //         templateUrl: "views/modal/choosefile.html",
+    //         scope: $scope
+    //     })
+    // }
+    // $scope.openUploads = function() {
+    //     $uibModal.open({
+    //         templateUrl: "views/modal/tshirt.html",
+    //         scope: $scope
+    //     })
+    // }
+    // $scope.doneUploading = function() {
+    //     if (check == 3) {
+    //         $scope.tab = "sponsorlogo"
+    //     } else {
+    //         $scope.tab = "teamlogo";
+    //     }
+    //
+    // }
+    // $scope.openUploadNew = function() {
+    //     $uibModal.open({
+    //         templateUrl: "views/modal/tshirt-popup.html",
+    //         scope: $scope
+    //     })
+    // }
+    //
+    // $scope.proceed = function() {
+    //         $uibModal.open({
+    //             templateUrl: "views/modal/proceed.html",
+    //             scope: $scope
+    //         })
+    //     }
+    //     // $scope.copyrighting = function(){
+    //     //   $uibModal.open({
+    //     //     templateUrl: "views/modal/copyrighting.html",
+    //     //     scope: $scope
+    //     //   })
+    //     // }
+    //     // $scope.openColor = function(){
+    //     //   $uibModal.open({
+    //     //     templateUrl: "views/modal/continue.html",
+    //     //     scope: $scope
+    //     //   })
+    //     // }
+    // $scope.showColorTab = function() {
+    //     $scope.tab = "teamcolor";
+    // }
+    // $scope.showQuantiyTab = function() {
+    //     $scope.tab = "quantiy";
+    // }
+    // $scope.showQuantyTab = function() {
+    //     $scope.tab = "quanty";
+    // }
+    //
+    // $scope.proceedNext = function() {
+    //     $scope.tab = "sponsorlogo";
+    // }
+    //
+    // $scope.teamloging = function() {
+    //     $scope.tab = "teamlogo";
+    // }
+    // $scope.$on('$viewContentLoaded', function(event) {
+    //     $timeout(function() {
+    //         var scene, camera, renderer, width, height, controls, light, loader, texture, geometry, material, mesh;
+    //         var three = document.getElementsByClassName("threed-ball");
+    //         init();
+    //         animate();
+    //
+    //         function init() {
+    //             scene = new THREE.Scene();
+    //             width = 400;
+    //             height = 400;
+    //
+    //             renderer = new THREE.WebGLRenderer({
+    //                 antialias: true,
+    //                 alpha: true
+    //             });
+    //             renderer.setSize(width, height);
+    //             document.getElementById("threed-ball").appendChild(renderer.domElement);
+    //             renderer.setClearColor(0xFFFFFF, 1);
+    //
+    //             camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 10000);
+    //             camera.position.set(0, 0, 4.5);
+    //             scene.add(camera);
+    //
+    //             controls = new THREE.OrbitControls(camera, renderer.domElement);
+    //             controls.enableZoom = false;
+    //
+    //             var amblight = new THREE.AmbientLight(0xFFFFFF);
+    //             scene.add(amblight);
+    //
+    //             var dirlight = new THREE.DirectionalLight(0xFFFFFF, 0.5);
+    //             dirlight.castShadow = true;
+    //
+    //             var spotlight = new THREE.SpotLight(0xFFFFFF);
+    //             spotlight.position.set(1000, 1000, 1000);
+    //             spotlight.castShadow = true;
+    //             camera.add(spotlight);
+    //
+    //             geometry = new THREE.SphereGeometry(1, 50, 50);
+    //             texture = new THREE.TextureLoader();
+    //             texture.load(
+    //                 'img/textures/ball_texture.jpg',
+    //                 function(texture) {
+    //                     material = new THREE.MeshPhongMaterial({
+    //                         map: texture
+    //                     });
+    //                     var sphere = new THREE.Mesh(geometry, material);
+    //                     sphere.castShadow = true;
+    //                     sphere.rotation.x = 1;
+    //                     sphere.rotation.y = -5.5;
+    //                     sphere.rotation.z = -1;
+    //                     scene.add(sphere);
+    //                 },
+    //                 function(xhr) {
+    //                     console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+    //                 },
+    //                 function(xhr) {
+    //                     console.log('An error happened');
+    //                 }
+    //             );
+    //         }
+    //
+    //         var canvas = document.createElement("canvas");
+    //         canvas.width = 1000;
+    //         canvas.height = 667;
+    //         var c = canvas.getContext("2d");
+    //
+    //         function readURL(input) {
+    //             if (input.files && input.files[0]) {
+    //                 var reader = new FileReader();
+    //                 reader.onload = function(e) {
+    //                     $('#ball_logo').attr('src', e.target.result);
+    //                     src = $('#ball_logo').attr('src');
+    //                     var image = new Image();
+    //                     image.src = src;
+    //                     var selectImg = '';
+    //                     var canvas = document.createElement("canvas");
+    //                     var ctx = canvas.getContext("2d");
+    //                     var canvasx = document.createElement("canvas");
+    //                     var ctxx = canvasx.getContext("2d");
+    //                     var originalPixels, currentPixels = null;
+    //                     var color, fullimg = '';
+    //                     canvas.width = canvasx.width = 1000;
+    //                     canvas.height = canvasx.height = 667;
+    //
+    //                     function HexToRGB(Hex) {
+    //                         var Long = parseInt(Hex.replace(/^#/, ""), 16);
+    //                         return {
+    //                             R: (Long >>> 16) & 0xff,
+    //                             G: (Long >>> 8) & 0xff,
+    //                             B: Long & 0xff
+    //                         };
+    //                     }
+    //
+    //                     function fillColor(path) {
+    //                         color = path;
+    //                         if (!originalPixels) return;
+    //                         var newColor = HexToRGB(color);
+    //                         for (var I = 0, L = originalPixels.data.length; I < L; I += 4) {
+    //                             if (currentPixels.data[I + 3] > 0) {
+    //                                 currentPixels.data[I] = newColor.R;
+    //                                 currentPixels.data[I + 1] = newColor.G;
+    //                                 currentPixels.data[I + 2] = newColor.B;
+    //                             }
+    //                         }
+    //
+    //                         var cann = document.createElement("canvas");
+    //                         cann.width = selectImg.width;
+    //                         cann.height = selectImg.height;
+    //                         var ctc = cann.getContext("2d");
+    //                         ctc.putImageData(currentPixels, 0, 0);
+    //                         var newImm = new Image();
+    //                         newImm.src = cann.toDataURL("image/png");
+    //                         var imageSize = 250;
+    //                         var newImmWidth = newImm.width;
+    //                         var newImmHeight = newImm.height;
+    //                         var newImmWidthQu = newImmWidth / imageSize;
+    //                         var newImmHeightQu = newImmHeight / imageSize;
+    //                         var newImmWidthDp = 300 * newImmWidthQu;
+    //                         var newImmHeightDp = 300 * newImmHeightQu;
+    //                         var exWidth = (imageSize - newImmWidth) / 2;
+    //                         var exHeight = (imageSize - newImmHeight) / 2;
+    //
+    //                         if (newImmWidth == imageSize && newImmHeight == imageSize) {
+    //                             ctx.drawImage(newImm, 0, 0, 300, 300, 10, 120, imageSize, imageSize);
+    //                         } else if (newImmWidth < imageSize && newImmHeight == imageSize) {
+    //                             ctx.drawImage(newImm, 0, 0, 300, 300, (10 + exWidth), 120, imageSize, imageSize);
+    //                         } else if (newImmWidth == imageSize && newImmHeight < imageSize) {
+    //                             ctx.drawImage(newImm, 0, 0, 300, 300, 10, (120 + exHeight), imageSize, imageSize);
+    //                         } else if (newImmWidth < imageSize && newImmHeight < imageSize) {
+    //                             ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
+    //                         } else if (newImmWidth > imageSize && newImmHeight == imageSize) {
+    //                             ctx.drawImage(newImm, 0, 0, 300, 300, (10 + exWidth), 120, imageSize, imageSize);
+    //                         } else if (newImmWidth == imageSize && newImmHeight > imageSize) {
+    //                             ctx.drawImage(newImm, 0, 0, 300, 300, 10, (120 + exHeight), imageSize, imageSize);
+    //                         } else if (newImmWidth > imageSize && newImmHeight > imageSize) {
+    //                             ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
+    //                         } else if (newImmWidth > imageSize && newImmHeight < imageSize) {
+    //                             ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
+    //                         } else if (newImmWidth < imageSize && newImmHeight > imageSize) {
+    //                             ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
+    //                         }
+    //
+    //                         //ctx.clearRect(0, 0, canvas.width, canvas.height);
+    //                         //ctx.drawImage(newImm, 0, 0, 300, 300, 10, 80, 250, 250);
+    //                         fullimg = canvas.toDataURL("image/png");
+    //                     }
+    //
+    //                     function overalayColor(himg, color) {
+    //                         fullimg = himg[0];
+    //                         img = new Image();
+    //                         img.src = himg.src;
+    //                         selectImg = himg;
+    //                         canvas.width = 1000;
+    //                         canvas.height = 667;
+    //
+    //                         ctxx.clearRect(0, 0, canvasx.width, canvasx.height);
+    //                         ctxx.drawImage(selectImg, 0, 0, selectImg.naturalWidth, selectImg.naturalHeight, 0, 0, selectImg.width, selectImg.height);
+    //                         originalPixels = ctxx.getImageData(0, 0, selectImg.width, selectImg.height);
+    //                         currentPixels = ctxx.getImageData(0, 0, selectImg.width, selectImg.height);
+    //
+    //                         selectImg.onload = null;
+    //                         fillColor(color);
+    //                     }
+    //                     overalayColor(document.getElementById('ball_logo'), "#ffd700");
+    //                     var imgsrc = canvas.toDataURL("image/png", 1.0);
+    //                     var geometry = new THREE.SphereGeometry(1, 500, 500);
+    //                     var textur = new THREE.TextureLoader();
+    //                     textur.load(
+    //                         fullimg,
+    //                         function(texture) {
+    //                             var material = new THREE.MeshPhongMaterial({
+    //                                 map: texture,
+    //                                 transparent: true
+    //                             });
+    //                             material.map.needsUpdate = true;
+    //                             var mysphere = new THREE.Mesh(geometry, material);
+    //                             mysphere.rotation.x = 0.1;
+    //                             mysphere.rotation.y = -5.0;
+    //                             mysphere.rotation.z = -1;
+    //                             scene.add(mysphere);
+    //                         },
+    //                         function(xhr) {
+    //                             console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+    //                         },
+    //                         function(xhr) {
+    //                             console.log('An error happened');
+    //                         }
+    //                     );
+    //                 };
+    //                 reader.readAsDataURL(input.files[0]);
+    //             }
+    //         }
+    //         $("#upload").change(function() {
+    //             readURL(this);
+    //         });
+    //
+    //         function animate() {
+    //             requestAnimationFrame(animate);
+    //             renderer.render(scene, camera);
+    //         }
+    //     }, 100);
+    // });
+    //
+    // $scope.color = [{
+    //     colr: "#f5b122"
+    // }, {
+    //     colr: "#c80d28"
+    // }, {
+    //     colr: "#318db2"
+    // }, {
+    //     colr: "#2c8b47"
+    // }, {
+    //     colr: "#0036ff"
+    // }, {
+    //     colr: "#491f61"
+    // }, {
+    //     colr: "#e87024"
+    // }, {
+    //     colr: "#501e1f"
+    // }];
+    //
+    // $scope.images = [{
+    //     src: "img/shorts/shorts.png"
+    // }, {
+    //     src: "img/shorts/orange-shorts.png"
+    // }, {
+    //     src: "img/shorts/white-shorts.png"
+    // }];
+    // //tab changes
+    //
+    //
+    // $scope.tab = "design";
+    // $scope.classa = 'active';
+    // $scope.classb = '';
+    // $scope.classc = '';
+    // $scope.classd = '';
+    // $scope.classe = '';
+    //
+    // $scope.tabchange = function(tab, a) {
+    //     $scope.tab = tab;
+    //     if (a == 1) {
+    //         $scope.classa = 'active';
+    //         $scope.classb = '';
+    //         $scope.classc = '';
+    //         $scope.classd = '';
+    //         $scope.classe = '';
+    //
+    //     }
+    //     if (a == 2) {
+    //         $scope.classb = 'active';
+    //         $scope.classa = '';
+    //         $scope.classc = '';
+    //         $scope.classd = '';
+    //         $scope.classe = '';
+    //
+    //     }
+    //     if (a == 3) {
+    //         $scope.classc = 'active';
+    //         $scope.classb = '';
+    //         $scope.classa = '';
+    //         $scope.classd = '';
+    //         $scope.classe = '';
+    //
+    //     }
+    //     if (a == 4) {
+    //         $scope.classd = 'active';
+    //         $scope.classb = '';
+    //         $scope.classc = '';
+    //         $scope.classa = '';
+    //         $scope.classe = '';
+    //
+    //     } else if (a == 5) {
+    //         $scope.classe = 'active';
+    //         $scope.classb = '';
+    //         $scope.classc = '';
+    //         $scope.classd = '';
+    //         $scope.classa = '';
+    //
+    //     }
+    // };
+    // $scope.demo2 = {
+    //     range: {
+    //         min: 0,
+    //         max: 10050
+    //     },
+    //     minPrice: 1000,
+    //     maxPrice: 4000
+    // };
+    //
+    //
+    // //    end
+    //
+    //
+    // $scope.openUpload = function() {
+    //     $uibModal.open({
+    //         templateUrl: "views/modal/tshirt.html",
+    //         controller: "GloveCtrl",
+    //         scope: $scope
+    //     })
+    // };
+    //
+    // $scope.copy = function() {
+    //     $uibModal.open({
+    //         templateUrl: "views/modal/outofplace.html",
+    //         controller: "GloveCtrl",
+    //         scope: $scope
+    //     })
+    // };
+    //
+    // $scope.continue = function() {
+    //     $uibModal.open({
+    //         templateUrl: "views/modal/continue.html",
+    //         controller: "GloveCtrl",
+    //         scope: $scope
+    //     })
+    // };
+    //
+    // $scope.choose = function() {
+    //     $uibModal.open({
+    //         templateUrl: "views/modal/choosefile.html",
+    //         controller: "GloveCtrl",
+    //         scope: $scope
+    //     })
+    // };
+    //
+    // $scope.copyright = function() {
+    //     $uibModal.open({
+    //         templateUrl: "views/modal/copyrights.html",
+    //         controller: "GloveCtrl",
+    //         scope: $scope
+    //     })
+    // };
+    //
+    //
+    // $scope.tshirtUpload = function() {
+    //     $uibModal.open({
+    //         templateUrl: "views/modal/tshirt-popup.html",
+    //         controller: "OdiCtrl",
+    //         scope: $scope
+    //     })
+    // };
+    //
+    // $scope.outplace = function() {
+    //     $uibModal.open({
+    //         templateUrl: "views/modal/outofplace.html",
+    //         controller: "OdiCtrl",
+    //         scope: $scope
+    //     })
+    // };
+    //
 
 
 })
@@ -3634,7 +4408,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         $scope.customizedShirt[variable] = {};
                         $scope.customizedShirt[variable].attributes = {};
                         $scope.customizedShirt[variable].divattributes = {};
-                        $scope.customizedShirt[variable].attributes.width = 50;
+                        $scope.customizedShirt[variable].attributes.width = 200;
                         console.log($scope.customizedShirt);
                     }
                     //$scope.customizedShirt[variable] = image[0];
