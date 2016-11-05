@@ -2691,7 +2691,7 @@ $scope.myhide = true;
     }];
 
     $scope.images = [{
-        src: "img/shorts/shorts.png"
+        src: "img/shorts/front/01.png"
     }, {
         src: "img/shorts/white-shorts.png"
     }, {
