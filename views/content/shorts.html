@@ -37,9 +37,9 @@
                             <img ng-src="{{customizedShirt.cloth}}" class="img-responsive" alt="">
                             <img ng-src="{{customizedShirt.backdrop}}" class="backdrop img-responsive" alt="">
                             <img ng-src="{{trimTshirt.highlightOne.image}}" ng-if="trimTshirt.highlightOne.image" class="trimshirt img-responsive" alt="">
-                            <div ng-if="customizedShirt.back && tab=='quantiy'" class="{{jerseyBack.font+'-font'}}" ng-style="{'color': jerseyBack.color}">
+                            <!-- <div ng-if="customizedShirt.back && tab=='quantiy'" class="{{jerseyBack.font+'-font'}}" ng-style="{'color': jerseyBack.color}"> -->
                               <img ng-src="{{trimTshirt.highlightTwo.image }}" ng-if="trimTshirt.highlightTwo.image " class="trimshirt img-responsive" alt="">
-                            </div>
+                            <!-- </div> -->
 
 
                             <img ng-src="{{trimTshirt.collar}}" ng-if="trimTshirt.collar" class="trimshirt img-responsive" alt="">
@@ -167,10 +167,12 @@
                             <label for="later"><span></span>Send it Later</label>
                         </div>
                         <div class="logo-text">
-                            <button class="activeme btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openUploads('rightchest', 'Left Chest')">TEAM LOGO</button>
+                            <button class="activeme btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" >TEAM LOGO</button>
+                            <!-- <button class="activeme btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openUploads('rightchest', 'Left Chest')">TEAM LOGO</button> -->
 
                         </div>
-                        <div class="padding15 default inline-block" ng-repeat="(key, value) in customizedShirt" ng-if="checkCustomizeShirt(key)">
+                        <div class="padding15 default inline-block"  ng-if="checkCustomizeShirt(key)">
+                        <!-- <div class="padding15 default inline-block" ng-repeat="(key, value) in customizedShirt" ng-if="checkCustomizeShirt(key)"> -->
                             <div class="mod-img">
                                 <!-- <button class="btn btn-outline btn-dark mb10 tshirt-name">{{customizedShirt[key].name}}</button> -->
                                 <div class="noti-imgs" style='background-image:url({{customizedShirt[key].image | serverimage}});'>
@@ -210,6 +212,7 @@
                             </form>
                             <div class="edit-btn">
                                 <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads(key, value.name)">upload</button>
+                                <!-- <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads(key, value.name)">upload</button> -->
                             </div>
                             <div class="pbotom">
                                 <span class="block">Notes :</span>

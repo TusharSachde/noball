@@ -2081,7 +2081,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('ShortsCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
+.controller('ShortsCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar, $filter) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("shorts");
     $scope.menutitle = NavigationService.makeactive("Shorts");
@@ -2132,6 +2132,37 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         'font': 'arial',
         'color': '#c80d28'
     };
+
+    $scope.onFileSelect = function($files, whichone, uploadtype, variable) {
+        $scope.toolarge = false;
+        console.log($files);
+        if ($files[0].size < 20000000) {
+            $scope.statuses.uploadStatus = true;
+            cfpLoadingBar.start();
+            $scope.showimage = true;
+            globalfunction.onFileSelect($files, function(image) {
+
+                cfpLoadingBar.complete();
+                if (whichone == 1) {
+                    console.log(image);
+                    $scope.tempImage = image[0];
+                    if (!$scope.customizedShirt[variable]) {
+                        $scope.customizedShirt[variable] = {};
+                        $scope.customizedShirt[variable].attributes = {};
+                        $scope.customizedShirt[variable].divattributes = {};
+                        $scope.customizedShirt[variable].attributes.width = 200;
+                        console.log($scope.customizedShirt);
+                    }
+                    //$scope.customizedShirt[variable] = image[0];
+                    console.log($scope.tempImage);
+                    // $scope.previewImages.image = $filter('serverimage')($scope.customizedShirt[variable]);
+                }
+            })
+        } else {
+            $files = [];
+            $scope.toolarge = true;
+        }
+    }
 
     $scope.switchFrontBack = function(front) {
         $scope.customizedShirt.front =  front;
@@ -2252,7 +2283,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.trimTshirt.highlightTwo.flag = flag;
         $scope.trimTshirt.highlightTwo.tcolor = color;
         if (flag) {
-            $scope.trimTshirt.highlightTwo.image = "img/shorts/back/" + color + ".png";
+            $scope.trimTshirt.highlightTwo.image = "img/shorts/back/";
         } else {
             $scope.trimTshirt.highlightTwo.image = "img/shorts/back/" + color + ".png";
         }
