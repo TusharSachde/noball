@@ -2630,7 +2630,7 @@ $scope.myhide = true;
         colr: "#000000",
         name: "black"
     }, {
-        colr: "#66cd00",
+        colr: "#1a472a",
         name: "dark-green"
     }, {
         colr: "#ffd700",
@@ -2639,7 +2639,7 @@ $scope.myhide = true;
         colr: "#2175d9",
         name: "indian_blue"
     }, {
-        colr: "#ccff00",
+        colr: "green",
         name: "neon-green"
     }, {
         colr: "#c0c2ce",
@@ -2647,11 +2647,8 @@ $scope.myhide = true;
     }, {
         colr: "#ffff00",
         name: "neon-yellow"
-    }, {
-        colr: "#032149",
-        name: "neon-blue"
-    }, {
-        colr: "#bcee68",
+    },{
+        colr: "#ccff00",
         name: "light-green"
     }, {
         colr: "#ff8247",
