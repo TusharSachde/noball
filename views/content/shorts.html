@@ -38,7 +38,7 @@
                             <img ng-src="{{customizedShirt.backdrop}}" class="backdrop img-responsive" alt="">
                             <img ng-src="{{trimTshirt.highlightOne.image}}" ng-if="trimTshirt.highlightOne.image" class="trimshirt img-responsive" alt="">
                             <!-- <div ng-if="customizedShirt.back && tab=='quantiy'" class="{{jerseyBack.font+'-font'}}" ng-style="{'color': jerseyBack.color}"> -->
-                              <img ng-src="{{trimTshirt.highlightTwo.image }}" ng-if="trimTshirt.highlightTwo.image " class="trimshirt img-responsive" alt="">
+                            <img ng-src="{{trimTshirt.highlightTwo.image }}" ng-if="trimTshirt.highlightTwo.image " class="trimshirt img-responsive" alt="">
                             <!-- </div> -->
 
 
@@ -52,7 +52,12 @@
                                 <img ng-class="{'right-sleeve':customizedShirt.front,'left-sleeve':customizedShirt.back}" ng-src="{{customizedShirt.rightsleeve.image | serverimage}}" alt="" ng-style="customizedShirt.rightsleeve.attributes">
                             </div>
 
+                            <div class="div-right-short disblock" ng-if="customizedShirt.front && myhide" ng-style="customizedShirt.rightchest.divattributes">
+                                <div style="color:{{myClolr}};transform: rotate({{myArc}}deg);font-size:{{mySize}}px;transform: rotate({{myRotate}}deg);letter-spacing: {{myWordSpace}}px;mymodel.name">{{mymodel.name}}</div>
+                                <div style="color:{{myClolr}};transform: rotate({{myArc1}}deg);font-size:{{mySize1}}px;transform: rotate({{myRotate1}}deg);letter-spacing: {{myWordSpace1}}px;"> {{addtxt10}}</div>
 
+                                <!-- <img class="right-chest" ng-src="{{customizedShirt.rightchest.image | serverimage}}" alt="" ng-style="customizedShirt.rightchest.attributes"> -->
+                            </div>
                         </div>
                         <div class="prev inline-block">
                             <p class="uppercase" ng-click="switchFrontBack(false); switchTrimHighlightOne(false, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(false, trimTshirt.highlightTwo.tcolor)"><img src="img/back.png" class="img-responsive" alt="">back</p>
@@ -85,7 +90,7 @@
                             .
                         </p>
                         <h3><i class="fa fa-inr"></i>995</h3>
-                        <span>Minimum order to be placed for Shorts is 20.</span>
+                        <span class="Raleway-Medium">Minimum order to be placed for Shorts is 20.</span>
                     </div>
                     <div class="choos m20-l" ng-show="tab=='design'">
                         <p>Choose Your Type Of Design</p>
@@ -115,7 +120,7 @@
                         <div class="options">
                             <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing  inline-block" ng-click="tabchanges('light1',1)">HIGHLIGHT 1</button>
                             <button class="{{classhide}} btn btn-outline btn-dark padding-btn letter-spacing  inline-block" ng-click="tabchanges('light2',2)">HIGHLIGHT 2</button>
-                            </div>
+                        </div>
                         <div class="{{classp}} outline disnon" ng-if="tabs=='light1'">
                             <span>HIGHLIGHT 1</span>
                             <p>Select The Trim Colour Of Your Choice</p>
@@ -154,6 +159,7 @@
                         </div>
                     </div>
                     <!-- END TRIM -->
+
                     <!-- START TEAM LOGO -->
                     <div class="choos m20-l" ng-show="tab=='team'">
                         <p>Upload Your Logo</p>
@@ -162,7 +168,9 @@
                             <label for="later"><span></span>Send it Later</label>
                         </div>
                         <div class="logo-text">
-                            <button class="activeme btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" >TEAM LOGO</button>
+                            <button class="activeme btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openUploads(key, value.name)">TEAM LOGO</button>
+                            <span class="uppercase inline-block mright15">or</span>
+                            <button class=" btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor()">TEAM TEXT</button>
 
                         </div>
                         <div class="padding15 default inline-block" ng-repeat="(key, value) in customizedShirt" ng-if="checkCustomizeShirt(key)">
@@ -200,13 +208,13 @@
                                   </label>
                             </form>
                             <div class="edit-btn">
-                                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" >upload</button>
+                                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15">upload</button>
                                 <!-- <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads(key, value.name)">upload</button> -->
                             </div>
                             <div class="pbotom">
                                 <span class="block">Notes :</span>
                                 <span class="block">1. The printed CCC Logo will always be embroidered on your gloves.</span>
-                                <span class="block">2. Embossing your logo will incur a one time cost of  `5000 or your logo can be screen printed at no additional cost.</span>
+                                <span class="block">2. Embossing your logo will incur a one time cost of  5000 or your logo can be screen printed at no additional cost.</span>
                                 <span class="block">3. If you feel something is not great, our design team can fix it for you.</span>
                                 <span class="block"><a href="" ng-click="outplace();">Click here</a> to find out how?</span>
                                 <span class="block">4.CCC logo colour will match colour of the trim.</span>
@@ -220,49 +228,217 @@
                         </div>
 
                     </div>
+                    <div class="choos m20-l nexter-level" ng-show="tab=='teamcolor'">
+                        <p>Upload Your Text</p>
+                        <div class="logo-text">
+                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openTeam();">TEAM LOGO</button>
+                            <span class="uppercase inline-block mright15">or</span>
+                            <button class="activeme btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor()">TEAM TEXT</button>
+                        </div>
+                        <div class="radio-options">
+                            <h4>Select The Font For Your Jersey Name</h4>
+                            <form action="" class="radio">
+                                <div class="form-group inline-block">
+                                    <input type="radio" id="textradio1" ng-model="jerseyBack.font" value="arial" name="textradio" />
+                                    <label for="textradio1" class="arial-font">
+                                        <span></span> Arial
+                                    </label>
+                                </div>
+                                <div class="form-group inline-block">
+                                    <input type="radio" id="textradio2" ng-model="jerseyBack.font" value="times" name="textradio" />
+                                    <label for="textradio2" class="times-font">
+                                        <span></span> Times New Roman</label>
+                                </div>
+                                <div class="form-group inline-block">
+                                    <input type="radio" id="textradio3" ng-model="jerseyBack.font" value="helvetica" name="textradio" />
+                                    <label for="textradio3" class="helvetica-font">
+                                        <span></span> Helvetica
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
 
-
-                        <div class="choos quantity m20-l" ng-show="tab=='quantity'">
-                            <div class="chart mar15">
-                                <p>view:
-                                    <span data-toggle="modal" data-target="#myModal4">Size Chart</span>
-                                </p>
-                            </div>
-                            <div class="accordion">
-                                <uib-accordion>
-
-
-                                    <div class="pbotom">
-                                        <span class="block">Note </span>
-                                        <span class="block">1. Your t-shirt name can be up to 10 characters and t-shirt number can be selected from 0 to 999.</span>
-                                        <span class="block">2. You can select sleeves from being short (S.S) or long (L.S).</span>
-                                        <span class="block">3. (*) - this denotes the field is mandatory.</span>
+                        <!-- Fornt Chest Text Color -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>Select The Colour</h4>
+                                <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
+                                    <div class="colo-pallet text-center ">
+                                        <!-- <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightOne(trimTshirt.highlightOne.flag, col.name)"></div> -->
+                                        <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-class="{'activated': jerseyBack.color == col.colr}" ng-click="ChaangeTextColor(col.name)"></div>
+                                        <!-- <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-class="{'activated': jerseyBack.color == col.colr}" ng-click="jerseyBack.color=col.colr"></div> -->
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="notes">
+                            <span class="capitalize">please note that your tshirt name can be upto 10 characters</span>
+                        </div>
+                        <div class="range-slidings relative">
+                            <h4 class="capitalize">enter your text below</h4>
+                            <input type="text" class="block" name="name1" ng-model="mymodel.name">
+                            <!-- <input type="text" class="block" ng-repeat="txtt in TextBoxDetails" ng-model="txtt.title"> -->
+                            <input type="text" class="block" ng-show="addedTxt" name="addtxt10" ng-model="addtxt10">
 
-                                    <uib-accordion-group class="panel-default" is-open="status.open2">
-                                        <uib-accordion-heading>
-                                            <i class="pull-left fa " ng-class="{'fa fa-minus': status.open2, 'fa fa-plus': !status.open2}"></i>Select The Dimensions For Your Jersey
-                                        </uib-accordion-heading>
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="uppercase">sizeup <sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></th>
-                                                        <th class="uppercase">sleeve <sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></th>
-                                                        <th class="uppercase">qty <sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></th>
-                                                        <th class="uppercase">name</th>
-                                                        <th class="uppercase">number</th>
-                                                        <th></th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr class="nothing">
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <select>
+                            <a class="plus" ng-click="addMore();"><i class="fa fa-2x fa-plus-circle" aria-hidden="true"></i></a>
+
+                        </div>
+                        <!-- Initial state -->
+                        <div class="range" ng-hide="addedTxt">
+                            <div class="row">
+                                <div class="col-md-1 col-sm-1 col-xs-1">
+                                    <span>size</span>
+                                </div>
+                                <!-- <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShirt[key].attributes.width" min="0" max="200" model-max="customizedShirt[key].attributes.width" model-min="rslider.min" pin-handle="min">
+                                </div> -->
+                                <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                    <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="mymodel.width" min="0" max="100" model-max="mymodel.width" pin-handle="min" model-min="rslider.min"></div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input class="inputtext" type="number" name="mySize" ng-model="mySize">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1 col-sm-1 col-xs-1">
+                                    <span>arc</span>
+                                </div>
+                                <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                    <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShirt[key].attributes.width" min="25" max="60" model-max="customizedShirt[key].attributes.width" model-min="rslider.min" pin-handle="min">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input class="inputtext" type="number" ng-model="myArc" name="size">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1 col-sm-1 col-xs-1">
+                                    <span>rotation</span>
+                                </div>
+                                <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                    <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShirt[key].attributes.width" min="25" max="60" model-max="customizedShirt[key].attributes.width" model-min="rslider.min" pin-handle="min">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input class="inputtext" type="number" name="myRotate" ng-model="myRotate">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1 col-sm-1 col-xs-1">
+                                    <span>spacing</span>
+                                </div>
+                                <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                    <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShirt[key].attributes.width" min="25" max="60" model-max="customizedShirt[key].attributes.width" model-min="rslider.min" pin-handle="min">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input class="inputtext" type="number" name="myWordSpace" ng-model="myWordSpace">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- when addtxt -->
+                        <div class="range" ng-show="addedTxt">
+                            <div class="row">
+                                <div class="col-md-1 col-sm-1 col-xs-1">
+                                    <span>size</span>
+                                </div>
+                                <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                    <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShirt[key].attributes.width" min="25" max="60" model-max="customizedShirt[key].attributes.width" model-min="rslider.min" pin-handle="min">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input class="inputtext" type="number" name="mySize" ng-model="mySize1">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1 col-sm-1 col-xs-1">
+                                    <span>arc</span>
+                                </div>
+                                <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                    <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShirt[key].attributes.width" min="25" max="60" model-max="customizedShirt[key].attributes.width" model-min="rslider.min" pin-handle="min">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input class="inputtext" type="number" ng-model="myArc1" name="size">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1 col-sm-1 col-xs-1">
+                                    <span>rotation</span>
+                                </div>
+                                <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                    <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShirt[key].attributes.width" min="25" max="60" model-max="customizedShirt[key].attributes.width" model-min="rslider.min" pin-handle="min">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input class="inputtext" type="number" name="myRotate" ng-model="myRotate1">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1 col-sm-1 col-xs-1">
+                                    <span>spacing</span>
+                                </div>
+                                <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                    <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShirt[key].attributes.width" min="25" max="60" model-max="customizedShirt[key].attributes.width" model-min="rslider.min" pin-handle="min">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input class="inputtext" type="number" name="myWordSpace1" ng-model="myWordSpace1">
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="edit-btn inline-block">
+                            <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                        </div>
+                        <div class="edit-btn inline-block">
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('quantity',5)">NEXT</button>
+                        </div>
+                    </div>
+
+                    <!-- END TEAM LOGO -->
+
+                    <!-- START QUANTITY -->
+
+                    <div class="choos quantity m20-l" ng-show="tab=='quantity'">
+                        <div class="chart mar15">
+                            <p>view:
+                                <span data-toggle="modal" data-target="#myModal4">Size Chart</span>
+                            </p>
+                        </div>
+
+                        <div class="pbotom">
+                            <span class="block">Note </span>
+                            <span class="block">1. Your t-shirt name can be up to 10 characters and t-shirt number can be selected from 0 to 999.</span>
+                            <span class="block">2. You can select sleeves from being short (S.S) or long (L.S).</span>
+                            <span class="block">3. (*) - this denotes the field is mandatory.</span>
+                        </div>
+                        <div class="accordion">
+                            <uib-accordion>
+                                <uib-accordion-group class="panel-default" is-open="status.open2">
+                                    <uib-accordion-heading>
+                                        <i class="pull-left fa " ng-class="{'fa fa-minus': status.open2, 'fa fa-plus': !status.open2}"></i> Select The Dimensions For Your Shorts
+                                    </uib-accordion-heading>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th class="uppercase">sizeup <sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></th>
+                                                    <th class="uppercase">sleeve <sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></th>
+                                                    <th class="uppercase">qty <sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="nothing">
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <select>
                                                             <option value="XL">S</option>
                                                             <option value="20">M</option>
                                                             <option value="30">L</option>
@@ -270,53 +446,47 @@
                                                             <option value="40">XXL</option>
                                                             <option value="40">XXXL</option>
                                                         </select>
-                                                        </td>
-                                                        <td>
-                                                            <select>
+                                                    </td>
+                                                    <td>
+                                                        <select>
                                                             <option value="L.S">L.S</option>
                                                             <option value="30">30</option>
                                                             <option value="40">40</option>
                                                             <option value="40">40</option>
                                                         </select>
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" name="quantity" value="10">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" ng-model="jerseyBack.name" name="name">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" ng-model="jerseyBack.no" name="number">
-                                                        </td>
-                                                        <td>
-                                                            <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">GBP2</button>
-                                                        </td>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" name="quantity" value="10">
+                                                    </td>
+                                                    <td>
+                                                        <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">GBP2</button>
+                                                    </td>
+                                                    <td><img src="img/rubbishbin.png" class="img-responsive doneLoading" alt=""></td>
+                                                </tr>
+                                                <tr class="nothing">
+                                                    <td></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <p class="addtable"><i class="fa mr7 fa-plus" aria-hidden="true"></i> ADD</p>
 
-                                                        <td><img src="img/rubbishbin.png" class="img-responsive doneLoading" alt=""></td>
-                                                    </tr>
-                                                    <tr class="nothing">
-                                                        <td></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <p class="addtable"><i class="fa mr7 fa-plus" aria-hidden="true"></i> ADD</p>
+                                        <span class="pull-right uppercase fontfam">Total:255</span>
+                                    </div>
+                                </uib-accordion-group>
+                            </uib-accordion>
 
-                                            <span class="pull-right uppercase fontfam">Total:255</span>
-                                        </div>
-                                    </uib-accordion-group>
-                                </uib-accordion>
-
-                                <div class="edit-btn">
-                                    <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>
-                                    <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5">next</button>
-                                    <br>
-                                </div>
+                            <div class="edit-btn">
+                                <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>
+                                <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5">next</button>
+                                <br>
                             </div>
-
                         </div>
                     </div>
+                    <!-- END QUANTITY -->
+
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </section>

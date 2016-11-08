@@ -5684,7 +5684,7 @@ h2 {
 .gully-shirt .div-left-short {
     position: absolute;
     top: 359px;
-    left: 101px;
+    left: 107px;
     width: 50px;
     height: 50px;
     z-index: 99;
@@ -5694,6 +5694,17 @@ h2 {
     justify-content: center;
     align-content: center;
 }
+.gully-shirt .div-right-short{  position: absolute;
+  top: 359px;
+  left: 107px;
+  width: 50px;
+  height: 50px;
+  z-index: 99;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;}
 .padding15{    padding: 15px 0px;
 }
 @import "mobile/mobile";
