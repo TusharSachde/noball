@@ -32,6 +32,7 @@
         <div class="product-detail">
             <div class="row">
                 <div class="col-md-5">
+                  <div class="scroll-image" id="style-2">
                     <div class="text-center">
                         <div class="gully-shirt">
                             <img ng-src="{{customizedShirt.cloth}}" class="img-responsive" alt="">
@@ -79,15 +80,16 @@
                             <li>Tested and fitted for optimum performance</li>
                         </ul>
                     </div>
+                  </div>
                 </div>
                 <!-- END GALLARY -->
 
                 <!-- START DESIGN -->
                 <div class="col-md-7">
+                    <div class="scroll-image" id="style-1">
                     <div class="det-name">
                         <h4>STRIDE</h4>
-                        <p>The Custom Cricket company cricket shorts is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest
-                            .
+                        <p>The Custom Cricket company cricket shorts is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions.
                         </p>
                         <h3><i class="fa fa-inr"></i>995</h3>
                         <span class="Raleway-Medium">Minimum order to be placed for Shorts is 20.</span>
@@ -388,8 +390,6 @@
                             </div>
                         </div>
 
-
-
                         <div class="edit-btn inline-block">
                             <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
@@ -419,26 +419,21 @@
                             <uib-accordion>
                                 <uib-accordion-group class="panel-default" is-open="status.open2">
                                     <uib-accordion-heading>
-                                        <i class="pull-left fa " ng-class="{'fa fa-minus': status.open2, 'fa fa-plus': !status.open2}"></i> Select The Dimensions For Your Shorts
+                                        <i class="pull-left fa " ng-class="{'fa fa-minus': status.open2, 'fa fa-plus': !status.open2}"></i> Select The Size For Your Shorts
                                     </uib-accordion-heading>
                                     <div class="table-responsive">
                                         <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th class="uppercase">sizeup <sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></th>
-                                                    <th class="uppercase">sleeve <sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></th>
-                                                    <th class="uppercase">qty <sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                </tr>
-                                            </thead>
+
                                             <tbody>
                                                 <tr class="nothing">
                                                     <td></td>
                                                 </tr>
                                                 <tr>
+                                                  <td>
+                                                      <p class="shortq" >SIZE</p>
+                                                  </td>
                                                     <td>
-                                                        <select>
+                                                        <select class="selectsiz">
                                                             <option value="XL">S</option>
                                                             <option value="20">M</option>
                                                             <option value="30">L</option>
@@ -448,18 +443,13 @@
                                                         </select>
                                                     </td>
                                                     <td>
-                                                        <select>
-                                                            <option value="L.S">L.S</option>
-                                                            <option value="30">30</option>
-                                                            <option value="40">40</option>
-                                                            <option value="40">40</option>
-                                                        </select>
+                                                        <p class="shortq" >QUANTITY</p>
                                                     </td>
                                                     <td>
-                                                        <input type="text" name="quantity" value="10">
+                                                        <input class="qtt" type="text" name="quantity" value="10">
                                                     </td>
                                                     <td>
-                                                        <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">GBP2</button>
+                                                        <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">PREVIEW</button>
                                                     </td>
                                                     <td><img src="img/rubbishbin.png" class="img-responsive doneLoading" alt=""></td>
                                                 </tr>
@@ -470,7 +460,7 @@
                                         </table>
                                         <p class="addtable"><i class="fa mr7 fa-plus" aria-hidden="true"></i> ADD</p>
 
-                                        <span class="pull-right uppercase fontfam">Total:255</span>
+                                        <span class="pull-right uppercase fontfam">Total:20</span>
                                     </div>
                                 </uib-accordion-group>
                             </uib-accordion>
@@ -485,6 +475,7 @@
                     <!-- END QUANTITY -->
 
                 </div>
+              </div>
             </div>
         </div>
     </div>
