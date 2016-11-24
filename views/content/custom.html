@@ -18,17 +18,17 @@
                     </li>
                     <li class="tab-item breadcrums {{classc}}" ng-click="tabchange('team',3)">
                         <span class="bread-frnt"></span>
-                        <p>3. TEAM LOGO</p>
+                        <p>3. LOGO</p>
                         <span class="bread-back"></span>
                     </li>
-                    <li class="tab-item breadcrums {{classd}}" ng-click="tabchange('logo',4)">
+                    <!--<li class="tab-item breadcrums {{classd}}" ng-click="tabchange('logo',4)">
                         <span class="bread-frnt"></span>
                         <p>4. SPONSOR LOGOS</p>
                         <span class="bread-back"></span>
-                    </li>
+                    </li>-->
                     <li class="tab-item breadcrums {{classe}}" ng-click="tabchange('quantity',5)">
                         <span class="bread-frnt"></span>
-                        <p>5. QUANTITY</p>
+                        <p>4. QUANTITY</p>
                         <span class="bread-back"></span>
                     </li>
                 </ul>
@@ -65,11 +65,11 @@
                 <div class="col-md-7">
                     <div class="det-name">
                         <h4>GULLY</h4>
-                        <p>The Custom Cricket company cricket shirt is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest
+                        <!--<p>The Custom Cricket company cricket shirt is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest
                             .
-                        </p>
+                        </p>-->
                         <h3><i class="fa fa-inr"></i>995</h3>
-                        <span>Minimum order to be placed for Playing T-Shirts is 20.</span>
+                        <span class="bold">Minimum order to be placed for Playing T-Shirts is 20.</span>
                     </div>
                     <!--                    // design tab-->
 
@@ -148,45 +148,152 @@
                         <div class="edit-btn inline-block">
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
                         </div>
-
-
                     </div>
                     <!--                    //trim tab-->
                     <div class="choos m20-l" ng-show="tab=='team'">
-                        <p>Upload Your Logo</p>
-                        <div class="checkboxing">
+                        <!--<div class="checkboxing">
                             <input type="checkbox" class="form-control" id="later">
                             <label for="later"><span></span>SEND LATER</label>
+                        </div>-->
+                                   <div class="logo-text mt10 inline-box">
+                            <button class="btn inline-block btn-dark padding-btn letter-spacing mright15" ng-click="UploadTeamLogo()">TEAM LOGO</button>
+                            <!--<span class="uppercase inline-block mright15">or</span>
+                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor();">TEAM TEXT</button>-->
                         </div>
-                        <div class="logo-text">
-                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="UploadTeamLogo()">TEAM LOGO</button>
-                            <span class="uppercase inline-block mright15">or</span>
-                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor();">TEAM TEXT</button>
-                        </div>
-                        <div class="print-typ printing">
-                            <p>Select The Printing Type For Your Team Logo</p>
+                        <div class="block-box">
+                        <div class="inline-box box-custom"></div>
+             
+                        <div class="print-typ printing inline-box">
+                                     <div class="edit-btn">
+                                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15">upload</button>
+                            </div>
+                               <p class="bold">Select The Printing Type For Your Team Logo</p>
                             <form action="" class="radio">
                                 <input type="radio" id="radio1" name="radio" />
                                 <label for="radio1">
                                     <span></span> Embroidered <a href="" class="link mleft10">VIEW EXAMPLE</a></label>
-
                                 <br>
                                 <input type="radio" id="radio2" name="radio" />
                                 <label for="radio2">
                                     <span></span> Sublimated
                                     <a href="" class="link mleft22">VIEW EXAMPLE</a></label>
                             </form>
-                            <div class="edit-btn">
-                                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15">upload</button>
-                            </div>
-                            <div class="pbotom">
-                                <span class="block">Notes :</span>
-                                <span class="block">1.The printed CCC Logo will always be embroidered on your t-shirt</span>
-                                <span class="block">2.If you feel something is not great, our design team can fix it for you.</span>
-                                <span><a href="" ng-click="outplace();">Click here</a> to find out how?</span>
+                   </div>
+
+                        </div>
+    <p>Upload Your Logos (1/6)</p>
+    <div class="new-scrolldiv block-box">
+                                <div class="sp-logo">
+                                        <div class="inline-box">
+                                              <div class="pad10">
+                                            <div class="head-title-box">
+                                                Right Chest
+                                            </div>
+                                          
+                                            <div class="box-custom pointer" ng-click="UploadTeamLogo()">
+<img src="img/logo_black.png" alt="">
+
+                                            </div>
+                                            <div class="tex-cont range-custom">
+                                                Size:
+                                                <input type="range">
+                                                <button href="" class="btn btn-outline btn-dark  block full-width">CHANGE</button>
+                                                <button href="" class="btn btn-outline btn-dark  block full-width">REMOVE</button>
+                                            </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="inline-box">
+                                             <div class="pad10">
+                                            <div class="head-title-box">
+                                               MAIN SPONSOR
+                                            </div>
+                                                                    <div class="box-custom pointer" ng-click="UploadTeamLogo()">
+<p class="uppercase">Upload </p>
+
+                                            </div>
+                                            <div class="tex-cont range-custom">
+                                                Size:
+                                                <input type="range">
+                                                <button href="" class="btn btn-outline btn-dark  block full-width">CHANGE</button>
+                                                <button href="" class="btn btn-outline btn-dark  block full-width">REMOVE</button>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <div class="inline-box">
+
+                                             <div class="pad10">
+                                            <div class="head-title-box">
+                                                LEFT SLEEVE
+                                            </div>
+                                                                     <div class="box-custom pointer" ng-click="UploadTeamLogo()">
+<p class="uppercase">Upload </p>
+
+                                            </div>
+                                            <div class="tex-cont range-custom">
+                                                Size:
+                                                <input type="range">
+                                                <button href="" class="btn btn-outline btn-dark  block full-width">CHANGE</button>
+                                                <button href="" class="btn btn-outline btn-dark  block full-width">REMOVE</button>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <div class="inline-box">
+                                             <div class="pad10">
+                                            <div class="head-title-box">
+                                                RIGHT SLEEVE
+                                            </div>
+                                                                    <div class="box-custom pointer" ng-click="UploadTeamLogo()">
+<p class="uppercase">Upload </p>
+
+                                            </div>
+                                            <div class="tex-cont range-custom">
+                                                Size:
+                                                <input type="range">
+                                                <button href="" class="btn btn-outline btn-dark  block full-width">CHANGE</button>
+                                                <button href="" class="btn btn-outline btn-dark  block full-width">REMOVE</button>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <div class="inline-box">
+                                             <div class="pad10">
+                                            <div class="head-title-box">
+                                                LEFT CHEST
+                                            </div>
+                                                                  <div class="box-custom pointer" ng-click="UploadTeamLogo()">
+<p class="uppercase">Upload </p>
+
+                                            </div>
+                                            <div class="tex-cont range-custom">
+                                                Size:
+                                                <input type="range">
+                                                <button href="" class="btn btn-outline btn-dark  block full-width">CHANGE</button>
+                                                <button href="" class="btn btn-outline btn-dark  block full-width">REMOVE</button>
+                                            </div>
+                                        </div>
+                                        </div>
                             </div>
                         </div>
-
+    </div>
+                     <div class="print-typ printing">
+                            <div class="pbotom">
+                                <span class="block">Notes :</span>
+                                <span class="block">1.The logo of your sponsors will be sublimated. </span>
+                                <span class="block">2.The logo on the sleeves are not cut in half. It’s just to provide realistic
+    feel.</span>
+                                  <span class="block">3. If you feel something is not great, our design team can fix it for you.
+   <a href="" ng-click="outplace();">Click here</a>to find out how?</span>
+                                    <span class="block">4.The printed CCC Logo will always be embroidered on your t-shirt</span>
+  <span class="block">5.CCC logo colour will match colour of the trim.</span>
+                                <!--<span><a href="" ng-click="outplace();">Click here</a> to find out how?</span>-->
+                            </div>
+                        </div>
+       <div class="edit-btn inline-block">
+                            <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                        </div>
+                        <div class="edit-btn inline-block">
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+                        </div>
 
                         <div class="modal fade custom" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog" role="document">
