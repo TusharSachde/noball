@@ -5872,4 +5872,30 @@ input[type=range]:focus::-ms-fill-upper {
     width: 1010px;
     overflow-y: hidden;
 }
+
+//Scroll for custom.html
+
+#custom-grey::-webkit-scrollbar {
+    height: 10px;
+    padding: 5px;
+}
+
+#custom-grey::-webkit-scrollbar-track {
+    -webkit-box-shadow: none;
+    border: 1px solid #ccc;
+border-radius: 0;
+background-color: #ccc;
+}
+
+#custom-grey::-webkit-scrollbar {
+    // width: 6px;
+    // background-color: yellow;
+}
+
+#custom-grey::-webkit-scrollbar-thumb {
+  background-color: #6d6d6d;
+  border-radius: 0px;
+}
+
+//Scroll for custom.html end
 @import "mobile/mobile";
