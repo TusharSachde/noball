@@ -3956,6 +3956,9 @@ $scope.myhide = true;
     }];
 
     $scope.odicolor = [{
+      colr: "#fbfbfb",
+      name: "white"
+    }, {
         colr: "#000000",
         name: "black"
     }, {
