@@ -6,8 +6,8 @@ var tabvalue = 1;
 var user = $.jStorage.get("user");
 var globalfunction = {};
 var bigcount = {};
-window.uploadUrl = "http://customcricketcompany.com/admin/index.php/json/uploadImage";
-// window.uploadUrl = "http://192.168.0.110/cccbackend/index.php/json/uploadImage";
+//window.uploadUrl = "http://customcricketcompany.com/admin/index.php/json/uploadImage";
+window.uploadUrl = "http://192.168.100.110/cccbackend/index.php/json/uploadImage";
 
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'duScroll', 'cfp.loadingBar', 'ngDialog', 'angularFileUpload', 'ngSanitize', 'ui-rangeSlider'])
 
@@ -131,7 +131,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.showimage = false;
         $scope.toolarge = false;
 
-        $scope.onFileSelect = function($files, whichone, uploadtype) {
+        $sco,pe.onFileSelect = function($files, whichone, uploadtype) {
             $scope.toolarge = false;
 
             if ($files[0].size < 20000000) {
@@ -2301,7 +2301,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.showVid = function() {
         $scope.showVideo = false;
     }
-$scope.myhide = true;
+    $scope.myhide = true;
     $scope.openUploads = function(variable, name) {
         // console.log('m here');
         $scope.tab='team';
@@ -2393,7 +2393,7 @@ $scope.myhide = true;
             $scope.tab = "teamcolor";
             $scope.myModal.close();
         } else {
-$scope.myhide = true;
+            $scope.myhide = true;
             $scope.tab = "teamcolor";
             $scope.myModal.close();
         }
@@ -3569,6 +3569,7 @@ $scope.myhide = true;
     }
     $scope.confirmUpload = function(variable, name) {
         //$dismiss();
+        console.log("last " + variable + " " + name);
         $scope.statuses.modal.close();
         $scope.customizedShirt[variable].image = $scope.tempImage;
         $scope.customizedShirt[variable].name = name;
@@ -3627,7 +3628,7 @@ $scope.myhide = true;
     $scope.showVid = function() {
         $scope.showVideo = false;
     }
-$scope.myhide = true;
+    $scope.myhide = true;
     $scope.openUploads = function(variable, name) {
         console.log('m here');
         $scope.tab='team';
@@ -4005,6 +4006,9 @@ $scope.myhide = true;
     }, {
         src: "img/odi-green.png"
     }];
+
+    //window.uploadUrl = "http://customcricketcompany.com/admin/index.php/json/uploadImage";
+
     //tab changes
 
 
