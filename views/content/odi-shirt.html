@@ -241,6 +241,7 @@
         <p>Upload Your Logos (1/6)</p>
         <div class="new-scrolldiv block-box" id="custom-grey">
                                     <div class="sp-logo">
+                                      {{customizedShirt}}
                                             <div class="inline-box">
                                                   <div class="pad10">
                                                 <div class="head-title-box">
@@ -248,9 +249,10 @@
                                                 </div>
 
                                                 <div class="box-custom pointer" ng-click="openUploads('rightchest', 'Right Chest')">
-                                                  <img src="img/logo_black.png" alt="">
+                                                  <img src="img/logo_black.png" alt=""  ng-if="customizedShirt.rightchest">
+                                                  <p class="uppercase" ng-if="!customizedShirt.rightchest">Upload</p>
                                                 </div>
-                                                <div class="tex-cont range-custom">
+                                                <div class="tex-cont range-custom" ng-if="customizedShirt.rightchest">
                                                     Size:
                                                     <input type="range">
                                                     <button href="" class="btn btn-outline btn-dark  block full-width">CHANGE</button>
@@ -264,9 +266,9 @@
                                                 <div class="head-title-box">
                                                    MAIN SPONSOR
                                                 </div>
-                                                                        <div class="box-custom pointer" ng-click="openUploads('mainsponsor', 'Main Sponsor')">
-    <p class="uppercase">Upload </p>
-
+                                                <div class="box-custom pointer" ng-click="openUploads('mainsponsor', 'Main Sponsor')">
+                                                  <p class="uppercase" ng-if="!customizedShirt.mainsponsor">Upload</p>
+                                                  <img src="img/logo_black.png" alt=""  ng-if="customizedShirt.mainsponsor">
                                                 </div>
                                                 <div class="tex-cont range-custom">
                                                     Size:
@@ -282,9 +284,9 @@
                                                 <div class="head-title-box">
                                                     LEFT SLEEVE
                                                 </div>
-                                                                         <div class="box-custom pointer" ng-click="openUploads('leftsleeve', 'Left Sleeve')">
-    <p class="uppercase">Upload </p>
-
+                                                <div class="box-custom pointer" ng-click="openUploads('leftsleeve', 'Left Sleeve')">
+                                                  <img src="img/logo_black.png" alt=""  ng-if="customizedShirt.leftsleeve">
+                                                  <p class="uppercase" ng-if="!customizedShirt.leftsleeve">Upload</p>
                                                 </div>
                                                 <div class="tex-cont range-custom">
                                                     Size:
@@ -299,9 +301,9 @@
                                                 <div class="head-title-box">
                                                     RIGHT SLEEVE
                                                 </div>
-                                                                        <div class="box-custom pointer" ng-click="openUploads('rightsleeve', 'Right Sleeve')">
-    <p class="uppercase">Upload </p>
-
+                                                <div class="box-custom pointer" ng-click="openUploads('rightsleeve', 'Right Sleeve')">
+                                                  <img src="img/logo_black.png" alt=""  ng-if="customizedShirt.rightsleeve">
+                                                  <p class="uppercase" ng-if="!customizedShirt.rightsleeve">Upload</p>
                                                 </div>
                                                 <div class="tex-cont range-custom">
                                                     Size:
@@ -316,9 +318,9 @@
                                                 <div class="head-title-box">
                                                     LEFT CHEST
                                                 </div>
-                                                                      <div class="box-custom pointer" ng-click="openUploads('leftchest', 'Left Chest')">
-    <p class="uppercase">Upload </p>
-
+                                                <div class="box-custom pointer" ng-click="openUploads('leftchest', 'Left Chest')">
+                                                  <img src="img/logo_black.png" alt=""  ng-if="customizedShirt.leftchest">
+                                                  <p class="uppercase" ng-if="!customizedShirt.leftchest">Upload</p>
                                                 </div>
                                                 <div class="tex-cont range-custom">
                                                     Size:
