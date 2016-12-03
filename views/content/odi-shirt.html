@@ -218,11 +218,15 @@
                                 <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor();">TEAM TEXT</button>-->
               </div>
               <div class="block-box">
-                <div class="inline-box box-custom"></div>
+                <div class="inline-box box-custom">
+                  <img ng-src="{{customizedShirt.teamlogo.image | serverimage}}" alt="" ng-if="customizedShirt.teamlogo">
+                </div>
 
                 <div class="print-typ printing inline-box">
                   <div class="edit-btn">
                     <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="UploadTeamLogo()">upload</button>
+                    <!-- <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="UploadTeamLogo()" ng-if="customizedShirt.teamlogo">change</button> -->
+                    <!-- <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="UploadTeamLogo()" ng-if="customizedShirt.teamlogo">remove</button> -->
                   </div>
                   <p class="bold">Select The Printing Type For Your Team Logo</p>
                   <form action="" class="radio">
@@ -252,13 +256,13 @@
                         <p class="uppercase" ng-click="openUploads('leftchest', 'Left Chest')" ng-if="!customizedShirt.leftchest">Upload</p>
                         <img ng-src="{{customizedShirt.leftchest.image | serverimage}}" alt="" ng-if="customizedShirt.leftchest">
                       </div>
-                      <div class="tex-cont range-custom">
+                      <div class="tex-cont range-custom" ng-if="customizedShirt.leftchest">
                         Size:
                         <div class="range">
                           <div range-slider on-handle-down="changeLogo('leftchest')" on-handle-up="resetLogoStyle('leftchest')" ng-model="customizedShirt['leftchest'].attributes.width" min="0" max="200" model-max="customizedShirt['leftchest'].attributes.width" model-min="rslider.min" pin-handle="min"></div>
                         </div>
-                        <button href="" class="btn btn-outline btn-dark  block full-width">CHANGE</button>
-                        <button href="" class="btn btn-outline btn-dark  block full-width">REMOVE</button>
+                        <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="openUploads('leftchest', 'Left Chest')">CHANGE</button>
+                        <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="emptyImage('leftchest')">REMOVE</button>
                       </div>
                     </div>
                   </div>
@@ -273,14 +277,14 @@
                         <img ng-src="{{customizedShirt.rightchest.image | serverimage}}" alt="" ng-if="customizedShirt.rightchest">
                         <p class="uppercase" ng-click="openUploads('rightchest', 'Right Chest')" ng-if="!customizedShirt.rightchest">Upload</p>
                       </div>
-                      <div class="tex-cont range-custom">
+                      <div class="tex-cont range-custom" ng-if="customizedShirt.rightchest">
                         Size:
                         <div class="range">
                           <div range-slider on-handle-down="changeLogo('rightchest')" on-handle-up="resetLogoStyle('rightchest')" ng-model="customizedShirt['rightchest'].attributes.width" min="0" max="200" model-max="customizedShirt['rightchest'].attributes.width" model-min="rslider.min" pin-handle="min"></div>
                         </div>
                           <!-- <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div> -->
-                        <button href="" class="btn btn-outline btn-dark  block full-width">CHANGE</button>
-                        <button href="" class="btn btn-outline btn-dark  block full-width">REMOVE</button>
+                        <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="openUploads('rightchest', 'Right Chest')">CHANGE</button>
+                        <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="emptyImage('rightchest')">REMOVE</button>
                       </div>
                     </div>
 
@@ -294,13 +298,13 @@
                         <p class="uppercase" ng-click="openUploads('mainlogo', 'Main Sponsor')" ng-if="!customizedShirt.mainlogo">Upload</p>
                         <img ng-src="{{customizedShirt.mainlogo.image | serverimage}}" alt="" ng-if="customizedShirt.mainlogo">
                       </div>
-                      <div class="tex-cont range-custom">
+                      <div class="tex-cont range-custom" ng-if="customizedShirt.mainlogo">
                         Size:
                         <div class="range">
                           <div range-slider on-handle-down="changeLogo('mainlogo')" on-handle-up="resetLogoStyle('mainlogo')" ng-model="customizedShirt['mainlogo'].attributes.width" min="0" max="200" model-max="customizedShirt['mainlogo'].attributes.width" model-min="rslider.min" pin-handle="min"></div>
                         </div>
-                        <button href="" class="btn btn-outline btn-dark  block full-width">CHANGE</button>
-                        <button href="" class="btn btn-outline btn-dark  block full-width">REMOVE</button>
+                        <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="openUploads('mainlogo', 'Main Sponsor')">CHANGE</button>
+                        <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="emptyImage('mainlogo')">REMOVE</button>
                       </div>
                     </div>
                   </div>
@@ -314,13 +318,13 @@
                         <p class="uppercase" ng-click="openUploads('leftsleeve', 'Left Sleeve')" ng-if="!customizedShirt.leftsleeve">Upload</p>
                         <img ng-src="{{customizedShirt.leftsleeve.image | serverimage}}" alt="" ng-if="customizedShirt.leftsleeve">
                       </div>
-                      <div class="tex-cont range-custom">
+                      <div class="tex-cont range-custom" ng-if="customizedShirt.leftsleeve">
                         Size:
                         <div class="range">
                           <div range-slider on-handle-down="changeLogo('leftsleeve')" on-handle-up="resetLogoStyle('leftsleeve')" ng-model="customizedShirt['leftsleeve'].attributes.width" min="0" max="200" model-max="customizedShirt['leftsleeve'].attributes.width" model-min="rslider.min" pin-handle="min"></div>
                         </div>
-                        <button href="" class="btn btn-outline btn-dark  block full-width">CHANGE</button>
-                        <button href="" class="btn btn-outline btn-dark  block full-width">REMOVE</button>
+                        <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="openUploads('leftsleeve', 'Left Sleeve')">CHANGE</button>
+                        <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="emptyImage('leftsleeve')">REMOVE</button>
                       </div>
                     </div>
                   </div>
@@ -333,13 +337,13 @@
                         <p class="uppercase" ng-click="openUploads('rightsleeve', 'Right Sleeve')" ng-if="!customizedShirt.rightsleeve">Upload</p>
                         <img ng-src="{{customizedShirt.rightsleeve.image | serverimage}}" alt="" ng-if="customizedShirt.rightsleeve">
                       </div>
-                      <div class="tex-cont range-custom">
+                      <div class="tex-cont range-custom"  ng-if="customizedShirt.rightsleeve">
                         Size:
                         <div class="range">
                           <div range-slider on-handle-down="changeLogo('rightsleeve')" on-handle-up="resetLogoStyle('rightsleeve')" ng-model="customizedShirt['rightsleeve'].attributes.width" min="0" max="200" model-max="customizedShirt['rightsleeve'].attributes.width" model-min="rslider.min" pin-handle="min"></div>
                         </div>
-                        <button href="" class="btn btn-outline btn-dark block full-width">CHANGE</button>
-                        <button href="" class="btn btn-outline btn-dark block full-width">REMOVE</button>
+                        <button href="" class="btn btn-outline btn-dark block full-width" ng-click="openUploads('rightsleeve', 'Right Sleeve')">CHANGE</button>
+                        <button href="" class="btn btn-outline btn-dark block full-width" ng-click="emptyImage('rightsleeve')">REMOVE</button>
                       </div>
                     </div>
                   </div>

@@ -73,7 +73,7 @@
       </ul>
     </div>
   </div>
-  <form ng-submit="confirmUpload(variable, name)" name="uploadform">
+  <form ng-submit="confirmUpload(variable, name); $dismiss();" name="uploadform">
     <!-- <div class="check" ng-if="!statuses.showcopy"> -->
     <div class="check">
     <input type="checkbox" class="form-control" id="log" name="hereby" ng-required="!statuses.showcopy">

@@ -3468,7 +3468,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.customizedShirt.leftchest.image = "img/logo_black.png";
     $scope.customizedShirt.leftchest.attributes = {};
     $scope.customizedShirt.leftchest.divattributes = {};
-    $scope.customizedShirt.leftchest.attributes.width = 30;
+    $scope.customizedShirt.leftchest.attributes.width = 50;
     $scope.myClolr = 'red';
     $scope.ChaangeTextColor = function(mycolor) {
         console.log(mycolor);
@@ -3548,7 +3548,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         $scope.customizedShirt[variable] = {};
                         $scope.customizedShirt[variable].attributes = {};
                         $scope.customizedShirt[variable].divattributes = {};
-                        $scope.customizedShirt[variable].attributes.width = 200;
+                        $scope.customizedShirt[variable].attributes.width = 50;
                         console.log($scope.customizedShirt);
                     }
                     //$scope.customizedShirt[variable] = image[0];
@@ -3570,7 +3570,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.confirmUpload = function(variable, name) {
         //$dismiss();
         console.log("last " + variable + " " + name);
-        $scope.statuses.modal.close();
+        // if (variable !== 'teamlogo') {
+        //   $scope.statuses.modal.close();
+        // }
         $scope.customizedShirt[variable].image = $scope.tempImage;
         $scope.customizedShirt[variable].name = name;
         console.log($scope.customizedShirt[variable]);
