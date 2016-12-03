@@ -243,7 +243,7 @@
               <p>Upload Your Logos (1/6)</p>
               <div class="new-scrolldiv block-box" id="custom-grey">
                 <div class="sp-logo">
-                  <div class="inline-box">
+                  <div class="inline-box single-logo">
                     <div class="pad10">
                       <div class="head-title-box">
                         LEFT CHEST
@@ -254,13 +254,15 @@
                       </div>
                       <div class="tex-cont range-custom">
                         Size:
-                        <input type="range">
+                        <div class="range">
+                          <div range-slider on-handle-down="changeLogo('leftchest')" on-handle-up="resetLogoStyle('leftchest')" ng-model="customizedShirt['leftchest'].attributes.width" min="0" max="200" model-max="customizedShirt['leftchest'].attributes.width" model-min="rslider.min" pin-handle="min"></div>
+                        </div>
                         <button href="" class="btn btn-outline btn-dark  block full-width">CHANGE</button>
                         <button href="" class="btn btn-outline btn-dark  block full-width">REMOVE</button>
                       </div>
                     </div>
                   </div>
-                  <div class="inline-box">
+                  <div class="inline-box single-logo">
                     <div class="pad10">
                       <div class="head-title-box">
                         Right Chest
@@ -273,14 +275,17 @@
                       </div>
                       <div class="tex-cont range-custom">
                         Size:
-                        <input type="range">
+                        <div class="range">
+                          <div range-slider on-handle-down="changeLogo('rightchest')" on-handle-up="resetLogoStyle('rightchest')" ng-model="customizedShirt['rightchest'].attributes.width" min="0" max="200" model-max="customizedShirt['rightchest'].attributes.width" model-min="rslider.min" pin-handle="min"></div>
+                        </div>
+                          <!-- <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div> -->
                         <button href="" class="btn btn-outline btn-dark  block full-width">CHANGE</button>
                         <button href="" class="btn btn-outline btn-dark  block full-width">REMOVE</button>
                       </div>
                     </div>
 
                   </div>
-                  <div class="inline-box">
+                  <div class="inline-box single-logo">
                     <div class="pad10">
                       <div class="head-title-box">
                         MAIN SPONSOR
@@ -291,13 +296,15 @@
                       </div>
                       <div class="tex-cont range-custom">
                         Size:
-                        <input type="range">
+                        <div class="range">
+                          <div range-slider on-handle-down="changeLogo('mainlogo')" on-handle-up="resetLogoStyle('mainlogo')" ng-model="customizedShirt['mainlogo'].attributes.width" min="0" max="200" model-max="customizedShirt['mainlogo'].attributes.width" model-min="rslider.min" pin-handle="min"></div>
+                        </div>
                         <button href="" class="btn btn-outline btn-dark  block full-width">CHANGE</button>
                         <button href="" class="btn btn-outline btn-dark  block full-width">REMOVE</button>
                       </div>
                     </div>
                   </div>
-                  <div class="inline-box">
+                  <div class="inline-box single-logo">
 
                     <div class="pad10">
                       <div class="head-title-box">
@@ -309,13 +316,15 @@
                       </div>
                       <div class="tex-cont range-custom">
                         Size:
-                        <input type="range">
+                        <div class="range">
+                          <div range-slider on-handle-down="changeLogo('leftsleeve')" on-handle-up="resetLogoStyle('leftsleeve')" ng-model="customizedShirt['leftsleeve'].attributes.width" min="0" max="200" model-max="customizedShirt['leftsleeve'].attributes.width" model-min="rslider.min" pin-handle="min"></div>
+                        </div>
                         <button href="" class="btn btn-outline btn-dark  block full-width">CHANGE</button>
                         <button href="" class="btn btn-outline btn-dark  block full-width">REMOVE</button>
                       </div>
                     </div>
                   </div>
-                  <div class="inline-box">
+                  <div class="inline-box single-logo">
                     <div class="pad10">
                       <div class="head-title-box">
                         RIGHT SLEEVE
@@ -326,7 +335,9 @@
                       </div>
                       <div class="tex-cont range-custom">
                         Size:
-                        <input type="range">
+                        <div class="range">
+                          <div range-slider on-handle-down="changeLogo('rightsleeve')" on-handle-up="resetLogoStyle('rightsleeve')" ng-model="customizedShirt['rightsleeve'].attributes.width" min="0" max="200" model-max="customizedShirt['rightsleeve'].attributes.width" model-min="rslider.min" pin-handle="min"></div>
+                        </div>
                         <button href="" class="btn btn-outline btn-dark block full-width">CHANGE</button>
                         <button href="" class="btn btn-outline btn-dark block full-width">REMOVE</button>
                       </div>
