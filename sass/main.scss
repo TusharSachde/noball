@@ -4710,8 +4710,14 @@ h2 {
     height: 80px;
   }
   &.jersey-name {
-    top: 250px;
+    top: 210px;
     width: 154px;
+    height: 154px;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 .modal-dialogintro .modal-dialog {
@@ -4895,3 +4901,63 @@ h2 {
 .cir-bdr {
   border-radius: 50%;
   border:1px solid rgba(158, 158, 158, 0.52); } //Scroll for custom.html end .binbord-rgt{ border-right: 1px solid #e9e9e9; } @import "mobile/mobile";
+
+
+
+///order summary
+.desc-sec{
+  .sum-head{
+    letter-spacing: 1px;
+  }
+hr{
+border-top: 2px solid #eeeeee;
+  margin-top: 0;
+  }
+  .designer-name{
+    letter-spacing: 2px;
+  }
+  p{
+    font-size: 18px;
+    font-family: Raleway-Medium;
+  }
+  .color-sel{
+    button{
+      width: 170px;
+    }
+  }
+  .team-logo{
+    height: 100px;
+  overflow: hidden;
+  width: 100px;
+  border: 1px solid;
+  }
+  .logo-img{
+    padding: 10px;
+height: 100%;
+margin: 0 auto;
+  }
+  .quantity-number{
+    span{
+      display: block;
+      text-align: center;
+    }
+  }
+  .wd100{
+    width: 100%;
+  }
+}
+.second-sec{
+  border-top: 1px solid #eeeeee;
+}
+.summary-2{
+  position: relative;
+}
+.close-btn{
+  position: absolute;
+  top: 20px;
+  right: 5px;
+  font-size: 20px;
+}
+.pdt50{
+  padding-top: 50px;
+}
