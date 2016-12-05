@@ -10,81 +10,205 @@
     <div class="product-detail">
       <div class="row">
         <div class="col-md-5">
+          <div class="scroll-image" id="style-2">
+            <div class="text-center">
+              <div class="gully-shirt">
+                <img ng-src="{{customizedShirt.cloth}}" class="img-responsive" alt="">
+                <img ng-src="{{customizedShirt.backdrop}}" class="backdrop img-responsive" alt="">
+                <img ng-src="{{trimTshirt.highlightOne.image}}" ng-if="trimTshirt.highlightOne.image" class="trimshirt img-responsive" alt="">
+                <img ng-src="{{trimTshirt.highlightTwo.image}}" ng-if="trimTshirt.highlightTwo.image" class="trimshirt img-responsive" alt="">
+                <img ng-src="{{trimTshirt.collar}}" ng-if="trimTshirt.collar" class="trimshirt img-responsive" alt="">
+                <div class="div-main-logo" ng-if="customizedShirt.front && customizedShirt.mainlogo.image" ng-style="customizedShirt.mainlogo.divattributes">
+                  <img class="main-logo" ng-src="{{customizedShirt.mainlogo.image | serverimage}}" alt="" ng-style="customizedShirt.mainlogo.attributes">
+                </div>
+                <div class="div-back-sponsor1" ng-if="customizedShirt.back && customizedShirt.backsponsor1.image" ng-style="customizedShirt.backsponsor1.divattributes">
+                  <img class="back-sponsor1" ng-src="{{customizedShirt.backsponsor1.image | serverimage}}" alt="" ng-style="customizedShirt.backsponsor1.attributes">
+                </div>
+                <div class="div-back-sponsor2" ng-if="customizedShirt.back && customizedShirt.backsponsor2.image" ng-style="customizedShirt.backsponsor2.divattributes">
+                  <img class="back-sponsor2" ng-src="{{customizedShirt.backsponsor2.image | serverimage}}" alt="" ng-style="customizedShirt.backsponsor2.attributes">
+                </div>
+                <div class="div-left-chest" ng-if="customizedShirt.front && customizedShirt.leftchest.image" ng-style="customizedShirt.leftchest.divattributes">
+                  <img class="left-chest" ng-src="{{customizedShirt.leftchest.image | serverimage}}" alt="" ng-style="customizedShirt.leftchest.attributes">
+                </div>
+                <div class="div-left-sleeve" ng-if="customizedShirt.leftsleeve.image" ng-style="customizedShirt.leftsleeve.divattributes" ng-class="{'div-left-sleeve':customizedShirt.front,'div-right-sleeve':customizedShirt.back}">
+                  <img ng-class="{'left-sleeve':customizedShirt.front,'right-sleeve':customizedShirt.back}" ng-src="{{customizedShirt.leftsleeve.image | serverimage}}" alt="" ng-style="customizedShirt.leftsleeve.attributes">
+                </div>
+                <div class="div-right-chest" ng-if="customizedShirt.front && customizedShirt.rightchest.image" ng-style="customizedShirt.rightchest.divattributes">
+                  <img class="right-chest" ng-src="{{customizedShirt.rightchest.image | serverimage}}" alt="" ng-style="customizedShirt.rightchest.attributes">
+                </div>
+                <div class="div-right-chest disblock" ng-if="customizedShirt.front && myhide" ng-style="customizedShirt.rightchest.divattributes">
+                  <div style="color:{{myClolr}};transform: rotate({{myArc}}deg);font-size:{{mySize}}px;transform: rotate({{myRotate}}deg);letter-spacing: {{myWordSpace}}px;mymodel.name">{{mymodel.name}}</div>
+                  <div style="color:{{myClolr}};transform: rotate({{myArc1}}deg);font-size:{{mySize1}}px;transform: rotate({{myRotate1}}deg);letter-spacing: {{myWordSpace1}}px;"> {{addtxt10}}</div>
 
+                  <!-- <img class="right-chest" ng-src="{{customizedShirt.rightchest.image | serverimage}}" alt="" ng-style="customizedShirt.rightchest.attributes"> -->
+                </div>
+                <!-- <br>
+                                <div class="div-right-chest" ng-if="customizedShirt.front" ng-style="customizedShirt.rightchest.divattributes"><!-- <img class="right-chest" ng-src="{{customizedShirt.rightchest.image | serverimage}}" alt="" ng-style="customizedShirt.rightchest.attributes"> -->
+                <!-- </div> -->
+                <div class="div-right-sleeve" ng-if="customizedShirt.rightsleeve.image" ng-style="customizedShirt.rightsleeve.divattributes" ng-class="{'div-right-sleeve':customizedShirt.front,'div-left-sleeve':customizedShirt.back}">
+                  <img ng-class="{'right-sleeve':customizedShirt.front,'left-sleeve':customizedShirt.back}" ng-src="{{customizedShirt.rightsleeve.image | serverimage}}" alt="" ng-style="customizedShirt.rightsleeve.attributes">
+                </div>
+                <div ng-if="customizedShirt.back && tab=='quantiy'" class="{{jerseyBack.font+'-font'}}" ng-style="{'color': jerseyBack.color}">
+                  <div class="odi-t jersey-name text-center">{{jerseyBack.name}}</div>
+                  <div class="odi-t jersey-no text-center">{{jerseyBack.no}}</div>
+                </div>
+                <!-- <img class="" src="img/people.png" alt=""> -->
+                <!-- <img class="" src="img/people.png" alt=""> -->
+              </div>
+              <div class="prev inline-block">
+                <p class="uppercase" ng-click="switchFrontBack(false); switchTrimHighlightOne(false, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(false, trimTshirt.highlightTwo.tcolor)"><img src="img/back.png" class="img-responsive" alt="">back</p>
+              </div>
+              <div class="next inline-block">
+                <p class="uppercase" ng-click="switchFrontBack(true); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor)"><img src="img/back.png" class="img-responsive" alt="">front</p>
+              </div>
+      </div>
+          </div>
         </div>
           <div class="col-md-7">
           <div class="desc-sec">
               <h3 class="sum-head">SUMMARY</h3>
             <hr>
-            <p>Design: <span class="designer-name">MATT B&amp;Y</span></p>
-            <p>Colour: <span class="colour-selection">
-              <div class="options color-sel">
-                <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing  block" ng-click="tabchanges('light3',3)">Highlight 1</button>
-                <button class="{{classhide}} btn btn-outline btn-dark padding-btn letter-spacing  block" ng-click="tabchanges('light1',1)">Highlight 2</button>
-                <button class="{{classhide}} btn btn-outline btn-dark padding-btn letter-spacing  block" ng-click="tabchanges('light2',2)">Palette</button>
-                <button class="{{classhide}} btn btn-outline btn-dark padding-btn letter-spacing  block" ng-click="tabchanges('light2',2)">Collar</button>
+            <p class="mgb20 inline-block">Design: </p><span class="designer-name">MATT B&amp;Y</span>
+            <div>
+              <p class="inline-block mgb20">Colour: <span class="colour-selection">
+                <div class="options color-sel inline-block mgb20">
+                  <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing  block" ng-click="tabchanges('light3',3)">Highlight 1</button>
+                  <button class="{{classhide}} btn btn-outline btn-dark padding-btn letter-spacing  block" ng-click="tabchanges('light1',1)">Highlight 2</button>
+                  <button class="{{classhide}} btn btn-outline btn-dark padding-btn letter-spacing  block" ng-click="tabchanges('light2',2)">Palette</button>
+                  <button class="{{classhide}} btn btn-outline btn-dark padding-btn letter-spacing  block" ng-click="tabchanges('light2',2)">Collar</button>
+              </div>
+              </span>
+            </p>
             </div>
-            </span>
-          </p>
-<p>Team Logo: <div class="team-logo inline-block">
+
+<p class="inline-block mgb20">Team Logo: <div class="team-logo inline-block mgl-20 va-mid">
   <img src="img/custom/c4.jpg" alt="" class="img-responsive logo-img">
 </div></p>
-<p>Sponsor Logos: <div class="team-logo inline-block">
+<p class="inline-block">Sponsor Logos: <div class="team-logo inline-block mgl-20 va-mid">
   <img src="img/custom/c4.jpg" alt="" class="img-responsive logo-img">
+
 </div></p>
-<p>Order Quantity:
-<div class="inline-block quantity-number">
+<p class="inline-block">Order Quantity:
+<div class="inline-block quantity-number pdl30">
    <span>S</span>
-  <span>20</span>
+   <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing  block" ng-click="tabchanges('light3',3)">20</button>
+  <!-- <span class="qn-number">20</span> -->
   </div>
   <div class="inline-block quantity-number">
      <span>M</span>
-    <span>40</span>
+   <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing  block" ng-click="tabchanges('light3',3)">40</button>
     </div>
     <div class="inline-block quantity-number">
        <span>XL</span>
-      <span>50</span>
+       <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing  block" ng-click="tabchanges('light3',3)">50</button>
       </div>
-      <div class="inline-block quantity-number">
-         <span>Total</span>
-        <span>110</span>
+      <div class="inline-block quantity-number pdr10">
+         <span>TOTAL</span>
+         <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing  block" ng-click="tabchanges('light3',3)">110</button>
         </div>
 </p>
-<h3>Price: <i class="fa fa-inr"></i>35000</h3>
-<textarea rows="5" placeholder="comments" class="wd100">
-
-</textarea>
+<h3 class="mgb20">Price: <i class="fa fa-inr va-sub"></i>35000</h3>
+  <textarea rows="5" placeholder="comments" class="wd100"></textarea>
           </div>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="second-sec">
-          <div class="col-md-5"></div>
+          <div class="col-md-5">
+            <div class="scroll-image" id="style-2">
+              <div class="text-center">
+                <div class="gully-shirt">
+                  <img ng-src="{{customizedShirt.cloth}}" class="img-responsive" alt="">
+                  <img ng-src="{{customizedShirt.backdrop}}" class="backdrop img-responsive" alt="">
+                  <img ng-src="{{trimTshirt.highlightOne.image}}" ng-if="trimTshirt.highlightOne.image" class="trimshirt img-responsive" alt="">
+                  <img ng-src="{{trimTshirt.highlightTwo.image}}" ng-if="trimTshirt.highlightTwo.image" class="trimshirt img-responsive" alt="">
+                  <img ng-src="{{trimTshirt.collar}}" ng-if="trimTshirt.collar" class="trimshirt img-responsive" alt="">
+                  <div class="div-main-logo" ng-if="customizedShirt.front && customizedShirt.mainlogo.image" ng-style="customizedShirt.mainlogo.divattributes">
+                    <img class="main-logo" ng-src="{{customizedShirt.mainlogo.image | serverimage}}" alt="" ng-style="customizedShirt.mainlogo.attributes">
+                  </div>
+                  <div class="div-back-sponsor1" ng-if="customizedShirt.back && customizedShirt.backsponsor1.image" ng-style="customizedShirt.backsponsor1.divattributes">
+                    <img class="back-sponsor1" ng-src="{{customizedShirt.backsponsor1.image | serverimage}}" alt="" ng-style="customizedShirt.backsponsor1.attributes">
+                  </div>
+                  <div class="div-back-sponsor2" ng-if="customizedShirt.back && customizedShirt.backsponsor2.image" ng-style="customizedShirt.backsponsor2.divattributes">
+                    <img class="back-sponsor2" ng-src="{{customizedShirt.backsponsor2.image | serverimage}}" alt="" ng-style="customizedShirt.backsponsor2.attributes">
+                  </div>
+                  <div class="div-left-chest" ng-if="customizedShirt.front && customizedShirt.leftchest.image" ng-style="customizedShirt.leftchest.divattributes">
+                    <img class="left-chest" ng-src="{{customizedShirt.leftchest.image | serverimage}}" alt="" ng-style="customizedShirt.leftchest.attributes">
+                  </div>
+                  <div class="div-left-sleeve" ng-if="customizedShirt.leftsleeve.image" ng-style="customizedShirt.leftsleeve.divattributes" ng-class="{'div-left-sleeve':customizedShirt.front,'div-right-sleeve':customizedShirt.back}">
+                    <img ng-class="{'left-sleeve':customizedShirt.front,'right-sleeve':customizedShirt.back}" ng-src="{{customizedShirt.leftsleeve.image | serverimage}}" alt="" ng-style="customizedShirt.leftsleeve.attributes">
+                  </div>
+                  <div class="div-right-chest" ng-if="customizedShirt.front && customizedShirt.rightchest.image" ng-style="customizedShirt.rightchest.divattributes">
+                    <img class="right-chest" ng-src="{{customizedShirt.rightchest.image | serverimage}}" alt="" ng-style="customizedShirt.rightchest.attributes">
+                  </div>
+                  <div class="div-right-chest disblock" ng-if="customizedShirt.front && myhide" ng-style="customizedShirt.rightchest.divattributes">
+                    <div style="color:{{myClolr}};transform: rotate({{myArc}}deg);font-size:{{mySize}}px;transform: rotate({{myRotate}}deg);letter-spacing: {{myWordSpace}}px;mymodel.name">{{mymodel.name}}</div>
+                    <div style="color:{{myClolr}};transform: rotate({{myArc1}}deg);font-size:{{mySize1}}px;transform: rotate({{myRotate1}}deg);letter-spacing: {{myWordSpace1}}px;"> {{addtxt10}}</div>
+
+                    <!-- <img class="right-chest" ng-src="{{customizedShirt.rightchest.image | serverimage}}" alt="" ng-style="customizedShirt.rightchest.attributes"> -->
+                  </div>
+                  <!-- <br>
+                                  <div class="div-right-chest" ng-if="customizedShirt.front" ng-style="customizedShirt.rightchest.divattributes"><!-- <img class="right-chest" ng-src="{{customizedShirt.rightchest.image | serverimage}}" alt="" ng-style="customizedShirt.rightchest.attributes"> -->
+                  <!-- </div> -->
+                  <div class="div-right-sleeve" ng-if="customizedShirt.rightsleeve.image" ng-style="customizedShirt.rightsleeve.divattributes" ng-class="{'div-right-sleeve':customizedShirt.front,'div-left-sleeve':customizedShirt.back}">
+                    <img ng-class="{'right-sleeve':customizedShirt.front,'left-sleeve':customizedShirt.back}" ng-src="{{customizedShirt.rightsleeve.image | serverimage}}" alt="" ng-style="customizedShirt.rightsleeve.attributes">
+                  </div>
+                  <div ng-if="customizedShirt.back && tab=='quantiy'" class="{{jerseyBack.font+'-font'}}" ng-style="{'color': jerseyBack.color}">
+                    <div class="odi-t jersey-name text-center">{{jerseyBack.name}}</div>
+                    <div class="odi-t jersey-no text-center">{{jerseyBack.no}}</div>
+                  </div>
+                  <!-- <img class="" src="img/people.png" alt=""> -->
+                  <!-- <img class="" src="img/people.png" alt=""> -->
+                </div>
+                <div class="prev inline-block">
+                  <p class="uppercase" ng-click="switchFrontBack(false); switchTrimHighlightOne(false, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(false, trimTshirt.highlightTwo.tcolor)"><img src="img/back.png" class="img-responsive" alt="">back</p>
+                </div>
+                <div class="next inline-block">
+                  <p class="uppercase" ng-click="switchFrontBack(true); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor)"><img src="img/back.png" class="img-responsive" alt="">front</p>
+                </div>
+        </div>
+            </div>
+          </div>
           <div class="col-md-7">
 <div class="summary-2">
   <i class="fa fa-times pull-right close-btn" aria-hidden="true"></i>
   <div class="desc-sec pdt50">
-  <p>Design: <span class="designer-name">MATT B&amp;Y</span></p>
-  <p>Order Quantity:
-  <div class="inline-block quantity-number">
+  <p class="mgb20 inline-block">Design: </p><span class="designer-name">MATT B&amp;Y</span>
+<div>
+  <p class="inline-block">Order Quantity:
+  <div class="inline-block quantity-number pdl30">
      <span>S</span>
-    <span>20</span>
+     <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing  block" ng-click="tabchanges('light3',3)">20</button>
+    <!-- <span class="qn-number">20</span> -->
     </div>
     <div class="inline-block quantity-number">
        <span>M</span>
-      <span>40</span>
+     <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing  block" ng-click="tabchanges('light3',3)">40</button>
       </div>
       <div class="inline-block quantity-number">
          <span>XL</span>
-        <span>50</span>
+         <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing  block" ng-click="tabchanges('light3',3)">50</button>
         </div>
-        <div class="inline-block quantity-number">
-           <span>Total</span>
-          <span>110</span>
+        <div class="inline-block quantity-number pdr10">
+           <span>TOTAL</span>
+           <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing  block" ng-click="tabchanges('light3',3)">110</button>
           </div>
   </p>
-  <h3>Price: <i class="fa fa-inr"></i>35000</h3>
+</div>
+  <h3 class="mgb60">Price: <i class="fa fa-inr va-sub"></i> 35000</h3>
+  <h3>Total Price: <i class="fa fa-inr va-sub"></i> 70000</h3>
+  <div class="checkboxing">
+      <input type="checkbox" class="form-control" id="later">
+      <label for="later" class="checkout-checkbox"><span></span>I agree this is my final order</label>
+  </div>
+  <div class="edit-btn inline-block">
+    <button href="" class="btn btn-outline btn-dark letter-spacing">ADD TO CART</button>
+  </div>
+  <textarea rows="5" placeholder="comments" class="wd100"></textarea>
+  <div class="edit-btn text-center">
+    <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE &amp; SHARE DESIGN</button>
+  </div>
   </div>
 </div>
             </div>
