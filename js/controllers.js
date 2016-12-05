@@ -7,7 +7,7 @@ var user = $.jStorage.get("user");
 var globalfunction = {};
 var bigcount = {};
 //window.uploadUrl = "http://customcricketcompany.com/admin/index.php/json/uploadImage";
-window.uploadUrl = "http://192.168.100.116/cccbackend/index.php/json/uploadImage";
+window.uploadUrl = "http://192.168.100.108/cccbackend/index.php/json/uploadImage";
 
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'duScroll', 'cfp.loadingBar', 'ngDialog', 'angularFileUpload', 'ngSanitize', 'ui-rangeSlider'])
 
@@ -3597,24 +3597,28 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.switchTrimHighlightOne = function(flag, color) {
         console.log(flag);
         console.log(color);
-        $scope.trimTshirt.highlightOne.flag = flag;
-        $scope.trimTshirt.highlightOne.tcolor = color;
-        if (flag) {
-            $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
-        } else {
-            $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/highlight1/back/trim_" + color + ".png";
+        if (color != undefined && color != nil) {
+          $scope.trimTshirt.highlightOne.flag = flag;
+          $scope.trimTshirt.highlightOne.tcolor = color;
+          if (flag) {
+              $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
+          } else {
+              $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/highlight1/back/trim_" + color + ".png";
+          }
         }
     };
     $scope.switchTrimHighlightTwo = function(flag, color) {
         console.log('two');
         console.log(color);
         console.log(flag);
-        $scope.trimTshirt.highlightTwo.flag = flag;
-        $scope.trimTshirt.highlightTwo.tcolor = color;
-        if (flag) {
-            $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/highlight2/front/trim_" + color + ".png";
-        } else {
-            $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/highlight2/back/trim_" + color + ".png";
+        if (color != undefined && color != nil) {
+          $scope.trimTshirt.highlightTwo.flag = flag;
+          $scope.trimTshirt.highlightTwo.tcolor = color;
+          if (flag) {
+              $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/highlight2/front/trim_" + color + ".png";
+          } else {
+              $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/highlight2/back/trim_" + color + ".png";
+          }
         }
     };
     $scope.trimCollar = function(color) {
@@ -6807,6 +6811,13 @@ $scope.myhide = true;
         }, function(err) {
             console.log(err);
         });
+    })
+    .controller('OrderSummaryCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $window, cfpLoadingBar) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("ordersummary");
+        $scope.menutitle = NavigationService.makeactive("OrderSummary");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
     })
     .controller('CheckoutCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $interval, cfpLoadingBar, $uibModal, $window) {
         //Used to name the .html file

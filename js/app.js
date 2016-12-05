@@ -251,13 +251,16 @@
         templateUrl: "views/template.html",
         controller: 'OrderCtrl'
       })
-
     .state('checkout', {
       url: "/checkout",
       templateUrl: "views/template.html",
       controller: 'CheckoutCtrl'
     })
-
+    .state('ordersummary', {
+      url: "/ordersummary",
+      templateUrl: "views/template.html",
+      controller: 'OrderSummaryCtrl'
+    })
     .state('mywishlist', {
         url: "/mywishlist",
         templateUrl: "views/template.html",
