@@ -554,9 +554,9 @@
                             <span>size</span>
                           </div>
                           <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                            <!-- <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShirt[key].attributes.width" min="25" max="60" model-max="customizedShirt[key].attributes.width" model-min="rslider.min" pin-handle="min">
-                            </div> -->
-                            <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBack.attributes.fontSize" min="0" max="100" model-max="jerseyBack.attributes.fontSize" model-min="rslider.min" pin-handle="min"></div>
+                            <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBack.attributes.fontSize" min="0" max="100" model-max="jerseyBack.attributes.fontSize" model-min="0" pin-handle="min">
+                            </div>
+                            <!-- <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBack.attributes.fontSize" min="0" max="100" model-max="jerseyBack.attributes.fontSize" model-min="rslider.min" pin-handle="min"></div> -->
                           </div>
                           <div class="col-md-3 col-sm-3 col-xs-3">
                             <input class="inputtext" type="number" name="mySize" ng-model="jerseyBack.attributes.fontSize">
@@ -580,7 +580,7 @@
                             <span>rotation</span>
                           </div>
                           <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                            <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBack.attributes.rotate" min="0" max="360" model-max="jerseyBack.attributes.rotate" model-min="rslider.min" pin-handle="min">
+                            <div range-slider  on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-bind-html-unsafe="{{jerseyBack.attributes.rotate | translateRotate:this}}" ng-model="jerseyBack.attributes.rotate" min="0" max="360" model-max="jerseyBack.attributes.rotate" model-min="0" pin-handle="min">
                             </div>
                           </div>
                           <div class="col-md-3 col-sm-3 col-xs-3">
@@ -592,11 +592,11 @@
                             <span>spacing</span>
                           </div>
                           <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                            <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShirt[key].attributes.width" min="25" max="60" model-max="customizedShirt[key].attributes.width" model-min="rslider.min" pin-handle="min">
+                            <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBack.attributes.letterSpacing" min="1" max="20" model-max="jerseyBack.attributes.letterSpacing" model-min="1" pin-handle="min">
                             </div>
                           </div>
                           <div class="col-md-3 col-sm-3 col-xs-3">
-                            <input class="inputtext" type="number" name="myWordSpace" ng-model="myWordSpace">
+                            <input class="inputtext" type="number" name="myWordSpace" ng-model="jerseyBack.attributes.letterSpacing">
                           </div>
                         </div>
                       </div>

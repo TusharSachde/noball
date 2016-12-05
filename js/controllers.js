@@ -6,8 +6,8 @@ var tabvalue = 1;
 var user = $.jStorage.get("user");
 var globalfunction = {};
 var bigcount = {};
-//window.uploadUrl = "http://customcricketcompany.com/admin/index.php/json/uploadImage";
-window.uploadUrl = "http://192.168.100.108/cccbackend/index.php/json/uploadImage";
+window.uploadUrl = "http://customcricketcompany.com/admin/index.php/json/uploadImage";
+// window.uploadUrl = "http://192.168.100.108/cccbackend/index.php/json/uploadImage";
 
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'duScroll', 'cfp.loadingBar', 'ngDialog', 'angularFileUpload', 'ngSanitize', 'ui-rangeSlider'])
 
@@ -3489,9 +3489,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         'font': 'arial',
         'color': '#c80d28',
         'attributes': {
-          'fontSize': '18',
+          'fontSize': 18,
           'border': 'none',
-          'rotate': '0'
+          'rotate': 0,
+          'letterSpacing': 1
         }
     };
 
@@ -3531,9 +3532,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //$scope.customizedShirt[key].attributes.top = "calc(25px - " + $scope.customizedShirt[key].attributes.width / 2 + "px)"
         //$scope.customizedShirt[key].attributes.left = "calc(25px - " + $scope.customizedShirt[key].attributes.width / 2 + "px)"
         //$scope.jerseyBack.attributes.fontSize = $scope.jerseyBack.attributes.fontSize;
-        $scope.jerseyBack.attributes.transform = "rotate("+$scope.jerseyBack.attributes.rotate + "deg)";
         $scope.jerseyBack.attributes.border = "1px solid #ccc";
+        $scope.$apply();
     };
+    $
     $scope.resetTextStyle = function() {
         $scope.jerseyBack.attributes.border = "none";
         $scope.$apply();
@@ -3771,7 +3773,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     alpha: true
                 });
                 renderer.setSize(width, height);
-                document.getElementById("threed-ball").appendChild(renderer.domElement);
+                //document.getElementById("threed-ball").appendChild(renderer.domElement);
                 renderer.setClearColor(0xFFFFFF, 1);
 
                 camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 10000);

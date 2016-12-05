@@ -326,6 +326,13 @@
       }
     };
   });
+  firstapp.filter('translateRotate', function () {
+    return function (input,scope) {
+      if(input){
+        scope.jerseyBack.attributes.transform = "rotate("+input + "deg)";
+      }
+    };
+  });
 
   firstapp.filter('serverimage2', function () {
     return function (input) {
