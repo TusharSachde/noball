@@ -3487,7 +3487,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         'name': 'Name',
         'no': '00',
         'font': 'arial',
-        'color': '#c80d28'
+        'color': '#c80d28',
+        'attributes': {
+          'fontSize': '18',
+          'border': 'none',
+          'rotate': '0'
+        }
     };
 
     $scope.switchFrontBack = function(front) {
@@ -3525,10 +3530,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //$scope.customizedShirt[key].attributes.position = "relative"
         //$scope.customizedShirt[key].attributes.top = "calc(25px - " + $scope.customizedShirt[key].attributes.width / 2 + "px)"
         //$scope.customizedShirt[key].attributes.left = "calc(25px - " + $scope.customizedShirt[key].attributes.width / 2 + "px)"
-        $scope.mymodel.name.border = "1px solid #ccc";
+        //$scope.jerseyBack.attributes.fontSize = $scope.jerseyBack.attributes.fontSize;
+        $scope.jerseyBack.attributes.transform = "rotate("+$scope.jerseyBack.attributes.rotate + "deg)";
+        $scope.jerseyBack.attributes.border = "1px solid #ccc";
     };
     $scope.resetTextStyle = function() {
-        $scope.mymodel.name.border = "none";
+        $scope.jerseyBack.attributes.border = "none";
         $scope.$apply();
     };
     $scope.onFileSelect = function($files, whichone, uploadtype, variable) {
@@ -3726,7 +3733,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.tab = "teamcolor";
             $scope.myModal.close();
         } else {
-$scope.myhide = true;
+            $scope.myhide = true;
             $scope.tab = "teamcolor";
             $scope.myModal.close();
         }

@@ -7,22 +7,22 @@
       <div class="row" scrolladd1class>
         <div class="step ">
           <ul class="pad0">
-            <li class="tab-item breadcrums {{classa}}" ng-click="tabchange('design',1)">
+            <li class="tab-item breadcrums {{classa}}" ng-click="tabchange('design',1); switchFrontBack(true); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor);">
               <span class="bread-frnt"></span>
               <p>1. DESIGN</p>
               <span class="bread-back"></span>
             </li>
-            <li class="tab-item breadcrums {{classb}}" ng-click="tabchange('trim',2)">
+            <li class="tab-item breadcrums {{classb}}" ng-click="tabchange('trim',2); switchFrontBack(true); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor);">
               <span class="bread-frnt"></span>
               <p>2. TRIM</p>
               <span class="bread-back"></span>
             </li>
-            <li class="tab-item breadcrums {{classc}}" ng-click="tabchange('team',3)">
+            <li class="tab-item breadcrums {{classc}}" ng-click="tabchange('team',3); switchFrontBack(true); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor);">
               <span class="bread-frnt"></span>
               <p>3. TEAM LOGO</p>
               <span class="bread-back"></span>
             </li>
-            <li class="tab-item breadcrums {{classe}}" ng-click="tabchange('quantity',5); switchFrontBack(false); switchTrimHighlightOne(false, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(false, trimTshirt.highlightTwo.tcolor)">
+            <li class="tab-item breadcrums {{classe}}" ng-click="tabchange('quantity',5); switchFrontBack(false); switchTrimHighlightOne(false, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(false, trimTshirt.highlightTwo.tcolor);">
               <span class="bread-frnt"></span>
               <p>4. QUANTITY</p>
               <span class="bread-back"></span>
@@ -75,7 +75,7 @@
                   <img ng-class="{'right-sleeve':customizedShirt.front,'left-sleeve':customizedShirt.back}" ng-src="{{customizedShirt.rightsleeve.image | serverimage}}" alt="" ng-style="customizedShirt.rightsleeve.attributes">
                 </div>
                 <div ng-if="customizedShirt.back && tab=='quantiy'" class="{{jerseyBack.font+'-font'}}" ng-style="{'color': jerseyBack.color}">
-                  <div class="odi-t jersey-name text-center">{{jerseyBack.name}}</div>
+                  <div class="odi-t jersey-name text-center"><p ng-style="jerseyBack.attributes">{{jerseyBack.name}}</p></div>
                   <div class="odi-t jersey-no text-center">{{jerseyBack.no}}</div>
                 </div>
                 <!-- <img class="" src="img/people.png" alt=""> -->
@@ -363,12 +363,12 @@
                   <!--<span><a href="" ng-click="outplace();">Click here</a> to find out how?</span>-->
                 </div>
               </div>
-              <!-- <div class="edit-btn inline-block">
-                                <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
-                            </div>
-                            <div class="edit-btn inline-block">
-                                <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
-                            </div> -->
+              <div class="edit-btn inline-block">
+                  <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+              </div>
+              <div class="edit-btn inline-block">
+                  <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('quantity',5); switchFrontBack(false); switchTrimHighlightOne(false, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(false, trimTshirt.highlightTwo.tcolor);">NEXT</button>
+              </div>
             </div>
 
 
@@ -554,17 +554,19 @@
                             <span>size</span>
                           </div>
                           <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                            <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShirt[key].attributes.width" min="25" max="60" model-max="customizedShirt[key].attributes.width" model-min="rslider.min" pin-handle="min">
-                            </div>
+                            <!-- <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShirt[key].attributes.width" min="25" max="60" model-max="customizedShirt[key].attributes.width" model-min="rslider.min" pin-handle="min">
+                            </div> -->
+                            <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBack.attributes.fontSize" min="0" max="100" model-max="jerseyBack.attributes.fontSize" model-min="rslider.min" pin-handle="min"></div>
                           </div>
                           <div class="col-md-3 col-sm-3 col-xs-3">
-                            <input class="inputtext" type="number" name="mySize" ng-model="mySize">
+                            <input class="inputtext" type="number" name="mySize" ng-model="jerseyBack.attributes.fontSize">
                           </div>
                         </div>
-                        <div class="row pad5">
+                        <!-- <div class="row pad5">
                           <div class="col-md-1 col-sm-1 col-xs-1">
                             <span>arc</span>
                           </div>
+                          //ng-value="{{jerseyBack}}deg"
                           <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
                             <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShirt[key].attributes.width" min="25" max="60" model-max="customizedShirt[key].attributes.width" model-min="rslider.min" pin-handle="min">
                             </div>
@@ -572,17 +574,17 @@
                           <div class="col-md-3 col-sm-3 col-xs-3">
                             <input class="inputtext" type="number" ng-model="myArc" name="size">
                           </div>
-                        </div>
+                        </div> -->
                         <div class="row pad5">
                           <div class="col-md-1 col-sm-1 col-xs-1">
                             <span>rotation</span>
                           </div>
                           <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                            <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShirt[key].attributes.width" min="25" max="60" model-max="customizedShirt[key].attributes.width" model-min="rslider.min" pin-handle="min">
+                            <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBack.attributes.rotate" min="0" max="360" model-max="jerseyBack.attributes.rotate" model-min="rslider.min" pin-handle="min">
                             </div>
                           </div>
                           <div class="col-md-3 col-sm-3 col-xs-3">
-                            <input class="inputtext" type="number" name="myRotate" ng-model="myRotate">
+                            <input class="inputtext" type="number" name="myRotate" ng-model="jerseyBack.attributes.rotate">
                           </div>
                         </div>
                         <div class="row pad5">
@@ -611,12 +613,12 @@
               </div>
             </div>
           </div>
-          <div class="edit-btn inline-block">
+          <!-- <div class="edit-btn inline-block">
             <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
           </div>
           <div class="edit-btn inline-block">
             <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('team',3)">NEXT</button>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
