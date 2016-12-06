@@ -3614,16 +3614,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
     $scope.trimTshirt.highlightOne.flag = true;
     $scope.trimTshirt.highlightTwo.flag = true;
+    $scope.trimTshirt.highlightOne.tcolor = "white";
+    $scope.trimTshirt.highlightTwo.tcolor = "white";
     $scope.switchTrimHighlightOne = function(flag, color) {
         console.log(flag);
         console.log(color);
         //if (color != undefined && color != nil) {
           $scope.trimTshirt.highlightOne.flag = flag;
           $scope.trimTshirt.highlightOne.tcolor = color;
-          if (flag) {
-              $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
+          if ($scope.trimTshirt.highlightOne.tcolor != "white") {
+            if (flag) {
+                $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
+            } else {
+                $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/highlight1/back/trim_" + color + ".png";
+            }
           } else {
-              $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/highlight1/back/trim_" + color + ".png";
+            $scope.trimTshirt.highlightOne.image = "";
+            $scope.trimTshirt.highlightOne.image = "";
           }
         //}
     };
@@ -3634,10 +3641,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //if (color != undefined && color != nil) {
           $scope.trimTshirt.highlightTwo.flag = flag;
           $scope.trimTshirt.highlightTwo.tcolor = color;
-          if (flag) {
-              $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/highlight2/front/trim_" + color + ".png";
+          if ($scope.trimTshirt.highlightTwo.tcolor != "white") {
+            if (flag) {
+                $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/highlight2/front/trim_" + color + ".png";
+            } else {
+                $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/highlight2/back/trim_" + color + ".png";
+            }
           } else {
-              $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/highlight2/back/trim_" + color + ".png";
+            $scope.trimTshirt.highlightTwo.image = "";
+            $scope.trimTshirt.highlightTwo.image = "";
           }
         //}
     };
