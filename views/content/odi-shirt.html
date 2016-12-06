@@ -75,8 +75,8 @@
                   <img ng-class="{'right-sleeve':customizedShirt.front,'left-sleeve':customizedShirt.back}" ng-src="{{customizedShirt.rightsleeve.image | serverimage}}" alt="" ng-style="customizedShirt.rightsleeve.attributes">
                 </div>
                 <div ng-if="customizedShirt.back && tab=='quantiy'" class="{{jerseyBack.font+'-font'}}" ng-style="{'color': jerseyBack.color}">
-                  <div class="odi-t jersey-name text-center"><p ng-style="jerseyBack.attributes">{{jerseyBack.name}}</p></div>
-                  <div class="odi-t jersey-no text-center">{{jerseyBack.no}}</div>
+                  <div class="odi-t jersey-name text-center"><p ng-style="jerseyBack.attributes">{{jerseyBackArr[0].name}}</p></div>
+                  <div class="odi-t jersey-no text-center">{{jerseyBackArr[0].no}}</div>
                 </div>
                 <!-- <img class="" src="img/people.png" alt=""> -->
                 <!-- <img class="" src="img/people.png" alt=""> -->
@@ -508,9 +508,9 @@
                           <!-- <tr class="nothing">
                                                         <td></td>
                                                     </tr> -->
-                          <tr>
+                          <tr ng-repeat="jersey in jerseyBackArr track by $index">
                             <td>
-                              <select>
+                              <select ng-model="jersey.size">
                                 <option value="XL">S</option>
                                 <option value="20">M</option>
                                 <option value="30">L</option>
@@ -520,7 +520,7 @@
                               </select>
                             </td>
                             <td>
-                              <select>
+                              <select ng-model="jersey.sleeve">
                                 <option value="L.S">L.S</option>
                                 <option value="30">30</option>
                                 <option value="40">40</option>
@@ -528,26 +528,26 @@
                               </select>
                             </td>
                             <td>
-                              <input type="text" name="quantity" value="10">
+                              <input type="number" name="quantity" ng-model="jersey.quantity">
                             </td>
                             <td>
-                              <input type="text" ng-model="jerseyBack.name" name="name">
+                              <input type="text" ng-model="jersey.name" name="name"> <!-- ng-model="jerseyBack.name" -->
                             </td>
                             <td>
-                              <input type="text" ng-model="jerseyBack.no" name="number">
+                              <input type="text" ng-model="jersey.no" name="number"> <!-- ng-model="jerseyBack.no" -->
                             </td>
                             <td>
-                              <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">PREVIEW</button>
+                              <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-if="$index == 0">PREVIEW</button>
                             </td>
 
-                            <td class="binbord-rgt"><img src="img/rubbishbin.png" class="img-responsive doneLoading" alt=""></td>
+                            <td class="binbord-rgt"><img src="img/rubbishbin.png" class="img-responsive doneLoading" alt="" ng-click="removeJerseyValue($index)"></td>
                           </tr>
                           <tr class="nothing">
                             <td></td>
                           </tr>
                         </tbody>
                       </table>
-                      <p class="addtable"><i class="fa mr7 fa-plus" aria-hidden="true"></i> ADD</p>
+                      <p class="addtable pointer" ng-click="addJerseyValues()"><i class="fa mr7 fa-plus" aria-hidden="true"></i> ADD</p>
                       <div class="range">
                         <div class="row pad5">
                           <div class="col-md-1 col-sm-1 col-xs-1">
