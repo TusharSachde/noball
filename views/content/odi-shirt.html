@@ -142,13 +142,13 @@
             <!--   //trim tab-->
             <div class="choos m20-l " ng-show="tab=='trim'">
               <div class="options">
-                <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing  inline-block" ng-click="tabchanges('light3',3)">BASE</button>
-                <button class="{{classhide}} btn btn-outline btn-dark padding-btn letter-spacing  inline-block" ng-click="tabchanges('light1',1)">TRIM 1</button>
-                <button class="{{classhide}} btn btn-outline btn-dark padding-btn letter-spacing  inline-block" ng-click="tabchanges('light2',2)">TRIM 2</button>
+                <button class="{{trimTabs.light3.active}} classshow btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-click="tabchanges('light3',3)">BASE</button>
+                <button class="{{trimTabs.light1.active}} classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-click="tabchanges('light1',1)">TRIM 1</button>
+                <button class="{{trimTabs.light2.active}} classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-click="tabchanges('light2',2)">TRIM 2</button>
                 <!-- <button class="{{classhide1} btn btn-outline btn-dark padding-btn letter-spacing  inline-block" ng-click="tabchanges('light3',3)">PALETTE</button>
                                 <button class="{{classhide2} btn btn-outline btn-dark padding-btn letter-spacing  inline-block" ng-click="tabchanges('light4',4)">COLLAR</button> -->
               </div>
-              <div class="{{classp}} outline disnon" ng-if="tabs=='light1'">
+              <div class="{{trimTabs.light1.show}} classp outline disnon" ng-if="tabs=='light1'">
                 <div class="row">
                   <div class="col-md-12">
                     <h4>Select The Colour</h4>
@@ -164,7 +164,7 @@
                                     <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
                                 </div> -->
               </div>
-              <div class="{{classv}} outline disnon" ng-if="tabs=='light2'">
+              <div class="{{trimTabs.light2.show}} classv outline disnon" ng-if="tabs=='light2'">
                 <div class="row">
                   <div class="col-md-12">
                     <h4>Select The Colour</h4>
@@ -179,7 +179,7 @@
                                     <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
                                 </div> -->
               </div>
-              <div class="{{classv}} outline disnon" ng-if="tabs=='light3'">
+              <div class="{{trimTabs.light3.show}} classv outline disnon" ng-if="tabs=='light3'">
                 <div class="row">
                   <div class="col-md-12">
                     <h4>Select The Colour</h4>
@@ -600,7 +600,7 @@
                           </div>
                         </div>
                       </div>
-                      <span class="pull-right uppercase fontfam">Total:255</span>
+                      <span class="pull-right uppercase fontfam">Total:995</span>
                     </div>
                   </uib-accordion-group>
                 </uib-accordion>

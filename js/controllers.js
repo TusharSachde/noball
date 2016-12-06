@@ -4100,58 +4100,69 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     };
 
-    $scope.tabs = 'light1';
+    $scope.tabs = 'light3';
     $scope.classp = 'active-tab';
     $scope.classv = '';
     $scope.classshow = 'activeme';
     $scope.classhide = '';
+    $scope.trimTabs = {};
+    $scope.trimTabs.light1 = {};
+    $scope.trimTabs.light2 = {};
+    $scope.trimTabs.light3 = {};
+    $scope.trimTabs.light1.active = "";
+    $scope.trimTabs.light1.show = "";
+    $scope.trimTabs.light2.active = "";
+    $scope.trimTabs.light2.show = "";
+    $scope.trimTabs.light3.active = "activeme";
+    $scope.trimTabs.light3.show = "active-tab";
+
 
     $scope.tabchanges = function(tabs, b) {
-
         $scope.tabs = tabs;
         if (b == 1) {
-
-            $scope.classp = "active-tab";
-            $scope.classv = '';
-            $scope.classshow = 'activeme';
-            $scope.classhide = '';
-            $scope.classhide1 = '';
-            $scope.classhide2 = '';
-
-
-
+            // $scope.classp = "active-tab";
+            // $scope.classv = '';
+            // $scope.classshow = 'activeme';
+            // $scope.classhide = '';
+            // $scope.classhide1 = '';
+            // $scope.classhide2 = '';
+            $scope.trimTabs.light1.active = "activeme";
+            $scope.trimTabs.light1.show = "active-tab";
+            $scope.trimTabs.light2.active = "";
+            $scope.trimTabs.light2.show = "";
+            $scope.trimTabs.light3.active = "";
+            $scope.trimTabs.light3.show = "";
         }
         if (b == 2) {
-
-            $scope.classv = "active-tab";
-            $scope.classp = '';
-            $scope.classshow = '';
-            $scope.classhide = 'activeme';
-            $scope.classhide1 = '';
-            $scope.classhide2 = '';
-
-
-
+            // $scope.classv = "active-tab";
+            // $scope.classp = '';
+            // $scope.classshow = '';
+            // $scope.classhide = 'activeme';
+            // $scope.classhide1 = '';
+            // $scope.classhide2 = '';
+            $scope.trimTabs.light1.active = "";
+            $scope.trimTabs.light1.show = "";
+            $scope.trimTabs.light2.active = "activeme";
+            $scope.trimTabs.light2.show = "active-tab";
+            $scope.trimTabs.light3.active = "";
+            $scope.trimTabs.light3.show = "";
         }
         if (b == 3) {
-
-
-            $scope.classshow = '';
-            $scope.classhide = '';
-            $scope.classhide1 = 'activeme';
-            $scope.classhide2 = '';
-
-
-
+            // $scope.classshow = '';
+            // $scope.classhide = '';
+            // $scope.classhide1 = 'activeme';
+            // $scope.classhide2 = '';
+            $scope.trimTabs.light1.active = "";
+            $scope.trimTabs.light1.show = "";
+            $scope.trimTabs.light2.active = "";
+            $scope.trimTabs.light2.show = "";
+            $scope.trimTabs.light3.active = "activeme";
+            $scope.trimTabs.light3.show = "active-tab";
         } else if (b == 4) {
-
-            $scope.classshow = '';
-            $scope.classhide = '';
-            $scope.classhide1 = '';
-            $scope.classhide2 = 'activeme';
-
-
-
+            // $scope.classshow = '';
+            // $scope.classhide = '';
+            // $scope.classhide1 = '';
+            // $scope.classhide2 = 'activeme';
         }
     };
 
