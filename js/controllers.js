@@ -3488,6 +3488,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         'no': '00',
         'font': 'arial',
         'color': '#c80d28',
+        'quantity': 1,
         'attributes': {
           'fontSize': 18,
           'border': 'none',
@@ -3495,6 +3496,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           'letterSpacing': 1
         }
     };
+    $scope.jerseyBackArr = [{
+        'name': 'Name',
+        'no': '00',
+        'font': 'arial',
+        'color': '#c80d28',
+        'quantity': 1
+    }];
+
+    $scope.addJerseyValues = function() {
+      $scope.jerseyBackArr.push(_.clone($scope.jerseyBack));
+    }
+    $scope.removeJerseyValue = function(index) {
+      $scope.jerseyBackArr.splice(index, 1);
+    }
 
     $scope.switchFrontBack = function(front) {
         $scope.customizedShirt.front =  front;
@@ -3515,10 +3530,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.tempImage = "";
     $scope.changeLogo = function(key) {
         console.log(key);
-        //$scope.customizedShirt[key].attributes.width = "calc(50px + " + $scope.customizedShirt[key].attributes.width + "px)"
-        //$scope.customizedShirt[key].attributes.position = "relative"
-        //$scope.customizedShirt[key].attributes.top = "calc(25px - " + $scope.customizedShirt[key].attributes.width / 2 + "px)"
-        //$scope.customizedShirt[key].attributes.left = "calc(25px - " + $scope.customizedShirt[key].attributes.width / 2 + "px)"
         $scope.customizedShirt[key].divattributes.border = "1px solid #ccc";
     };
     $scope.resetLogoStyle = function(key) {
@@ -3606,7 +3617,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.switchTrimHighlightOne = function(flag, color) {
         console.log(flag);
         console.log(color);
-        if (color != undefined && color != nil) {
+        //if (color != undefined && color != nil) {
           $scope.trimTshirt.highlightOne.flag = flag;
           $scope.trimTshirt.highlightOne.tcolor = color;
           if (flag) {
@@ -3614,13 +3625,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           } else {
               $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/highlight1/back/trim_" + color + ".png";
           }
-        }
+        //}
     };
     $scope.switchTrimHighlightTwo = function(flag, color) {
         console.log('two');
         console.log(color);
         console.log(flag);
-        if (color != undefined && color != nil) {
+        //if (color != undefined && color != nil) {
           $scope.trimTshirt.highlightTwo.flag = flag;
           $scope.trimTshirt.highlightTwo.tcolor = color;
           if (flag) {
@@ -3628,7 +3639,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           } else {
               $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/highlight2/back/trim_" + color + ".png";
           }
-        }
+        //}
     };
     $scope.trimCollar = function(color) {
         $scope.trimTshirt.collar = "img/trim/collar/trim-" + color + ".png";
