@@ -2684,6 +2684,14 @@ footer {
         position: relative;
         z-index: 9;
     }
+
+    table tbody tr td {
+      input[type="number"] {
+        width: 100%;
+        padding: 2px 6px;
+        text-align: center;
+      }
+    }
 }
 
 .margbotm {
@@ -5914,6 +5922,7 @@ h3{
 
     .designer-name {
         letter-spacing: 2px;
+        margin-left: 10px;
     }
 
     p {
@@ -5921,7 +5930,7 @@ h3{
         font-family: Raleway-Medium;
         letter-spacing: 1px;
         width: 150px;
-        text-align: center;
+        text-align: right;
     }
 
     .color-sel {
@@ -6025,3 +6034,4 @@ padding-right: 10px;
 .designer-name{
   font-size: 18px!important;
 }
+ @import "mobile/mobile";

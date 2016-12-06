@@ -334,6 +334,25 @@ $screen-desktop: 1224px !default;
     padding: 10px 4px;
   }
 }
+.desc-sec p {
+    text-align: justify;
+    width: inherit;
+    letter-spacing: 0;
+  }
+  .wd88{
+    width: 86px!important;
+  }
+  .desc-sec .logo-img {
+    padding: 0;
+  }
+  .desc-sec h3{
+    font-size: 16px!important;
+  }
+.desc-sec .team-logo{
+height: 90px;
+width: 90px;
+}
+
 .nexterest-level{
   .table-detail{
     .option-shirt{
@@ -765,6 +784,24 @@ $screen-desktop: 1224px !default;
 }
 }
 @media (max-width: $screen-mobile) {
+  .desc-sec p {
+      text-align: justify;
+      width: inherit;
+      letter-spacing: 0;
+    }
+    .wd88{
+      width: 65px!important;
+    }
+    .desc-sec .logo-img {
+      padding: 0;
+    }
+    .desc-sec h3{
+      font-size: 16px!important;
+    }
+.desc-sec .team-logo{
+height: 70px;
+width: 70px;
+}
 
   .logo-text{
     .btn-dark.btn-outline {
@@ -1195,6 +1232,28 @@ input[type="text"] {
   .high-light {
       font-size: 19px;
     }
+    .desc-sec p {
+        text-align: justify;
+        width: inherit;
+        font-size: 12px!important;
+        letter-spacing: 0;
+      }
+      .desc-sec .logo-img {
+        padding: 0;
+      }
+      .wd88{
+        width: 88px!important;
+      }
+.small-font{
+  font-size: 14px;
+}
+      .desc-sec h3{
+        font-size: 16px!important;
+      }
+.desc-sec .team-logo{
+  height: 70px;
+  width: 70px;
+}
   .range-slidings  {
     input{
       width: 94%;
