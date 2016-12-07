@@ -3463,6 +3463,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.trimTshirt = {};
     $scope.trimTshirt.highlightOne = {};
     $scope.trimTshirt.highlightTwo = {};
+    $scope.trimTshirt.highlightBase = {};
     $scope.customizedShirt.leftchest = {};
     $scope.customizedShirt.leftchest.name = "Left Chest";
     $scope.customizedShirt.leftchest.image = "img/logo_black.png";
@@ -3614,8 +3615,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
     $scope.trimTshirt.highlightOne.flag = true;
     $scope.trimTshirt.highlightTwo.flag = true;
+    $scope.trimTshirt.highlightBase.flag = true;
     $scope.trimTshirt.highlightOne.tcolor = "white";
     $scope.trimTshirt.highlightTwo.tcolor = "white";
+    $scope.trimTshirt.highlightBase.tcolor = "white";
     $scope.switchTrimHighlightOne = function(flag, color) {
         console.log(flag);
         console.log(color);
@@ -3650,6 +3653,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           } else {
             $scope.trimTshirt.highlightTwo.image = "";
             $scope.trimTshirt.highlightTwo.image = "";
+          }
+        //}
+    };
+    $scope.switchTrimHighlightBase = function(flag, color) {
+        console.log('base');
+        console.log(color);
+        console.log(flag);
+        //if (color != undefined && color != nil) {
+          $scope.trimTshirt.highlightBase.flag = flag;
+          $scope.trimTshirt.highlightBase.tcolor = color;
+          if ($scope.trimTshirt.highlightBase.tcolor != "white") {
+            if (flag) {
+                $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/highlightb/front/trim_" + color + ".png";
+            } else {
+                $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/highlightb/back/trim_" + color + ".png";
+            }
+          } else {
+            $scope.trimTshirt.highlightBase.image = "";
+            $scope.trimTshirt.highlightBase.image = "";
           }
         //}
     };
