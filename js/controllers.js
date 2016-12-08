@@ -6,8 +6,8 @@ var tabvalue = 1;
 var user = $.jStorage.get("user");
 var globalfunction = {};
 var bigcount = {};
-window.uploadUrl = "http://customcricketcompany.com/admin/index.php/json/uploadImage";
-// window.uploadUrl = "http://192.168.100.108/cccbackend/index.php/json/uploadImage";
+// window.uploadUrl = "http://customcricketcompany.com/admin/index.php/json/uploadImage";
+window.uploadUrl = "http://192.168.100.115/cccbackend/index.php/json/uploadImage";
 
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'duScroll', 'cfp.loadingBar', 'ngDialog', 'angularFileUpload', 'ngSanitize', 'ui-rangeSlider'])
 
@@ -131,7 +131,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.showimage = false;
         $scope.toolarge = false;
 
-        $sco,pe.onFileSelect = function($files, whichone, uploadtype) {
+        $sco, pe.onFileSelect = function($files, whichone, uploadtype) {
             $scope.toolarge = false;
 
             if ($files[0].size < 20000000) {
@@ -2304,7 +2304,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.myhide = true;
     $scope.openUploads = function(variable, name) {
         // console.log('m here');
-        $scope.tab='team';
+        $scope.tab = 'team';
         $scope.myhide = false;
         // $scope.mymodel = "";
         $scope.mymodel = {};
@@ -2355,7 +2355,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.tabchanges('b', 2);
         $scope.myModal = $uibModal.open({
             templateUrl: "views/modal/continue.html",
-              windowClass: "modal-conti",
+            windowClass: "modal-conti",
             scope: $scope
         })
     }
@@ -2382,12 +2382,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.openTeam = function() {
         $scope.teamModal = $uibModal.open({
             templateUrl: "views/modal/team-logo.html",
-              windowClass: "modal-teammem",
+            windowClass: "modal-teammem",
             scope: $scope
         });
     }
     $scope.showColorTab = function() {
-      $scope.myhide = true;
+        $scope.myhide = true;
         if ($scope.customizedShirt.rightchest) {
             $scope.customizedShirt.rightchest.image = "";
             $scope.tab = "teamcolor";
@@ -2647,7 +2647,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }, {
         colr: "#ffff00",
         name: "neon-yellow"
-    },{
+    }, {
         colr: "#ccff00",
         name: "light-green"
     }, {
@@ -3492,10 +3492,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         'color': '#c80d28',
         'quantity': 1,
         'attributes': {
-          'fontSize': 18,
-          'border': 'none',
-          'rotate': 0,
-          'letterSpacing': 1
+            'fontSize': 18,
+            'border': 'none',
+            'rotate': 0,
+            'letterSpacing': 1
         }
     };
     $scope.jerseyBackArr = [{
@@ -3507,10 +3507,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }];
 
     $scope.addJerseyValues = function() {
-      $scope.jerseyBackArr.push(_.clone($scope.jerseyBack));
+        $scope.jerseyBackArr.push(_.clone($scope.jerseyBack));
     }
     $scope.removeJerseyValue = function(index) {
-      $scope.jerseyBackArr.splice(index, 1);
+        $scope.jerseyBackArr.splice(index, 1);
     }
 
     $scope.switchFrontBack = function(front) {
@@ -3624,18 +3624,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log(flag);
         console.log(color);
         //if (color != undefined && color != nil) {
-          $scope.trimTshirt.highlightOne.flag = flag;
-          $scope.trimTshirt.highlightOne.tcolor = color;
-          if ($scope.trimTshirt.highlightOne.tcolor != "white") {
+        $scope.trimTshirt.highlightOne.flag = flag;
+        $scope.trimTshirt.highlightOne.tcolor = color;
+        if ($scope.trimTshirt.highlightOne.tcolor != "white") {
             if (flag) {
                 $scope.trimTshirt.highlightOne.image = $scope.originURL + "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
             } else {
                 $scope.trimTshirt.highlightOne.image = $scope.originURL + "img/odi-tshirts/trims/highlight1/back/trim_" + color + ".png";
             }
-          } else {
+        } else {
             $scope.trimTshirt.highlightOne.image = "";
             $scope.trimTshirt.highlightOne.image = "";
-          }
+        }
         //}
     };
     $scope.switchTrimHighlightTwo = function(flag, color) {
@@ -3643,18 +3643,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log(color);
         console.log(flag);
         //if (color != undefined && color != nil) {
-          $scope.trimTshirt.highlightTwo.flag = flag;
-          $scope.trimTshirt.highlightTwo.tcolor = color;
-          if ($scope.trimTshirt.highlightTwo.tcolor != "white") {
+        $scope.trimTshirt.highlightTwo.flag = flag;
+        $scope.trimTshirt.highlightTwo.tcolor = color;
+        if ($scope.trimTshirt.highlightTwo.tcolor != "white") {
             if (flag) {
                 $scope.trimTshirt.highlightTwo.image = $scope.originURL + "img/odi-tshirts/trims/highlight2/front/trim_" + color + ".png";
             } else {
                 $scope.trimTshirt.highlightTwo.image = $scope.originURL + "img/odi-tshirts/trims/highlight2/back/trim_" + color + ".png";
             }
-          } else {
+        } else {
             $scope.trimTshirt.highlightTwo.image = "";
             $scope.trimTshirt.highlightTwo.image = "";
-          }
+        }
         //}
     };
     $scope.switchTrimHighlightBase = function(flag, color) {
@@ -3662,18 +3662,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log(color);
         console.log(flag);
         //if (color != undefined && color != nil) {
-          $scope.trimTshirt.highlightBase.flag = flag;
-          $scope.trimTshirt.highlightBase.tcolor = color;
-          if ($scope.trimTshirt.highlightBase.tcolor != "white") {
+        $scope.trimTshirt.highlightBase.flag = flag;
+        $scope.trimTshirt.highlightBase.tcolor = color;
+        if ($scope.trimTshirt.highlightBase.tcolor != "white") {
             if (flag) {
                 $scope.trimTshirt.highlightBase.image = $scope.originURL + "img/odi-tshirts/trims/highlightb/front/trim_" + color + ".png";
             } else {
                 $scope.trimTshirt.highlightBase.image = $scope.originURL + "img/odi-tshirts/trims/highlightb/back/trim_" + color + ".png";
             }
-          } else {
+        } else {
             $scope.trimTshirt.highlightBase.image = "";
             $scope.trimTshirt.highlightBase.image = "";
-          }
+        }
         //}
     };
     $scope.trimCollar = function(color) {
@@ -3692,7 +3692,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.myhide = true;
     $scope.openUploads = function(variable, name) {
         console.log('m here');
-        $scope.tab='team';
+        $scope.tab = 'team';
         $scope.myhide = false;
         // $scope.mymodel = "";
         $scope.mymodel = {};
@@ -3743,7 +3743,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.tabchanges('b', 2);
         $scope.myModal = $uibModal.open({
             templateUrl: "views/modal/continue.html",
-              windowClass: "modal-conti",
+            windowClass: "modal-conti",
             scope: $scope
         })
     }
@@ -3770,12 +3770,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.openTeam = function() {
         $scope.teamModal = $uibModal.open({
             templateUrl: "views/modal/team-logo.html",
-              windowClass: "modal-teammem",
+            windowClass: "modal-teammem",
             scope: $scope
         });
     }
     $scope.showColorTab = function() {
-      $scope.myhide = true;
+        $scope.myhide = true;
         if ($scope.customizedShirt.rightchest) {
             $scope.customizedShirt.rightchest.image = "";
             $scope.tab = "teamcolor";
@@ -3802,20 +3802,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.teamloging = function() {
         $scope.tab = "teamlogo";
     }
-  var loadGully = $interval(function () {
-  if(document.getElementById('gully-shirt')){
-    var data = "data:image/svg+xml," +
-           "<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'>" +
-             "<foreignObject width='100%' height='100%'>" +
-               "<div xmlns='http://www.w3.org/1999/xhtml' style='font-size:12px'>" +
-                  document.getElementById('gully-shirt').innerHTML +
-               "</div>" +
-             "</foreignObject>" +
-           "</svg>";
-           console.log(data);
-           $interval.cancel(loadGully);
-  }
-  }, 10);
+    var loadGully = $interval(function() {
+        if (document.getElementById('gully-shirt')) {
+            var data = "data:image/svg+xml," +
+                "<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'>" +
+                "<foreignObject width='100%' height='100%'>" +
+                "<div xmlns='http://www.w3.org/1999/xhtml' style='font-size:12px'>" +
+                document.getElementById('gully-shirt').innerHTML +
+                "</div>" +
+                "</foreignObject>" +
+                "</svg>";
+            console.log(data);
+            $interval.cancel(loadGully);
+        }
+    }, 10);
 
     $scope.$on('$viewContentLoaded', function(event) {
         $timeout(function() {
@@ -4037,8 +4037,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }];
 
     $scope.odicolor = [{
-      colr: "#fbfbfb",
-      name: "white"
+        colr: "#fbfbfb",
+        name: "white"
     }, {
         colr: "#000000",
         name: "black"
@@ -4340,7 +4340,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.openColor = function() {
         $uibModal.open({
             templateUrl: "views/modal/continue.html",
-              windowClass: "modal-conti",
+            windowClass: "modal-conti",
             scope: $scope
         })
     }
@@ -5217,7 +5217,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.openColor = function() {
         $uibModal.open({
             templateUrl: "views/modal/continue.html",
-              windowClass: "modal-conti",
+            windowClass: "modal-conti",
             scope: $scope
         })
     }
