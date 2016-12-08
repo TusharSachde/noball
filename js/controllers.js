@@ -3438,12 +3438,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('OdiCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar, $filter) {
+.controller('OdiCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar, $filter, $interval) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("odi-shirt");
     $scope.menutitle = NavigationService.makeactive("Odi T-shirt");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.originURL = window.location.origin + "/";
     var check = 1;
     // $scope.displayImage = "img/tinytshirt 7.png";
     $scope.customizedShirt = {};
@@ -3516,11 +3517,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.customizedShirt.front =  front;
         $scope.customizedShirt.back =  !front;
         if (front) {
-            $scope.customizedShirt.cloth = 'img/odi-tshirts/cloth/front.png'; //'img/tinytshirt 7.png';
-            $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/front.png'; //'img/tinytshirt 7 back.png';
+            $scope.customizedShirt.cloth = $scope.originURL + 'img/odi-tshirts/cloth/front.png'; //'img/tinytshirt 7.png';
+            $scope.customizedShirt.backdrop = $scope.originURL + 'img/odi-tshirts/backdrop/front.png'; //'img/tinytshirt 7 back.png';
         } else {
-            $scope.customizedShirt.cloth = 'img/odi-tshirts/cloth/back.png'; //'img/tinytshirt 1 back.png';
-            $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/back.png'; //'img/tinytshirt 1 back back.png';
+            $scope.customizedShirt.cloth = $scope.originURL + 'img/odi-tshirts/cloth/back.png'; //'img/tinytshirt 1 back.png';
+            $scope.customizedShirt.backdrop = $scope.originURL + 'img/odi-tshirts/backdrop/back.png'; //'img/tinytshirt 1 back back.png';
         }
         // _.each($scope.customizedShirt,function(value,property){
         //   console.log(angular.isObject($scope.customizedShirt[property]));
@@ -3627,9 +3628,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           $scope.trimTshirt.highlightOne.tcolor = color;
           if ($scope.trimTshirt.highlightOne.tcolor != "white") {
             if (flag) {
-                $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
+                $scope.trimTshirt.highlightOne.image = $scope.originURL + "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
             } else {
-                $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/highlight1/back/trim_" + color + ".png";
+                $scope.trimTshirt.highlightOne.image = $scope.originURL + "img/odi-tshirts/trims/highlight1/back/trim_" + color + ".png";
             }
           } else {
             $scope.trimTshirt.highlightOne.image = "";
@@ -3646,9 +3647,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           $scope.trimTshirt.highlightTwo.tcolor = color;
           if ($scope.trimTshirt.highlightTwo.tcolor != "white") {
             if (flag) {
-                $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/highlight2/front/trim_" + color + ".png";
+                $scope.trimTshirt.highlightTwo.image = $scope.originURL + "img/odi-tshirts/trims/highlight2/front/trim_" + color + ".png";
             } else {
-                $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/highlight2/back/trim_" + color + ".png";
+                $scope.trimTshirt.highlightTwo.image = $scope.originURL + "img/odi-tshirts/trims/highlight2/back/trim_" + color + ".png";
             }
           } else {
             $scope.trimTshirt.highlightTwo.image = "";
@@ -3665,9 +3666,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           $scope.trimTshirt.highlightBase.tcolor = color;
           if ($scope.trimTshirt.highlightBase.tcolor != "white") {
             if (flag) {
-                $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/highlightb/front/trim_" + color + ".png";
+                $scope.trimTshirt.highlightBase.image = $scope.originURL + "img/odi-tshirts/trims/highlightb/front/trim_" + color + ".png";
             } else {
-                $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/highlightb/back/trim_" + color + ".png";
+                $scope.trimTshirt.highlightBase.image = $scope.originURL + "img/odi-tshirts/trims/highlightb/back/trim_" + color + ".png";
             }
           } else {
             $scope.trimTshirt.highlightBase.image = "";
@@ -3676,7 +3677,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //}
     };
     $scope.trimCollar = function(color) {
-        $scope.trimTshirt.collar = "img/trim/collar/trim-" + color + ".png";
+        $scope.trimTshirt.collar = $scope.originURL + "img/trim/collar/trim-" + color + ".png";
     };
 
     // $scope.showCheck = true;
@@ -3801,8 +3802,27 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.teamloging = function() {
         $scope.tab = "teamlogo";
     }
+  var loadGully = $interval(function () {
+  if(document.getElementById('gully-shirt')){
+    var data = "data:image/svg+xml," +
+           "<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'>" +
+             "<foreignObject width='100%' height='100%'>" +
+               "<div xmlns='http://www.w3.org/1999/xhtml' style='font-size:12px'>" +
+                  document.getElementById('gully-shirt').innerHTML +
+               "</div>" +
+             "</foreignObject>" +
+           "</svg>";
+           console.log(data);
+           $interval.cancel(loadGully);
+  }
+  }, 10);
+
     $scope.$on('$viewContentLoaded', function(event) {
         $timeout(function() {
+
+
+
+
             var scene, camera, renderer, width, height, controls, light, loader, texture, geometry, material, mesh;
             var three = document.getElementsByClassName("threed-ball");
             init();
