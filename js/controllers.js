@@ -7,7 +7,7 @@ var user = $.jStorage.get("user");
 var globalfunction = {};
 var bigcount = {};
 // window.uploadUrl = "http://customcricketcompany.com/admin/index.php/json/uploadImage";
-window.uploadUrl = "http://192.168.100.115/cccbackend/index.php/json/uploadImage";
+window.uploadUrl = "http://192.168.0.111/cccbackend/index.php/json/uploadImage";
 
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'duScroll', 'cfp.loadingBar', 'ngDialog', 'angularFileUpload', 'ngSanitize', 'ui-rangeSlider'])
 
@@ -3628,9 +3628,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.trimTshirt.highlightOne.tcolor = color;
         if ($scope.trimTshirt.highlightOne.tcolor != "white") {
             if (flag) {
-                $scope.trimTshirt.highlightOne.image = $scope.originURL + "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
+                $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
             } else {
-                $scope.trimTshirt.highlightOne.image = $scope.originURL + "img/odi-tshirts/trims/highlight1/back/trim_" + color + ".png";
+                $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/highlight1/back/trim_" + color + ".png";
             }
         } else {
             $scope.trimTshirt.highlightOne.image = "";
@@ -3647,9 +3647,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.trimTshirt.highlightTwo.tcolor = color;
         if ($scope.trimTshirt.highlightTwo.tcolor != "white") {
             if (flag) {
-                $scope.trimTshirt.highlightTwo.image = $scope.originURL + "img/odi-tshirts/trims/highlight2/front/trim_" + color + ".png";
+                $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/highlight2/front/trim_" + color + ".png";
             } else {
-                $scope.trimTshirt.highlightTwo.image = $scope.originURL + "img/odi-tshirts/trims/highlight2/back/trim_" + color + ".png";
+                $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/highlight2/back/trim_" + color + ".png";
             }
         } else {
             $scope.trimTshirt.highlightTwo.image = "";
@@ -3666,9 +3666,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.trimTshirt.highlightBase.tcolor = color;
         if ($scope.trimTshirt.highlightBase.tcolor != "white") {
             if (flag) {
-                $scope.trimTshirt.highlightBase.image = $scope.originURL + "img/odi-tshirts/trims/highlightb/front/trim_" + color + ".png";
+                $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/highlightb/front/trim_" + color + ".png";
             } else {
-                $scope.trimTshirt.highlightBase.image = $scope.originURL + "img/odi-tshirts/trims/highlightb/back/trim_" + color + ".png";
+                $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/highlightb/back/trim_" + color + ".png";
             }
         } else {
             $scope.trimTshirt.highlightBase.image = "";
@@ -3677,7 +3677,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //}
     };
     $scope.trimCollar = function(color) {
-        $scope.trimTshirt.collar = $scope.originURL + "img/trim/collar/trim-" + color + ".png";
+        $scope.trimTshirt.collar = "img/trim/collar/trim-" + color + ".png";
     };
 
     // $scope.showCheck = true;
@@ -3804,25 +3804,45 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
     var loadGully = $interval(function() {
         if (document.getElementById('gully-shirt')) {
-            var data = "data:image/svg+xml," +
-                "<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'>" +
-                "<foreignObject width='100%' height='100%'>" +
-                "<div xmlns='http://www.w3.org/1999/xhtml' style='font-size:12px'>" +
-                document.getElementById('gully-shirt').innerHTML +
-                "</div>" +
-                "</foreignObject>" +
-                "</svg>";
-            console.log(data);
+            $scope.showGully = function() {
+                // var data = "data:image/svg+xml," +
+                //     "<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'>" +
+                //     "<foreignObject width='100%' height='100%'>" +
+                //     "<div xmlns='http://www.w3.org/1999/xhtml' style='font-size:12px'>" +
+                //     document.getElementById('gully-shirt').innerHTML +
+                //     "</div>" +
+                //     "</foreignObject>" +
+                //     "</svg>";
+                html2canvas(document.getElementById('gully-shirt')).then(function(canvas) {
+                    // console.log(canvas);
+                    // console.log(document.getElementById('gully-shirt'));
+                    // var c = canvas.getContext('2d');
+                    // var image = new Image();
+                    // var currentTag = $scope.customizedShirt.rightchest;
+                    // image.src = "http://192.168.0.111/cccbackend/uploads/" + currentTag.image;
+                    // if (currentTag.image != undefined && currentTag.image != null) {
+                    //     image.onload = function() {
+                    //         c.drawImage(image, 128, 160, 50, 50);
+                    //     };
+                    //     console.log(image.src);
+                    // }
+                    document.getElementById('gully-shirt').appendChild(canvas);
+                    console.log(canvas.toDataURL('image/png'));
+                });
+            };
             $interval.cancel(loadGully);
         }
     }, 10);
 
+    // $scope.showGully = function() {
+    //     html2canvas(document.getElementById('gully-shirt')).then(function(canvas) {
+    //         document.getElementById('gully-shirt').appendChild(canvas);
+    //         console.log(canvas.toDataURL('image/png'));
+    //     });
+    // };
+
     $scope.$on('$viewContentLoaded', function(event) {
         $timeout(function() {
-
-
-
-
             var scene, camera, renderer, width, height, controls, light, loader, texture, geometry, material, mesh;
             var three = document.getElementsByClassName("threed-ball");
             init();
