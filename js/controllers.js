@@ -3548,7 +3548,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.jerseyBack.attributes.border = "1px solid #ccc";
         $scope.$apply();
     };
-    $
+    console.log({"trim": $scope.trimTshirt, "customizedShirt": $scope.customizedShirt, "jerseyBack": $scope.jerseyBackArr});
     $scope.resetTextStyle = function() {
         $scope.jerseyBack.attributes.border = "none";
         $scope.$apply();
@@ -3839,6 +3839,28 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //         console.log(canvas.toDataURL('image/png'));
     //     });
     // };
+
+    $scope.objectFunc = Object.keys($scope.customizedShirt).length - 4;
+
+    $scope.goToOrderSummary = function(cart) {
+        NavigationService.orderSummary(cart, function(data) {
+            // if (data.value) {
+            //     $scope.alerts = [];
+            //     $scope.alerts.push({
+            //         type: 'success',
+            //         msg: 'Removed successfully'
+            //     });
+            //     $scope.getCart();
+            //     myfunction();
+            // } else {
+            //     $scope.alerts = [];
+            //     $scope.alerts.push({
+            //         type: 'danger',
+            //         msg: 'Unable to remove item.'
+            //     });
+            // }
+        })
+    };
 
     $scope.$on('$viewContentLoaded', function(event) {
         $timeout(function() {
