@@ -38,7 +38,6 @@
         <div class="col-md-5">
           <div class="scroll-image" id="style-2">
             <div class="text-center">
-              <button type="button" name="button" ng-click="showGully()">Click</button>
               <div class="gully-shirt" id="gully-shirt">
                 <img ng-src="{{customizedShirt.cloth}}" class="img-responsive" alt="">
                 <img ng-src="{{customizedShirt.backdrop}}" class="backdrop img-responsive" alt="">
@@ -46,7 +45,7 @@
                 <img ng-src="{{trimTshirt.highlightTwo.image}}" ng-if="trimTshirt.highlightTwo.image" class="trimshirt img-responsive" alt="">
                 <img ng-src="{{trimTshirt.collar}}" ng-if="trimTshirt.collar" class="trimshirt img-responsive" alt="">
                 <div class="div-main-logo" ng-if="customizedShirt.front && customizedShirt.mainlogo.image" ng-style="customizedShirt.mainlogo.divattributes">
-                  <img class="main-logo" ng-src="{{customizedShirt.mainlogo.image | serverimage}}" alt="" ng-style="customizedShirt.mainlogo.attributes">
+                  <img id="mainlogo" class="main-logo" ng-src="{{customizedShirt.mainlogo.image | serverimage}}" alt="" ng-style="customizedShirt.mainlogo.attributes">
                 </div>
                 <div class="div-back-sponsor1" ng-if="customizedShirt.back && customizedShirt.backsponsor1.image" ng-style="customizedShirt.backsponsor1.divattributes">
                   <img class="back-sponsor1" ng-src="{{customizedShirt.backsponsor1.image | serverimage}}" alt="" ng-style="customizedShirt.backsponsor1.attributes">
@@ -55,13 +54,13 @@
                   <img class="back-sponsor2" ng-src="{{customizedShirt.backsponsor2.image | serverimage}}" alt="" ng-style="customizedShirt.backsponsor2.attributes">
                 </div>
                 <div class="div-left-chest" ng-if="customizedShirt.front && customizedShirt.leftchest.image" ng-style="customizedShirt.leftchest.divattributes">
-                  <img class="left-chest" ng-src="{{customizedShirt.leftchest.image | serverimage}}" alt="" ng-style="customizedShirt.leftchest.attributes">
+                  <img id="leftchest" class="left-chest" ng-src="{{customizedShirt.leftchest.image | serverimage}}" alt="" ng-style="customizedShirt.leftchest.attributes">
                 </div>
                 <div class="div-left-sleeve" ng-if="customizedShirt.leftsleeve.image" ng-style="customizedShirt.leftsleeve.divattributes" ng-class="{'div-left-sleeve':customizedShirt.front,'div-right-sleeve':customizedShirt.back}">
-                  <img ng-class="{'left-sleeve':customizedShirt.front,'right-sleeve':customizedShirt.back}" ng-src="{{customizedShirt.leftsleeve.image | serverimage}}" alt="" ng-style="customizedShirt.leftsleeve.attributes">
+                  <img id="leftsleeve" ng-class="{'left-sleeve':customizedShirt.front,'right-sleeve':customizedShirt.back}" ng-src="{{customizedShirt.leftsleeve.image | serverimage}}" alt="" ng-style="customizedShirt.leftsleeve.attributes">
                 </div>
                 <div class="div-right-chest" ng-if="customizedShirt.front && customizedShirt.rightchest.image" ng-style="customizedShirt.rightchest.divattributes">
-                  <img class="right-chest" ng-src="{{customizedShirt.rightchest.image | serverimage}}" alt="" ng-style="customizedShirt.rightchest.attributes">
+                  <img id="rightchest" class="right-chest" ng-src="{{customizedShirt.rightchest.image | serverimage}}" alt="" ng-style="customizedShirt.rightchest.attributes">
                 </div>
                 <div class="div-right-chest disblock" ng-if="customizedShirt.front && myhide" ng-style="customizedShirt.rightchest.divattributes">
                   <div style="color:{{myClolr}};transform: rotate({{myArc}}deg);font-size:{{mySize}}px;transform: rotate({{myRotate}}deg);letter-spacing: {{myWordSpace}}px;mymodel.name">{{mymodel.name}}</div>

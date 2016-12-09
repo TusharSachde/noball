@@ -3814,7 +3814,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 //     "</foreignObject>" +
                 //     "</svg>";
                 html2canvas(document.getElementById('gully-shirt')).then(function(canvas) {
-                    // console.log(canvas);
                     // console.log(document.getElementById('gully-shirt'));
                     // var c = canvas.getContext('2d');
                     // var image = new Image();
