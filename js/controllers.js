@@ -3840,26 +3840,27 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //     });
     // };
 
-    $scope.objectFunc = Object.keys($scope.customizedShirt).length - 4;
+    $scope.customizedShirtCount = Object.keys($scope.customizedShirt).length - 4; // -4 for removing front, back, cloth, backdrop
 
     $scope.goToOrderSummary = function(cart) {
-        NavigationService.orderSummary(cart, function(data) {
-            // if (data.value) {
-            //     $scope.alerts = [];
-            //     $scope.alerts.push({
-            //         type: 'success',
-            //         msg: 'Removed successfully'
-            //     });
-            //     $scope.getCart();
-            //     myfunction();
-            // } else {
-            //     $scope.alerts = [];
-            //     $scope.alerts.push({
-            //         type: 'danger',
-            //         msg: 'Unable to remove item.'
-            //     });
-            // }
-        })
+        console.log("go to summary");
+        // NavigationService.orderSummary(cart, function(data) {
+        //     if (data.value) {
+        //         $scope.alerts = [];
+        //         $scope.alerts.push({
+        //             type: 'success',
+        //             msg: 'Removed successfully'
+        //         });
+        //         $scope.getCart();
+        //         myfunction();
+        //     } else {
+        //         $scope.alerts = [];
+        //         $scope.alerts.push({
+        //             type: 'danger',
+        //             msg: 'Unable to remove item.'
+        //         });
+        //     }
+        // })
     };
 
     $scope.$on('$viewContentLoaded', function(event) {
