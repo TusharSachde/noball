@@ -68,7 +68,7 @@
       <span>When you save a design, you are agreeing to the following terms: </span>
       <ul>
         <li> I hold commercial rights to reproduce the design.</li>
-        <li>If for any reason the legal owner of this design contacts fulfillment house, they will be directed to me. </li>
+        <li> If for any reason the legal owner of this design contacts fulfillment house, they will be directed to me. </li>
         <li> I understand illegal use of third-party copyright content is a serious offence and can lead to penalties. </li>
       </ul>
     </div>
@@ -76,7 +76,7 @@
   <form ng-submit="confirmUpload(variable, name); $dismiss();" name="uploadform">
     <!-- <div class="check" ng-if="!statuses.showcopy"> -->
     <div class="check">
-    <input type="checkbox" class="form-control" id="log" name="hereby" ng-required="!statuses.showcopy">
+    <input type="checkbox" class="form-control" id="log" name="hereby" ng-required="!statuses.showcopy" ng-model="statuses.permission">
     <label for="log"><span></span>I hereby declare I have permission to use this file.</label>
   </div>
   <div class="check" ng-if="!statuses.showcopy">
@@ -87,7 +87,7 @@
   <div class="copyrights-buttons pull-right">
     <!-- <button class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase" ng-click="emptyImage(variable)">cancel</button> -->
     <button class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase" ng-click="$dismiss()">cancel</button>
-    <button type="submit" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase" ng-if="statuses.uploadStatus">ok</button>
+    <button type="submit" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase" ng-if="statuses.uploadStatus && statuses.permission">ok</button>
   </div>
   </form>
 </div>

@@ -35,36 +35,36 @@
                   <div class="scroll-image" id="style-2">
                     <div class="text-center">
                         <div class="gully-shirt">
-                            <img ng-src="{{customizedShirt.cloth}}" class="img-responsive" alt="">
-                            <img ng-src="{{customizedShirt.backdrop}}" class="backdrop img-responsive" alt="">
-                            <img ng-src="{{trimTshirt.highlightOne.image}}" ng-if="trimTshirt.highlightOne.image" class="trimshirt img-responsive" alt="">
-                            <!-- <div ng-if="customizedShirt.back && tab=='quantiy'" class="{{jerseyBack.font+'-font'}}" ng-style="{'color': jerseyBack.color}"> -->
-                            <img ng-src="{{trimTshirt.highlightTwo.image }}" ng-if="trimTshirt.highlightTwo.image " class="trimshirt img-responsive" alt="">
+                            <img ng-src="{{customizedShort.cloth}}" class="img-responsive" alt="">
+                            <img ng-src="{{customizedShort.backdrop}}" class="backdrop img-responsive" alt="">
+                            <img ng-src="{{trimShort.highlightOne.image}}" ng-if="trimShort.highlightOne.image" class="trimshirt img-responsive" alt="">
+                            <!-- <div ng-if="customizedShort.back && tab=='quantiy'" class="{{jerseyBack.font+'-font'}}" ng-style="{'color': jerseyBack.color}"> -->
+                            <img ng-src="{{trimShort.highlightTwo.image }}" ng-if="trimShort.highlightTwo.image " class="trimshirt img-responsive" alt="">
                             <!-- </div> -->
 
 
-                            <img ng-src="{{trimTshirt.collar}}" ng-if="trimTshirt.collar" class="trimshirt img-responsive" alt="">
+                            <img ng-src="{{trimShort.collar}}" ng-if="trimShort.collar" class="trimshirt img-responsive" alt="">
 
-                            <div class="div-left-short" ng-if="customizedShirt.front && customizedShirt.leftchest.image" ng-style="customizedShirt.leftchest.divattributes">
-                                <img class="left-chest" ng-src="{{customizedShirt.leftchest.image | serverimage}}" alt="" ng-style="customizedShirt.leftchest.attributes">
+                            <div class="div-left-short" ng-if="customizedShort.front && customizedShort.logo.image" ng-style="customizedShort.logo.divattributes">
+                                <img class="left-chest" ng-src="{{customizedShort.logo.image | serverimage}}" alt="" ng-style="customizedShort.logo.attributes">
                             </div>
 
-                            <div class="div-right-sleeve" ng-if="customizedShirt.rightsleeve.image" ng-style="customizedShirt.rightsleeve.divattributes" ng-class="{'div-right-sleeve':customizedShirt.front,'div-left-sleeve':customizedShirt.back}">
-                                <img ng-class="{'right-sleeve':customizedShirt.front,'left-sleeve':customizedShirt.back}" ng-src="{{customizedShirt.rightsleeve.image | serverimage}}" alt="" ng-style="customizedShirt.rightsleeve.attributes">
+                            <div class="div-right-sleeve" ng-if="customizedShort.rightsleeve.image" ng-style="customizedShort.rightsleeve.divattributes" ng-class="{'div-right-sleeve':customizedShort.front,'div-left-sleeve':customizedShort.back}">
+                                <img ng-class="{'right-sleeve':customizedShort.front,'left-sleeve':customizedShort.back}" ng-src="{{customizedShort.rightsleeve.image | serverimage}}" alt="" ng-style="customizedShort.rightsleeve.attributes">
                             </div>
 
-                            <div class="div-right-short disblock" ng-if="customizedShirt.front && myhide" ng-style="customizedShirt.rightchest.divattributes">
+                            <div class="div-right-short disblock" ng-if="customizedShort.front && myhide" ng-style="customizedShort.rightchest.divattributes">
                                 <div style="color:{{myClolr}};transform: rotate({{myArc}}deg);font-size:{{mySize}}px;transform: rotate({{myRotate}}deg);letter-spacing: {{myWordSpace}}px;mymodel.name">{{mymodel.name}}</div>
                                 <div style="color:{{myClolr}};transform: rotate({{myArc1}}deg);font-size:{{mySize1}}px;transform: rotate({{myRotate1}}deg);letter-spacing: {{myWordSpace1}}px;"> {{addtxt10}}</div>
 
-                                <!-- <img class="right-chest" ng-src="{{customizedShirt.rightchest.image | serverimage}}" alt="" ng-style="customizedShirt.rightchest.attributes"> -->
+                                <!-- <img class="right-chest" ng-src="{{customizedShort.rightchest.image | serverimage}}" alt="" ng-style="customizedShort.rightchest.attributes"> -->
                             </div>
                         </div>
                         <div class="prev inline-block">
-                            <p class="uppercase" ng-click="switchFrontBack(false); switchTrimHighlightOne(false, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(false, trimTshirt.highlightTwo.tcolor)"><img src="img/back.png" class="img-responsive" alt="">back</p>
+                            <p class="uppercase" ng-click="switchFrontBack(false); switchTrimHighlightOne(false, trimShort.highlightOne.tcolor); switchTrimHighlightTwo(false, trimShort.highlightTwo.tcolor)"><img src="img/back.png" class="img-responsive" alt="">back</p>
                         </div>
                         <div class="next inline-block">
-                            <p class="uppercase" ng-click="switchFrontBack(true); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor)"><img src="img/back.png" class="img-responsive" alt="">front</p>
+                            <p class="uppercase" ng-click="switchFrontBack(true); switchTrimHighlightOne(true, trimShort.highlightOne.tcolor); switchTrimHighlightTwo(true, trimShort.highlightTwo.tcolor)"><img src="img/back.png" class="img-responsive" alt="">front</p>
                         </div>
                         <div class="feature-buttons">
                             <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing">FORM + FUNCTION</button>
@@ -131,7 +131,7 @@
                                     <h4>Select The Colour</h4>
                                     <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in odicolor track by $index">
                                         <div class="colo-pallet text-center ">
-                                            <div class="noti-img notihov" ng-class="{'coloracive':trimTshirt.highlightOne.tcolor == col.name}" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightOne(trimTshirt.highlightOne.flag, col.name)"></div>
+                                            <div class="noti-img notihov" ng-class="{'coloracive':trimShort.highlightOne.tcolor == col.name}" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightOne(trimShort.highlightOne.flag, col.name)"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -146,7 +146,7 @@
                                     <h4>Select The Colour</h4>
                                     <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in odicolor track by $index">
                                         <div class="colo-pallet text-center ">
-                                            <div class="noti-img notihov" ng-class="{'coloracive':trimTshirt.highlightTwo.tcolor == col.name}" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightTwo(trimTshirt.highlightTwo.flag, col.name)"></div>
+                                            <div class="noti-img notihov" ng-class="{'coloracive':trimShort.highlightTwo.tcolor == col.name}" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightTwo(trimShort.highlightTwo.flag, col.name)"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -170,22 +170,22 @@
                             <label for="later"><span></span>Send it Later</label>
                         </div>
                         <div class="logo-text">
-                            <button class="activeme btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openUploads(key, value.name)">TEAM LOGO</button>
+                            <button class="activeme btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openUploads('logo', 'Team Logo')">TEAM LOGO</button>
                             <span class="uppercase inline-block mright15">or</span>
                             <button class=" btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor()">TEAM TEXT</button>
 
                         </div>
-                        <div class="padding15 default inline-block" ng-repeat="(key, value) in customizedShirt" ng-if="checkCustomizeShirt(key)">
+                        <div class="padding15 default inline-block" ng-repeat="(key, value) in customizedShort" ng-if="checkCustomizeShirt(key)">
                             <div class="mod-img">
-                                <div class="noti-imgs" style='background-image:url({{customizedShirt[key].image | serverimage}});'>
+                                <div class="noti-imgs" style='background-image:url({{customizedShort[key].image | serverimage}});'>
                                 </div>
                                 <div class="sliding">
                                     <span>size</span>
-                                    <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShirt[key].attributes.width" min="25" max="54" model-max="customizedShirt[key].attributes.width" model-min="rslider.min" pin-handle="min">
+                                    <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShort[key].attributes.width" min="10" max="200" model-max="customizedShort[key].attributes.width" model-min="rslider.min" pin-handle="min">
                                     </div>
                                 </div>
                                 <div class="edit-btn">
-                                    <button class="btn btn-outline btn-dark" ng-click="openUploads(key, value.name)">CHANGE</button>
+                                    <button class="btn btn-outline btn-dark" ng-click="openUploads('logo', 'Team Logo')">CHANGE</button>
                                     <br>
                                     <button class="btn btn-outline btn-dark" ng-click="emptyImage(key)">REMOVE</button>
                                 </div>
@@ -199,18 +199,18 @@
                         <div class="print-typ printing">
                             <p>Select The Printing Type For Your Team Logo</p>
                             <form action="" class="radio">
-                                <input type="radio" id="radio1" name="radio" /checked>
+                                <input type="radio" id="radio1" name="radio" value="embroidered" ng-model="customizedShort.paintType" />
                                 <label for="radio1">
                                     <span></span> Embroidered <a href="" class="link mleft10">VIEW EXAMPLE</a>
                                   </label><br>
-                                <input type="radio" id="radio2" name="radio" />
+                                <input type="radio" id="radio2" name="radio" value="sublimated" ng-model="customizedShort.paintType" />
                                 <label for="radio2">
                                     <span></span> Sublimated
                                     <a href="" class="link mleft22">VIEW EXAMPLE</a>
                                   </label>
                             </form>
-                            <div class="edit-btn">
-                                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15">upload</button>
+                            <div class="edit-btn" ng-if="!customizedShort.logo">
+                                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('logo', 'Team Logo')">upload</button>
                                 <!-- <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads(key, value.name)">upload</button> -->
                             </div>
                             <div class="pbotom">
@@ -266,7 +266,7 @@
                                 <h4>Select The Colour</h4>
                                 <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
                                     <div class="colo-pallet text-center ">
-                                        <!-- <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightOne(trimTshirt.highlightOne.flag, col.name)"></div> -->
+                                        <!-- <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightOne(trimShort.highlightOne.flag, col.name)"></div> -->
                                         <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-class="{'activated': jerseyBack.color == col.colr}" ng-click="ChaangeTextColor(col.name)"></div>
                                         <!-- <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-class="{'activated': jerseyBack.color == col.colr}" ng-click="jerseyBack.color=col.colr"></div> -->
                                     </div>
@@ -291,7 +291,7 @@
                                 <div class="col-md-1 col-sm-1 col-xs-1">
                                     <span>size</span>
                                 </div>
-                                <!-- <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShirt[key].attributes.width" min="0" max="200" model-max="customizedShirt[key].attributes.width" model-min="rslider.min" pin-handle="min">
+                                <!-- <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShort[key].attributes.width" min="0" max="200" model-max="customizedShort[key].attributes.width" model-min="rslider.min" pin-handle="min">
                                 </div> -->
                                 <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
                                     <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="mymodel.width" min="0" max="100" model-max="mymodel.width" pin-handle="min" model-min="rslider.min"></div>
@@ -305,7 +305,7 @@
                                     <span>arc</span>
                                 </div>
                                 <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                                    <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShirt[key].attributes.width" min="25" max="60" model-max="customizedShirt[key].attributes.width" model-min="rslider.min" pin-handle="min">
+                                    <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShort[key].attributes.width" min="25" max="60" model-max="customizedShort[key].attributes.width" model-min="rslider.min" pin-handle="min">
                                     </div>
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3">
@@ -317,7 +317,7 @@
                                     <span>rotation</span>
                                 </div>
                                 <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                                    <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShirt[key].attributes.width" min="25" max="60" model-max="customizedShirt[key].attributes.width" model-min="rslider.min" pin-handle="min">
+                                    <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShort[key].attributes.width" min="25" max="60" model-max="customizedShort[key].attributes.width" model-min="rslider.min" pin-handle="min">
                                     </div>
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3">
@@ -329,7 +329,7 @@
                                     <span>spacing</span>
                                 </div>
                                 <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                                    <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShirt[key].attributes.width" min="25" max="60" model-max="customizedShirt[key].attributes.width" model-min="rslider.min" pin-handle="min">
+                                    <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShort[key].attributes.width" min="25" max="60" model-max="customizedShort[key].attributes.width" model-min="rslider.min" pin-handle="min">
                                     </div>
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3">
@@ -345,7 +345,7 @@
                                     <span>size</span>
                                 </div>
                                 <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                                    <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShirt[key].attributes.width" min="25" max="60" model-max="customizedShirt[key].attributes.width" model-min="rslider.min" pin-handle="min">
+                                    <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShort[key].attributes.width" min="25" max="60" model-max="customizedShort[key].attributes.width" model-min="rslider.min" pin-handle="min">
                                     </div>
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3">
@@ -357,7 +357,7 @@
                                     <span>arc</span>
                                 </div>
                                 <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                                    <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShirt[key].attributes.width" min="25" max="60" model-max="customizedShirt[key].attributes.width" model-min="rslider.min" pin-handle="min">
+                                    <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShort[key].attributes.width" min="25" max="60" model-max="customizedShort[key].attributes.width" model-min="rslider.min" pin-handle="min">
                                     </div>
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3">
@@ -369,7 +369,7 @@
                                     <span>rotation</span>
                                 </div>
                                 <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                                    <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShirt[key].attributes.width" min="25" max="60" model-max="customizedShirt[key].attributes.width" model-min="rslider.min" pin-handle="min">
+                                    <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShort[key].attributes.width" min="25" max="60" model-max="customizedShort[key].attributes.width" model-min="rslider.min" pin-handle="min">
                                     </div>
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3">
@@ -381,7 +381,7 @@
                                     <span>spacing</span>
                                 </div>
                                 <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                                    <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShirt[key].attributes.width" min="25" max="60" model-max="customizedShirt[key].attributes.width" model-min="rslider.min" pin-handle="min">
+                                    <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShort[key].attributes.width" min="25" max="60" model-max="customizedShort[key].attributes.width" model-min="rslider.min" pin-handle="min">
                                     </div>
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3">
