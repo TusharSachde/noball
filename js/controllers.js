@@ -2201,7 +2201,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         return angular.isObject($scope.customizedShort[key]);
     }
     $scope.confirmUpload = function(variable, name) {
-        //$dismiss();
         $scope.statuses.modal.close();
         $scope.customizedShort[variable].image = $scope.tempImage;
         $scope.customizedShort[variable].name = name;
@@ -2247,10 +2246,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.trimShort.highlightTwo.image = "img/shorts/back/" + color + ".png";
         }
     };
-    $scope.trimCollar = function(color) {
-        $scope.trimShort.collar = "img/trim/collar/trim-" + color + ".png";
-    };
-
     // $scope.showCheck = true;
     // $scope.showVid = function () {
     //   $scope.showCheck = false;
@@ -2498,7 +2493,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.classv = '';
     $scope.classshow = 'activeme';
     $scope.classhide = '';
-
     $scope.tabchanges = function(tabs, b) {
 
         $scope.tabs = tabs;
@@ -2530,6 +2524,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.classhide2 = 'activeme';
         }
     };
+
+    $scope.tabchanges('light1', 1);
 
     $scope.demo2 = {
         range: {
