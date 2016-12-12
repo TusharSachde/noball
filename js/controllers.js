@@ -7,7 +7,7 @@ var user = $.jStorage.get("user");
 var globalfunction = {};
 var bigcount = {};
 // window.uploadUrl = "http://customcricketcompany.com/admin/index.php/json/uploadImage";
-window.uploadUrl = "http://192.168.0.111/cccbackend/index.php/json/uploadImage";
+window.uploadUrl = "http://192.168.0.102/cccbackend/index.php/json/uploadImage";
 
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'duScroll', 'cfp.loadingBar', 'ngDialog', 'angularFileUpload', 'ngSanitize', 'ui-rangeSlider'])
 
@@ -2163,15 +2163,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     }
 
+    $scope.designName = "design1";
+    $scope.changeDesign = function(index) {
+        $scope.designName = "design" + (index + 1);
+        $scope.switchFrontBack($scope.trimShort.highlightOne.flag);
+        $scope.switchTrimHighlightOne($scope.trimShort.highlightOne.flag, $scope.trimShort.highlightOne.tcolor);
+    }
+
     $scope.switchFrontBack = function(front) {
         $scope.customizedShort.front =  front;
         $scope.customizedShort.back =  !front;
         if (front) {
-            $scope.customizedShort.cloth = 'img/shorts/front/01.png'; //'img/tinytshirt 7.png';
-            $scope.customizedShort.backdrop = 'img/shorts/front/02.png'; //'img/tinytshirt 7 back.png';
+            $scope.customizedShort.cloth = 'img/shorts/' + $scope.designName + '/front.png'; //'img/tinytshirt 7.png';
+            $scope.customizedShort.backdrop = 'img/shorts/front.png'; //'img/tinytshirt 7 back.png';
         } else {
-            $scope.customizedShort.cloth = 'img/shorts/back/01.png'; //'img/tinytshirt 1 back.png';
-            $scope.customizedShort.backdrop = 'img/shorts/back/02.png'; //'img/tinytshirt 1 back back.png';
+            $scope.customizedShort.cloth = 'img/shorts/' + $scope.designName + '/back.png'; //'img/tinytshirt 1 back.png';
+            $scope.customizedShort.backdrop = 'img/shorts/back.png'; //'img/tinytshirt 1 back back.png';
         }
     }
     $scope.switchFrontBack(true);
@@ -2223,15 +2230,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
     $scope.trimShort.highlightOne.flag = true;
     $scope.trimShort.highlightTwo.flag = true;
+    $scope.trimShort.highlightOne.tcolor = "white";
+    $scope.trimShort.highlightTwo.tcolor = "white";
     $scope.switchTrimHighlightOne = function(flag, color) {
         console.log(flag);
         console.log(color);
         $scope.trimShort.highlightOne.flag = flag;
         $scope.trimShort.highlightOne.tcolor = color;
         if (flag) {
-            $scope.trimShort.highlightOne.image = "img/shorts/front/" + color + ".png";
+            $scope.trimShort.highlightOne.image = "img/shorts/" + $scope.designName + "/front/" + color + ".png";
         } else {
-            $scope.trimShort.highlightOne.image = "img/shorts/front/" + color + ".png";
+            $scope.trimShort.highlightOne.image = "img/shorts/" + $scope.designName + "/back/" + color + ".png";
         }
     };
     $scope.switchTrimHighlightTwo = function(flag, color) {
@@ -2376,44 +2385,50 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }];
 
     $scope.odicolor = [{
+        colr: "#ffffff",
+        name: "white"
+    },{
         colr: "#000000",
         name: "black"
     }, {
-        colr: "#1a472a",
-        name: "dark-green"
-    }, {
-        colr: "#ffd700",
-        name: "yellow"
-    }, {
-        colr: "#2175d9",
-        name: "indian_blue"
-    }, {
-        colr: "green",
-        name: "neon-green"
-    }, {
-        colr: "#c0c2ce",
-        name: "grey"
-    }, {
-        colr: "#ffff00",
-        name: "neon-yellow"
-    }, {
-        colr: "#ccff00",
-        name: "light-green"
-    }, {
-        colr: "#ff8247",
-        name: "neon-orange"
-    }, {
-        colr: "#ff3030",
-        name: "orange"
-    }, {
-        colr: "#cd3700",
+        colr: "#bf0000",
         name: "red"
     }, {
-        colr: "#00008b",
-        name: "royal-blue"
+        colr: "#00308f",
+        name: "royal_blue"
+    }, {
+        colr: "#2175d9",
+        name: "india_blue"
+    }, {
+        colr: "#008000",
+        name: "australian_green"
+    }, {
+        colr: "#ffff00",
+        name: "lemon_yellow"
+    }, {
+        colr: "#ffd700",
+        name: "golden_yellow"
+    }, {
+        colr: "#1a472a",
+        name: "dark_green"
+    }, {
+        colr: "#ccff00",
+        name: "neon_green"
+    }, {
+        colr: "#f07f13",
+        name: "neon_orange"
+    }, {
+        colr: "#666666",
+        name: "grey"
     }, {
         colr: "#800000",
         name: "maroon"
+    }, {
+        colr: "#ffa500",
+        name: "orange"
+    }, {
+        colr: "#032149",
+        name: "navy_blue"
     }];
 
     $scope.color2 = [{
@@ -2435,11 +2450,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }];
 
     $scope.images = [{
-        src: "img/shorts/front/01.png"
+        src: "img/shorts/design1/front.png"
     }, {
-        src: "img/shorts/white-shorts.png"
+        src: "img/shorts/design2/front.png"
     }, {
-        src: "img/shorts/orange-shorts.png"
+        src: "img/shorts/design3/front.png"
     }];
     //tab changes
 
@@ -3069,7 +3084,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.jerseyBack.attributes.border = "1px solid #ccc";
         $scope.$apply();
     };
-    //console.log({"trim": $scope.trimTshirt, "customizedShirt": $scope.customizedShirt, "jerseyBack": $scope.jerseyBackArr});
+
     $scope.resetTextStyle = function() {
         $scope.jerseyBack.attributes.border = "none";
         $scope.$apply();
@@ -3363,25 +3378,37 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.customizedShirtCount = Object.keys($scope.customizedShirt).length - 5; // -5 for removing front, back, cloth, backdrop, printType
 
-    $scope.goToOrderSummary = function(cart) {
-        console.log("go to summary");
-        // NavigationService.orderSummary(cart, function(data) {
-        //     if (data.value) {
-        //         $scope.alerts = [];
-        //         $scope.alerts.push({
-        //             type: 'success',
-        //             msg: 'Removed successfully'
-        //         });
-        //         $scope.getCart();
-        //         myfunction();
-        //     } else {
-        //         $scope.alerts = [];
-        //         $scope.alerts.push({
-        //             type: 'danger',
-        //             msg: 'Unable to remove item.'
-        //         });
-        //     }
-        // })
+    $scope.goToOrderSummary = function() {
+        $scope.combineJSON = {"trim": $scope.trimTshirt, "customizedShirt": $scope.customizedShirt, "jerseyBack": $scope.jerseyBackArr};
+        $scope.lastJSON = JSON.stringify($scope.combineJSON);
+        console.log($scope.lastJSON);
+        $scope.ml = ""; $scope.lc = ""; $scope.rc = ""; $scope.ls = ""; $scope.rs = ""; $scope.tl = "";
+        if ($scope.customizedShirt.mainlogo) {
+            $scope.ml = $scope.customizedShirt.mainlogo.image;
+        }
+        if ($scope.customizedShirt.leftchest) {
+            $scope.lc = $scope.customizedShirt.leftchest.image;
+        }
+        if ($scope.customizedShirt.rightchest) {
+            $scope.rc = $scope.customizedShirt.rightchest.image;
+        }
+        if ($scope.customizedShirt.leftsleeve) {
+            $scope.ls = $scope.customizedShirt.leftsleeve.image;
+        }
+        if ($scope.customizedShirt.rightsleeve) {
+            $scope.rs = $scope.customizedShirt.rightsleeve.image;
+        }
+        if ($scope.customizedShirt.teamlogo) {
+            $scope.tl = $scope.customizedShirt.teamlogo.image;
+        }
+        NavigationService.orderSummary($scope.lastJSON, $scope.ml, $scope.lc, $scope.rc, $scope.ls, $scope.rs, $scope.tl, function(data) {
+            console.log(data);
+            // if (data.value) {
+            //     console.log("nice one");
+            // } else {
+            //     console.log("no data");
+            // }
+        });
     };
 
     $scope.$on('$viewContentLoaded', function(event) {

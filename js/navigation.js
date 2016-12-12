@@ -1,18 +1,18 @@
 // var mainurl = "http://wohlig.io:81/callApi/noball/";
 // var mainurl = "http://customcricketcompany.com/admin/index.php/";
 // var mainurl = "http://localhost/cccbackend/index.php/";
-var mainurl = "http://192.168.0.111/cccbackend/index.php/";
+var mainurl = "http://192.168.0.102/cccbackend/index.php/";
 
 var websiteurl = "http://customcricketcompany.com/";
 // var websiteurl = "http://localhost:8080";
 
 // var backendurl = "http://customcricketcompany.com/admin/";
-var backendurl = "http://192.168.0.111/cccbackend/index.php/";
+var backendurl = "http://192.168.0.102/cccbackend/index.php/";
 
 var country = "";
 
 // var imgurl = "http://customcricketcompany.com/admin/uploads/";
-var imgurl = "http://192.168.0.111/cccbackend/uploads/";
+var imgurl = "http://192.168.0.102/cccbackend/uploads/";
 
 var adminurl = mainurl + "json/";
 var countries = [{
@@ -622,6 +622,23 @@ var navigationservice = angular.module('navigationservice', [])
           "quantity": cart.qty,
           "currency": currency,
           "json": ""
+        }
+      }).success(callback).error(err);
+    },
+    orderSummary: function(cart, ml, lc, rc, ls, rs, tl, callback, err) {
+      //var currency = $.jStorage.get("myCurrency");
+      return $http({
+        url: adminurl + "addToCart",
+        method: "POST",
+        data: {
+          "type": "custom",
+          "custom": cart,
+          "teamlogo": tl,
+          "logo1": ml,
+          "logo2": lc,
+          "logo3": rc,
+          "logo4": ls,
+          "logo5": rs
         }
       }).success(callback).error(err);
     },

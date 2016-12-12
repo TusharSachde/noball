@@ -37,9 +37,9 @@
                         <div class="gully-shirt">
                             <img ng-src="{{customizedShort.cloth}}" class="img-responsive" alt="">
                             <img ng-src="{{customizedShort.backdrop}}" class="backdrop img-responsive" alt="">
-                            <img ng-src="{{trimShort.highlightOne.image}}" ng-if="trimShort.highlightOne.image" class="trimshirt img-responsive" alt="">
+                            <img ng-src="{{trimShort.highlightOne.image}}" ng-if="trimShort.highlightOne.image" class="trimShortOne trimshirt img-responsive" alt="">
                             <!-- <div ng-if="customizedShort.back && tab=='quantiy'" class="{{jerseyBack.font+'-font'}}" ng-style="{'color': jerseyBack.color}"> -->
-                            <img ng-src="{{trimShort.highlightTwo.image }}" ng-if="trimShort.highlightTwo.image " class="trimshirt img-responsive" alt="">
+                            <!-- <img ng-src="{{trimShort.highlightTwo.image }}" ng-if="trimShort.highlightTwo.image " class="trimshirt img-responsive" alt=""> -->
                             <!-- </div> -->
 
 
@@ -99,7 +99,7 @@
                         <div class="row">
                             <div class="col-md-10">
                                 <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images track by $index">
-                                    <div class="cat-img pointer">
+                                    <div class="cat-img pointer" ng-click="changeDesign($index)">
                                         <img ng-src="{{img.src}}" class="img-responsive">
                                     </div>
                                 </div>
@@ -121,7 +121,7 @@
                     <div class="choos m20-l " ng-show="tab=='trim'">
                         <div class="options">
                             <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing  inline-block" ng-click="tabchanges('light1',1)">HIGHLIGHT 1</button>
-                            <button class="{{classhide}} btn btn-outline btn-dark padding-btn letter-spacing  inline-block" ng-click="tabchanges('light2',2)">HIGHLIGHT 2</button>
+                            <!-- <button class="{{classhide}} btn btn-outline btn-dark padding-btn letter-spacing  inline-block" ng-click="tabchanges('light2',2)">HIGHLIGHT 2</button> -->
                         </div>
                         <div class="{{classp}} outline disnon" ng-if="tabs=='light1'">
                             <span>HIGHLIGHT 1</span>
