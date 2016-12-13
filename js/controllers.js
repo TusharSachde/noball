@@ -3403,12 +3403,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
         NavigationService.orderSummary($scope.lastJSON, $scope.ml, $scope.lc, $scope.rc, $scope.ls, $scope.rs, $scope.tl, function(data) {
             console.log(data);
-            // if (data.value) {
-            //     console.log("nice one");
-            // } else {
-            //     console.log("no data");
-            // }
-            $state.go('ordersummary');
+            if (data.value) {
+                // $state.go('ordersummary', { json: data });
+                console.log("yes data");
+            } else {
+                console.log("no data");
+            }
         }, function (err) {
             console.log(err);
         });
