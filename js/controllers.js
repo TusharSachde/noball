@@ -3408,6 +3408,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             // } else {
             //     console.log("no data");
             // }
+            $state.go('ordersummary');
+        }, function (err) {
+            console.log(err);
         });
     };
 
