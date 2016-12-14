@@ -45,8 +45,11 @@
 
                             <img ng-src="{{trimShort.collar}}" ng-if="trimShort.collar" class="trimshirt img-responsive" alt="">
 
-                            <div class="div-left-short" ng-if="customizedShort.front && customizedShort.logo.image" ng-style="customizedShort.logo.divattributes">
-                                <img class="left-chest" ng-src="{{customizedShort.logo.image | serverimage}}" alt="" ng-style="customizedShort.logo.attributes">
+                            <div class="div-left-short" ng-if="customizedShort.front && mainlogo.image" ng-style="mainlogo.divattributes">
+                                <img class="left-chest" ng-src="{{mainlogo.image | serverimage}}" alt="" ng-style="mainlogo.attributes">
+                            </div>
+                            <div class="div-right-short" ng-if="customizedShort.front && customizedShort.teamlogo.image" ng-style="customizedShort.teamlogo.divattributes">
+                                <img class="left-chest" ng-src="{{customizedShort.teamlogo.image | serverimage}}" alt="" ng-style="customizedShort.teamlogo.attributes">
                             </div>
 
                             <div class="div-right-sleeve" ng-if="customizedShort.rightsleeve.image" ng-style="customizedShort.rightsleeve.divattributes" ng-class="{'div-right-sleeve':customizedShort.front,'div-left-sleeve':customizedShort.back}">
@@ -170,26 +173,28 @@
                             <label for="later"><span></span>Send it Later</label>
                         </div>
                         <div class="logo-text">
-                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openUploads('logo', 'Team Logo')">TEAM LOGO</button>
+                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15">TEAM LOGO</button>
                             <!-- <span class="uppercase inline-block mright15">or</span>
                             <button class=" btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor()">TEAM TEXT</button> -->
 
                         </div>
-                        <div class="padding15 default inline-block" ng-repeat="(key, value) in customizedShort" ng-if="checkCustomizeShirt(key)">
+                        <div class="padding15 default inline-block">
                             <div class="mod-img">
-                                <div class="noti-imgs" style='background-image:url({{customizedShort[key].image | serverimage}});'>
+                                <div class="noti-imgs pointer">
+                                    <p class="uppercase" ng-click="openUploads('teamlogo', 'Team Logo')" ng-if="!customizedShort.teamlogo">Upload</p>
+                                    <img ng-src="{{customizedShort.teamlogo.image | serverimage}}" alt="" ng-if="customizedShort.teamlogo">
                                 </div>
-                                <div class="sliding">
+                                <div class="sliding" ng-if="customizedShort.teamlogo.divattributes">
                                     <span>size</span>
-                                    <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShort[key].attributes.width" min="10" max="200" model-max="customizedShort[key].attributes.width" model-min="rslider.min" pin-handle="min">
+                                    <div range-slider on-handle-down="changeLogo('teamlogo')" on-handle-up="resetLogoStyle('teamlogo')" ng-model="customizedShort.teamlogo.attributes.width" min="10" max="200" model-max="customizedShort.teamlogo.attributes.width" model-min="rslider.min" pin-handle="min">
                                     </div>
                                 </div>
-                                <div class="edit-btn">
-                                    <button class="btn btn-outline btn-dark" ng-click="openUploads('logo', 'Team Logo')">CHANGE</button>
+                                <div class="edit-btn" ng-if="customizedShort.teamlogo.divattributes">
+                                    <button class="btn btn-outline btn-dark" ng-click="openUploads('teamlogo', 'Team Logo')">CHANGE</button>
                                     <br>
-                                    <button class="btn btn-outline btn-dark" ng-click="emptyImage(key)">REMOVE</button>
+                                    <button class="btn btn-outline btn-dark" ng-click="emptyImage('teamlogo')">REMOVE</button>
                                 </div>
-                                <div class="check">
+                                <div class="check" ng-if="customizedShirt.teamlogo.divattributes">
                                     <input type="checkbox" class="form-control" id="remove">
                                     <label for="remove"><span></span>Remove Image Background</label>
                                 </div>
@@ -209,10 +214,10 @@
                                     <a href="" class="link mleft22">VIEW EXAMPLE</a>
                                   </label>
                             </form>
-                            <div class="edit-btn" ng-if="!customizedShort.logo">
+                            <!-- <div class="edit-btn" ng-if="!customizedShort.logo">
                                 <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('logo', 'Team Logo')">upload</button>
-                                <!-- <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads(key, value.name)">upload</button> -->
-                            </div>
+                                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads(key, value.name)">upload</button>
+                            </div> -->
                             <div class="pbotom">
                                 <span class="block">Notes :</span>
                                 <span class="block">1. The printed CCC Logo will always be embroidered on your gloves.</span>

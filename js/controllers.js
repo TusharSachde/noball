@@ -2106,13 +2106,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.trimShort = {};
     $scope.trimShort.highlightOne = {};
     $scope.trimShort.highlightTwo = {};
-    $scope.customizedShort.logo = {};
-    $scope.customizedShort.logo.name = "Team Logo";
-    $scope.customizedShort.logo.image = "img/logo_black.png";
-    $scope.customizedShort.logo.attributes = {};
-    $scope.customizedShort.logo.divattributes = {};
-    $scope.customizedShort.logo.attributes.width = 30;
-    $scope.customizedShort.paintType = "embroidered";
+    $scope.mainlogo = {};
+    // $scope.customizedShort.teamlogo = {};
+    $scope.mainlogo.name = "Main Logo";
+    $scope.mainlogo.image = "img/logo_black.png";
+    $scope.mainlogo.attributes = {};
+    $scope.mainlogo.divattributes = {};
+    $scope.mainlogo.attributes.width = 30;
+    $scope.mainlogo.paintType = "embroidered";
     $scope.myClolr = 'red';
     $scope.ChaangeTextColor = function(mycolor) {
         console.log(mycolor);
@@ -2125,6 +2126,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             templateUrl: "views/modal/copyrights.html",
             scope: $scope
         })
+    }
+
+    $scope.filterTeamLogo = function(items) {
+        var result = {};
+        angular.forEach(items, function(value, key) {
+            if (!value.hasOwnProperty('divattributes')) {
+                result[key] = value;
+            }
+        });
+        return result;
     }
 
     $scope.jerseyBack = {
@@ -2147,11 +2158,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 if (whichone == 1) {
                     console.log(image);
                     $scope.tempImage = image[0];
-                    if (!$scope.customizedShort.logo) {
-                        $scope.customizedShort.logo = {};
-                        $scope.customizedShort.logo.attributes = {};
-                        $scope.customizedShort.logo.divattributes = {};
-                        $scope.customizedShort.logo.attributes.width = 30;
+                    if (!$scope.customizedShort[variable]) {
+                        $scope.customizedShort[variable] = {};
+                        $scope.customizedShort[variable].attributes = {};
+                        $scope.customizedShort[variable].divattributes = {};
+                        $scope.customizedShort[variable].attributes.width = 30;
                         console.log($scope.customizedShort);
                     }
                     console.log($scope.tempImage);

@@ -259,10 +259,7 @@
     .state('ordersummary', {
       url: "/ordersummary",
       templateUrl: "views/template.html",
-      controller: 'OrderSummaryCtrl',
-      params: {
-          json: null
-      }
+      controller: 'OrderSummaryCtrl'
     })
     .state('mywishlist', {
         url: "/mywishlist",
