@@ -3213,9 +3213,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.trimTshirt.highlightBase.tcolor = color;
         if ($scope.trimTshirt.highlightBase.tcolor != "white") {
             if (flag) {
-                $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/highlightb/front/trim_" + color + ".png";
+                $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/base/front/trim_" + color + ".png";
             } else {
-                $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/highlightb/back/trim_" + color + ".png";
+                $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/base/back/trim_" + color + ".png";
             }
         } else {
             $scope.trimTshirt.highlightBase.image = "";
@@ -3658,6 +3658,53 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }, {
         colr: "#008000",
         name: "green"
+    }];
+
+    $scope.odibasecolor = [{
+        colr: "#ffffff",
+        name: "white"
+    },{
+        colr: "#000000",
+        name: "black"
+    }, {
+        colr: "#bf0000",
+        name: "red"
+    }, {
+        colr: "#00308f",
+        name: "royal_blue"
+    }, {
+        colr: "#2175d9",
+        name: "india_blue"
+    }, {
+        colr: "#008000",
+        name: "australian_green"
+    }, {
+        colr: "#ffff00",
+        name: "lemon_yellow"
+    }, {
+        colr: "#ffd700",
+        name: "golden_yellow"
+    }, {
+        colr: "#1a472a",
+        name: "dark_green"
+    }, {
+        colr: "#ccff00",
+        name: "neon_green"
+    }, {
+        colr: "#f07f13",
+        name: "neon_orange"
+    }, {
+        colr: "#666666",
+        name: "grey"
+    }, {
+        colr: "#800000",
+        name: "maroon"
+    }, {
+        colr: "#ffa500",
+        name: "orange"
+    }, {
+        colr: "#032149",
+        name: "navy_blue"
     }];
 
     $scope.color2 = [{
