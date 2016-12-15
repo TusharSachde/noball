@@ -7,22 +7,22 @@
       <div class="row" scrolladd1class>
         <div class="step ">
           <ul class="pad0">
-            <li class="tab-item breadcrums {{classa}}" ng-click="tabchange('design',1); switchFrontBack(true); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor);">
+            <li class="tab-item breadcrums {{classa}}" ng-click="tabchange('design',1); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor);">
               <span class="bread-frnt"></span>
               <p>1. DESIGN</p>
               <span class="bread-back"></span>
             </li>
-            <li class="tab-item breadcrums {{classb}}" ng-click="tabchange('trim',2); switchFrontBack(true); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor);">
+            <li class="tab-item breadcrums {{classb}}" ng-click="tabchange('trim',2); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor);">
               <span class="bread-frnt"></span>
               <p>2. TRIM</p>
               <span class="bread-back"></span>
             </li>
-            <li class="tab-item breadcrums {{classc}}" ng-click="tabchange('team',3); switchFrontBack(true); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor);">
+            <li class="tab-item breadcrums {{classc}}" ng-click="tabchange('team',3); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor);">
               <span class="bread-frnt"></span>
               <p>3. TEAM LOGO</p>
               <span class="bread-back"></span>
             </li>
-            <li class="tab-item breadcrums {{classe}}" ng-click="tabchange('quantity',5); switchFrontBack(false); switchTrimHighlightOne(false, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(false, trimTshirt.highlightTwo.tcolor);">
+            <li class="tab-item breadcrums {{classe}}" ng-click="tabchange('quantity',5); switchTrimHighlightBase(false, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(false, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(false, trimTshirt.highlightTwo.tcolor);">
               <span class="bread-frnt"></span>
               <p>4. QUANTITY</p>
               <span class="bread-back"></span>
@@ -39,11 +39,11 @@
           <div class="scroll-image" id="style-2">
             <div class="text-center">
               <div class="gully-shirt" id="gully-shirt">
-                <img ng-src="{{customizedShirt.cloth}}" class="img-responsive" alt="">
+                <!-- <img ng-src="{{customizedShirt.cloth}}" class="img-responsive" alt=""> -->
                 <img ng-src="{{customizedShirt.backdrop}}" class="backdrop img-responsive" alt="">
                 <img ng-src="{{trimTshirt.highlightOne.image}}" ng-if="trimTshirt.highlightOne.image" class="trimshirt img-responsive" alt="">
                 <img ng-src="{{trimTshirt.highlightTwo.image}}" ng-if="trimTshirt.highlightTwo.image" class="trimshirt img-responsive" alt="">
-                <img ng-src="{{trimTshirt.collar}}" ng-if="trimTshirt.collar" class="trimshirt img-responsive" alt="">
+                <img ng-src="{{trimTshirt.highlightBase.image}}" ng-if="trimTshirt.highlightBase.image" class="trimshirtbase img-responsive" alt="">
                 <div class="div-main-logo" ng-if="customizedShirt.front && customizedShirt.mainlogo.image" ng-style="customizedShirt.mainlogo.divattributes">
                   <img id="mainlogo" class="main-logo" ng-src="{{customizedShirt.mainlogo.image | serverimage}}" alt="" ng-style="customizedShirt.mainlogo.attributes">
                 </div>
@@ -82,10 +82,10 @@
                 <!-- <img class="" src="img/people.png" alt=""> -->
               </div>
               <div class="prev inline-block">
-                <p class="uppercase" ng-click="switchFrontBack(false); switchTrimHighlightOne(false, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(false, trimTshirt.highlightTwo.tcolor)"><img src="img/back.png" class="img-responsive" alt="">back</p>
+                <p class="uppercase" ng-click="switchTrimHighlightBase(false, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(false, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(false, trimTshirt.highlightTwo.tcolor)"><img src="img/back.png" class="img-responsive" alt="">back</p>
               </div>
               <div class="next inline-block">
-                <p class="uppercase" ng-click="switchFrontBack(true); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor)"><img src="img/back.png" class="img-responsive" alt="">front</p>
+                <p class="uppercase" ng-click="switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor)"><img src="img/back.png" class="img-responsive" alt="">front</p>
               </div>
               <div class="feature-buttons">
                 <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing">FORM + FUNCTION</button>
@@ -366,7 +366,7 @@
                   <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
               </div>
               <div class="edit-btn inline-block">
-                  <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('quantity',5); switchFrontBack(false); switchTrimHighlightOne(false, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(false, trimTshirt.highlightTwo.tcolor);">NEXT</button>
+                  <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('quantity',5); switchTrimHighlightBase(false, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(false, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(false, trimTshirt.highlightTwo.tcolor);">NEXT</button>
               </div>
             </div>
 

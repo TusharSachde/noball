@@ -3181,7 +3181,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         } else {
             $scope.trimTshirt.highlightOne.image = "";
-            $scope.trimTshirt.highlightOne.image = "";
         }
         //}
     };
@@ -3200,7 +3199,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         } else {
             $scope.trimTshirt.highlightTwo.image = "";
-            $scope.trimTshirt.highlightTwo.image = "";
         }
         //}
     };
@@ -3211,18 +3209,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //if (color != undefined && color != nil) {
         $scope.trimTshirt.highlightBase.flag = flag;
         $scope.trimTshirt.highlightBase.tcolor = color;
-        if ($scope.trimTshirt.highlightBase.tcolor != "white") {
+        // if ($scope.trimTshirt.highlightBase.tcolor != "white") {
             if (flag) {
-                $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/base/front/trim_" + color + ".png";
+                $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/base/front/" + color + ".png";
+                $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/front.png';
             } else {
-                $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/base/back/trim_" + color + ".png";
+                $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/base/back/" + color + ".png";
+                $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/back.png';
             }
-        } else {
-            $scope.trimTshirt.highlightBase.image = "";
-            $scope.trimTshirt.highlightBase.image = "";
-        }
+        // } else {
+        //     if (flag) {
+        //         $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/base/front/white.png";
+        //         $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/front.png';
+        //     } else {
+        //         $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/base/back/white.png";
+        //         $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/back.png';
+        //     }
+        // }
         //}
     };
+    $scope.switchTrimHighlightBase(true, $scope.trimTshirt.highlightBase.tcolor);
     $scope.trimCollar = function(color) {
         $scope.trimTshirt.collar = "img/trim/collar/trim-" + color + ".png";
     };
