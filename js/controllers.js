@@ -3170,7 +3170,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.switchTrimHighlightOne = function(flag, color) {
         console.log(flag);
         console.log(color);
-        //if (color != undefined && color != nil) {
         $scope.trimTshirt.highlightOne.flag = flag;
         $scope.trimTshirt.highlightOne.tcolor = color;
         if ($scope.trimTshirt.highlightOne.tcolor != "white") {
@@ -3182,13 +3181,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         } else {
             $scope.trimTshirt.highlightOne.image = "";
         }
-        //}
     };
     $scope.switchTrimHighlightTwo = function(flag, color) {
         console.log('two');
         console.log(color);
         console.log(flag);
-        //if (color != undefined && color != nil) {
         $scope.trimTshirt.highlightTwo.flag = flag;
         $scope.trimTshirt.highlightTwo.tcolor = color;
         if ($scope.trimTshirt.highlightTwo.tcolor != "white") {
@@ -3200,7 +3197,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         } else {
             $scope.trimTshirt.highlightTwo.image = "";
         }
-        //}
     };
     $scope.switchTrimHighlightBase = function(flag, color) {
         console.log('base');
