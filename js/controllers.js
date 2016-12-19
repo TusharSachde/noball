@@ -3174,9 +3174,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.trimTshirt.highlightOne.tcolor = color;
         if ($scope.trimTshirt.highlightOne.tcolor != "white") {
             if (flag) {
-                $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
+                $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/" + $scope.designName + "/front/trim1/" + color + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
             } else {
-                $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/highlight1/back/trim_" + color + ".png";
+                $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/" + $scope.designName + "/back/trim1/" + color + ".png"; // "img/odi-tshirts/trims/highlight1/back/trim_" + color + ".png";
             }
         } else {
             $scope.trimTshirt.highlightOne.image = "";
@@ -3190,9 +3190,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.trimTshirt.highlightTwo.tcolor = color;
         if ($scope.trimTshirt.highlightTwo.tcolor != "white") {
             if (flag) {
-                $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/highlight2/front/trim_" + color + ".png";
+                $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/" + $scope.designName + "/front/trim2/" + color + ".png"; // "img/odi-tshirts/trims/highlight2/front/trim_" + color + ".png";
             } else {
-                $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/highlight2/back/trim_" + color + ".png";
+                $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/" + $scope.designName + "/front/trim2/" + color + ".png"; // "img/odi-tshirts/trims/highlight2/back/trim_" + color + ".png";
             }
         } else {
             $scope.trimTshirt.highlightTwo.image = "";
@@ -3207,15 +3207,33 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         if (flag) {
             $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/base/front/" + color + ".png";
             $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/front.png';
+            $scope.customizedShirt.front = flag;
         } else {
             $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/base/back/" + color + ".png";
             $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/back.png';
+            $scope.customizedShirt.front = flag;
         }
     };
     $scope.switchTrimHighlightBase(true, $scope.trimTshirt.highlightBase.tcolor);
     $scope.trimCollar = function(color) {
         $scope.trimTshirt.collar = "img/trim/collar/trim-" + color + ".png";
     };
+
+    $scope.designName = "design1";
+    $scope.trimTwoDisable = "";
+    $scope.changeDesign = function(index) {
+        $scope.designName = "design" + (index + 1);
+        $scope.switchFrontBack($scope.trimTshirt.highlightOne.flag);
+        $scope.switchTrimHighlightOne($scope.trimTshirt.highlightOne.flag, $scope.trimTshirt.highlightOne.tcolor);
+        $scope.switchTrimHighlightTwo($scope.trimTshirt.highlightTwo.flag, $scope.trimTshirt.highlightTwo.tcolor);
+        if ($scope.designName === "design1" || $scope.designName === "design2" || $scope.designName === "design3") {
+          $scope.trimTwoDisable = "btn-disabled";
+        } else {
+          $scope.trimTwoDisable = "btn-disabled"; // remove btn-disabled later
+        }
+    }
+
+    $scope.changeDesign(1);
 
     // $scope.showCheck = true;
     // $scope.showVid = function () {
@@ -3630,7 +3648,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         name: "orange"
     }];
 
-    $scope.odicolor = [{
+    $scope.odicolorold = [{
         colr: "#fbfbfb",
         name: "white"
     }, {
@@ -3648,6 +3666,53 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }, {
         colr: "#008000",
         name: "green"
+    }];
+
+    $scope.odicolor = [{
+        colr: "#ffffff",
+        name: "white"
+    },{
+        colr: "#000000",
+        name: "black"
+    }, {
+        colr: "#bf0000",
+        name: "red"
+    }, {
+        colr: "#00308f",
+        name: "royal_blue"
+    }, {
+        colr: "#2175d9",
+        name: "india_blue"
+    }, {
+        colr: "#008000",
+        name: "australian_green"
+    }, {
+        colr: "#ffff00",
+        name: "lemon_yellow"
+    }, {
+        colr: "#ffd700",
+        name: "golden_yellow"
+    }, {
+        colr: "#1a472a",
+        name: "dark_green"
+    }, {
+        colr: "#ccff00",
+        name: "neon_green"
+    }, {
+        colr: "#f07f13",
+        name: "neon_orange"
+    }, {
+        colr: "#666666",
+        name: "grey"
+    }, {
+        colr: "#800000",
+        name: "maroon"
+    }, {
+        colr: "#ffa500",
+        name: "orange"
+    }, {
+        colr: "#032149",
+        name: "navy_blue"
     }];
 
     $scope.odibasecolor = [{

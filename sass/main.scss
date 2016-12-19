@@ -2617,6 +2617,12 @@ footer {
     }
 }
 
+.btn-disabled {
+  background-color: lightgray !important;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
 .tshirt-name {
     min-width: 120px;
     height: 32px;
