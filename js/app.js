@@ -444,6 +444,12 @@
     };
   });
 
+  firstapp.filter('capitalize', function() {
+    return function(input) {
+      var i = (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
+      return i.replace('_', ' ');
+    }
+  });
 
   var formvalidation = function (allvalidation) {
     var isvalid2 = true;
