@@ -3172,7 +3172,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log(color);
         $scope.trimTshirt.highlightOne.flag = flag;
         $scope.trimTshirt.highlightOne.tcolor = color;
-        if ($scope.trimTshirt.highlightOne.tcolor != "white") {
+        if ($scope.trimTshirt.highlightOne.tcolor != "") {
             if (flag) {
                 $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/" + $scope.designName + "/front/trim1/" + color + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
             } else {
@@ -3791,6 +3791,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         src: "img/odi-purple.png"
     }, {
         src: "img/odi-green.png"
+    }, {
+      src: "img/odi-tshirts/trims/design6/front.png"
+    }, {
+      src: "img/odi-tshirts/trims/design7/front.png"
+    }, {
+      src: "img/odi-tshirts/trims/design8/front.png"
+    }, {
+      src: "img/odi-tshirts/trims/design9/front.png"
     }];
 
     //window.uploadUrl = "http://customcricketcompany.com/admin/index.php/json/uploadImage";
