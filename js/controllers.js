@@ -3064,11 +3064,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.customizedShirt.front =  front;
         $scope.customizedShirt.back =  !front;
         if (front) {
-            $scope.customizedShirt.cloth = $scope.originURL + 'img/odi-tshirts/cloth/front.png'; //'img/tinytshirt 7.png';
-            $scope.customizedShirt.backdrop = $scope.originURL + 'img/odi-tshirts/backdrop/front.png'; //'img/tinytshirt 7 back.png';
+            $scope.customizedShirt.cloth = 'img/odi-tshirts/cloth/front.png'; //'img/tinytshirt 7.png';
+            $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/front.png'; //'img/tinytshirt 7 back.png';
         } else {
-            $scope.customizedShirt.cloth = $scope.originURL + 'img/odi-tshirts/cloth/back.png'; //'img/tinytshirt 1 back.png';
-            $scope.customizedShirt.backdrop = $scope.originURL + 'img/odi-tshirts/backdrop/back.png'; //'img/tinytshirt 1 back back.png';
+            $scope.customizedShirt.cloth = 'img/odi-tshirts/cloth/back.png'; //'img/tinytshirt 1 back.png';
+            $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/back.png'; //'img/tinytshirt 1 back back.png';
         }
         // _.each($scope.customizedShirt,function(value,property){
         //   console.log(angular.isObject($scope.customizedShirt[property]));
