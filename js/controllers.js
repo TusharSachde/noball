@@ -6,8 +6,8 @@ var tabvalue = 1;
 var user = $.jStorage.get("user");
 var globalfunction = {};
 var bigcount = {};
-// window.uploadUrl = "http://customcricketcompany.com/admin/index.php/json/uploadImage";
-window.uploadUrl = "http://192.168.0.102/cccbackend/index.php/json/uploadImage";
+window.uploadUrl = "http://customcricketcompany.com/admin/index.php/json/uploadImage";
+// window.uploadUrl = "http://192.168.0.102/cccbackend/index.php/json/uploadImage";
 
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'duScroll', 'cfp.loadingBar', 'ngDialog', 'angularFileUpload', 'ngSanitize', 'ui-rangeSlider'])
 
