@@ -22,7 +22,7 @@
               <p>3. LOGOS</p>
               <span class="bread-back"></span>
             </li>
-            <li class="tab-item breadcrums {{classe}}" ng-click="tabchange('quantity',5); switchTrimHighlightBase(false, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(false, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(false, trimTshirt.highlightTwo.tcolor);">
+            <li class="tab-item breadcrums {{classe}}" ng-click="tabchange('quantity',5);">
               <span class="bread-frnt"></span>
               <p>4. QUANTITY</p>
               <span class="bread-back"></span>
@@ -53,8 +53,8 @@
                 <div class="div-back-sponsor2" ng-if="customizedShirt.back && customizedShirt.backsponsor2.image" ng-style="customizedShirt.backsponsor2.divattributes">
                   <img class="back-sponsor2" ng-src="{{customizedShirt.backsponsor2.image | serverimage}}" alt="" ng-style="customizedShirt.backsponsor2.attributes">
                 </div>
-                <div class="div-left-chest" ng-if="customizedShirt.front && customizedShirt.leftchest.image" ng-style="customizedShirt.leftchest.divattributes">
-                  <img id="leftchest" class="left-chest" ng-src="{{customizedShirt.leftchest.image | serverimage}}" alt="" ng-style="customizedShirt.leftchest.attributes">
+                <div class="div-left-chest" ng-if="customizedShirt.front && customizedShirt.teamlogo.image" ng-style="customizedShirt.teamlogo.divattributes">
+                  <img id="teamlogo" class="left-chest" ng-src="{{customizedShirt.teamlogo.image | serverimage}}" alt="" ng-style="customizedShirt.teamlogo.attributes">
                 </div>
                 <div class="div-left-sleeve" ng-if="customizedShirt.leftsleeve.image" ng-style="customizedShirt.leftsleeve.divattributes" ng-class="{'div-left-sleeve':customizedShirt.front,'div-right-sleeve':customizedShirt.back}">
                   <img id="leftsleeve" ng-class="{'left-sleeve':customizedShirt.front,'right-sleeve':customizedShirt.back}" ng-src="{{customizedShirt.leftsleeve.image | serverimage}}" alt="" ng-style="customizedShirt.leftsleeve.attributes">
@@ -252,19 +252,19 @@
                   <div class="inline-box single-logo">
                     <div class="pad10">
                       <div class="head-title-box">
-                        LEFT CHEST
+                        TEAM LOGO
                       </div>
                       <div class="box-custom pointer">
-                        <p class="uppercase" ng-click="openUploads('leftchest', 'Left Chest')" ng-if="!customizedShirt.leftchest">Upload</p>
-                        <img ng-src="{{customizedShirt.leftchest.image | serverimage}}" alt="" ng-if="customizedShirt.leftchest">
+                        <p class="uppercase" ng-click="openUploads('teamlogo', 'Left Chest')" ng-if="!customizedShirt.teamlogo">Upload</p>
+                        <img ng-src="{{customizedShirt.teamlogo.image | serverimage}}" alt="" ng-if="customizedShirt.teamlogo">
                       </div>
-                      <div class="tex-cont range-custom" ng-if="customizedShirt.leftchest">
+                      <div class="tex-cont range-custom" ng-if="customizedShirt.teamlogo">
                         Size:
                         <div class="range">
-                          <div range-slider on-handle-down="changeLogo('leftchest')" on-handle-up="resetLogoStyle('leftchest')" ng-model="customizedShirt['leftchest'].attributes.width" min="0" max="200" model-max="customizedShirt['leftchest'].attributes.width" model-min="rslider.min" pin-handle="min"></div>
+                          <div range-slider on-handle-down="changeLogo('teamlogo')" on-handle-up="resetLogoStyle('teamlogo')" ng-model="customizedShirt['teamlogo'].attributes.width" min="0" max="200" model-max="customizedShirt['teamlogo'].attributes.width" model-min="rslider.min" pin-handle="min"></div>
                         </div>
-                        <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="openUploads('leftchest', 'Left Chest')">CHANGE</button>
-                        <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="emptyImage('leftchest')">REMOVE</button>
+                        <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="openUploads('teamlogo', 'Left Chest')">CHANGE</button>
+                        <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="emptyImage('teamlogo')">REMOVE</button>
                       </div>
                     </div>
                   </div>
@@ -437,15 +437,15 @@
                   </div>
                   <div class="sizes size inline-block">
                     <span class="inline-block uppercase">quantity</span>
-                    <input type="text" class="form-control inline-block" name="name" value="">
+                    <input type="number" class="form-control inline-block" name="quantity" value="">
                   </div>
                 </div>
                 <a href="" class="bins"><img src="img/rubbishbin.png" class="img-responsive" alt=""></a>
                 <div class="add-button">
-                  <p><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</p>
+                  <p ng-click="addJerseyValues()"><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</p>
                 </div>
                 <div class="total-amount">
-                  <span class="pull-right uppercase fontfam">Total:20</span>
+                  <span class="pull-right uppercase fontfam">Total: 995</span>
                 </div>
                 <div class="edit-btn">
                   <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>

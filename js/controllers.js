@@ -3011,12 +3011,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.trimTshirt.highlightOne = {};
     $scope.trimTshirt.highlightTwo = {};
     $scope.trimTshirt.highlightBase = {};
-    $scope.customizedShirt.leftchest = {};
-    $scope.customizedShirt.leftchest.name = "Left Chest";
-    $scope.customizedShirt.leftchest.image = "img/logo_black.png";
-    $scope.customizedShirt.leftchest.attributes = {};
-    $scope.customizedShirt.leftchest.divattributes = {};
-    $scope.customizedShirt.leftchest.attributes.width = 50;
+    $scope.customizedShirt.teamlogo = {};
+    $scope.customizedShirt.teamlogo.name = "Left Chest";
+    $scope.customizedShirt.teamlogo.image = "img/logo_black.png";
+    $scope.customizedShirt.teamlogo.attributes = {};
+    $scope.customizedShirt.teamlogo.divattributes = {};
+    $scope.customizedShirt.teamlogo.attributes.width = 50;
     $scope.customizedShirt.printType = 'embroidered';
     $scope.myClolr = 'red';
     $scope.ChaangeTextColor = function(mycolor) {
@@ -3413,9 +3413,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         if ($scope.customizedShirt.mainlogo) {
             $scope.ml = $scope.customizedShirt.mainlogo.image;
         }
-        if ($scope.customizedShirt.leftchest) {
-            $scope.lc = $scope.customizedShirt.leftchest.image;
-        }
+        // if ($scope.customizedShirt.leftchest) {
+        //     $scope.lc = $scope.customizedShirt.leftchest.image;
+        // }
         if ($scope.customizedShirt.rightchest) {
             $scope.rc = $scope.customizedShirt.rightchest.image;
         }
@@ -3821,46 +3821,66 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.classd = '';
     $scope.classe = '';
 
+    $scope.tabOne = true;
+    $scope.tabTwo = false;
+    $scope.tabThree = false;
+    $scope.tabFour = false;
+    $scope.tabFive = false;
+
     $scope.tabchange = function(tab, a) {
-        $scope.tab = tab;
         if (a == 1) {
             $scope.classa = 'active';
             $scope.classb = '';
             $scope.classc = '';
             $scope.classd = '';
             $scope.classe = '';
-
+            $scope.tab = tab;
         }
         if (a == 2) {
-            $scope.classb = 'active';
-            $scope.classa = '';
-            $scope.classc = '';
-            $scope.classd = '';
-            $scope.classe = '';
-
+            if ($scope.tabOne) {
+                $scope.classb = 'active';
+                $scope.classa = '';
+                $scope.classc = '';
+                $scope.classd = '';
+                $scope.classe = '';
+                $scope.tabTwo = true;
+                $scope.tab = tab;
+            }
         }
         if (a == 3) {
-            $scope.classc = 'active';
-            $scope.classb = '';
-            $scope.classa = '';
-            $scope.classd = '';
-            $scope.classe = '';
-
+            if ($scope.tabTwo) {
+                $scope.classc = 'active';
+                $scope.classb = '';
+                $scope.classa = '';
+                $scope.classd = '';
+                $scope.classe = '';
+                $scope.tabThree = true;
+                $scope.tab = tab;
+            }
         }
         if (a == 4) {
-            $scope.classd = 'active';
-            $scope.classb = '';
-            $scope.classc = '';
-            $scope.classa = '';
-            $scope.classe = '';
-
+            if ($scope.tabThree) {
+                $scope.classd = 'active';
+                $scope.classb = '';
+                $scope.classc = '';
+                $scope.classa = '';
+                $scope.classe = '';
+                $scope.tabFour = true;
+                $scope.tab = tab;
+            }
         } else if (a == 5) {
-            $scope.classe = 'active';
-            $scope.classb = '';
-            $scope.classc = '';
-            $scope.classd = '';
-            $scope.classa = '';
-
+            if ($scope.tabThree) {
+                $scope.classe = 'active';
+                $scope.classb = '';
+                $scope.classc = '';
+                $scope.classd = '';
+                $scope.classa = '';
+                $scope.tabFive = true;
+                $scope.tab = tab;
+                $scope.switchTrimHighlightBase(false, $scope.trimTshirt.highlightBase.tcolor);
+                $scope.switchTrimHighlightOne(false, $scope.trimTshirt.highlightOne.tcolor);
+                $scope.switchTrimHighlightTwo(false, $scope.trimTshirt.highlightTwo.tcolor);
+            }
         }
     };
 
