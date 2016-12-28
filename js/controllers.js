@@ -6,8 +6,8 @@ var tabvalue = 1;
 var user = $.jStorage.get("user");
 var globalfunction = {};
 var bigcount = {};
-window.uploadUrl = "http://customcricketcompany.com/admin/index.php/json/uploadImage";
-// window.uploadUrl = "http://192.168.0.102/cccbackend/index.php/json/uploadImage";
+// window.uploadUrl = "http://customcricketcompany.com/admin/index.php/json/uploadImage";
+window.uploadUrl = "http://192.168.0.102/cccbackend/index.php/json/uploadImage";
 
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'duScroll', 'cfp.loadingBar', 'ngDialog', 'angularFileUpload', 'ngSanitize', 'ui-rangeSlider'])
 
@@ -3039,10 +3039,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         'color': '#c80d28',
         'quantity': 1,
         'attributes': {
-            'fontSize': 18,
-            'border': 'none',
-            'rotate': 0,
-            'letterSpacing': 1
+            'name': {
+                'fontSize': 18,
+                'border': 'none',
+                'rotate': 0,
+                'letterSpacing': 1
+            },
+            'number': {
+                'fontSize': 60,
+                'border': 'none',
+                'rotate': 0,
+                'letterSpacing': 1
+            }
         }
     };
     $scope.jerseyBackArr = [{
@@ -3300,7 +3308,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             templateUrl: "views/modal/continue.html",
             windowClass: "modal-conti",
             scope: $scope
-        })
+        });
     }
 
     $scope.TextBoxDetails = [{
