@@ -74,7 +74,7 @@
                 <div class="div-right-sleeve" ng-if="customizedShirt.rightsleeve.image" ng-style="customizedShirt.rightsleeve.divattributes" ng-class="{'div-right-sleeve':customizedShirt.front,'div-left-sleeve':customizedShirt.back}">
                   <img ng-class="{'right-sleeve':customizedShirt.front,'left-sleeve':customizedShirt.back}" ng-src="{{customizedShirt.rightsleeve.image | serverimage}}" alt="" ng-style="customizedShirt.rightsleeve.attributes">
                 </div>
-                <div ng-if="customizedShirt.back && tab=='quantiy'" class="{{jerseyBack.font+'-font'}}" ng-style="{'color': jerseyBack.color}">
+                <div ng-if="!customizedShirt.back && tab=='quantiy'" class="{{jerseyBack.font+'-font'}}" ng-style="{'color': jerseyBack.color}">
                   <div class="odi-t jersey-name text-center"><p ng-style="jerseyBack.attributes">{{jerseyBackArr[0].name}}</p></div>
                   <div class="odi-t jersey-no text-center">{{jerseyBackArr[0].no}}</div>
                 </div>

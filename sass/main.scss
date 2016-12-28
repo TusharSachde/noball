@@ -5705,6 +5705,7 @@ h2 {
         font-size: 60px;
         line-height: 1;
         height: 80px;
+        z-index: 100;
     }
 
     &.jersey-name {
@@ -5716,6 +5717,7 @@ h2 {
         display: flex;
         justify-content: center;
         align-items: center;
+        z-index: 100;
     }
 }
 
