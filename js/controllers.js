@@ -6,8 +6,8 @@ var tabvalue = 1;
 var user = $.jStorage.get("user");
 var globalfunction = {};
 var bigcount = {};
-// window.uploadUrl = "http://customcricketcompany.com/admin/index.php/json/uploadImage";
-window.uploadUrl = "http://192.168.0.102/cccbackend/index.php/json/uploadImage";
+window.uploadUrl = "http://customcricketcompany.com/admin/index.php/json/uploadImage";
+// window.uploadUrl = "http://192.168.0.103/cccbackend/index.php/json/uploadImage";
 
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'duScroll', 'cfp.loadingBar', 'ngDialog', 'angularFileUpload', 'ngSanitize', 'ui-rangeSlider'])
 
@@ -3409,7 +3409,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.combineJSON = {"trim": $scope.trimTshirt, "customizedShirt": $scope.customizedShirt, "jerseyBack": $scope.jerseyBackArr};
         $scope.lastJSON = JSON.stringify($scope.combineJSON);
         console.log($scope.lastJSON);
-        $scope.ml = ""; $scope.lc = ""; $scope.rc = ""; $scope.ls = ""; $scope.rs = ""; $scope.tl = "";
+        $scope.ml = ""; $scope.rc = ""; $scope.ls = ""; $scope.rs = ""; $scope.tl = "";
         if ($scope.customizedShirt.mainlogo) {
             $scope.ml = $scope.customizedShirt.mainlogo.image;
         }
@@ -3428,7 +3428,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         if ($scope.customizedShirt.teamlogo) {
             $scope.tl = $scope.customizedShirt.teamlogo.image;
         }
-        NavigationService.orderSummary($scope.lastJSON, $scope.ml, $scope.lc, $scope.rc, $scope.ls, $scope.rs, $scope.tl, function(data) {
+        NavigationService.orderSummary($scope.lastJSON, $scope.ml, $scope.rc, $scope.ls, $scope.rs, $scope.tl, function(data) {
             console.log(data);
             if (data.value) {
                 // $state.go('ordersummary', { json: data });
