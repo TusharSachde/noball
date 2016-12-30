@@ -3011,12 +3011,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.trimTshirt.highlightOne = {};
     $scope.trimTshirt.highlightTwo = {};
     $scope.trimTshirt.highlightBase = {};
-    $scope.customizedShirt.teamlogo = {};
-    $scope.customizedShirt.teamlogo.name = "Left Chest";
-    $scope.customizedShirt.teamlogo.image = "img/logo_black.png";
-    $scope.customizedShirt.teamlogo.attributes = {};
-    $scope.customizedShirt.teamlogo.divattributes = {};
-    $scope.customizedShirt.teamlogo.attributes.width = 50;
+    $scope.customizedShirt.rightchest = {};
+    $scope.customizedShirt.rightchest.name = "Left Chest";
+    $scope.customizedShirt.rightchest.image = "img/logo_black.png";
+    $scope.customizedShirt.rightchest.attributes = {};
+    $scope.customizedShirt.rightchest.divattributes = {};
+    $scope.customizedShirt.rightchest.attributes.width = 50;
     $scope.customizedShirt.printType = 'embroidered';
     $scope.myClolr = 'red';
     $scope.ChaangeTextColor = function(mycolor) {
@@ -3036,7 +3036,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         'name': 'Name',
         'no': '00',
         'font': 'arial',
-        'color': '#c80d28',
+        'color': 'white',
         'quantity': 1,
         'attributes': {
             'name': {
@@ -3057,7 +3057,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         'name': 'Name',
         'no': '00',
         'font': 'arial',
-        'color': '#c80d28',
+        'color': 'white',
         'quantity': 1
     }];
 
@@ -3645,15 +3645,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }, 100);
     });
 
+    // $scope.color = [{
+    //     colr: "#c80d28",
+    //     name: "red"
+    // }, {
+    //     colr: "#2c8b47",
+    //     name: "green"
+    // }, {
+    //     colr: "#e87024",
+    //     name: "orange"
+    // }];
+
     $scope.color = [{
-        colr: "#c80d28",
-        name: "red"
+        colr: 'white',
+        name: 'white'
     }, {
-        colr: "#2c8b47",
-        name: "green"
-    }, {
-        colr: "#e87024",
-        name: "orange"
+        colr: 'black',
+        name: 'black'
     }];
 
     $scope.odicolorold = [{
@@ -3790,23 +3798,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }];
 
     $scope.images = [{
-        src: "img/odi.png"
+        src: "img/odi-tshirts/trims/design1/front.png"
     }, {
-        src: "img/odi-black.png"
+        src: "img/odi-tshirts/trims/design2/front.png"
     }, {
-        src: "img/odi-orange.png"
+        src: "img/odi-tshirts/trims/design3/front.png"
     }, {
-        src: "img/odi-purple.png"
+        src: "img/odi-tshirts/trims/design4/front.png"
     }, {
-        src: "img/odi-green.png"
+        src: "img/odi-tshirts/trims/design5/front.png"
     }, {
-      src: "img/odi-tshirts/trims/design6/front.png"
+        src: "img/odi-tshirts/trims/design6/front.png"
     }, {
-      src: "img/odi-tshirts/trims/design7/front.png"
+        src: "img/odi-tshirts/trims/design7/front.png"
     }, {
-      src: "img/odi-tshirts/trims/design8/front.png"
+        src: "img/odi-tshirts/trims/design8/front.png"
     }, {
-      src: "img/odi-tshirts/trims/design9/front.png"
+        src: "img/odi-tshirts/trims/design9/front.png"
     }];
 
     //window.uploadUrl = "http://customcricketcompany.com/admin/index.php/json/uploadImage";
@@ -3835,6 +3843,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.classd = '';
             $scope.classe = '';
             $scope.tab = tab;
+            $scope.backwhite = "backblack";
         }
         if (a == 2) {
             if ($scope.tabOne) {
@@ -3845,6 +3854,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.classe = '';
                 $scope.tabTwo = true;
                 $scope.tab = tab;
+                $scope.backwhite = "backblack";
+            } else {
+                $scope.backwhite = "backgrey";
             }
         }
         if (a == 3) {
@@ -3856,6 +3868,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.classe = '';
                 $scope.tabThree = true;
                 $scope.tab = tab;
+                $scope.backwhite = "backblack";
+            } else {
+                $scope.backwhite = "backgrey";
             }
         }
         if (a == 4) {
@@ -3867,6 +3882,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.classe = '';
                 $scope.tabFour = true;
                 $scope.tab = tab;
+                $scope.backwhite = "backblack";
+            } else {
+                $scope.backwhite = "backgrey";
             }
         } else if (a == 5) {
             if ($scope.tabThree) {
@@ -3880,6 +3898,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.switchTrimHighlightBase(false, $scope.trimTshirt.highlightBase.tcolor);
                 $scope.switchTrimHighlightOne(false, $scope.trimTshirt.highlightOne.tcolor);
                 $scope.switchTrimHighlightTwo(false, $scope.trimTshirt.highlightTwo.tcolor);
+                $scope.backwhite = "backblack";
+            } else {
+                $scope.backwhite = "backgrey";
             }
         }
     };
