@@ -3033,7 +3033,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 
     $scope.jerseyBack = {
-        'name': 'Name',
+        'name': '',
         'no': '00',
         'font': 'arial',
         'color': 'white',
@@ -3069,6 +3069,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 
     $scope.switchFrontBack = function(front) {
+      console.log('switchFrontBack');
         $scope.customizedShirt.front =  front;
         $scope.customizedShirt.back =  !front;
         if (front) {
@@ -3169,13 +3170,38 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             scope: $scope
         })
     }
+
     $scope.trimTshirt.highlightOne.flag = true;
     $scope.trimTshirt.highlightTwo.flag = true;
     $scope.trimTshirt.highlightBase.flag = true;
     $scope.trimTshirt.highlightOne.tcolor = "white";
     $scope.trimTshirt.highlightTwo.tcolor = "white";
     $scope.trimTshirt.highlightBase.tcolor = "white";
+    $scope.trimTshirt.highlightTwo.disable = "disabled";
+
+// switch ($scope.designName) {
+//         case "design1":
+//             $scope.trimTshirt.highlightTwo.disable = "disabled";
+//         case "design2":
+//             $scope.trimTshirt.highlightTwo.disable = "disabled";
+//         case "design3":
+//             $scope.trimTshirt.highlightTwo.disable = "disabled";
+//         case "design4":
+//             $scope.trimTshirt.highlightTwo.disable = "disabled";
+//         case "design5":
+//             $scope.trimTshirt.highlightTwo.disable = "undisabled";
+//         case "design6":
+//             $scope.trimTshirt.highlightTwo.disable = "undisabled";
+//         case "design7":
+//             $scope.trimTshirt.highlightTwo.disable = "undisabled";
+//         case "design8":
+//             $scope.trimTshirt.highlightTwo.disable = "undisabled";
+//         case "design1":
+//             $scope.trimTshirt.highlightTwo.disable = "undisabled";
+// };
+
     $scope.switchTrimHighlightOne = function(flag, color) {
+      console.log('switchTrimHighlightOne');
         console.log(flag);
         console.log(color);
         $scope.trimTshirt.highlightOne.flag = flag;
@@ -3188,9 +3214,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         } else {
             $scope.trimTshirt.highlightOne.image = "";
-        }
+        }``
     };
     $scope.switchTrimHighlightTwo = function(flag, color) {
+      console.log('switchTrimHighlightTwo');
         console.log('two');
         console.log(color);
         console.log(flag);
@@ -3229,8 +3256,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.designName = "design1";
     $scope.trimTwoDisable = "";
+    $scope.trimTshirt.highlightOne.tcolor = 'black';
     $scope.changeDesign = function(index) {
         $scope.designName = "design" + (index + 1);
+        console.log($scope.designName);
         $scope.switchFrontBack($scope.trimTshirt.highlightOne.flag);
         $scope.switchTrimHighlightOne($scope.trimTshirt.highlightOne.flag, $scope.trimTshirt.highlightOne.tcolor);
         $scope.switchTrimHighlightTwo($scope.trimTshirt.highlightTwo.flag, $scope.trimTshirt.highlightTwo.tcolor);
@@ -3239,9 +3268,65 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         } else {
           $scope.trimTwoDisable = "btn-disabled"; // remove btn-disabled later
         }
+        if ($scope.designName == "design1") {
+            $scope.trimTshirt.highlightTwo.disable = "disabled";
+            $scope.designName = "design1";
+            $scope.switchTrimHighlightOne(true, 'black');
+            $scope.switchTrimHighlightTwo(true, 'white');
+            $scope.switchTrimHighlightBase(true, 'white');
+        } else if ($scope.designName == "design2") {
+            $scope.trimTshirt.highlightTwo.disable = "disabled";
+            $scope.designName = "design2";
+            $scope.switchTrimHighlightOne(true, 'black');
+            $scope.switchTrimHighlightTwo(true, 'white');
+            $scope.switchTrimHighlightBase(true, 'white');
+        } else if ($scope.designName == "design3") {
+            $scope.trimTshirt.highlightTwo.disable = "disabled";
+            $scope.designName = "design3";
+            $scope.switchTrimHighlightOne(true, 'black');
+            $scope.switchTrimHighlightTwo(true, 'white');
+            $scope.switchTrimHighlightBase(true, 'white');
+        } else if ($scope.designName == "design4") {
+            $scope.trimTshirt.highlightTwo.disable = "disabled";
+            $scope.designName = "design4";
+            $scope.switchTrimHighlightOne(true, 'black');
+            $scope.switchTrimHighlightTwo(true, 'white');
+            $scope.switchTrimHighlightBase(true, 'white');
+        } else if ($scope.designName == "design5") {
+            $scope.trimTshirt.highlightTwo.disable = "undisabled";
+            $scope.designName = "design5";
+            $scope.switchTrimHighlightOne(true, 'grey');
+            $scope.switchTrimHighlightTwo(true, 'grey');
+            $scope.switchTrimHighlightBase(true, 'white');
+        } else if ($scope.designName == "design6") {
+            $scope.trimTshirt.highlightTwo.disable = "undisabled";
+            $scope.designName = "design6";
+            $scope.switchTrimHighlightOne(true, 'neon_green');
+            $scope.switchTrimHighlightTwo(true, 'black');
+            $scope.switchTrimHighlightBase(true, 'grey');
+        } else if ($scope.designName == "design7") {
+            $scope.trimTshirt.highlightTwo.disable = "undisabled";
+            $scope.designName = "design7";
+            $scope.switchTrimHighlightOne(true, 'neon_green');
+            $scope.switchTrimHighlightTwo(true, 'black');
+            $scope.switchTrimHighlightBase(true, 'grey');
+        } else if ($scope.designName == "design8") {
+            $scope.trimTshirt.highlightTwo.disable = "undisabled";
+            $scope.designName = "design8";
+            $scope.switchTrimHighlightOne(true, 'neon_green');
+            $scope.switchTrimHighlightTwo(true, 'black');
+            $scope.switchTrimHighlightBase(true, 'grey');
+        } else if ($scope.designName == "design9") {
+            $scope.trimTshirt.highlightTwo.disable = "undisabled";
+            $scope.designName = "design9";
+            $scope.switchTrimHighlightOne(true, 'neon_green');
+            $scope.switchTrimHighlightTwo(true, 'black');
+            $scope.switchTrimHighlightBase(true, 'grey');
+        }
     }
 
-    $scope.changeDesign(1);
+    $scope.changeDesign(0);
+
 
     // $scope.showCheck = true;
     // $scope.showVid = function () {

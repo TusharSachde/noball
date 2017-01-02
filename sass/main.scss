@@ -2826,6 +2826,7 @@ footer {
 }
 
 .notihov {
+    border: 1px solid #888888;
     &:after {
         content: "";
         display: block;
@@ -5182,6 +5183,14 @@ a:focus {
 .quantity-no {
     width: 49%;
     display: inline-block;
+}
+
+.disabled {
+    display: none !important;
+}
+
+.undisabled {
+    display: inline-block !important;
 }
 
 .range {
