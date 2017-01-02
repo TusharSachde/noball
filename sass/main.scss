@@ -4591,6 +4591,7 @@ input[type=number]::-webkit-outer-spin-button {
 
     .edit-btn button {
         margin: 10px 5px 0 0;
+         padding: 4px 35px;
     }
 
     .edit-btn {
@@ -4601,9 +4602,9 @@ input[type=number]::-webkit-outer-spin-button {
         }
     }
 
-    .btn {
-        padding: 4px 35px;
-    }
+    // .btn {
+    //     padding: 4px 35px;
+    // }
 
     .check {
         margin-left: 5px;
