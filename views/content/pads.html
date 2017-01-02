@@ -13,12 +13,12 @@
                     </li>
                     <li class="tab-item breadcrums {{classb}}" ng-click="tabchange('trim',2)">
                         <span class="bread-frnt"></span>
-                        <p>2. COLOR</p>
+                        <p>2. TRIM</p>
                         <span class="bread-back"></span>
                     </li>
                     <li class="tab-item breadcrums {{classc}}" ng-click="tabchange('team',3)">
                         <span class="bread-frnt"></span>
-                        <p>3. TEAM LOGO</p>
+                        <p>3. LOGO</p>
                         <span class="bread-back"></span>
                     </li>
                     <!-- <li class="tab-item breadcrums {{classd}}" ng-click="tabchange('logo',4)">
@@ -49,13 +49,15 @@
                       <div class="gully-shirt" ng-if="Arrayname=='$scope.padImages3'">
                           <img src="{{selectedImage}}" class="img-responsive" alt="">
                       </div>
-                            <div class="prev inline-block" style="display:none">
-                                <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">back</p>
-                            </div>
-                            <div class="next inline-block" style="display:none">
-                                <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">front</p>
-                            </div>
-
+                      <div class="pad-logo" ng-if="padLogo.image">
+                          <img ng-src="{{padLogo.image | serverimage}}" class="img-responsive" alt="">
+                      </div>
+                        <div class="prev inline-block" style="display:none">
+                            <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">back</p>
+                        </div>
+                        <div class="next inline-block" style="display:none">
+                            <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">front</p>
+                        </div>
                         <div class="feature-buttons">
                             <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing">FORM + FUNCTION</button>
                             <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing">DELIVERY</button>
@@ -74,9 +76,9 @@
                 <div class="col-md-7">
                     <div class="det-name">
                         <h4>INSIDE EDGE 202</h4>
-                        <p>The Custom Cricket company cricket pads is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest
+                        <!--<p>The Custom Cricket company cricket pads is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest
                             .
-                        </p>
+                        </p>-->
                         <h3><i class="fa fa-inr"></i>995</h3>
                         <span class="Raleway-Medium"><em>Minimum order to be placed for pads is 12.</em></span>
                     </div>
@@ -84,7 +86,7 @@
 
 
                     <div class="choos m20-l" ng-show="tab=='design'">
-                        <p>Choose Your Type Of Design</p>
+                        <p>Choose Your Type Of Design (2/2)</p>
                         <div class="row">
                             <div class="col-md-10">
                                 <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in myArr track by $index">
@@ -180,7 +182,7 @@
                     <!--  team logo-->
                     <div class="choos m20-l" ng-show="tab=='team'">
                         <p>Upload Your Logo</p>
-                        <div class="checkboxing">
+                        <!--<div class="checkboxing">
                             <input type="checkbox" class="form-control" id="later">
                             <label for="later"><span></span>Send it Later</label>
                         </div>
@@ -188,7 +190,7 @@
                             <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" >TEAM LOGO</button>
                             <span class="uppercase inline-block mright15">or</span>
                             <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="showColorTab()">TEAM TEXT</button>
-                        </div>
+                        </div>-->
                         <div class="print-typ printing">
                             <p>Select The Printing Type For Your Team Logo</p>
                             <form action="" class="radio">
@@ -203,7 +205,7 @@
                                     <a href="" class="link mleft22">VIEW EXAMPLE</a></label>
                             </form>
                             <div class="edit-btn">
-                                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('teamlogo', 'Team Logo')">upload</button>
+                                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('padlogo', 'Team Logo')">upload</button>
                             </div>
                             <div class="pbotom">
                                 <span class="block">Notes :</span>

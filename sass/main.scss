@@ -2640,6 +2640,14 @@ footer {
     }
 }
 
+.pad-logo {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 369px;
+    left: 263px;
+}
+
 .btn-disabled {
   background-color: lightgray !important;
   pointer-events: none;
@@ -2786,6 +2794,7 @@ footer {
 
 .logo-text {
     width: 130px;
+    margin-top: 0 !important;
     .padding-btn {
         width: 100%;
         padding: 6px 5px 4px;
@@ -5376,7 +5385,7 @@ h2 {
         color: #515151;
         font-weight: 300;
         font-size: 16px;
-        padding: 10px 20px;
+        padding: 10px 20px 0px;
     }
 
     input[type="checkbox"]+label span {
