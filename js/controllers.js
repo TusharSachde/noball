@@ -1526,71 +1526,124 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
+    // $scope.padscolor = [{
+    //     colr: "#ffd700",
+    //     name: "yellow"
+    // }, {
+    //     colr: "#cd3700",
+    //     name: "red"
+    // }, {
+    //     colr: "#63b8ff",
+    //     name: "lblue"
+    // }, {
+    //     colr: "#00008b",
+    //     name: "dblue"
+    // }, {
+    //     colr: "#bcee68",
+    //     name: "lgreen"
+    // }, {
+    //     colr: "#66cd00",
+    //     name: "dgreen"
+    // }, {
+    //     colr: "#ff8247",
+    //     name: "lorange"
+    // }, {
+    //     colr: "#ff3030",
+    //     name: "dorange"
+    // }, {
+    //     colr: "#d2b48c",
+    //     name: "gold"
+    // }];
+    // $scope.padImages1 = {
+    //     "yellow": ["img/padscolor/yellow/1.png"],
+    //     "red": ["img/padscolor/red/1.png"],
+    //     "lblue": ["img/padscolor/lblue/1.png"],
+    //     "dblue": ["img/padscolor/dblue/1.png"],
+    //     "lgreen": ["img/padscolor/lgreen/1.png"],
+    //     "dgreen": ["img/padscolor/dgreen/1.png"],
+    //     "lorange": ["img/padscolor/lorange/1.png"],
+    //     "dorange": ["img/padscolor/dorange/1.png"],
+    //     "gold": ["img/padscolor/gold/1.png"]
+
+    // };
+    // $scope.padImages2 = {
+    //     "yellow": ["img/padscolor/yellow/2.png"],
+    //     "red": ["img/padscolor/red/2.png"],
+    //     "lblue": ["img/padscolor/lblue/2.png"],
+    //     "dblue": ["img/padscolor/dblue/2.png"],
+    //     "lgreen": ["img/padscolor/lgreen/2.png"],
+    //     "dgreen": ["img/padscolor/dgreen/2.png"],
+    //     "lorange": ["img/padscolor/lorange/2.png"],
+    //     "dorange": ["img/padscolor/dorange/2.png"],
+    //     "gold": ["img/padscolor/gold/2.png"]
+
+    // };
+    // $scope.padImages3 = {
+    //     "yellow": ["img/padscolor/yellow/3.png"],
+    //     "red": ["img/padscolor/red/3.png"],
+    //     "lblue": ["img/padscolor/lblue/3.png"],
+    //     "dblue": ["img/padscolor/dblue/3.png"],
+    //     "lgreen": ["img/padscolor/lgreen/3.png"],
+    //     "dgreen": ["img/padscolor/dgreen/3.png"],
+    //     "lorange": ["img/padscolor/lorange/3.png"],
+    //     "dorange": ["img/padscolor/dorange/3.png"],
+    //     "gold": ["img/padscolor/gold/3.png"]
+
+    // };
+
     $scope.padscolor = [{
-        colr: "#ffd700",
-        name: "yellow"
-    }, {
-        colr: "#cd3700",
-        name: "red"
-    }, {
-        colr: "#63b8ff",
-        name: "lblue"
-    }, {
-        colr: "#00008b",
-        name: "dblue"
-    }, {
-        colr: "#bcee68",
-        name: "lgreen"
-    }, {
-        colr: "#66cd00",
-        name: "dgreen"
-    }, {
-        colr: "#ff8247",
-        name: "lorange"
-    }, {
-        colr: "#ff3030",
-        name: "dorange"
-    }, {
-        colr: "#d2b48c",
-        name: "gold"
-    }];
-    $scope.padImages1 = {
-        "yellow": ["img/padscolor/yellow/1.png"],
-        "red": ["img/padscolor/red/1.png"],
-        "lblue": ["img/padscolor/lblue/1.png"],
-        "dblue": ["img/padscolor/dblue/1.png"],
-        "lgreen": ["img/padscolor/lgreen/1.png"],
-        "dgreen": ["img/padscolor/dgreen/1.png"],
-        "lorange": ["img/padscolor/lorange/1.png"],
-        "dorange": ["img/padscolor/dorange/1.png"],
-        "gold": ["img/padscolor/gold/1.png"]
+       colr: "#000000",
+       name: "black"
+   }, {
+       colr: "#c0c2ce",
+       name: "grey"
+   }, {
+       colr: "#48d2dc",
+       name: "nblue"
+   }, {
+       colr: "#82e716",
+       name: "ngreen"
+   }, {
+       colr: "#ff5588",
+       name: "pink"
+   }, {
+       colr: "#fff",
+       name: "white"
+   }, {
+       colr: "#ffd700",
+       name: "yellow"
+   }];
+   $scope.padImages1 = {
+       "black": ["img/padscolor/updated/black/1.png"],
+       "grey": ["img/padscolor/updated/grey/1.png"],
+       "nblue": ["img/padscolor/updated/nblue/1.png"],
+       "ngreen": ["img/padscolor/updated/ngreen/1.png"],
+       "pink": ["img/padscolor/updated/pink/1.png"],
+       "white": ["img/padscolor/updated/white/1.png"],
+       "yellow": ["img/padscolor/updated/yellow/1.png"]
+   };
+   $scope.padImages2 = {
+     "black": ["img/padscolor/updated/black/2.png"],
+     "grey": ["img/padscolor/updated/grey/2.png"],
+     "nblue": ["img/padscolor/updated/nblue/2.png"],
+     "ngreen": ["img/padscolor/updated/ngreen/2.png"],
+     "pink": ["img/padscolor/updated/pink/2.png"],
+     "white": ["img/padscolor/updated/white/2.png"],
+     "yellow": ["img/padscolor/updated/yellow/2.png"]
 
-    };
-    $scope.padImages2 = {
-        "yellow": ["img/padscolor/yellow/2.png"],
-        "red": ["img/padscolor/red/2.png"],
-        "lblue": ["img/padscolor/lblue/2.png"],
-        "dblue": ["img/padscolor/dblue/2.png"],
-        "lgreen": ["img/padscolor/lgreen/2.png"],
-        "dgreen": ["img/padscolor/dgreen/2.png"],
-        "lorange": ["img/padscolor/lorange/2.png"],
-        "dorange": ["img/padscolor/dorange/2.png"],
-        "gold": ["img/padscolor/gold/2.png"]
+   };
+   $scope.padImages3 = {
+       "yellow": ["img/padscolor/yellow/3.png"],
+       "red": ["img/padscolor/red/3.png"],
+       "lblue": ["img/padscolor/lblue/3.png"],
+       "dblue": ["img/padscolor/dblue/3.png"],
+       "lgreen": ["img/padscolor/lgreen/3.png"],
+       "dgreen": ["img/padscolor/dgreen/3.png"],
+       "lorange": ["img/padscolor/lorange/3.png"],
+       "dorange": ["img/padscolor/dorange/3.png"],
+       "gold": ["img/padscolor/gold/3.png"]
 
-    };
-    $scope.padImages3 = {
-        "yellow": ["img/padscolor/yellow/3.png"],
-        "red": ["img/padscolor/red/3.png"],
-        "lblue": ["img/padscolor/lblue/3.png"],
-        "dblue": ["img/padscolor/dblue/3.png"],
-        "lgreen": ["img/padscolor/lgreen/3.png"],
-        "dgreen": ["img/padscolor/dgreen/3.png"],
-        "lorange": ["img/padscolor/lorange/3.png"],
-        "dorange": ["img/padscolor/dorange/3.png"],
-        "gold": ["img/padscolor/gold/3.png"]
-
-    };
-
+   };
 
     $scope.myArr = [{
         name: "$scope.padImages1",
@@ -1598,9 +1651,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }, {
         name: "$scope.padImages2",
         img: $scope.padImages2.yellow
-    }, {
-        name: "$scope.padImages3",
-        img: $scope.padImages3.yellow
+    // }, {
+    //     name: "$scope.padImages3",
+    //     img: $scope.padImages3.yellow
     }];
     $scope.selectPadsDesign = function(item) {
         console.log(item);
@@ -1617,9 +1670,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 if ($scope.Arrayname == '$scope.padImages2') {
                     $scope.selectedImage = $scope.padImages2[color][0];
                 }
-                if ($scope.Arrayname == '$scope.padImages3') {
-                    $scope.selectedImage = $scope.padImages3[color][0];
-                }
+                // if ($scope.Arrayname == '$scope.padImages3') {
+                //     $scope.selectedImage = $scope.padImages3[color][0];
+                // }
 
                 $rootScope.$broadcast('changeImage', {});
 
@@ -3217,7 +3270,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 // };
 
     $scope.switchTrimHighlightOne = function(flag, color) {
-      console.log('switchTrimHighlightOne');
         console.log(flag);
         console.log(color);
         $scope.trimTshirt.highlightOne.flag = flag;
@@ -3230,10 +3282,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         } else {
             $scope.trimTshirt.highlightOne.image = "";
-        }``
+        }
     };
     $scope.switchTrimHighlightTwo = function(flag, color) {
-      console.log('switchTrimHighlightTwo');
         console.log('two');
         console.log(color);
         console.log(flag);
@@ -3936,6 +3987,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.tabFour = false;
     $scope.tabFive = false;
 
+    $scope.backwhite3 = "backgrey";
+    $scope.backwhite4 = "backgrey";
+    $scope.backwhite5 = "backgrey";
+
     $scope.tabchange = function(tab, a) {
         if (a == 1) {
             $scope.classa = 'active';
@@ -3944,7 +3999,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.classd = '';
             $scope.classe = '';
             $scope.tab = tab;
-            $scope.backwhite = "backblack";
         }
         if (a == 2) {
             if ($scope.tabOne) {
@@ -3955,9 +4009,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.classe = '';
                 $scope.tabTwo = true;
                 $scope.tab = tab;
-                $scope.backwhite = "backblack";
-            } else {
-                $scope.backwhite = "backgrey";
+                $scope.backwhite3 = "";
             }
         }
         if (a == 3) {
@@ -3969,9 +4021,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.classe = '';
                 $scope.tabThree = true;
                 $scope.tab = tab;
-                $scope.backwhite = "backblack";
-            } else {
-                $scope.backwhite = "backgrey";
+                $scope.backwhite5 = "";
             }
         }
         if (a == 4) {
@@ -3983,9 +4033,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.classe = '';
                 $scope.tabFour = true;
                 $scope.tab = tab;
-                $scope.backwhite = "backblack";
-            } else {
-                $scope.backwhite = "backgrey";
+                $scope.backwhite5 = "";
             }
         } else if (a == 5) {
             if ($scope.tabThree) {
@@ -3999,9 +4047,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.switchTrimHighlightBase(false, $scope.trimTshirt.highlightBase.tcolor);
                 $scope.switchTrimHighlightOne(false, $scope.trimTshirt.highlightOne.tcolor);
                 $scope.switchTrimHighlightTwo(false, $scope.trimTshirt.highlightTwo.tcolor);
-                $scope.backwhite = "backblack";
-            } else {
-                $scope.backwhite = "backgrey";
             }
         }
     };
