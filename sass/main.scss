@@ -2601,10 +2601,10 @@ footer {
 
     .div-back {
         position: absolute;
-        top: 260px;
+        top: 230px;
         left: 155px;
         width: 150px;
-        height: 50px;
+        height: 150px;
         z-index: 99;
         overflow: hidden;
         @extend .div-flex;
@@ -5742,7 +5742,7 @@ h2 {
 
 .odi-t {
     position: absolute;
-    top: 146px;
+    top: 120px;
     left: 50%;
     font-size: 22px;
     @include transform(translateX(-50%));
