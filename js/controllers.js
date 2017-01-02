@@ -3061,12 +3061,28 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         'quantity': 1
     }];
 
+    $scope.jerseyBackArrCount = 1;
+
     $scope.addJerseyValues = function() {
         $scope.jerseyBackArr.push(_.clone($scope.jerseyBack));
+        $scope.jerseyBackArrCount = $scope.jerseyBackArrCount + 1;
     }
     $scope.removeJerseyValue = function(index) {
         $scope.jerseyBackArr.splice(index, 1);
+        $scope.jerseyBackArrCount = $scope.jerseyBackArrCount - 1;
     }
+
+    $scope.totalAmount = 1095;
+
+    $scope.addQuantity = function(q) {
+        $scope.totalQuan = 0;
+        for(var i = 0; i < $scope.jerseyBackArrCount; i++) {
+            $scope.totalQuan += $scope.jerseyBackArr[i].quantity;
+        }
+        if ($scope.totalQuan) {
+            $scope.totalAmount = 1095 * $scope.totalQuan;
+        }
+    };
 
     $scope.switchFrontBack = function(front) {
       console.log('switchFrontBack');
