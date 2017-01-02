@@ -2601,10 +2601,21 @@ footer {
 
     .div-back {
         position: absolute;
-        top: 300px;
+        top: 260px;
         left: 155px;
         width: 150px;
         height: 50px;
+        z-index: 99;
+        overflow: hidden;
+        @extend .div-flex;
+    }
+
+    .div-backccc {
+        position: absolute;
+        top: 65px;
+        left: 205px;
+        width: 50px;
+        height: 20px;
         z-index: 99;
         overflow: hidden;
         @extend .div-flex;
@@ -5914,6 +5925,7 @@ h2 {
 
 .backgrey {
     color: grey !important;
+    border: 1px solid grey !important; // #90c73e;
     &.active, &:hover {
         color: white !important;
     }
@@ -5978,7 +5990,7 @@ h2 {
 }
 
 .sp-logo {
-    width: 780px;
+    width: 800px;
     overflow-y: hidden;
 }
 //Scroll for custom.html
