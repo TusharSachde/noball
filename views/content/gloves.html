@@ -18,7 +18,7 @@
                     </li>
                     <li class="tab-item breadcrums {{classc}}" ng-click="tabchange('team',3)">
                         <span class="bread-frnt"></span>
-                        <p>3. TEAM LOGO</p>
+                        <p>3. LOGO</p>
                         <span class="bread-back"></span>
                     </li>
                     <!-- <li class="tab-item breadcrums {{classd}}" ng-click="tabchange('logo',4)">
@@ -76,6 +76,9 @@
                         <!-- <div class="gully-shirt">
                                 <img src="{{myChoice}}" class="img-responsive" alt="">
                             </div> -->
+                        <div class="gloves-logo" ng-if="glovesLogo.image" ng-style="glovesLogo.divattributes">
+                            <img ng-src="{{glovesLogo.image | serverimage}}" class="img-responsive" alt="" ng-style="glovesLogo.attributes">
+                        </div>
                         <div class="prev inline-block" style="display:none">
                             <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">back</p>
                         </div>
@@ -97,7 +100,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-7">
                     <div class="det-name">
                         <h4>SWITCH</h4>
                         <p>The Custom Cricket company cricket gloves is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest
@@ -206,12 +209,47 @@
                     </div>
                     <!--  team logo-->
                     <div class="choos m20-l" ng-show="tab=='team'">
-                        <p>Upload Your Logo</p>
+                        <!--<p>Upload Your Logo</p>-->
                         <div class="checkboxing">
                             <input type="checkbox" class="form-control" id="later">
-                            <label for="later"><span></span>Send it Later</label>
+                            <label for="later"><span></span>SEND TEAM LOGO LATER</label>
                         </div>
-                        <div class="logo-text">
+                        <div class="logo-text mt10 inline-box">
+                            <button class="btn inline-block btn-dark padding-btn letter-spacing mright15">TEAM LOGO</button>
+                        </div>
+                        <div class="block-box">
+                            <div class="teamlogo-box">
+                            <div class="inline-box box-custom">
+                                <img ng-src="{{glovesLogo.image | serverimage}}" alt="" ng-if="glovesLogo.image">
+                            </div>
+                            <div class="size-box" ng-if="glovesLogo.image">
+                                Size:
+                                <div class="range">
+                                <div range-slider on-handle-down="changeLogo('gloveslogo')" on-handle-up="resetLogoStyle('gloveslogo')" ng-model="glovesLogo.attributes.width" min="0" max="200" model-max="glovesLogo.attributes.width" model-min="rslider.min" pin-handle="min"></div>
+                                </div>
+                            </div>
+                            <div class="edit-btn">
+                                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('gloveslogo', 'Team Logo')" ng-if="!glovesLogo.image">upload</button>
+                                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('gloveslogo', 'Team Logo')" ng-if="glovesLogo.image">change</button>
+                                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('gloveslogo')" ng-if="glovesLogo.image">remove</button>
+                            </div>
+                            </div>
+
+                            <div class="print-typ printing inline-box">
+                                <p class="bold">Select The Printing Type For Your Team Logo</p>
+                                <form action="" class="radio">
+                                    <input type="radio" id="radio1" name="radio" value="embroidered" ng-model="glovesLogo.printType" />
+                                    <label for="radio1">
+                                    <span></span> Embroidered <a href="" class="link mleft10">VIEW EXAMPLES</a></label>
+                                    <br>
+                                    <input type="radio" id="radio2" name="radio" value="sublimated" ng-model="glovesLogo.printType" />
+                                    <label for="radio2">
+                                    <span></span> Sublimated <a href="" class="link mleft20">VIEW EXAMPLES</a></label>
+                                </form>
+                            </div>
+
+                        </div>
+                        <!--<div class="logo-text">
                             <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" >TEAM LOGO</button>
                             <span class="uppercase inline-block mright15">or</span>
                             <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="showColorTab()">TEAM TEXT</button>
@@ -231,7 +269,8 @@
                             </form>
                             <div class="edit-btn">
                                 <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('teamlogo', 'Team Logo')">upload</button>
-                            </div>
+                            </div>-->
+                        <div class="print-typ printing">
                             <div class="pbotom">
                                 <span class="block">Notes :</span>
                                 <span class="block">1. The printed CCC Logo will always be embroidered on your gloves.</span>

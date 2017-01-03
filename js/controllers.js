@@ -1453,7 +1453,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //     img: $scope.padImages3.yellow
     }];
 
+    $scope.rslider = {
+        min: 10,
+        max: 100
+    };
+
     $scope.padLogo = {};
+    $scope.padLogo.divattributes = {
+        top: '386px',
+        left: '278px'
+    };
+    $scope.padLogo.attributes = {};
+    $scope.padLogo.attributes.width = 50;
+    $scope.padLogo.printType = 'embroidered';
     $scope.statuses = {};
 
     $scope.selectPadsDesign = function(item) {
@@ -1461,29 +1473,50 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.Arrayname = item.name;
         $scope.selectedImage = item.img[0];
         console.log($scope.Arrayname);
+        if ($scope.Arrayname == '$scope.padImages1') {
+            $scope.padLogo.divattributes = {
+                top: '386px',
+                left: '278px'
+            };
+        }
+        if ($scope.Arrayname == '$scope.padImages2') {
+            $scope.padLogo.divattributes = {
+                top: '399px',
+                left: '295px'
+            };
+        }
         $scope.changePadsImages = function(color) {
-                console.log(color);
-                $scope.padColors = color;
-                if ($scope.Arrayname == '$scope.padImages1') {
-                    console.log('here');
-                    $scope.selectedImage = $scope.padImages1[color][0];
-                }
-                if ($scope.Arrayname == '$scope.padImages2') {
-                    $scope.selectedImage = $scope.padImages2[color][0];
-                }
-                // if ($scope.Arrayname == '$scope.padImages3') {
-                //     $scope.selectedImage = $scope.padImages3[color][0];
-                // }
-
-                $rootScope.$broadcast('changeImage', {});
-
+            console.log(color);
+            $scope.padColors = color;
+            if ($scope.Arrayname == '$scope.padImages1') {
+                console.log('here');
+                $scope.selectedImage = $scope.padImages1[color][0];
             }
-            // $scope.myChoice=item;
+            if ($scope.Arrayname == '$scope.padImages2') {
+                $scope.selectedImage = $scope.padImages2[color][0];
+            }
+            // if ($scope.Arrayname == '$scope.padImages3') {
+            //     $scope.selectedImage = $scope.padImages3[color][0];
+            // }
+
+            $rootScope.$broadcast('changeImage', {});
+
+        }
+        // $scope.myChoice=item;
     }
     $scope.selectPadsDesign($scope.myArr[0]);
     console.log($scope.myArr[0]);
 
-
+    $scope.changeLogo = function(key) {
+        $scope.padLogo.divattributes.border = "1px solid #ccc";
+    };
+    $scope.resetLogoStyle = function(key) {
+        $scope.padLogo.divattributes.border = "none";
+        $scope.$apply();
+    };
+    $scope.emptyImage = function(key) {
+        $scope.padLogo.image = null;
+    }
 
     $scope.changePadImages = function(padscolor) {
         console.log(padscolor);
@@ -2731,7 +2764,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     };
     $scope.jerseyBackArr = [{
-        'name': 'Name',
+        'name': '',
         'no': '00',
         'font': 'arial',
         'color': 'white',
@@ -2945,9 +2978,30 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.trimTshirt.collar = "img/trim/collar/trim-" + color + ".png";
     };
 
+    $scope.LogosTab = false;
+    $scope.quantityTab = false;
+    $scope.turnOnLogos = function(val) {
+        $scope.LogosTab = val;
+    }
+    $scope.turnOnQuantity = function(val) {
+        $scope.quantityTab = val;
+    }
+
     $scope.designName = "design1";
+    $scope.designStatus = false;
     $scope.trimTwoDisable = "";
     $scope.trimTshirt.highlightOne.tcolor = 'black';
+    $scope.openDesign = function(index) {
+        if ($scope.LogosTab) {
+            $scope.designIndex = index;
+            $uibModal.open({
+                templateUrl: "views/modal/tshirtdesign.html",
+                scope: $scope
+            });
+        } else {
+            $scope.changeDesign(index);
+        }
+    }
     $scope.changeDesign = function(index) {
         $scope.designName = "design" + (index + 1);
         console.log($scope.designName);
@@ -3596,7 +3650,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //window.uploadUrl = "http://customcricketcompany.com/admin/index.php/json/uploadImage";
 
     //tab changes
-
 
     $scope.tab = "design";
     $scope.classa = 'active';

@@ -17,12 +17,12 @@
               <p>2. TRIM</p>
               <span class="bread-back"></span>
             </li>
-            <li class="tab-item breadcrums {{classc}}" ng-click="tabchange('team',3); switchFrontBack(true); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor);">
+            <li class="tab-item breadcrums {{classc}}" ng-click="tabchange('team',3); switchFrontBack(true); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor); turnOnLogos(true);">
               <span class="bread-frnt"></span>
               <p class="{{backwhite3}}">3. LOGOS</p>
               <span class="bread-back"></span>
             </li>
-            <li class="tab-item breadcrums {{classe}}" ng-click="tabchange('quantity',5); switchFrontBack(false);">
+            <li class="tab-item breadcrums {{classe}}" ng-click="tabchange('quantity',5); switchFrontBack(false); turnOnQuantity(true);">
               <span class="bread-frnt"></span>
               <p class="{{backwhite5}}">4. QUANTITY</p>
               <span class="bread-back"></span>
@@ -80,8 +80,8 @@
                 <div class="div-backccc" ng-if="customizedShirt.back && customizedShirt.rightchest.image != 'img/logo_black.png'">
                   <img src="img/logo_green.png" alt="" class="img-responsive">
                 </div>
-                <div ng-if="customizedShirt.back && tab=='quantity'" class="{{jerseyBack.font+'-font'}}" ng-style="{'color': jerseyBack.color}">
-                  <div class="odi-t jersey-name text-center"><p ng-style="jerseyBack.attributes.name">{{jerseyBack.name}}</p></div>
+                <div ng-if="customizedShirt.back && quantityTab" class="{{jerseyBack.font+'-font'}}" ng-style="{'color': jerseyBack.color}">
+                  <div class="odi-t jersey-name text-center"><p ng-style="jerseyBack.attributes.name">{{jerseyBackArr[0].name}}</p></div>
                   <div class="odi-t jersey-no text-center" ng-style="jerseyBack.attributes.number">{{jerseyBackArr[0].no}}</div>
                 </div>
                 <!-- <img class="" src="img/people.png" alt=""> -->
@@ -125,7 +125,7 @@
               <div class="row">
                 <div class="col-md-10">
                   <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images track by $index">
-                    <div class="cat-img pointer" ng-click="changeDesign($index)" title="Design {{$index + 1}}">
+                    <div class="cat-img pointer" ng-click="openDesign($index)" title="Design {{$index + 1}}">
                       <img ng-src="{{img.src}}" class="img-responsive">
                     </div>
                   </div>
@@ -207,7 +207,7 @@
                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('team',3)">NEXT</button>
                             </div> -->
             <button class="classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block mt-20" ng-click="tabchange('design',1); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor);">BACK</button>
-            <button class="classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block mt-20" ng-click="tabchange('team',3); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor);">NEXT</button>
+            <button class="classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block mt-20" ng-click="tabchange('team',3); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor); turnOnLogos(true);">NEXT</button>
             </div>
 
 
@@ -254,11 +254,11 @@
                   <form action="" class="radio">
                     <input type="radio" id="radio1" name="radio" value="embroidered" ng-model="customizedShirt.printType" />
                     <label for="radio1">
-                      <span></span> Embroidered <a href="" class="link mleft10">VIEW EXAMPLE</a></label>
+                      <span></span> Embroidered <a href="" class="link mleft10">VIEW EXAMPLES</a></label>
                     <br>
                     <input type="radio" id="radio2" name="radio" value="sublimated" ng-model="customizedShirt.printType" />
                     <label for="radio2">
-                      <span></span> Sublimated <a href="" class="link mleft22">VIEW EXAMPLE</a></label>
+                      <span></span> Sublimated <a href="" class="link mleft20">VIEW EXAMPLES</a></label>
                   </form>
                 </div>
 
@@ -566,10 +566,10 @@
                               </select>
                             </td>
                             <td>
-                              <input type="text" pattern="([0-9]|[0-9]|[0-9])" name="quantity" ng-change="addQuantity(jersey.quantity)" ng-model="jersey.quantity" min="1" maxlength="3">
+                              <input type="number" name="quantity" ng-change="addQuantity(jersey.quantity)" ng-model="jersey.quantity" min="1" maxlength="3">
                             </td>
                             <td>
-                              <input type="text" ng-model="jerseyBack.name" placeholder="Name" maxlength="10"> <!-- ng-model="jerseyBack.name" -->
+                              <input type="text" ng-model="jersey.name" placeholder="Name" name="name" maxlength="10"> <!-- ng-model="jerseyBack.name" -->
                             </td>
                             <td>
                               <input type="text" ng-model="jersey.no" name="number" maxlength="3"> <!-- ng-model="jerseyBack.no" -->
@@ -578,14 +578,14 @@
                               <!--<button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-if="$index == 0">PREVIEW</button>-->
                             </td>
 
-                            <td class="binbord-rgt"><img src="img/rubbishbin.png" class="img-responsive doneLoading" alt="" ng-click="removeJerseyValue($index)"></td>
+                            <td class="binbord-rgt"><img src="img/rubbishbin.png" class="img-responsive doneLoading" alt="" ng-click="removeJerseyValue($index); addQuantity()"></td>
                           </tr>
                           <tr class="nothing">
                             <td></td>
                           </tr>
                         </tbody>
                       </table>
-                      <p class="addtable pointer" ng-click="addJerseyValues()"><i class="fa mr7 fa-plus" aria-hidden="true"></i> ADD</p>
+                      <p class="addtable pointer" ng-click="addJerseyValues(); addQuantity(jersey.quantity);"><i class="fa mr7 fa-plus" aria-hidden="true"></i> ADD</p>
                       <div class="quantity-name">
                         <span>NAME</span>
                         <div class="range">

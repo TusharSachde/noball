@@ -84,6 +84,10 @@ body {
     font-family: "Raleway-Medium";
 }
 
+.Raleway {
+    font-family: "Raleway";
+}
+
 .btn {
     @include transition(all 300ms ease);
 
@@ -422,8 +426,8 @@ a.icon-btn {
     margin-left: 10px;
 }
 
-.mleft22 {
-    margin-left: 22px;
+.mleft20 {
+    margin-left: 20px;
 }
 
 .relative {
@@ -2053,6 +2057,16 @@ footer {
     }
 }
 
+.tdesign {
+    background: #eee;
+    a { margin-top: 5px; }
+    .modal-body { padding-top: 30px !important; }
+    p {
+        font-size: 18px;
+        letter-spacing: 4px;
+    }
+}
+
 .ngrs-range-slider {
     margin: 10px 0 0;
     background-color: transparent;
@@ -2061,6 +2075,7 @@ footer {
 }
 
 .ngrs-runner {
+    margin: 0 9px 0 0 !important;
     &:focus {
         outline: 0;
     }
@@ -2644,8 +2659,10 @@ footer {
     width: 25px;
     height: 25px;
     position: absolute;
-    top: 369px;
-    left: 263px;
+    top: 386px;
+    left: 278px;
+    overflow: hidden;
+    @extend .div-flex;
 }
 
 .btn-disabled {

@@ -49,8 +49,8 @@
                       <div class="gully-shirt" ng-if="Arrayname=='$scope.padImages3'">
                           <img src="{{selectedImage}}" class="img-responsive" alt="">
                       </div>
-                      <div class="pad-logo" ng-if="padLogo.image">
-                          <img ng-src="{{padLogo.image | serverimage}}" class="img-responsive" alt="">
+                      <div class="pad-logo" ng-if="padLogo.image" ng-style="padLogo.divattributes">
+                          <img ng-src="{{padLogo.image | serverimage}}" class="img-responsive" alt="" ng-style="padLogo.attributes">
                       </div>
                         <div class="prev inline-block" style="display:none">
                             <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">back</p>
@@ -111,10 +111,10 @@
                     <!--                    //trim tab-->
                     <div class="choos m20-l " ng-show="tab=='trim'">
                       <div class="outline choos">
-                          <p>Select The Gloves Colour Of Your Choice</p>
+                          <!--<p>Select The Gloves Colour Of Your Choice</p>-->
                           <div class="row">
                               <div class="col-md-12">
-                                  <h4>Select The Colour</h4>
+                                  <h4>Choose Your Color</h4>
                                   <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in padscolor track by $index">
                                       <div class="colo-pallet text-center ">
                                           <div class="noti-img notihov" ng-class="{'coloracive':padColors == col.name}" ng-click="changePadsImages(col.name)" ng-style="{'background-color':'{{col.colr}}'}"></div>
@@ -181,38 +181,64 @@
                     </div>
                     <!--  team logo-->
                     <div class="choos m20-l" ng-show="tab=='team'">
-                        <p>Upload Your Logo</p>
-                        <!--<div class="checkboxing">
+                        <!--<p>Upload Your Logo</p>-->
+                        <div class="checkboxing">
                             <input type="checkbox" class="form-control" id="later">
-                            <label for="later"><span></span>Send it Later</label>
+                            <label for="later"><span></span>SEND TEAM LOGO LATER</label>
                         </div>
-                        <div class="logo-text">
+                        <!--<div class="logo-text">
                             <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" >TEAM LOGO</button>
                             <span class="uppercase inline-block mright15">or</span>
                             <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="showColorTab()">TEAM TEXT</button>
                         </div>-->
-                        <div class="print-typ printing">
-                            <p>Select The Printing Type For Your Team Logo</p>
-                            <form action="" class="radio">
-                                <input type="radio" id="radio1" name="radio" />
-                                <label for="radio1">
-                                    <span></span> Embroidered <a href="" class="link mleft10">VIEW EXAMPLE</a></label>
-
-                                <br>
-                                <input type="radio" id="radio2" name="radio" />
-                                <label for="radio2">
-                                    <span></span> Sublimated
-                                    <a href="" class="link mleft22">VIEW EXAMPLE</a></label>
-                            </form>
-                            <div class="edit-btn">
-                                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('padlogo', 'Team Logo')">upload</button>
+                        <div class="logo-text mt10 inline-box">
+                            <button class="btn inline-block btn-dark padding-btn letter-spacing mright15">TEAM LOGO</button>
+                            <!--<div class="checkboxing">
+                                <input type="checkbox" class="form-control" id="later">
+                                <label for="later"><span></span>Send it Later</label>
+                            </div>-->
+                            <!--<span class="uppercase inline-block mright15">or</span>
+                                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor();">TEAM TEXT</button>-->
+                        </div>
+                        <div class="block-box">
+                            <div class="teamlogo-box">
+                            <div class="inline-box box-custom">
+                                <img ng-src="{{padLogo.image | serverimage}}" alt="" ng-if="padLogo.image">
                             </div>
+                            <div class="size-box" ng-if="padLogo.image">
+                                Size:
+                                <div class="range">
+                                <div range-slider on-handle-down="changeLogo('padlogo')" on-handle-up="resetLogoStyle('padlogo')" ng-model="padLogo.attributes.width" min="0" max="200" model-max="padLogo.attributes.width" model-min="rslider.min" pin-handle="min"></div>
+                                </div>
+                            </div>
+                            <div class="edit-btn">
+                                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('padlogo', 'Team Logo')" ng-if="!padLogo.image">upload</button>
+                                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('padlogo', 'Team Logo')" ng-if="padLogo.image">change</button>
+                                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('padlogo')" ng-if="padLogo.image">remove</button>
+                                <!-- <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="UploadTeamLogo()" ng-if="customizedShirt.teamlogo">change</button> -->
+                                <!-- <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="UploadTeamLogo()" ng-if="customizedShirt.teamlogo">remove</button> -->
+                            </div>
+                            </div>
+
+                            <div class="print-typ printing inline-box">
+                                <p class="bold">Select The Printing Type For Your Team Logo</p>
+                                <form action="" class="radio">
+                                    <input type="radio" id="radio1" name="radio" value="embroidered" ng-model="padLogo.printType" />
+                                    <label for="radio1">
+                                    <span></span> Embroidered <a href="" class="link mleft10">VIEW EXAMPLES</a></label>
+                                    <br>
+                                    <input type="radio" id="radio2" name="radio" value="sublimated" ng-model="padLogo.printType" />
+                                    <label for="radio2">
+                                    <span></span> Sublimated <a href="" class="link mleft20">VIEW EXAMPLES</a></label>
+                                </form>
+                            </div>
+
+                        </div>
+                        <div class="print-typ printing">
                             <div class="pbotom">
                                 <span class="block">Notes :</span>
-                                <span class="block">1. The printed CCC Logo will always be embroidered on your pads.
-</span>
-                                <span class="block">2. Embossing your logo will incur a one time cost of  `5000 or your
-                                    logo can be screen printed at no additional cost.</span>
+                                <span class="block">1. The printed CCC Logo will always be embroidered on your pads.</span>
+                                <span class="block">2. Embossing your logo will incur a one time cost of  `5000 or your logo can be screen printed at no additional cost.</span>
                                 <span class="block">3. If you feel something is not great, our design team can fix it for you.</span>
                                 <span class="block"><a href="" class="clickinfo"  ng-click="outplace();">Click here</a> to find out how?</span>
                                 <span class="block">4.CCC logo colour will match colour of the trim.</span>
@@ -279,12 +305,12 @@
                             <form action="" class="radio">
                                 <input type="radio" id="radio1" name="radio" />
                                 <label for="radio1">
-                                    <span></span> Embroidered <a href="" class="link mleft10">VIEW EXAMPLE</a></label>
+                                    <span></span> Embroidered <a href="" class="link mleft10">VIEW EXAMPLES</a></label>
                                 <br>
                                 <input type="radio" id="radio2" name="radio" />
                                 <label for="radio2">
                                     <span></span> Sublimated
-                                    <a href="" class="link mleft22">VIEW EXAMPLE</a></label>
+                                    <a href="" class="link mleft20">VIEW EXAMPLES</a></label>
                             </form>
                             <div class="pbotom">
                                 <span class="block">Notes :</span>
@@ -521,21 +547,19 @@
                             <p class="capitalize">Select the size for your jersey</p>
                             <div class="option-shirt relative gloves">
                                 <div class="sizes size inline-block">
-                                    <span class="uppercase">size</span>
-                                    <select>
-                              <option value="XL">XL</option>
-                              <option value="20">20</option>
-                              <option value="30">30</option>
-                              <option value="40">40</option>
-                          </select>
+                                    <span class="uppercase">L/R</span>
+                                    <select ng-model="pads.direction">
+                                        <option value="left">Left</option>
+                                        <option value="right">Right</option>
+                                    </select>
                                 </div>
                                 <div class="sizes size inline-block">
                                     <span class="inline-block uppercase">quantity</span>
-                                    <input type="text" class="form-control inline-block" name="name" value="">
+                                    <input type="number" class="form-control inline-block" name="name" ng-model="pads.quantity" min="1" maxlength="3">
                                 </div>
-                                <div class="sizes size inline-block">
+                                <!--<div class="sizes size inline-block">
                                     <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">preview</button>
-                                </div>
+                                </div>-->
                                 <!-- <div class="sizes size inline-block">
                             <span class="uppercase">sleeve</span>
                           <select>
@@ -551,7 +575,7 @@
                                 <p><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</p>
                             </div>
                             <div class="total-amount">
-                                <span class="pull-right uppercase fontfam">Total:20</span>
+                                <span class="pull-right uppercase Raleway-Medium">Total: 995</span>
                             </div>
 
                             <div class="edit-btn">
@@ -583,20 +607,20 @@
                                 <div class="sizes size inline-block">
                                     <span class="uppercase">size</span>
                                     <select>
-        <option value="XL">XL</option>
-        <option value="20">20</option>
-        <option value="30">30</option>
-        <option value="40">40</option>
-    </select>
+                                        <option value="XL">XL</option>
+                                        <option value="20">20</option>
+                                        <option value="30">30</option>
+                                        <option value="40">40</option>
+                                    </select>
                                 </div>
                                 <div class="sizes size inline-block">
                                     <span class="uppercase">sleeve</span>
                                     <select>
-      <option value="XL">XL</option>
-      <option value="20">20</option>
-      <option value="30">30</option>
-      <option value="40">40</option>
-  </select></div>
+                                        <option value="XL">XL</option>
+                                        <option value="20">20</option>
+                                        <option value="30">30</option>
+                                        <option value="40">40</option>
+                                    </select></div>
                                 <div class="sizes size inline-block">
                                     <span class="inline-block uppercase">quantity</span>
                                     <input type="text" class="form-control inline-block" name="name" value="">
