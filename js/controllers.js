@@ -1468,6 +1468,38 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.padLogo.printType = 'embroidered';
     $scope.statuses = {};
 
+    $scope.pads = {
+        'direction': 'left',
+        'quantity': 1
+    };
+    $scope.padsArr = [{
+        'direction': 'left',
+        'quantity': 1
+    }];
+
+    $scope.padsArrCount = 1;
+
+    $scope.addPadsValues = function() {
+        $scope.padsArr.push(_.clone($scope.pads));
+        $scope.padsArrCount = $scope.padsArrCount + 1;
+    }
+    $scope.removePadsValue = function(index) {
+        $scope.padsArr.splice(index, 1);
+        $scope.padsArrCount = $scope.padsArrCount - 1;
+    }
+
+    $scope.totalAmount = 995;
+
+    $scope.addQuantity = function(q) {
+        $scope.totalQuan = 0;
+        for(var i = 0; i < $scope.padsArrCount; i++) {
+            $scope.totalQuan += $scope.padsArr[i].quantity;
+        }
+        if ($scope.totalQuan) {
+            $scope.totalAmount = 995 * $scope.totalQuan;
+        }
+    };
+
     $scope.selectPadsDesign = function(item) {
         console.log(item);
         $scope.Arrayname = item.name;
@@ -2437,6 +2469,38 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.glovesLogo.attributes.width = 50;
     $scope.glovesLogo.printType = 'embroidered';
     $scope.statuses = {};
+
+    $scope.gloves = {
+        'direction': 'left',
+        'quantity': 1
+    };
+    $scope.glovesArr = [{
+        'direction': 'left',
+        'quantity': 1
+    }];
+
+    $scope.glovesArrCount = 1;
+
+    $scope.addGlovesValues = function() {
+        $scope.glovesArr.push(_.clone($scope.gloves));
+        $scope.glovesArrCount = $scope.glovesArrCount + 1;
+    }
+    $scope.removeGlovesValue = function(index) {
+        $scope.glovesArr.splice(index, 1);
+        $scope.glovesArrCount = $scope.glovesArrCount - 1;
+    }
+
+    $scope.totalAmount = 995;
+
+    $scope.addQuantity = function(q) {
+        $scope.totalQuan = 0;
+        for(var i = 0; i < $scope.glovesArrCount; i++) {
+            $scope.totalQuan += $scope.glovesArr[i].quantity;
+        }
+        if ($scope.totalQuan) {
+            $scope.totalAmount = 995 * $scope.totalQuan;
+        }
+    };
 
     $scope.selectDesign = function(item) {
         console.log(item);

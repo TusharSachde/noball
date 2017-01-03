@@ -5485,8 +5485,18 @@ h2 {
     right: 0;
 }
 
+.bin {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
+
 .total-amount {
     padding: 20px 32px;
+}
+
+.totalAmount {
+    font-size: 20px;
 }
 
 .table-detail {
