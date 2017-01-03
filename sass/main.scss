@@ -2665,6 +2665,16 @@ footer {
     @extend .div-flex;
 }
 
+.gloves-logo {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    top: 246px;
+    left: 355px;
+    overflow: hidden;
+    @extend .div-flex;
+}
+
 .btn-disabled {
   background-color: lightgray !important;
   pointer-events: none;

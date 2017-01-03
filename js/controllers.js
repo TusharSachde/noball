@@ -1559,6 +1559,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.openUploads = function(variable, name) {
         $scope.variable = variable;
         $scope.name = name;
+        $scope.statuses.uploadStatus = false;
         $uibModal.open({
             templateUrl: "views/modal/tshirt.html",
             scope: $scope
@@ -2333,7 +2334,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 })
 
-.controller('GlovesCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $rootScope) {
+.controller('GlovesCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $rootScope, cfpLoadingBar) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("gloves");
     $scope.menutitle = NavigationService.makeactive("Gloves");
@@ -2421,11 +2422,45 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         name: "$scope.glovesImages3",
         img: $scope.glovesImages3.yellow
     }];
+
+    $scope.rslider = {
+        min: 10,
+        max: 100
+    };
+
+    $scope.glovesLogo = {};
+    $scope.glovesLogo.divattributes = {
+        top: '246px',
+        left: '355px'
+    };
+    $scope.glovesLogo.attributes = {};
+    $scope.glovesLogo.attributes.width = 50;
+    $scope.glovesLogo.printType = 'embroidered';
+    $scope.statuses = {};
+
     $scope.selectDesign = function(item) {
         console.log(item);
         $scope.Arrayname = item.name;
         $scope.selectedImage = item.img[0];
         console.log($scope.Arrayname);
+        if ($scope.Arrayname == '$scope.glovesImages1') {
+            $scope.glovesLogo.divattributes = {
+                top: '246px',
+                left: '355px'
+            };
+        }
+        if ($scope.Arrayname == '$scope.glovesImages2') {
+            $scope.glovesLogo.divattributes = {
+                top: '292px',
+                left: '302px'
+            };
+        }
+        if ($scope.Arrayname == '$scope.glovesImages3') {
+            $scope.glovesLogo.divattributes = {
+                top: '285px',
+                left: '305px'
+            };
+        }
         $scope.changeGlovesImages = function(color) {
                 console.log(color);
                 $scope.glovesColors = color;
@@ -2454,6 +2489,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //     $rootScope.$broadcast('changeImage', {});
     //
     // }
+
+    $scope.changeLogo = function(key) {
+        $scope.glovesLogo.divattributes.border = "1px solid #ccc";
+    };
+    $scope.resetLogoStyle = function(key) {
+        $scope.glovesLogo.divattributes.border = "none";
+        $scope.$apply();
+    };
+    $scope.emptyImage = function(key) {
+        $scope.glovesLogo.image = null;
+    }
+
     $scope.selectGlovesImage = function(image) {
         console.log(image);
         $scope.selectedImage = {
@@ -2492,10 +2539,35 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         })
     }
     $scope.openUploads = function() {
+        $scope.statuses.uploadStatus = false;
         $uibModal.open({
             templateUrl: "views/modal/tshirt.html",
             scope: $scope
         })
+    }
+    $scope.onFileSelect = function($files, whichone, uploadtype, variable) {
+        $scope.toolarge = false;
+        console.log($files);
+        if ($files[0].size < 20000000) {
+            $scope.statuses.uploadStatus = true;
+            cfpLoadingBar.start();
+            $scope.showimage = true;
+            globalfunction.onFileSelect($files, function(image) {
+                cfpLoadingBar.complete();
+                if (whichone == 1) {
+                    console.log(image);
+                    $scope.tempImage = image[0];
+                    console.log($scope.tempImage);
+                }
+            })
+        } else {
+            $files = [];
+            $scope.toolarge = true;
+        }
+    }
+    $scope.confirmUpload = function(variable, name) {
+        $scope.glovesLogo.image = $scope.tempImage;
+        $scope.tempImage = "";
     }
     $scope.doneUploading = function() {
         if (check == 3) {
@@ -2617,6 +2689,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.classc = '';
             $scope.classd = '';
             $scope.classa = '';
+        } else if (a == 5) {
+            $scope.classe = 'active';
+            $scope.classb = '';
+            $scope.classc = '';
+            $scope.classd = '';
+            $scope.classa = '';
+
         }
     };
 
