@@ -2067,6 +2067,11 @@ footer {
     }
 }
 
+.tamount, .tquantity {
+    font-size: 18px !important;
+    margin: 20px 0 0 20px;
+}
+
 .ngrs-range-slider {
     margin: 10px 0 0;
     background-color: transparent;
@@ -2078,6 +2083,19 @@ footer {
     margin: 0 9px 0 0 !important;
     &:focus {
         outline: 0;
+    }
+    &::before, &::after {
+        content: '|';
+        position: absolute;
+        top: -2px;
+    }
+    &::before { left: 4px; }
+    &::after { right: -4px; }
+}
+
+.quantity-name, .quantity-no {
+    .ngrs-runner {
+        &::before { left: -1px; }
     }
 }
 
@@ -2672,6 +2690,7 @@ footer {
     top: 246px;
     left: 355px;
     overflow: hidden;
+    @include transform(rotate(180deg));
     @extend .div-flex;
 }
 

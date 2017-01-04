@@ -2865,11 +2865,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.trimTshirt.highlightTwo = {};
     $scope.trimTshirt.highlightBase = {};
     $scope.customizedShirt.rightchest = {};
-    $scope.customizedShirt.rightchest.name = "Left Chest";
+    $scope.customizedShirt.rightchest.name = "Right Chest";
     $scope.customizedShirt.rightchest.image = "img/logo_black.png";
     $scope.customizedShirt.rightchest.attributes = {};
     $scope.customizedShirt.rightchest.divattributes = {};
-    $scope.customizedShirt.rightchest.attributes.width = 50;
+    $scope.customizedShirt.rightchest.attributes.width = 40;
     $scope.customizedShirt.printType = 'embroidered';
     $scope.myClolr = 'red';
     $scope.ChaangeTextColor = function(mycolor) {
@@ -2937,6 +2937,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     };
 
+    $scope.addQuantity(1);
+
     $scope.switchFrontBack = function(front) {
       console.log('switchFrontBack');
         $scope.customizedShirt.front =  front;
@@ -2995,7 +2997,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         $scope.customizedShirt[variable] = {};
                         $scope.customizedShirt[variable].attributes = {};
                         $scope.customizedShirt[variable].divattributes = {};
-                        $scope.customizedShirt[variable].attributes.width = 50;
+                        $scope.customizedShirt[variable].attributes.width = 40;
                         console.log($scope.customizedShirt);
                     }
                     //$scope.customizedShirt[variable] = image[0];
@@ -3009,7 +3011,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     }
     $scope.emptyImage = function(key) {
-        $scope.customizedShirt[key] = null;
+        if(key === 'rightchest' && $scope.customizedShirt.rightchest.image === "img/logo_black.png") {
+            $scope.statuses.modal = $uibModal.open({
+                templateUrl: "views/modal/proceed.html",
+                scope: $scope,
+                controller: function($scope) {
+                    $scope.type = 'remove';
+                }
+            });
+        } else {
+            $scope.customizedShirt[key] = null;
+        }
     }
     $scope.checkCustomizeShirt = function(key) {
         return angular.isObject($scope.customizedShirt[key]);
@@ -3048,27 +3060,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.trimTshirt.highlightBase.tcolor = "white";
     $scope.trimTshirt.highlightTwo.disable = "disabled";
 
-// switch ($scope.designName) {
-//         case "design1":
-//             $scope.trimTshirt.highlightTwo.disable = "disabled";
-//         case "design2":
-//             $scope.trimTshirt.highlightTwo.disable = "disabled";
-//         case "design3":
-//             $scope.trimTshirt.highlightTwo.disable = "disabled";
-//         case "design4":
-//             $scope.trimTshirt.highlightTwo.disable = "disabled";
-//         case "design5":
-//             $scope.trimTshirt.highlightTwo.disable = "undisabled";
-//         case "design6":
-//             $scope.trimTshirt.highlightTwo.disable = "undisabled";
-//         case "design7":
-//             $scope.trimTshirt.highlightTwo.disable = "undisabled";
-//         case "design8":
-//             $scope.trimTshirt.highlightTwo.disable = "undisabled";
-//         case "design1":
-//             $scope.trimTshirt.highlightTwo.disable = "undisabled";
-// };
-
     $scope.switchTrimHighlightOne = function(flag, color) {
         console.log(flag);
         console.log(color);
@@ -3094,7 +3085,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             if (flag) {
                 $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/" + $scope.designName + "/front/trim2/" + color + ".png"; // "img/odi-tshirts/trims/highlight2/front/trim_" + color + ".png";
             } else {
-                $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/" + $scope.designName + "/front/trim2/" + color + ".png"; // "img/odi-tshirts/trims/highlight2/back/trim_" + color + ".png";
+                $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/" + $scope.designName + "/back/trim2/" + color + ".png"; // "img/odi-tshirts/trims/highlight2/back/trim_" + color + ".png";
             }
         } else {
             $scope.trimTshirt.highlightTwo.image = "";
@@ -3120,6 +3111,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.trimCollar = function(color) {
         $scope.trimTshirt.collar = "img/trim/collar/trim-" + color + ".png";
     };
+
+    $scope.trimHexColors = function(key, color) {
+        $scope.trimTshirt[key].hcolor = color;
+    }
+
+    $scope.trimHexColors('highlightOne', '#000');
+    $scope.trimHexColors('highlightTwo', '#fff');
+    $scope.trimHexColors('highlightBase', '#fff');
 
     $scope.LogosTab = false;
     $scope.quantityTab = false;
@@ -3227,6 +3226,27 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
     $scope.myhide = true;
     $scope.openUploads = function(variable, name) {
+        if($scope.customizedShirt.rightchest === null) {
+            $scope.customizedShirt.rightchest.image = "";
+            $scope.changeRightLogo(variable, name);
+        } else {
+            $scope.changeRightLogo(variable, name);
+        }
+    }
+    $scope.changeRightLogo = function(variable, name) {
+        if(variable === 'rightchest' && $scope.customizedShirt.rightchest.image === "img/logo_black.png") {
+            $scope.statuses.modal = $uibModal.open({
+                templateUrl: "views/modal/proceed.html",
+                scope: $scope,
+                controller: function($scope) {
+                    $scope.type = 'upload';
+                }
+            });
+        } else {
+            $scope.doUpload(variable, name);
+        }
+    }
+    $scope.doUpload = function(variable, name) {
         console.log('m here');
         $scope.tab = 'team';
         $scope.myhide = false;
@@ -3245,7 +3265,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.statuses.modal = $uibModal.open({
             templateUrl: "views/modal/tshirt.html",
             scope: $scope
-        })
+        });
     }
     $scope.doneUploading = function() {
         if (check == 3) {
@@ -3414,209 +3434,40 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     };
 
-    $scope.$on('$viewContentLoaded', function(event) {
-        $timeout(function() {
-            var scene, camera, renderer, width, height, controls, light, loader, texture, geometry, material, mesh;
-            var three = document.getElementsByClassName("threed-ball");
-            init();
-            animate();
-
-            function init() {
-                scene = new THREE.Scene();
-                width = 400;
-                height = 400;
-
-                renderer = new THREE.WebGLRenderer({
-                    antialias: true,
-                    alpha: true
-                });
-                renderer.setSize(width, height);
-                //document.getElementById("threed-ball").appendChild(renderer.domElement);
-                renderer.setClearColor(0xFFFFFF, 1);
-
-                camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 10000);
-                camera.position.set(0, 0, 4.5);
-                scene.add(camera);
-
-                controls = new THREE.OrbitControls(camera, renderer.domElement);
-                controls.enableZoom = false;
-
-                var amblight = new THREE.AmbientLight(0xFFFFFF);
-                scene.add(amblight);
-
-                var dirlight = new THREE.DirectionalLight(0xFFFFFF, 0.5);
-                dirlight.castShadow = true;
-
-                var spotlight = new THREE.SpotLight(0xFFFFFF);
-                spotlight.position.set(1000, 1000, 1000);
-                spotlight.castShadow = true;
-                camera.add(spotlight);
-
-                geometry = new THREE.SphereGeometry(1, 50, 50);
-                texture = new THREE.TextureLoader();
-                texture.load(
-                    'img/textures/ball_texture.jpg',
-                    function(texture) {
-                        material = new THREE.MeshPhongMaterial({
-                            map: texture
-                        });
-                        var sphere = new THREE.Mesh(geometry, material);
-                        sphere.castShadow = true;
-                        sphere.rotation.x = 1;
-                        sphere.rotation.y = -5.5;
-                        sphere.rotation.z = -1;
-                        scene.add(sphere);
-                    },
-                    function(xhr) {
-                        console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-                    },
-                    function(xhr) {
-                        console.log('An error happened');
-                    }
-                );
-            }
-
-            var canvas = document.createElement("canvas");
-            canvas.width = 1000;
-            canvas.height = 667;
-            var c = canvas.getContext("2d");
-
-            function readURL(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = function(e) {
-                        $('#ball_logo').attr('src', e.target.result);
-                        src = $('#ball_logo').attr('src');
-                        var image = new Image();
-                        image.src = src;
-                        var selectImg = '';
-                        var canvas = document.createElement("canvas");
-                        var ctx = canvas.getContext("2d");
-                        var canvasx = document.createElement("canvas");
-                        var ctxx = canvasx.getContext("2d");
-                        var originalPixels, currentPixels = null;
-                        var color, fullimg = '';
-                        canvas.width = canvasx.width = 1000;
-                        canvas.height = canvasx.height = 667;
-
-                        function HexToRGB(Hex) {
-                            var Long = parseInt(Hex.replace(/^#/, ""), 16);
-                            return {
-                                R: (Long >>> 16) & 0xff,
-                                G: (Long >>> 8) & 0xff,
-                                B: Long & 0xff
-                            };
-                        }
-
-                        function fillColor(path) {
-                            color = path;
-                            if (!originalPixels) return;
-                            var newColor = HexToRGB(color);
-                            for (var I = 0, L = originalPixels.data.length; I < L; I += 4) {
-                                if (currentPixels.data[I + 3] > 0) {
-                                    currentPixels.data[I] = newColor.R;
-                                    currentPixels.data[I + 1] = newColor.G;
-                                    currentPixels.data[I + 2] = newColor.B;
-                                }
-                            }
-
-                            var cann = document.createElement("canvas");
-                            cann.width = selectImg.width;
-                            cann.height = selectImg.height;
-                            var ctc = cann.getContext("2d");
-                            ctc.putImageData(currentPixels, 0, 0);
-                            var newImm = new Image();
-                            newImm.src = cann.toDataURL("image/png");
-                            var imageSize = 250;
-                            var newImmWidth = newImm.width;
-                            var newImmHeight = newImm.height;
-                            var newImmWidthQu = newImmWidth / imageSize;
-                            var newImmHeightQu = newImmHeight / imageSize;
-                            var newImmWidthDp = 300 * newImmWidthQu;
-                            var newImmHeightDp = 300 * newImmHeightQu;
-                            var exWidth = (imageSize - newImmWidth) / 2;
-                            var exHeight = (imageSize - newImmHeight) / 2;
-
-                            if (newImmWidth == imageSize && newImmHeight == imageSize) {
-                                ctx.drawImage(newImm, 0, 0, 300, 300, 10, 120, imageSize, imageSize);
-                            } else if (newImmWidth < imageSize && newImmHeight == imageSize) {
-                                ctx.drawImage(newImm, 0, 0, 300, 300, (10 + exWidth), 120, imageSize, imageSize);
-                            } else if (newImmWidth == imageSize && newImmHeight < imageSize) {
-                                ctx.drawImage(newImm, 0, 0, 300, 300, 10, (120 + exHeight), imageSize, imageSize);
-                            } else if (newImmWidth < imageSize && newImmHeight < imageSize) {
-                                ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
-                            } else if (newImmWidth > imageSize && newImmHeight == imageSize) {
-                                ctx.drawImage(newImm, 0, 0, 300, 300, (10 + exWidth), 120, imageSize, imageSize);
-                            } else if (newImmWidth == imageSize && newImmHeight > imageSize) {
-                                ctx.drawImage(newImm, 0, 0, 300, 300, 10, (120 + exHeight), imageSize, imageSize);
-                            } else if (newImmWidth > imageSize && newImmHeight > imageSize) {
-                                ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
-                            } else if (newImmWidth > imageSize && newImmHeight < imageSize) {
-                                ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
-                            } else if (newImmWidth < imageSize && newImmHeight > imageSize) {
-                                ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
-                            }
-
-                            //ctx.clearRect(0, 0, canvas.width, canvas.height);
-                            //ctx.drawImage(newImm, 0, 0, 300, 300, 10, 80, 250, 250);
-                            fullimg = canvas.toDataURL("image/png");
-                        }
-
-                        function overalayColor(himg, color) {
-                            fullimg = himg[0];
-                            img = new Image();
-                            img.src = himg.src;
-                            selectImg = himg;
-                            canvas.width = 1000;
-                            canvas.height = 667;
-
-                            ctxx.clearRect(0, 0, canvasx.width, canvasx.height);
-                            ctxx.drawImage(selectImg, 0, 0, selectImg.naturalWidth, selectImg.naturalHeight, 0, 0, selectImg.width, selectImg.height);
-                            originalPixels = ctxx.getImageData(0, 0, selectImg.width, selectImg.height);
-                            currentPixels = ctxx.getImageData(0, 0, selectImg.width, selectImg.height);
-
-                            selectImg.onload = null;
-                            fillColor(color);
-                        }
-                        overalayColor(document.getElementById('ball_logo'), "#ffd700");
-                        var imgsrc = canvas.toDataURL("image/png", 1.0);
-                        var geometry = new THREE.SphereGeometry(1, 500, 500);
-                        var textur = new THREE.TextureLoader();
-                        textur.load(
-                            fullimg,
-                            function(texture) {
-                                var material = new THREE.MeshPhongMaterial({
-                                    map: texture,
-                                    transparent: true
-                                });
-                                material.map.needsUpdate = true;
-                                var mysphere = new THREE.Mesh(geometry, material);
-                                mysphere.rotation.x = 0.1;
-                                mysphere.rotation.y = -5.0;
-                                mysphere.rotation.z = -1;
-                                scene.add(mysphere);
-                            },
-                            function(xhr) {
-                                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-                            },
-                            function(xhr) {
-                                console.log('An error happened');
-                            }
-                        );
-                    };
-                    reader.readAsDataURL(input.files[0]);
-                }
-            }
-            $("#upload").change(function() {
-                readURL(this);
-            });
-
-            function animate() {
-                requestAnimationFrame(animate);
-                renderer.render(scene, camera);
-            }
-        }, 100);
-    });
+    $scope.toOrderSummary = function() {
+        $scope.allLogos = {};
+        if ($scope.customizedShirt.mainlogo) {
+            $scope.allLogos.mainlogo = $scope.customizedShirt.mainlogo.image;
+        }
+        if ($scope.customizedShirt.rightchest) {
+            $scope.allLogos.rightchest = $scope.customizedShirt.rightchest.image;
+        }
+        if ($scope.customizedShirt.leftsleeve) {
+            $scope.allLogos.leftsleeve = $scope.customizedShirt.leftsleeve.image;
+        }
+        if ($scope.customizedShirt.rightsleeve) {
+            $scope.allLogos.rightsleeve = $scope.customizedShirt.rightsleeve.image;
+        }
+        if ($scope.customizedShirt.teamlogo) {
+            $scope.allLogos.teamlogo = $scope.customizedShirt.teamlogo.image;
+        }
+        if ($scope.customizedShirt.backlogo) {
+            $scope.allLogos.backlogo = $scope.customizedShirt.backlogo.image;
+        }
+        $scope.combineJSON = {
+            "trim": $scope.trimTshirt,
+            "customizedShirt": $scope.customizedShirt,
+            "jerseyBack": $scope.jerseyBackArr,
+            "allLogos": $scope.allLogos,
+            "designName": $scope.designName
+        };
+        $scope.lastJSON = JSON.stringify($scope.combineJSON);
+        console.log($scope.combineJSON);
+        // pass data to ordersummary
+        //$scope.$broadcast('oditshirtdata', $scope.combineJSON);
+        $.jStorage.set('oditshirtdata', $scope.combineJSON);
+        $state.go('ordersummary');
+    }
 
     // $scope.color = [{
     //     colr: "#c80d28",
@@ -4079,215 +3930,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // $scope.showproceedTab() = function(){
         //   $scope.tab = "sponsorlogo";
         // }
-
-    $scope.$on('$viewContentLoaded', function(event) {
-        $timeout(function() {
-            var scene, camera, renderer, width, height, controls, light, loader, texture, geometry, material, mesh;
-            var three = document.getElementsByClassName("threed-ball");
-            init();
-            animate();
-
-            function init() {
-                scene = new THREE.Scene();
-                width = 400;
-                height = 400;
-
-                renderer = new THREE.WebGLRenderer({
-                    antialias: true,
-                    alpha: true
-                });
-                renderer.setSize(width, height);
-                document.getElementById("threed-ball").appendChild(renderer.domElement);
-                renderer.setClearColor(0xFFFFFF, 1);
-
-                camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 10000);
-                camera.position.set(0, 0, 4.5);
-                scene.add(camera);
-
-                controls = new THREE.OrbitControls(camera, renderer.domElement);
-                controls.enableZoom = false;
-
-                var amblight = new THREE.AmbientLight(0xFFFFFF);
-                scene.add(amblight);
-
-                var dirlight = new THREE.DirectionalLight(0xFFFFFF, 0.5);
-                dirlight.castShadow = true;
-
-                var spotlight = new THREE.SpotLight(0xFFFFFF);
-                spotlight.position.set(1000, 1000, 1000);
-                spotlight.castShadow = true;
-                camera.add(spotlight);
-
-                geometry = new THREE.SphereGeometry(1, 50, 50);
-                texture = new THREE.TextureLoader();
-                texture.load(
-                    'img/textures/ball_texture.jpg',
-                    function(texture) {
-                        material = new THREE.MeshPhongMaterial({
-                            map: texture
-                        });
-                        var sphere = new THREE.Mesh(geometry, material);
-                        sphere.castShadow = true;
-                        sphere.rotation.x = 1;
-                        sphere.rotation.y = -5.5;
-                        sphere.rotation.z = -1;
-                        scene.add(sphere);
-                    },
-                    function(xhr) {
-                        console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-                    },
-                    function(xhr) {
-                        console.log('An error happened');
-                    }
-                );
-            }
-
-            var canvas = document.createElement("canvas");
-            canvas.width = 1000;
-            canvas.height = 667;
-            var c = canvas.getContext("2d");
-
-            function readURL(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = function(e) {
-                        $('#ball_logo').attr('src', e.target.result);
-                        src = $('#ball_logo').attr('src');
-                        var image = new Image();
-                        image.src = src;
-                        var selectImg = '';
-                        var canvas = document.createElement("canvas");
-                        var ctx = canvas.getContext("2d");
-                        var canvasx = document.createElement("canvas");
-                        var ctxx = canvasx.getContext("2d");
-                        var originalPixels, currentPixels = null;
-                        var color, fullimg = '';
-                        canvas.width = canvasx.width = 1000;
-                        canvas.height = canvasx.height = 667;
-
-                        function HexToRGB(Hex) {
-                            var Long = parseInt(Hex.replace(/^#/, ""), 16);
-                            return {
-                                R: (Long >>> 16) & 0xff,
-                                G: (Long >>> 8) & 0xff,
-                                B: Long & 0xff
-                            };
-                        }
-
-                        function fillColor(path) {
-                            color = path;
-                            if (!originalPixels) return;
-                            var newColor = HexToRGB(color);
-                            for (var I = 0, L = originalPixels.data.length; I < L; I += 4) {
-                                if (currentPixels.data[I + 3] > 0) {
-                                    currentPixels.data[I] = newColor.R;
-                                    currentPixels.data[I + 1] = newColor.G;
-                                    currentPixels.data[I + 2] = newColor.B;
-                                }
-                            }
-
-                            var cann = document.createElement("canvas");
-                            cann.width = selectImg.width;
-                            cann.height = selectImg.height;
-                            var ctc = cann.getContext("2d");
-                            ctc.putImageData(currentPixels, 0, 0);
-                            var newImm = new Image();
-                            newImm.src = cann.toDataURL("image/png");
-                            var imageSize = 250;
-                            var newImmWidth = newImm.width;
-                            var newImmHeight = newImm.height;
-                            var newImmWidthQu = newImmWidth / imageSize;
-                            var newImmHeightQu = newImmHeight / imageSize;
-                            var newImmWidthDp = 300 * newImmWidthQu;
-                            var newImmHeightDp = 300 * newImmHeightQu;
-                            var exWidth = (imageSize - newImmWidth) / 2;
-                            var exHeight = (imageSize - newImmHeight) / 2;
-
-                            if (newImmWidth == imageSize && newImmHeight == imageSize) {
-                                ctx.drawImage(newImm, 0, 0, 300, 300, 10, 120, imageSize, imageSize);
-                            } else if (newImmWidth < imageSize && newImmHeight == imageSize) {
-                                ctx.drawImage(newImm, 0, 0, 300, 300, (10 + exWidth), 120, imageSize, imageSize);
-                            } else if (newImmWidth == imageSize && newImmHeight < imageSize) {
-                                ctx.drawImage(newImm, 0, 0, 300, 300, 10, (120 + exHeight), imageSize, imageSize);
-                            } else if (newImmWidth < imageSize && newImmHeight < imageSize) {
-                                ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
-                            } else if (newImmWidth > imageSize && newImmHeight == imageSize) {
-                                ctx.drawImage(newImm, 0, 0, 300, 300, (10 + exWidth), 120, imageSize, imageSize);
-                            } else if (newImmWidth == imageSize && newImmHeight > imageSize) {
-                                ctx.drawImage(newImm, 0, 0, 300, 300, 10, (120 + exHeight), imageSize, imageSize);
-                            } else if (newImmWidth > imageSize && newImmHeight > imageSize) {
-                                ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
-                            } else if (newImmWidth > imageSize && newImmHeight < imageSize) {
-                                ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
-                            } else if (newImmWidth < imageSize && newImmHeight > imageSize) {
-                                ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
-                            }
-
-                            //ctx.clearRect(0, 0, canvas.width, canvas.height);
-                            //ctx.drawImage(newImm, 0, 0, 300, 300, 10, 80, 250, 250);
-                            fullimg = canvas.toDataURL("image/png");
-                        }
-
-                        function overalayColor(himg, color) {
-                            fullimg = himg[0];
-                            img = new Image();
-                            img.src = himg.src;
-                            selectImg = himg;
-                            canvas.width = 1000;
-                            canvas.height = 667;
-
-                            ctxx.clearRect(0, 0, canvasx.width, canvasx.height);
-                            ctxx.drawImage(selectImg, 0, 0, selectImg.naturalWidth, selectImg.naturalHeight, 0, 0, selectImg.width, selectImg.height);
-                            originalPixels = ctxx.getImageData(0, 0, selectImg.width, selectImg.height);
-                            currentPixels = ctxx.getImageData(0, 0, selectImg.width, selectImg.height);
-
-                            selectImg.onload = null;
-                            fillColor(color);
-                        }
-                        overalayColor(document.getElementById('ball_logo'), "#ffd700");
-                        var imgsrc = canvas.toDataURL("image/png", 1.0);
-                        var geometry = new THREE.SphereGeometry(1, 500, 500);
-                        var textur = new THREE.TextureLoader();
-                        textur.load(
-                            fullimg,
-                            function(texture) {
-                                var material = new THREE.MeshPhongMaterial({
-                                    map: texture,
-                                    transparent: true
-                                });
-                                material.map.needsUpdate = true;
-                                var mysphere = new THREE.Mesh(geometry, material);
-                                mysphere.rotation.x = 0.1;
-                                mysphere.rotation.y = -5.0;
-                                mysphere.rotation.z = -1;
-                                scene.add(mysphere);
-                            },
-                            function(xhr) {
-                                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-                            },
-                            function(xhr) {
-                                console.log('An error happened');
-                            }
-                        );
-                    };
-                    reader.readAsDataURL(input.files[0]);
-                }
-            }
-            $("#upload").change(function() {
-                readURL(this);
-            });
-
-            function animate() {
-                requestAnimationFrame(animate);
-                renderer.render(scene, camera);
-            }
-        }, 100);
-    });
-
+    
     $scope.color = [{
         colr: "#f5b122"
     }, {
-        colr: "#c80d28"
+        colr: "#c80d28trimTshirt"
     }, {
         colr: "#318db2"
     }, {
@@ -4314,7 +3961,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         src: "img/custom/c2.jpg"
     }];
     //tab changes
-
 
     $scope.tab = "design";
     $scope.classa = 'active';
@@ -5378,209 +5024,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.teamloging = function() {
         $scope.tab = "teamlogo";
     }
-    $scope.$on('$viewContentLoaded', function(event) {
-        $timeout(function() {
-            var scene, camera, renderer, width, height, controls, light, loader, texture, geometry, material, mesh;
-            var three = document.getElementsByClassName("threed-ball");
-            init();
-            animate();
-
-            function init() {
-                scene = new THREE.Scene();
-                width = 400;
-                height = 400;
-
-                renderer = new THREE.WebGLRenderer({
-                    antialias: true,
-                    alpha: true
-                });
-                renderer.setSize(width, height);
-                document.getElementById("threed-ball").appendChild(renderer.domElement);
-                renderer.setClearColor(0xFFFFFF, 1);
-
-                camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 10000);
-                camera.position.set(0, 0, 4.5);
-                scene.add(camera);
-
-                controls = new THREE.OrbitControls(camera, renderer.domElement);
-                controls.enableZoom = false;
-
-                var amblight = new THREE.AmbientLight(0xFFFFFF);
-                scene.add(amblight);
-
-                var dirlight = new THREE.DirectionalLight(0xFFFFFF, 0.5);
-                dirlight.castShadow = true;
-
-                var spotlight = new THREE.SpotLight(0xFFFFFF);
-                spotlight.position.set(1000, 1000, 1000);
-                spotlight.castShadow = true;
-                camera.add(spotlight);
-
-                geometry = new THREE.SphereGeometry(1, 50, 50);
-                texture = new THREE.TextureLoader();
-                texture.load(
-                    'img/textures/ball_texture.jpg',
-                    function(texture) {
-                        material = new THREE.MeshPhongMaterial({
-                            map: texture
-                        });
-                        var sphere = new THREE.Mesh(geometry, material);
-                        sphere.castShadow = true;
-                        sphere.rotation.x = 1;
-                        sphere.rotation.y = -5.5;
-                        sphere.rotation.z = -1;
-                        scene.add(sphere);
-                    },
-                    function(xhr) {
-                        console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-                    },
-                    function(xhr) {
-                        console.log('An error happened');
-                    }
-                );
-            }
-
-            var canvas = document.createElement("canvas");
-            canvas.width = 1000;
-            canvas.height = 667;
-            var c = canvas.getContext("2d");
-
-            function readURL(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = function(e) {
-                        $('#ball_logo').attr('src', e.target.result);
-                        src = $('#ball_logo').attr('src');
-                        var image = new Image();
-                        image.src = src;
-                        var selectImg = '';
-                        var canvas = document.createElement("canvas");
-                        var ctx = canvas.getContext("2d");
-                        var canvasx = document.createElement("canvas");
-                        var ctxx = canvasx.getContext("2d");
-                        var originalPixels, currentPixels = null;
-                        var color, fullimg = '';
-                        canvas.width = canvasx.width = 1000;
-                        canvas.height = canvasx.height = 667;
-
-                        function HexToRGB(Hex) {
-                            var Long = parseInt(Hex.replace(/^#/, ""), 16);
-                            return {
-                                R: (Long >>> 16) & 0xff,
-                                G: (Long >>> 8) & 0xff,
-                                B: Long & 0xff
-                            };
-                        }
-
-                        function fillColor(path) {
-                            color = path;
-                            if (!originalPixels) return;
-                            var newColor = HexToRGB(color);
-                            for (var I = 0, L = originalPixels.data.length; I < L; I += 4) {
-                                if (currentPixels.data[I + 3] > 0) {
-                                    currentPixels.data[I] = newColor.R;
-                                    currentPixels.data[I + 1] = newColor.G;
-                                    currentPixels.data[I + 2] = newColor.B;
-                                }
-                            }
-
-                            var cann = document.createElement("canvas");
-                            cann.width = selectImg.width;
-                            cann.height = selectImg.height;
-                            var ctc = cann.getContext("2d");
-                            ctc.putImageData(currentPixels, 0, 0);
-                            var newImm = new Image();
-                            newImm.src = cann.toDataURL("image/png");
-                            var imageSize = 250;
-                            var newImmWidth = newImm.width;
-                            var newImmHeight = newImm.height;
-                            var newImmWidthQu = newImmWidth / imageSize;
-                            var newImmHeightQu = newImmHeight / imageSize;
-                            var newImmWidthDp = 300 * newImmWidthQu;
-                            var newImmHeightDp = 300 * newImmHeightQu;
-                            var exWidth = (imageSize - newImmWidth) / 2;
-                            var exHeight = (imageSize - newImmHeight) / 2;
-
-                            if (newImmWidth == imageSize && newImmHeight == imageSize) {
-                                ctx.drawImage(newImm, 0, 0, 300, 300, 10, 120, imageSize, imageSize);
-                            } else if (newImmWidth < imageSize && newImmHeight == imageSize) {
-                                ctx.drawImage(newImm, 0, 0, 300, 300, (10 + exWidth), 120, imageSize, imageSize);
-                            } else if (newImmWidth == imageSize && newImmHeight < imageSize) {
-                                ctx.drawImage(newImm, 0, 0, 300, 300, 10, (120 + exHeight), imageSize, imageSize);
-                            } else if (newImmWidth < imageSize && newImmHeight < imageSize) {
-                                ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
-                            } else if (newImmWidth > imageSize && newImmHeight == imageSize) {
-                                ctx.drawImage(newImm, 0, 0, 300, 300, (10 + exWidth), 120, imageSize, imageSize);
-                            } else if (newImmWidth == imageSize && newImmHeight > imageSize) {
-                                ctx.drawImage(newImm, 0, 0, 300, 300, 10, (120 + exHeight), imageSize, imageSize);
-                            } else if (newImmWidth > imageSize && newImmHeight > imageSize) {
-                                ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
-                            } else if (newImmWidth > imageSize && newImmHeight < imageSize) {
-                                ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
-                            } else if (newImmWidth < imageSize && newImmHeight > imageSize) {
-                                ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
-                            }
-
-                            //ctx.clearRect(0, 0, canvas.width, canvas.height);
-                            //ctx.drawImage(newImm, 0, 0, 300, 300, 10, 80, 250, 250);
-                            fullimg = canvas.toDataURL("image/png");
-                        }
-
-                        function overalayColor(himg, color) {
-                            fullimg = himg[0];
-                            img = new Image();
-                            img.src = himg.src;
-                            selectImg = himg;
-                            canvas.width = 1000;
-                            canvas.height = 667;
-
-                            ctxx.clearRect(0, 0, canvasx.width, canvasx.height);
-                            ctxx.drawImage(selectImg, 0, 0, selectImg.naturalWidth, selectImg.naturalHeight, 0, 0, selectImg.width, selectImg.height);
-                            originalPixels = ctxx.getImageData(0, 0, selectImg.width, selectImg.height);
-                            currentPixels = ctxx.getImageData(0, 0, selectImg.width, selectImg.height);
-
-                            selectImg.onload = null;
-                            fillColor(color);
-                        }
-                        overalayColor(document.getElementById('ball_logo'), "#ffd700");
-                        var imgsrc = canvas.toDataURL("image/png", 1.0);
-                        var geometry = new THREE.SphereGeometry(1, 500, 500);
-                        var textur = new THREE.TextureLoader();
-                        textur.load(
-                            fullimg,
-                            function(texture) {
-                                var material = new THREE.MeshPhongMaterial({
-                                    map: texture,
-                                    transparent: true
-                                });
-                                material.map.needsUpdate = true;
-                                var mysphere = new THREE.Mesh(geometry, material);
-                                mysphere.rotation.x = 0.1;
-                                mysphere.rotation.y = -5.0;
-                                mysphere.rotation.z = -1;
-                                scene.add(mysphere);
-                            },
-                            function(xhr) {
-                                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-                            },
-                            function(xhr) {
-                                console.log('An error happened');
-                            }
-                        );
-                    };
-                    reader.readAsDataURL(input.files[0]);
-                }
-            }
-            $("#upload").change(function() {
-                readURL(this);
-            });
-
-            function animate() {
-                requestAnimationFrame(animate);
-                renderer.render(scene, camera);
-            }
-        }, 100);
-    });
 
     $scope.color = [{
         colr: "#f5b122"
@@ -5813,210 +5256,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.teamloging = function() {
         $scope.tab = "teamlogo";
     }
-    $scope.$on('$viewContentLoaded', function(event) {
-        $timeout(function() {
-            var scene, camera, renderer, width, height, controls, light, loader, texture, geometry, material, mesh;
-            var three = document.getElementsByClassName("threed-ball");
-            init();
-            animate();
-
-            function init() {
-                scene = new THREE.Scene();
-                width = 400;
-                height = 400;
-
-                renderer = new THREE.WebGLRenderer({
-                    antialias: true,
-                    alpha: true
-                });
-                renderer.setSize(width, height);
-                document.getElementById("threed-ball").appendChild(renderer.domElement);
-                renderer.setClearColor(0xFFFFFF, 1);
-
-                camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 10000);
-                camera.position.set(0, 0, 4.5);
-                scene.add(camera);
-
-                controls = new THREE.OrbitControls(camera, renderer.domElement);
-                controls.enableZoom = false;
-
-                var amblight = new THREE.AmbientLight(0xFFFFFF);
-                scene.add(amblight);
-
-                var dirlight = new THREE.DirectionalLight(0xFFFFFF, 0.5);
-                dirlight.castShadow = true;
-
-                var spotlight = new THREE.SpotLight(0xFFFFFF);
-                spotlight.position.set(1000, 1000, 1000);
-                spotlight.castShadow = true;
-                camera.add(spotlight);
-
-                geometry = new THREE.SphereGeometry(1, 50, 50);
-                texture = new THREE.TextureLoader();
-                texture.load(
-                    'img/textures/ball_texture.jpg',
-                    function(texture) {
-                        material = new THREE.MeshPhongMaterial({
-                            map: texture
-                        });
-                        var sphere = new THREE.Mesh(geometry, material);
-                        sphere.castShadow = true;
-                        sphere.rotation.x = 1;
-                        sphere.rotation.y = -5.5;
-                        sphere.rotation.z = -1;
-                        scene.add(sphere);
-                    },
-                    function(xhr) {
-                        console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-                    },
-                    function(xhr) {
-                        console.log('An error happened');
-                    }
-                );
-            }
-
-            var canvas = document.createElement("canvas");
-            canvas.width = 1000;
-            canvas.height = 667;
-            var c = canvas.getContext("2d");
-
-            function readURL(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = function(e) {
-                        $('#ball_logo').attr('src', e.target.result);
-                        src = $('#ball_logo').attr('src');
-                        var image = new Image();
-                        image.src = src;
-                        var selectImg = '';
-                        var canvas = document.createElement("canvas");
-                        var ctx = canvas.getContext("2d");
-                        var canvasx = document.createElement("canvas");
-                        var ctxx = canvasx.getContext("2d");
-                        var originalPixels, currentPixels = null;
-                        var color, fullimg = '';
-                        canvas.width = canvasx.width = 1000;
-                        canvas.height = canvasx.height = 667;
-
-                        function HexToRGB(Hex) {
-                            var Long = parseInt(Hex.replace(/^#/, ""), 16);
-                            return {
-                                R: (Long >>> 16) & 0xff,
-                                G: (Long >>> 8) & 0xff,
-                                B: Long & 0xff
-                            };
-                        }
-
-                        function fillColor(path) {
-                            color = path;
-                            if (!originalPixels) return;
-                            var newColor = HexToRGB(color);
-                            for (var I = 0, L = originalPixels.data.length; I < L; I += 4) {
-                                if (currentPixels.data[I + 3] > 0) {
-                                    currentPixels.data[I] = newColor.R;
-                                    currentPixels.data[I + 1] = newColor.G;
-                                    currentPixels.data[I + 2] = newColor.B;
-                                }
-                            }
-
-                            var cann = document.createElement("canvas");
-                            cann.width = selectImg.width;
-                            cann.height = selectImg.height;
-                            var ctc = cann.getContext("2d");
-                            ctc.putImageData(currentPixels, 0, 0);
-                            var newImm = new Image();
-                            newImm.src = cann.toDataURL("image/png");
-                            var imageSize = 250;
-                            var newImmWidth = newImm.width;
-                            var newImmHeight = newImm.height;
-                            var newImmWidthQu = newImmWidth / imageSize;
-                            var newImmHeightQu = newImmHeight / imageSize;
-                            var newImmWidthDp = 300 * newImmWidthQu;
-                            var newImmHeightDp = 300 * newImmHeightQu;
-                            var exWidth = (imageSize - newImmWidth) / 2;
-                            var exHeight = (imageSize - newImmHeight) / 2;
-
-                            if (newImmWidth == imageSize && newImmHeight == imageSize) {
-                                ctx.drawImage(newImm, 0, 0, 300, 300, 10, 120, imageSize, imageSize);
-                            } else if (newImmWidth < imageSize && newImmHeight == imageSize) {
-                                ctx.drawImage(newImm, 0, 0, 300, 300, (10 + exWidth), 120, imageSize, imageSize);
-                            } else if (newImmWidth == imageSize && newImmHeight < imageSize) {
-                                ctx.drawImage(newImm, 0, 0, 300, 300, 10, (120 + exHeight), imageSize, imageSize);
-                            } else if (newImmWidth < imageSize && newImmHeight < imageSize) {
-                                ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
-                            } else if (newImmWidth > imageSize && newImmHeight == imageSize) {
-                                ctx.drawImage(newImm, 0, 0, 300, 300, (10 + exWidth), 120, imageSize, imageSize);
-                            } else if (newImmWidth == imageSize && newImmHeight > imageSize) {
-                                ctx.drawImage(newImm, 0, 0, 300, 300, 10, (120 + exHeight), imageSize, imageSize);
-                            } else if (newImmWidth > imageSize && newImmHeight > imageSize) {
-                                ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
-                            } else if (newImmWidth > imageSize && newImmHeight < imageSize) {
-                                ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
-                            } else if (newImmWidth < imageSize && newImmHeight > imageSize) {
-                                ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
-                            }
-
-                            //ctx.clearRect(0, 0, canvas.width, canvas.height);
-                            //ctx.drawImage(newImm, 0, 0, 300, 300, 10, 80, 250, 250);
-                            fullimg = canvas.toDataURL("image/png");
-                        }
-
-                        function overalayColor(himg, color) {
-                            fullimg = himg[0];
-                            img = new Image();
-                            img.src = himg.src;
-                            selectImg = himg;
-                            canvas.width = 1000;
-                            canvas.height = 667;
-
-                            ctxx.clearRect(0, 0, canvasx.width, canvasx.height);
-                            ctxx.drawImage(selectImg, 0, 0, selectImg.naturalWidth, selectImg.naturalHeight, 0, 0, selectImg.width, selectImg.height);
-                            originalPixels = ctxx.getImageData(0, 0, selectImg.width, selectImg.height);
-                            currentPixels = ctxx.getImageData(0, 0, selectImg.width, selectImg.height);
-
-                            selectImg.onload = null;
-                            fillColor(color);
-                        }
-                        overalayColor(document.getElementById('ball_logo'), "#ffd700");
-                        var imgsrc = canvas.toDataURL("image/png", 1.0);
-                        var geometry = new THREE.SphereGeometry(1, 500, 500);
-                        var textur = new THREE.TextureLoader();
-                        textur.load(
-                            fullimg,
-                            function(texture) {
-                                var material = new THREE.MeshPhongMaterial({
-                                    map: texture,
-                                    transparent: true
-                                });
-                                material.map.needsUpdate = true;
-                                var mysphere = new THREE.Mesh(geometry, material);
-                                mysphere.rotation.x = 0.1;
-                                mysphere.rotation.y = -5.0;
-                                mysphere.rotation.z = -1;
-                                scene.add(mysphere);
-                            },
-                            function(xhr) {
-                                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-                            },
-                            function(xhr) {
-                                console.log('An error happened');
-                            }
-                        );
-                    };
-                    reader.readAsDataURL(input.files[0]);
-                }
-            }
-            $("#upload").change(function() {
-                readURL(this);
-            });
-
-            function animate() {
-                requestAnimationFrame(animate);
-                renderer.render(scene, camera);
-            }
-        }, 100);
-    });
-
+    
     $scope.color = [{
         colr: "#f5b122"
     }, {
@@ -6167,8 +5407,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 })
-
-
 
 .controller('CategoriesInsideCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, cfpLoadingBar) {
         //Used to name the .html file
@@ -6632,6 +5870,68 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("OrderSummary");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
+
+        $scope.tshirtdata = {};
+        $scope.tshirtdata = $.jStorage.get('oditshirtdata');
+
+        $scope.customizedShirt = $scope.tshirtdata.customizedShirt;
+        // $scope.customizedShirt.front = true;
+        // $scope.customizedShirt.back = false;
+
+        $scope.trimTshirt = $scope.tshirtdata.trim;
+        $scope.designName = $scope.tshirtdata.designName;
+
+        $scope.switchFrontBack = function(front) {
+            $scope.customizedShirt.front =  front;
+            $scope.customizedShirt.back =  !front;
+            if (front) {
+                $scope.customizedShirt.cloth = 'img/odi-tshirts/cloth/front.png'; //'img/tinytshirt 7.png';
+                $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/front.png'; //'img/tinytshirt 7 back.png';
+            } else {
+                $scope.customizedShirt.cloth = 'img/odi-tshirts/cloth/back.png'; //'img/tinytshirt 1 back.png';
+                $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/back.png'; //'img/tinytshirt 1 back back.png';
+            }
+        }
+
+        $scope.switchTrimHighlightOne = function(flag) {
+            $scope.trimTshirt.highlightOne.flag = flag;
+            // $scope.trimTshirt.highlightOne.tcolor = color;
+            if (flag) {
+                $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/" + $scope.designName + "/front/trim1/" + $scope.trimTshirt.highlightOne.tcolor + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
+            } else {
+                $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/" + $scope.designName + "/back/trim1/" + $scope.trimTshirt.highlightOne.tcolor + ".png"; // "img/odi-tshirts/trims/highlight1/back/trim_" + color + ".png";
+            }
+        };
+        $scope.switchTrimHighlightTwo = function(flag) {
+            $scope.trimTshirt.highlightTwo.flag = flag;
+            // $scope.trimTshirt.highlightTwo.tcolor = color;
+            if (flag) {
+                $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/" + $scope.designName + "/front/trim2/" + $scope.trimTshirt.highlightTwo.tcolor + ".png"; // "img/odi-tshirts/trims/highlight2/front/trim_" + color + ".png";
+            } else {
+                $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/" + $scope.designName + "/front/trim2/" + $scope.trimTshirt.highlightTwo.tcolor + ".png"; // "img/odi-tshirts/trims/highlight2/back/trim_" + color + ".png";
+            }
+        };
+        $scope.switchTrimHighlightBase = function(flag) {
+            $scope.trimTshirt.highlightBase.flag = flag;
+            // $scope.trimTshirt.highlightBase.tcolor = color;
+            if (flag) {
+                $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/base/front/" + $scope.trimTshirt.highlightBase.tcolor + ".png";
+                $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/front.png';
+                $scope.customizedShirt.front = flag;
+            } else {
+                $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/base/back/" + $scope.trimTshirt.highlightBase.tcolor + ".png";
+                $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/back.png';
+                $scope.customizedShirt.front = flag;
+            }
+        };
+
+        $scope.switchFrontBack(true);
+        $scope.switchTrimHighlightOne(true);
+        $scope.switchTrimHighlightTwo(true);
+        $scope.switchTrimHighlightBase(true);
+
+        console.log($scope.tshirtdata);
+
     })
     .controller('CheckoutCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $interval, cfpLoadingBar, $uibModal, $window) {
         //Used to name the .html file
