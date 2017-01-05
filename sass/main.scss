@@ -1050,6 +1050,12 @@ footer {
     border-radius: 100%;
 }
 
+.notiimg {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
 .design {
     display: inline-block;
 }
@@ -6094,10 +6100,10 @@ h2 {
     .sum-head {
         letter-spacing: 1px;
     }
-h3{
-  font-family: Raleway-Medium;
-  letter-spacing: 2px;
-}
+    h3{
+    font-family: Raleway-Medium;
+    letter-spacing: 2px;
+    }
     hr {
         border-top: 2px solid #eeeeee;
         margin-top: 0;
@@ -6108,7 +6114,7 @@ h3{
         margin-left: 10px;
     }
 
-    p {
+    p, .wd88 {
         font-size: 18px;
         font-family: Raleway-Medium;
         letter-spacing: 1px;
@@ -6125,17 +6131,64 @@ h3{
         padding-left: 10px;
     }
 
+    .color-selr {
+      width: 250px;
+      margin-top: -15px;
+      vertical-align: top;
+        button {
+            width: 170px;
+            margin: 20px 0 10px;
+            float: left;
+        }
+        span {
+            width: 30px;
+            height: 30px;
+            display: block;
+            margin: 20px 0 0 20px;
+            float: left;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+        }
+        padding-left: 10px;
+    }
+
+    .new-scrolldiv.block-box {
+        width: 480px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .spon-logo {
+        width: 620px;
+        overflow-y: hidden;
+    }
+
     .team-logo {
         height: 100px;
         overflow: hidden;
         width: 100px;
         border: 1px solid;
+        position: relative;
+    }
+
+    textarea {
+        border: 1px solid #000;
+        padding: 5px 10px;
+        font-size: 16px;
+        &:focus {
+            outline: none;
+        }
     }
 
     .logo-img {
-        padding: 10px;
-        height: 100%;
-        margin: 0 auto;
+        padding: 5px;
+        // height: 100%;
+        // margin: 0 auto;
+        overflow: hidden;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include transform(translate(-50%, -50%));
     }
 
     .quantity-number {
@@ -6197,6 +6250,15 @@ padding-right: 10px;
 }
 .pdl30{
   padding-left: 30px;
+}
+.pdl20{
+  padding-left: 20px;
+}
+.pdl10{
+  padding-left: 10px;
+}
+.mgr-10{
+  margin-right: 10px;
 }
 .mgl-20{
   margin-left: 20px;
