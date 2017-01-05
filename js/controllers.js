@@ -2915,7 +2915,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         'color': 'white',
         'quantity': 1,
         'size': 'L',
-        'sleeve': 'short'
+        'sleeve': 'short',
+        'attributes': {
+            'name': {
+                'fontSize': 18,
+                'border': 'none',
+                'rotate': 0,
+                'letterSpacing': 1
+            },
+            'number': {
+                'fontSize': 60,
+                'border': 'none',
+                'rotate': 0,
+                'letterSpacing': 1
+            }
+        }
     }];
 
     $scope.jerseyBackArrCount = 1;
