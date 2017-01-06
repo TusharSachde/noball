@@ -22,7 +22,7 @@
               <p class="{{backwhite3}}">3. LOGOS</p>
               <span class="bread-back"></span>
             </li>
-            <li class="tab-item breadcrums {{classe}}" ng-click="tabchange('quantity',5); switchFrontBack(false); turnOnQuantity(true);">
+            <li class="tab-item breadcrums {{classe}}" ng-click="tabchange('quantity',5); switchFrontBackQuantity(false); turnOnQuantity(true);">
               <span class="bread-frnt"></span>
               <p class="{{backwhite5}}">4. QUANTITY</p>
               <span class="bread-back"></span>
@@ -80,7 +80,7 @@
                 <div class="div-backccc" ng-if="customizedShirt.back && customizedShirt.rightchest.image != 'img/logo_black.png'">
                   <img src="img/logo_green.png" alt="" class="img-responsive">
                 </div>
-                <div ng-if="customizedShirt.back && quantityTab" class="{{jerseyBack.font+'-font'}}" ng-style="{'color': jerseyBack.color}">
+                <div ng-if="customizedShirt.back && quantityTab && tabFive" class="{{jerseyBack.font+'-font'}}" ng-style="{'color': jerseyBack.color}">
                   <div class="odi-t jersey-name uppercase text-center"><p ng-style="jerseyBack.attributes.name">{{jerseyBackArr[0].name}}</p></div>
                   <div class="odi-t jersey-no text-center" ng-style="jerseyBack.attributes.number">{{jerseyBackArr[0].no}}</div>
                 </div>
@@ -88,10 +88,10 @@
                 <!-- <img class="" src="img/people.png" alt=""> -->
               </div>
               <div class="prev inline-block">
-                <p class="uppercase" ng-click="switchFrontBack(false); switchTrimHighlightBase(false, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(false, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(false, trimTshirt.highlightTwo.tcolor)"><img src="img/back.png" class="img-responsive" alt="">back</p>
+                <p class="uppercase" ng-click="switchFrontBack(true); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor)"><img src="img/back.png" class="img-responsive" alt="">front</p>
               </div>
               <div class="next inline-block">
-                <p class="uppercase" ng-click="switchFrontBack(true); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor)"><img src="img/back.png" class="img-responsive" alt="">front</p>
+                <p class="uppercase" ng-click="switchFrontBack(false); switchTrimHighlightBase(false, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(false, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(false, trimTshirt.highlightTwo.tcolor)"><img src="img/back.png" class="img-responsive" alt="">back</p>
               </div>
               <div class="feature-buttons">
                 <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing">FORM + FUNCTION</button>
@@ -678,8 +678,8 @@
                 </uib-accordion>
 
                 <div class="edit-btn">
-                  <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>
-                  <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5" ng-click="toOrderSummary()">next</button>
+                  <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="savedDesigns()">save design</button>
+                  <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" ng-click="toOrderSummary()">next</button>
                   <br>
                 </div>
               </div>
