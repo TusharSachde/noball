@@ -13,7 +13,7 @@
                     </li>
                     <li class="tab-item breadcrums {{classc}}" ng-click="tabchange('team',3)">
                         <span class="bread-frnt"></span>
-                        <p>2. TEAM TEXT</p>
+                        <p>2. INITIALS</p>
                         <span class="bread-back"></span>
                     </li>
                     <li class="tab-item breadcrums {{classd}}" ng-click="tabchange('quantity',5)">
@@ -30,14 +30,17 @@
                 <div class="col-md-5">
                     <div class="text-center">
                         <div class="gully-shirt">
-                            <img src="img/bat/bat-img.png" class="img-responsive" alt="">
+                            <img src="img/bat/bat.jpg" class="img-responsive" alt="">
+                            <div class="bat-text">
+                                <p>{{customBat.text}}</p>
+                            </div>
                         </div>
-                        <div class="prev inline-block">
+                        <!--<div class="prev inline-block">
                             <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">back</p>
                         </div>
                         <div class="next inline-block">
                             <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">front</p>
-                        </div>
+                        </div>-->
                         <div class="feature-buttons">
                             <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing">FORM + FUNCTION</button>
                             <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing">DELIVERY</button>
@@ -55,13 +58,10 @@
                 <div class="col-md-7">
                     <div class="det-name">
                         <h4>VIKINGS</h4>
-                        <p>The Custom Cricket company cricket shirt is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest .
-                        </p>
+                        <!--<p>The Custom Cricket company cricket shirt is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest .</p>-->
                         <h3><i class="fa fa-inr"></i>995</h3>
-                        <span>Minimum order to be placed for Playing T-Shirts is 20.</span>
+                        <!--<span>Minimum order to be placed for Playing T-Shirts is 20.</span>-->
                     </div>
-                    <!--                    // design tab-->
-
 
                     <div class="choos m20-l" ng-show="tab=='design'">
                         <p>Choose Your Type Of Design</p>
@@ -79,18 +79,22 @@
                           <h3>
                             Choose your grades
                           </h3>
-                          <form>
-                            <label class="radio-inline">
-                              <input type="radio" name="optradio">1
+                          <form class="radio">
+                            <input type="radio" id="opt1" name="optradio">
+                            <label class="radio-inline" for="opt1">
+                                <span></span> 1
                             </label>
-                            <label class="radio-inline">
-                              <input type="radio" name="optradio">1+
+                            <input type="radio" id="opt1p" name="optradio">
+                            <label class="radio-inline" for="opt1p">
+                                <span></span> 1+
                             </label>
-                            <label class="radio-inline">
-                              <input type="radio" name="optradio">2
+                            <input type="radio" id="opt2" name="optradio">
+                            <label class="radio-inline" for="opt2">
+                                <span></span> 2
                             </label>
-                            <label class="radio-inline">
-                              <input type="radio" name="optradio">2+
+                            <input type="radio" id="opt2p" name="optradio">
+                            <label class="radio-inline" for="opt2p">
+                                <span></span> 2+
                             </label>
                           </form>
                         </div>
@@ -161,8 +165,8 @@
                     </div>
                     <!--                    //trim tab-->
                     <div class="choos m20-l" ng-show="tab=='team'">
-                        <p>Upload Your Logo</p>
-                        <div class="checkboxing">
+                        <p>Enter Your Initials Below</p>
+                        <!--<div class="checkboxing">
                             <input type="checkbox" class="form-control" id="later">
                             <label for="later"><span></span>SEND LATER</label>
                         </div>
@@ -170,9 +174,14 @@
                             <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="UploadTeamLogo()">TEAM LOGO</button>
                             <span class="uppercase inline-block mright15">or</span>
                             <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor();">TEAM TEXT</button>
-                        </div>
+                        </div>-->
+                        <form class="bat-form">
+                            <input type="text" maxlength="4" ng-model="customBat.text">
+                            <span>(Maximum  4 characters)</span>
+                            <span class="block char">0 characters left</span>
+                        </form>
                         <div class="print-typ printing">
-                            <p>Select The Printing Type For Your Team Logo</p>
+                            <!--<p>Select The Printing Type For Your Team Logo</p>
                             <form action="" class="radio">
                                 <input type="radio" id="radio1" name="radio" />
                                 <label for="radio1">
@@ -186,12 +195,20 @@
                             </form>
                             <div class="edit-btn">
                                 <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15">upload</button>
-                            </div>
+                            </div>-->
                             <div class="pbotom">
-                                <span class="block">Notes :</span>
-                                <span class="block">1.The printed CCC Logo will always be embroidered on your t-shirt</span>
-                                <span class="block">2.If you feel something is not great, our design team can fix it for you.</span>
-                                <span><a href="" ng-click="outplace();">Click here</a> to find out how?</span>
+                                <span class="block">Note:</span>
+                                <span class="block">1. The initials will be printed on both the edges.</span>
+                                <!--<span class="block">1.The printed CCC Logo will always be embroidered on your t-shirt</span>
+                                <span class="block">2.If you feel something is not great, our design team can fix it for you.</span>-->
+                                <!--<span><a href="" ng-click="outplace();">Click here</a> to find out how?</span>-->
+                            </div>
+
+                            <div class="edit-btn inline-block">
+                                <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                            </div>
+                            <div class="edit-btn inline-block">
+                                <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="UploadTeamLogo1()" >NEXT</button>
                             </div>
                         </div>
 
@@ -529,12 +546,18 @@
 </div> -->
 
 
-                        <div class="chart mar15">
-                            <p>view:
-                                <span data-toggle="modal" data-target="#myModal4">Size Chart</span>
+                        <div class="mar15">
+                            <p>Place Your Order
+                                <!--view:
+                                <span data-toggle="modal" data-target="#myModal4">Size Chart</span>-->
                             </p>
                         </div>
-                        <div class="accordion">
+                        <div class="quanity-box inline-block">
+                            <span>Select Quantity</span>
+                            <input type="number">
+                            <span>Pieces</span>
+                        </div>
+                        <!--<div class="accordion">
 
                             <uib-accordion close-others="oneAtATime">
                                 <uib-accordion-group is-open="status.open1">
@@ -574,8 +597,8 @@
                                         </div>
                                     </div>
                                 </uib-accordion-group>
-                        </div>
-                        <div class="pbotom">
+                        </div>-->
+                        <!--<div class="pbotom">
                             <span class="block">Note </span>
                             <span class="block">1. Your t-shirt name can be up to 10 characters and t-shirt number can be selected from 0 to 999.</span>
                             <span class="block">2. You can select sleeves from being short (S.S) or long (L.S).</span>
@@ -681,7 +704,7 @@
                                                     <td></td>
                                                     <td></td>
                                                 </tr>
-                                                <!-- <tr class="nothing">
+                                                <tr class="nothing">
                                                     <td></td>
                                                 </tr>
                                                 <tr>
@@ -735,7 +758,7 @@
                                                             </tr>
                                                             <tr class="nothing">
                                                                 <td></td>
-                                                            </tr> -->
+                                                            </tr>
                                             </tbody>
                                         </table>
                                         <a href="" class="bin"><img src="img/rubbishbin.png" class="img-responsive" alt=""></a>
@@ -744,7 +767,7 @@
 
                                     </div>
                                 </uib-accordion-group>
-                        </div>
+                        </div>-->
                         <div class="edit-btn">
                             <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>
                             <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5">next</button>

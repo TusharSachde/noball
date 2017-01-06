@@ -5062,6 +5062,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     var check = 1;
 
+    $scope.customBat = {};
+    $scope.customBat.text = '';
+
     $scope.UploadTeamLogo = function() {
         check = 2;
         $uibModal.open({
@@ -5157,6 +5160,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         src: "img/pads/bluepads.png"
     }, {
         src: "img/pads/padslemon.png"
+    }, {
+        src: "img/pads/orangepads.png"
     }, {
         src: "img/pads/orangepads.png"
     }];

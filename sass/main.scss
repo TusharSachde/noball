@@ -1507,6 +1507,35 @@ footer {
     }
 }
 
+.quanity-box {
+    background-color: #eee;
+    padding: 10px 15px;
+
+    span {
+        letter-spacing: 3px;
+    }
+
+    input {
+        width: 50px;
+        margin: 0 10px;
+        padding: 2px 5px !important;
+        border: none;
+    }
+}
+
+.bat-form {
+    margin: 20px 0;
+    input {
+        margin-right: 10px;
+        padding: 2px 5px;
+        &:focus { outline: none; }
+    }
+    .char {
+        margin-top: 2px;
+        font-style: italic;
+    }
+}
+
 .account-design-bg {
     background: url("../img/background/accountlast.jpg") no-repeat right;
     background-size: contain;
@@ -2790,6 +2819,19 @@ footer {
         position: absolute;
         top: 0;
         z-index: 50;
+    }
+
+    .bat-text {
+        position: absolute;
+        top: 274px;
+        left: 283px;
+        width: 100px;
+        @include transform(rotate(205deg));
+        p {
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
     }
 }
 
