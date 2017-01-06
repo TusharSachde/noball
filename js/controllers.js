@@ -3518,7 +3518,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "allLogos": $scope.allLogos,
             "designName": $scope.designName,
             "totalAmount": $scope.totalAmount,
-            "totalQuan": $scope.totalQuan
+            "totalQuan": $scope.totalQuan,
+            "name": 'Matt B&Y'
         };
         $scope.lastJSON = JSON.stringify($scope.combineJSON);
         console.log($scope.combineJSON);

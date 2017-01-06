@@ -8,7 +8,7 @@
   </div>
   <div class="container check-out">
     <div class="tab-content">
-      <pre>{{savedDesigns | json}}</pre>
+      <!--<pre>{{savedDesigns | json}}</pre>-->
       <div class="row">
         <div class="col-md-4 col-sm-6" ng-repeat="design in savedDesigns track by $index">
           <div class="design-patt text-center">
@@ -53,7 +53,7 @@
                 <div class="odi-t jersey-no text-center" ng-style="design.jerseyBackArr[0].attributes.number">{{design.jerseyBackArr[0].no}}</div>
               </div>
             </div>
-            <p class="">MATT B&amp;Y</p>
+            <p class="">{{design.name}}</p>
             <button class="btn btn-outline btn-dark padding-btn mg10">EDIT</button>
             <button class="btn btn-outline btn-dark padding-btn mg10 mg-tp-0" ng-click="removeSavedDesign($index)">DELETE</button>
           </div>
