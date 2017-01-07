@@ -5157,13 +5157,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }];
 
     $scope.images = [{
-        src: "img/pads/bluepads.png"
+        src: "img/bat/bat.jpg"
     }, {
-        src: "img/pads/padslemon.png"
+        src: "img/bat/bat.jpg"
     }, {
-        src: "img/pads/orangepads.png"
+        src: "img/bat/bat.jpg"
     }, {
-        src: "img/pads/orangepads.png"
+        src: "img/bat/bat.jpg"
     }];
     //tab changes
 
