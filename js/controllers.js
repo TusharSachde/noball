@@ -5126,6 +5126,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.showQuantiyTab = function() {
         $scope.tab = "quantiy";
     }
+    $scope.showQuantityTab = function() {
+        $scope.tab = "quantity";
+    }
     $scope.showQuantyTab = function() {
         $scope.tab = "quanty";
     }

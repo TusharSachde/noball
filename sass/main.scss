@@ -18,6 +18,10 @@
     font-family: "Raleway-Medium";
     src: url("../fonts/Raleway-Medium.ttf");
 }
+@font-face {
+    font-family: "Stencil";
+    src: url("../fonts/stencil.ttf");
+}
 /* Bootstrap Variables Goes Here */
 $brand-primary: #0d9dff !default;
 $brand-success: #C1E603 !default;
@@ -35,6 +39,7 @@ $link-hover-decoration: none !default;
 $font-family-sans-serif: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $font-family-serif: "Raleway", Georgia, "Times New Roman", Times, serif !default;
 $font-logo: "Facile Sans", "Helvetiva Neue", Helvetica !default;
+$font-stencil: "Stencil", sans-serif !default;
 $border-radius-base: 0 !default;
 $border-radius-large: 0 !default;
 $border-radius-small: 0 !default;
@@ -2823,12 +2828,13 @@ footer {
 
     .bat-text {
         position: absolute;
-        top: 274px;
-        left: 283px;
+        top: 245px;
+        left: 241px;
         width: 100px;
-        @include transform(rotate(205deg));
+        @include transform(rotate(209deg));
         p {
-            font-size: 16px;
+            font-family: $font-stencil;
+            font-size: 18px;
             font-weight: bold;
             text-transform: uppercase;
         }
@@ -5981,7 +5987,7 @@ h2 {
     }
 
     &.jersey-name {
-        top: 90px;
+        top: 100px;
         width: 180px;
         height: 50px;
         display: -webkit-flex;
