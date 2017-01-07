@@ -1,1 +1,49 @@
-<img src="img/customisation-soon.jpg" alt="" class="img-responisve" width="100%">
+<!--<img src="img/customisation-soon.jpg" alt="" class="img-responisve" width="100%">-->
+<section>
+  <!--flex-slider-->
+  <div class="customize-slider">
+    <flex-slider flex-slide="s in topSlides" prev-text="" next-text="" slideshow="true" slideshow-speed="5000" class="topSlide">
+       <li>
+           <img ng-src="{{s}}">
+       </li>
+   </flex-slider>
+  </div>
+  <div class="customisation-main">
+    <div class="container">
+      <div class="row">
+        <h2 class="uppercase text-center">Start Customising Now</h2>
+        <div class="customisation-box">
+          <div class="single-box" ng-repeat="item in items">
+            <img ng-src="{{item.image}}" alt="{{item.name}}" class="img-responisve">
+            <div class="grey-fade">
+              <p class="uppercase">{{item.name}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="showcase">
+    <h2 class="uppercase text-center">Our Showcase</h2>
+    <!--flexslider-->
+    <div class="showcase-slider">
+      <!--<flex-slider flex-slide="s in showcaseSlides" prev-text="" next-text="" class="" item-width="70" item-margin="40">
+          <li>
+              <img ng-src="{{s}}" class="img-responsive">
+          </li>
+      </flex-slider>-->
+      <!--<flex-slider flex-slide="banner in showcaseSlides track by $index" prev-text="" next-text="" startAt="0" item-width="250" item-margin="40" animation="slide" move="1" slideshow=true slideshowSpeed="500" class="mt25">
+        <li class="text-center">
+            <a >
+                <figure class="">
+                    <img ng-src="{{banner}}" class="img-responsive iconBlue">
+                </figure>
+            </a>
+            
+        </li>
+    </flex-slider>-->
+    </div>
+    
+  </div>
+</section>

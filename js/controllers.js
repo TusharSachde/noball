@@ -6994,6 +6994,46 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // $scope.menutitle = NavigationService.makeactive("Custom Direct");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
+
+        $scope.items = [{
+            image: 'img/landing/items/Bats.jpg',
+            name: 'Bats',
+            link: ''
+        }, {
+            image: 'img/landing/items/Ball.jpg',
+            name: 'Balls',
+            link: ''
+        }, {
+            image: 'img/landing/items/Gloves.jpg',
+            name: 'Gloves',
+            link: ''
+        }, {
+            image: 'img/landing/items/Pads.jpg',
+            name: 'Pads',
+            link: ''
+        }, {
+            image: 'img/landing/items/Apparels.jpg',
+            name: 'Apparels',
+            link: ''
+        }, {
+            image: 'img/landing/items/Kit-Bag.jpg',
+            name: 'Kit Bags',
+            link: ''
+        }];
+
+        $scope.topSlides = [
+            "img/landing/1.jpg",
+            "img/landing/2.jpg",
+            "img/landing/3.jpg"
+        ];
+
+        $scope.showcaseSlides = [
+            "img/landing/showcase/1.jpg",
+            "img/landing/showcase/2.jpg",
+            "img/landing/showcase/3.jpg",
+            "img/landing/showcase/4.jpg"
+        ];
+
     })
 
 .controller('footerctrl', function($scope, $state, TemplateService, $uibModal, NavigationService) {
