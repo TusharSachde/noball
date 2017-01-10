@@ -121,14 +121,38 @@
             </div>
             <!--                    // design tab-->
             <div class="choos m20-l" ng-show="tab=='design'">
-              <p>Choose Your Type Of Design (9/18)</p>
+              <p>Choose Your Type Of Design (15/15)</p>
+              <!--<div class="mb20">
+                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="type=1">Odi</button>
+                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="type=2">Training</button>
+                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="type=3">Whites</button>
+              </div>-->
+              <div class="mb20 flex-around">
+                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-show="page==2" ng-click="page=1">Prev</button>
+                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-show="page==1" ng-click="page=2">Next</button>
+              </div>
               <div class="row">
                 <div class="col-md-10">
-                  <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images track by $index">
-                    <div class="cat-img pointer" ng-click="openDesign($index)" title="Design {{$index + 1}}">
+                  <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images.page1 track by $index" ng-if="page==1">
+                    <div class="cat-img pointer" ng-click="openDesign($index, 1)" title="Design {{$index + 1}}">
                       <img ng-src="{{img.src}}" class="img-responsive">
                     </div>
                   </div>
+                  <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images.page2 track by $index" ng-if="page==2">
+                    <div class="cat-img pointer" ng-click="openDesign($index, 2)" title="Design {{$index + 1}}">
+                      <img ng-src="{{img.src}}" class="img-responsive">
+                    </div>
+                  </div>
+                  <!--<div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images.training track by $index" ng-if="type==2">
+                    <div class="cat-img pointer" ng-click="openDesign($index)" title="Design {{$index + 1}}">
+                      <img ng-src="{{img}}" class="img-responsive">
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images.whites track by $index" ng-if="type==3">
+                    <div class="cat-img pointer" ng-click="openDesign($index)" title="Design {{$index + 1}}">
+                      <img ng-src="{{img}}" class="img-responsive">
+                    </div>
+                  </div>-->
                 </div>
               </div>
               <!-- <div class="edit-btn inline-block">
@@ -148,13 +172,13 @@
             <!--   //trim tab-->
             <div class="choos m20-l " ng-show="tab=='trim'">
               <div class="options">
-                <button class="{{trimTabs.light3.active}} classshow btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-click="tabchanges('light3',3)">BASE</button>
-                <button class="{{trimTabs.light1.active}} classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-click="tabchanges('light1',1)">TRIM 1</button>
+                <button class="{{trimTabs.light3.active}} {{trimTshirt.highlightBase.disable}} classshow btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-click="tabchanges('light3',3)">BASE</button>
+                <button class="{{trimTabs.light1.active}} {{trimTshirt.highlightOne.disable}} classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-click="tabchanges('light1',1)">TRIM 1</button>
                 <button class="{{trimTabs.light2.active}} {{trimTshirt.highlightTwo.disable}} classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-click="tabchanges('light2',2)">TRIM 2</button> <!-- {{trimTwoDisable}} -->
                 <!-- <button class="{{classhide1} btn btn-outline btn-dark padding-btn letter-spacing  inline-block" ng-click="tabchanges('light3',3)">PALETTE</button>
                                 <button class="{{classhide2} btn btn-outline btn-dark padding-btn letter-spacing  inline-block" ng-click="tabchanges('light4',4)">COLLAR</button> -->
               </div>
-              <div class="{{trimTabs.light1.show}} classp outline disnon" ng-if="tabs=='light1'">
+              <div class="{{trimTshirt.highlightOne.disable}} {{trimTabs.light1.show}} classp outline disnon" ng-if="tabs=='light1'">
                 <div class="row">
                   <div class="col-md-12">
                     <h4>Choose Your Color</h4>
@@ -170,7 +194,7 @@
                                     <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
                                 </div> -->
               </div>
-              <div class="{{trimTabs.light2.show}} classv outline disnon" ng-if="tabs=='light2'">
+              <div class="{{trimTshirt.highlightTwo.disable}} {{trimTabs.light2.show}} classv outline disnon" ng-if="tabs=='light2'">
                 <div class="row">
                   <div class="col-md-12">
                     <h4>Choose Your Color</h4>
@@ -185,7 +209,7 @@
                                     <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
                                 </div> -->
               </div>
-              <div class="{{trimTabs.light3.show}} classv outline disnon" ng-if="tabs=='light3'">
+              <div class="{{trimTshirt.highlightBase.disable}} {{trimTabs.light3.show}} classv outline disnon" ng-if="tabs=='light3'">
                 <div class="row">
                   <div class="col-md-12">
                     <h4>Choose Your Color</h4>

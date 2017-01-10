@@ -2850,6 +2850,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.statuses = {};
     $scope.statuses.showcopy = false;
     $scope.previewImages = {};
+    $scope.designType = 'odi';
 
     // image upload variables
     $scope.variable = "";
@@ -2963,11 +2964,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       console.log('switchFrontBack');
         $scope.customizedShirt.front =  front;
         $scope.customizedShirt.back =  !front;
+        console.log($scope.designType);
         if (front) {
-            $scope.customizedShirt.cloth = 'img/odi-tshirts/cloth/front.png'; //'img/tinytshirt 7.png';
+            $scope.customizedShirt.cloth = 'img/odi-tshirts/trims/' + $scope.designType + 'base/front/' + $scope.trimTshirt.highlightBase.tcolor + '.png'; //'img/tinytshirt 7.png';
             $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/front.png'; //'img/tinytshirt 7 back.png';
         } else {
-            $scope.customizedShirt.cloth = 'img/odi-tshirts/cloth/back.png'; //'img/tinytshirt 1 back.png';
+            $scope.customizedShirt.cloth = 'img/odi-tshirts/trims/' + $scope.designType + 'base/back/' + $scope.trimTshirt.highlightBase.tcolor + '.png'; //'img/tinytshirt 1 back.png';
             $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/back.png'; //'img/tinytshirt 1 back back.png';
         }
         // _.each($scope.customizedShirt,function(value,property){
@@ -3078,24 +3080,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.trimTshirt.highlightOne.tcolor = "white";
     $scope.trimTshirt.highlightTwo.tcolor = "white";
     $scope.trimTshirt.highlightBase.tcolor = "white";
+    $scope.trimTshirt.highlightBase.disable = "disabled";
+    $scope.trimTshirt.highlightOne.disable = "disabled";
     $scope.trimTshirt.highlightTwo.disable = "disabled";
 
-    $scope.switchTrimHighlightOne = function(flag, color) {
+    $scope.switchTrimHighlightOne = function(flag, color, type) {
         console.log(flag);
         console.log(color);
         $scope.trimTshirt.highlightOne.flag = flag;
         $scope.trimTshirt.highlightOne.tcolor = color;
         if ($scope.trimTshirt.highlightOne.tcolor != "") {
             if (flag) {
-                $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/" + $scope.designName + "/front/trim1/" + color + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
+                $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/" + $scope.designType + "/" + $scope.designName + "/front/trim1/" + color + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
             } else {
-                $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/" + $scope.designName + "/back/trim1/" + color + ".png"; // "img/odi-tshirts/trims/highlight1/back/trim_" + color + ".png";
+                $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/" + $scope.designType + "/" + $scope.designName + "/back/trim1/" + color + ".png"; // "img/odi-tshirts/trims/highlight1/back/trim_" + color + ".png";
             }
         } else {
             $scope.trimTshirt.highlightOne.image = "";
         }
     };
-    $scope.switchTrimHighlightTwo = function(flag, color) {
+    $scope.switchTrimHighlightTwo = function(flag, color, type) {
         console.log('two');
         console.log(color);
         console.log(flag);
@@ -3103,26 +3107,36 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.trimTshirt.highlightTwo.tcolor = color;
         if ($scope.trimTshirt.highlightTwo.tcolor != "") {
             if (flag) {
-                $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/" + $scope.designName + "/front/trim2/" + color + ".png"; // "img/odi-tshirts/trims/highlight2/front/trim_" + color + ".png";
+                $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/" + $scope.designType + "/" + $scope.designName + "/front/trim2/" + color + ".png"; // "img/odi-tshirts/trims/highlight2/front/trim_" + color + ".png";
             } else {
-                $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/" + $scope.designName + "/back/trim2/" + color + ".png"; // "img/odi-tshirts/trims/highlight2/back/trim_" + color + ".png";
+                $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/" + $scope.designType + "/" + $scope.designName + "/back/trim2/" + color + ".png"; // "img/odi-tshirts/trims/highlight2/back/trim_" + color + ".png";
             }
         } else {
             $scope.trimTshirt.highlightTwo.image = "";
         }
     };
-    $scope.switchTrimHighlightBase = function(flag, color) {
+    $scope.switchTrimHighlightBase = function(flag, color, type) {
         console.log('base');
         console.log(color);
         console.log(flag);
+        console.log(type);
+        console.log($scope.designType);
         $scope.trimTshirt.highlightBase.flag = flag;
         $scope.trimTshirt.highlightBase.tcolor = color;
         if (flag) {
-            $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/base/front/" + color + ".png";
+            if ($scope.designType === 'whites') {
+                $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/" + $scope.designType + "/" + $scope.designName + "/front.png";
+            } else {
+                $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/" + $scope.designType + "/base/front/" + color + ".png"; //"img/odi-tshirts/trims/base/front/" + color + ".png";
+            }
             $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/front.png';
             $scope.customizedShirt.front = flag;
         } else {
-            $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/base/back/" + color + ".png";
+            if ($scope.designType === 'whites') {
+                $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/" + $scope.designType + "/" + $scope.designName + "/back.png";
+            } else {
+                $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/" + $scope.designType + "/base/back/" + color + ".png"; //"img/odi-tshirts/trims/base/back/" + color + ".png";
+            }
             $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/back.png';
             $scope.customizedShirt.front = flag;
         }
@@ -3152,87 +3166,174 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.designName = "design1";
     $scope.designStatus = false;
     $scope.trimTwoDisable = "";
+    $scope.designTab = 1;
     $scope.trimTshirt.highlightOne.tcolor = 'black';
-    $scope.openDesign = function(index) {
+    $scope.openDesign = function(index, tab) {
         if ($scope.LogosTab) {
             $scope.designIndex = index;
+            $scope.designTab = tab;
             $uibModal.open({
                 templateUrl: "views/modal/tshirtdesign.html",
                 scope: $scope
             });
         } else {
-            $scope.changeDesign(index);
+            $scope.changeDesign(index, tab);
         }
     }
-    $scope.changeDesign = function(index) {
-        $scope.designName = "design" + (index + 1);
-        console.log($scope.designName);
-        $scope.switchFrontBack($scope.trimTshirt.highlightOne.flag);
-        $scope.switchTrimHighlightOne($scope.trimTshirt.highlightOne.flag, $scope.trimTshirt.highlightOne.tcolor);
-        $scope.switchTrimHighlightTwo($scope.trimTshirt.highlightTwo.flag, $scope.trimTshirt.highlightTwo.tcolor);
-        if ($scope.designName === "design1" || $scope.designName === "design2" || $scope.designName === "design3") {
-          $scope.trimTwoDisable = "btn-disabled";
-        } else {
-          $scope.trimTwoDisable = "btn-disabled"; // remove btn-disabled later
-        }
-        if ($scope.designName == "design1") {
-            $scope.trimTshirt.highlightTwo.disable = "disabled";
-            $scope.designName = "design1";
-            $scope.switchTrimHighlightOne(true, 'black');
-            $scope.switchTrimHighlightTwo(true, 'white');
-            $scope.switchTrimHighlightBase(true, 'white');
-        } else if ($scope.designName == "design2") {
-            $scope.trimTshirt.highlightTwo.disable = "disabled";
-            $scope.designName = "design2";
-            $scope.switchTrimHighlightOne(true, 'black');
-            $scope.switchTrimHighlightTwo(true, 'white');
-            $scope.switchTrimHighlightBase(true, 'white');
-        } else if ($scope.designName == "design3") {
-            $scope.trimTshirt.highlightTwo.disable = "disabled";
-            $scope.designName = "design3";
-            $scope.switchTrimHighlightOne(true, 'black');
-            $scope.switchTrimHighlightTwo(true, 'white');
-            $scope.switchTrimHighlightBase(true, 'white');
-        } else if ($scope.designName == "design4") {
-            $scope.trimTshirt.highlightTwo.disable = "disabled";
-            $scope.designName = "design4";
-            $scope.switchTrimHighlightOne(true, 'black');
-            $scope.switchTrimHighlightTwo(true, 'white');
-            $scope.switchTrimHighlightBase(true, 'white');
-        } else if ($scope.designName == "design5") {
-            $scope.trimTshirt.highlightTwo.disable = "undisabled";
-            $scope.designName = "design5";
-            $scope.switchTrimHighlightOne(true, 'grey');
-            $scope.switchTrimHighlightTwo(true, 'grey');
-            $scope.switchTrimHighlightBase(true, 'white');
-        } else if ($scope.designName == "design6") {
-            $scope.trimTshirt.highlightTwo.disable = "undisabled";
-            $scope.designName = "design6";
-            $scope.switchTrimHighlightOne(true, 'neon_green');
-            $scope.switchTrimHighlightTwo(true, 'black');
-            $scope.switchTrimHighlightBase(true, 'grey');
-        } else if ($scope.designName == "design7") {
-            $scope.trimTshirt.highlightTwo.disable = "undisabled";
-            $scope.designName = "design7";
-            $scope.switchTrimHighlightOne(true, 'neon_green');
-            $scope.switchTrimHighlightTwo(true, 'black');
-            $scope.switchTrimHighlightBase(true, 'grey');
-        } else if ($scope.designName == "design8") {
-            $scope.trimTshirt.highlightTwo.disable = "undisabled";
-            $scope.designName = "design8";
-            $scope.switchTrimHighlightOne(true, 'neon_green');
-            $scope.switchTrimHighlightTwo(true, 'black');
-            $scope.switchTrimHighlightBase(true, 'grey');
-        } else if ($scope.designName == "design9") {
-            $scope.trimTshirt.highlightTwo.disable = "undisabled";
-            $scope.designName = "design9";
-            $scope.switchTrimHighlightOne(true, 'neon_green');
-            $scope.switchTrimHighlightTwo(true, 'black');
-            $scope.switchTrimHighlightBase(true, 'grey');
+    $scope.changeDesign = function(index, tab) {
+        // $scope.designName = "design" + (index + 1);
+        // console.log($scope.designName);
+        // $scope.switchFrontBack($scope.trimTshirt.highlightOne.flag, type);
+        // $scope.switchTrimHighlightOne($scope.trimTshirt.highlightOne.flag, $scope.trimTshirt.highlightOne.tcolor, type);
+        // $scope.switchTrimHighlightTwo($scope.trimTshirt.highlightTwo.flag, $scope.trimTshirt.highlightTwo.tcolor, type);
+        // if ($scope.designName === "design1" || $scope.designName === "design2" || $scope.designName === "design3") {
+        //   $scope.trimTwoDisable = "btn-disabled";
+        // } else {
+        //   $scope.trimTwoDisable = "btn-disabled"; // remove btn-disabled later
+        // }
+        if (tab === 1) {
+            if (index === 0) {
+                $scope.trimTshirt.highlightBase.disable = "undisabled";
+                $scope.trimTshirt.highlightOne.disable = "undisabled";
+                $scope.trimTshirt.highlightTwo.disable = "undisabled";
+                $scope.designName = "design1";
+                $scope.designType = 'odi';
+                $scope.switchTrimHighlightOne(true, 'grey', $scope.designType);
+                $scope.switchTrimHighlightTwo(true, 'grey', $scope.designType);
+                $scope.switchTrimHighlightBase(true, 'india_blue', $scope.designType);
+            } else if (index === 1) {
+                $scope.trimTshirt.highlightBase.disable = "undisabled";
+                $scope.trimTshirt.highlightOne.disable = "undisabled";
+                $scope.trimTshirt.highlightTwo.disable = "undisabled";
+                $scope.designName = "design2";
+                $scope.designType = 'odi';
+                $scope.switchTrimHighlightOne(true, 'black', $scope.designType);
+                $scope.switchTrimHighlightTwo(true, 'white', $scope.designType);
+                $scope.switchTrimHighlightBase(true, 'white', $scope.designType);
+            } else if (index === 2) {
+                $scope.trimTshirt.highlightBase.disable = "undisabled";
+                $scope.trimTshirt.highlightOne.disable = "undisabled";
+                $scope.trimTshirt.highlightTwo.disable = "undisabled";
+                $scope.designName = "design3";
+                $scope.designType = 'odi';
+                $scope.switchTrimHighlightOne(true, 'royal_blue', $scope.designType);
+                $scope.switchTrimHighlightTwo(true, 'white', $scope.designType);
+                $scope.switchTrimHighlightBase(true, 'red', $scope.designType);  
+            } else if (index === 3) {
+                $scope.trimTshirt.highlightBase.disable = "undisabled";
+                $scope.trimTshirt.highlightOne.disable = "undisabled";
+                $scope.trimTshirt.highlightTwo.disable = "undisabled";
+                $scope.designName = "design4";
+                $scope.designType = 'odi';
+                $scope.switchTrimHighlightOne(true, 'dark_green', $scope.designType);
+                $scope.switchTrimHighlightTwo(true, 'white', $scope.designType);
+                $scope.switchTrimHighlightBase(true, 'neon_green', $scope.designType);
+            } else if (index === 4) {
+                $scope.trimTshirt.highlightBase.disable = "undisabled";
+                $scope.trimTshirt.highlightOne.disable = "undisabled";
+                $scope.trimTshirt.highlightTwo.disable = "undisabled";
+                $scope.designName = "design5";
+                $scope.designType = 'odi';
+                $scope.switchTrimHighlightOne(true, 'royal_blue', $scope.designType);
+                $scope.switchTrimHighlightTwo(true, 'lemon_yellow', $scope.designType);
+                $scope.switchTrimHighlightBase(true, 'australian_green', $scope.designType);
+            } else if (index === 5) {
+                $scope.trimTshirt.highlightBase.disable = "undisabled";
+                $scope.trimTshirt.highlightOne.disable = "undisabled";
+                $scope.trimTshirt.highlightTwo.disable = "disabled";
+                $scope.designName = "design1";
+                $scope.designType = 'training';
+                $scope.switchTrimHighlightOne(true, 'neon_green', 'training');
+                $scope.switchTrimHighlightTwo(true, 'black', 'training');
+                $scope.switchTrimHighlightBase(true, 'white', 'training');
+            } else if (index === 6) {
+                $scope.trimTshirt.highlightBase.disable = "undisabled";
+                $scope.trimTshirt.highlightOne.disable = "undisabled";
+                $scope.trimTshirt.highlightTwo.disable = "disabled";
+                $scope.designName = "design2";
+                $scope.designType = 'training';
+                $scope.switchTrimHighlightOne(true, 'orange', 'training');
+                $scope.switchTrimHighlightTwo(true, 'white', 'training');
+                $scope.switchTrimHighlightBase(true, 'white', 'training');
+            } else if (index === 7) {
+                $scope.trimTshirt.highlightBase.disable = "undisabled";
+                $scope.trimTshirt.highlightOne.disable = "undisabled";
+                $scope.trimTshirt.highlightTwo.disable = "disabled";
+                $scope.designName = "design3";
+                $scope.designType = 'training';
+                $scope.switchTrimHighlightOne(true, 'dark_green', 'training');
+                $scope.switchTrimHighlightTwo(true, 'white', 'training');
+                $scope.switchTrimHighlightBase(true, 'white', 'training');
+            } else if (index === 8) {
+                $scope.trimTshirt.highlightBase.disable = "undisabled";
+                $scope.trimTshirt.highlightOne.disable = "undisabled";
+                $scope.trimTshirt.highlightTwo.disable = "disabled";
+                $scope.designName = "design4";
+                $scope.designType = 'training';
+                $scope.switchTrimHighlightOne(true, 'india_blue', 'training');
+                $scope.switchTrimHighlightTwo(true, 'white', 'training');
+                $scope.switchTrimHighlightBase(true, 'white', 'training');
+            }
+        } else if (tab === 2) {
+            if (index === 0) {
+                $scope.trimTshirt.highlightBase.disable = "undisabled";
+                $scope.trimTshirt.highlightOne.disable = "undisabled";
+                $scope.trimTshirt.highlightTwo.disable = "disabled";
+                $scope.designName = "design5";
+                $scope.designType = 'training';
+                $scope.switchTrimHighlightOne(true, 'red', 'training');
+                $scope.switchTrimHighlightTwo(true, 'white', 'training');
+                $scope.switchTrimHighlightBase(true, 'white', 'training');
+            } else if (index === 1) {
+                $scope.trimTshirt.highlightBase.disable = "disabled";
+                $scope.trimTshirt.highlightOne.disable = "disabled";
+                $scope.trimTshirt.highlightTwo.disable = "disabled";
+                $scope.designName = "design1";
+                $scope.designType = 'whites';
+                $scope.switchTrimHighlightOne(true, 'white', 'whites');
+                $scope.switchTrimHighlightTwo(true, 'white', 'whites');
+                $scope.switchTrimHighlightBase(true, 'white', 'whites');
+            } else if (index === 2) {
+                $scope.trimTshirt.highlightBase.disable = "disabled";
+                $scope.trimTshirt.highlightOne.disable = "undisabled";
+                $scope.trimTshirt.highlightTwo.disable = "disabled";
+                $scope.designName = "design2";
+                $scope.designType = 'whites';
+                $scope.switchTrimHighlightOne(true, 'orange', 'whites');
+                $scope.switchTrimHighlightTwo(true, 'white', 'whites');
+                $scope.switchTrimHighlightBase(true, 'white', 'whites');  
+            } else if (index === 3) {
+                $scope.trimTshirt.highlightBase.disable = "disabled";
+                $scope.trimTshirt.highlightOne.disable = "undisabled";
+                $scope.trimTshirt.highlightTwo.disable = "disabled";
+                $scope.designName = "design3";
+                $scope.designType = 'whites';
+                $scope.switchTrimHighlightOne(true, 'neon_green', 'whites');
+                $scope.switchTrimHighlightTwo(true, 'white', 'whites');
+                $scope.switchTrimHighlightBase(true, 'white', 'whites');
+            } else if (index === 4) {
+                $scope.trimTshirt.highlightBase.disable = "disabled";
+                $scope.trimTshirt.highlightOne.disable = "undisabled";
+                $scope.trimTshirt.highlightTwo.disable = "disabled";
+                $scope.designName = "design4";
+                $scope.designType = 'whites';
+                $scope.switchTrimHighlightOne(true, 'india_blue', 'whites');
+                $scope.switchTrimHighlightTwo(true, 'white', 'whites');
+                $scope.switchTrimHighlightBase(true, 'white', 'whites');
+            } else if (index === 5) {
+                $scope.trimTshirt.highlightBase.disable = "disabled";
+                $scope.trimTshirt.highlightOne.disable = "undisabled";
+                $scope.trimTshirt.highlightTwo.disable = "disabled";
+                $scope.designName = "design5";
+                $scope.designType = 'whites';
+                $scope.switchTrimHighlightOne(true, 'lemon_yellow', 'whites');
+                $scope.switchTrimHighlightTwo(true, 'white', 'whites');
+                $scope.switchTrimHighlightBase(true, 'white', 'whites');
+            }
         }
     }
 
-    $scope.changeDesign(0);
+    $scope.changeDesign(0, 1);
 
 
     // $scope.showCheck = true;
@@ -3690,48 +3791,88 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         colr: "#501e1f"
     }];
 
-    $scope.images = [{
-        src: "img/odi-tshirts/trims/design1/front.png"
-    }, {
-        src: "img/odi-tshirts/trims/design2/front.png"
-    }, {
-        src: "img/odi-tshirts/trims/design3/front.png"
-    }, {
-        src: "img/odi-tshirts/trims/design4/front.png"
-    }, {
-        src: "img/odi-tshirts/trims/design5/front.png"
-    }, {
-        src: "img/odi-tshirts/trims/design6/front.png"
-    }, {
-        src: "img/odi-tshirts/trims/design7/front.png"
-    }, {
-        src: "img/odi-tshirts/trims/design8/front.png"
-    }, {
-        src: "img/odi-tshirts/trims/design9/front.png"
-    }];
+    // $scope.images = [{
+    //     src: "img/odi-tshirts/trims/design1/front.png"
+    // }, {
+    //     src: "img/odi-tshirts/trims/design2/front.png"
+    // }, {
+    //     src: "img/odi-tshirts/trims/design3/front.png"
+    // }, {
+    //     src: "img/odi-tshirts/trims/design4/front.png"
+    // }, {
+    //     src: "img/odi-tshirts/trims/design5/front.png"
+    // }, {
+    //     src: "img/odi-tshirts/trims/design6/front.png"
+    // }, {
+    //     src: "img/odi-tshirts/trims/design7/front.png"
+    // }, {
+    //     src: "img/odi-tshirts/trims/design8/front.png"
+    // }, {
+    //     src: "img/odi-tshirts/trims/design9/front.png"
+    // }, {
+    //     src: "img/odi-tshirts/trims/design10/front.png"
+    // }, {
+    //     src: "img/odi-tshirts/trims/design11/front.png"
+    // }, {
+    //     src: "img/odi-tshirts/trims/design12/front.png"
+    // }, {
+    //     src: "img/odi-tshirts/trims/design13/front.png"
+    // }, {
+    //     src: "img/odi-tshirts/trims/design14/front.png"
+    // }, {
+    //     src: "img/odi-tshirts/trims/design15/front.png"
+    // }];
+
+    $scope.page = 1;
 
     $scope.images = {
-        "odi": [
-            "img/odi-tshirts/trims/odi/design1/front.png",
-            "img/odi-tshirts/trims/odi/design2/front.png",
-            "img/odi-tshirts/trims/odi/design3/front.png",
-            "img/odi-tshirts/trims/odi/design4/front.png",
-            "img/odi-tshirts/trims/odi/design5/front.png"
-        ],
-        "training": [
-            "img/odi-tshirts/trims/training/design1/front.png",
-            "img/odi-tshirts/trims/training/design2/front.png",
-            "img/odi-tshirts/trims/training/design3/front.png",
-            "img/odi-tshirts/trims/training/design4/front.png",
-            "img/odi-tshirts/trims/training/design5/front.png"
-        ],
-        "whites": [
-            "img/odi-tshirts/trims/whites/design1/front.png",
-            "img/odi-tshirts/trims/whites/design2/front.png",
-            "img/odi-tshirts/trims/whites/design3/front.png",
-            "img/odi-tshirts/trims/whites/design4/front.png",
-            "img/odi-tshirts/trims/whites/design5/front.png"
-        ]
+        "page1": [{
+            src: "img/odi-tshirts/trims/odi/design1/front.png",
+            type: "odi"
+        }, {
+            src: "img/odi-tshirts/trims/odi/design2/front.png",
+            type: "odi"
+        }, {
+            src: "img/odi-tshirts/trims/odi/design3/front.png",
+            type: "odi"
+        }, {
+            src: "img/odi-tshirts/trims/odi/design4/front.png",
+            type: "odi"
+        }, {
+            src: "img/odi-tshirts/trims/odi/design5/front.png",
+            type: "odi"
+        }, {
+            src: "img/odi-tshirts/trims/training/design1/front.png",
+            type: "training"
+        }, {
+            src: "img/odi-tshirts/trims/training/design2/front.png",
+            type: "training"
+        }, {
+            src: "img/odi-tshirts/trims/training/design3/front.png",
+            type: "training"
+        }, {
+            src: "img/odi-tshirts/trims/training/design4/front.png",
+            type: "training"
+        }],
+        "page2": [{
+            src: "img/odi-tshirts/trims/training/design5/front.png",
+            type: "training"
+        }, {
+            src: "img/odi-tshirts/trims/whites/design1/front.png",
+            type: "whites"
+        }, {
+            src: "img/odi-tshirts/trims/whites/design2/front.png",
+            type: "whites"
+        }, {
+            src: "img/odi-tshirts/trims/whites/design3/front.png",
+            type: "whites"
+        }, {
+            src: "img/odi-tshirts/trims/whites/design4/front.png",
+            type: "whites"
+        }, {
+            src: "img/odi-tshirts/trims/whites/design5/front.png",
+            type: "whites"
+        }]
     };
 
     //window.uploadUrl = "http://customcricketcompany.com/admin/index.php/json/uploadImage";

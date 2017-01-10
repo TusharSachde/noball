@@ -4949,6 +4949,11 @@ input[type=number]::-webkit-outer-spin-button {
     margin-bottom: 20px;
 }
 
+.flex-around {
+    display: flex;
+    justify-content: space-between;
+}
+
 .extra-pd {
     padding: 220px 0 4%;
 }
