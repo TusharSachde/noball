@@ -4293,13 +4293,71 @@ input[type=number]::-webkit-outer-spin-button {
     }
     .showcase-slider {
         width: 100%;
-        height: 400px;
-        margin-top: 20px;
+        height: 370px;
+        margin-top: 40px;
+        padding: 0 111px;
+        .flexslider-container {
+            .flexslider {
+                background: transparent;
+                overflow: auto;
+                .slides {
+                    // margin: 0 100px;
+                }
+                .flex-direction-nav a {
+                    width: 30px;
+                    height: 30px;
+                    display: block;
+                    position: absolute;
+                    top: 50%;
+                    z-index: 10;
+                    cursor: pointer;
+                    text-indent: -9999px;
+                }
+                .flex-control-nav{
+                    display: none;
+                }
+                .flex-direction-nav .flex-nav-prev a {
+                    left: -50px !important;
+                    background: ('img/landing/arrows/left_white.png')
+                }
+                .flex-direction-nav .flex-nav-next a {
+                    right: -50px !important;
+                    background: ('img/landing/arrows/right_white.png')
+                }
+            }
+        }
     }
 }
 
+.apparels-customize, .switch-to {
+    margin-top: 50px;
+    h2, h3 {
+        font: {
+            size: 32px;
+            weight: 300;
+        }
+        letter-spacing: 3px;
+    }
+    .custom-one, .custom-two {
+        margin: 20px 40px 0;
+        background-color: #ddd;
+        .tee-img, .trousers-img, .travel-img, .caps-img {
+            min-height: 340px;
+            margin: 50px 100px;
+            @extend .div-flex;
+        }
+        button {
+            margin-bottom: 20px;
+        }
+    }
+}
+.switch-to {}
+
 .mt20 {
     margin-top: 20px;
+}
+.w50p {
+    width: 50%;
 }
 
 .btn-green {

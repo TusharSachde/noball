@@ -37,6 +37,11 @@
         templateUrl: "views/template.html",
         controller: 'CustomCtrl'
       })
+      .state('apparels', {
+        url: "/apparels",
+        templateUrl: "views/template.html",
+        controller: 'ApparelsCtrl'
+      })
       .state('odi-shirt', {
         url: "/odi-shirt",
         templateUrl: "views/template.html",

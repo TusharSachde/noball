@@ -2,7 +2,7 @@
 <section>
   <!--flex-slider-->
   <div class="customize-slider">
-    <flex-slider flex-slide="s in topSlides" prev-text="" next-text="" slideshow="true" slideshow-speed="5000" class="topSlide">
+    <flex-slider flex-slide="s in topSlides track by $index" prev-text="" next-text="" slideshow="true" slideshow-speed="5000" class="topSlide">
        <li>
            <img ng-src="{{s}}">
        </li>
@@ -13,7 +13,7 @@
       <div class="row">
         <h2 class="uppercase text-center">Start Customising Now</h2>
         <div class="customisation-box">
-          <div class="single-box" ng-repeat="item in items">
+          <div class="single-box" ui-sref="{{item.link}}" ng-repeat="item in items">
             <img ng-src="{{item.image}}" alt="{{item.name}}" class="img-responisve">
             <div class="grey-fade">
               <p class="uppercase">{{item.name}}</p>
@@ -33,16 +33,16 @@
               <img ng-src="{{s}}" class="img-responsive">
           </li>
       </flex-slider>-->
-      <!--<flex-slider flex-slide="banner in showcaseSlides track by $index" prev-text="" next-text="" startAt="0" item-width="250" item-margin="40" animation="slide" move="1" slideshow=true slideshowSpeed="500" class="mt25">
+      <flex-slider flex-slide="banner in showcaseSlides track by $index" prev-text="" next-text="" startAt="0" item-width="240" item-margin="40" animation="slide" move="1" slideshow="false" slideshowSpeed="500" class="mt25">
         <li class="text-center">
-            <a >
+            <a ui-sref="{{banner.link}}">
                 <figure class="">
-                    <img ng-src="{{banner}}" class="img-responsive iconBlue">
+                    <img ng-src="{{banner.image}}" class="img-responsive iconBlue">
                 </figure>
             </a>
             
         </li>
-    </flex-slider>-->
+    </flex-slider>
     </div>
     
   </div>

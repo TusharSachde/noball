@@ -3710,6 +3710,30 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         src: "img/odi-tshirts/trims/design9/front.png"
     }];
 
+    $scope.images = {
+        "odi": [
+            "img/odi-tshirts/trims/odi/design1/front.png",
+            "img/odi-tshirts/trims/odi/design2/front.png",
+            "img/odi-tshirts/trims/odi/design3/front.png",
+            "img/odi-tshirts/trims/odi/design4/front.png",
+            "img/odi-tshirts/trims/odi/design5/front.png"
+        ],
+        "training": [
+            "img/odi-tshirts/trims/training/design1/front.png",
+            "img/odi-tshirts/trims/training/design2/front.png",
+            "img/odi-tshirts/trims/training/design3/front.png",
+            "img/odi-tshirts/trims/training/design4/front.png",
+            "img/odi-tshirts/trims/training/design5/front.png"
+        ],
+        "whites": [
+            "img/odi-tshirts/trims/whites/design1/front.png",
+            "img/odi-tshirts/trims/whites/design2/front.png",
+            "img/odi-tshirts/trims/whites/design3/front.png",
+            "img/odi-tshirts/trims/whites/design4/front.png",
+            "img/odi-tshirts/trims/whites/design5/front.png"
+        ]
+    };
+
     //window.uploadUrl = "http://customcricketcompany.com/admin/index.php/json/uploadImage";
 
     //tab changes
@@ -6998,42 +7022,59 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.items = [{
             image: 'img/landing/items/Bats.jpg',
             name: 'Bats',
-            link: ''
+            link: 'bat'
         }, {
             image: 'img/landing/items/Ball.jpg',
             name: 'Balls',
-            link: ''
+            link: 'balls'
         }, {
             image: 'img/landing/items/Gloves.jpg',
             name: 'Gloves',
-            link: ''
+            link: 'gloves'
         }, {
             image: 'img/landing/items/Pads.jpg',
             name: 'Pads',
-            link: ''
+            link: 'pads'
         }, {
             image: 'img/landing/items/Apparels.jpg',
             name: 'Apparels',
-            link: ''
+            link: 'apparels'
         }, {
             image: 'img/landing/items/Kit-Bag.jpg',
             name: 'Kit Bags',
-            link: ''
+            link: 'kit-bag'
         }];
 
         $scope.topSlides = [
-            "img/landing/1.jpg",
-            "img/landing/2.jpg",
-            "img/landing/3.jpg"
+            'img/landing/1.jpg',
+            'img/landing/2.jpg',
+            'img/landing/3.jpg'
         ];
 
-        $scope.showcaseSlides = [
-            "img/landing/showcase/1.jpg",
-            "img/landing/showcase/2.jpg",
-            "img/landing/showcase/3.jpg",
-            "img/landing/showcase/4.jpg"
-        ];
+        $scope.showcaseSlides = [{
+            image: 'img/landing/showcase/1.jpg',
+            link: 'trousers'
+        }, {
+            image: 'img/landing/showcase/2.jpg',
+            link: 'pads'
+        }, {
+            image: 'img/landing/showcase/3.jpg',
+            link: 'odi-shirt'
+        }, {
+            image: 'img/landing/showcase/4.jpg',
+            link: 'shorts'
+        }, {
+            image: 'img/landing/showcase/4.jpg',
+            link: 'shorts'
+        }];
 
+    })
+    .controller('ApparelsCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("apparels");
+        $scope.menutitle = NavigationService.makeactive("apparels");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
     })
 
 .controller('footerctrl', function($scope, $state, TemplateService, $uibModal, NavigationService) {
@@ -7098,8 +7139,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.msg = "Loading ..";
 
         var changeClass = {};
-
-
+        $scope.customizeIt = function() {
+            $state.go('customisation');
+        };
         $scope.hoverDown = function() {
             changeClass = setTimeout(function() {
                 $scope.cartClass = "";
