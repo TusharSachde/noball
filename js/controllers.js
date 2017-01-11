@@ -3207,6 +3207,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             //     $scope.trimTshirt.highlightTwo.disable = "undisabled";
             //     $scope.designName = "design2";
             //     $scope.designType = 'odi';
+            //     $scope.trimTabs.light3.active = "activeme";
             //     $scope.switchTrimHighlightOne(true, 'black', $scope.designType);
             //     $scope.switchTrimHighlightTwo(true, 'white', $scope.designType);
             //     $scope.switchTrimHighlightBase(true, 'white', $scope.designType);
@@ -3216,6 +3217,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trimTshirt.highlightTwo.disable = "undisabled";
                 $scope.designName = "design3";
                 $scope.designType = 'odi';
+                $scope.trimTabs.light3.active = "activeme";
+                $scope.trimTabs.light3.show = "active-tab";
                 $scope.switchTrimHighlightOne(true, 'royal_blue', $scope.designType);
                 $scope.switchTrimHighlightTwo(true, 'white', $scope.designType);
                 $scope.switchTrimHighlightBase(true, 'red', $scope.designType);  
@@ -3225,6 +3228,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trimTshirt.highlightTwo.disable = "undisabled";
                 $scope.designName = "design4";
                 $scope.designType = 'odi';
+                $scope.trimTabs.light3.active = "activeme";
+                $scope.trimTabs.light3.show = "active-tab";
                 $scope.switchTrimHighlightOne(true, 'dark_green', $scope.designType);
                 $scope.switchTrimHighlightTwo(true, 'white', $scope.designType);
                 $scope.switchTrimHighlightBase(true, 'neon_green', $scope.designType);
@@ -3234,6 +3239,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trimTshirt.highlightTwo.disable = "undisabled";
                 $scope.designName = "design5";
                 $scope.designType = 'odi';
+                $scope.trimTabs.light3.active = "activeme";
+                $scope.trimTabs.light3.show = "active-tab";
                 $scope.switchTrimHighlightOne(true, 'royal_blue', $scope.designType);
                 $scope.switchTrimHighlightTwo(true, 'lemon_yellow', $scope.designType);
                 $scope.switchTrimHighlightBase(true, 'australian_green', $scope.designType);
@@ -3243,6 +3250,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
                 $scope.designName = "design1";
                 $scope.designType = 'training';
+                $scope.trimTabs.light3.active = "activeme";
+                $scope.trimTabs.light3.show = "active-tab";
                 $scope.switchTrimHighlightOne(true, 'australian_green', 'training');
                 $scope.switchTrimHighlightTwo(true, 'black', 'training');
                 $scope.switchTrimHighlightBase(true, 'black', 'training');
@@ -3252,6 +3261,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
                 $scope.designName = "design2";
                 $scope.designType = 'training';
+                $scope.trimTabs.light3.active = "activeme";
+                $scope.trimTabs.light3.show = "active-tab";
                 $scope.switchTrimHighlightOne(true, 'black', 'training');
                 $scope.switchTrimHighlightTwo(true, 'white', 'training');
                 $scope.switchTrimHighlightBase(true, 'australian_green', 'training');
@@ -3261,6 +3272,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
                 $scope.designName = "design3";
                 $scope.designType = 'training';
+                $scope.trimTabs.light3.active = "activeme";
+                $scope.trimTabs.light3.show = "active-tab";
                 $scope.switchTrimHighlightOne(true, 'grey', 'training');
                 $scope.switchTrimHighlightTwo(true, 'white', 'training');
                 $scope.switchTrimHighlightBase(true, 'neon_green', 'training');
@@ -3270,6 +3283,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
                 $scope.designName = "design4";
                 $scope.designType = 'training';
+                $scope.trimTabs.light3.active = "activeme";
+                $scope.trimTabs.light3.show = "active-tab";
                 $scope.switchTrimHighlightOne(true, 'orange', 'training');
                 $scope.switchTrimHighlightTwo(true, 'white', 'training');
                 $scope.switchTrimHighlightBase(true, 'white', 'training');
@@ -3279,6 +3294,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
                 $scope.designName = "design5";
                 $scope.designType = 'training';
+                $scope.trimTabs.light3.active = "activeme";
+                $scope.trimTabs.light3.show = "active-tab";
                 $scope.switchTrimHighlightOne(true, 'royal_blue', 'training');
                 $scope.switchTrimHighlightTwo(true, 'white', 'training');
                 $scope.switchTrimHighlightBase(true, 'lemon_yellow', 'training');
@@ -3290,6 +3307,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             //     $scope.trimTshirt.highlightTwo.disable = "disabled";
             //     $scope.designName = "design5";
             //     $scope.designType = 'training';
+            //     $scope.trimTabs.light3.active = "activeme";
             //     $scope.switchTrimHighlightOne(true, 'royal_blue', 'training');
             //     $scope.switchTrimHighlightTwo(true, 'white', 'training');
             //     $scope.switchTrimHighlightBase(true, 'lemon_yellow', 'training');
@@ -3299,6 +3317,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
                 $scope.designName = "design1";
                 $scope.designType = 'whites';
+                $scope.trimTabs.light3.active = "";
+                $scope.trimTabs.light3.show = "";
                 $scope.switchTrimHighlightOne(true, 'white', 'whites');
                 $scope.switchTrimHighlightTwo(true, 'white', 'whites');
                 $scope.switchTrimHighlightBase(true, 'white', 'whites');
@@ -3308,6 +3328,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
                 $scope.designName = "design2";
                 $scope.designType = 'whites';
+                $scope.trimTabs.light1.active = "activeme";
+                $scope.trimTabs.light1.show = "active-tab";
                 $scope.switchTrimHighlightOne(true, 'orange', 'whites');
                 $scope.switchTrimHighlightTwo(true, 'white', 'whites');
                 $scope.switchTrimHighlightBase(true, 'white', 'whites');  
@@ -3317,6 +3339,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
                 $scope.designName = "design3";
                 $scope.designType = 'whites';
+                $scope.trimTabs.light1.active = "activeme";
+                $scope.trimTabs.light3.show = "active-tab";
                 $scope.switchTrimHighlightOne(true, 'neon_green', 'whites');
                 $scope.switchTrimHighlightTwo(true, 'white', 'whites');
                 $scope.switchTrimHighlightBase(true, 'white', 'whites');
@@ -3326,6 +3350,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
                 $scope.designName = "design4";
                 $scope.designType = 'whites';
+                $scope.trimTabs.light1.active = "activeme";
+                $scope.trimTabs.light3.show = "active-tab";
                 $scope.switchTrimHighlightOne(true, 'india_blue', 'whites');
                 $scope.switchTrimHighlightTwo(true, 'white', 'whites');
                 $scope.switchTrimHighlightBase(true, 'white', 'whites');
@@ -3335,6 +3361,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
                 $scope.designName = "design5";
                 $scope.designType = 'whites';
+                $scope.trimTabs.light1.active = "activeme";
+                $scope.trimTabs.light3.show = "active-tab";
                 $scope.switchTrimHighlightOne(true, 'lemon_yellow', 'whites');
                 $scope.switchTrimHighlightTwo(true, 'white', 'whites');
                 $scope.switchTrimHighlightBase(true, 'white', 'whites');
