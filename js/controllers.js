@@ -3201,16 +3201,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.switchTrimHighlightOne(true, 'grey', $scope.designType);
                 $scope.switchTrimHighlightTwo(true, 'grey', $scope.designType);
                 $scope.switchTrimHighlightBase(true, 'india_blue', $scope.designType);
+            // } else if (index === 1) {
+            //     $scope.trimTshirt.highlightBase.disable = "undisabled";
+            //     $scope.trimTshirt.highlightOne.disable = "undisabled";
+            //     $scope.trimTshirt.highlightTwo.disable = "undisabled";
+            //     $scope.designName = "design2";
+            //     $scope.designType = 'odi';
+            //     $scope.switchTrimHighlightOne(true, 'black', $scope.designType);
+            //     $scope.switchTrimHighlightTwo(true, 'white', $scope.designType);
+            //     $scope.switchTrimHighlightBase(true, 'white', $scope.designType);
             } else if (index === 1) {
-                $scope.trimTshirt.highlightBase.disable = "undisabled";
-                $scope.trimTshirt.highlightOne.disable = "undisabled";
-                $scope.trimTshirt.highlightTwo.disable = "undisabled";
-                $scope.designName = "design2";
-                $scope.designType = 'odi';
-                $scope.switchTrimHighlightOne(true, 'black', $scope.designType);
-                $scope.switchTrimHighlightTwo(true, 'white', $scope.designType);
-                $scope.switchTrimHighlightBase(true, 'white', $scope.designType);
-            } else if (index === 2) {
                 $scope.trimTshirt.highlightBase.disable = "undisabled";
                 $scope.trimTshirt.highlightOne.disable = "undisabled";
                 $scope.trimTshirt.highlightTwo.disable = "undisabled";
@@ -3219,7 +3219,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.switchTrimHighlightOne(true, 'royal_blue', $scope.designType);
                 $scope.switchTrimHighlightTwo(true, 'white', $scope.designType);
                 $scope.switchTrimHighlightBase(true, 'red', $scope.designType);  
-            } else if (index === 3) {
+            } else if (index === 2) {
                 $scope.trimTshirt.highlightBase.disable = "undisabled";
                 $scope.trimTshirt.highlightOne.disable = "undisabled";
                 $scope.trimTshirt.highlightTwo.disable = "undisabled";
@@ -3228,7 +3228,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.switchTrimHighlightOne(true, 'dark_green', $scope.designType);
                 $scope.switchTrimHighlightTwo(true, 'white', $scope.designType);
                 $scope.switchTrimHighlightBase(true, 'neon_green', $scope.designType);
-            } else if (index === 4) {
+            } else if (index === 3) {
                 $scope.trimTshirt.highlightBase.disable = "undisabled";
                 $scope.trimTshirt.highlightOne.disable = "undisabled";
                 $scope.trimTshirt.highlightTwo.disable = "undisabled";
@@ -3237,7 +3237,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.switchTrimHighlightOne(true, 'royal_blue', $scope.designType);
                 $scope.switchTrimHighlightTwo(true, 'lemon_yellow', $scope.designType);
                 $scope.switchTrimHighlightBase(true, 'australian_green', $scope.designType);
-            } else if (index === 5) {
+            } else if (index === 4) {
                 $scope.trimTshirt.highlightBase.disable = "undisabled";
                 $scope.trimTshirt.highlightOne.disable = "undisabled";
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
@@ -3246,7 +3246,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.switchTrimHighlightOne(true, 'australian_green', 'training');
                 $scope.switchTrimHighlightTwo(true, 'black', 'training');
                 $scope.switchTrimHighlightBase(true, 'black', 'training');
-            } else if (index === 6) {
+            } else if (index === 5) {
                 $scope.trimTshirt.highlightBase.disable = "undisabled";
                 $scope.trimTshirt.highlightOne.disable = "undisabled";
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
@@ -3255,7 +3255,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.switchTrimHighlightOne(true, 'black', 'training');
                 $scope.switchTrimHighlightTwo(true, 'white', 'training');
                 $scope.switchTrimHighlightBase(true, 'australian_green', 'training');
-            } else if (index === 7) {
+            } else if (index === 6) {
                 $scope.trimTshirt.highlightBase.disable = "undisabled";
                 $scope.trimTshirt.highlightOne.disable = "undisabled";
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
@@ -3264,7 +3264,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.switchTrimHighlightOne(true, 'grey', 'training');
                 $scope.switchTrimHighlightTwo(true, 'white', 'training');
                 $scope.switchTrimHighlightBase(true, 'neon_green', 'training');
-            } else if (index === 8) {
+            } else if (index === 7) {
                 $scope.trimTshirt.highlightBase.disable = "undisabled";
                 $scope.trimTshirt.highlightOne.disable = "undisabled";
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
@@ -3273,9 +3273,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.switchTrimHighlightOne(true, 'orange', 'training');
                 $scope.switchTrimHighlightTwo(true, 'white', 'training');
                 $scope.switchTrimHighlightBase(true, 'white', 'training');
-            }
-        } else if (tab === 2) {
-            if (index === 0) {
+            } else if (index === 8) {
                 $scope.trimTshirt.highlightBase.disable = "undisabled";
                 $scope.trimTshirt.highlightOne.disable = "undisabled";
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
@@ -3284,7 +3282,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.switchTrimHighlightOne(true, 'royal_blue', 'training');
                 $scope.switchTrimHighlightTwo(true, 'white', 'training');
                 $scope.switchTrimHighlightBase(true, 'lemon_yellow', 'training');
-            } else if (index === 1) {
+            }
+        } else if (tab === 2) {
+            if (index === 0) {
+            //     $scope.trimTshirt.highlightBase.disable = "undisabled";
+            //     $scope.trimTshirt.highlightOne.disable = "undisabled";
+            //     $scope.trimTshirt.highlightTwo.disable = "disabled";
+            //     $scope.designName = "design5";
+            //     $scope.designType = 'training';
+            //     $scope.switchTrimHighlightOne(true, 'royal_blue', 'training');
+            //     $scope.switchTrimHighlightTwo(true, 'white', 'training');
+            //     $scope.switchTrimHighlightBase(true, 'lemon_yellow', 'training');
+            // } else if (index === 1) {
                 $scope.trimTshirt.highlightBase.disable = "disabled";
                 $scope.trimTshirt.highlightOne.disable = "disabled";
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
@@ -3293,7 +3302,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.switchTrimHighlightOne(true, 'white', 'whites');
                 $scope.switchTrimHighlightTwo(true, 'white', 'whites');
                 $scope.switchTrimHighlightBase(true, 'white', 'whites');
-            } else if (index === 2) {
+            } else if (index === 1) {
                 $scope.trimTshirt.highlightBase.disable = "disabled";
                 $scope.trimTshirt.highlightOne.disable = "undisabled";
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
@@ -3302,7 +3311,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.switchTrimHighlightOne(true, 'orange', 'whites');
                 $scope.switchTrimHighlightTwo(true, 'white', 'whites');
                 $scope.switchTrimHighlightBase(true, 'white', 'whites');  
-            } else if (index === 3) {
+            } else if (index === 2) {
                 $scope.trimTshirt.highlightBase.disable = "disabled";
                 $scope.trimTshirt.highlightOne.disable = "undisabled";
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
@@ -3311,7 +3320,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.switchTrimHighlightOne(true, 'neon_green', 'whites');
                 $scope.switchTrimHighlightTwo(true, 'white', 'whites');
                 $scope.switchTrimHighlightBase(true, 'white', 'whites');
-            } else if (index === 4) {
+            } else if (index === 3) {
                 $scope.trimTshirt.highlightBase.disable = "disabled";
                 $scope.trimTshirt.highlightOne.disable = "undisabled";
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
@@ -3320,7 +3329,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.switchTrimHighlightOne(true, 'india_blue', 'whites');
                 $scope.switchTrimHighlightTwo(true, 'white', 'whites');
                 $scope.switchTrimHighlightBase(true, 'white', 'whites');
-            } else if (index === 5) {
+            } else if (index === 4) {
                 $scope.trimTshirt.highlightBase.disable = "disabled";
                 $scope.trimTshirt.highlightOne.disable = "undisabled";
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
@@ -3829,9 +3838,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         "page1": [{
             src: "img/odi-tshirts/trims/odi/design1/front.png",
             type: "odi"
-        }, {
-            src: "img/odi-tshirts/trims/odi/design2/front.png",
-            type: "odi"
+        // }, {
+        //     src: "img/odi-tshirts/trims/odi/design2/front.png",
+        //     type: "odi"
         }, {
             src: "img/odi-tshirts/trims/odi/design3/front.png",
             type: "odi"
@@ -3853,11 +3862,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }, {
             src: "img/odi-tshirts/trims/training/design4/front.png",
             type: "training"
-        }],
-        "page2": [{
+        }, {
             src: "img/odi-tshirts/trims/training/design5/front.png",
             type: "training"
-        }, {
+        }],
+        "page2": [{
+        //     src: "img/odi-tshirts/trims/training/design5/front.png",
+        //     type: "training"
+        // }, {
             src: "img/odi-tshirts/trims/whites/design1/front.png",
             type: "whites"
         }, {
@@ -7213,7 +7225,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     .controller('ApparelsCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("apparels");
-        $scope.menutitle = NavigationService.makeactive("apparels");
+        $scope.menutitle = NavigationService.makeactive("Apparels");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
     })
