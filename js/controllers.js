@@ -7267,31 +7267,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             'img/landing/3.jpg'
         ];
 
-        $scope.showcaseSlides = [{
-            image: 'img/landing/showcase/1.jpg',
-            link: 'trousers'
-        }, {
-            image: 'img/landing/showcase/2.jpg',
-            link: 'pads'
-        }, {
-            image: 'img/landing/showcase/3.jpg',
-            link: 'odi-shirt'
-        }, {
-            image: 'img/landing/showcase/4.jpg',
-            link: 'shorts'
-        }, {
-            image: 'img/landing/showcase/4.jpg',
-            link: 'shorts'
-        }];
-
-    })
-    .controller('ApparelsCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
-        //Used to name the .html file
-        $scope.template = TemplateService.changecontent("apparels");
-        $scope.menutitle = NavigationService.makeactive("Apparels");
-        TemplateService.title = $scope.menutitle;
-        $scope.navigation = NavigationService.getnav();
-        
                 $scope.showcaseSlides = [{
             image: 'img/landing/showcase/1.jpg',
             link: 'trousers'
@@ -7308,6 +7283,37 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             image: 'img/landing/showcase/4.jpg',
             link: 'shorts'
         }];
+       
+
+    })
+    .controller('ApparelsCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("apparels");
+        $scope.menutitle = NavigationService.makeactive("Apparels");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+         $scope.showcaseSlides = [{
+            image: 'img/landing/apparels-switch/bats.jpg',
+            link: 'bats',
+            text:'bats'
+        }, {
+            image: 'img/landing/apparels-switch/pads.jpg',
+            link: 'pads',
+            text:'pads'
+        }, {
+            image: 'img/landing/apparels-switch/apparels.jpg',
+            link: 'apparels',
+            text:'apparels'
+        }, {
+            image: 'img/landing/apparels-switch/kit-bags.jpg',
+            link: 'kit-bags',
+             text:'kit-bags'
+        },  {
+            image: 'img/landing/apparels-switch/kit-bags.jpg',
+            link: 'kit-bags',
+             text:'kit-bags'
+        }];
+
     })
 
 .controller('footerctrl', function($scope, $state, TemplateService, $uibModal, NavigationService) {
