@@ -7291,6 +7291,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Apparels");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
+        
+                $scope.showcaseSlides = [{
+            image: 'img/landing/showcase/1.jpg',
+            link: 'trousers'
+        }, {
+            image: 'img/landing/showcase/2.jpg',
+            link: 'pads'
+        }, {
+            image: 'img/landing/showcase/3.jpg',
+            link: 'odi-shirt'
+        }, {
+            image: 'img/landing/showcase/4.jpg',
+            link: 'shorts'
+        }, {
+            image: 'img/landing/showcase/4.jpg',
+            link: 'shorts'
+        }];
     })
 
 .controller('footerctrl', function($scope, $state, TemplateService, $uibModal, NavigationService) {
