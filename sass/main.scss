@@ -4365,7 +4365,11 @@ input[type=number]::-webkit-outer-spin-button {
         }
     }
 }
-.switch-to {}
+.switch-to {
+    .showcase{
+        background-color: transparent;
+    }
+}
 
 .mt20 {
     margin-top: 20px;
