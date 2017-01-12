@@ -4913,10 +4913,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         colr: "#501e1f"
     }];
 
-    $scope.images = [{
-        src: "img/kit-bag/kit-1.png"
+    $scope.dcolor = [{
+        colr: "#fff"
     }, {
-        src: "img/kit-bag/kit-2.png"
+        colr: "#000"
+    }];
+
+    $scope.images = [{
+        src: "img/kitbags/kitbag_ry.png"
+    // }, {
+    //     src: "img/kit-bag/kit-2.png"
     }];
     //tab changes
 
@@ -4979,10 +4985,35 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         maxPrice: 4000
     };
 
+    $scope.tabs = 'light1';
+    $scope.classp = 'active-tab';
+    $scope.classv = '';
+    $scope.classshow = 'activeme';
+    $scope.classhide = '';
+    $scope.trimTabs = {};
+    $scope.trimTabs.light1 = {};
+    $scope.trimTabs.light2 = {};
+    $scope.trimTabs.light1.active = "activeme";
+    $scope.trimTabs.light1.show = "active-tab";
+    $scope.trimTabs.light2.active = "";
+    $scope.trimTabs.light2.show = "";
 
-    //    end
 
-
+    $scope.tabchanges = function(tabs, b) {
+        $scope.tabs = tabs;
+        if (b == 1) {
+            $scope.trimTabs.light1.active = "activeme";
+            $scope.trimTabs.light1.show = "active-tab";
+            $scope.trimTabs.light2.active = "";
+            $scope.trimTabs.light2.show = "";
+        }
+        if (b == 2) {
+            $scope.trimTabs.light1.active = "";
+            $scope.trimTabs.light1.show = "";
+            $scope.trimTabs.light2.active = "activeme";
+            $scope.trimTabs.light2.show = "active-tab";
+        }
+    };
 
     // $scope.open = function(size) {
     //

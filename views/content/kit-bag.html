@@ -13,15 +13,15 @@
                     </li>
                     <li class="tab-item breadcrums {{classb}}" ng-click="tabchange('trim',2)">
                         <span class="bread-frnt"></span>
-                        <p>2. COLOUR</p>
+                        <p>2. TRIM</p>
                         <span class="bread-back"></span>
                     </li>
                     <li class="tab-item breadcrums {{classc}}" ng-click="tabchange('team',3)">
                         <span class="bread-frnt"></span>
-                        <p>3. TEAM LOGO</p>
+                        <p>3. LOGOS</p>
                         <span class="bread-back"></span>
                     </li>
-                    <li class="tab-item breadcrums {{classd}}" ng-click="tabchange('quantity',5)">
+                    <li class="tab-item breadcrums {{classe}}" ng-click="tabchange('quantity',5)">
                         <span class="bread-frnt"></span>
                         <p>4. QUANTITY</p>
                         <span class="bread-back"></span>
@@ -35,7 +35,10 @@
                 <div class="col-md-5">
                     <div class="text-center">
                         <div class="gully-shirt">
-                            <img src="img/kit-bag/kit-1.png" class="img-responsive" alt="">
+                            <img src="img/kitbags/kitbag_ry.png" class="img-responsive" alt="">
+                            <div class="kitbag-logo" ng-if="kitbag.teamlogo.image" ng-style="kitbag.teamlogo.divattributes">
+                                <img ng-src="{{kitbag.teamlogo.image | serverimage}}" ng-style="kitbag.teamlogo.attributes" class="img-responsive" alt="">
+                            </div>
                         </div>
                         <div class="prev inline-block">
                             <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">back</p>
@@ -60,14 +63,10 @@
                 <div class="col-md-7">
                     <div class="det-name">
                         <h4>PROTON CLUB</h4>
-                        <p>The Custom Cricket company cricket shirt is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest .
-                        </p>
+                        <!--<p>The Custom Cricket company cricket shirt is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest.</p>-->
                         <h3><i class="fa fa-inr"></i>995</h3>
-                        <span>Minimum order to be placed for Playing T-Shirts is 20.</span>
+                        <span><i>Minimum order of 6 bags.</i></span>
                     </div>
-                    <!--                    // design tab-->
-
-
                     <div class="choos m20-l" ng-show="tab=='design'">
                         <p>Choose Your Type Of Design</p>
                         <div class="row">
@@ -77,7 +76,6 @@
                                         <img ng-src="{{img.src}}" class="img-responsive">
                                     </div>
                                 </div>
-
                             </div>
                         </div>
 
@@ -94,48 +92,47 @@
                     </div>
                     <!--                    //trim tab-->
                     <div class="choos m20-l " ng-show="tab=='trim'">
-                        <div class="outline">
-                            <span>HIGHLIGHT 1</span>
-                            <p>Select The Trim Colour Of Your Choice</p>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h4>Select The Colour</h4>
-                                    <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
-                                        <div class="colo-pallet text-center ">
-                                            <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="edit-btn margintp">
-                                <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
-                            </div>
-                        </div>
-                        <div class="outline">
-                            <span>HIGHLIGHT 2</span>
-                            <p>Select The Trim Colour Of Your Choice</p>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h4>Select The Colour</h4>
-                                    <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
-                                        <div class="colo-pallet text-center ">
-                                            <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="edit-btn margintp">
-                                <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
-
-                            </div>
-                        </div>
                         <div class="options">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">PALETTE</button>
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">COLLAR</button>
+                            <button class="{{trimTabs.light1.active}} btn btn-outline btn-dark padding-btn letter-spacing mright15" ng-click="tabchanges('light1', 1)">BASE</button>
+                            <button class="{{trimTabs.light2.active}} btn btn-outline btn-dark padding-btn letter-spacing mright15" ng-click="tabchanges('light2', 2)">TRIM 1</button>
+                        </div>
+                        <div class="{{trimTabs.light1.show}} outline" ng-if="tabs=='light1'">
+                            <!--<span>HIGHLIGHT 1</span>-->
+                            <p>Choose Your Color</p>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <!--<h4>Select The Colour</h4>-->
+                                    <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
+                                        <div class="colo-pallet text-center">
+                                            <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!--<div class="edit-btn margintp">
+                                <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
+                            </div>-->
+                        </div>
+                        <div class="{{trimTabs.light2.show}} outline" ng-if="tabs=='light2'">
+                            <!--<span>HIGHLIGHT 2</span>-->
+                            <p>Choose Your Color</p>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <!--<h4>Select The Colour</h4>-->
+                                    <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
+                                        <div class="colo-pallet text-center">
+                                            <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!--<div class="edit-btn margintp">
+                                <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
+                            </div>-->
                         </div>
                         <div class="edit-btn inline-block">
                             <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
@@ -148,7 +145,7 @@
                     </div>
                     <!--                    //trim tab-->
                     <div class="choos m20-l" ng-show="tab=='team'">
-                        <p>Upload Your Logo</p>
+                        <!--<p>Upload Your Logo</p>
                         <div class="checkboxing">
                             <input type="checkbox" class="form-control" id="later">
                             <label for="later"><span></span>SEND LATER</label>
@@ -200,6 +197,27 @@
                                         </div>
                                     </div>
 
+                                </div>
+                            </div>
+                        </div>-->
+                        <div class="logo-text mt10 mt-20 inline-box">
+                            <button class="btn inline-block btn-dark padding-btn letter-spacing mright15">TEAM LOGO</button>
+                        </div>
+                        <div class="block-box">
+                            <div class="teamlogo-box">
+                                <div class="inline-box box-custom">
+                                    <img ng-src="{{kitbag.teamlogo.image | serverimage}}" alt="" ng-if="kitbag.teamlogo">
+                                </div>
+                                <div class="size-box" ng-if="kitbag.teamlogo">
+                                    Size:
+                                    <div class="range">
+                                    <div range-slider on-handle-down="changeLogo('teamlogo')" on-handle-up="resetLogoStyle('teamlogo')" ng-model="kitbag['teamlogo'].attributes.width" min="0" max="200" model-max="kitbag['teamlogo'].attributes.width" model-min="rslider.min" pin-handle="min"></div>
+                                    </div>
+                                </div>
+                                <div class="edit-btn">
+                                    <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('teamlogo', 'Team Logo')" ng-if="!kitbag.teamlogo">upload</button>
+                                    <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('teamlogo', 'Team Logo')" ng-if="kitbag.teamlogo">change</button>
+                                    <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('teamlogo')" ng-if="kitbag.teamlogo">remove</button>
                                 </div>
                             </div>
                         </div>
@@ -552,7 +570,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <h2>Select The Colour</h2>
-                                            <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
+                                            <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in dcolor track by $index">
                                                 <div class="colo-pallet text-center ">
                                                     <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
                                                 </div>
