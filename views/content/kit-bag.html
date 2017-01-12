@@ -36,8 +36,8 @@
                     <div class="text-center">
                         <div class="gully-shirt">
                             <img src="img/kitbags/kitbag_ry.png" class="img-responsive" alt="">
-                            <div class="kitbag-logo" ng-if="kitbag.teamlogo.image" ng-style="kitbag.teamlogo.divattributes">
-                                <img ng-src="{{kitbag.teamlogo.image | serverimage}}" ng-style="kitbag.teamlogo.attributes" class="img-responsive" alt="">
+                            <div class="kitbag-logo" ng-if="kitbag.image" ng-style="kitbag.divattributes">
+                                <img ng-src="{{kitbag.image | serverimage}}" ng-style="kitbag.attributes" class="img-responsive" alt="">
                             </div>
                         </div>
                         <div class="prev inline-block">
@@ -206,18 +206,18 @@
                         <div class="block-box">
                             <div class="teamlogo-box">
                                 <div class="inline-box box-custom">
-                                    <img ng-src="{{kitbag.teamlogo.image | serverimage}}" alt="" ng-if="kitbag.teamlogo">
+                                    <img ng-src="{{kitbag.image | serverimage}}" alt="" ng-if="kitbag.image">
                                 </div>
-                                <div class="size-box" ng-if="kitbag.teamlogo">
+                                <div class="size-box" ng-if="kitbag.image">
                                     Size:
                                     <div class="range">
-                                    <div range-slider on-handle-down="changeLogo('teamlogo')" on-handle-up="resetLogoStyle('teamlogo')" ng-model="kitbag['teamlogo'].attributes.width" min="0" max="200" model-max="kitbag['teamlogo'].attributes.width" model-min="rslider.min" pin-handle="min"></div>
+                                    <div range-slider on-handle-down="changeLogo('teamlogo')" on-handle-up="resetLogoStyle('teamlogo')" ng-model="kitbag.attributes.width" min="0" max="200" model-max="kitbag.attributes.width" model-min="rslider.min" pin-handle="min"></div>
                                     </div>
                                 </div>
                                 <div class="edit-btn">
-                                    <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('teamlogo', 'Team Logo')" ng-if="!kitbag.teamlogo">upload</button>
-                                    <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('teamlogo', 'Team Logo')" ng-if="kitbag.teamlogo">change</button>
-                                    <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('teamlogo')" ng-if="kitbag.teamlogo">remove</button>
+                                    <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('teamlogo', 'Team Logo')" ng-if="!kitbag.image">upload</button>
+                                    <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('teamlogo', 'Team Logo')" ng-if="kitbag.image">change</button>
+                                    <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('teamlogo')" ng-if="kitbag.image">remove</button>
                                 </div>
                             </div>
                         </div>

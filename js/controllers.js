@@ -1532,7 +1532,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             // }
 
             $rootScope.$broadcast('changeImage', {});
-
         }
         // $scope.myChoice=item;
     }
@@ -4826,13 +4825,92 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 })
 
 
-.controller('KitBagCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
+.controller('KitBagCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $uibModal, cfpLoadingBar) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("kit-bag");
     $scope.menutitle = NavigationService.makeactive("Kit-bag");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     var check = 1;
+
+    $scope.kitbag = {};
+    $scope.kitbag.divattributes = {};
+    $scope.kitbag.attributes.width = 50;
+    $scope.statuses = {};
+    $scope.statuses.showcopy = false;
+
+    // slider
+    $scope.rslider = {
+        min: 10,
+        max: 100
+    };
+
+    $scope.bags = {
+        'name': '',
+        'quantity': 1
+    };
+    $scope.bagsArr = [{
+        'name': '',
+        'quantity': 1
+    }];
+
+    $scope.bagsArrCount = 1;
+
+    $scope.addBagsValues = function() {
+        $scope.bagsArr.push(_.clone($scope.bags));
+        $scope.bagsArrCount = $scope.bagsArrCount + 1;
+    }
+    $scope.removeBagsValue = function(index) {
+        $scope.bagsArr.splice(index, 1);
+        $scope.bagsArrCount = $scope.bagsArrCount - 1;
+    }
+
+    $scope.totalAmount = 995;
+
+    $scope.addQuantity = function(q) {
+        $scope.totalQuan = 0;
+        for(var i = 0; i < $scope.bagsArrCount; i++) {
+            $scope.totalQuan += $scope.bagsArr[i].quantity;
+        }
+        if ($scope.totalQuan) {
+            $scope.totalAmount = 995 * $scope.totalQuan;
+        }
+    };
+
+    $scope.onFileSelect = function($files, whichone, uploadtype, variable) {
+        $scope.toolarge = false;
+        console.log($files);
+        if ($files[0].size < 20000000) {
+            $scope.statuses.uploadStatus = true;
+            cfpLoadingBar.start();
+            $scope.showimage = true;
+            globalfunction.onFileSelect($files, function(image) {
+                cfpLoadingBar.complete();
+                if (whichone == 1) {
+                    console.log(image);
+                    $scope.tempImage = image[0];
+                    console.log($scope.tempImage);
+                }
+            })
+        } else {
+            $files = [];
+            $scope.toolarge = true;
+        }
+    }
+    $scope.confirmUpload = function(variable, name) {
+        $scope.kitbag.image = $scope.tempImage;
+        $scope.tempImage = "";
+    }
+    $scope.changeLogo = function(key) {
+        $scope.kitbag.divattributes.border = "1px solid #ccc";
+    };
+    $scope.resetLogoStyle = function(key) {
+        $scope.kitbag.divattributes.border = "none";
+        $scope.$apply();
+    };
+    $scope.emptyImage = function(key) {
+        $scope.kitbag.image = null;
+    }
 
     $scope.UploadTeamLogo = function() {
         check = 2;
@@ -4854,7 +4932,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             scope: $scope
         })
     }
-    $scope.openUploads = function() {
+    $scope.openUploads = function(variable, name) {
+        $scope.variable = variable;
+        $scope.name = name;
+        $scope.statuses.uploadStatus = false;
         $uibModal.open({
             templateUrl: "views/modal/tshirt.html",
             scope: $scope
