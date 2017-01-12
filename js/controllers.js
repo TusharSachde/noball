@@ -3330,6 +3330,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.designType = 'whites';
                 $scope.trimTabs.light1.active = "activeme";
                 $scope.trimTabs.light1.show = "active-tab";
+                $scope.tabs = 'light1';
                 $scope.switchTrimHighlightOne(true, 'orange', 'whites');
                 $scope.switchTrimHighlightTwo(true, 'white', 'whites');
                 $scope.switchTrimHighlightBase(true, 'white', 'whites');  
@@ -3340,7 +3341,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.designName = "design3";
                 $scope.designType = 'whites';
                 $scope.trimTabs.light1.active = "activeme";
-                $scope.trimTabs.light3.show = "active-tab";
+                $scope.trimTabs.light1.show = "active-tab";
+                $scope.tabs = 'light1';
                 $scope.switchTrimHighlightOne(true, 'neon_green', 'whites');
                 $scope.switchTrimHighlightTwo(true, 'white', 'whites');
                 $scope.switchTrimHighlightBase(true, 'white', 'whites');
@@ -3351,7 +3353,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.designName = "design4";
                 $scope.designType = 'whites';
                 $scope.trimTabs.light1.active = "activeme";
-                $scope.trimTabs.light3.show = "active-tab";
+                $scope.trimTabs.light1.show = "active-tab";
+                $scope.tabs = 'light1';
                 $scope.switchTrimHighlightOne(true, 'india_blue', 'whites');
                 $scope.switchTrimHighlightTwo(true, 'white', 'whites');
                 $scope.switchTrimHighlightBase(true, 'white', 'whites');
@@ -3362,7 +3365,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.designName = "design5";
                 $scope.designType = 'whites';
                 $scope.trimTabs.light1.active = "activeme";
-                $scope.trimTabs.light3.show = "active-tab";
+                $scope.trimTabs.light1.show = "active-tab";
+                $scope.tabs = 'light1';
                 $scope.switchTrimHighlightOne(true, 'lemon_yellow', 'whites');
                 $scope.switchTrimHighlightTwo(true, 'white', 'whites');
                 $scope.switchTrimHighlightBase(true, 'white', 'whites');
