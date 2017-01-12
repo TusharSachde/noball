@@ -4299,7 +4299,7 @@ input[type=number]::-webkit-outer-spin-button {
         .flexslider-container {
             .flexslider {
                 background: transparent;
-                overflow: auto;
+                overflow: initial;
                 .slides {
                     // margin: 0 100px;
                 }
@@ -4307,22 +4307,36 @@ input[type=number]::-webkit-outer-spin-button {
                     width: 30px;
                     height: 30px;
                     display: block;
-                    position: absolute;
-                    top: 50%;
-                    z-index: 10;
-                    cursor: pointer;
-                    text-indent: -9999px;
                 }
                 .flex-control-nav{
                     display: none;
                 }
                 .flex-direction-nav .flex-nav-prev a {
-                    left: -50px !important;
-                    background: ('img/landing/arrows/left_white.png')
+                    left: -46px!important;
+                    display: block;
+                   &:before{
+                          content: "";
+                          width: 100%;
+                          height: 100%;
+                          background-repeat: no-repeat;
+                          background-size: contain;
+                        //   background-color: #000; 
+                         background-image: url("../img/landing/arrows/left_white.png");
+                      
+                   }
                 }
                 .flex-direction-nav .flex-nav-next a {
-                    right: -50px !important;
-                    background: ('img/landing/arrows/right_white.png')
+                    right: -46px !important;
+                    display: block;
+                   &:before{
+                       content: "";
+                       width: 100%;
+                       height: 100%;
+                       background-repeat: no-repeat;
+                       background-size: contain;
+                    //    background-color: #000;
+                       background-image: url("../img/landing/arrows/right_white.png");
+                   }
                 }
             }
         }
