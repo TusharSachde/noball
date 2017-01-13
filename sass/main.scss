@@ -1393,6 +1393,28 @@ footer {
     @extend .div-flex;  
 }
 
+.bag-name {
+    width: 80px;
+    height: 60px;
+    position: absolute;
+    top: 330px;
+    left: 200px;
+    overflow: hidden;
+    @extend .div-flex;
+    z-index: 100;
+}
+
+.bag-no {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 265px;
+    left: 210px;
+    overflow: hidden;
+    @extend .div-flex;
+    z-index: 100;
+}
+
 .design-patt {
     width: 300px;
     margin: 20px auto;

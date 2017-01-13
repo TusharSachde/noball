@@ -4835,6 +4835,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.kitbag = {};
     $scope.kitbag.divattributes = {};
+    $scope.kitbag.attributes = {};
     $scope.kitbag.attributes.width = 50;
     $scope.statuses = {};
     $scope.statuses.showcopy = false;
@@ -4847,11 +4848,45 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.bags = {
         'name': '',
-        'quantity': 1
+        'no': '',
+        'font': 'arial',
+        'color': 'white',
+        'quantity': 1,
+        'attributes': {
+            'name': {
+                'fontSize': 18,
+                'border': 'none',
+                'rotate': 0,
+                'letterSpacing': 1
+            },
+            'number': {
+                'fontSize': 54,
+                'border': 'none',
+                'rotate': 0,
+                'letterSpacing': 1
+            }
+        }
     };
     $scope.bagsArr = [{
         'name': '',
-        'quantity': 1
+        'no': '',
+        'font': 'arial',
+        'color': 'white',
+        'quantity': 1,
+        'attributes': {
+            'name': {
+                'fontSize': 18,
+                'border': 'none',
+                'rotate': 0,
+                'letterSpacing': 1
+            },
+            'number': {
+                'fontSize': 54,
+                'border': 'none',
+                'rotate': 0,
+                'letterSpacing': 1
+            }
+        }
     }];
 
     $scope.bagsArrCount = 1;
@@ -4866,8 +4901,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 
     $scope.totalAmount = 995;
+    $scope.totalQuan = 1;
 
     $scope.addQuantity = function(q) {
+        $scope.totalAmount = 0;
         $scope.totalQuan = 0;
         for(var i = 0; i < $scope.bagsArrCount; i++) {
             $scope.totalQuan += $scope.bagsArr[i].quantity;
@@ -4876,6 +4913,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.totalAmount = 995 * $scope.totalQuan;
         }
     };
+
+    $scope.addQuantity(1);
 
     $scope.onFileSelect = function($files, whichone, uploadtype, variable) {
         $scope.toolarge = false;
@@ -7375,7 +7414,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
          $scope.showcaseSlides = [{
             image: 'img/landing/apparels-switch/bats.jpg',
-            link: 'bats',
+            link: 'bat',
             text:'bats'
         }, {
             image: 'img/landing/apparels-switch/pads.jpg',
@@ -7383,16 +7422,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             text:'pads'
         }, {
             image: 'img/landing/apparels-switch/apparels.jpg',
-            link: 'apparels',
+            link: 'odi-shirt',
             text:'apparels'
         }, {
             image: 'img/landing/apparels-switch/kit-bags.jpg',
-            link: 'kit-bags',
-             text:'kit-bags'
+            link: 'kit-bag',
+            text:'kit-bags'
         },  {
             image: 'img/landing/apparels-switch/kit-bags.jpg',
-            link: 'kit-bags',
-             text:'kit-bags'
+            link: 'kit-bag',
+            text:'kit-bags'
         }];
 
     })
