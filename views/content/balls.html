@@ -6,12 +6,12 @@
         <div class="row">
             <div class="step">
                 <ul>
-                    <li class="tab-item breadcrums {{classa}}" ng-click="tabchange('design',1)">
+                    <li class="tab-item breadcrums {{classa}}" ng-click="tabchange('design',1); switchFrontBack(true);">
                         <span class="bread-frnt"></span>
                         <p>1. DESIGN</p>
                         <span class="bread-back"></span>
                     </li>
-                    <li class="tab-item breadcrums {{classb}}" ng-click="tabchange('trim',2)">
+                    <li class="tab-item breadcrums {{classb}}" ng-click="tabchange('trim',2); switchFrontBack(false);">
                         <span class="bread-frnt"></span>
                         <p>2. INITIAS</p>
                         <span class="bread-back"></span>
@@ -26,7 +26,7 @@
                         <p>4. SPONSOR LOGOS</p>
                         <span class="bread-back"></span>
                     </li> -->
-                    <li class="tab-item breadcrums {{classe}}" ng-click="tabchange('quantity',5)">
+                    <li class="tab-item breadcrums {{classe}}" ng-click="tabchange('quantity',5); switchFrontBack(true);">
                         <span class="bread-frnt"></span>
                         <p>3. QUANTITY</p>
                         <span class="bread-back"></span>
@@ -41,9 +41,9 @@
                         <div class="gully-shirt">
                           <img ng-src="{{ball.cloth}}" class="img-responsive" alt="">
                           <div class="ball-text" ng-if="ball.back">
-                              <p class="uppercase ball-top-text" ng-if="ballText.top.text">{{ballText.top.text}}</p>
-                              <p class="uppercase ball-middle-text" ng-if="ballText.middle.text">{{ballText.middle.text}}</p>
-                              <p class="uppercase ball-bottom-text" ng-if="ballText.bottom.text">{{ballText.bottom.text}}</p>
+                              <p class="uppercase ball-top-text" id="topText">{{ballText.top.text}}</p>
+                              <p class="uppercase ball-middle-text" id="middleText">{{ballText.middle.text}}</p>
+                              <p class="uppercase ball-bottom-text" id="bottomText">{{ballText.bottom.text}}</p>
                           </div>
                         </div>
                         <div class="prev inline-block">
@@ -170,8 +170,14 @@
                             <button class="{{textb}} btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15 uppercase" ng-click="changeText('middle');">Middle</button>
                             <button class="{{textc}} btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15 uppercase" ng-click="changeText('bottom');">Bottom</button>
                         </div>
-                        <div class="range-slidings relative mt-20">
-                            <input type="text" class="block uppercase" ng-model="textmodel">
+                        <div class="range-slidings relative mt-20" ng-if="topmodel">
+                            <input type="text" class="block uppercase" ng-model="ballText.top.text" id="topInput">
+                        </div>
+                        <div class="range-slidings relative mt-20" ng-if="middlemodel">
+                            <input type="text" class="block uppercase" ng-model="ballText.middle.text">
+                        </div>
+                        <div class="range-slidings relative mt-20" ng-if="bottommodel">
+                            <input type="text" class="block uppercase" ng-model="ballText.bottom.text">
                         </div>
                         <!--<div class="range ball-size inline-block">
                             <div class="row">

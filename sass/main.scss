@@ -6453,6 +6453,7 @@ h2 {
         margin: 0 auto;
         font-size: 34px;
         color: gold;
+        overflow: hidden;
         @extend .div-flex;
     }
     .ball-middle-text {
@@ -6461,6 +6462,7 @@ h2 {
         margin: 0 auto;
         font-size: 34px;
         color: gold;
+        overflow: hidden;
         @extend .div-flex;
     }
     .ball-bottom-text {
@@ -6469,6 +6471,7 @@ h2 {
         margin: 0 auto;
         font-size: 34px;
         color: gold;
+        overflow: hidden;
         @extend .div-flex;
     }
 }

@@ -892,17 +892,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.ball = {};
         $scope.ballText = {
             top: {
-                text: 'a',
+                text: '',
                 size: 20,
                 spacing: 1
             },
             middle: {
-                text: 'b',
+                text: '',
                 size: 20,
                 spacing: 1
             },
             bottom: {
-                text: 'c',
+                text: '',
                 size: 20,
                 spacing: 1
             }
@@ -915,23 +915,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.texta = 'active';
                 $scope.textb = '';
                 $scope.textc = '';
-                $scope.textmodel = $scope.ballText.top.text;
-                $scope.sizemodel = $scope.ballText.top.size;
-                $scope.spacingmodel = $scope.ballText.top.spacing;
+                $scope.topmodel = true;
+                $scope.middlemodel = false;
+                $scope.bottommodel = false;
             } else if (variable === 'middle') {
                 $scope.texta = '';
                 $scope.textb = 'active';
                 $scope.textc = '';
-                $scope.textmodel = $scope.ballText.middle.text;
-                $scope.sizemodel = $scope.ballText.middle.size;
-                $scope.spacingmodel = $scope.ballText.middle.spacing;
+                $scope.topmodel = false;
+                $scope.middlemodel = true;
+                $scope.bottommodel = false;
             } else if (variable === 'bottom') {
                 $scope.texta = '';
                 $scope.textb = '';
                 $scope.textc = 'active';
-                $scope.textmodel = $scope.ballText.bottom.text;
-                $scope.sizemodel = $scope.ballText.bottom.size;
-                $scope.spacingmodel = $scope.ballText.bottom.spacing;
+                $scope.topmodel = false;
+                $scope.middlemodel = false;
+                $scope.bottommodel = true;
             }
         }
 
@@ -956,6 +956,80 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
         $scope.switchFrontBack(true);
+
+        var arcText = {};
+        $scope.changeArc = function(value) {
+            $scope.newValue = value;
+            $scope.pos = 1;
+            var $topText = $('#topText');
+
+            $('#topText').arctext({
+                radius: Math.abs(200),
+                dir: 1
+            });
+            // arcText = $topText;
+            // $topText.arctext('set', {
+            //     radius: Math.abs(newValue),
+            //     dir: pos,
+            //     animation: {
+            //         speed: 300,
+            //         easing: 'ease-out'
+            //     }
+            // });
+        }
+
+        $scope.$watch('ballText.top.text', function(newValue, oldValue) {
+            console.log(newValue, oldValue);
+            // if(!$scope.$$phase) {
+                // $scope.changeTopText();
+                $('#topText').arctext({
+                    radius: 200,
+                    dir: 1
+                });
+                $('#topText').arctext('set', {
+                    radius: 200,
+                    dir: 1,
+                    animation: {
+                        speed: 300,
+                        easing: 'ease-out'
+                    }
+                });
+                // $scope.$apply();
+            // }
+        });
+
+        $scope.changeTopText = function() {
+            $('#topText')[0].arctext({
+                radius: 200,
+                dir: 1
+            });
+            $('#topText')[0].arctext('set', {
+                radius: 200,
+                dir: 1,
+                animation: {
+                    speed: 300,
+                    easing: 'ease-out'
+                }
+            });
+        }
+
+        $scope.changeArc(200);
+
+        $scope.changeArcPreview = function(newarc) {
+            $('#topText')[0].show().arctext({
+                radius: Math.abs(newarc),
+                dir: 1
+            });
+            arcText = $('#topText');
+            $('#topText')[0].arctext('set', {
+                radius: Math.abs(newarc),
+                dir: 1,
+                animation: {
+                    speed: 300,
+                    easing: 'ease-out'
+                }
+            });
+        }
 
         $scope.UploadTeamLogo = function() {
             check = 2;

@@ -501,6 +501,17 @@
       }
     };
   });
+  firstapp.directive("ballText", ["$interval", function($interval) {
+      return {
+          restrict: "A",
+          link: function(scope, elem, attrs) {
+              //On interval
+              // $interval(function() {
+              //     $(elem).lettering();
+              // }, 10000);
+          }
+      }
+  }]);
   firstapp.directive("scrolladd1class", function ($window) {
     return function (scope, element, attrs) {
       angular.element($window).bind("scroll", function () {
