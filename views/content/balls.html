@@ -13,7 +13,7 @@
                     </li>
                     <li class="tab-item breadcrums {{classb}}" ng-click="tabchange('trim',2)">
                         <span class="bread-frnt"></span>
-                        <p>2. TEAM TEXT</p>
+                        <p>2. INITIAS</p>
                         <span class="bread-back"></span>
                     </li>
                     <!-- <li class="tab-item breadcrums {{classc}}" ng-click="tabchange('team',3)">
@@ -39,14 +39,18 @@
                 <div class="col-md-5">
                     <div class="text-center">
                         <div class="gully-shirt">
-                          <img src="img/ball/Balls.png" class="img-responsive" alt="">
-
+                          <img ng-src="{{ball.cloth}}" class="img-responsive" alt="">
+                          <div class="ball-text" ng-if="ball.back">
+                              <p class="uppercase ball-top-text" ng-if="ballText.top.text">{{ballText.top.text}}</p>
+                              <p class="uppercase ball-middle-text" ng-if="ballText.middle.text">{{ballText.middle.text}}</p>
+                              <p class="uppercase ball-bottom-text" ng-if="ballText.bottom.text">{{ballText.bottom.text}}</p>
+                          </div>
                         </div>
                         <div class="prev inline-block">
-                            <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">back</p>
+                            <p class="uppercase" ng-click="switchFrontBack(false)"><img src="img/back.png" class="img-responsive" alt="">back</p>
                         </div>
                         <div class="next inline-block">
-                            <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">front</p>
+                            <p class="uppercase" ng-click="switchFrontBack(true)"><img src="img/back.png" class="img-responsive" alt="">front</p>
                         </div>
                         <div class="feature-buttons">
                             <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing">FORM + FUNCTION</button>
@@ -65,13 +69,11 @@
                 <div class="col-md-7">
                     <div class="det-name">
                         <h4>APPLE</h4>
-                        <p>The Custom Cricket company cricket cricket ball is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest .
-                        </p>
+                        <!--<p>The Custom Cricket company cricket cricket ball is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest .
+                        </p>-->
                         <h3><i class="fa fa-inr"></i>995</h3>
-                        <span>Minimum order to be placed for Balls is 2 boxes. 6 balls per box.</span>
+                        <span><i>Minimum order to be placed for Balls is 4 boxes. 6 balls per box</i></span>
                     </div>
-                    <!--                    // design tab-->
-
 
                     <div class="choos m20-l" ng-show="tab=='design'">
                         <p>Choose Your Type Of Design</p>
@@ -153,8 +155,8 @@
                     <!--                    //trim tab-->
                     <div class="choos m20-l" ng-show="tab=='trim'">
                       <!-- ng-show="tab=='team'" -->
-                        <p>Upload Your Logo</p>
-                        <div class="checkboxing">
+                        <p>Enter Your Initials</p>
+                        <!--<div class="checkboxing">
                             <input type="checkbox" class="form-control" id="later">
                             <label for="later"><span></span>Send it Later</label>
                         </div>
@@ -162,63 +164,52 @@
                             <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15">outer text</button>
                             <span class="uppercase inline-block mright15">or</span>
                             <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click = "showColorTab()">inner TEXT</button>
+                        </div>-->
+                        <div class="">
+                            <button class="{{texta}} btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15 uppercase" ng-click="changeText('top');">Top</button>
+                            <button class="{{textb}} btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15 uppercase" ng-click="changeText('middle');">Middle</button>
+                            <button class="{{textc}} btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15 uppercase" ng-click="changeText('bottom');">Bottom</button>
                         </div>
-                        <div class="range-slidings relative">
-                            <h4 class="capitalize">enter your text below</h4>
-                            <input type="text" class="block" name="name1">
+                        <div class="range-slidings relative mt-20">
+                            <input type="text" class="block uppercase" ng-model="textmodel">
                         </div>
-                        <div class="range">
+                        <!--<div class="range ball-size inline-block">
                             <div class="row">
                                 <div class="col-md-1 col-sm-1 col-xs-1">
                                     <span>size</span>
                                 </div>
-                                <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                                    <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
+                                <div class="col-md-6 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                    <div range-slider on-handle-down="changeSize()" on-handle-up="resetSize()" min="0" max="100" model-max="sizemodel" model-min="0"></div>
                                 </div>
-                                <div class="col-md-3 col-sm-3 col-xs-3">
-                                    <input type="text" name="size">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-1 col-sm-1 col-xs-1">
-                                    <span>arc</span>
-                                </div>
-                                <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                                    <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
-                                </div>
-                                <div class="col-md-3 col-sm-3 col-xs-3">
-                                    <input type="text" name="size">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-1 col-sm-1 col-xs-1">
-                                    <span>rotation</span>
-                                </div>
-                                <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                                    <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
-                                </div>
-                                <div class="col-md-3 col-sm-3 col-xs-3">
-                                    <input type="text" name="size">
+                                <div class="col-md-2 col-sm-3 col-xs-3">
+                                    <input type="text" ng-model="sizemodel">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-1 col-sm-1 col-xs-1">
                                     <span>spacing</span>
                                 </div>
-                                <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                                    <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
+                                <div class="col-md-6 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                    <div range-slider on-handle-down="changeSpacing()" on-handle-up="resetSpacing()" ng-model="spacingmodel" min="0" max="20" model-max="spacingmodel" model-min="0"></div>
                                 </div>
-                                <div class="col-md-3 col-sm-3 col-xs-3">
-                                    <input type="text" name="size">
+                                <div class="col-md-2 col-sm-3 col-xs-3">
+                                    <input type="text" ng-model="spacingmodel">
                                 </div>
                             </div>
+                        </div>-->
 
+                        <div class="mt-20">
+                            <span><i>Note:</i></span>
+                            <span class="block"><i>1. The CCC initial will be printed on the backside of the ball.</i></span>
                         </div>
-                        <div class="edit-btn inline-block">
-                            <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
-                        </div>
-                        <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+
+                        <div>
+                            <div class="edit-btn inline-block">
+                                <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                            </div>
+                            <div class="edit-btn inline-block">
+                                <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+                            </div>
                         </div>
 
                         <div class="modal fade custom" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -528,7 +519,7 @@
                           </div> -->
                           <div class="sizes size inline-block">
                               <span class="inline-block">Select Quantity</span>
-                              <input type="text" class="form-control inline-block" name="name" value="">
+                              <input type="number" class="form-control inline-block" name="name" ng-model="ballQuantity">
                                     <span class="inline-block ">Boxes</span>
                           </div>
                           <!-- <div class="sizes size inline-block">

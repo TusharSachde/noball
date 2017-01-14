@@ -6437,6 +6437,42 @@ h2 {
     margin-top: 20px !important;
 }
 
+.ball-size {
+    width: 350px;
+}
+
+.ball-text {
+    position: absolute;
+    width: 300px;
+    height: 320px;
+    top: 70px;
+    left: 100px;
+    .ball-top-text {
+        width: 200px;
+        height: 40px;
+        margin: 0 auto;
+        font-size: 34px;
+        color: gold;
+        @extend .div-flex;
+    }
+    .ball-middle-text {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+        font-size: 34px;
+        color: gold;
+        @extend .div-flex;
+    }
+    .ball-bottom-text {
+        width: 200px;
+        height: 40px;
+        margin: 0 auto;
+        font-size: 34px;
+        color: gold;
+        @extend .div-flex;
+    }
+}
+
 .teamlogo-box {
     width: 130px;
     display: inline-block;
