@@ -39,8 +39,11 @@
                 <div class="col-md-5">
                     <div class="text-center">
                         <div class="gully-shirt">
-                            <img src="img/trousers/tro.png" class="img-responsive" alt="">
-                        </div>
+                            <!--<img src="img/trousers/tro.png" class="img-responsive" alt="">-->
+                            <img ng-src="{{trimTrouser.highlightOne.image}}" ng-if="trimTrouser.highlightOne.image" class="trimshirt img-responsive" alt="">
+                            <img ng-src="{{trimTrouser.highlightTwo.image}}" ng-if="trimTrouser.highlightTwo.image" class="trimshirt img-responsive" alt="">
+                            <img ng-src="{{trimTrouser.highlightBase.image}}" ng-if="trimTrouser.highlightBase.image" class="trimshirtbase img-responsive" alt="">
+                        </div>  
                         <div class="prev inline-block">
                             <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">back</p>
                         </div>
@@ -64,10 +67,10 @@
                 <div class="col-md-7">
                     <div class="det-name">
                         <h4>LONG LEG</h4>
-                        <p>The Custom Cricket company cricket trouser is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest .
-                        </p>
+                        <!--<p>The Custom Cricket company cricket trouser is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest .
+                        </p>-->
                         <h3><i class="fa fa-inr"></i>995</h3>
-                        <span>Minimum order to be placed for Trousers is 20.</span>
+                        <span><i>Minimum order to be placed for Trousers is 20.</i></span>
                     </div>
                     <!--                    // design tab-->
 
@@ -97,23 +100,49 @@
                     </div>
                     <!--                    //trim tab-->
                     <div class="choos m20-l " ng-show="tab=='trim'">
-                        <div class="outline">
-                            <span>HIGHLIGHT </span>
-                            <p>Select The Trim Colour Of Your Choice</p>
+                        <div class="options">
+                            <button class="{{trimTabs.light3.active}} {{trimTrouser.highlightBase.disable}} classshow btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-click="tabchanges('light3',3)">BASE</button>
+                            <button class="{{trimTabs.light1.active}} {{trimTrouser.highlightOne.disable}} classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-click="tabchanges('light1',1)">TRIM 1</button>
+                            <button class="{{trimTabs.light2.active}} {{trimTrouser.highlightTwo.disable}} classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-click="tabchanges('light2',2)">TRIM 2</button>
+                        </div>
+                        <div class="{{trimTrouser.highlightOne.disable}} {{trimTabs.light1.show}} classp outline disnon" ng-if="tabs=='light1'">
+                            <p>Choose Your Colour</p>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h4>Select The Colour</h4>
-                                    <div class="col-md-2 col-xs-2 paddingl mr21" ng-repeat="col in color track by $index">
+                                    <div class="col-md-1 col-xs-2 paddingl mr21" ng-repeat="col in color track by $index">
                                         <div class="colo-pallet text-center ">
-                                            <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
+                                            <div class="noti-img notihov" ng-class="{'coloracive':trimTrouser.highlightOne.tcolor == col.name, 'borergrey':col.name == 'white'};" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightOne(trimTrouser.highlightOne.flag, col.name); trimHexColors('highlightOne', col.colr);" title="{{col.name | capitalize}}"></div>
                                         </div>
                                     </div>
 
                                 </div>
                             </div>
-
-                            <div class="edit-btn margintp">
+                            <!--<div class="edit-btn margintp">
                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
+                            </div>-->
+                        </div>
+                        <div class="{{trimTrouser.highlightTwo.disable}} {{trimTabs.light2.show}} classv outline disnon" ng-if="tabs=='light2'">
+                            <div class="row">
+                            <div class="col-md-12">
+                                <h4>Choose Your Color</h4>
+                                <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
+                                <div class="colo-pallet text-center ">
+                                    <div class="noti-img notihov" ng-class="{{'coloracive':trimTrouser.highlightTwo.tcolor == col.name, 'borergrey':col.name == 'white'};" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightTwo(trimTrouser.highlightTwo.flag, col.name); trimHexColors('highlightTwo', col.colr);" title="{{col.name | capitalize}}"></div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="{{trimTrouser.highlightBase.disable}} {{trimTabs.light3.show}} classv outline disnon" ng-if="tabs=='light3'">
+                            <div class="row">
+                            <div class="col-md-12">
+                                <h4>Choose Your Color</h4>
+                                <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
+                                <div class="colo-pallet text-center ">
+                                    <div class="noti-img notihov" ng-class="{'coloracive':trimTrouser.highlightBase.tcolor == col.name, 'borergrey':col.name == 'white'};" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightBase(trimTrouser.highlightBase.flag, col.name); trimHexColors('highlightBase', col.colr);" title="{{col.name | capitalize}}"></div>
+                                </div>
+                                </div>
+                            </div>
                             </div>
                         </div>
                         <!-- <div class="outline">
@@ -151,12 +180,38 @@
                     </div>
                     <!--                    //trim tab-->
                     <div class="choos m20-l" ng-show="tab=='team'">
-                        <p>Upload Your Logo</p>
                         <div class="checkboxing">
                             <input type="checkbox" class="form-control" id="later">
-                            <label for="later"><span></span>Send it Later</label>
+                            <label for="later"><span></span>SEND TEAM LOGO LATER</label>
                         </div>
-                        <div class="logo-text">
+                        <div class="logo-text mt10 inline-box">
+                            <button class="btn inline-block btn-dark padding-btn letter-spacing mright15">TEAM LOGO</button>
+                        </div>
+                        <div class="block-box">
+                            <div class="teamlogo-box">
+                                <div class="inline-box box-custom">
+                                    <img ng-src="{{customizedTrouser.image | serverimage}}" alt="" ng-if="customizedTrouser.image">
+                                </div>
+                                <div class="size-box" ng-if="customizedTrouser.image">
+                                    Size:
+                                    <div class="range">
+                                    <div range-slider on-handle-down="changeLogo('teamlogo')" on-handle-up="resetLogoStyle('teamlogo')" ng-model="customizedTrouser.attributes.width" min="0" max="200" model-max="customizedTrouser.attributes.width" model-min="rslider.min" pin-handle="min"></div>
+                                    </div>
+                                </div>
+                                <div class="edit-btn">
+                                    <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('teamlogo', 'Team Logo')" ng-if="!customizedTrouser.image">upload</button>
+                                    <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('teamlogo', 'Team Logo')" ng-if="customizedTrouser.image">change</button>
+                                    <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('teamlogo')" ng-if="customizedTrouser.image">remove</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="edit-btn inline-block">
+                            <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                        </div>
+                        <div class="edit-btn inline-block">
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+                        </div>
+                        <!--<div class="logo-text">
                             <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="teamloging()">TEAM LOGO</button>
                             <span class="uppercase inline-block mright15">or</span>
                             <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click = "showColorTab()">TEAM TEXT</button>
@@ -213,7 +268,7 @@
 
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                     </div>
 
                     <div class="choos m20-l next-level" ng-show="tab=='teamlogo'">
@@ -495,10 +550,12 @@
                           <div class="sizes size inline-block">
                             <span class="uppercase">size</span>
                             <select>
+                              <option value="S">S</option>
+                              <option value="M">M</option>
+                              <option value="L">L</option>
                               <option value="XL">XL</option>
-                              <option value="20">20</option>
-                              <option value="30">30</option>
-                              <option value="40">40</option>
+                              <option value="XXL">XXL</option>
+                              <option value="XXXL">XXXL</option>
                           </select>
                           </div>
                           <div class="sizes size inline-block">
@@ -506,25 +563,50 @@
                               <input type="text" class="form-control inline-block" name="name" value="">
                           </div>
                           <div class="sizes size inline-block">
-                              <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">preview</button>
+                              <!--<button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">preview</button>-->
                           </div>
-                          <!-- <div class="sizes size inline-block">
-                            <span class="uppercase">sleeve</span>
-                          <select>
-                            <option value="XL">XL</option>
-                            <option value="20">20</option>
-                            <option value="30">30</option>
-                            <option value="40">40</option>
-                        </select></div> -->
-
                         </div>
-                        <a href="" class="bins"><img src="img/rubbishbin.png" class="img-responsive" alt=""></a>
-                          <div class="add-button">
-                            <p><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</p>
-                          </div>
-                          <div class="total-amount">
-                              <span class="pull-right uppercase">Total:20</span>
-                          </div>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tbody>
+                                <tr ng-repeat="jersey in jerseyBackArr track by $index">
+                                    <td>
+                                        <span class="uppercase">size</span>
+                                        <select ng-model="jersey.size">
+                                            <option value="S">S</option>
+                                            <option value="M">M</option>
+                                            <option value="L">L</option>
+                                            <option value="XL">XL</option>
+                                            <option value="XXL">XXL</option>
+                                            <option value="XXXL">XXXL</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <span class="inline-block uppercase">quantity</span>
+                                        <input type="number" name="quantity" ng-change="addQuantity(jersey.quantity)" ng-model="jersey.quantity" min="1" maxlength="3">
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                    <!--<button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-if="$index == 0">PREVIEW</button>-->
+                                    </td>
+
+                                    <td class="binbord-rgt"><img src="img/rubbishbin.png" class="img-responsive doneLoading" alt="" ng-click="removeJerseyValue($index); addQuantity()"></td>
+                                </tr>
+                                <tr class="nothing">
+                                    <td></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="add-button">
+                                <p class="pointer" ng-click="addJerseyValues(); addQuantity(jersey.quantity);"><i class="fa mr7 fa-plus" aria-hidden="true"></i> ADD</p>
+                            </div>
+                            <div class="total-amount">
+                                <span class="pull-right tamount uppercase Raleway-Medium">Total Amount: {{totalAmount}}</span>
+                                <span class="pull-right tquantity uppercase Raleway-Medium">Total Quantity: {{totalQuan}}</span>
+                            </div>
+                        </div>
+                        <!--<a href="" class="bins"><img src="img/rubbishbin.png" class="img-responsive" alt=""></a>-->
 
                         <div class="edit-btn">
                             <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>

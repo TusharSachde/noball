@@ -214,7 +214,7 @@
                   <div class="col-md-12">
                     <h4>Choose Your Color</h4>
                     <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in odibasecolor track by $index">
-                      <div class="colo-pallet text-center ">
+                      <div class="colo-pallet text-center">
                         <div class="noti-img notihov" ng-class="{'coloracive':trimTshirt.highlightOne.tcolor == col.name, 'borergrey':col.name == 'white'};" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightBase(trimTshirt.highlightBase.flag, col.name); trimHexColors('highlightBase', col.colr);" title="{{col.name | capitalize}}"></div>
                       </div>
                     </div>
