@@ -1826,12 +1826,41 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         return result;
     }
 
-    $scope.jerseyBack = {
-        'name': 'Name',
-        'no': '00',
-        'font': 'arial',
-        'color': '#c80d28'
+    $scope.shortQuan = {
+        'size': 'S',
+        'quantity': 1
     };
+    $scope.shortQuanArr = [{
+        'size': 'S',
+        'quantity': 1
+    }];
+
+    $scope.shortQuanArrCount = 1;
+
+    $scope.addShortValues = function() {
+        $scope.shortQuanArr.push(_.clone($scope.shortQuan));
+        $scope.shortQuanArrCount = $scope.shortQuanArrCount + 1;
+    }
+    $scope.removeShortValue = function(index) {
+        $scope.shortQuanArr.splice(index, 1);
+        $scope.shortQuanArrCount = $scope.shortQuanArrCount - 1;
+    }
+
+    $scope.totalAmount = 995;
+    $scope.totalQuan = 1;
+
+    $scope.addQuantity = function(q) {
+        $scope.totalAmount = 0;
+        $scope.totalQuan = 0;
+        for(var i = 0; i < $scope.shortQuanArrCount; i++) {
+            $scope.totalQuan += $scope.shortQuanArr[i].quantity;
+        }
+        if ($scope.totalQuan) {
+            $scope.totalAmount = 995 * $scope.totalQuan;
+        }
+    };
+
+    $scope.addQuantity(1);
 
     $scope.onFileSelect = function($files, whichone, uploadtype, variable) {
         $scope.toolarge = false;

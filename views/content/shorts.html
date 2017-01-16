@@ -13,12 +13,12 @@
                     </li>
                     <li class="tab-item breadcrums {{classb}}" ng-click="tabchange('trim',2)">
                         <span class="bread-frnt"></span>
-                        <p>2. COLOR</p>
+                        <p>2. TRIMS</p>
                         <span class="bread-back"></span>
                     </li>
                     <li class="tab-item breadcrums {{classc}}" ng-click="tabchange('team',3)">
                         <span class="bread-frnt"></span>
-                        <p>3. TEAM LOGO</p>
+                        <p>3. LOGOS</p>
                         <span class="bread-back"></span>
                     </li>
                     <li class="tab-item breadcrums {{classe}}" ng-click="tabchange('quantity',5)">
@@ -64,10 +64,10 @@
                             </div>
                         </div>
                         <div class="prev inline-block">
-                            <p class="uppercase" ng-click="switchFrontBack(false); switchTrimHighlightOne(false, trimShort.highlightOne.tcolor); switchTrimHighlightTwo(false, trimShort.highlightTwo.tcolor)"><img src="img/back.png" class="img-responsive" alt="">back</p>
+                            <p class="uppercase" ng-click="switchFrontBack(true); switchTrimHighlightOne(true, trimShort.highlightOne.tcolor); switchTrimHighlightTwo(true, trimShort.highlightTwo.tcolor)"><img src="img/back.png" class="img-responsive" alt="">front</p>
                         </div>
                         <div class="next inline-block">
-                            <p class="uppercase" ng-click="switchFrontBack(true); switchTrimHighlightOne(true, trimShort.highlightOne.tcolor); switchTrimHighlightTwo(true, trimShort.highlightTwo.tcolor)"><img src="img/back.png" class="img-responsive" alt="">front</p>
+                            <p class="uppercase" ng-click="switchFrontBack(false); switchTrimHighlightOne(false, trimShort.highlightOne.tcolor); switchTrimHighlightTwo(false, trimShort.highlightTwo.tcolor)"><img src="img/back.png" class="img-responsive" alt="">back</p>
                         </div>
                         <div class="feature-buttons">
                             <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing">FORM + FUNCTION</button>
@@ -123,15 +123,15 @@
                     <!-- START TRIM -->
                     <div class="choos m20-l " ng-show="tab=='trim'">
                         <div class="options">
-                            <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing  inline-block" ng-click="tabchanges('light1',1)">HIGHLIGHT 1</button>
+                            <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing  inline-block" ng-click="tabchanges('light1',1)">TRIM 1</button>
                             <!-- <button class="{{classhide}} btn btn-outline btn-dark padding-btn letter-spacing  inline-block" ng-click="tabchanges('light2',2)">HIGHLIGHT 2</button> -->
                         </div>
                         <div class="{{classp}} outline disnon" ng-if="tabs=='light1'">
-                            <span>HIGHLIGHT 1</span>
-                            <p>Select The Trim Colour Of Your Choice</p>
+                            <!--<span>HIGHLIGHT 1</span>-->
+                            <p>Choose Your Colour</p>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h4>Select The Colour</h4>
+                                    <!--<h4>Select The Colour</h4>-->
                                     <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in odicolor track by $index">
                                         <div class="colo-pallet text-center ">
                                             <div class="noti-img notihov" ng-class="{'coloracive':trimShort.highlightOne.tcolor == col.name}" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightOne(trimShort.highlightOne.flag, col.name)"></div>
@@ -433,39 +433,41 @@
                                                 <tr class="nothing">
                                                     <td></td>
                                                 </tr>
-                                                <tr>
+                                                <tr ng-repeat="short in shortQuanArr track by $index">
                                                   <td>
-                                                      <p class="shortq" >SIZE</p>
+                                                      <p class="shortq">SIZE</p>
                                                   </td>
                                                     <td>
-                                                        <select class="selectsiz">
-                                                            <option value="XL">S</option>
-                                                            <option value="20">M</option>
-                                                            <option value="30">L</option>
-                                                            <option value="40">XL</option>
-                                                            <option value="40">XXL</option>
-                                                            <option value="40">XXXL</option>
+                                                        <select class="selectsiz" ng-model="short.size">
+                                                            <option value="S">S</option>
+                                                            <option value="M">M</option>
+                                                            <option value="L">L</option>
+                                                            <option value="XL">XL</option>
+                                                            <option value="XXL">XXL</option>
+                                                            <option value="XXXL">XXXL</option>
                                                         </select>
                                                     </td>
                                                     <td>
-                                                        <p class="shortq" >QUANTITY</p>
+                                                        <p class="shortq">QUANTITY</p>
                                                     </td>
                                                     <td>
-                                                        <input class="qtt" type="text" name="quantity" value="10">
+                                                        <input class="qtt" type="number" name="quantity" ng-change="addQuantity(short.quantity)" ng-model="short.quantity" min="1">
                                                     </td>
                                                     <td>
-                                                        <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">PREVIEW</button>
+                                                        <!--<button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">PREVIEW</button>-->
                                                     </td>
-                                                    <td><img src="img/rubbishbin.png" class="img-responsive doneLoading" alt=""></td>
+                                                    <td><img src="img/rubbishbin.png" class="img-responsive doneLoading" alt="" ng-click="removeShortValue($index); addQuantity()"></td>
                                                 </tr>
                                                 <tr class="nothing">
                                                     <td></td>
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <p class="addtable pointer"><i class="fa mr7 fa-plus" aria-hidden="true"></i> ADD</p>
+                                        <p class="addtable pointer" ng-click="addShortValues(); addQuantity(jersey.quantity);"><i class="fa mr7 fa-plus" aria-hidden="true"></i> ADD</p>
 
-                                        <span class="pull-right uppercase fontfam">Total: 995</span>
+                                        <!--<span class="pull-right uppercase fontfam">Total: 995</span>-->
+                                        <span class="pull-right tamount uppercase Raleway-Medium">Total Amount: {{totalAmount}}</span>
+                                        <span class="pull-right tquantity uppercase Raleway-Medium">Total Quantity: {{totalQuan}}</span>
                                     </div>
                                 </uib-accordion-group>
                             </uib-accordion>
