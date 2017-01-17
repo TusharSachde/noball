@@ -2597,6 +2597,14 @@ footer {
     z-index: 10 !important;
 }
 
+.wid20p {
+    width: 20% !important;
+}
+
+.table95 {
+    width: 95% !important;
+}
+
 .quantity {
     input {
         padding: 0 6px;
@@ -2876,7 +2884,7 @@ footer {
     width: 30px;
     height: 30px;
     position: absolute;
-    top: 120px;
+    top: 125px;
     left: 260px;
     overflow: hidden;
     z-index: 100;
@@ -2887,8 +2895,8 @@ footer {
     width: 30px;
     height: 30px;
     position: absolute;
-    top: 140px;
-    left: 165px;
+    top: 126px;
+    left: 168px;
     overflow: hidden;
     z-index: 100;
     @extend .div-flex;

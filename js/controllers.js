@@ -792,7 +792,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.trouserQuanArrCount = $scope.trouserQuanArrCount - 1;
     }
 
-    $scope.totalAmount = 1095;
+    $scope.totalAmount = 995;
     $scope.totalQuan = 1;
 
     $scope.addQuantity = function(q) {
@@ -802,7 +802,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.totalQuan += $scope.trouserQuanArr[i].quantity;
         }
         if ($scope.totalQuan) {
-            $scope.totalAmount = 1095 * $scope.totalQuan;
+            $scope.totalAmount = 995 * $scope.totalQuan;
         }
     };
 
@@ -828,7 +828,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             scope: $scope
         });
     };
-    $scope.openUploads = function() {
+    $scope.openUploads = function(variable, name) {
         $scope.statuses.uploadStatus = false;
         $scope.variable = variable;
         $scope.name = name;
@@ -948,6 +948,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }];
     //tab changes
 
+    $scope.tabs = 'light3';
+    $scope.classp = 'active-tab';
+    $scope.classv = '';
+    $scope.classshow = 'activeme';
+    $scope.classhide = '';
+    $scope.trimTabs = {};
+    $scope.trimTabs.light1 = {};
+    $scope.trimTabs.light2 = {};
+    $scope.trimTabs.light3 = {};
+    $scope.trimTabs.light1.active = "";
+    $scope.trimTabs.light1.show = "";
+    $scope.trimTabs.light2.active = "";
+    $scope.trimTabs.light2.show = "";
+    $scope.trimTabs.light3.active = "activeme";
+    $scope.trimTabs.light3.show = "active-tab";
+
     $scope.designName = "design1";
     $scope.designStatus = false;
     $scope.designTab = 1;
@@ -959,9 +975,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.trimTrouser.highlightOne.disable = "undisabled";
             $scope.trimTrouser.highlightTwo.disable = "disabled";
             $scope.designName = "design1";
-            $scope.switchTrimHighlightOne(true, 'grey');
+            $scope.switchTrimHighlightOne(true, 'red');
             // $scope.switchTrimHighlightTwo(true, 'grey');
-            $scope.switchTrimHighlightBase(true, 'india_blue');
+            $scope.switchTrimHighlightBase(true, 'black');
         } else if (index === 1) {
             $scope.trimTrouser.highlightBase.disable = "undisabled";
             $scope.trimTrouser.highlightOne.disable = "undisabled";
@@ -969,9 +985,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.designName = "design2";
             $scope.trimTabs.light3.active = "activeme";
             $scope.trimTabs.light3.show = "active-tab";
-            $scope.switchTrimHighlightOne(true, 'royal_blue');
+            $scope.switchTrimHighlightOne(true, 'lemon_yellow');
             // $scope.switchTrimHighlightTwo(true, 'white');
-            $scope.switchTrimHighlightBase(true, 'red');  
+            $scope.switchTrimHighlightBase(true, 'royal_blue');  
         } else if (index === 2) {
             $scope.trimTrouser.highlightBase.disable = "undisabled";
             $scope.trimTrouser.highlightOne.disable = "undisabled";
@@ -979,9 +995,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.designName = "design3";
             $scope.trimTabs.light3.active = "activeme";
             $scope.trimTabs.light3.show = "active-tab";
-            $scope.switchTrimHighlightOne(true, 'dark_green');
+            $scope.switchTrimHighlightOne(true, 'orange');
             // $scope.switchTrimHighlightTwo(true, 'white');
-            $scope.switchTrimHighlightBase(true, 'neon_green');
+            $scope.switchTrimHighlightBase(true, 'white');
         } else if (index === 3) {
             $scope.trimTrouser.highlightBase.disable = "undisabled";
             $scope.trimTrouser.highlightOne.disable = "undisabled";
@@ -989,9 +1005,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.designName = "design4";
             $scope.trimTabs.light3.active = "activeme";
             $scope.trimTabs.light3.show = "active-tab";
-            $scope.switchTrimHighlightOne(true, 'royal_blue');
+            $scope.switchTrimHighlightOne(true, 'white');
             // $scope.switchTrimHighlightTwo(true, 'lemon_yellow');
-            $scope.switchTrimHighlightBase(true, 'australian_green');
+            $scope.switchTrimHighlightBase(true, 'red');
         } else if (index === 4) {
             $scope.trimTrouser.highlightBase.disable = "undisabled";
             $scope.trimTrouser.highlightOne.disable = "undisabled";
@@ -1001,11 +1017,39 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.trimTabs.light3.show = "active-tab";
             $scope.switchTrimHighlightOne(true, 'australian_green');
             // $scope.switchTrimHighlightTwo(true, 'black');
-            $scope.switchTrimHighlightBase(true, 'black');
+            $scope.switchTrimHighlightBase(true, 'lemon_yellow');
         }
     }
 
     $scope.changeDesign(0);
+
+    $scope.tabchanges = function(tabs, b) {
+        $scope.tabs = tabs;
+        if (b == 1) {
+            $scope.trimTabs.light1.active = "activeme";
+            $scope.trimTabs.light1.show = "active-tab";
+            $scope.trimTabs.light2.active = "";
+            $scope.trimTabs.light2.show = "";
+            $scope.trimTabs.light3.active = "";
+            $scope.trimTabs.light3.show = "";
+        }
+        if (b == 2) {
+            $scope.trimTabs.light1.active = "";
+            $scope.trimTabs.light1.show = "";
+            $scope.trimTabs.light2.active = "activeme";
+            $scope.trimTabs.light2.show = "active-tab";
+            $scope.trimTabs.light3.active = "";
+            $scope.trimTabs.light3.show = "";
+        }
+        if (b == 3) {
+            $scope.trimTabs.light1.active = "";
+            $scope.trimTabs.light1.show = "";
+            $scope.trimTabs.light2.active = "";
+            $scope.trimTabs.light2.show = "";
+            $scope.trimTabs.light3.active = "activeme";
+            $scope.trimTabs.light3.show = "active-tab";
+        }
+    };
 
     $scope.tab = "design";
     $scope.classa = 'active';
@@ -2539,7 +2583,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             max: 10050
         },
         minPrice: 1000,
-        maxPrice: 4000
+        maxPrice: 40001095
     };
 
     //    end

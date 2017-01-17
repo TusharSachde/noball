@@ -51,10 +51,10 @@
                             </div>
                         </div>  
                         <div class="prev inline-block">
-                            <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">back</p>
+                            <p class="uppercase" ng-click="switchFrontBack(true); switchTrimHighlightBase(true, trimTrouser.highlightBase.tcolor); switchTrimHighlightOne(true, trimTrouser.highlightOne.tcolor);"><img src="img/back.png" class="img-responsive" alt="">front</p>
                         </div>
                         <div class="next inline-block">
-                            <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">front</p>
+                            <p class="uppercase" ng-click="switchFrontBack(false); switchTrimHighlightBase(false, trimTrouser.highlightBase.tcolor); switchTrimHighlightOne(false, trimTrouser.highlightOne.tcolor);"><img src="img/back.png" class="img-responsive" alt="">back</p>
                         </div>
                         <div class="feature-buttons">
                             <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing">FORM + FUNCTION</button>
@@ -579,7 +579,7 @@
                       </div>
                       <div class="table-detail relative">
                         <p class="capitalize">Select the size for your trouser</p>
-                        <div class="option-shirt relative gloves">
+                        <!--<div class="option-shirt relative gloves">
                           <div class="sizes size inline-block">
                             <span class="uppercase">size</span>
                             <select>
@@ -596,13 +596,13 @@
                               <input type="text" class="form-control inline-block" name="name" value="">
                           </div>
                           <div class="sizes size inline-block">
-                              <!--<button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">preview</button>-->
+                              <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">preview</button>
                           </div>
-                        </div>
+                        </div>-->
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table table95">
                                 <tbody>
-                                <tr ng-repeat="trouser in trouserQuanArr track by $index">
+                                <tr class="option-shirt" ng-repeat="trouser in trouserQuanArr track by $index">
                                     <td>
                                         <span class="uppercase">size</span>
                                         <select ng-model="trouser.size">
@@ -616,7 +616,7 @@
                                     </td>
                                     <td>
                                         <span class="inline-block uppercase">quantity</span>
-                                        <input type="number" name="quantity" ng-change="addQuantity(trouser.quantity)" ng-model="trouser.quantity" min="1" maxlength="3">
+                                        <input type="number" name="quantity" class="wid20p" ng-change="addQuantity(trouser.quantity)" ng-model="trouser.quantity" min="1" maxlength="3">
                                     </td>
                                     <td></td>
                                     <td></td>
@@ -624,7 +624,7 @@
                                     <!--<button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-if="$index == 0">PREVIEW</button>-->
                                     </td>
 
-                                    <td class="binbord-rgt"><img src="img/rubbishbin.png" class="img-responsive doneLoading" alt="" ng-click="removeTrouserValue($index); addQuantity()"></td>
+                                    <td class="binbord-rgt"><img src="img/rubbishbin.png" class="img-responsive pointer" alt="" ng-click="removeTrouserValue($index); addQuantity()"></td>
                                 </tr>
                                 <tr class="nothing">
                                     <td></td>
