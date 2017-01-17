@@ -2872,6 +2872,28 @@ footer {
     }
 }
 
+.div-trouser-left-logo {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 120px;
+    left: 260px;
+    overflow: hidden;
+    z-index: 100;
+    @extend .div-flex;
+}
+
+.div-trouser-right-logo {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 140px;
+    left: 165px;
+    overflow: hidden;
+    z-index: 100;
+    @extend .div-flex;
+}
+
 .pad-logo {
     width: 25px;
     height: 25px;
@@ -2992,7 +3014,7 @@ footer {
 }
 
 .cat-img {
-    height: 150px;
+    height: 190px;
     width: 100%;
     overflow: hidden;
     border: 1px solid $border;
@@ -3010,9 +3032,13 @@ footer {
         max-width: 100%;
         cursor: pointer;
         position: relative;
-        top: 50%;
+        top: 0;
         left: 50%;
-        @include transform(translate(-50%, -50%));
+        @include transform(translate(-50%, 0));
+    }
+
+    p {
+        font-size: 16px;
     }
 }
 
@@ -6731,6 +6757,9 @@ padding-right: 10px;
 }
 .mgl-20{
   margin-left: 20px;
+}
+.h300 {
+    height: 300px !important;
 }
 .va-sub{
   vertical-align: sub;

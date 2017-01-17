@@ -43,6 +43,12 @@
                             <img ng-src="{{trimTrouser.highlightOne.image}}" ng-if="trimTrouser.highlightOne.image" class="trimshirt img-responsive" alt="">
                             <img ng-src="{{trimTrouser.highlightTwo.image}}" ng-if="trimTrouser.highlightTwo.image" class="trimshirt img-responsive" alt="">
                             <img ng-src="{{trimTrouser.highlightBase.image}}" ng-if="trimTrouser.highlightBase.image" class="trimshirtbase img-responsive" alt="">
+                            <div class="div-trouser-left-logo" ng-if="customizedTrouser.front && customizedTrouser.leftlogo.image" ng-style="customizedTrouser.leftlogo.divattributes">
+                                <img id="trouserleftlogo" ng-src="{{customizedTrouser.leftlogo.image | serverimage}}" class="img-responsive trouser-left-logo" alt="" ng-style="customizedTrouser.leftlogo.attributes">
+                            </div>
+                            <div class="div-trouser-right-logo" ng-if="customizedTrouser.front && customizedTrouser.rightlogo.image" ng-style="customizedTrouser.rightlogo.divattributes">
+                                <img id="trouserrightlogo" ng-src="{{customizedTrouser.rightlogo.image | serverimage}}" class="img-responsive trouser-right-logo" alt="" ng-style="customizedTrouser.rightlogo.attributes">
+                            </div>
                         </div>  
                         <div class="prev inline-block">
                             <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">back</p>
@@ -106,11 +112,11 @@
                             <button class="{{trimTabs.light2.active}} {{trimTrouser.highlightTwo.disable}} classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-click="tabchanges('light2',2)">TRIM 2</button>
                         </div>
                         <div class="{{trimTrouser.highlightOne.disable}} {{trimTabs.light1.show}} classp outline disnon" ng-if="tabs=='light1'">
-                            <p>Choose Your Colour</p>
+                            <h4>Choose Your Color</h4>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="col-md-1 col-xs-2 paddingl mr21" ng-repeat="col in color track by $index">
-                                        <div class="colo-pallet text-center ">
+                                    <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
+                                        <div class="colo-pallet text-center">
                                             <div class="noti-img notihov" ng-class="{'coloracive':trimTrouser.highlightOne.tcolor == col.name, 'borergrey':col.name == 'white'};" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightOne(trimTrouser.highlightOne.flag, col.name); trimHexColors('highlightOne', col.colr);" title="{{col.name | capitalize}}"></div>
                                         </div>
                                     </div>
@@ -126,8 +132,8 @@
                             <div class="col-md-12">
                                 <h4>Choose Your Color</h4>
                                 <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
-                                <div class="colo-pallet text-center ">
-                                    <div class="noti-img notihov" ng-class="{{'coloracive':trimTrouser.highlightTwo.tcolor == col.name, 'borergrey':col.name == 'white'};" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightTwo(trimTrouser.highlightTwo.flag, col.name); trimHexColors('highlightTwo', col.colr);" title="{{col.name | capitalize}}"></div>
+                                <div class="colo-pallet text-center">
+                                    <div class="noti-img notihov" ng-class="{'coloracive':trimTrouser.highlightTwo.tcolor == col.name, 'borergrey':col.name == 'white'};" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightTwo(trimTrouser.highlightTwo.flag, col.name); trimHexColors('highlightTwo', col.colr);" title="{{col.name | capitalize}}"></div>
                                 </div>
                                 </div>
                             </div>
@@ -138,7 +144,7 @@
                             <div class="col-md-12">
                                 <h4>Choose Your Color</h4>
                                 <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
-                                <div class="colo-pallet text-center ">
+                                <div class="colo-pallet text-center">
                                     <div class="noti-img notihov" ng-class="{'coloracive':trimTrouser.highlightBase.tcolor == col.name, 'borergrey':col.name == 'white'};" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightBase(trimTrouser.highlightBase.flag, col.name); trimHexColors('highlightBase', col.colr);" title="{{col.name | capitalize}}"></div>
                                 </div>
                                 </div>
@@ -184,24 +190,51 @@
                             <input type="checkbox" class="form-control" id="later">
                             <label for="later"><span></span>SEND TEAM LOGO LATER</label>
                         </div>
-                        <div class="logo-text mt10 inline-box">
-                            <button class="btn inline-block btn-dark padding-btn letter-spacing mright15">TEAM LOGO</button>
-                        </div>
-                        <div class="block-box">
-                            <div class="teamlogo-box">
-                                <div class="inline-box box-custom">
-                                    <img ng-src="{{customizedTrouser.image | serverimage}}" alt="" ng-if="customizedTrouser.image">
+                        <div>
+                            <div class="inline-block h300">
+                                <div class="logo-text mt10 inline-box">
+                                    <button class="btn inline-block btn-dark padding-btn letter-spacing mright15">RIGHT LOGO</button>
                                 </div>
-                                <div class="size-box" ng-if="customizedTrouser.image">
-                                    Size:
-                                    <div class="range">
-                                    <div range-slider on-handle-down="changeLogo('teamlogo')" on-handle-up="resetLogoStyle('teamlogo')" ng-model="customizedTrouser.attributes.width" min="0" max="200" model-max="customizedTrouser.attributes.width" model-min="rslider.min" pin-handle="min"></div>
+                                <div class="block-box">
+                                    <div class="teamlogo-box">
+                                        <div class="inline-box box-custom">
+                                            <img ng-src="{{customizedTrouser.rightlogo.image | serverimage}}" alt="" ng-if="customizedTrouser.rightlogo.image">
+                                        </div>
+                                        <div class="size-box" ng-if="customizedTrouser.rightlogo">
+                                            Size:
+                                            <div class="range">
+                                            <div range-slider on-handle-down="changeLogo('rightlogo')" on-handle-up="resetLogoStyle('rightlogo')" ng-model="customizedTrouser.rightlogo.attributes.width" min="0" max="200" model-max="customizedTrouser.rightlogo.attributes.width" model-min="rslider.min" pin-handle="min"></div>
+                                            </div>
+                                        </div>
+                                        <div class="edit-btn">
+                                            <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('rightlogo', 'Right Logo')" ng-if="!customizedTrouser.rightlogo">upload</button>
+                                            <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('rightlogo', 'Right Logo')" ng-if="customizedTrouser.rightlogo">change</button>
+                                            <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('rightlogo')" ng-if="customizedTrouser.rightlogo">remove</button>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="edit-btn">
-                                    <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('teamlogo', 'Team Logo')" ng-if="!customizedTrouser.image">upload</button>
-                                    <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('teamlogo', 'Team Logo')" ng-if="customizedTrouser.image">change</button>
-                                    <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('teamlogo')" ng-if="customizedTrouser.image">remove</button>
+                            </div>
+                            <div class="inline-block h300 mgl-20">
+                                <div class="logo-text mt10 inline-box">
+                                    <button class="btn inline-block btn-dark padding-btn letter-spacing mright15">LEFT LOGO</button>
+                                </div>
+                                <div class="block-box">
+                                    <div class="teamlogo-box">
+                                        <div class="inline-box box-custom">
+                                            <img ng-src="{{customizedTrouser.leftlogo.image | serverimage}}" alt="" ng-if="customizedTrouser.leftlogo.image">
+                                        </div>
+                                        <div class="size-box" ng-if="customizedTrouser.leftlogo">
+                                            Size:
+                                            <div class="range">
+                                            <div range-slider on-handle-down="changeLogo('leftlogo')" on-handle-up="resetLogoStyle('leftlogo')" ng-model="customizedTrouser.leftlogo.attributes.width" min="0" max="200" model-max="customizedTrouser.leftlogo.attributes.width" model-min="rslider.min" pin-handle="min"></div>
+                                            </div>
+                                        </div>
+                                        <div class="edit-btn">
+                                            <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('leftlogo', 'Left Logo')" ng-if="!customizedTrouser.leftlogo">upload</button>
+                                            <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('leftlogo', 'Left Logo')" ng-if="customizedTrouser.leftlogo">change</button>
+                                            <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('leftlogo')" ng-if="customizedTrouser.leftlogo">remove</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
