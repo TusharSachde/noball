@@ -777,6 +777,42 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     };
     $scope.switchTrimHighlightBase(true, $scope.trimTrouser.highlightBase.tcolor);
+        
+    $scope.trouserQuan = {
+        'size': 'L',
+        'quantity': 1
+    };
+    $scope.trouserQuanArr = [{
+        'size': 'L',
+        'quantity': 1
+    }];
+
+    $scope.trouserQuanArrCount = 1;
+
+    $scope.addTrouserValues = function() {
+        $scope.trouserQuanArr.push(_.clone($scope.trouserQuan));
+        $scope.trouserQuanArrCount = $scope.trouserQuanArrCount + 1;
+    }
+    $scope.removeTrouserValue = function(index) {
+        $scope.trouserQuanArr.splice(index, 1);
+        $scope.trouserQuanArrCount = $scope.trouserQuanArrCount - 1;
+    }
+
+    $scope.totalAmount = 1095;
+    $scope.totalQuan = 1;
+
+    $scope.addQuantity = function(q) {
+        $scope.totalAmount = 0;
+        $scope.totalQuan = 0;
+        for(var i = 0; i < $scope.trouserQuanArrCount; i++) {
+            $scope.totalQuan += $scope.trouserQuanArr[i].quantity;
+        }
+        if ($scope.totalQuan) {
+            $scope.totalAmount = 1095 * $scope.totalQuan;
+        }
+    };
+
+    $scope.addQuantity(1);
 
     $scope.UploadTeamLogo = function() {
         check = 2;
@@ -895,7 +931,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         if (index === 0) {
             $scope.trimTrouser.highlightBase.disable = "undisabled";
             $scope.trimTrouser.highlightOne.disable = "undisabled";
-            $scope.trimTrouser.highlightTwo.disable = "undisabled";
+            $scope.trimTrouser.highlightTwo.disable = "disabled";
             $scope.designName = "design1";
             $scope.switchTrimHighlightOne(true, 'grey');
             // $scope.switchTrimHighlightTwo(true, 'grey');
@@ -903,32 +939,32 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         } else if (index === 1) {
             $scope.trimTrouser.highlightBase.disable = "undisabled";
             $scope.trimTrouser.highlightOne.disable = "undisabled";
-            $scope.trimTrouser.highlightTwo.disable = "undisabled";
+            $scope.trimTrouser.highlightTwo.disable = "disabled";
             $scope.designName = "design2";
             $scope.trimTabs.light3.active = "activeme";
             $scope.trimTabs.light3.show = "active-tab";
             $scope.switchTrimHighlightOne(true, 'royal_blue');
-            $scope.switchTrimHighlightTwo(true, 'white');
+            // $scope.switchTrimHighlightTwo(true, 'white');
             $scope.switchTrimHighlightBase(true, 'red');  
         } else if (index === 2) {
             $scope.trimTrouser.highlightBase.disable = "undisabled";
             $scope.trimTrouser.highlightOne.disable = "undisabled";
-            $scope.trimTrouser.highlightTwo.disable = "undisabled";
+            $scope.trimTrouser.highlightTwo.disable = "disabled";
             $scope.designName = "design3";
             $scope.trimTabs.light3.active = "activeme";
             $scope.trimTabs.light3.show = "active-tab";
             $scope.switchTrimHighlightOne(true, 'dark_green');
-            $scope.switchTrimHighlightTwo(true, 'white');
+            // $scope.switchTrimHighlightTwo(true, 'white');
             $scope.switchTrimHighlightBase(true, 'neon_green');
         } else if (index === 3) {
             $scope.trimTrouser.highlightBase.disable = "undisabled";
             $scope.trimTrouser.highlightOne.disable = "undisabled";
-            $scope.trimTrouser.highlightTwo.disable = "undisabled";
+            $scope.trimTrouser.highlightTwo.disable = "disabled";
             $scope.designName = "design4";
             $scope.trimTabs.light3.active = "activeme";
             $scope.trimTabs.light3.show = "active-tab";
             $scope.switchTrimHighlightOne(true, 'royal_blue');
-            $scope.switchTrimHighlightTwo(true, 'lemon_yellow');
+            // $scope.switchTrimHighlightTwo(true, 'lemon_yellow');
             $scope.switchTrimHighlightBase(true, 'australian_green');
         } else if (index === 4) {
             $scope.trimTrouser.highlightBase.disable = "undisabled";
@@ -938,7 +974,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.trimTabs.light3.active = "activeme";
             $scope.trimTabs.light3.show = "active-tab";
             $scope.switchTrimHighlightOne(true, 'australian_green');
-            $scope.switchTrimHighlightTwo(true, 'black');
+            // $scope.switchTrimHighlightTwo(true, 'black');
             $scope.switchTrimHighlightBase(true, 'black');
         }
     }
