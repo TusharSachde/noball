@@ -660,9 +660,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.trimTrouser.highlightTwo = {};
     $scope.trimTrouser.highlightBase = {};
     $scope.customizedTrouser = {};
-    $scope.customizedTrouser.attributes = {};
-    $scope.customizedTrouser.divattributes = {};
-    $scope.customizedTrouser.attributes.width = 25;
+    // $scope.customizedTrouser.attributes = {};
+    // $scope.customizedTrouser.divattributes = {};
+    // $scope.customizedTrouser.attributes.width = 25;
 
     $scope.switchFrontBack = function(front) {
         $scope.customizedTrouser.front =  front;
@@ -677,10 +677,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.tempImage = "";
     $scope.changeLogo = function(key) {
         console.log(key);
-        $scope.customizedTrouser.divattributes.border = "1px solid #ccc";
+        $scope.customizedTrouser[key].divattributes.border = "1px solid #ccc";
     };
     $scope.resetLogoStyle = function(key) {
-        $scope.customizedTrouser.divattributes.border = "none";
+        $scope.customizedTrouser[key].divattributes.border = "none";
         $scope.$apply();
     };
 
@@ -697,11 +697,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 if (whichone == 1) {
                     console.log(image);
                     $scope.tempImage = image[0];
-                    if (!$scope.customizedTrouser) {
-                        $scope.customizedTrouser = {};
-                        $scope.customizedTrouser.attributes = {};
-                        $scope.customizedTrouser.divattributes = {};
-                        $scope.customizedTrouser.attributes.width = 25;
+                    if (!$scope.customizedTrouser[variable]) {
+                        $scope.customizedTrouser[variable] = {};
+                        $scope.customizedTrouser[variable].attributes = {};
+                        $scope.customizedTrouser[variable].divattributes = {};
+                        $scope.customizedTrouser[variable].attributes.width = 25;
                     }
                     console.log($scope.tempImage);
                 }
@@ -713,18 +713,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 
     $scope.emptyImage = function(key) {
-        $scope.statuses.modal = $uibModal.open({
-            templateUrl: "views/modal/proceed.html",
-            scope: $scope,
-            controller: function($scope) {
-                $scope.type = 'remove';
-            }
-        });
+        $scope.customizedTrouser[key] = null;
     }
     
     $scope.confirmUpload = function(variable, name) {
-        $scope.customizedTrouser.image = $scope.tempImage;
-        $scope.customizedTrouser.name = name;
+        $scope.customizedTrouser[variable].image = $scope.tempImage;
+        $scope.customizedTrouser[variable].name = name;
         console.log($scope.customizedTrouser);
         $scope.tempImage = "";
     }
@@ -835,6 +829,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     };
     $scope.openUploads = function() {
+        $scope.statuses.uploadStatus = false;
+        $scope.variable = variable;
+        $scope.name = name;
         $uibModal.open({
             templateUrl: "views/modal/tshirt.html",
             scope: $scope
@@ -892,21 +889,50 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
     
     $scope.color = [{
-        colr: "#f5b122"
+        colr: "#ffffff",
+        name: "white"
+    },{
+        colr: "#000000",
+        name: "black"
     }, {
-        colr: "#c80d28"
+        colr: "#bf0000",
+        name: "red"
     }, {
-        colr: "#318db2"
+        colr: "#00308f",
+        name: "royal_blue"
     }, {
-        colr: "#2c8b47"
+        colr: "#2175d9",
+        name: "india_blue"
     }, {
-        colr: "#0036ff"
+        colr: "#008000",
+        name: "australian_green"
     }, {
-        colr: "#491f61"
+        colr: "#ffff00",
+        name: "lemon_yellow"
     }, {
-        colr: "#e87024"
+        colr: "#ffd700",
+        name: "golden_yellow"
     }, {
-        colr: "#501e1f"
+        colr: "#1a472a",
+        name: "dark_green"
+    }, {
+        colr: "#ccff00",
+        name: "neon_green"
+    }, {
+        colr: "#f07f13",
+        name: "neon_orange"
+    }, {
+        colr: "#666666",
+        name: "grey"
+    }, {
+        colr: "#800000",
+        name: "maroon"
+    }, {
+        colr: "#ffa500",
+        name: "orange"
+    }, {
+        colr: "#032149",
+        name: "navy_blue"
     }];
 
     $scope.images = [{
@@ -1356,15 +1382,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }];
 
         $scope.images = [{
-            src: "img/ball/balls1.png"
+            src: "img/ball/balls1.png",
+            title: "Apple"
         }, {
-            src: "img/ball/balls2.png"
+            src: "img/ball/balls2.png",
+            title: "Pulm"
         }, {
-            src: "img/ball/balls3.png"
+            src: "img/ball/balls3.png",
+            title: "Cheery"
         }, {
-            src: "img/ball/balls4.png"
+            src: "img/ball/balls4.png",
+            title: "Melon"
         }];
-        //tab changes
+
+        $scope.changeBallName = function(name) {
+            $scope.ball.name = name;
+        }
+
+        $scope.changeBallName('Apple');
 
 
         $scope.tab = "design";
