@@ -772,7 +772,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
     $scope.switchTrimHighlightBase(true, $scope.trimTrouser.highlightBase.tcolor);
         
-    $scope.trouserQuan = {
+    $scope.trouskitbag = {
         'size': 'L',
         'quantity': 1
     };
@@ -1111,6 +1111,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     //    end
+    $scope.toOrderSummary = function() {
+        $scope.allLogos = {};
+        if ($scope.customizedTrouser.leftlogo) {
+            $scope.allLogos.leftlogo = $scope.customizedTrouser.leftlogo.image;
+        }
+        if ($scope.customizedTrouser.rightlogo) {
+            $scope.allLogos.rightlogo = $scope.customizedTrouser.rightlogo.image;
+        }
+        $scope.combineJSON = {
+            "trousers": {
+                "trim": $scope.trimTrouser,
+                "customizedTrouser": $scope.customizedTrouser,
+                "trouserQuan": $scope.trouserQuanArr,
+                "allLogos": $scope.allLogos,
+                "totalAmount": $scope.totalAmount,
+                "totalQuan": $scope.totalQuan
+            },
+            "type": "trousers"
+        };
+        $scope.lastJSON = JSON.stringify($scope.combineJSON);
+        console.log($scope.combineJSON);
+        console.log($scope.lastJSON);
+    }
 
 
     $scope.openUpload = function() {
@@ -1506,7 +1529,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
         //    end
-
+        $scope.toOrderSummary = function() {
+            $scope.combineJSON = {
+                "balls": {
+                    "ball": $scope.ball,
+                    "ballText": $scope.ballText,
+                    "totalQuan": $scope.ballQuantity
+                },
+                "type": "balls"
+            };
+            $scope.lastJSON = JSON.stringify($scope.combineJSON);
+            console.log($scope.combineJSON);
+            console.log($scope.lastJSON);
+        }
 
         $scope.openUpload = function() {
             $uibModal.open({
@@ -2012,7 +2047,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     //    end
-
+    $scope.toOrderSummary = function() {
+        $scope.allLogos = {};
+        $scope.combineJSON = {
+            "pads": {
+                "pads": $scope.padsArr,
+                "allLogos": $scope.padLogo,
+                "totalAmount": $scope.totalAmount,
+                "totalQuan": $scope.totalQuan
+            },
+            "type": "pads"
+        };
+        $scope.lastJSON = JSON.stringify($scope.combineJSON);
+        console.log($scope.combineJSON);
+        console.log($scope.lastJSON);
+    }
 
     $scope.openUpload = function() {
         $uibModal.open({
@@ -3057,6 +3106,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     //    end
 
+    $scope.toOrderSummary = function() {
+        $scope.allLogos = {};
+        $scope.combineJSON = {
+            "gloves": {
+                "gloves": $scope.glovesArr,
+                "allLogos": $scope.glovesLogo,
+                "totalAmount": $scope.totalAmount,
+                "totalQuan": $scope.totalQuan
+            },
+            "type": "gloves"
+        };
+        $scope.lastJSON = JSON.stringify($scope.combineJSON);
+        console.log($scope.combineJSON);
+        console.log($scope.lastJSON);
+    }
+
 
     $scope.openUpload = function() {
         $uibModal.open({
@@ -3898,16 +3963,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.allLogos.backlogo = $scope.customizedShirt.backlogo.image;
         }
         $scope.combineJSON = {
-            "trim": $scope.trimTshirt,
-            "customizedShirt": $scope.customizedShirt,
-            "jerseyBack": $scope.jerseyBackArr,
-            "allLogos": $scope.allLogos,
-            "designName": $scope.designName,
-            "totalAmount": $scope.totalAmount,
-            "totalQuan": $scope.totalQuan
+            "odi-shirt": {
+                "trim": $scope.trimTshirt,
+                "customizedShirt": $scope.customizedShirt,
+                "jerseyBack": $scope.jerseyBackArr,
+                "allLogos": $scope.allLogos,
+                "designName": $scope.designName,
+                "totalAmount": $scope.totalAmount,
+                "totalQuan": $scope.totalQuan
+            },
+            "type": "odi-shirt"
         };
         $scope.lastJSON = JSON.stringify($scope.combineJSON);
         console.log($scope.combineJSON);
+        console.log($scope.lastJSON);
         // pass data to ordersummary
         //$scope.$broadcast('oditshirtdata', $scope.combineJSON);
         $.jStorage.set('oditshirtdata', $scope.combineJSON);
@@ -5416,6 +5485,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.trimTabs.light2.show = "active-tab";
         }
     };
+
+    $scope.toOrderSummary = function() {
+        $scope.allLogos = {};
+        $scope.combineJSON = {
+            "kitbag": {
+                "bags": $scope.bagsArr,
+                "allLogos": $scope.kitbag,
+                "totalAmount": $scope.totalAmount,
+                "totalQuan": $scope.totalQuan
+            },
+            "type": "kitbag"
+        };
+        $scope.lastJSON = JSON.stringify($scope.combineJSON);
+        console.log($scope.combineJSON);
+        console.log($scope.lastJSON);
+    }
 
     // $scope.open = function(size) {
     //
