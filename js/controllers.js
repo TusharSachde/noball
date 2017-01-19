@@ -648,6 +648,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     var check = 1;
     $scope.statuses = {};
+    $scope.pantType = "trousers";
 
     // slider
     $scope.rslider = {
@@ -660,17 +661,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.trimTrouser.highlightTwo = {};
     $scope.trimTrouser.highlightBase = {};
     $scope.customizedTrouser = {};
-    // $scope.customizedTrouser.attributes = {};
-    // $scope.customizedTrouser.divattributes = {};
-    // $scope.customizedTrouser.attributes.width = 25;
 
     $scope.switchFrontBack = function(front) {
         $scope.customizedTrouser.front =  front;
         $scope.customizedTrouser.back =  !front;
         if (front) {
-            $scope.customizedTrouser.cloth = 'img/trousers/' + $scope.designType + 'base/front/' + $scope.trimTrouser.highlightBase.tcolor + '.png';
+            $scope.customizedTrouser.cloth = 'img/' + $scope.pantType + '/' + $scope.designType + 'base/front/' + $scope.trimTrouser.highlightBase.tcolor + '.png';
         } else {
-            $scope.customizedTrouser.cloth = 'img/trousers/' + $scope.designType + 'base/back/' + $scope.trimTrouser.highlightBase.tcolor + '.png';
+            $scope.customizedTrouser.cloth = 'img/' + $scope.pantType + '/' + $scope.designType + 'base/back/' + $scope.trimTrouser.highlightBase.tcolor + '.png';
         }
     }
     $scope.switchFrontBack(true);
@@ -738,9 +736,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.trimTrouser.highlightOne.tcolor = color;
         if ($scope.trimTrouser.highlightOne.tcolor != "") {
             if (flag) {
-                $scope.trimTrouser.highlightOne.image = "img/trousers/" + $scope.designName + "/front/trim1/" + color + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
+                $scope.trimTrouser.highlightOne.image = "img/" + $scope.pantType + "/" + $scope.designName + "/front/trim1/" + color + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
             } else {
-                $scope.trimTrouser.highlightOne.image = "img/trousers/" + $scope.designName + "/back/trim1/" + color + ".png"; // "img/odi-tshirts/trims/highlight1/back/trim_" + color + ".png";
+                $scope.trimTrouser.highlightOne.image = "img/" + $scope.pantType + "/" + $scope.designName + "/back/trim1/" + color + ".png"; // "img/odi-tshirts/trims/highlight1/back/trim_" + color + ".png";
             }
         } else {
             $scope.trimTrouser.highlightOne.image = "";
@@ -751,9 +749,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.trimTrouser.highlightTwo.tcolor = color;
         if ($scope.trimTrouser.highlightTwo.tcolor != "") {
             if (flag) {
-                $scope.trimTrouser.highlightTwo.image = "img/trousers/" + $scope.designName + "/front/trim2/" + color + ".png";
+                $scope.trimTrouser.highlightTwo.image = "img/" + $scope.pantType + "/" + $scope.designName + "/front/trim2/" + color + ".png";
             } else {
-                $scope.trimTrouser.highlightTwo.image = "img/trousers/" + $scope.designName + "/back/trim2/" + color + ".png";
+                $scope.trimTrouser.highlightTwo.image = "img/" + $scope.pantType + "/" + $scope.designName + "/back/trim2/" + color + ".png";
             }
         } else {
             $scope.trimTrouser.highlightTwo.image = "";
@@ -763,10 +761,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.trimTrouser.highlightBase.flag = flag;
         $scope.trimTrouser.highlightBase.tcolor = color;
         if (flag) {
-            $scope.trimTrouser.highlightBase.image = "img/trousers/base/front/" + color + ".png";
+            $scope.trimTrouser.highlightBase.image = "img/" + $scope.pantType + "/base/front/" + color + ".png";
             $scope.customizedTrouser.front = flag;
         } else {
-            $scope.trimTrouser.highlightBase.image = "img/trousers/base/back/" + color + ".png";
+            $scope.trimTrouser.highlightBase.image = "img/" + $scope.pantType + "/base/back/" + color + ".png";
             $scope.customizedTrouser.front = flag;
         }
     };
@@ -858,18 +856,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             scope: $scope
         });
     };
-    // $scope.copyrighting = function(){
-    //   $uibModal.open({
-    //     templateUrl: "views/modal/copyrighting.html",
-    //     scope: $scope
-    //   })
-    // }
-    // $scope.openColor = function(){
-    //   $uibModal.open({
-    //     templateUrl: "views/modal/continue.html",
-    //     scope: $scope
-    //   })
-    // }
+
     $scope.showColorTab = function() {
         $scope.tab = "teamcolor";
     };
@@ -945,6 +932,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         src: "img/trousers/design4/front.png"
     }, {
         src: "img/trousers/design5/front.png"
+    }, {
+        src: "img/shorts/design1/front.png"
+    }, {
+        src: "img/shorts/design2/front.png"
+    }, {
+        src: "img/shorts/design3/front.png"
+    }, {
+        src: "img/shorts/design4/front.png"
+    }, {
+        src: "img/shorts/design5/front.png"
     }];
     //tab changes
 
@@ -975,6 +972,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.trimTrouser.highlightOne.disable = "undisabled";
             $scope.trimTrouser.highlightTwo.disable = "disabled";
             $scope.designName = "design1";
+            $scope.pantType = "trousers";
             $scope.switchTrimHighlightOne(true, 'red');
             // $scope.switchTrimHighlightTwo(true, 'grey');
             $scope.switchTrimHighlightBase(true, 'black');
@@ -983,6 +981,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.trimTrouser.highlightOne.disable = "undisabled";
             $scope.trimTrouser.highlightTwo.disable = "disabled";
             $scope.designName = "design2";
+            $scope.pantType = "trousers";
             $scope.trimTabs.light3.active = "activeme";
             $scope.trimTabs.light3.show = "active-tab";
             $scope.switchTrimHighlightOne(true, 'lemon_yellow');
@@ -993,6 +992,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.trimTrouser.highlightOne.disable = "undisabled";
             $scope.trimTrouser.highlightTwo.disable = "disabled";
             $scope.designName = "design3";
+            $scope.pantType = "trousers";
             $scope.trimTabs.light3.active = "activeme";
             $scope.trimTabs.light3.show = "active-tab";
             $scope.switchTrimHighlightOne(true, 'orange');
@@ -1003,6 +1003,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.trimTrouser.highlightOne.disable = "undisabled";
             $scope.trimTrouser.highlightTwo.disable = "disabled";
             $scope.designName = "design4";
+            $scope.pantType = "trousers";
             $scope.trimTabs.light3.active = "activeme";
             $scope.trimTabs.light3.show = "active-tab";
             $scope.switchTrimHighlightOne(true, 'white');
@@ -1013,10 +1014,64 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.trimTrouser.highlightOne.disable = "undisabled";
             $scope.trimTrouser.highlightTwo.disable = "disabled";
             $scope.designName = "design5";
+            $scope.pantType = "trousers";
             $scope.trimTabs.light3.active = "activeme";
             $scope.trimTabs.light3.show = "active-tab";
             $scope.switchTrimHighlightOne(true, 'australian_green');
             // $scope.switchTrimHighlightTwo(true, 'black');
+            $scope.switchTrimHighlightBase(true, 'lemon_yellow');
+        } else if (index === 5) {
+            $scope.trimTrouser.highlightBase.disable = "undisabled";
+            $scope.trimTrouser.highlightOne.disable = "undisabled";
+            $scope.trimTrouser.highlightTwo.disable = "disabled";
+            $scope.designName = "design1";
+            $scope.pantType = "shorts";
+            $scope.switchTrimHighlightOne(true, 'black');
+            // $scope.switchTrimHighlightTwo(true, 'grey');
+            $scope.switchTrimHighlightBase(true, 'australian_green');
+        } else if (index === 6) {
+            $scope.trimTrouser.highlightBase.disable = "undisabled";
+            $scope.trimTrouser.highlightOne.disable = "undisabled";
+            $scope.trimTrouser.highlightTwo.disable = "disabled";
+            $scope.designName = "design2";
+            $scope.pantType = "shorts";
+            $scope.trimTabs.light3.active = "activeme";
+            $scope.trimTabs.light3.show = "active-tab";
+            $scope.switchTrimHighlightOne(true, 'lemon_yellow');
+            // $scope.switchTrimHighlightTwo(true, 'white');
+            $scope.switchTrimHighlightBase(true, 'royal_blue');  
+        } else if (index === 7) {
+            $scope.trimTrouser.highlightBase.disable = "undisabled";
+            $scope.trimTrouser.highlightOne.disable = "undisabled";
+            $scope.trimTrouser.highlightTwo.disable = "disabled";
+            $scope.designName = "design3";
+            $scope.pantType = "shorts";
+            $scope.trimTabs.light3.active = "activeme";
+            $scope.trimTabs.light3.show = "active-tab";
+            $scope.switchTrimHighlightOne(true, 'orange');
+            // $scope.switchTrimHighlightTwo(true, 'white');
+            $scope.switchTrimHighlightBase(true, 'white');
+        } else if (index === 8) {
+            $scope.trimTrouser.highlightBase.disable = "undisabled";
+            $scope.trimTrouser.highlightOne.disable = "undisabled";
+            $scope.trimTrouser.highlightTwo.disable = "disabled";
+            $scope.designName = "design4";
+            $scope.pantType = "shorts";
+            $scope.trimTabs.light3.active = "activeme";
+            $scope.trimTabs.light3.show = "active-tab";
+            $scope.switchTrimHighlightOne(true, 'white');
+            // $scope.switchTrimHighlightTwo(true, 'lemon_yellow');
+            $scope.switchTrimHighlightBase(true, 'red');
+        } else if (index === 9) {
+            $scope.trimTrouser.highlightBase.disable = "undisabled";
+            $scope.trimTrouser.highlightOne.disable = "undisabled";
+            $scope.trimTrouser.highlightTwo.disable = "undisabled";
+            $scope.designName = "design5";
+            $scope.pantType = "shorts";
+            $scope.trimTabs.light3.active = "activeme";
+            $scope.trimTabs.light3.show = "active-tab";
+            $scope.switchTrimHighlightOne(true, 'australian_green');
+            $scope.switchTrimHighlightTwo(true, 'black');
             $scope.switchTrimHighlightBase(true, 'lemon_yellow');
         }
     }
@@ -4820,210 +4875,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.teamloging = function() {
         $scope.tab = "teamlogo";
     }
-    $scope.$on('$viewContentLoaded', function(event) {
-        $timeout(function() {
-            var scene, camera, renderer, width, height, controls, light, loader, texture, geometry, material, mesh;
-            var three = document.getElementsByClassName("threed-ball");
-            init();
-            animate();
-
-            function init() {
-                scene = new THREE.Scene();
-                width = 400;
-                height = 400;
-
-                renderer = new THREE.WebGLRenderer({
-                    antialias: true,
-                    alpha: true
-                });
-                renderer.setSize(width, height);
-                document.getElementById("threed-ball").appendChild(renderer.domElement);
-                renderer.setClearColor(0xFFFFFF, 1);
-
-                camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 10000);
-                camera.position.set(0, 0, 4.5);
-                scene.add(camera);
-
-                controls = new THREE.OrbitControls(camera, renderer.domElement);
-                controls.enableZoom = false;
-
-                var amblight = new THREE.AmbientLight(0xFFFFFF);
-                scene.add(amblight);
-
-                var dirlight = new THREE.DirectionalLight(0xFFFFFF, 0.5);
-                dirlight.castShadow = true;
-
-                var spotlight = new THREE.SpotLight(0xFFFFFF);
-                spotlight.position.set(1000, 1000, 1000);
-                spotlight.castShadow = true;
-                camera.add(spotlight);
-
-                geometry = new THREE.SphereGeometry(1, 50, 50);
-                texture = new THREE.TextureLoader();
-                texture.load(
-                    'img/textures/ball_texture.jpg',
-                    function(texture) {
-                        material = new THREE.MeshPhongMaterial({
-                            map: texture
-                        });
-                        var sphere = new THREE.Mesh(geometry, material);
-                        sphere.castShadow = true;
-                        sphere.rotation.x = 1;
-                        sphere.rotation.y = -5.5;
-                        sphere.rotation.z = -1;
-                        scene.add(sphere);
-                    },
-                    function(xhr) {
-                        console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-                    },
-                    function(xhr) {
-                        console.log('An error happened');
-                    }
-                );
-            }
-
-            var canvas = document.createElement("canvas");
-            canvas.width = 1000;
-            canvas.height = 667;
-            var c = canvas.getContext("2d");
-
-            function readURL(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = function(e) {
-                        $('#ball_logo').attr('src', e.target.result);
-                        src = $('#ball_logo').attr('src');
-                        var image = new Image();
-                        image.src = src;
-                        var selectImg = '';
-                        var canvas = document.createElement("canvas");
-                        var ctx = canvas.getContext("2d");
-                        var canvasx = document.createElement("canvas");
-                        var ctxx = canvasx.getContext("2d");
-                        var originalPixels, currentPixels = null;
-                        var color, fullimg = '';
-                        canvas.width = canvasx.width = 1000;
-                        canvas.height = canvasx.height = 667;
-
-                        function HexToRGB(Hex) {
-                            var Long = parseInt(Hex.replace(/^#/, ""), 16);
-                            return {
-                                R: (Long >>> 16) & 0xff,
-                                G: (Long >>> 8) & 0xff,
-                                B: Long & 0xff
-                            };
-                        }
-
-                        function fillColor(path) {
-                            color = path;
-                            if (!originalPixels) return;
-                            var newColor = HexToRGB(color);
-                            for (var I = 0, L = originalPixels.data.length; I < L; I += 4) {
-                                if (currentPixels.data[I + 3] > 0) {
-                                    currentPixels.data[I] = newColor.R;
-                                    currentPixels.data[I + 1] = newColor.G;
-                                    currentPixels.data[I + 2] = newColor.B;
-                                }
-                            }
-
-                            var cann = document.createElement("canvas");
-                            cann.width = selectImg.width;
-                            cann.height = selectImg.height;
-                            var ctc = cann.getContext("2d");
-                            ctc.putImageData(currentPixels, 0, 0);
-                            var newImm = new Image();
-                            newImm.src = cann.toDataURL("image/png");
-                            var imageSize = 250;
-                            var newImmWidth = newImm.width;
-                            var newImmHeight = newImm.height;
-                            var newImmWidthQu = newImmWidth / imageSize;
-                            var newImmHeightQu = newImmHeight / imageSize;
-                            var newImmWidthDp = 300 * newImmWidthQu;
-                            var newImmHeightDp = 300 * newImmHeightQu;
-                            var exWidth = (imageSize - newImmWidth) / 2;
-                            var exHeight = (imageSize - newImmHeight) / 2;
-
-                            if (newImmWidth == imageSize && newImmHeight == imageSize) {
-                                ctx.drawImage(newImm, 0, 0, 300, 300, 10, 120, imageSize, imageSize);
-                            } else if (newImmWidth < imageSize && newImmHeight == imageSize) {
-                                ctx.drawImage(newImm, 0, 0, 300, 300, (10 + exWidth), 120, imageSize, imageSize);
-                            } else if (newImmWidth == imageSize && newImmHeight < imageSize) {
-                                ctx.drawImage(newImm, 0, 0, 300, 300, 10, (120 + exHeight), imageSize, imageSize);
-                            } else if (newImmWidth < imageSize && newImmHeight < imageSize) {
-                                ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
-                            } else if (newImmWidth > imageSize && newImmHeight == imageSize) {
-                                ctx.drawImage(newImm, 0, 0, 300, 300, (10 + exWidth), 120, imageSize, imageSize);
-                            } else if (newImmWidth == imageSize && newImmHeight > imageSize) {
-                                ctx.drawImage(newImm, 0, 0, 300, 300, 10, (120 + exHeight), imageSize, imageSize);
-                            } else if (newImmWidth > imageSize && newImmHeight > imageSize) {
-                                ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
-                            } else if (newImmWidth > imageSize && newImmHeight < imageSize) {
-                                ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
-                            } else if (newImmWidth < imageSize && newImmHeight > imageSize) {
-                                ctx.drawImage(newImm, 0, 0, newImmWidthDp, newImmHeightDp, (10), (120), imageSize, imageSize);
-                            }
-
-                            //ctx.clearRect(0, 0, canvas.width, canvas.height);
-                            //ctx.drawImage(newImm, 0, 0, 300, 300, 10, 80, 250, 250);
-                            fullimg = canvas.toDataURL("image/png");
-                        }
-
-                        function overalayColor(himg, color) {
-                            fullimg = himg[0];
-                            img = new Image();
-                            img.src = himg.src;
-                            selectImg = himg;
-                            canvas.width = 1000;
-                            canvas.height = 667;
-
-                            ctxx.clearRect(0, 0, canvasx.width, canvasx.height);
-                            ctxx.drawImage(selectImg, 0, 0, selectImg.naturalWidth, selectImg.naturalHeight, 0, 0, selectImg.width, selectImg.height);
-                            originalPixels = ctxx.getImageData(0, 0, selectImg.width, selectImg.height);
-                            currentPixels = ctxx.getImageData(0, 0, selectImg.width, selectImg.height);
-
-                            selectImg.onload = null;
-                            fillColor(color);
-                        }
-                        overalayColor(document.getElementById('ball_logo'), "#ffd700");
-                        var imgsrc = canvas.toDataURL("image/png", 1.0);
-                        var geometry = new THREE.SphereGeometry(1, 500, 500);
-                        var textur = new THREE.TextureLoader();
-                        textur.load(
-                            fullimg,
-                            function(texture) {
-                                var material = new THREE.MeshPhongMaterial({
-                                    map: texture,
-                                    transparent: true
-                                });
-                                material.map.needsUpdate = true;
-                                var mysphere = new THREE.Mesh(geometry, material);
-                                mysphere.rotation.x = 0.1;
-                                mysphere.rotation.y = -5.0;
-                                mysphere.rotation.z = -1;
-                                scene.add(mysphere);
-                            },
-                            function(xhr) {
-                                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-                            },
-                            function(xhr) {
-                                console.log('An error happened');
-                            }
-                        );
-                    };
-                    reader.readAsDataURL(input.files[0]);
-                }
-            }
-            $("#upload").change(function() {
-                readURL(this);
-            });
-
-            function animate() {
-                requestAnimationFrame(animate);
-                renderer.render(scene, camera);
-            }
-        }, 100);
-    });
-
+    
     $scope.color = [{
         colr: "#f5b122"
     }, {
