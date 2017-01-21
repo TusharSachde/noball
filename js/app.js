@@ -48,10 +48,10 @@
         controller: 'OdiCtrl'
       })
 
-    .state('gloves', {
-      url: "/gloves",
+    .state('capsandhats', {
+      url: "/capsandhats",
       templateUrl: "views/template.html",
-      controller: 'GlovesCtrl'
+      controller: 'CapsCtrl'
     })
 
     .state('balls', {

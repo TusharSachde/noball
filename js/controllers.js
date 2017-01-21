@@ -1251,6 +1251,381 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 })
+
+
+.controller('CapsCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("caps");
+    $scope.menutitle = NavigationService.makeactive("Caps and Hats");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    var check = 1;
+    $scope.statuses = {};
+    $scope.capType = "caps";
+
+    // slider
+    $scope.rslider = {
+        min: 10,
+        max: 100
+    };
+
+    $scope.trimCaps = {};
+    $scope.trimCaps.highlightBase = {};
+    $scope.customizedCaps = {};
+
+    // $scope.customizedCaps.teamlogo.divattributes = {
+    //     width: '90px',
+    //     height: '90px',
+    //     top: '150px',
+    //     left: '190px'
+    // };
+
+    $scope.tempImage = "";
+    $scope.changeLogo = function(key) {
+        console.log(key);
+        $scope.customizedCaps[key].divattributes.border = "1px solid #ccc";
+    };
+    $scope.resetLogoStyle = function(key) {
+        $scope.customizedCaps[key].divattributes.border = "none";
+        $scope.$apply();
+    };
+
+    $scope.onFileSelect = function($files, whichone, uploadtype, variable) {
+        $scope.toolarge = false;
+        console.log($files);
+        if ($files[0].size < 20000000) {
+            $scope.statuses.uploadStatus = true;
+            cfpLoadingBar.start();
+            $scope.showimage = true;
+            globalfunction.onFileSelect($files, function(image) {
+
+                cfpLoadingBar.complete();
+                if (whichone == 1) {
+                    console.log(image);
+                    $scope.tempImage = image[0];
+                    if (!$scope.customizedCaps[variable]) {
+                        $scope.customizedCaps[variable] = {};
+                        $scope.customizedCaps[variable].attributes = {};
+                        $scope.customizedCaps[variable].divattributes = {};
+                        $scope.customizedCaps[variable].attributes.width = 25;
+                    }
+                    console.log($scope.tempImage);
+                }
+            })
+        } else {
+            $files = [];
+            $scope.toolarge = true;
+        }
+    }
+
+    $scope.emptyImage = function(key) {
+        $scope.customizedCaps[key] = null;
+    }
+    
+    $scope.confirmUpload = function(variable, name) {
+        $scope.customizedCaps[variable].image = $scope.tempImage;
+        $scope.customizedCaps[variable].name = name;
+        console.log($scope.customizedCaps);
+        $scope.tempImage = "";
+    }
+
+    $scope.trimCaps.highlightBase.flag = true;
+    $scope.trimCaps.highlightBase.tcolor = "white";
+    $scope.trimCaps.highlightBase.disable = "disabled";
+
+    $scope.switchTrimHighlightBase = function(flag, color) {
+        $scope.trimCaps.highlightBase.flag = flag;
+        $scope.trimCaps.highlightBase.tcolor = color;
+        if (flag) {
+            $scope.trimCaps.highlightBase.image = "img/" + $scope.capType + "/" + color + ".png";
+        } else {
+            $scope.trimCaps.highlightBase.image = "img/" + $scope.capType + "/" + color + ".png";
+        }
+    };
+    $scope.switchTrimHighlightBase(true, $scope.trimCaps.highlightBase.tcolor);
+
+    $scope.capQuantity = 1;
+
+    $scope.UploadTeamLogo = function() {
+        check = 2;
+        $uibModal.open({
+            templateUrl: "views/modal/copyrights.html",
+            scope: $scope
+        });
+    };
+    $scope.UploadTeamLogo1 = function() {
+        check = 3;
+        $uibModal.open({
+            templateUrl: "views/modal/copyrights.html",
+            scope: $scope
+        });
+    };
+    $scope.openChooseFile = function() {
+        $uibModal.open({
+            templateUrl: "views/modal/choosefile.html",
+            scope: $scope
+        });
+    };
+    $scope.openUploads = function(variable, name) {
+        $scope.statuses.uploadStatus = false;
+        $scope.variable = variable;
+        $scope.name = name;
+        $uibModal.open({
+            templateUrl: "views/modal/tshirt.html",
+            scope: $scope
+        });
+    };
+    $scope.doneUploading = function() {
+        if (check == 3) {
+            $scope.tab = "sponsorlogo"
+        } else {
+            $scope.tab = "teamlogo";
+        }
+
+    };
+    $scope.openUploadNew = function() {
+        $uibModal.open({
+            templateUrl: "views/modal/tshirt-popup.html",
+            scope: $scope
+        });
+    };
+
+    $scope.proceed = function() {
+        $uibModal.open({
+            templateUrl: "views/modal/proceed.html",
+            scope: $scope
+        });
+    };
+
+    $scope.showColorTab = function() {
+        $scope.tab = "teamcolor";
+    };
+    $scope.showQuantiyTab = function() {
+        $scope.tab = "quantiy";
+    };
+    $scope.showQuantyTab = function() {
+        $scope.tab = "quanty";
+    };
+
+    $scope.proceedNext = function() {
+        $scope.tab = "sponsorlogo";
+    };
+
+    $scope.teamloging = function() {
+        $scope.tab = "teamlogo";
+    };
+    
+    $scope.color = [{
+        colr: "#0f0f3b",
+        name: "navy_blue"
+    },{
+        colr: "#ee230c",
+        name: "red"
+    }, {
+        colr: "#ffB6C1",
+        name: "pink"
+    }, {
+        colr: "#01055e",
+        name: "ink_blue"
+    }, {
+        colr: "#ffffff",
+        name: "white"
+    // }, {
+    //     colr: "#1a0a0a",
+    //     name: "dark_brown"
+    // }, {
+    //     colr: "#000000",
+    //     name: "black"
+    }, {
+        colr: "#6f6964",
+        name: "grey"
+    }, {
+        colr: "#fff400",
+        name: "yellow"
+    // }, {
+    //     colr: "#6c0303",
+    //     name: "maroon"
+    }];
+
+    $scope.images = [{
+        src: "img/caps/white.png",
+        title: "MODENA"
+    }, {
+        src: "img/hats/white.png",
+        title: "TRINIDAD"
+    }];
+    //tab changes
+
+    $scope.tabs = 'light3';
+    $scope.classp = 'active-tab';
+    $scope.classv = '';
+    $scope.classshow = 'activeme';
+    $scope.classhide = '';
+    $scope.trimTabs = {};
+    $scope.trimTabs.light1 = {};
+    $scope.trimTabs.light2 = {};
+    $scope.trimTabs.light3 = {};
+    $scope.trimTabs.light1.active = "";
+    $scope.trimTabs.light1.show = "";
+    $scope.trimTabs.light2.active = "";
+    $scope.trimTabs.light2.show = "";
+    $scope.trimTabs.light3.active = "activeme";
+    $scope.trimTabs.light3.show = "active-tab";
+
+    $scope.designName = "design1";
+    $scope.designStatus = false;
+    $scope.designTab = 1;
+    $scope.trimCaps.highlightBase.tcolor = 'white';
+    $scope.capName = "MODENA";
+
+    $scope.changeDesign = function(index) {
+        if (index === 0) {
+            $scope.trimCaps.highlightBase.disable = "undisabled";
+            $scope.designName = "design1";
+            $scope.capType = "caps";
+            $scope.capName = "MODENA";
+            if ($scope.customizedCaps.teamlogo) {
+                $scope.customizedCaps.teamlogo.divattributes = {
+                    width: '90px',
+                    height: '90px',
+                    top: '150px',
+                    left: '190px'
+                };
+            }
+            $scope.switchTrimHighlightBase(true, 'white');
+        } else if (index === 1) {
+            $scope.trimCaps.highlightBase.disable = "undisabled";
+            $scope.designName = "design2";
+            $scope.capType = "hats";
+            $scope.capName = "TRINIDAD";
+            if ($scope.customizedCaps.teamlogo) {
+                $scope.customizedCaps.teamlogo.divattributes = {
+                    width: '50px',
+                    height: '40px',
+                    top: '240px',
+                    left: '200px'
+                };
+            }
+            $scope.trimTabs.light3.active = "activeme";
+            $scope.trimTabs.light3.show = "active-tab";
+            $scope.switchTrimHighlightBase(true, 'white');  
+        }
+    }
+
+    $scope.changeDesign(0);
+
+    $scope.tabchanges = function(tabs, b) {
+        $scope.tabs = tabs;
+        if (b == 1) {
+            $scope.trimTabs.light1.active = "activeme";
+            $scope.trimTabs.light1.show = "active-tab";
+            $scope.trimTabs.light2.active = "";
+            $scope.trimTabs.light2.show = "";
+            $scope.trimTabs.light3.active = "";
+            $scope.trimTabs.light3.show = "";
+        }
+        if (b == 2) {
+            $scope.trimTabs.light1.active = "";
+            $scope.trimTabs.light1.show = "";
+            $scope.trimTabs.light2.active = "activeme";
+            $scope.trimTabs.light2.show = "active-tab";
+            $scope.trimTabs.light3.active = "";
+            $scope.trimTabs.light3.show = "";
+        }
+        if (b == 3) {
+            $scope.trimTabs.light1.active = "";
+            $scope.trimTabs.light1.show = "";
+            $scope.trimTabs.light2.active = "";
+            $scope.trimTabs.light2.show = "";
+            $scope.trimTabs.light3.active = "activeme";
+            $scope.trimTabs.light3.show = "active-tab";
+        }
+    };
+
+    $scope.tab = "design";
+    $scope.classa = 'active';
+    $scope.classb = '';
+    $scope.classc = '';
+    $scope.classd = '';
+    $scope.classe = '';
+
+    $scope.tabchange = function(tab, a) {
+        $scope.tab = tab;
+        if (a == 1) {
+            $scope.classa = 'active';
+            $scope.classb = '';
+            $scope.classc = '';
+            $scope.classd = '';
+            $scope.classe = '';
+
+        }
+        if (a == 2) {
+            $scope.classb = 'active';
+            $scope.classa = '';
+            $scope.classc = '';
+            $scope.classd = '';
+            $scope.classe = '';
+
+        }
+        if (a == 3) {
+            $scope.classc = 'active';
+            $scope.classb = '';
+            $scope.classa = '';
+            $scope.classd = '';
+            $scope.classe = '';
+
+        }
+        if (a == 4) {
+            $scope.classd = 'active';
+            $scope.classb = '';
+            $scope.classc = '';
+            $scope.classa = '';
+            $scope.classe = '';
+
+        } else if (a == 5) {
+            $scope.classe = 'active';
+            $scope.classb = '';
+            $scope.classc = '';
+            $scope.classd = '';
+            $scope.classa = '';
+
+        }
+    };
+    $scope.demo2 = {
+        range: {
+            min: 0,
+            max: 10050
+        },
+        minPrice: 1000,
+        maxPrice: 4000
+    };
+
+
+    //    end
+    $scope.toOrderSummary = function() {
+        $scope.allLogos = {};
+        if ($scope.customizedCaps.teamlogo) {
+            $scope.allLogos.teamlogo = $scope.customizedCaps.teamlogo.image;
+        }
+        $scope.combineJSON = {
+            "caps": {
+                "trim": $scope.trimCaps,
+                "customizedCaps": $scope.customizedCaps,
+                "trouserQuan": $scope.trouserQuanArr,
+                "allLogos": $scope.allLogos,
+                "totalAmount": $scope.totalAmount,
+                "totalQuan": $scope.totalQuan
+            },
+            "type": "caps"
+        };
+        $scope.lastJSON = JSON.stringify($scope.combineJSON);
+        console.log($scope.combineJSON);
+        console.log($scope.lastJSON);
+    }
+
+})
+
+
     .controller('BallsCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("balls");
