@@ -85,7 +85,7 @@
                             <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('trim', 2);">NEXT</button>
                         </div>
                         <div class="customize-design">
                             <span>Learn How To Customise Your Design By </span>
@@ -110,7 +110,7 @@
                             <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('team', 3);">NEXT</button>
                         </div>
 
 
@@ -150,7 +150,7 @@
                             <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('quantity', 5);">NEXT</button>
                         </div>
                     </div>
 
@@ -161,9 +161,13 @@
                         <div class="option-shirt grey-back relative gloves mt10">
                           <div class="sizes size inline-block">
                               <span class="inline-block letter-spacing">Select Quantity</span>
-                              <input type="number" class="form-control inline-block input-space" name="name" ng-model="capQuantity">
+                              <input type="number" class="form-control inline-block input-space" name="name" ng-model="capQuantity.quantity" ng-change="changeAmount(capQuantity.quantity)">
                               <span class="inline-block letter-spacing">Pcs</span>
                           </div>
+                        </div>
+                        <div class="clearfix">
+                            <span class="pull-right tamount uppercase Raleway-Medium">Total Amount: {{totalAmount}}</span>
+                            <span class="pull-right tquantity uppercase Raleway-Medium">Total Quantity: {{capQuantity.quantity}}</span>
                         </div>
                         <div class="edit-btn">
                             <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>

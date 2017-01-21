@@ -1344,7 +1344,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
     $scope.switchTrimHighlightBase(true, $scope.trimCaps.highlightBase.tcolor);
 
-    $scope.capQuantity = 1;
+    $scope.capQuantity = {
+        'quantity': 1
+    };
+
+    $scope.totalAmount = 995;
+
+    $scope.changeAmount = function(q) {
+        if (q) {
+            $scope.capQuantity.quantity = q;
+        } else {
+            $scope.capQuantity.quantity = 0;
+        }
+        $scope.totalAmount = 995 * q;
+    }
 
     $scope.UploadTeamLogo = function() {
         check = 2;
