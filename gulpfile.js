@@ -3,6 +3,7 @@ var jsArray = [
   './js/threejs/three.min.js',
   './js/threejs/OrbitControls.js',
   './js/threejs/OBJLoader.js',
+  './js/jquery.arctext.js',
   './bower_components/flexslider/jquery.flexslider-min.js',
   './bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
 
