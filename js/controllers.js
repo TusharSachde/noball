@@ -5425,11 +5425,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     var check = 1;
 
     $scope.kitbag = {};
-    $scope.kitbag.divattributes = {};
+    $scope.kitbag.name = "kitbags";
+    $scope.kitbag.front = "img/" + $scope.kitbag.name + "/kitbag_ry.png";
+    $scope.kitbag.divattributes = {
+        top: '110px',
+        left: '203px'
+    };
     $scope.kitbag.attributes = {};
     $scope.kitbag.attributes.width = 50;
     $scope.statuses = {};
     $scope.statuses.showcopy = false;
+
+    $scope.trimKitbag = {};
+    // $scope.trimKitbag.base = "bglg";
+
+    $scope.switchTrimBase = function(color) {
+        $scope.trimKitbag.base = color;
+        $scope.kitbag.front = "img/" + $scope.kitbag.name + "/kitbag_" + color + ".png";
+    }
+
+    $scope.switchTrimBase("bglg");
 
     // slider
     $scope.rslider = {
@@ -5456,6 +5471,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 'rotate': 0,
                 'letterSpacing': 1
             }
+        },
+        'divattributes': {
+            'name': {
+                top: '330px',
+                left: '200px'
+            },
+            'number': {
+                top: '265px',
+                left: '210px'
+            }
         }
     };
     $scope.bagsArr = [{
@@ -5476,6 +5501,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 'border': 'none',
                 'rotate': 0,
                 'letterSpacing': 1
+            }
+        },
+        'divattributes': {
+            'name': {
+                top: '330px',
+                left: '200px'
+            },
+            'number': {
+                top: '265px',
+                left: '210px'
             }
         }
     }];
@@ -5607,21 +5642,35 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // }
 
     $scope.color = [{
-        colr: "#f5b122"
+        img: "img/kitbagscolor/bglg.png",
+        name: "bglg"
     }, {
-        colr: "#c80d28"
+        img: "img/kitbagscolor/bgy.png",
+        name: "bgy"
     }, {
-        colr: "#318db2"
+        img: "img/kitbagscolor/blg.png",
+        name: "blg"
     }, {
-        colr: "#2c8b47"
+        img: "img/kitbagscolor/dglg.png",
+        name: "dglg"
     }, {
-        colr: "#0036ff"
+        img: "img/kitbagscolor/dgy.png",
+        name: "dgy"
     }, {
-        colr: "#491f61"
+        img: "img/kitbagscolor/mlg.png",
+        name: "mlg"
     }, {
-        colr: "#e87024"
+        img: "img/kitbagscolor/my.png",
+        name: "my"
     }, {
-        colr: "#501e1f"
+        img: "img/kitbagscolor/rbr.png",
+        name: "rbr"
+    }, {
+        img: "img/kitbagscolor/rby.png",
+        name: "rby"
+    }, {
+        img: "img/kitbagscolor/ry.png",
+        name: "ry"
     }];
 
     $scope.dcolor = [{
@@ -5631,11 +5680,54 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }];
 
     $scope.images = [{
-        src: "img/kitbags/kitbag_ry.png"
-    // }, {
-    //     src: "img/kit-bag/kit-2.png"
+        src: "img/kitbags/kitbag_ry.png",
+        title: "kitbags"
+    }, {
+        src: "img/skitbags/kitbag_ry.png",
+        title: "skitbags"
     }];
     //tab changes
+
+    $scope.changeDesign = function(name) {
+        $scope.kitbag.name = name;
+        $scope.kitbag.front = "img/" + $scope.kitbag.name + "/kitbag_ry.png";
+
+        if (name === "kitbags") {
+            $scope.kitbag.divattributes = {
+                top: '110px',
+                left: '203px',
+                transform: 'rotate(0deg)'
+            };
+            $scope.bags.divattributes = {
+                'name': {
+                    top: '330px',
+                    left: '200px'
+                },
+                'number': {
+                    top: '265px',
+                    left: '210px'
+                }
+            }
+        } else {
+            $scope.kitbag.divattributes = {
+                top: '150px',
+                left: '150px',
+                transform: 'rotate(-2deg)'
+            };
+            $scope.bags.divattributes = {
+                'name': {
+                    top: '320px',
+                    left: '150px',
+                    transform: 'rotate(-2deg)'
+                },
+                'number': {
+                    top: '255px',
+                    left: '160px',
+                    transform: 'rotate(-2deg)'
+                }
+            }
+        }
+    }
 
 
     $scope.tab = "design";
