@@ -1715,86 +1715,61 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             if (front) {
                 $scope.ball.cloth = 'img/ball/front.png';
             } else {
+                $scope.rotaterA();
+                $scope.rotaterB();
                 $scope.ball.cloth = 'img/ball/back.png';
             }
         }
 
+        $scope.arcTTextShow = true;
+        $scope.arcBTextShow = true;
+        $scope.rotaterA = function () {
+            $timeout(function() {
+                    $scope.arcTTextShow = true;
+                    $timeout(function() {
+                        $('#topText').arctext();
+                        $('#topText').arctext('set', {
+                            radius: 100,
+                            dir: 1,
+                            animation: {
+                                speed: 300,
+                                easing: 'ease-out'
+                            }
+                        });
+                    },30);
+                    
+                },30);
+        };
+        $scope.changeTopText = function() {
+            console.log('a');
+            $scope.arcTTextShow = false;
+           $scope.rotaterA();
+        }
+
+        $scope.rotaterB = function () {
+            $timeout(function() {
+                        $scope.arcBTextShow = true;
+                        $timeout(function() {
+                            $('#bottomText').arctext();
+                            $('#bottomText').arctext('set', {
+                                radius: 100,
+                                dir: -1,
+                                animation: {
+                                    speed: 300,
+                                    easing: 'ease-out'
+                                }
+                            });
+                        },30);
+                        
+                    },30);
+        };
+
+        $scope.changeBottomText = function() {
+            $scope.arcBTextShow = false;
+            $scope.rotaterB();
+        }
+
         $scope.switchFrontBack(true);
-
-        // var arcText = {};
-        // $scope.changeArc = function(value) {
-        //     $scope.newValue = value;
-        //     $scope.pos = 1;
-        //     var $topText = $('#topText');
-
-        //     $('#topText').arctext({
-        //         radius: Math.abs(200),
-        //         dir: 1
-        //     });
-        //     // arcText = $topText;
-        //     // $topText.arctext('set', {
-        //     //     radius: Math.abs(newValue),
-        //     //     dir: pos,
-        //     //     animation: {
-        //     //         speed: 300,
-        //     //         easing: 'ease-out'
-        //     //     }
-        //     // });
-        // }
-
-        // $scope.$watch('ballText.top.text', function(newValue, oldValue) {
-        //     console.log(newValue, oldValue);
-        //     // if(!$scope.$$phase) {
-        //         // $scope.changeTopText();
-        //         $('#topText').arctext({
-        //             radius: 200,
-        //             dir: 1
-        //         });
-        //         $('#topText').arctext('set', {
-        //             radius: 200,
-        //             dir: 1,
-        //             animation: {
-        //                 speed: 300,
-        //                 easing: 'ease-out'
-        //             }
-        //         });
-        //         // $scope.$apply();
-        //     // }
-        // });
-
-        // $scope.changeTopText = function() {
-        //     console.log('a');
-        //     $('#topText').arctext({
-        //         radius: 200,
-        //         dir: 1
-        //     });
-        //     $('#topText').arctext('set', {
-        //         radius: 200,
-        //         dir: 1,
-        //         animation: {
-        //             speed: 300,
-        //             easing: 'ease-out'
-        //         }
-        //     });
-        // }
-
-        // $scope.changeArc(200);
-
-        // $scope.changeArcPreview = function(newarc) {
-        //     $('#topText').show().arctext({
-        //         radius: Math.abs(newarc),
-        //         dir: 1
-        //     });
-        //     arcText = $('#topText');
-        //     $('#topText').arctext('set', {
-        //         radius: Math.abs(newarc),
-        //         dir: 1,
-        //         animation: {
-        //             speed: 300,
-        //             easing: 'ease-out'
-        //         }
-        //     });
-        // }
 
         $scope.UploadTeamLogo = function() {
             check = 2;

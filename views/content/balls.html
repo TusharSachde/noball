@@ -41,9 +41,9 @@
                         <div class="gully-shirt">
                           <img ng-src="{{ball.cloth}}" class="img-responsive" alt="">
                           <div class="ball-text" ng-if="ball.back">
-                              <p class="uppercase ball-top-text" id="topText">{{ballText.top.text}}</p>
+                              <p class="uppercase ball-top-text" id="topText" ng-bind="ballText.top.text" ng-if="arcTTextShow"></p>
                               <p class="uppercase ball-middle-text" id="middleText">{{ballText.middle.text}}</p>
-                              <p class="uppercase ball-bottom-text" id="bottomText">{{ballText.bottom.text}}</p>
+                              <p class="uppercase ball-bottom-text" id="bottomText" ng-bind="ballText.bottom.text" ng-if="arcBTextShow"></p>
                           </div>
                         </div>
                         <div class="prev inline-block">
@@ -172,14 +172,14 @@
                             <button class="{{textc}} btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15 uppercase" ng-click="changeText('bottom');">Bottom</button>
                         </div>
                         <div class="range-slidings relative mt-20" ng-if="topmodel">
-                            <input type="text" class="block uppercase" ng-model="ballText.top.text" id="topInput">
+                            <input type="text" class="block uppercase" ng-model="ballText.top.text" id="topInput" ng-change="changeTopText()">
                             <!--<button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15 uppercase" ng-click="changeTopText()">Click</button>-->
                         </div>
                         <div class="range-slidings relative mt-20" ng-if="middlemodel">
                             <input type="text" class="block uppercase" ng-model="ballText.middle.text">
                         </div>
                         <div class="range-slidings relative mt-20" ng-if="bottommodel">
-                            <input type="text" class="block uppercase" ng-model="ballText.bottom.text">
+                            <input type="text" class="block uppercase" ng-model="ballText.bottom.text" ng-change="changeBottomText()">
                         </div>
                         <!--<div class="range ball-size inline-block">
                             <div class="row">

@@ -6502,32 +6502,39 @@ h2 {
     height: 320px;
     top: 70px;
     left: 100px;
-    .ball-top-text {
-        width: 200px;
-        height: 40px;
+    .ball-attr {
         margin: 0 auto;
         font-size: 34px;
+        font-weight: bold;
         color: gold;
         overflow: hidden;
-        @extend .div-flex;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+    }
+    .ball-top-text {
+        width: 280px;
+        height: 200px;
+        @extend .ball-attr;
     }
     .ball-middle-text {
-        width: 200px;
-        height: 200px;
+        width: 300px;
+        height: 300px;
         margin: 0 auto;
         font-size: 34px;
+        font-weight: bold;
         color: gold;
         overflow: hidden;
         @extend .div-flex;
+        position: absolute;
+        top: 0;
+        left: 0;
     }
     .ball-bottom-text {
-        width: 200px;
-        height: 40px;
-        margin: 0 auto;
-        font-size: 34px;
-        color: gold;
-        overflow: hidden;
-        @extend .div-flex;
+        width: 280px;
+        height: 120px;
+        @extend .ball-attr;
+        align-items: flex-end !important;
     }
 }
 
