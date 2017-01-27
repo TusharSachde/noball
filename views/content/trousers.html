@@ -75,7 +75,7 @@
                         <h4>LONG LEG</h4>
                         <!--<p>The Custom Cricket company cricket trouser is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest .
                         </p>-->
-                        <h3><i class="fa fa-inr"></i>995</h3>
+                        <h3><i class="fa fa-inr"></i>{{singleAmount}}</h3>
                         <span><i>Minimum order to be placed for Trousers is 20.</i></span>
                     </div>
                     <!--                    // design tab-->
@@ -634,6 +634,7 @@
                             <div class="add-button">
                                 <p class="pointer" ng-click="addTrouserValues(); addQuantity(trouser.quantity);"><i class="fa mr7 fa-plus" aria-hidden="true"></i> ADD</p>
                             </div>
+                            <p>One time customization fee for Trouser is <i class="fa fa-inr"></i> 5000</p>
                             <div class="total-amount">
                                 <span class="pull-right tamount uppercase Raleway-Medium">Total Amount: {{totalAmount}}</span>
                                 <span class="pull-right tquantity uppercase Raleway-Medium">Total Quantity: {{totalQuan}}</span>
