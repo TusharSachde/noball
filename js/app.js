@@ -164,6 +164,12 @@
         controller: 'ReviewCtrl'
       })
 
+      .state('gloves', {
+      url: "/gloves",
+      templateUrl: "views/template.html",
+      controller: 'GlovesCtrl'
+    })
+
     .state('review-glove', {
       url: "/review-glove",
       templateUrl: "views/template.html",
