@@ -1654,6 +1654,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
 
         $scope.ball = {};
+        $scope.ball.printType = "embroidered";
         $scope.ballText = {
             top: {
                 text: '',
