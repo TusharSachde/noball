@@ -3709,6 +3709,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.jerseyBackArrCount = $scope.jerseyBackArrCount - 1;
     }
 
+    $scope.singleAmount = 1095;
     $scope.totalAmount = 1095;
     $scope.totalQuan = 1;
 
@@ -3719,7 +3720,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.totalQuan += $scope.jerseyBackArr[i].quantity;
         }
         if ($scope.totalQuan) {
-            $scope.totalAmount = 1095 * $scope.totalQuan;
+            $scope.totalAmount = $scope.singleAmount * $scope.totalQuan + 5000;
         }
     };
 
