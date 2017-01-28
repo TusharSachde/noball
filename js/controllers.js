@@ -1664,7 +1664,7 @@ $scope.singleAmount = 850;
         };
 
         $scope.ball = {};
-        $scope.ball.printType = "embroidered";
+        $scope.ball.printType = "foil";
         $scope.ballText = {
             top: {
                 text: '',
