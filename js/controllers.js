@@ -3750,10 +3750,10 @@ $scope.singleAmount = 850;
         console.log($scope.designType);
         if (front) {
             $scope.customizedShirt.cloth = 'img/odi-tshirts/trims/' + $scope.designType + 'base/front/' + $scope.trimTshirt.highlightBase.tcolor + '.png'; //'img/tinytshirt 7.png';
-            $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/front.png'; //'img/tinytshirt 7 back.png';
+            $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/' + $scope.designType + '/front.png'; //'img/tinytshirt 7 back.png';
         } else {
             $scope.customizedShirt.cloth = 'img/odi-tshirts/trims/' + $scope.designType + 'base/back/' + $scope.trimTshirt.highlightBase.tcolor + '.png'; //'img/tinytshirt 1 back.png';
-            $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/back.png'; //'img/tinytshirt 1 back back.png';
+            $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/' + $scope.designType + '/back.png'; //'img/tinytshirt 1 back back.png';
         }
         // _.each($scope.customizedShirt,function(value,property){
         //   console.log(angular.isObject($scope.customizedShirt[property]));
@@ -3912,7 +3912,7 @@ $scope.singleAmount = 850;
             } else {
                 $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/" + $scope.designType + "/base/front/" + color + ".png"; //"img/odi-tshirts/trims/base/front/" + color + ".png";
             }
-            $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/front.png';
+            $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/' + $scope.designType + '/front.png';
             $scope.customizedShirt.front = flag;
         } else {
             if ($scope.designType === 'whites') {
@@ -3920,7 +3920,7 @@ $scope.singleAmount = 850;
             } else {
                 $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/" + $scope.designType + "/base/back/" + color + ".png"; //"img/odi-tshirts/trims/base/back/" + color + ".png";
             }
-            $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/back.png';
+            $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/' + $scope.designType + '/back.png';
             $scope.customizedShirt.front = flag;
         }
     };
@@ -3981,7 +3981,7 @@ $scope.singleAmount = 850;
                 $scope.trimTshirt.highlightTwo.disable = "undisabled";
                 $scope.designName = "design1";
                 $scope.designType = 'odi';
-                    $scope.singleAmount = 1000;
+                $scope.singleAmount = 1000;
                 $scope.switchTrimHighlightOne(true, 'grey', $scope.designType);
                 $scope.switchTrimHighlightTwo(true, 'grey', $scope.designType);
                 $scope.switchTrimHighlightBase(true, 'india_blue', $scope.designType);
@@ -4012,7 +4012,7 @@ $scope.singleAmount = 850;
                 $scope.trimTshirt.highlightTwo.disable = "undisabled";
                 $scope.designName = "design4";
                 $scope.designType = 'odi';
-                    $scope.singleAmount = 1000;
+                $scope.singleAmount = 1000;
                 $scope.trimTabs.light3.active = "activeme";
                 $scope.trimTabs.light3.show = "active-tab";
                 $scope.switchTrimHighlightOne(true, 'dark_green', $scope.designType);
@@ -4024,7 +4024,7 @@ $scope.singleAmount = 850;
                 $scope.trimTshirt.highlightTwo.disable = "undisabled";
                 $scope.designName = "design5";
                 $scope.designType = 'odi';
-                    $scope.singleAmount = 1000;
+                $scope.singleAmount = 1000;
                 $scope.trimTabs.light3.active = "activeme";
                 $scope.trimTabs.light3.show = "active-tab";
                 $scope.switchTrimHighlightOne(true, 'royal_blue', $scope.designType);
@@ -4036,60 +4036,60 @@ $scope.singleAmount = 850;
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
                 $scope.designName = "design1";
                 $scope.designType = 'training';
-                  $scope.singleAmount = 850;
+                $scope.singleAmount = 850;
                 $scope.trimTabs.light3.active = "activeme";
                 $scope.trimTabs.light3.show = "active-tab";
                 $scope.switchTrimHighlightOne(true, 'australian_green', 'training');
                 $scope.switchTrimHighlightTwo(true, 'black', 'training');
-                $scope.switchTrimHighlightBase(true, 'black', 'training');
+                $scope.switchTrimHighlightBase(true, 'lemon_yellow', 'training');
             } else if (index === 5) {
                 $scope.trimTshirt.highlightBase.disable = "undisabled";
                 $scope.trimTshirt.highlightOne.disable = "undisabled";
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
                 $scope.designName = "design2";
                 $scope.designType = 'training';
-                  $scope.singleAmount = 850;
+                $scope.singleAmount = 850;
                 $scope.trimTabs.light3.active = "activeme";
                 $scope.trimTabs.light3.show = "active-tab";
-                $scope.switchTrimHighlightOne(true, 'black', 'training');
+                $scope.switchTrimHighlightOne(true, 'india_blue', 'training');
                 $scope.switchTrimHighlightTwo(true, 'white', 'training');
-                $scope.switchTrimHighlightBase(true, 'australian_green', 'training');
+                $scope.switchTrimHighlightBase(true, 'red', 'training');
             } else if (index === 6) {
                 $scope.trimTshirt.highlightBase.disable = "undisabled";
                 $scope.trimTshirt.highlightOne.disable = "undisabled";
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
                 $scope.designName = "design3";
                 $scope.designType = 'training';
-                  $scope.singleAmount = 850;
+                $scope.singleAmount = 850;
                 $scope.trimTabs.light3.active = "activeme";
                 $scope.trimTabs.light3.show = "active-tab";
-                $scope.switchTrimHighlightOne(true, 'grey', 'training');
+                $scope.switchTrimHighlightOne(true, 'navy_blue', 'training');
                 $scope.switchTrimHighlightTwo(true, 'white', 'training');
-                $scope.switchTrimHighlightBase(true, 'neon_green', 'training');
+                $scope.switchTrimHighlightBase(true, 'india_blue', 'training');
             } else if (index === 7) {
                 $scope.trimTshirt.highlightBase.disable = "undisabled";
                 $scope.trimTshirt.highlightOne.disable = "undisabled";
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
                 $scope.designName = "design4";
                 $scope.designType = 'training';
-                  $scope.singleAmount = 850;
+                $scope.singleAmount = 850;
                 $scope.trimTabs.light3.active = "activeme";
                 $scope.trimTabs.light3.show = "active-tab";
                 $scope.switchTrimHighlightOne(true, 'orange', 'training');
                 $scope.switchTrimHighlightTwo(true, 'white', 'training');
-                $scope.switchTrimHighlightBase(true, 'white', 'training');
+                $scope.switchTrimHighlightBase(true, 'golden_yellow', 'training');
             } else if (index === 8) {
                 $scope.trimTshirt.highlightBase.disable = "undisabled";
                 $scope.trimTshirt.highlightOne.disable = "undisabled";
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
                 $scope.designName = "design5";
                 $scope.designType = 'training';
-                  $scope.singleAmount = 850;
+                $scope.singleAmount = 850;
                 $scope.trimTabs.light3.active = "activeme";
                 $scope.trimTabs.light3.show = "active-tab";
-                $scope.switchTrimHighlightOne(true, 'royal_blue', 'training');
+                $scope.switchTrimHighlightOne(true, 'white', 'training');
                 $scope.switchTrimHighlightTwo(true, 'white', 'training');
-                $scope.switchTrimHighlightBase(true, 'lemon_yellow', 'training');
+                $scope.switchTrimHighlightBase(true, 'maroon', 'training');
             }
         } else if (tab === 2) {
             if (index === 0) {
@@ -4124,7 +4124,7 @@ $scope.singleAmount = 850;
                 $scope.trimTabs.light1.active = "activeme";
                 $scope.trimTabs.light1.show = "active-tab";
                 $scope.tabs = 'light1';
-                $scope.switchTrimHighlightOne(true, 'orange', 'whites');
+                $scope.switchTrimHighlightOne(true, 'red', 'whites');
                 $scope.switchTrimHighlightTwo(true, 'white', 'whites');
                 $scope.switchTrimHighlightBase(true, 'white', 'whites');  
             } else if (index === 2) {
@@ -4137,7 +4137,7 @@ $scope.singleAmount = 850;
                 $scope.trimTabs.light1.active = "activeme";
                 $scope.trimTabs.light1.show = "active-tab";
                 $scope.tabs = 'light1';
-                $scope.switchTrimHighlightOne(true, 'neon_green', 'whites');
+                $scope.switchTrimHighlightOne(true, 'red', 'whites');
                 $scope.switchTrimHighlightTwo(true, 'white', 'whites');
                 $scope.switchTrimHighlightBase(true, 'white', 'whites');
             } else if (index === 3) {
@@ -4150,7 +4150,7 @@ $scope.singleAmount = 850;
                 $scope.trimTabs.light1.active = "activeme";
                 $scope.trimTabs.light1.show = "active-tab";
                 $scope.tabs = 'light1';
-                $scope.switchTrimHighlightOne(true, 'india_blue', 'whites');
+                $scope.switchTrimHighlightOne(true, 'black', 'whites');
                 $scope.switchTrimHighlightTwo(true, 'white', 'whites');
                 $scope.switchTrimHighlightBase(true, 'white', 'whites');
             } else if (index === 4) {
@@ -4163,7 +4163,7 @@ $scope.singleAmount = 850;
                 $scope.trimTabs.light1.active = "activeme";
                 $scope.trimTabs.light1.show = "active-tab";
                 $scope.tabs = 'light1';
-                $scope.switchTrimHighlightOne(true, 'lemon_yellow', 'whites');
+                $scope.switchTrimHighlightOne(true, 'dark_green', 'whites');
                 $scope.switchTrimHighlightTwo(true, 'white', 'whites');
                 $scope.switchTrimHighlightBase(true, 'white', 'whites');
             }
