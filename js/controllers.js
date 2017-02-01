@@ -6,8 +6,8 @@ var tabvalue = 1;
 var user = $.jStorage.get("user");
 var globalfunction = {};
 var bigcount = {};
-window.uploadUrl = "http://customcricketcompany.com/admin/index.php/json/uploadImage";
-// window.uploadUrl = "http://192.168.0.103/cccbackend/index.php/json/uploadImage";
+// window.uploadUrl = "http://customcricketcompany.com/admin/index.php/json/uploadImage";
+window.uploadUrl = "http://192.168.0.23/cccbackend/index.php/json/uploadImage";
 
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'duScroll', 'cfp.loadingBar', 'ngDialog', 'angularFileUpload', 'ngSanitize', 'ui-rangeSlider'])
 
@@ -4353,6 +4353,17 @@ $scope.singleAmount = 850;
     //         console.log(canvas.toDataURL('image/png'));
     //     });
     // };
+	
+	$scope.openLogin = function() {
+		$.jStorage.set("isExpert", false);
+		$scope.changeTab(2);
+		$uibModal.open({
+			animation: true,
+			templateUrl: 'views/modal/login.html',
+			controller: 'headerctrl',
+			scope: $scope
+		})
+	};
 
     $scope.customizedShirtCount = Object.keys($scope.customizedShirt).length - 5; // -5 for removing front, back, cloth, backdrop, printType
 
@@ -4393,45 +4404,49 @@ $scope.singleAmount = 850;
     };
 
     $scope.toOrderSummary = function() {
-        $scope.allLogos = {};
-        if ($scope.customizedShirt.mainlogo) {
-            $scope.allLogos.mainlogo = $scope.customizedShirt.mainlogo.image;
-        }
-        if ($scope.customizedShirt.rightchest) {
-            $scope.allLogos.rightchest = $scope.customizedShirt.rightchest.image;
-        }
-        if ($scope.customizedShirt.leftsleeve) {
-            $scope.allLogos.leftsleeve = $scope.customizedShirt.leftsleeve.image;
-        }
-        if ($scope.customizedShirt.rightsleeve) {
-            $scope.allLogos.rightsleeve = $scope.customizedShirt.rightsleeve.image;
-        }
-        if ($scope.customizedShirt.teamlogo) {
-            $scope.allLogos.teamlogo = $scope.customizedShirt.teamlogo.image;
-        }
-        if ($scope.customizedShirt.backlogo) {
-            $scope.allLogos.backlogo = $scope.customizedShirt.backlogo.image;
-        }
-        $scope.combineJSON = {
-            "trim": $scope.trimTshirt,
-            "customizedShirt": $scope.customizedShirt,
-            "jerseyBack": $scope.jerseyBackArr,
-            "allLogos": $scope.allLogos,
-            "designName": $scope.designName,
-            "designType": $scope.designType,
-            "totalAmount": $scope.totalAmount,
-            "totalQuan": $scope.totalQuan
-        };
-        $scope.lastJSON = JSON.stringify($scope.combineJSON);
-        console.log($scope.combineJSON);
-        console.log($scope.lastJSON);
-        NavigationService.orderSummary("vinod", $scope.combineJSON, 'odishirt',
-            function(data) {
-            console.log('Order Summary data: ', data);
-            $state.go('ordersummary', { id: data.id });
-        }, function(err) {
-            console.log(err);
-        });
+		if ($.jStorage.get("user")) {
+			$scope.allLogos = {};
+			if ($scope.customizedShirt.mainlogo) {
+				$scope.allLogos.mainlogo = $scope.customizedShirt.mainlogo.image;
+			}
+			if ($scope.customizedShirt.rightchest) {
+				$scope.allLogos.rightchest = $scope.customizedShirt.rightchest.image;
+			}
+			if ($scope.customizedShirt.leftsleeve) {
+				$scope.allLogos.leftsleeve = $scope.customizedShirt.leftsleeve.image;
+			}
+			if ($scope.customizedShirt.rightsleeve) {
+				$scope.allLogos.rightsleeve = $scope.customizedShirt.rightsleeve.image;
+			}
+			if ($scope.customizedShirt.teamlogo) {
+				$scope.allLogos.teamlogo = $scope.customizedShirt.teamlogo.image;
+			}
+			if ($scope.customizedShirt.backlogo) {
+				$scope.allLogos.backlogo = $scope.customizedShirt.backlogo.image;
+			}
+			$scope.combineJSON = {
+				"trim": $scope.trimTshirt,
+				"customizedShirt": $scope.customizedShirt,
+				"jerseyBack": $scope.jerseyBackArr,
+				"allLogos": $scope.allLogos,
+				"designName": $scope.designName,
+				"designType": $scope.designType,
+				"totalAmount": $scope.totalAmount,
+				"totalQuan": $scope.totalQuan
+			};
+			$scope.lastJSON = JSON.stringify($scope.combineJSON);
+			console.log($scope.combineJSON);
+			console.log($scope.lastJSON);
+			NavigationService.orderSummary(user.email, $scope.combineJSON, 'odishirt',
+				function(data) {
+				console.log('Order Summary data: ', data);
+				$state.go('ordersummary', { id: data.id });
+			}, function(err) {
+				console.log(err);
+			});
+		} else {
+			$scope.openLogin();
+		}
         // pass data to ordersummary
         //$scope.$broadcast('oditshirtdata', $scope.combineJSON);
         // $.jStorage.set('oditshirtdata', $scope.combineJSON);
@@ -4439,45 +4454,50 @@ $scope.singleAmount = 850;
     }
 
     $scope.savedDesigns = function() {
-        $scope.allLogos = {};
-        if ($scope.customizedShirt.mainlogo) {
-            $scope.allLogos.mainlogo = $scope.customizedShirt.mainlogo.image;
-        }
-        if ($scope.customizedShirt.rightchest) {
-            $scope.allLogos.rightchest = $scope.customizedShirt.rightchest.image;
-        }
-        if ($scope.customizedShirt.leftsleeve) {
-            $scope.allLogos.leftsleeve = $scope.customizedShirt.leftsleeve.image;
-        }
-        if ($scope.customizedShirt.rightsleeve) {
-            $scope.allLogos.rightsleeve = $scope.customizedShirt.rightsleeve.image;
-        }
-        if ($scope.customizedShirt.teamlogo) {
-            $scope.allLogos.teamlogo = $scope.customizedShirt.teamlogo.image;
-        }
-        if ($scope.customizedShirt.backlogo) {
-            $scope.allLogos.backlogo = $scope.customizedShirt.backlogo.image;
-        }
-        $scope.combineJSON = {
-            "trimTshirt": $scope.trimTshirt,
-            "customizedShirt": $scope.customizedShirt,
-            "jerseyBackArr": $scope.jerseyBackArr,
-            "allLogos": $scope.allLogos,
-            "designName": $scope.designName,
-            "designType": $scope.designType,
-            "totalAmount": $scope.totalAmount,
-            "totalQuan": $scope.totalQuan,
-            "name": 'Matt B&Y'
-        };
-        $scope.lastJSON = JSON.stringify($scope.combineJSON);
-        console.log($scope.combineJSON);
-        NavigationService.orderSummary("vinod", $scope.combineJSON, 'odishirt',
-            function(data) {
-            console.log('Save Design data: ', data);
-            $state.go('savedesign', { id: data.id });
-        }, function(err) {
-            console.log(err);
-        });
+		if ($.jStorage.get("user")) {
+			$scope.allLogos = {};
+			if ($scope.customizedShirt.mainlogo) {
+				$scope.allLogos.mainlogo = $scope.customizedShirt.mainlogo.image;
+			}
+			if ($scope.customizedShirt.rightchest) {
+				$scope.allLogos.rightchest = $scope.customizedShirt.rightchest.image;
+			}
+			if ($scope.customizedShirt.leftsleeve) {
+				$scope.allLogos.leftsleeve = $scope.customizedShirt.leftsleeve.image;
+			}
+			if ($scope.customizedShirt.rightsleeve) {
+				$scope.allLogos.rightsleeve = $scope.customizedShirt.rightsleeve.image;
+			}
+			if ($scope.customizedShirt.teamlogo) {
+				$scope.allLogos.teamlogo = $scope.customizedShirt.teamlogo.image;
+			}
+			if ($scope.customizedShirt.backlogo) {
+				$scope.allLogos.backlogo = $scope.customizedShirt.backlogo.image;
+			}
+			$scope.combineJSON = {
+				"trimTshirt": $scope.trimTshirt,
+				"customizedShirt": $scope.customizedShirt,
+				"jerseyBackArr": $scope.jerseyBackArr,
+				"allLogos": $scope.allLogos,
+				"designName": $scope.designName,
+				"designType": $scope.designType,
+				"totalAmount": $scope.totalAmount,
+				"totalQuan": $scope.totalQuan,
+				"name": 'Matt B&Y'
+			};
+			$scope.lastJSON = JSON.stringify($scope.combineJSON);
+			console.log($scope.combineJSON);
+			NavigationService.orderSummary(user.email, $scope.combineJSON, 'odishirt',
+				function(data) {
+				console.log('Save Design data: ', data);
+				$state.go('savedesign', { id: data.id });
+			}, function(err) {
+				console.log(err);
+			});
+		} else {
+			$scope.openLogin();
+		}
+        
         // if ($.jStorage.get('savedDesigns')) {
         //     $scope.allSavedDesigns = $.jStorage.get('savedDesigns');
         //     $scope.allSavedDesigns.push($scope.combineJSON);
@@ -7583,7 +7603,7 @@ $scope.singleAmount = 850;
         $scope.savedDesigns = [];
 
         // $scope.savedDesigns = $.jStorage.get('savedDesigns');
-        NavigationService.getDesigns("vinod",
+        NavigationService.getDesigns(user.email,
             function(data) {
                 console.log('Save Design data: ', data);
 
