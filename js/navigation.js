@@ -625,7 +625,7 @@ var navigationservice = angular.module('navigationservice', [])
         }
       }).success(callback).error(err);
     },
-    orderSummary: function(jsonData, type, callback, err) {
+    orderSummary: function(user, jsonData, type, callback, err) {
       //var currency = $.jStorage.get("myCurrency");
       // var orderData = {
       //     "type": "custom",
@@ -637,7 +637,7 @@ var navigationservice = angular.module('navigationservice', [])
       //     "logo4": rs
       //   };
       var myData = {
-        "user": "vinod",
+        "user": user,
         "description": jsonData,
         "type": type
       };
@@ -659,15 +659,25 @@ var navigationservice = angular.module('navigationservice', [])
         data: myData
       }).success(callback).error(err);
     },
-    saveDesign: function(jsonData, type, callback, err) {
+    saveDesign: function(user, jsonData, type, callback, err) {
       var myData = {
-        "user": "vinod",
+        "user": user,
         "description": jsonData,
         "type": type
       };
       console.log(JSON.stringify(jsonData));
       return $http({
         url: adminurl + "saveDesign",
+        method: "POST",
+        data: myData
+      }).success(callback).error(err);
+    },
+    getDesigns: function(user, callback, err) {
+      var myData = {
+        "user": user
+      };
+      return $http({
+        url: adminurl + "getDesigns",
         method: "POST",
         data: myData
       }).success(callback).error(err);
