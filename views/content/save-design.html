@@ -13,47 +13,47 @@
         <div class="col-md-4 col-sm-6" ng-repeat="design in savedDesigns track by $index">
           <div class="design-patt text-center">
             <div class="gully-shirt saved-design">
-              <img ng-src="{{design.customizedShirt.backdrop}}" class="backdrop img-responsive" alt="">
-              <img ng-src="{{design.trimTshirt.highlightOne.image}}" ng-if="design.trimTshirt.highlightOne.image" class="trimshirt img-responsive" alt="">
-              <img ng-src="{{design.trimTshirt.highlightTwo.image}}" ng-if="design.trimTshirt.highlightTwo.image" class="trimshirt img-responsive" alt="">
-              <img ng-src="{{design.trimTshirt.highlightBase.image}}" ng-if="design.trimTshirt.highlightBase.image" class="trimshirtbase img-responsive" alt="">
-              <div class="div-main-logo" ng-if="design.customizedShirt.front && design.customizedShirt.mainlogo.image" ng-style="design.customizedShirt.mainlogo.divattributes">
-                <img id="mainlogo" class="main-logo" ng-src="{{design.customizedShirt.mainlogo.image | serverimage}}" alt="" ng-style="design.customizedShirt.mainlogo.attributes">
+              <img ng-src="{{design.description.customizedShirt.backdrop}}" class="backdrop img-responsive" alt="">
+              <img ng-src="{{design.description.trimTshirt.highlightOne.image}}" ng-if="design.description.trimTshirt.highlightOne.image" class="trimshirt img-responsive" alt="">
+              <img ng-src="{{design.description.trimTshirt.highlightTwo.image}}" ng-if="design.description.trimTshirt.highlightTwo.image" class="trimshirt img-responsive" alt="">
+              <img ng-src="{{design.description.trimTshirt.highlightBase.image}}" ng-if="design.description.trimTshirt.highlightBase.image" class="trimshirtbase img-responsive" alt="">
+              <div class="div-main-logo" ng-if="design.description.customizedShirt.front && design.description.customizedShirt.mainlogo.image" ng-style="design.description.customizedShirt.mainlogo.divattributes">
+                <img id="mainlogo" class="main-logo" ng-src="{{design.description.customizedShirt.mainlogo.image | serverimage}}" alt="" ng-style="design.description.customizedShirt.mainlogo.attributes">
               </div>
-              <div class="div-back-sponsor1" ng-if="design.customizedShirt.back && design.customizedShirt.backsponsor1.image" ng-style="design.customizedShirt.backsponsor1.divattributes">
-                <img class="back-sponsor1" ng-src="{{design.customizedShirt.backsponsor1.image | serverimage}}" alt="" ng-style="design.customizedShirt.backsponsor1.attributes">
+              <div class="div-back-sponsor1" ng-if="design.description.customizedShirt.back && design.description.customizedShirt.backsponsor1.image" ng-style="design.description.customizedShirt.backsponsor1.divattributes">
+                <img class="back-sponsor1" ng-src="{{design.description.customizedShirt.backsponsor1.image | serverimage}}" alt="" ng-style="design.description.customizedShirt.backsponsor1.attributes">
               </div>
-              <div class="div-back-sponsor2" ng-if="design.customizedShirt.back && design.customizedShirt.backsponsor2.image" ng-style="design.customizedShirt.backsponsor2.divattributes">
-                <img class="back-sponsor2" ng-src="{{design.customizedShirt.backsponsor2.image | serverimage}}" alt="" ng-style="design.customizedShirt.backsponsor2.attributes">
+              <div class="div-back-sponsor2" ng-if="design.description.customizedShirt.back && design.description.customizedShirt.backsponsor2.image" ng-style="design.description.customizedShirt.backsponsor2.divattributes">
+                <img class="back-sponsor2" ng-src="{{design.description.customizedShirt.backsponsor2.image | serverimage}}" alt="" ng-style="design.description.customizedShirt.backsponsor2.attributes">
               </div>
-              <div class="div-left-chest" ng-if="design.customizedShirt.front && design.customizedShirt.teamlogo.image" ng-style="design.customizedShirt.teamlogo.divattributes">
-                <img id="teamlogo" class="left-chest" ng-src="{{design.customizedShirt.teamlogo.image | serverimage}}" alt="" ng-style="design.customizedShirt.teamlogo.attributes">
+              <div class="div-left-chest" ng-if="design.description.customizedShirt.front && design.description.customizedShirt.teamlogo.image" ng-style="design.description.customizedShirt.teamlogo.divattributes">
+                <img id="teamlogo" class="left-chest" ng-src="{{design.description.customizedShirt.teamlogo.image | serverimage}}" alt="" ng-style="design.description.customizedShirt.teamlogo.attributes">
               </div>
-              <div class="div-left-sleeve" ng-if="design.customizedShirt.leftsleeve.image" ng-style="design.customizedShirt.leftsleeve.divattributes" ng-class="{'div-left-sleeve':design.customizedShirt.front,'div-right-sleeve':design.customizedShirt.back}">
-                <img id="leftsleeve" ng-class="{'left-sleeve':design.customizedShirt.front,'right-sleeve':design.customizedShirt.back}" ng-src="{{design.customizedShirt.leftsleeve.image | serverimage}}" alt="" ng-style="design.customizedShirt.leftsleeve.attributes">
+              <div class="div-left-sleeve" ng-if="design.description.customizedShirt.leftsleeve.image" ng-style="design.description.customizedShirt.leftsleeve.divattributes" ng-class="{'div-left-sleeve':design.description.customizedShirt.front,'div-right-sleeve':design.description.customizedShirt.back}">
+                <img id="leftsleeve" ng-class="{'left-sleeve':design.description.customizedShirt.front,'right-sleeve':design.description.customizedShirt.back}" ng-src="{{design.description.customizedShirt.leftsleeve.image | serverimage}}" alt="" ng-style="design.description.customizedShirt.leftsleeve.attributes">
               </div>
-              <div class="div-right-chest" ng-if="design.customizedShirt.front && design.customizedShirt.rightchest.image" ng-style="design.customizedShirt.rightchest.divattributes">
-                <img id="rightchest" class="right-chest" ng-src="{{design.customizedShirt.rightchest.image | serverimage}}" alt="" ng-style="design.customizedShirt.rightchest.attributes">
+              <div class="div-right-chest" ng-if="design.description.customizedShirt.front && design.description.customizedShirt.rightchest.image" ng-style="design.description.customizedShirt.rightchest.divattributes">
+                <img id="rightchest" class="right-chest" ng-src="{{design.description.customizedShirt.rightchest.image | serverimage}}" alt="" ng-style="design.description.customizedShirt.rightchest.attributes">
               </div>
-              <div class="div-right-chest disblock" ng-if="design.customizedShirt.front && myhide" ng-style="design.customizedShirt.rightchest.divattributes">
+              <div class="div-right-chest disblock" ng-if="design.description.customizedShirt.front && myhide" ng-style="design.description.customizedShirt.rightchest.divattributes">
                 <div style="color:{{myClolr}};transform: rotate({{myArc}}deg);font-size:{{mySize}}px;transform: rotate({{myRotate}}deg);letter-spacing: {{myWordSpace}}px;mymodel.name">{{mymodel.name}}</div>
                 <div style="color:{{myClolr}};transform: rotate({{myArc1}}deg);font-size:{{mySize1}}px;transform: rotate({{myRotate1}}deg);letter-spacing: {{myWordSpace1}}px;"> {{addtxt10}}</div>
               </div>
-              <div class="div-right-sleeve" ng-if="design.customizedShirt.rightsleeve.image" ng-style="design.customizedShirt.rightsleeve.divattributes" ng-class="{'div-right-sleeve':design.customizedShirt.front,'div-left-sleeve':design.customizedShirt.back}">
-                <img ng-class="{'right-sleeve':design.customizedShirt.front,'left-sleeve':customizedShirt.back}" ng-src="{{design.customizedShirt.rightsleeve.image | serverimage}}" alt="" ng-style="design.customizedShirt.rightsleeve.attributes">
+              <div class="div-right-sleeve" ng-if="design.description.customizedShirt.rightsleeve.image" ng-style="design.description.customizedShirt.rightsleeve.divattributes" ng-class="{'div-right-sleeve':design.description.customizedShirt.front,'div-left-sleeve':design.description.customizedShirt.back}">
+                <img ng-class="{'right-sleeve':design.description.customizedShirt.front,'left-sleeve':design.description.customizedShirt.back}" ng-src="{{design.description.customizedShirt.rightsleeve.image | serverimage}}" alt="" ng-style="design.description.customizedShirt.rightsleeve.attributes">
               </div>
-              <div class="div-back" ng-if="design.customizedShirt.back && design.customizedShirt.backlogo.image" ng-style="design.customizedShirt.backlogo.divattributes">
-                <img ng-src="{{design.customizedShirt.backlogo.image | serverimage}}" alt="" ng-style="design.customizedShirt.backlogo.attributes">
+              <div class="div-back" ng-if="design.description.customizedShirt.back && design.description.customizedShirt.backlogo.image" ng-style="design.description.customizedShirt.backlogo.divattributes">
+                <img ng-src="{{design.description.customizedShirt.backlogo.image | serverimage}}" alt="" ng-style="design.description.customizedShirt.backlogo.attributes">
               </div>
-              <div class="div-backccc" ng-if="design.customizedShirt.back && design.customizedShirt.rightchest.image != 'img/logo_black.png'">
+              <div class="div-backccc" ng-if="design.description.customizedShirt.back && design.description.customizedShirt.rightchest.image != 'img/logo_black.png'">
                 <img src="img/logo_green.png" alt="" class="img-responsive">
               </div>
-              <div ng-if="design.customizedShirt.back" class="{{jerseyBackArr[0].font+'-font'}}" ng-style="{'color': design.jerseyBackArr[0].color}">
-                <div class="odi-t jersey-name uppercase text-center"><p ng-style="design.jerseyBackArr[0].attributes.name">{{design.jerseyBackArr[0].name}}</p></div>
-                <div class="odi-t jersey-no text-center" ng-style="design.jerseyBackArr[0].attributes.number">{{design.jerseyBackArr[0].no}}</div>
+              <div ng-if="design.description.customizedShirt.back" class="{{design.description.jerseyBackArr[0].font+'-font'}}" ng-style="{'color': design.description.jerseyBackArr[0].color}">
+                <div class="odi-t jersey-name uppercase text-center"><p ng-style="design.description.jerseyBackArr[0].attributes.name">{{design.description.jerseyBackArr[0].name}}</p></div>
+                <div class="odi-t jersey-no text-center" ng-style="design.description.jerseyBackArr[0].attributes.number">{{design.description.jerseyBackArr[0].no}}</div>
               </div>
             </div>
-            <p class="">{{design.name}}</p>
+            <p class="">{{design.description.name}}</p>
             <button class="btn btn-outline btn-dark padding-btn mg10">EDIT</button>
             <button class="btn btn-outline btn-dark padding-btn mg10 mg-tp-0" ng-click="removeSavedDesign($index)">DELETE</button>
           </div>
