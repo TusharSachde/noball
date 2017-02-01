@@ -638,7 +638,7 @@ var navigationservice = angular.module('navigationservice', [])
         };
         console.log(JSON.stringify(orderData));
       return $http({
-        url: adminurl + "addToCart",
+        url: adminurl + "addCustomOrder",
         method: "POST",
         data: orderData
       }).success(callback).error(err);

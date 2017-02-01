@@ -4015,8 +4015,8 @@ $scope.singleAmount = 850;
                 $scope.singleAmount = 1000;
                 $scope.trimTabs.light3.active = "activeme";
                 $scope.trimTabs.light3.show = "active-tab";
-                $scope.switchTrimHighlightOne(true, 'dark_green', $scope.designType);
-                $scope.switchTrimHighlightTwo(true, 'white', $scope.designType);
+                $scope.switchTrimHighlightOne(true, 'white', $scope.designType);
+                $scope.switchTrimHighlightTwo(true, 'dark_green', $scope.designType);
                 $scope.switchTrimHighlightBase(true, 'neon_green', $scope.designType);
             } else if (index === 3) {
                 $scope.trimTshirt.highlightBase.disable = "undisabled";
