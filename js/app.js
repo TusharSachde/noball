@@ -268,7 +268,7 @@
       controller: 'CheckoutCtrl'
     })
     .state('ordersummary', {
-      url: "/ordersummary",
+      url: "/ordersummary/:id",
       templateUrl: "views/template.html",
       controller: 'OrderSummaryCtrl'
     })

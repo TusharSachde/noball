@@ -1,18 +1,18 @@
 // var mainurl = "http://wohlig.io:81/callApi/noball/";
-var mainurl = "http://customcricketcompany.com/admin/index.php/";
+// var mainurl = "http://customcricketcompany.com/admin/index.php/";
 // var mainurl = "http://localhost/cccbackend/index.php/";
-// var mainurl = "http://192.168.0.103/cccbackend/index.php/";
+var mainurl = "http://192.168.0.23/cccbackend/index.php/";
 
 var websiteurl = "http://customcricketcompany.com/";
 // var websiteurl = "http://localhost:8080";
 
-var backendurl = "http://customcricketcompany.com/admin/";
-// var backendurl = "http://192.168.0.103/cccbackend/index.php/";
+// var backendurl = "http://customcricketcompany.com/admin/";
+var backendurl = "http://192.168.0.23/cccbackend/index.php/";
 
 var country = "";
 
-var imgurl = "http://customcricketcompany.com/admin/uploads/";
-// var imgurl = "http://192.168.0.103/cccbackend/uploads/";
+// var imgurl = "http://customcricketcompany.com/admin/uploads/";
+var imgurl = "http://192.168.0.23/cccbackend/uploads/";
 
 var adminurl = mainurl + "json/";
 var countries = [{
@@ -625,22 +625,51 @@ var navigationservice = angular.module('navigationservice', [])
         }
       }).success(callback).error(err);
     },
-    orderSummary: function(cart, ml, rc, ls, rs, tl, callback, err) {
+    orderSummary: function(jsonData, type, callback, err) {
       //var currency = $.jStorage.get("myCurrency");
-      var orderData = {
-          "type": "custom",
-          "custom": cart,
-          "teamlogo": tl,
-          "logo1": ml,
-          "logo2": rc,
-          "logo3": ls,
-          "logo4": rs
-        };
-        console.log(JSON.stringify(orderData));
+      // var orderData = {
+      //     "type": "custom",
+      //     "custom": cart,
+      //     "teamlogo": tl,
+      //     "logo1": ml,
+      //     "logo2": rc,
+      //     "logo3": ls,
+      //     "logo4": rs
+      //   };
+      var myData = {
+        "user": "vinod",
+        "description": jsonData,
+        "type": type
+      };
+      console.log(JSON.stringify(jsonData));
       return $http({
         url: adminurl + "addCustomOrder",
         method: "POST",
-        data: orderData
+        data: myData
+      }).success(callback).error(err);
+    },
+    getOrderSummary: function(id, callback, err) {
+      var myData = {
+        "id": id
+      };
+      // console.log(JSON.stringify(jsonData));
+      return $http({
+        url: adminurl + "getCustomOrder",
+        method: "POST",
+        data: myData
+      }).success(callback).error(err);
+    },
+    saveDesign: function(jsonData, type, callback, err) {
+      var myData = {
+        "user": "vinod",
+        "description": jsonData,
+        "type": type
+      };
+      console.log(JSON.stringify(jsonData));
+      return $http({
+        url: adminurl + "saveDesign",
+        method: "POST",
+        data: myData
       }).success(callback).error(err);
     },
     createCustom: function(custom, callback, err) {
