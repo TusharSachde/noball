@@ -682,6 +682,30 @@ var navigationservice = angular.module('navigationservice', [])
         data: myData
       }).success(callback).error(err);
     },
+    saveOrder: function(user, jsonData, type, status, callback, err) {
+      var myData = {
+        "user": user,
+        "description": jsonData,
+        "type": type,
+        "status": status
+      };
+      console.log(JSON.stringify(jsonData));
+      return $http({
+        url: adminurl + "saveCustomizeOrder",
+        method: "POST",
+        data: myData
+      }).success(callback).error(err);
+    },
+    getCustomizeOrder: function(user, callback, err) {
+      var myData = {
+        "user": user
+      };
+      return $http({
+        url: adminurl + "getCustomizeOrder",
+        method: "POST",
+        data: myData
+      }).success(callback).error(err);
+    },
     createCustom: function(custom, callback, err) {
       console.log(custom);
       return $http({

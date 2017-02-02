@@ -8,7 +8,7 @@
   </div>
   <div class="no-cart text-center" ng-if="msg!=''" style="min-height:400px;">
     <img src="img/logo.png">
-        <h4 >{{msg}}</h4>
+        <h4>{{msg}}</h4>
   </div>
   <div class="container min-hght">
     <div class="row">
@@ -26,13 +26,13 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="text-center" ng-repeat="order in orders">
+                <tr class="text-center" ng-repeat="order in myOrders">
                   <td>
                     <span class="mobile">TRANSACTION ID</span> {{order.transactionid}} </td>
                   <td>
-                    <span class="mobile">DATE </span>{{order.date}} </td>
+                    <span class="mobile">DATE </span>{{order.date | date:'mediumDate'}}</td>
                   <td>
-                    <span class="mobile">AMOUNT</span>{{order.amount}} </td>
+                    <span class="mobile">AMOUNT</span>{{order.amount}}</td>
                   <td>
                     <span class="mobile">STATUS</span>{{order.status}}</td>
                   <td>
@@ -42,10 +42,10 @@
               </tbody>
             </table>
           </div>
-          <div class="text-center" ng-if="!orders">No orders yet.</div>
+          <!--<div class="text-center" ng-if="!orders">No orders yet.</div>-->
         </div>
       </div>
     </div>
-    <div class="account-bg no-bg"></div>
+    <!--<div class="account-bg no-bg"></div>-->
   </div>
 </section>

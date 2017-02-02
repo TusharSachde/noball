@@ -6840,16 +6840,45 @@ $scope.singleAmount = 850;
             })
         }
         cfpLoadingBar.start();
-        NavigationService.getOrders(function(data) {
-            cfpLoadingBar.complete();
-            $scope.msg = "";
-            if (data.value == false) {
-                $scope.msg = "No orders";
-            }
-            $scope.orders = data;
-        }, function(err) {
-            console.log(err);
-        });
+        // NavigationService.getOrders(function(data) {
+        //     cfpLoadingBar.complete();
+        //     $scope.msg = "";
+        //     if (data.value == false) {
+        //         $scope.msg = "No orders";
+        //     }
+        //     $scope.orders = data;
+        // }, function(err) {
+        //     console.log(err);
+        // });
+        $scope.user = $.jStorage.get('user');
+        if (user) {
+            NavigationService.getCustomizeOrder(user.email, function(data) {
+                cfpLoadingBar.complete();
+                $scope.msg = "";
+                if (data.value == false) {
+                    $scope.msg = "No orders";
+                }
+                console.log('mydata', data);
+                $scope.orders = data.data;
+                $scope.myOrders = [];
+
+                if ($scope.orders) {
+                    for (var i = 0;  i < $scope.orders.length; i++) {
+                        $scope.description = JSON.parse($scope.orders[i].description);
+                        $scope.singleOrder = {
+                            'transactionid': $scope.orders[i].transactionid,
+                            'date': Date($scope.orders[i].date),
+                            'amount': $scope.description.totalAmount + 500,
+                            'status': $scope.orders[i].status
+                        };
+                        $scope.myOrders.push($scope.singleOrder);
+                    }
+                }
+
+            }, function(err) {
+                console.log(err);
+            });
+        }
     })
     .controller('OrderSummaryCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $window, cfpLoadingBar) {
         //Used to name the .html file
@@ -6865,6 +6894,8 @@ $scope.singleAmount = 850;
             function(data) {
             console.log('Order Summary data: ', data);
             $scope.tshirtdata = JSON.parse(data.description);
+
+            $.jStorage.set('latestorder', JSON.parse(data.description));
 
             // $scope.tshirtdata = $.jStorage.get('oditshirtdata');
             // $scope.tshirtdata = $scope.tshirtdata.odishirt;
@@ -6997,6 +7028,21 @@ $scope.singleAmount = 850;
 
             }
         };
+
+        $scope.latestOrder = $.jStorage.get('latestorder');
+        $scope.totalAmount = $scope.latestOrder.totalAmount;
+        $scope.user = $.jStorage.get('user');
+
+        $scope.goToOrder = function() {
+            if (user) {
+                NavigationService.saveOrder(user.email, $scope.latestOrder, 'odishirt', 'processing', function(data) {
+                    console.log(data);
+                    $state.go('order');
+                }, function (err) {
+                    console.log(err);
+                });
+            }
+        }
 
         $scope.openForgot = function() {
             $uibModal.open({
