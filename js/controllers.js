@@ -6857,7 +6857,7 @@ $scope.singleAmount = 850;
         $scope.menutitle = NavigationService.makeactive("OrderSummary");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-        $scope.tshirtdata = {};
+        // $scope.tshirtdata = {};
 
         console.log('id: ', $state.params.id);
 
