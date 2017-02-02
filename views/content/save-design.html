@@ -9,7 +9,7 @@
   <div class="container check-out">
     <div class="tab-content">
       <!--<pre>{{savedDesigns | json}}</pre>-->
-      <div class="row">
+      <div class="row" ng-if="savedDesigns">
         <div class="col-md-4 col-sm-6" ng-repeat="design in savedDesigns track by $index">
           <div class="design-patt text-center">
             <div class="gully-shirt saved-design">
