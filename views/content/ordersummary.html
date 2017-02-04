@@ -80,9 +80,9 @@
         <div>
           <p class="inline-block mgb20">Colour: <span class="colour-selection">
                 <div class="options color-selr inline-block mgb20">
-                  <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-if="trimTshirt.highlightBase">Base</button> <span ng-style="{'background-color': '{{trimTshirt.highlightBase.hcolor}}'}" ng-if="trimTshirt.highlightBase"></span>
-                  <button class="{{classhide}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-if="trimTshirt.highlightOne">Trim 1</button> <span ng-style="{'background-color': '{{trimTshirt.highlightOne.hcolor}}'}" ng-if="trimTshirt.highlightOne"></span>
-                  <button class="{{classhide}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-if="trimTshirt.highlightTwo">Trim 2</button> <span ng-style="{'background-color': '{{trimTshirt.highlightTwo.hcolor}}'}" ng-if="trimTshirt.highlightTwo"></span>
+                  <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-if="trimTshirt.highlightBase.hcolor">Base</button> <span ng-style="{'background-color': '{{trimTshirt.highlightBase.hcolor}}'}" ng-if="trimTshirt.highlightBase.hcolor"></span>
+                  <button class="{{classhide}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-if="trimTshirt.highlightOne.hcolor">Trim 1</button> <span ng-style="{'background-color': '{{trimTshirt.highlightOne.hcolor}}'}" ng-if="trimTshirt.highlightOne.hcolor"></span>
+                  <button class="{{classhide}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-if="trimTshirt.highlightTwo.hcolor">Trim 2</button> <span ng-style="{'background-color': '{{trimTshirt.highlightTwo.hcolor}}'}" ng-if="trimTshirt.highlightTwo.hcolor"></span>
                   <button class="{{classhide}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-if="trimTshirt.highlightCollar">Collar</button> <span ng-style="{'background-color': '{{trimTshirt.highlightCollar.hcolor}}'}" ng-if="trimTshirt.highlightCollar"></span>
               </div>
               </span>
@@ -122,26 +122,62 @@
             <div class="inline-block quantity-number pdl10" ng-if="quantitySizeS > 0">
               <span>S</span>
               <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-click="tabchanges('light3',3)">{{quantitySizeS}}</button>
+              <ul class="sizeUlli">
+                <li ng-repeat="n in nameS">
+                  <span>{{n.name}}</span>
+                  <span>{{n.no}}</span>
+                </li>
+              </ul>
             </div>
             <div class="inline-block quantity-number pdl10" ng-if="quantitySizeM > 0">
               <span>M</span>
               <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-click="tabchanges('light3',3)">{{quantitySizeM}}</button>
+              <ul class="sizeUlli">
+                <li ng-repeat="n in nameM">
+                  <span>{{n.name}}</span>
+                  <span>{{n.no}}</span>
+                </li>
+              </ul>
             </div>
             <div class="inline-block quantity-number pdl10" ng-if="quantitySizeL > 0">
               <span>L</span>
               <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-click="tabchanges('light3',3)">{{quantitySizeL}}</button>
+              <ul class="sizeUlli">
+                <li ng-repeat="n in nameL">
+                  <span>{{n.name}}</span>
+                  <span>{{n.no}}</span>
+                </li>
+              </ul>
             </div>
             <div class="inline-block quantity-number pdl10" ng-if="quantitySizeXL > 0">
               <span>XL</span>
               <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-click="tabchanges('light3',3)">{{quantitySizeXL}}</button>
+              <ul class="sizeUlli">
+                <li ng-repeat="n in nameXL">
+                  <span>{{n.name}}</span>
+                  <span>{{n.no}}</span>
+                </li>
+              </ul>
             </div>
             <div class="inline-block quantity-number pdl10" ng-if="quantitySizeXXL > 0">
               <span>XXL</span>
               <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-click="tabchanges('light3',3)">{{quantitySizeXXL}}</button>
+              <ul class="sizeUlli">
+                <li ng-repeat="n in nameXXL">
+                  <span>{{n.name}}</span>
+                  <span>{{n.no}}</span>
+                </li>
+              </ul>
             </div>
             <div class="inline-block quantity-number pdl10" ng-if="quantitySizeXXL > 0">
               <span>XXXL</span>
               <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-click="tabchanges('light3',3)">{{quantitySizeXXXL}}</button>
+              <ul class="sizeUlli">
+                <li ng-repeat="n in nameXXXL">
+                  <span>{{n.name}}</span>
+                  <span>{{n.no}}</span>
+                </li>
+              </ul>
             </div>
             <div class="inline-block quantity-number pdl30">
               <span>TOTAL</span>
@@ -154,7 +190,7 @@
       </div>
       <div class="edit-btn text-left">
         <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN</button>
-        <button ui-sref="checkout" class="btn btn-outline btn-dark letter-spacing">ADD TO CART</button>
+        <button ui-sref="checkout" class="btn btn-outline btn-dark letter-spacing">CHECKOUT</button>
       </div>
     </div>
   </div>

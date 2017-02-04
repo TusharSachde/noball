@@ -6538,6 +6538,14 @@ h2 {
     }
 }
 
+.sizeUlli {
+    padding: 0;
+    li {
+        text-decoration: none;
+        list-style: none !important;
+    }
+}
+
 .teamlogo-box {
     width: 130px;
     display: inline-block;

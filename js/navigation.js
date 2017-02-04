@@ -15,7 +15,7 @@ var country = "";
 
 // var imgurl = "http://customcricketcompany.com/admin/uploads/";
 // var imgurl = "http://192.168.0.22/cccbackend/uploads/";
-var imgurl = "http://wohlig.co.in/cccbackend/uploads";
+var imgurl = "http://wohlig.co.in/cccbackend/uploads/";
 
 var adminurl = mainurl + "json/";
 var countries = [{
