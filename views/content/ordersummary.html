@@ -6,7 +6,7 @@
       </div>
     </div>
   </div>
-  <div class="container" ng-if="tshirtdata && tshirtdata.designType == 'odi'">
+  <div class="container" ng-if="tshirtdata && tshirtdata.designType === 'odi' || tshirtdata.designType === 'training' || tshirtdata.designType === 'whites'">
     <div class="product-detail">
       <div class="row">
         <!--<pre>{{customizedShirt}}</pre>
@@ -246,6 +246,85 @@
     </div>
   </div>
   </div>
+  </div>
+
+
+  <!-- *************************************************************** GLOVES ***************************************************************************** -->
+  <div class="container" ng-if="tshirtdata && tshirtdata.designType == 'gloves'">
+    <div class="product-detail">
+      <div class="row">
+        <!--<pre>{{customizedShirt}}</pre>
+        <pre>{{trimTshirt}}</pre>
+        <pre>{{jerseyBackArr}}</pre>-->
+        <div class="col-md-5">
+          <div class="" id="style-2">
+            <div class="text-center">
+              <div class="gully-shirt" ng-if="Arrayname=='$scope.glovesImages1'">
+                  <img src="{{selectedImage}}" class="img-responsive" alt="">
+              </div>
+              <div class="gully-shirt" ng-if="Arrayname=='$scope.glovesImages2'">
+                  <img src="{{selectedImage}}" class="img-responsive" alt="">
+              </div>
+              <div class="gully-shirt" ng-if="Arrayname=='$scope.glovesImages3'">
+                  <img src="{{selectedImage}}" class="img-responsive" alt="">
+              </div>
+              <div class="gloves-logo" ng-if="glovesLogo.image" ng-style="glovesLogo.divattributes">
+                  <img ng-src="{{glovesLogo.image | serverimage}}" class="img-responsive" alt="" ng-style="glovesLogo.attributes">
+              </div>
+          </div>
+        </div>
+      </div>
+    <div class="col-md-7">
+      <div class="desc-sec">
+        <h3 class="sum-head">SUMMARY</h3>
+        <hr>
+        <p class="mgb20 inline-block">Design: </p><span class="designer-name">SWITCH</span>
+        <div>
+          <!--<p class="inline-block mgb20">Colour: <span class="colour-selection">
+                <div class="options color-selr inline-block mgb20">
+                  <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-if="baseColor">Base</button> <span ng-style="{'background-color': '{{baseColor}}'}" ng-if="baseColor"></span>
+              </div>
+              </span>
+          </p>-->
+        </div>
+        <div class="mgb20" ng-if="glovesLogo.image">
+          <p class="inline-block mgb20 wd88">Team Logo:</p>
+          <div class="team-logo inline-block mgl-20 va-mid">
+            <img ng-src="{{glovesLogo.image | serverimage}}" alt="" class="img-responsive logo-img">
+          </div>
+        </div>
+        <div class="mgb20">
+        <p class="inline-block mgr-10">Order Quantity:</p>
+          <div class="inline-block">
+            <div class="inline-block quantity-number pdl10" ng-if="quantityLeft > 0">
+              <span>Left</span>
+              <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-click="tabchanges('light3',3)">{{quantityLeft}}</button>
+            </div>
+            <div class="inline-block quantity-number pdl10" ng-if="quantityRight > 0">
+              <span>Right</span>
+              <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-click="tabchanges('light3',3)">{{quantityRight}}</button>
+            </div>
+            <div class="inline-block quantity-number pdl30">
+              <span>TOTAL</span>
+              <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-click="tabchanges('light3',3)">{{totalQuan}}</button>
+            </div>
+          </div>
+        </div>
+        <!--<h3 class="mgb20">Price: <i class="fa fa-inr va-sub"></i>{{totalAmount}}</h3>-->
+        <h3 class="mgb20 inline-block">Price:</h3>
+        <div class="inline-block mgb20 mgl-10 fs-16"><i class="fa fa-inr va-sub"></i> {{totalAmount}}</div>
+        <textarea rows="5" placeholder="comments" class="wd100"></textarea>
+      </div>
+      <div class="edit-btn text-left">
+        <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN</button>
+        <button ui-sref="checkout" class="btn btn-outline btn-dark letter-spacing">CHECKOUT</button>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+
 
   <!--<div class="row">
     <div class="second-sec">
@@ -366,5 +445,4 @@
   </div>
   </div>
   </div>-->
-  </div>
 </section>

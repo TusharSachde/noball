@@ -3268,9 +3268,14 @@ $scope.singleAmount = 850;
         }
     };
 
+    $scope.addQuantity();
+
+    $scope.glovesDesign = {};
 
     $scope.selectDesign = function(item) {
         console.log(item);
+        $scope.glovesDesign.name = item.name;
+        $scope.glovesDesign.image = item.img[0];
         $scope.Arrayname = item.name;
         $scope.selectedImage = item.img[0];
         console.log($scope.Arrayname);
@@ -3295,15 +3300,19 @@ $scope.singleAmount = 850;
         $scope.changeGlovesImages = function(color) {
                 console.log(color);
                 $scope.glovesColors = color;
+                $scope.glovesDesign.color = $scope.glovesColors;
                 if ($scope.Arrayname == '$scope.glovesImages1') {
                     console.log('here');
                     $scope.selectedImage = $scope.glovesImages1[color][0];
+                    $scope.glovesDesign.image = $scope.glovesImages1[color][0];
                 }
                 if ($scope.Arrayname == '$scope.glovesImages2') {
                     $scope.selectedImage = $scope.glovesImages2[color][0];
+                    $scope.glovesDesign.image = $scope.glovesImages2[color][0];
                 }
                 if ($scope.Arrayname == '$scope.glovesImages3') {
                     $scope.selectedImage = $scope.glovesImages3[color][0];
+                    $scope.glovesDesign.image = $scope.glovesImages3[color][0];
                 }
 
                 $rootScope.$broadcast('changeImage', {});
@@ -3331,6 +3340,15 @@ $scope.singleAmount = 850;
     $scope.emptyImage = function(key) {
         $scope.glovesLogo.image = null;
     }
+
+    $scope.openLogin = function() {
+        $uibModal.open({
+            animation: true,
+            templateUrl: 'views/modal/login.html',
+            controller: 'headerctrl',
+            scope: $scope
+        })
+    };
 
     $scope.selectGlovesImage = function(image) {
         console.log(image);
@@ -3478,6 +3496,38 @@ $scope.singleAmount = 850;
     //tab changes
 
 
+    $scope.toOrderSummary = function() {
+        $scope.tl = "";
+        $scope.user = $.jStorage.get("user");
+		if (user) {
+            if ($scope.glovesLogo.image) {
+                $scope.tl = $scope.glovesLogo.image;
+            }
+			$scope.combineJSON = {
+				"glovesLogo": $scope.glovesLogo,
+				"glovesArr": $scope.glovesArr,
+				"glovesDesign": $scope.glovesDesign,
+                "teamlogo": $scope.tl,
+				"totalAmount": $scope.totalAmount,
+				"totalQuan": $scope.totalQuan,
+                "designType": 'gloves'
+			};
+			$scope.lastJSON = JSON.stringify($scope.combineJSON);
+			console.log($scope.combineJSON);
+			console.log($scope.lastJSON);
+			NavigationService.orderSummaryGloves(user.email, $scope.combineJSON, $scope.tl, 'gloves',
+				function(data) {
+				console.log('Order Summary gloves data: ', data);
+				$state.go('ordersummary', { id: data.id });
+			}, function(err) {
+				console.log(err);
+			});
+		} else {
+			$scope.openLogin();
+		}
+    }
+
+
     $scope.tab = "design";
     $scope.classa = 'active';
     $scope.classb = '';
@@ -3543,21 +3593,21 @@ $scope.singleAmount = 850;
 
     //    end
 
-    $scope.toOrderSummary = function() {
-        $scope.allLogos = {};
-        $scope.combineJSON = {
-            "gloves": {
-                "gloves": $scope.glovesArr,
-                "allLogos": $scope.glovesLogo,
-                "totalAmount": $scope.totalAmount,
-                "totalQuan": $scope.totalQuan
-            },
-            "type": "gloves"
-        };
-        $scope.lastJSON = JSON.stringify($scope.combineJSON);
-        console.log($scope.combineJSON);
-        console.log($scope.lastJSON);
-    }
+    // $scope.toOrderSummary = function() {
+    //     $scope.allLogos = {};
+    //     $scope.combineJSON = {
+    //         "gloves": {
+    //             "gloves": $scope.glovesArr,
+    //             "allLogos": $scope.glovesLogo,
+    //             "totalAmount": $scope.totalAmount,
+    //             "totalQuan": $scope.totalQuan
+    //         },
+    //         "type": "gloves"
+    //     };
+    //     $scope.lastJSON = JSON.stringify($scope.combineJSON);
+    //     console.log($scope.combineJSON);
+    //     console.log($scope.lastJSON);
+    // }
 
 
     $scope.openUpload = function() {
@@ -6964,7 +7014,7 @@ $scope.singleAmount = 850;
                                 'id': $scope.orders[i].id,
                                 'transactionid': $scope.orders[i].transactionid,
                                 'date': Date($scope.orders[i].date),
-                                'amount': $scope.description.totalAmount + 500,
+                                'amount': $scope.description.totalAmount,
                                 'status': $scope.orders[i].status,
                             };
                             $scope.myOrders.push($scope.singleOrder);
@@ -6993,7 +7043,7 @@ $scope.singleAmount = 850;
             data = data.data;
             $scope.tshirtdata = JSON.parse(data.description);
 
-            if ($scope.tshirtdata.designType === 'odi') {
+            if ($scope.tshirtdata.designType === 'odi' || $scope.tshirtdata.designType === 'training' || $scope.tshirtdata.designType === 'whites') {
 
                 $scope.fulldata = {
                     "description": JSON.parse(data.description),
@@ -7002,7 +7052,8 @@ $scope.singleAmount = 850;
                     "rightsleeve": data.rightsleeve,
                     "backsponser": data.backsponser,
                     "teamlogo": data.teamlogo,
-                    "rightchest": data.rightchest
+                    "rightchest": data.rightchest,
+                    "data": data
                 }
 
                 $.jStorage.set('latestorder', $scope.fulldata);
@@ -7147,7 +7198,45 @@ $scope.singleAmount = 850;
                     "description": JSON.parse(data.description),
                     "batText": $scope.tshirtdata.batText,
                     "batQuantity": $scope.tshirtdata.batQuantity,
-                    "totalAmount": $scope.tshirtdata.totalAmount
+                    "totalAmount": $scope.tshirtdata.totalAmount,
+                    "data": data
+                }
+
+                $.jStorage.set('latestorder', $scope.fulldata);
+            } else if ($scope.tshirtdata.designType === 'gloves') {
+                console.log($scope.tshirtdata);
+
+                $scope.tshirtdata.designType = 'gloves';
+
+                $scope.Arrayname = $scope.tshirtdata.glovesDesign.name;
+                $scope.selectedImage = $scope.tshirtdata.glovesDesign.image;
+                $scope.baseColor = $scope.tshirtdata.glovesDesign.color;
+
+                $scope.glovesLogo = $scope.tshirtdata.glovesLogo;
+                $scope.totalAmount = $scope.tshirtdata.totalAmount;
+                $scope.glovesArr = $scope.tshirtdata.glovesArr;
+                $scope.totalQuan = $scope.tshirtdata.totalQuan;
+
+                $scope.nameLeft = [];
+                $scope.nameRight = [];
+                $scope.quantityLeft = 0;
+                $scope.quantityRight = 0;
+
+                for (var i = 0; i < $scope.glovesArr.length; i++) {
+                    if ($scope.glovesArr[i].direction === 'left') {
+                        $scope.quantityLeft += $scope.glovesArr[i].quantity;
+                    } else if ($scope.glovesArr[i].direction === 'right') {
+                        $scope.quantityRight += $scope.glovesArr[i].quantity;
+                    }
+                }
+
+                $scope.fulldata = {
+                    "description": JSON.parse(data.description),
+                    "glovesArr": $scope.tshirtdata.glovesArr,
+                    "glovesLogo": $scope.tshirtdata.glovesLogo,
+                    "totalQuan": $scope.tshirtdata.totalQuan,
+                    "totalAmount": $scope.tshirtdata.totalAmount,
+                    "data": data
                 }
 
                 $.jStorage.set('latestorder', $scope.fulldata);
@@ -7198,6 +7287,7 @@ $scope.singleAmount = 850;
         $scope.backsponser = $scope.latestOrder.backsponser;
         $scope.teamlogo = $scope.latestOrder.teamlogo;
 
+        // $scope.latestOrder.description = JSON.parse($scope.latestOrder.description);
         $scope.totalAmount = $scope.latestOrder.description.totalAmount;
 
         $scope.user = $.jStorage.get('user');
@@ -7215,6 +7305,18 @@ $scope.singleAmount = 850;
                     });
                 } else if ($scope.latestOrder.description.designType === 'bat') {
                     NavigationService.saveOrderBat(user.email, $scope.latestOrder, 'bat', function(data) {
+                        console.log(data);
+                        $state.go('order');
+                        $.jStorage.set('latestorder', "");
+                    }, function (err) {
+                        console.log(err);
+                    });
+                } else if ($scope.latestOrder.data.type === 'gloves') {
+                    $scope.tl = "";
+                    if ($scope.latestOrder.glovesLogo.image) {
+                        $scope.tl = $scope.latestOrder.glovesLogo.image;
+                    }
+                    NavigationService.saveOrderGloves(user.email, $scope.latestOrder, $scope.tl, 'gloves', function(data) {
                         console.log(data);
                         $state.go('order');
                         $.jStorage.set('latestorder', "");
