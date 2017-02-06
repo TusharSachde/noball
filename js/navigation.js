@@ -628,25 +628,36 @@ var navigationservice = angular.module('navigationservice', [])
         }
       }).success(callback).error(err);
     },
-    orderSummary: function(user, jsonData, type, callback, err) {
-      //var currency = $.jStorage.get("myCurrency");
-      // var orderData = {
-      //     "type": "custom",
-      //     "custom": cart,
-      //     "teamlogo": tl,
-      //     "logo1": ml,
-      //     "logo2": rc,
-      //     "logo3": ls,
-      //     "logo4": rs
-      //   };
+    orderSummaryOdi: function(user, jsonData, ml, bl, rc, ls, rs, tl, type, callback, err) {
       var myData = {
-        "user": user,
+        "email": user,
+        "description": jsonData,
+        "type": type,
+        "mainsponserlogo": ml,
+        "leftsleeve": ls,
+        "rightsleeve": rs,
+        "backsponser": bl,
+        "teamlogo": tl,
+        "rightchest": rc
+      };
+      
+      console.log(JSON.stringify(jsonData));
+      return $http({
+        url: adminurl + "saveCustomizeOrder",
+        method: "POST",
+        data: myData
+      }).success(callback).error(err);
+    },
+    orderSummaryBat: function(user, jsonData, type, callback, err) {
+      var myData = {
+        "email": user,
         "description": jsonData,
         "type": type
       };
+      
       console.log(JSON.stringify(jsonData));
       return $http({
-        url: adminurl + "addCustomOrder",
+        url: adminurl + "saveCustomizeOrder",
         method: "POST",
         data: myData
       }).success(callback).error(err);
@@ -657,7 +668,7 @@ var navigationservice = angular.module('navigationservice', [])
       };
       // console.log(JSON.stringify(jsonData));
       return $http({
-        url: adminurl + "getCustomOrder",
+        url: adminurl + "getCustomizeOrder",
         method: "POST",
         data: myData
       }).success(callback).error(err);
@@ -685,26 +696,31 @@ var navigationservice = angular.module('navigationservice', [])
         data: myData
       }).success(callback).error(err);
     },
-    saveOrder: function(user, jsonData, type, status, callback, err) {
+    saveOrderOdi: function(user, jsonData, ml, rc, ls, rs, bl, tl, type, callback, err) {
       var myData = {
-        "user": user,
+        "email": user,
         "description": jsonData,
         "type": type,
-        "status": status
+        "mainsponserlogo": ml,
+        "leftsleeve": ls,
+        "rightsleeve": rs,
+        "backsponser": bl,
+        "teamlogo": tl,
+        "rightchest": rc
       };
       console.log(JSON.stringify(jsonData));
       return $http({
-        url: adminurl + "saveCustomizeOrder",
+        url: adminurl + "addCustomOrder",
         method: "POST",
         data: myData
       }).success(callback).error(err);
     },
-    getCustomizeOrder: function(user, callback, err) {
+    getAllCustomOrder: function(user, callback, err) {
       var myData = {
         "user": user
       };
       return $http({
-        url: adminurl + "getCustomizeOrder",
+        url: adminurl + "getAllCustomOrder",
         method: "POST",
         data: myData
       }).success(callback).error(err);

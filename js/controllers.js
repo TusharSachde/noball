@@ -4447,6 +4447,7 @@ $scope.singleAmount = 850;
     };
 
     $scope.toOrderSummary = function() {
+        $scope.ml = ""; $scope.bl = ""; $scope.rc = ""; $scope.ls = ""; $scope.rs = ""; $scope.tl = "";
         $scope.user = $.jStorage.get("user");
 		if (user) {
 			$scope.allLogos = {};
@@ -4468,6 +4469,26 @@ $scope.singleAmount = 850;
 			if ($scope.customizedShirt.backlogo) {
 				$scope.allLogos.backlogo = $scope.customizedShirt.backlogo.image;
 			}
+
+
+            if ($scope.customizedShirt.mainlogo) {
+                $scope.ml = $scope.customizedShirt.mainlogo.image;
+            }
+            if ($scope.customizedShirt.backlogo) {
+				$scope.bl = $scope.customizedShirt.backlogo.image;
+			}
+            if ($scope.customizedShirt.rightchest) {
+                $scope.rc = $scope.customizedShirt.rightchest.image;
+            }
+            if ($scope.customizedShirt.leftsleeve) {
+                $scope.ls = $scope.customizedShirt.leftsleeve.image;
+            }
+            if ($scope.customizedShirt.rightsleeve) {
+                $scope.rs = $scope.customizedShirt.rightsleeve.image;
+            }
+            if ($scope.customizedShirt.teamlogo) {
+                $scope.tl = $scope.customizedShirt.teamlogo.image;
+            }
 			$scope.combineJSON = {
 				"trim": $scope.trimTshirt,
 				"customizedShirt": $scope.customizedShirt,
@@ -4481,9 +4502,9 @@ $scope.singleAmount = 850;
 			$scope.lastJSON = JSON.stringify($scope.combineJSON);
 			console.log($scope.combineJSON);
 			console.log($scope.lastJSON);
-			NavigationService.orderSummary(user.email, $scope.combineJSON, 'odishirt',
+			NavigationService.orderSummaryOdi(user.email, $scope.combineJSON, $scope.ml, $scope.bl, $scope.rc, $scope.ls, $scope.rs, $scope.tl, 'odishirt',
 				function(data) {
-				console.log('Order Summary data: ', data);
+				console.log('Order Summary odi data: ', data);
 				$state.go('ordersummary', { id: data.id });
 			}, function(err) {
 				console.log(err);
@@ -6209,6 +6230,20 @@ $scope.singleAmount = 850;
     $scope.customBat = {};
     $scope.customBat.text = '';
 
+    $scope.goToOrderSummary = function() {
+        $scope.combineJSON = {
+            "batText": $scope.customBat.text,
+            "batQuantity": $scope.customBat.quantity
+        };
+        NavigationService.orderSummaryBat(user.email, $scope.combineJSON, 'bat',
+            function(data) {
+            console.log('Order Summary bat data: ', data);
+            $state.go('ordersummary', { id: data.id });
+        }, function(err) {
+            console.log(err);
+        });
+    }
+
     $scope.UploadTeamLogo = function() {
         check = 2;
         $uibModal.open({
@@ -6882,6 +6917,11 @@ $scope.singleAmount = 850;
                 order.fedex = data.TrackPackagesResponse.packageList[0];
             })
         }
+        $scope.goOrderSummary = function(orderid) {
+            // $state.go('ordersummary', { id: orderid });
+            // $window.open('http://localhost:8080/#/ordersummary/' + orderid, '_blank');
+            $window.open('http://wohlig.co.in/ccctest/#/ordersummary/' + orderid, '_blank');
+        }
         cfpLoadingBar.start();
         // NavigationService.getOrders(function(data) {
         //     cfpLoadingBar.complete();
@@ -6895,26 +6935,29 @@ $scope.singleAmount = 850;
         // });
         $scope.user = $.jStorage.get('user');
         if (user) {
-            NavigationService.getCustomizeOrder(user.email, function(data) {
+            NavigationService.getAllCustomOrder(user.email, function(data) {
                 cfpLoadingBar.complete();
                 $scope.msg = "";
                 if (data.value == false) {
                     $scope.msg = "No orders";
-                }
-                console.log('mydata', data);
-                $scope.orders = data.data;
-                $scope.myOrders = [];
+                } else {
+                    console.log('mydata', data);
+                    $scope.orders = data.data;
+                    $scope.myOrders = [];
 
-                if ($scope.orders) {
-                    for (var i = 0;  i < $scope.orders.length; i++) {
-                        $scope.description = JSON.parse($scope.orders[i].description);
-                        $scope.singleOrder = {
-                            'transactionid': $scope.orders[i].transactionid,
-                            'date': Date($scope.orders[i].date),
-                            'amount': $scope.description.totalAmount + 500,
-                            'status': $scope.orders[i].status
-                        };
-                        $scope.myOrders.push($scope.singleOrder);
+                    if ($scope.orders) {
+                        for (var i = 0;  i < $scope.orders.length; i++) {
+                            $scope.description = JSON.parse($scope.orders[i].description);
+                            console.log(JSON.parse($scope.orders[i].description));
+                            $scope.singleOrder = {
+                                'id': $scope.orders[i].id,
+                                'transactionid': $scope.orders[i].transactionid,
+                                'date': Date($scope.orders[i].date),
+                                'amount': $scope.description.totalAmount + 500,
+                                'status': $scope.orders[i].status,
+                            };
+                            $scope.myOrders.push($scope.singleOrder);
+                        }
                     }
                 }
 
@@ -6936,9 +6979,20 @@ $scope.singleAmount = 850;
         NavigationService.getOrderSummary($state.params.id,
             function(data) {
             console.log('Order Summary data: ', data);
+            data = data.data;
             $scope.tshirtdata = JSON.parse(data.description);
 
-            $.jStorage.set('latestorder', JSON.parse(data.description));
+            $scope.fulldata = {
+                "description": JSON.parse(data.description),
+                "mainsponserlogo": data.mainsponserlogo,
+                "leftsleeve": data.leftsleeve,
+                "rightsleeve": data.rightsleeve,
+                "backsponser": data.backsponser,
+                "teamlogo": data.teamlogo,
+                "rightchest": data.rightchest
+            }
+
+            $.jStorage.set('latestorder', $scope.fulldata);
 
             // $scope.tshirtdata = $.jStorage.get('oditshirtdata');
             // $scope.tshirtdata = $scope.tshirtdata.odishirt;
@@ -7098,26 +7152,37 @@ $scope.singleAmount = 850;
         $scope.shippingfulladdress = "";
         $scope.shippingcharges = 0;
         $scope.discount = 0;
+        $scope.totalAmount = 0;
         $scope.country = $.jStorage.get("myCurrency");
         $scope.acceptIt = function(flag) {
             if (flag === true) {
                 $scope.acceptValidate = false;
-
             } else {
                 $scope.acceptValidate = true;
-
             }
         };
 
         $scope.latestOrder = $.jStorage.get('latestorder');
-        $scope.totalAmount = $scope.latestOrder.totalAmount;
+        console.log($scope.latestOrder);
+
+        $scope.mainsponserlogo = $scope.latestOrder.mainsponserlogo;
+        $scope.rightchest = $scope.latestOrder.rightchest;
+        $scope.leftsleeve = $scope.latestOrder.leftsleeve;
+        $scope.rightsleeve = $scope.latestOrder.rightsleeve;
+        $scope.backsponser = $scope.latestOrder.backsponser;
+        $scope.teamlogo = $scope.latestOrder.teamlogo;
+
+        $scope.totalAmount = $scope.latestOrder.description.totalAmount;
+
         $scope.user = $.jStorage.get('user');
 
         $scope.goToOrder = function() {
             if (user) {
-                NavigationService.saveOrder(user.email, $scope.latestOrder, 'odishirt', 'processing', function(data) {
+                NavigationService.saveOrderOdi(user.email, $scope.latestOrder, $scope.mainsponserlogo, $scope.rightchest, $scope.leftsleeve,
+                $scope.rightsleeve, $scope.backsponser, $scope.teamlogo, 'odishirt', function(data) {
                     console.log(data);
                     $state.go('order');
+                    $.jStorage.set('latestorder', "");
                 }, function (err) {
                     console.log(err);
                 });
