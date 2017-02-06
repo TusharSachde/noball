@@ -102,7 +102,7 @@
                             <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('team',3)">NEXT</button>
                         </div>
                         <div class="customize-design">
                             <span>Learn How To Customise Your Design By </span>
@@ -208,7 +208,7 @@
                                 <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                             </div>
                             <div class="edit-btn inline-block">
-                                <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+                                <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('quantity',5)">NEXT</button>
                             </div>
                         </div>
 
@@ -554,9 +554,10 @@
                         </div>
                         <div class="quanity-box inline-block">
                             <span>Select Quantity</span>
-                            <input type="number">
+                            <input type="number" ng-model="customBat.quantity" ng-change="changeAmount()">
                             <span>Pieces</span>
                         </div>
+                        <pre>{{customBat}}</pre>
                         <!--<div class="accordion">
 
                             <uib-accordion close-others="oneAtATime">
@@ -770,7 +771,7 @@
                         </div>-->
                         <div class="edit-btn">
                             <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>
-                            <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5">next</button>
+                            <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" ng-click="goToOrderSummary()">next</button>
                             <br>
                         </div>
                     </div>

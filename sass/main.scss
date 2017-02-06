@@ -6640,8 +6640,10 @@ h2 {
         letter-spacing: 1px;
     }
     h3{
+        width: 150px;
     font-family: Raleway-Medium;
     letter-spacing: 2px;
+    text-align: right;
     }
     hr {
         border-top: 2px solid #eeeeee;
@@ -6802,8 +6804,14 @@ padding-right: 10px;
 .mgl-20{
   margin-left: 20px;
 }
+.mgl-10{
+  margin-left: 10px;
+}
 .h300 {
     height: 300px !important;
+}
+.fs-16 {
+    font-size: 16px;
 }
 .va-sub{
   vertical-align: sub;

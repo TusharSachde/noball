@@ -6,7 +6,7 @@
       </div>
     </div>
   </div>
-  <div class="container" ng-if="tshirtdata">
+  <div class="container" ng-if="tshirtdata && tshirtdata.designType == 'odi'">
     <div class="product-detail">
       <div class="row">
         <!--<pre>{{customizedShirt}}</pre>
@@ -186,6 +186,57 @@
           </div>
         </div>
         <h3 class="mgb20">Price: <i class="fa fa-inr va-sub"></i>{{totalAmount}}</h3>
+        <textarea rows="5" placeholder="comments" class="wd100"></textarea>
+      </div>
+      <div class="edit-btn text-left">
+        <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN</button>
+        <button ui-sref="checkout" class="btn btn-outline btn-dark letter-spacing">CHECKOUT</button>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+  <!-- *************************************************************** BAT ***************************************************************************** -->
+  <div class="container" ng-if="tshirtdata && tshirtdata.designType == 'bat'">
+    <div class="product-detail">
+      <div class="row">
+        <!--<pre>{{customizedShirt}}</pre>
+        <pre>{{trimTshirt}}</pre>
+        <pre>{{jerseyBackArr}}</pre>-->
+        <div class="col-md-5">
+          <div class="" id="style-2">
+            <div class="text-center">
+              <div class="gully-shirt">
+                  <img src="img/bat/bat.jpg" class="img-responsive" alt="">
+                  <div class="bat-text">
+                      <p>{{tshirtdata.batText}}</p>
+                  </div>
+              </div>
+          <!--<div class="prev inline-block">
+            <p class="uppercase" ng-click="switchFrontBack(false); switchTrimHighlightOne(false, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(false, trimTshirt.highlightTwo.tcolor); switchTrimHighlightBase(false);"><img src="img/back.png" class="img-responsive" alt="">back</p>
+          </div>
+          <div class="next inline-block">
+            <p class="uppercase" ng-click="switchFrontBack(true); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor); switchTrimHighlightBase(true);"><img src="img/back.png" class="img-responsive" alt="">front</p>
+          </div>-->
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <div class="desc-sec">
+        <h3 class="sum-head">SUMMARY</h3>
+        <hr>
+        <p class="mgb20 inline-block">Design: </p><span class="designer-name">VIKINGS</span>
+        <div>
+          <p class="inline-block mgb20">Text:</p>
+          <div class="options inline-block mgb20 mgl-10 fs-16"><span>{{tshirtdata.batText}}</span></div>
+        </div>
+        <div class="">
+        <p class="inline-block mgr-10">Order Quantity:</p>
+          <div class="inline-block mgb20 fs-16"><span>{{tshirtdata.batQuantity}}</span></div>
+        </div>
+        <h3 class="mgb20 inline-block">Price:</h3>
+        <div class="inline-block mgb20 mgl-10 fs-16"><i class="fa fa-inr va-sub"></i> {{tshirtdata.totalAmount}}</div>
         <textarea rows="5" placeholder="comments" class="wd100"></textarea>
       </div>
       <div class="edit-btn text-left">
