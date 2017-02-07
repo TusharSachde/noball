@@ -143,6 +143,7 @@
                       <img ng-src="{{img.src}}" class="img-responsive">
                     </div>
                   </div>
+                  <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="tabchange('trim',2); switchFrontBack(true); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor);">Continue</button>
                   <!--<div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images.training track by $index" ng-if="type==2">
                     <div class="cat-img pointer" ng-click="openDesign($index)" title="Design {{$index + 1}}">
                       <img ng-src="{{img}}" class="img-responsive">
@@ -170,7 +171,7 @@
 
 
             <!--   //trim tab-->
-            <div class="choos m20-l " ng-show="tab=='trim'">
+            <div class="choos m20-l" ng-show="tab=='trim'">
               <div class="options">
                 <button class="{{trimTabs.light3.active}} {{trimTshirt.highlightBase.disable}} classshow btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-click="tabchanges('light3',3)">BASE</button>
                 <button class="{{trimTabs.light1.active}} {{trimTshirt.highlightOne.disable}} classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-click="tabchanges('light1',1)">TRIM 1</button>
@@ -199,8 +200,9 @@
                   <div class="col-md-12">
                     <h4>Choose Your Color</h4>
                     <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in odicolor track by $index">
-                      <div class="colo-pallet text-center ">
-                        <div class="noti-img notihov" ng-class="{{'coloracive':trimTshirt.highlightOne.tcolor == col.name, 'borergrey':col.name == 'white'};" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightTwo(trimTshirt.highlightTwo.flag, col.name); trimHexColors('highlightTwo', col.colr);" title="{{col.name | capitalize}}"></div>
+                      <pre>{{col}}</pre>
+                      <div class="colo-pallet text-center">
+                        <div class="noti-img notihov" ng-class="{{'coloracive':trimTshirt.highlightTwo.tcolor == col.name, 'borergrey':col.name == 'white'};" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightTwo(trimTshirt.highlightTwo.flag, col.name); trimHexColors('highlightTwo', col.colr);" title="{{col.name | capitalize}}"></div>
                       </div>
                     </div>
                   </div>
@@ -215,7 +217,7 @@
                     <h4>Choose Your Color</h4>
                     <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in odibasecolor track by $index">
                       <div class="colo-pallet text-center">
-                        <div class="noti-img notihov" ng-class="{'coloracive':trimTshirt.highlightOne.tcolor == col.name, 'borergrey':col.name == 'white'};" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightBase(trimTshirt.highlightBase.flag, col.name); trimHexColors('highlightBase', col.colr);" title="{{col.name | capitalize}}"></div>
+                        <div class="noti-img notihov" ng-class="{'coloracive':trimTshirt.highlightBase.tcolor == col.name, 'borergrey':col.name == 'white'};" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightBase(trimTshirt.highlightBase.flag, col.name); trimHexColors('highlightBase', col.colr);" title="{{col.name | capitalize}}"></div>
                       </div>
                     </div>
                   </div>

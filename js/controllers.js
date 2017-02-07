@@ -2208,6 +2208,7 @@ $scope.singleAmount = 850;
 
     $scope.singleAmount = 2750;
     $scope.totalAmount = 2750;
+    $scope.totalQuan = 1;
 
     $scope.addQuantity = function(q) {
         $scope.totalQuan = 0;
@@ -2220,8 +2221,14 @@ $scope.singleAmount = 850;
         }
     };
 
+    $scope.addQuantity();
+
+    $scope.padsDesign = {};
+
     $scope.selectPadsDesign = function(item) {
         console.log(item);
+        $scope.padsDesign.name = item.name;
+        $scope.padsDesign.image = item.img[0];
         $scope.Arrayname = item.name;
         $scope.selectedImage = item.img[0];
         console.log($scope.Arrayname);
@@ -2240,12 +2247,15 @@ $scope.singleAmount = 850;
         $scope.changePadsImages = function(color) {
             console.log(color);
             $scope.padColors = color;
+            $scope.padsDesign.color = $scope.padColors;
             if ($scope.Arrayname == '$scope.padImages1') {
                 console.log('here');
                 $scope.selectedImage = $scope.padImages1[color][0];
+                $scope.padsDesign.image = $scope.padImages1[color][0];
             }
             if ($scope.Arrayname == '$scope.padImages2') {
                 $scope.selectedImage = $scope.padImages2[color][0];
+                $scope.padsDesign.image = $scope.padImages2[color][0];
             }
             // if ($scope.Arrayname == '$scope.padImages3') {
             //     $scope.selectedImage = $scope.padImages3[color][0];
@@ -2283,6 +2293,15 @@ $scope.singleAmount = 850;
         }
         $rootScope.$broadcast('changeImage', {});
 
+    };
+
+    $scope.openLogin = function() {
+        $uibModal.open({
+            animation: true,
+            templateUrl: 'views/modal/login.html',
+            controller: 'headerctrl',
+            scope: $scope
+        })
     };
 
     var check = 1;
@@ -2417,6 +2436,37 @@ $scope.singleAmount = 850;
         src: "img/pads/orangepads.png"
     }];
     //tab changes
+
+    $scope.toOrderSummary = function() {
+        $scope.tl = "";
+        $scope.user = $.jStorage.get("user");
+		if (user) {
+            if ($scope.padLogo.image) {
+                $scope.tl = $scope.padLogo.image;
+            }
+			$scope.combineJSON = {
+				"padLogo": $scope.padLogo,
+				"padsArr": $scope.padsArr,
+				"padsDesign": $scope.padsDesign,
+                "teamlogo": $scope.tl,
+				"totalAmount": $scope.totalAmount,
+				"totalQuan": $scope.totalQuan,
+                "designType": 'pads'
+			};
+			$scope.lastJSON = JSON.stringify($scope.combineJSON);
+			console.log($scope.combineJSON);
+			console.log($scope.lastJSON);
+			NavigationService.orderSummaryPads(user.email, $scope.combineJSON, $scope.tl, 'pads',
+				function(data) {
+				console.log('Order Summary pads data: ', data);
+				$state.go('ordersummary', { id: data.id });
+			}, function(err) {
+				console.log(err);
+			});
+		} else {
+			$scope.openLogin();
+		}
+    }
 
 
     $scope.tab = "design";
@@ -7064,6 +7114,7 @@ $scope.singleAmount = 850;
                 console.log($scope.tshirtdata);
 
                 $scope.customizedShirt = $scope.tshirtdata.customizedShirt;
+                $scope.printType = $scope.tshirtdata.customizedShirt.printType;
                 // $scope.customizedShirt.front = true;
                 // $scope.customizedShirt.back = false;
 
@@ -7073,6 +7124,10 @@ $scope.singleAmount = 850;
                 $scope.designType = $scope.tshirtdata.designType;
                 $scope.totalAmount = $scope.tshirtdata.totalAmount;
                 $scope.totalQuan = $scope.tshirtdata.totalQuan;
+                $scope.fontType = $scope.jerseyBackArr[0].font;
+                $scope.fontColor = $scope.jerseyBackArr[0].color;
+                $scope.fontNameSize = $scope.jerseyBackArr[0].attributes.name.fontSize;
+                $scope.fontNumberSize = $scope.jerseyBackArr[0].attributes.number.fontSize;
 
                 $scope.switchFrontBack = function(front) {
                     $scope.customizedShirt.front =  front;
@@ -7240,6 +7295,41 @@ $scope.singleAmount = 850;
                 }
 
                 $.jStorage.set('latestorder', $scope.fulldata);
+            } else if ($scope.tshirtdata.designType === 'pads') {
+                console.log($scope.tshirtdata);
+
+                $scope.tshirtdata.designType = 'pads';
+
+                $scope.Arrayname = $scope.tshirtdata.padsDesign.name;
+                $scope.selectedImage = $scope.tshirtdata.padsDesign.image;
+                $scope.baseColor = $scope.tshirtdata.padsDesign.color;
+
+                $scope.padLogo = $scope.tshirtdata.padLogo;
+                $scope.totalAmount = $scope.tshirtdata.totalAmount;
+                $scope.padsArr = $scope.tshirtdata.padsArr;
+                $scope.totalQuan = $scope.tshirtdata.totalQuan;
+
+                $scope.quantityLeft = 0;
+                $scope.quantityRight = 0;
+
+                for (var i = 0; i < $scope.padsArr.length; i++) {
+                    if ($scope.padsArr[i].direction === 'left') {
+                        $scope.quantityLeft += $scope.padsArr[i].quantity;
+                    } else if ($scope.padsArr[i].direction === 'right') {
+                        $scope.quantityRight += $scope.padsArr[i].quantity;
+                    }
+                }
+
+                $scope.fulldata = {
+                    "description": JSON.parse(data.description),
+                    "padsArr": $scope.tshirtdata.padsArr,
+                    "padLogo": $scope.tshirtdata.padLogo,
+                    "totalQuan": $scope.tshirtdata.totalQuan,
+                    "totalAmount": $scope.tshirtdata.totalAmount,
+                    "data": data
+                }
+
+                // $.jStorage.set('latestorder', $scope.fulldata);
             }
 
             console.log($scope.tshirtdata);

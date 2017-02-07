@@ -571,6 +571,37 @@ a.icon-btn {
     }
 }
 
+.table-ordersummary {
+    thead {
+        margin-bottom: 10px;
+        tr {
+            border: 1px solid black;
+            th {
+                font-weight: 500;
+                border: none;
+            }
+        }
+    }
+    tbody {
+        tr {
+            background-color: #ddd;
+            margin: 10px 0;
+            .size, .sleeve {
+                span {
+                    padding: 2px 10px;
+                    border: 1px solid black;
+                }
+            }
+            .qty, .name, .no {
+                span {
+                    padding: 2px 10px;
+                    background-color: white;
+                }
+            }
+        }
+    }
+}
+
 .ship {
     border-right: 2px solid #7a7a7a;
     border-left: 2px solid #7a7a7a;
@@ -5613,6 +5644,15 @@ a:focus {
     }
 }
 
+.font-color-span {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    margin: 0 0 -10px 20px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+}
+
 .pad-matching,
 .trouser-matching {
     img {
@@ -6812,6 +6852,9 @@ padding-right: 10px;
 }
 .fs-16 {
     font-size: 16px;
+}
+.fs-24 {
+    font-size: 24px;
 }
 .va-sub{
   vertical-align: sub;
