@@ -7329,7 +7329,7 @@ $scope.singleAmount = 850;
                     "data": data
                 }
 
-                // $.jStorage.set('latestorder', $scope.fulldata);
+                $.jStorage.set('latestorder', $scope.fulldata);
             }
 
             console.log($scope.tshirtdata);
@@ -7370,12 +7370,14 @@ $scope.singleAmount = 850;
         $scope.latestOrder = $.jStorage.get('latestorder');
         console.log($scope.latestOrder);
 
-        $scope.mainsponserlogo = $scope.latestOrder.mainsponserlogo;
-        $scope.rightchest = $scope.latestOrder.rightchest;
-        $scope.leftsleeve = $scope.latestOrder.leftsleeve;
-        $scope.rightsleeve = $scope.latestOrder.rightsleeve;
-        $scope.backsponser = $scope.latestOrder.backsponser;
-        $scope.teamlogo = $scope.latestOrder.teamlogo;
+        if ($scope.latestOrder.description.designType === 'odi' || $scope.latestOrder.description.designType === 'training' || $scope.latestOrder.description.designType === 'whites') {
+            $scope.mainsponserlogo = $scope.latestOrder.mainsponserlogo;
+            $scope.rightchest = $scope.latestOrder.rightchest;
+            $scope.leftsleeve = $scope.latestOrder.leftsleeve;
+            $scope.rightsleeve = $scope.latestOrder.rightsleeve;
+            $scope.backsponser = $scope.latestOrder.backsponser;
+            $scope.teamlogo = $scope.latestOrder.teamlogo;
+        }
 
         // $scope.latestOrder.description = JSON.parse($scope.latestOrder.description);
         $scope.totalAmount = $scope.latestOrder.description.totalAmount;
@@ -7407,6 +7409,18 @@ $scope.singleAmount = 850;
                         $scope.tl = $scope.latestOrder.glovesLogo.image;
                     }
                     NavigationService.saveOrderGloves(user.email, $scope.latestOrder, $scope.tl, 'gloves', function(data) {
+                        console.log(data);
+                        $state.go('order');
+                        $.jStorage.set('latestorder', "");
+                    }, function (err) {
+                        console.log(err);
+                    });
+                } else if ($scope.latestOrder.data.type === 'pads') {
+                    $scope.tl = "";
+                    if ($scope.latestOrder.padLogo.image) {
+                        $scope.tl = $scope.latestOrder.padLogo.image;
+                    }
+                    NavigationService.saveOrderGloves(user.email, $scope.latestOrder, $scope.tl, 'pads', function(data) {
                         console.log(data);
                         $state.go('order');
                         $.jStorage.set('latestorder', "");
