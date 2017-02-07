@@ -7508,7 +7508,8 @@ $scope.singleAmount = 850;
                 $scope.msg = "";
                 if (data == "") {
                     $scope.allcart = [];
-                    $scope.msg = "No items in cart.";
+                    // $scope.msg = "No items in cart.";
+                    $scope.msg = "";
                 } else {
                     $scope.allcart = data;
                     _.each($scope.allcart, function(key) {
