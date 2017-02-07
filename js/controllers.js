@@ -2261,7 +2261,7 @@ $scope.singleAmount = 850;
             //     $scope.selectedImage = $scope.padImages3[color][0];
             // }
 
-            $rootScope.$broadcast('changeImage', {});
+            // $rootScope.$broadcast('changeImage', {});
         }
         // $scope.myChoice=item;
     }
@@ -2529,21 +2529,21 @@ $scope.singleAmount = 850;
 
 
     //    end
-    $scope.toOrderSummary = function() {
-        $scope.allLogos = {};
-        $scope.combineJSON = {
-            "pads": {
-                "pads": $scope.padsArr,
-                "allLogos": $scope.padLogo,
-                "totalAmount": $scope.totalAmount,
-                "totalQuan": $scope.totalQuan
-            },
-            "type": "pads"
-        };
-        $scope.lastJSON = JSON.stringify($scope.combineJSON);
-        console.log($scope.combineJSON);
-        console.log($scope.lastJSON);
-    }
+    // $scope.toOrderSummary = function() {
+    //     $scope.allLogos = {};
+    //     $scope.combineJSON = {
+    //         "pads": {
+    //             "pads": $scope.padsArr,
+    //             "allLogos": $scope.padLogo,
+    //             "totalAmount": $scope.totalAmount,
+    //             "totalQuan": $scope.totalQuan
+    //         },
+    //         "type": "pads"
+    //     };
+    //     $scope.lastJSON = JSON.stringify($scope.combineJSON);
+    //     console.log($scope.combineJSON);
+    //     console.log($scope.lastJSON);
+    // }
 
     $scope.openUpload = function() {
         $uibModal.open({
@@ -7384,7 +7384,7 @@ $scope.singleAmount = 850;
 
         $scope.goToOrder = function() {
             if (user) {
-                if ($scope.latestOrder.description.designType === 'odi') {
+                if ($scope.latestOrder.description.designType === 'odi' || $scope.latestOrder.description.designType === 'training' || $scope.latestOrder.description.designType === 'whites') {
                     NavigationService.saveOrderOdi(user.email, $scope.latestOrder, $scope.mainsponserlogo, $scope.rightchest, $scope.leftsleeve,
                     $scope.rightsleeve, $scope.backsponser, $scope.teamlogo, 'odishirt', function(data) {
                         console.log(data);

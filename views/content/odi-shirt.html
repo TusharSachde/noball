@@ -81,8 +81,8 @@
                   <img src="img/logo_green.png" alt="" class="img-responsive">
                 </div>
                 <div ng-if="customizedShirt.back && quantityTab && tabFive" class="{{jerseyBack.font+'-font'}}" ng-style="{'color': jerseyBack.color}">
-                  <div class="odi-t jersey-name uppercase text-center"><p ng-style="jerseyBack.attributes.name">{{jerseyBackArr[0].name}}</p></div>
-                  <div class="odi-t jersey-no text-center" ng-style="jerseyBack.attributes.number">{{jerseyBackArr[0].no}}</div>
+                  <div class="odi-t jersey-name uppercase text-center"><p ng-style="jerseyBackArr[0].attributes.name">{{jerseyBackArr[0].name}}</p></div>
+                  <div class="odi-t jersey-no text-center" ng-style="jerseyBackArr[0].attributes.number">{{jerseyBackArr[0].no}}</div>
                 </div>
                 <!-- <img class="" src="img/people.png" alt=""> -->
                 <!-- <img class="" src="img/people.png" alt=""> -->
@@ -200,7 +200,6 @@
                   <div class="col-md-12">
                     <h4>Choose Your Color</h4>
                     <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in odicolor track by $index">
-                      <pre>{{col}}</pre>
                       <div class="colo-pallet text-center">
                         <div class="noti-img notihov" ng-class="{{'coloracive':trimTshirt.highlightTwo.tcolor == col.name, 'borergrey':col.name == 'white'};" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightTwo(trimTshirt.highlightTwo.flag, col.name); trimHexColors('highlightTwo', col.colr);" title="{{col.name | capitalize}}"></div>
                       </div>
@@ -620,12 +619,12 @@
                               <span>size</span>
                             </div>
                             <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                              <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBack.attributes.name.fontSize" min="0" max="100" model-max="jerseyBack.attributes.name.fontSize" model-min="0" pin-handle="min">
+                              <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBackArr[0].attributes.name.fontSize" min="0" max="100" model-max="jerseyBackArr[0].attributes.name.fontSize" model-min="0" pin-handle="min">
                               </div>
                               <!-- <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBack.attributes.fontSize" min="0" max="100" model-max="jerseyBack.attributes.fontSize" model-min="rslider.min" pin-handle="min"></div> -->
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-3">
-                              <input class="inputtext" type="number" name="mySize" ng-model="jerseyBack.attributes.name.fontSize">
+                              <input class="inputtext" type="number" name="mySize" ng-model="jerseyBackArr[0].attributes.name.fontSize">
                             </div>
                           </div>
                           <!-- <div class="row pad5">
@@ -658,11 +657,11 @@
                               <span>spacing</span>
                             </div>
                             <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                              <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBack.attributes.name.letterSpacing" min="1" max="20" model-max="jerseyBack.attributes.name.letterSpacing" model-min="1" pin-handle="min">
+                              <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBackArr[0].attributes.name.letterSpacing" min="1" max="20" model-max="jerseyBackArr[0].attributes.name.letterSpacing" model-min="1" pin-handle="min">
                               </div>
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-3">
-                              <input class="inputtext" type="number" name="myWordSpace" ng-model="jerseyBack.attributes.name.letterSpacing">
+                              <input class="inputtext" type="number" name="myWordSpace" ng-model="jerseyBackArr[0].attributes.name.letterSpacing">
                             </div>
                           </div>
                         </div>
@@ -675,12 +674,12 @@
                               <span>size</span>
                             </div>
                             <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                              <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBack.attributes.number.fontSize" min="0" max="100" model-max="jerseyBack.attributes.number.fontSize" model-min="0" pin-handle="min">
+                              <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBackArr[0].attributes.number.fontSize" min="0" max="100" model-max="jerseyBackArr[0].attributes.number.fontSize" model-min="0" pin-handle="min">
                               </div>
                               <!-- <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBack.attributes.fontSize" min="0" max="100" model-max="jerseyBack.attributes.fontSize" model-min="rslider.min" pin-handle="min"></div> -->
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-3">
-                              <input class="inputtext" type="number" name="mySize" ng-model="jerseyBack.attributes.number.fontSize">
+                              <input class="inputtext" type="number" name="mySize" ng-model="jerseyBackArr[0].attributes.number.fontSize">
                             </div>
                           </div>
                           <div class="row pad5">
@@ -688,11 +687,11 @@
                               <span>spacing</span>
                             </div>
                             <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                              <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBack.attributes.number.letterSpacing" min="1" max="20" model-max="jerseyBack.attributes.number.letterSpacing" model-min="1" pin-handle="min">
+                              <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBackArr[0].attributes.number.letterSpacing" min="1" max="20" model-max="jerseyBackArr[0].attributes.number.letterSpacing" model-min="1" pin-handle="min">
                               </div>
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-3">
-                              <input class="inputtext" type="number" name="myWordSpace" ng-model="jerseyBack.attributes.number.letterSpacing">
+                              <input class="inputtext" type="number" name="myWordSpace" ng-model="jerseyBackArr[0].attributes.number.letterSpacing">
                             </div>
                           </div>
                         </div>
