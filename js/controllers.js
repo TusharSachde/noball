@@ -3771,7 +3771,7 @@ $scope.singleAmount = 850;
 
     $scope.jerseyBack = {
         'name': '',
-        'no': '00',
+        'no': '',
         'font': 'arial',
         'color': 'white',
         'quantity': 1,
@@ -3794,7 +3794,7 @@ $scope.singleAmount = 850;
     };
     $scope.jerseyBackArr = [{
         'name': '',
-        'no': '00',
+        'no': '',
         'font': 'arial',
         'color': 'white',
         'quantity': 1,
@@ -3835,7 +3835,10 @@ $scope.singleAmount = 850;
         $scope.totalAmount = 0;
         $scope.totalQuan = 0;
         for(var i = 0; i < $scope.jerseyBackArrCount; i++) {
-            $scope.totalQuan += $scope.jerseyBackArr[i].quantity;
+            console.log($scope.jerseyBackArr[i].quantity);
+            if ($scope.jerseyBackArr[i].quantity !== undefined) {
+                $scope.totalQuan += $scope.jerseyBackArr[i].quantity;
+            }
         }
         if ($scope.totalQuan) {
             $scope.totalAmount = $scope.singleAmount * $scope.totalQuan + 5000;

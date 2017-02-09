@@ -128,8 +128,8 @@
                 <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="type=3">Whites</button>
               </div>-->
               <div class="mb20 flex-around">
-                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-show="page==2" ng-click="page=1">Prev</button>
-                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-show="page==1" ng-click="page=2">Next</button>
+                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-show="page==2" ng-click="page=1">Prev Design</button>
+                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-show="page==1" ng-click="page=2">Next Design</button>
               </div>
               <div class="row">
                 <div class="col-md-10">
@@ -143,7 +143,6 @@
                       <img ng-src="{{img.src}}" class="img-responsive">
                     </div>
                   </div>
-                  <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="tabchange('trim',2); switchFrontBack(true); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor);">Continue</button>
                   <!--<div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images.training track by $index" ng-if="type==2">
                     <div class="cat-img pointer" ng-click="openDesign($index)" title="Design {{$index + 1}}">
                       <img ng-src="{{img}}" class="img-responsive">
@@ -156,6 +155,7 @@
                   </div>-->
                 </div>
               </div>
+              <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="tabchange('trim',2); switchFrontBack(true); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor);">Continue</button>
               <!-- <div class="edit-btn inline-block">
                                 <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                             </div>

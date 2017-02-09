@@ -6465,8 +6465,9 @@ h2 {
     .box-custom {
         width: 125px;
         height: 125px;
-        border: 1px solid #000;
+        margin: 0 auto;
         position: relative;
+        border: 1px solid #000;
 
         p {
             width: 100%;
