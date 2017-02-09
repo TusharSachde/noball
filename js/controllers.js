@@ -3945,7 +3945,7 @@ $scope.singleAmount = 850;
         $scope.customizedShirt[variable].name = name;
         console.log($scope.customizedShirt[variable]);
         $scope.tempImage = "";
-    }
+    };
 
     $scope.UploadTeamLogo1 = function() {
         check = 3;
@@ -3953,13 +3953,21 @@ $scope.singleAmount = 850;
             templateUrl: "views/modal/copyrights.html",
             scope: $scope
         })
-    }
+    };
     $scope.openChooseFile = function() {
         $uibModal.open({
             templateUrl: "views/modal/choosefile.html",
             scope: $scope
         })
-    }
+    };
+
+    // $scope.ohYeahBold = false;
+
+    // $scope.makeMeBold = function() {
+    //     if (!$scope.statuses.uploadStatus || !$scope.statuses.permission) {
+    //         $scope.ohYeahBold = true;
+    //     }
+    // };
 
     $scope.trimTshirt.highlightOne.flag = true;
     $scope.trimTshirt.highlightTwo.flag = true;
