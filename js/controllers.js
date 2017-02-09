@@ -7161,6 +7161,7 @@ $scope.singleAmount = 850;
                 $scope.designType = $scope.tshirtdata.designType;
                 $scope.totalAmount = $scope.tshirtdata.totalAmount;
                 $scope.totalQuan = $scope.tshirtdata.totalQuan;
+                $scope.shirtName = $scope.tshirtdata.name;
                 $scope.fontType = $scope.jerseyBackArr[0].font;
                 $scope.fontColor = $scope.jerseyBackArr[0].color;
                 $scope.fontNameSize = $scope.jerseyBackArr[0].attributes.name.fontSize;
