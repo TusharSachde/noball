@@ -5812,7 +5812,7 @@ a:focus {
 
     .ngrs-range-slider {
         margin: 5px 0;
-        padding: 0;
+        padding: 0 10px;
         background: transparent;
         border: transparent;
         border-radius: 0;
@@ -5822,6 +5822,20 @@ a:focus {
             &:focus {
                 outline: 0;
             }
+        }
+
+        &:before {
+            content: '-';
+            position: absolute;
+            top: -2px;
+            left: 3px;
+        }
+
+        &:after {
+            content: '+';
+            position: absolute;
+            top: -2px;
+            right: 3px;
         }
 
         .ngrs-join {
@@ -6620,8 +6634,9 @@ h2 {
 
 }
 
-.ohYeahBold {
-    font-weight: bold;
+.makeMeRedBold {
+    color: red !important;
+    font-weight: bold !important;
 }
 
 .full-width {

@@ -3935,16 +3935,26 @@ $scope.singleAmount = 850;
     $scope.checkCustomizeShirt = function(key) {
         return angular.isObject($scope.customizedShirt[key]);
     }
+
+    $scope.uploadOkClick = false;
+
     $scope.confirmUpload = function(variable, name) {
         //$dismiss();
         console.log("last " + variable + " " + name);
         // if (variable !== 'teamlogo') {
         //   $scope.statuses.modal.close();
         // }
-        $scope.customizedShirt[variable].image = $scope.tempImage;
-        $scope.customizedShirt[variable].name = name;
-        console.log($scope.customizedShirt[variable]);
-        $scope.tempImage = "";
+        
+        if ($scope.statuses.permission) {
+            if ($scope.tempImage) {
+                $scope.customizedShirt[variable].image = $scope.tempImage;
+                $scope.customizedShirt[variable].name = name;
+                console.log($scope.customizedShirt[variable]);
+                $scope.tempImage = "";
+            }
+        } else {
+            $scope.uploadOkClick = true;
+        }
     };
 
     $scope.UploadTeamLogo1 = function() {
@@ -4059,6 +4069,7 @@ $scope.singleAmount = 850;
     }
 
     $scope.designName = "design1";
+    $scope.shirtName = "Googly";
     $scope.designStatus = false;
     $scope.trimTwoDisable = "";
     $scope.designTab = 1;
@@ -4091,6 +4102,7 @@ $scope.singleAmount = 850;
                 $scope.trimTshirt.highlightBase.disable = "undisabled";
                 $scope.trimTshirt.highlightOne.disable = "undisabled";
                 $scope.trimTshirt.highlightTwo.disable = "undisabled";
+                $scope.shirtName = "Googly";
                 $scope.designName = "design1";
                 $scope.designType = 'odi';
                 $scope.singleAmount = 1000;
@@ -4114,6 +4126,7 @@ $scope.singleAmount = 850;
                 $scope.trimTshirt.highlightBase.disable = "undisabled";
                 $scope.trimTshirt.highlightOne.disable = "undisabled";
                 $scope.trimTshirt.highlightTwo.disable = "undisabled";
+                $scope.shirtName = "Grubber";
                 $scope.designName = "design3";
                 $scope.designType = 'odi';
                 $scope.trimTabs.light3.active = "activeme";
@@ -4128,6 +4141,7 @@ $scope.singleAmount = 850;
                 $scope.trimTshirt.highlightBase.disable = "undisabled";
                 $scope.trimTshirt.highlightOne.disable = "undisabled";
                 $scope.trimTshirt.highlightTwo.disable = "undisabled";
+                $scope.shirtName = "Plumb";
                 $scope.designName = "design4";
                 $scope.designType = 'odi';
                 $scope.singleAmount = 1000;
@@ -4143,6 +4157,7 @@ $scope.singleAmount = 850;
                 $scope.trimTshirt.highlightBase.disable = "undisabled";
                 $scope.trimTshirt.highlightOne.disable = "undisabled";
                 $scope.trimTshirt.highlightTwo.disable = "undisabled";
+                $scope.shirtName = "Floater";
                 $scope.designName = "design5";
                 $scope.designType = 'odi';
                 $scope.singleAmount = 1000;
@@ -4158,6 +4173,7 @@ $scope.singleAmount = 850;
                 $scope.trimTshirt.highlightBase.disable = "undisabled";
                 $scope.trimTshirt.highlightOne.disable = "undisabled";
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
+                $scope.shirtName = "Pace";
                 $scope.designName = "design1";
                 $scope.designType = 'training';
                 $scope.singleAmount = 850;
@@ -4173,6 +4189,7 @@ $scope.singleAmount = 850;
                 $scope.trimTshirt.highlightBase.disable = "undisabled";
                 $scope.trimTshirt.highlightOne.disable = "undisabled";
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
+                $scope.shirtName = "Seam";
                 $scope.designName = "design2";
                 $scope.designType = 'training';
                 $scope.singleAmount = 850;
@@ -4188,6 +4205,7 @@ $scope.singleAmount = 850;
                 $scope.trimTshirt.highlightBase.disable = "undisabled";
                 $scope.trimTshirt.highlightOne.disable = "undisabled";
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
+                $scope.shirtName = "Dipper";
                 $scope.designName = "design3";
                 $scope.designType = 'training';
                 $scope.singleAmount = 850;
@@ -4203,6 +4221,7 @@ $scope.singleAmount = 850;
                 $scope.trimTshirt.highlightBase.disable = "undisabled";
                 $scope.trimTshirt.highlightOne.disable = "undisabled";
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
+                $scope.shirtName = "Flipper";
                 $scope.designName = "design4";
                 $scope.designType = 'training';
                 $scope.singleAmount = 850;
@@ -4218,6 +4237,7 @@ $scope.singleAmount = 850;
                 $scope.trimTshirt.highlightBase.disable = "undisabled";
                 $scope.trimTshirt.highlightOne.disable = "undisabled";
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
+                $scope.shirtName = "Drift";
                 $scope.designName = "design5";
                 $scope.designType = 'training';
                 $scope.singleAmount = 850;
@@ -4245,6 +4265,7 @@ $scope.singleAmount = 850;
                 $scope.trimTshirt.highlightBase.disable = "disabled";
                 $scope.trimTshirt.highlightOne.disable = "disabled";
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
+                $scope.shirtName = "Whites";
                 $scope.designName = "design1";
                 $scope.designType = 'whites';
                 $scope.singleAmount = 1000;
@@ -4260,6 +4281,7 @@ $scope.singleAmount = 850;
                 $scope.trimTshirt.highlightBase.disable = "disabled";
                 $scope.trimTshirt.highlightOne.disable = "undisabled";
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
+                $scope.shirtName = "Whites";
                 $scope.designName = "design2";
                 $scope.designType = 'whites';
                 $scope.singleAmount = 1000;
@@ -4276,6 +4298,7 @@ $scope.singleAmount = 850;
                 $scope.trimTshirt.highlightBase.disable = "disabled";
                 $scope.trimTshirt.highlightOne.disable = "undisabled";
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
+                $scope.shirtName = "Whites";
                 $scope.designName = "design3";
                 $scope.designType = 'whites';
                 $scope.singleAmount = 1000;
@@ -4292,6 +4315,7 @@ $scope.singleAmount = 850;
                 $scope.trimTshirt.highlightBase.disable = "disabled";
                 $scope.trimTshirt.highlightOne.disable = "undisabled";
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
+                $scope.shirtName = "Whites";
                 $scope.designName = "design4";
                 $scope.designType = 'whites';
                 $scope.singleAmount = 1000;
@@ -4308,6 +4332,7 @@ $scope.singleAmount = 850;
                 $scope.trimTshirt.highlightBase.disable = "disabled";
                 $scope.trimTshirt.highlightOne.disable = "undisabled";
                 $scope.trimTshirt.highlightTwo.disable = "disabled";
+                $scope.shirtName = "Whites";
                 $scope.designName = "design5";
                 $scope.designType = 'whites';
                 $scope.singleAmount = 1000;
@@ -4608,7 +4633,8 @@ $scope.singleAmount = 850;
 				"designName": $scope.designName,
 				"designType": $scope.designType,
 				"totalAmount": $scope.totalAmount,
-				"totalQuan": $scope.totalQuan
+				"totalQuan": $scope.totalQuan,
+                "name": $scope.shirtName
 			};
 			$scope.lastJSON = JSON.stringify($scope.combineJSON);
 			console.log($scope.combineJSON);
@@ -4660,7 +4686,7 @@ $scope.singleAmount = 850;
 				"designType": $scope.designType,
 				"totalAmount": $scope.totalAmount,
 				"totalQuan": $scope.totalQuan,
-				"name": 'Matt B&Y'
+				"name": $scope.shirtName
 			};
 			$scope.lastJSON = JSON.stringify($scope.combineJSON);
 			console.log($scope.combineJSON);
