@@ -4935,7 +4935,7 @@ $scope.singleAmount = 850;
     //     src: "img/odi-tshirts/trims/design15/front.png"
     // }];
 
-    $scope.page = 2;
+    $scope.page = 1;
 
     $scope.images = {
         "page1": [{
