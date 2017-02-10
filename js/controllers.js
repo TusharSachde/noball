@@ -3754,6 +3754,7 @@ $scope.singleAmount = 850;
     $scope.customizedShirt.rightchest.attributes = {};
     $scope.customizedShirt.rightchest.divattributes = {};
     $scope.customizedShirt.rightchest.attributes.width = 25;
+    $scope.customizedShirt.isTeamLogo = false;
     $scope.customizedShirt.printType = 'embroidered';
     $scope.myClolr = 'red';
     $scope.ChaangeTextColor = function(mycolor) {
@@ -4066,6 +4067,24 @@ $scope.singleAmount = 850;
     }
     $scope.turnOnQuantity = function(val) {
         $scope.quantityTab = val;
+    }
+
+    $scope.checkTeamLogo = function(state) {
+        if($scope.customizedShirt.isTeamLogo || $scope.customizedShirt.teamlogo) {
+            $scope.tabchange('quantity', 5);
+            $scope.switchFrontBackQuantity(false);
+            $scope.turnOnQuantity(true);
+            if (!state) {
+                 $scope.switchTrimHighlightBase(false, $scope.trimTshirt.highlightBase.tcolor);
+                 $scope.switchTrimHighlightOne(false, $scope.trimTshirt.highlightOne.tcolor);
+                 $scope.switchTrimHighlightTwo(false, $scope.trimTshirt.highlightTwo.tcolor);
+            }
+        } else {
+            $uibModal.open({
+                templateUrl: 'views/modal/checkTeamLogo.html',
+                scope: $scope
+            });
+        }
     }
 
     $scope.designName = "design1";
