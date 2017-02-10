@@ -166,7 +166,7 @@
               <div class="row" ng-if="msg==''">
                 <div class="col-md-12">
                   <div class="order-table check-out-wish">
-                    <table class="table">
+                    <table class="table" ng-if="msg=='myTable'">
                       <thead>
                         <tr class="text-center">
                           <th>ITEM</th>
@@ -266,7 +266,7 @@
                       </div>
                     </div>
                     <div class="text-center mg">
-                      <button ng-click="goToOrder()" class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+                      <button ng-click="proceedToDeliveryDetails()" class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
                     </div>
                   </div>
                 </div>
@@ -461,7 +461,7 @@
                   <div class="col-md-12">
                     <!-- <h4>Payment Gateway under testing.</h4> -->
                     <div class="order-table checkout-detail">
-                      <form method="post" name="customerData" action="http://customcricketcompany.com/admin/paymentgateway/PayUMoney_form.php">
+                      <form method="post" action="http://customcricketcompany.com/admin/paymentgateway/PayUMoney_form.php" name="customerData"> <!--  -->
                         <div class="">
                           <div class="row">
                             <div class="col-md-6">

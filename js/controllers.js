@@ -728,9 +728,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.trimTrouser.highlightOne.tcolor = "white";
     $scope.trimTrouser.highlightTwo.tcolor = "white";
     $scope.trimTrouser.highlightBase.tcolor = "white";
-    $scope.trimTrouser.highlightBase.disable = "disabled";
-    $scope.trimTrouser.highlightOne.disable = "disabled";
-    $scope.trimTrouser.highlightTwo.disable = "disabled";
+    $scope.trimTrouser.highlightBase.disable = "noable";
+    $scope.trimTrouser.highlightOne.disable = "noable";
+    $scope.trimTrouser.highlightTwo.disable = "noable";
 
     $scope.switchTrimHighlightOne = function(flag, color) {
         $scope.trimTrouser.highlightOne.flag = flag;
@@ -801,7 +801,7 @@ $scope.singleAmount = 850;
             $scope.totalQuan += $scope.trouserQuanArr[i].quantity;
         }
         if ($scope.totalQuan) {
-            $scope.totalAmount = $scope.singleAmount * $scope.totalQuan + 5000;;
+            $scope.totalAmount = $scope.singleAmount * $scope.totalQuan + 5000;
         }
     };
 
@@ -969,9 +969,9 @@ $scope.singleAmount = 850;
 
     $scope.changeDesign = function(index) {
         if (index === 0) {
-            $scope.trimTrouser.highlightBase.disable = "undisabled";
-            $scope.trimTrouser.highlightOne.disable = "undisabled";
-            $scope.trimTrouser.highlightTwo.disable = "disabled";
+            $scope.trimTrouser.highlightBase.disable = "unnoable";
+            $scope.trimTrouser.highlightOne.disable = "unnoable";
+            $scope.trimTrouser.highlightTwo.disable = "noable";
             $scope.designName = "design1";
             $scope.pantType = "trousers";
             $scope.singleAmount = 850;  
@@ -979,9 +979,9 @@ $scope.singleAmount = 850;
             $scope.switchTrimHighlightTwo(true, '');
             $scope.switchTrimHighlightBase(true, 'black');
         } else if (index === 1) {
-            $scope.trimTrouser.highlightBase.disable = "undisabled";
-            $scope.trimTrouser.highlightOne.disable = "undisabled";
-            $scope.trimTrouser.highlightTwo.disable = "disabled";
+            $scope.trimTrouser.highlightBase.disable = "unnoable";
+            $scope.trimTrouser.highlightOne.disable = "unnoable";
+            $scope.trimTrouser.highlightTwo.disable = "noable";
             $scope.designName = "design2";
             $scope.pantType = "trousers";
             $scope.singleAmount = 850;
@@ -991,9 +991,9 @@ $scope.singleAmount = 850;
             $scope.switchTrimHighlightTwo(true, '');
             $scope.switchTrimHighlightBase(true, 'royal_blue');  
         } else if (index === 2) {
-            $scope.trimTrouser.highlightBase.disable = "undisabled";
-            $scope.trimTrouser.highlightOne.disable = "undisabled";
-            $scope.trimTrouser.highlightTwo.disable = "disabled";
+            $scope.trimTrouser.highlightBase.disable = "unnoable";
+            $scope.trimTrouser.highlightOne.disable = "unnoable";
+            $scope.trimTrouser.highlightTwo.disable = "noable";
             $scope.designName = "design3";
             $scope.pantType = "trousers";
             $scope.singleAmount = 850;
@@ -1003,9 +1003,9 @@ $scope.singleAmount = 850;
             $scope.switchTrimHighlightTwo(true, '');
             $scope.switchTrimHighlightBase(true, 'white');
         } else if (index === 3) {
-            $scope.trimTrouser.highlightBase.disable = "undisabled";
-            $scope.trimTrouser.highlightOne.disable = "undisabled";
-            $scope.trimTrouser.highlightTwo.disable = "disabled";
+            $scope.trimTrouser.highlightBase.disable = "unnoable";
+            $scope.trimTrouser.highlightOne.disable = "unnoable";
+            $scope.trimTrouser.highlightTwo.disable = "noable";
             $scope.designName = "design4";
             $scope.pantType = "trousers";
             $scope.singleAmount = 850;
@@ -1015,9 +1015,9 @@ $scope.singleAmount = 850;
             $scope.switchTrimHighlightTwo(true, '');
             $scope.switchTrimHighlightBase(true, 'red');
         } else if (index === 4) {
-            $scope.trimTrouser.highlightBase.disable = "undisabled";
-            $scope.trimTrouser.highlightOne.disable = "undisabled";
-            $scope.trimTrouser.highlightTwo.disable = "disabled";
+            $scope.trimTrouser.highlightBase.disable = "unnoable";
+            $scope.trimTrouser.highlightOne.disable = "unnoable";
+            $scope.trimTrouser.highlightTwo.disable = "noable";
             $scope.designName = "design5";
             $scope.pantType = "trousers";
             $scope.singleAmount = 850;
@@ -1027,9 +1027,9 @@ $scope.singleAmount = 850;
             $scope.switchTrimHighlightTwo(true, '');
             $scope.switchTrimHighlightBase(true, 'lemon_yellow');
         } else if (index === 5) {
-            $scope.trimTrouser.highlightBase.disable = "undisabled";
-            $scope.trimTrouser.highlightOne.disable = "undisabled";
-            $scope.trimTrouser.highlightTwo.disable = "disabled";
+            $scope.trimTrouser.highlightBase.disable = "unnoable";
+            $scope.trimTrouser.highlightOne.disable = "unnoable";
+            $scope.trimTrouser.highlightTwo.disable = "noable";
             $scope.designName = "design1";
             $scope.pantType = "shorts";
             $scope.singleAmount = 650;
@@ -1037,9 +1037,9 @@ $scope.singleAmount = 850;
             $scope.switchTrimHighlightTwo(true, '');
             $scope.switchTrimHighlightBase(true, 'australian_green');
         } else if (index === 6) {
-            $scope.trimTrouser.highlightBase.disable = "undisabled";
-            $scope.trimTrouser.highlightOne.disable = "undisabled";
-            $scope.trimTrouser.highlightTwo.disable = "disabled";
+            $scope.trimTrouser.highlightBase.disable = "unnoable";
+            $scope.trimTrouser.highlightOne.disable = "unnoable";
+            $scope.trimTrouser.highlightTwo.disable = "noable";
             $scope.designName = "design2";
             $scope.pantType = "shorts";
             $scope.singleAmount = 650;
@@ -1049,9 +1049,9 @@ $scope.singleAmount = 850;
             $scope.switchTrimHighlightTwo(true, '');
             $scope.switchTrimHighlightBase(true, 'black');  
         } else if (index === 7) {
-            $scope.trimTrouser.highlightBase.disable = "undisabled";
-            $scope.trimTrouser.highlightOne.disable = "undisabled";
-            $scope.trimTrouser.highlightTwo.disable = "disabled";
+            $scope.trimTrouser.highlightBase.disable = "unnoable";
+            $scope.trimTrouser.highlightOne.disable = "unnoable";
+            $scope.trimTrouser.highlightTwo.disable = "noable";
             $scope.designName = "design3";
             $scope.pantType = "shorts";
             $scope.singleAmount = 650;
@@ -1061,9 +1061,9 @@ $scope.singleAmount = 850;
             $scope.switchTrimHighlightTwo(true, '');
             $scope.switchTrimHighlightBase(true, 'grey');
         } else if (index === 8) {
-            $scope.trimTrouser.highlightBase.disable = "undisabled";
-            $scope.trimTrouser.highlightOne.disable = "undisabled";
-            $scope.trimTrouser.highlightTwo.disable = "disabled";
+            $scope.trimTrouser.highlightBase.disable = "unnoable";
+            $scope.trimTrouser.highlightOne.disable = "unnoable";
+            $scope.trimTrouser.highlightTwo.disable = "noable";
             $scope.designName = "design4";
             $scope.pantType = "shorts";
             $scope.singleAmount = 650;
@@ -1073,9 +1073,9 @@ $scope.singleAmount = 850;
             $scope.switchTrimHighlightTwo(true, '');
             $scope.switchTrimHighlightBase(true, 'orange');
         } else if (index === 9) {
-            $scope.trimTrouser.highlightBase.disable = "undisabled";
-            $scope.trimTrouser.highlightOne.disable = "undisabled";
-            $scope.trimTrouser.highlightTwo.disable = "undisabled";
+            $scope.trimTrouser.highlightBase.disable = "unnoable";
+            $scope.trimTrouser.highlightOne.disable = "unnoable";
+            $scope.trimTrouser.highlightTwo.disable = "unnoable";
             $scope.designName = "design5";
             $scope.pantType = "shorts";
             $scope.singleAmount = 650;
@@ -1342,7 +1342,7 @@ $scope.singleAmount = 850;
 
     $scope.trimCaps.highlightBase.flag = true;
     $scope.trimCaps.highlightBase.tcolor = "white";
-    $scope.trimCaps.highlightBase.disable = "disabled";
+    $scope.trimCaps.highlightBase.disable = "noable";
 
     $scope.switchTrimHighlightBase = function(flag, color) {
         $scope.trimCaps.highlightBase.flag = flag;
@@ -1504,7 +1504,7 @@ $scope.singleAmount = 850;
 
     $scope.changeDesign = function(index) {
         if (index === 0) {
-            $scope.trimCaps.highlightBase.disable = "undisabled";
+            $scope.trimCaps.highlightBase.disable = "unnoable";
             $scope.designName = "design1";
             $scope.capType = "caps";
             $scope.capName = "MODENA";
@@ -1518,7 +1518,7 @@ $scope.singleAmount = 850;
             }
             $scope.switchTrimHighlightBase(true, 'white');
         } else if (index === 1) {
-            $scope.trimCaps.highlightBase.disable = "undisabled";
+            $scope.trimCaps.highlightBase.disable = "unnoable";
             $scope.designName = "design2";
             $scope.capType = "hats";
             $scope.capName = "TRINIDAD";
@@ -3986,9 +3986,9 @@ $scope.singleAmount = 850;
     $scope.trimTshirt.highlightOne.tcolor = "white";
     $scope.trimTshirt.highlightTwo.tcolor = "white";
     $scope.trimTshirt.highlightBase.tcolor = "white";
-    $scope.trimTshirt.highlightBase.disable = "disabled";
-    $scope.trimTshirt.highlightOne.disable = "disabled";
-    $scope.trimTshirt.highlightTwo.disable = "disabled";
+    $scope.trimTshirt.highlightBase.disable = "noable";
+    $scope.trimTshirt.highlightOne.disable = "noable";
+    $scope.trimTshirt.highlightTwo.disable = "noable";
 
     $scope.switchTrimHighlightOne = function(flag, color, type) {
         console.log(flag);
@@ -4118,9 +4118,9 @@ $scope.singleAmount = 850;
         // }
         if (tab === 1) {
             if (index === 0) {
-                $scope.trimTshirt.highlightBase.disable = "undisabled";
-                $scope.trimTshirt.highlightOne.disable = "undisabled";
-                $scope.trimTshirt.highlightTwo.disable = "undisabled";
+                $scope.trimTshirt.highlightBase.disable = "unnoable";
+                $scope.trimTshirt.highlightOne.disable = "unnoable";
+                $scope.trimTshirt.highlightTwo.disable = "unnoable";
                 $scope.shirtName = "Googly Back";
                 $scope.designName = "design1";
                 $scope.designType = 'odi';
@@ -4132,9 +4132,9 @@ $scope.singleAmount = 850;
                 $scope.trimHexColors('highlightTwo', '#666');
                 $scope.trimHexColors('highlightBase', '#2175d9');
             // } else if (index === 1) {
-            //     $scope.trimTshirt.highlightBase.disable = "undisabled";
-            //     $scope.trimTshirt.highlightOne.disable = "undisabled";
-            //     $scope.trimTshirt.highlightTwo.disable = "undisabled";
+            //     $scope.trimTshirt.highlightBase.disable = "unnoable";
+            //     $scope.trimTshirt.highlightOne.disable = "unnoable";
+            //     $scope.trimTshirt.highlightTwo.disable = "unnoable";
             //     $scope.designName = "design2";
             //     $scope.designType = 'odi';
             //     $scope.trimTabs.light3.active = "activeme";
@@ -4142,9 +4142,9 @@ $scope.singleAmount = 850;
             //     $scope.switchTrimHighlightTwo(true, 'white', $scope.designType);
             //     $scope.switchTrimHighlightBase(true, 'white', $scope.designType);
             } else if (index === 1) {
-                $scope.trimTshirt.highlightBase.disable = "undisabled";
-                $scope.trimTshirt.highlightOne.disable = "undisabled";
-                $scope.trimTshirt.highlightTwo.disable = "undisabled";
+                $scope.trimTshirt.highlightBase.disable = "unnoable";
+                $scope.trimTshirt.highlightOne.disable = "unnoable";
+                $scope.trimTshirt.highlightTwo.disable = "unnoable";
                 $scope.shirtName = "Grubber Front";
                 $scope.designName = "design3";
                 $scope.designType = 'odi';
@@ -4157,9 +4157,9 @@ $scope.singleAmount = 850;
                 $scope.trimHexColors('highlightTwo', '#fff');
                 $scope.trimHexColors('highlightBase', '#bf0000');
             } else if (index === 2) {
-                $scope.trimTshirt.highlightBase.disable = "undisabled";
-                $scope.trimTshirt.highlightOne.disable = "undisabled";
-                $scope.trimTshirt.highlightTwo.disable = "undisabled";
+                $scope.trimTshirt.highlightBase.disable = "unnoable";
+                $scope.trimTshirt.highlightOne.disable = "unnoable";
+                $scope.trimTshirt.highlightTwo.disable = "unnoable";
                 $scope.shirtName = "Plumb Front";
                 $scope.designName = "design4";
                 $scope.designType = 'odi';
@@ -4173,9 +4173,9 @@ $scope.singleAmount = 850;
                 $scope.trimHexColors('highlightTwo', '#1a472a');
                 $scope.trimHexColors('highlightBase', '#ccff00');
             } else if (index === 3) {
-                $scope.trimTshirt.highlightBase.disable = "undisabled";
-                $scope.trimTshirt.highlightOne.disable = "undisabled";
-                $scope.trimTshirt.highlightTwo.disable = "undisabled";
+                $scope.trimTshirt.highlightBase.disable = "unnoable";
+                $scope.trimTshirt.highlightOne.disable = "unnoable";
+                $scope.trimTshirt.highlightTwo.disable = "unnoable";
                 $scope.shirtName = "Floater Front";
                 $scope.designName = "design5";
                 $scope.designType = 'odi';
@@ -4189,9 +4189,9 @@ $scope.singleAmount = 850;
                 $scope.trimHexColors('highlightTwo', '#ffff00');
                 $scope.trimHexColors('highlightBase', '#008000');
             } else if (index === 4) {                  
-                $scope.trimTshirt.highlightBase.disable = "undisabled";
-                $scope.trimTshirt.highlightOne.disable = "undisabled";
-                $scope.trimTshirt.highlightTwo.disable = "disabled";
+                $scope.trimTshirt.highlightBase.disable = "unnoable";
+                $scope.trimTshirt.highlightOne.disable = "unnoable";
+                $scope.trimTshirt.highlightTwo.disable = "noable";
                 $scope.shirtName = "Pace Front";
                 $scope.designName = "design1";
                 $scope.designType = 'training';
@@ -4205,9 +4205,9 @@ $scope.singleAmount = 850;
                 $scope.trimHexColors('highlightTwo', false);
                 $scope.trimHexColors('highlightBase', '#ffff00');
             } else if (index === 5) {
-                $scope.trimTshirt.highlightBase.disable = "undisabled";
-                $scope.trimTshirt.highlightOne.disable = "undisabled";
-                $scope.trimTshirt.highlightTwo.disable = "disabled";
+                $scope.trimTshirt.highlightBase.disable = "unnoable";
+                $scope.trimTshirt.highlightOne.disable = "unnoable";
+                $scope.trimTshirt.highlightTwo.disable = "noable";
                 $scope.shirtName = "Seam Front";
                 $scope.designName = "design2";
                 $scope.designType = 'training';
@@ -4221,9 +4221,9 @@ $scope.singleAmount = 850;
                 $scope.trimHexColors('highlightTwo', false);
                 $scope.trimHexColors('highlightBase', '#bf0000');
             } else if (index === 6) {
-                $scope.trimTshirt.highlightBase.disable = "undisabled";
-                $scope.trimTshirt.highlightOne.disable = "undisabled";
-                $scope.trimTshirt.highlightTwo.disable = "disabled";
+                $scope.trimTshirt.highlightBase.disable = "unnoable";
+                $scope.trimTshirt.highlightOne.disable = "unnoable";
+                $scope.trimTshirt.highlightTwo.disable = "noable";
                 $scope.shirtName = "Dipper Front";
                 $scope.designName = "design3";
                 $scope.designType = 'training';
@@ -4237,9 +4237,9 @@ $scope.singleAmount = 850;
                 $scope.trimHexColors('highlightTwo', false);
                 $scope.trimHexColors('highlightBase', '#2175d9');
             } else if (index === 7) {
-                $scope.trimTshirt.highlightBase.disable = "undisabled";
-                $scope.trimTshirt.highlightOne.disable = "undisabled";
-                $scope.trimTshirt.highlightTwo.disable = "disabled";
+                $scope.trimTshirt.highlightBase.disable = "unnoable";
+                $scope.trimTshirt.highlightOne.disable = "unnoable";
+                $scope.trimTshirt.highlightTwo.disable = "noable";
                 $scope.shirtName = "Flipper Front";
                 $scope.designName = "design4";
                 $scope.designType = 'training';
@@ -4253,9 +4253,9 @@ $scope.singleAmount = 850;
                 $scope.trimHexColors('highlightTwo', false);
                 $scope.trimHexColors('highlightBase', '#ffd700');
             } else if (index === 8) {
-                $scope.trimTshirt.highlightBase.disable = "undisabled";
-                $scope.trimTshirt.highlightOne.disable = "undisabled";
-                $scope.trimTshirt.highlightTwo.disable = "disabled";
+                $scope.trimTshirt.highlightBase.disable = "unnoable";
+                $scope.trimTshirt.highlightOne.disable = "unnoable";
+                $scope.trimTshirt.highlightTwo.disable = "noable";
                 $scope.shirtName = "Drift Front";
                 $scope.designName = "design5";
                 $scope.designType = 'training';
@@ -4271,9 +4271,9 @@ $scope.singleAmount = 850;
             }
         } else if (tab === 2) {
             if (index === 0) {
-            //     $scope.trimTshirt.highlightBase.disable = "undisabled";
-            //     $scope.trimTshirt.highlightOne.disable = "undisabled";
-            //     $scope.trimTshirt.highlightTwo.disable = "disabled";
+            //     $scope.trimTshirt.highlightBase.disable = "unnoable";
+            //     $scope.trimTshirt.highlightOne.disable = "unnoable";
+            //     $scope.trimTshirt.highlightTwo.disable = "noable";
             //     $scope.designName = "design5";
             //     $scope.designType = 'training';
             //     $scope.trimTabs.light3.active = "activeme";
@@ -4281,9 +4281,9 @@ $scope.singleAmount = 850;
             //     $scope.switchTrimHighlightTwo(true, 'white', 'training');
             //     $scope.switchTrimHighlightBase(true, 'lemon_yellow', 'training');
             // } else if (index === 1) {
-                $scope.trimTshirt.highlightBase.disable = "disabled";
-                $scope.trimTshirt.highlightOne.disable = "disabled";
-                $scope.trimTshirt.highlightTwo.disable = "disabled";
+                $scope.trimTshirt.highlightBase.disable = "noable";
+                $scope.trimTshirt.highlightOne.disable = "noable";
+                $scope.trimTshirt.highlightTwo.disable = "noable";
                 $scope.shirtName = "Whites";
                 $scope.designName = "design1";
                 $scope.designType = 'whites';
@@ -4297,9 +4297,9 @@ $scope.singleAmount = 850;
                 $scope.trimHexColors('highlightOne', false);
                 $scope.trimHexColors('highlightTwo', false);
             } else if (index === 1) {
-                $scope.trimTshirt.highlightBase.disable = "disabled";
-                $scope.trimTshirt.highlightOne.disable = "undisabled";
-                $scope.trimTshirt.highlightTwo.disable = "disabled";
+                $scope.trimTshirt.highlightBase.disable = "noable";
+                $scope.trimTshirt.highlightOne.disable = "unnoable";
+                $scope.trimTshirt.highlightTwo.disable = "noable";
                 $scope.shirtName = "Whites";
                 $scope.designName = "design2";
                 $scope.designType = 'whites';
@@ -4314,9 +4314,9 @@ $scope.singleAmount = 850;
                 $scope.trimHexColors('highlightTwo', false);
                 $scope.trimHexColors('highlightBase', '#fff');
             } else if (index === 2) {
-                $scope.trimTshirt.highlightBase.disable = "disabled";
-                $scope.trimTshirt.highlightOne.disable = "undisabled";
-                $scope.trimTshirt.highlightTwo.disable = "disabled";
+                $scope.trimTshirt.highlightBase.disable = "noable";
+                $scope.trimTshirt.highlightOne.disable = "unnoable";
+                $scope.trimTshirt.highlightTwo.disable = "noable";
                 $scope.shirtName = "Whites";
                 $scope.designName = "design3";
                 $scope.designType = 'whites';
@@ -4331,9 +4331,9 @@ $scope.singleAmount = 850;
                 $scope.trimHexColors('highlightTwo', false);
                 $scope.trimHexColors('highlightBase', '#fff');
             } else if (index === 3) {
-                $scope.trimTshirt.highlightBase.disable = "disabled";
-                $scope.trimTshirt.highlightOne.disable = "undisabled";
-                $scope.trimTshirt.highlightTwo.disable = "disabled";
+                $scope.trimTshirt.highlightBase.disable = "noable";
+                $scope.trimTshirt.highlightOne.disable = "unnoable";
+                $scope.trimTshirt.highlightTwo.disable = "noable";
                 $scope.shirtName = "Whites";
                 $scope.designName = "design4";
                 $scope.designType = 'whites';
@@ -4348,9 +4348,9 @@ $scope.singleAmount = 850;
                 $scope.trimHexColors('highlightTwo', false);
                 $scope.trimHexColors('highlightBase', '#fff');
             } else if (index === 4) {
-                $scope.trimTshirt.highlightBase.disable = "disabled";
-                $scope.trimTshirt.highlightOne.disable = "undisabled";
-                $scope.trimTshirt.highlightTwo.disable = "disabled";
+                $scope.trimTshirt.highlightBase.disable = "noable";
+                $scope.trimTshirt.highlightOne.disable = "unnoable";
+                $scope.trimTshirt.highlightTwo.disable = "noable";
                 $scope.shirtName = "Whites";
                 $scope.designName = "design5";
                 $scope.designType = 'whites';
@@ -7459,11 +7459,33 @@ $scope.singleAmount = 850;
             }
         };
 
+        $scope.allNewCart = [];
         $scope.user = $.jStorage.get('user');
+        // console.log('user:', user);
 
         if ($scope.user) {
             $scope.latestOrder = $.jStorage.get('latestorder');
             console.log($scope.latestOrder);
+
+            $scope.currentCart = {
+                design: $scope.latestOrder.description.designName,
+                image: '',
+                id: $scope.latestOrder.data.id,
+                maxQuantity: 10,
+                options: {
+                    colorid: '',
+                    colorname: $scope.latestOrder.description.trim.highlightBase.tcolor,
+                    realname: $scope.latestOrder.description.name,
+                    sizeid: '',
+                    sizename: ''
+                },
+                price: $scope.latestOrder.description.totalAmount,
+                qty: $scope.latestOrder.description.totalQuan,
+                subtotal: $scope.latestOrder.description.totalAmount,
+                user: $scope.user.id
+            };
+
+            $scope.allNewCart.push($scope.currentCart);
 
             if ($.jStorage.get('latestorder')) {
                 if ($scope.latestOrder.description.designType === 'odi' || $scope.latestOrder.description.designType === 'training' || $scope.latestOrder.description.designType === 'whites') {
@@ -7545,7 +7567,7 @@ $scope.singleAmount = 850;
         };
         $scope.tabs = [{
             active: true,
-            disabled: true
+            disabled: false
         }, {
             active: false,
             disabled: true
@@ -7558,7 +7580,8 @@ $scope.singleAmount = 850;
         }];
 
         if ($scope.user) {
-            $scope.tabs[0].active = false;
+            $scope.tabs[1].active = true;
+            $scope.tabs[0].disabled = true;
         }
 
         var checktwitter = function(data, status) {
@@ -7890,44 +7913,45 @@ $scope.singleAmount = 850;
         };
 
         $scope.proceedToDeliveryDetails = function() {
-            if ($scope.allcart.length == 0 || $scope.allcart == null) {
-                $scope.alerts = [];
-                $scope.alerts.push({
-                    type: 'danger',
-                    msg: 'No items in cart'
-                });
-            } else if (!$scope.isCartValid()) {
-                $scope.alerts = [];
-                $scope.alerts.push({
-                    type: 'danger',
-                    msg: 'Remove exceeding quantities'
-                });
+            // if ($scope.allcart.length == 0 || $scope.allcart == null) {
+            //     $scope.alerts = [];
+            //     $scope.alerts.push({
+            //         type: 'danger',
+            //         msg: 'No items in cart'
+            //     });
+            // } else if (!$scope.isCartValid()) {
+            //     $scope.alerts = [];
+            //     $scope.alerts.push({
+            //         type: 'danger',
+            //         msg: 'Remove exceeding quantities'
+            //     });
 
-            } else {
-                NavigationService.checkoutCheck(function(data) {
-                    if (data.value) {
-                        $scope.tabs[2].active = true;
-                        if ($.jStorage.get("user")) {
-                            $scope.userid = $.jStorage.get("user").id;
-                            NavigationService.getUserDetail($scope.userid, setPlaceOrder, function(err) {
-                                console.log(err);
-                            });
-                            window.scrollTo(0, 0);
-                        }
-                    } else {
-                        $scope.getCart();
-                        $scope.alerts = [];
-                        $scope.alerts.push({
-                            type: 'danger',
-                            msg: 'Some items went out of stock. Remove them'
-                        });
-                    }
-                }, function(err) {
-                    console.log(err);
-                })
+            // } else {
+            //     NavigationService.checkoutCheck(function(data) {
+            //         if (data.value) {
+            //             $scope.tabs[2].active = true;
+            //             if ($.jStorage.get("user")) {
+            //                 $scope.userid = $.jStorage.get("user").id;
+            //                 NavigationService.getUserDetail($scope.userid, setPlaceOrder, function(err) {
+            //                     console.log(err);
+            //                 });
+            //                 window.scrollTo(0, 0);
+            //             }
+            //         } else {
+            //             $scope.getCart();
+            //             $scope.alerts = [];
+            //             $scope.alerts.push({
+            //                 type: 'danger',
+            //                 msg: 'Some items went out of stock. Remove them'
+            //             });
+            //         }
+            //     }, function(err) {
+            //         console.log(err);
+            //     })
 
-            }
+            // }
 
+            $scope.tabs[2].active = true;
         };
         //pay with paypal starts
         $scope.payWithPaypal = function() {
@@ -7969,15 +7993,17 @@ $scope.singleAmount = 850;
             //pay with paypal ends
         $scope.placeOrder = function(formValidate) {
             // $scope.invalidData = false;
-            if (formValidate.$valid) {
-                $scope.checkout.cart = $scope.allcart;
+            // if (formValidate.$valid) {
+                console.log("in placeorder");
+                $scope.checkout.cart = $scope.allNewCart;
                 $scope.tabs[3].active = true; // comment this later
                 $scope.billingfulladdress = $scope.checkout.billingline1 + $scope.checkout.billingline2 + $scope.checkout.billingline3;
                 $scope.shippingfulladdress = $scope.checkout.shippingline1 + $scope.checkout.shippingline2 + $scope.checkout.shippingline3;
-                $scope.checkout.shippingamount = $scope.shippingcharges;
+                $scope.checkout.shippingamount = ''; // $scope.shippingcharges;
                 $scope.checkout.discountamount = parseInt($scope.couponamount);
-                $scope.checkout.totalamount = $scope.totalcart;
-                $scope.checkout.finalamount = $scope.totalcart + $scope.shippingcharges - $scope.couponamount;
+                $scope.checkout.totalamount = '' + $scope.latestOrder.description.totalAmount;
+                // $scope.checkout.finalamount = $scope.checkout.totalamount + $scope.shippingamount - $scope.discountamount;
+                $scope.checkout.finalamount = $scope.checkout.totalamount;
                 NavigationService.placeOrder($scope.checkout, function(data) {
                     if (data != "") {
                         $scope.txnid = Date.now();
@@ -7990,15 +8016,15 @@ $scope.singleAmount = 850;
                             msg: 'Unable to place order. Try again.'
                         });
                     }
-                }, function(err) {})
-            } else {
-                // $scope.invalidData = true;
-                // $scope.alerts = [];
-                // $scope.alerts.push({
-                //   type: 'danger',
-                //   msg: 'Input all information'
-                // });
-            }
+                }, function(err) {});
+            // } else {
+            //     // $scope.invalidData = true;
+            //     // $scope.alerts = [];
+            //     // $scope.alerts.push({
+            //     //   type: 'danger',
+            //     //   msg: 'Input all information'
+            //     // });
+            // }
 
         };
 
