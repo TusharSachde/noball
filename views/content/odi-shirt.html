@@ -127,9 +127,13 @@
                 <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="type=2">Training</button>
                 <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="type=3">Whites</button>
               </div>-->
-              <div class="mb20 flex-around">
-                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-show="page==2" ng-click="page=1">Prev Design</button>
-                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-show="page==1" ng-click="page=2">Next Design</button>
+              <div class="mb20 flex-around odi-design-buttons">
+                <!--<button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-show="page==2" ng-click="page=1">Prev Design</button>
+                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-show="page==1" ng-click="page=2">Next Design</button>-->
+                <button class="{{designButton.design1.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=2; changeDesignButton(1);">Whites</button>
+                <button class="{{designButton.design2.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(2);">Sublimation</button>
+                <button class="{{designButton.design3.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(3);">Cut &amp; Sew</button>
+                <button class="{{designButton.design4.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(4);">Polo</button>
               </div>
               <div class="row">
                 <div class="col-md-10">

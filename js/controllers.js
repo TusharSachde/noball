@@ -4351,6 +4351,41 @@ $scope.singleAmount = 850;
 
     $scope.changeDesign(0, 1);
 
+    $scope.designButton = {};
+    $scope.designButton.design1 = {};
+    $scope.designButton.design2 = {};
+    $scope.designButton.design3 = {};
+    $scope.designButton.design4 = {};
+
+    $scope.changeDesignButton = function(a) {
+        if (a == 1) {
+            $scope.designButton.design1.active = 'active';
+            $scope.designButton.design2.active = '';
+            $scope.designButton.design3.active = '';
+            $scope.designButton.design4.active = '';
+        }
+        if (a == 2) {
+            $scope.designButton.design1.active = '';
+            $scope.designButton.design2.active = 'active';
+            $scope.designButton.design3.active = '';
+            $scope.designButton.design4.active = '';
+        }
+        if (a == 3) {
+            $scope.designButton.design1.active = '';
+            $scope.designButton.design2.active = '';
+            $scope.designButton.design3.active = 'active';
+            $scope.designButton.design4.active = '';
+        }
+        if (a == 4) {
+            $scope.designButton.design1.active = '';
+            $scope.designButton.design2.active = '';
+            $scope.designButton.design3.active = '';
+            $scope.designButton.design4.active = 'active';
+        }
+    };
+
+    $scope.changeDesignButton(1);
+
 
     // $scope.showCheck = true;
     // $scope.showVid = function () {
@@ -4900,7 +4935,7 @@ $scope.singleAmount = 850;
     //     src: "img/odi-tshirts/trims/design15/front.png"
     // }];
 
-    $scope.page = 1;
+    $scope.page = 2;
 
     $scope.images = {
         "page1": [{
