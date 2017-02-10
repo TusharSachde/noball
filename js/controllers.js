@@ -7405,25 +7405,29 @@ $scope.singleAmount = 850;
             }
         };
 
-        $scope.latestOrder = $.jStorage.get('latestorder');
-        console.log($scope.latestOrder);
-
-        if ($scope.latestOrder.description.designType === 'odi' || $scope.latestOrder.description.designType === 'training' || $scope.latestOrder.description.designType === 'whites') {
-            $scope.mainsponserlogo = $scope.latestOrder.mainsponserlogo;
-            $scope.rightchest = $scope.latestOrder.rightchest;
-            $scope.leftsleeve = $scope.latestOrder.leftsleeve;
-            $scope.rightsleeve = $scope.latestOrder.rightsleeve;
-            $scope.backsponser = $scope.latestOrder.backsponser;
-            $scope.teamlogo = $scope.latestOrder.teamlogo;
-        }
-
-        // $scope.latestOrder.description = JSON.parse($scope.latestOrder.description);
-        $scope.totalAmount = $scope.latestOrder.description.totalAmount;
-
         $scope.user = $.jStorage.get('user');
 
+        if ($scope.user) {
+            $scope.latestOrder = $.jStorage.get('latestorder');
+            console.log($scope.latestOrder);
+
+            if ($.jStorage.get('latestorder')) {
+                if ($scope.latestOrder.description.designType === 'odi' || $scope.latestOrder.description.designType === 'training' || $scope.latestOrder.description.designType === 'whites') {
+                    $scope.mainsponserlogo = $scope.latestOrder.mainsponserlogo;
+                    $scope.rightchest = $scope.latestOrder.rightchest;
+                    $scope.leftsleeve = $scope.latestOrder.leftsleeve;
+                    $scope.rightsleeve = $scope.latestOrder.rightsleeve;
+                    $scope.backsponser = $scope.latestOrder.backsponser;
+                    $scope.teamlogo = $scope.latestOrder.teamlogo;
+                }
+
+                // $scope.latestOrder.description = JSON.parse($scope.latestOrder.description);
+                $scope.totalAmount = $scope.latestOrder.description.totalAmount;
+            }
+        }
+
         $scope.goToOrder = function() {
-            if (user) {
+            if ($scope.user) {
                 if ($scope.latestOrder.description.designType === 'odi' || $scope.latestOrder.description.designType === 'training' || $scope.latestOrder.description.designType === 'whites') {
                     NavigationService.saveOrderOdi(user.email, $scope.latestOrder, $scope.mainsponserlogo, $scope.rightchest, $scope.leftsleeve,
                     $scope.rightsleeve, $scope.backsponser, $scope.teamlogo, 'odishirt', function(data) {
@@ -7498,6 +7502,11 @@ $scope.singleAmount = 850;
             active: false,
             disabled: true
         }];
+
+        if ($scope.user) {
+            $scope.tabs[0].active = false;
+        }
+
         var checktwitter = function(data, status) {
             if (data != "false") {
                 $interval.cancel(stopinterval);
@@ -7506,7 +7515,6 @@ $scope.singleAmount = 850;
             } else {
 
             }
-
         };
 
         var callAtIntervaltwitter = function() {

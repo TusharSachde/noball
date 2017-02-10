@@ -240,7 +240,7 @@
                             <i class="fa fa-eur" ng-if="country == 'EUR'"></i>
                             <i class="fa fa-usd" ng-if="country == 'USD'"></i>
                             <i ng-if="country == 'ZAF'">R</i>
-                            <i class="fa fa-usd" ng-if="country == 'AUD'"></i> {{latestOrder.description.totalAmount}}</p>
+                            <i class="fa fa-usd" ng-if="country == 'AUD'"></i> {{latestOrder.description.totalAmount || 0}}</p>
                           <p><i class="fa fa-inr" ng-if="country == 'INR'"></i>
                             <i class="fa fa-gbp" ng-if="country == 'GBP'"></i>
                             <i class="fa fa-usd" ng-if="country == 'NZD'"></i>
