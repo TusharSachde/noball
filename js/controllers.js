@@ -3333,6 +3333,7 @@ $scope.singleAmount = 850;
     };
 
     $scope.glovesLogo = {};
+    $scope.glovesLogo.isTeamLogo = false;
     $scope.glovesLogo.divattributes = {
         top: '246px',
         left: '355px'
@@ -3541,6 +3542,18 @@ $scope.singleAmount = 850;
         })
     }
 
+    $scope.checkTeamLogo = function() {
+        if($scope.glovesLogo.isTeamLogo || $scope.glovesLogo.image) {
+            $scope.tabchange('quantity', 5);
+            $scope.openTab('d');
+        } else {
+            $uibModal.open({
+                templateUrl: 'views/modal/checkTeamLogo.html',
+                scope: $scope
+            });
+        }
+    }
+
     $scope.proceed = function() {
             $uibModal.open({
                 templateUrl: "views/modal/proceed.html",
@@ -3686,6 +3699,51 @@ $scope.singleAmount = 850;
             $scope.classd = '';
             $scope.classa = '';
 
+        }
+    };
+
+    $scope.tabAllowa = '';
+    $scope.tabAllowb = 'noAllow';
+    $scope.tabAllowc = 'noAllow';
+    $scope.tabAllowd = 'noAllow';
+    $scope.tabAllowToa = false;
+    $scope.tabAllowTob = true;
+    $scope.tabAllowToc = true;
+    $scope.tabAllowTod = true;
+
+    $scope.openTab = function(tab) {
+        if (tab === 'a') {
+            $scope.tabAllowa = '';
+            $scope.tabAllowToa = false;
+        } else if (tab === 'b') {
+            $scope.tabAllowb = '';
+            $scope.tabAllowTob = false;
+        } else if (tab === 'c') {
+            $scope.tabAllowc = '';
+            $scope.tabAllowToc = false;
+        } else if (tab === 'd') {
+            $scope.tabAllowd = '';
+            $scope.tabAllowTod = false;
+        }
+    };
+
+    $scope.switchNavigation = function(tab) {
+        if (tab === 'a') {
+            if (!$scope.tabAllowToa) {
+                $scope.tabchange('design', 1);
+            }
+        } else if (tab === 'b') {
+            if (!$scope.tabAllowTob) {
+                $scope.tabchange('trim', 2);
+            }
+        } else if (tab === 'c') {
+            if (!$scope.tabAllowToc) {
+                $scope.tabchange('team', 3);
+            }
+        } else if (tab === 'd') {
+            if (!$scope.tabAllowTod) {
+                $scope.tabchange('quantity', 5);
+            }
         }
     };
 
