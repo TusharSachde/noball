@@ -5911,6 +5911,7 @@ $scope.singleAmount = 850;
     var check = 1;
 
     $scope.kitbag = {};
+    $scope.kitbag.isTeamLogo = true;
     $scope.kitbag.name = "kitbags";
     $scope.kitbag.front = "img/" + $scope.kitbag.name + "/kitbag_ry.png";
     $scope.kitbag.divattributes = {
@@ -6174,6 +6175,25 @@ $scope.singleAmount = 850;
     }];
     //tab changes
 
+    $scope.checkTeamLogo = function() {
+        if($scope.kitbag.isTeamLogo || $scope.kitbag.image) {
+            $scope.tabchange('quantity', 5);
+            $scope.openTab('d');
+        } else {
+            $uibModal.open({
+                templateUrl: 'views/modal/checkTeamLogo.html',
+                scope: $scope
+            });
+        }
+    };
+
+    $scope.openSaveDesignPopup = function () {
+        $uibModal.open({
+            templateUrl: 'views/modal/savedesign.html',
+            scope: $scope
+        });
+    };
+
     $scope.changeDesign = function(name) {
         $scope.kitbag.name = name;
         $scope.kitbag.front = "img/" + $scope.kitbag.name + "/kitbag_ry.png";
@@ -6265,6 +6285,52 @@ $scope.singleAmount = 850;
 
         }
     };
+
+    $scope.tabAllowa = '';
+    $scope.tabAllowb = 'noAllow';
+    $scope.tabAllowc = 'noAllow';
+    $scope.tabAllowd = 'noAllow';
+    $scope.tabAllowToa = false;
+    $scope.tabAllowTob = true;
+    $scope.tabAllowToc = true;
+    $scope.tabAllowTod = true;
+
+    $scope.openTab = function(tab) {
+        if (tab === 'a') {
+            $scope.tabAllowa = '';
+            $scope.tabAllowToa = false;
+        } else if (tab === 'b') {
+            $scope.tabAllowb = '';
+            $scope.tabAllowTob = false;
+        } else if (tab === 'c') {
+            $scope.tabAllowc = '';
+            $scope.tabAllowToc = false;
+        } else if (tab === 'd') {
+            $scope.tabAllowd = '';
+            $scope.tabAllowTod = false;
+        }
+    };
+
+    $scope.switchNavigation = function(tab) {
+        if (tab === 'a') {
+            if (!$scope.tabAllowToa) {
+                $scope.tabchange('design', 1);
+            }
+        } else if (tab === 'b') {
+            if (!$scope.tabAllowTob) {
+                $scope.tabchange('trim', 2);
+            }
+        } else if (tab === 'c') {
+            if (!$scope.tabAllowToc) {
+                $scope.tabchange('team', 3);
+            }
+        } else if (tab === 'd') {
+            if (!$scope.tabAllowTod) {
+                $scope.tabchange('quantity', 5);
+            }
+        }
+    };
+
     $scope.demo2 = {
         range: {
             min: 0,
