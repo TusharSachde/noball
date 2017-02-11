@@ -6161,6 +6161,7 @@ h2 {
 
 .noAllow {
     background: lightgray;
+    color: gray !important;
     cursor: default;
     span.bread-back {
         border-left: 15px solid lightgray !important;
@@ -6177,9 +6178,11 @@ h2 {
         }
     }
     &:hover {
+        color: gray !important;
         cursor: default;
         p {
             background: lightgray !important;
+            color: gray !important;
             cursor: default;
         }
         span.bread-back:hover {

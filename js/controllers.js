@@ -2528,6 +2528,51 @@ $scope.singleAmount = 850;
         maxPrice: 4000
     };
 
+    $scope.tabAllowa = '';
+    $scope.tabAllowb = 'noAllow';
+    $scope.tabAllowc = 'noAllow';
+    $scope.tabAllowd = 'noAllow';
+    $scope.tabAllowToa = false;
+    $scope.tabAllowTob = true;
+    $scope.tabAllowToc = true;
+    $scope.tabAllowTod = true;
+
+    $scope.openTab = function(tab) {
+        if (tab === 'a') {
+            $scope.tabAllowa = '';
+            $scope.tabAllowToa = false;
+        } else if (tab === 'b') {
+            $scope.tabAllowb = '';
+            $scope.tabAllowTob = false;
+        } else if (tab === 'c') {
+            $scope.tabAllowc = '';
+            $scope.tabAllowToc = false;
+        } else if (tab === 'd') {
+            $scope.tabAllowd = '';
+            $scope.tabAllowTod = false;
+        }
+    };
+
+    $scope.switchNavigation = function(tab) {
+        if (tab === 'a') {
+            if (!$scope.tabAllowToa) {
+                $scope.tabchange('design', 1);
+            }
+        } else if (tab === 'b') {
+            if (!$scope.tabAllowTob) {
+                $scope.tabchange('trim', 2);
+            }
+        } else if (tab === 'c') {
+            if (!$scope.tabAllowToc) {
+                $scope.tabchange('team', 3);
+            }
+        } else if (tab === 'd') {
+            if (!$scope.tabAllowTod) {
+                $scope.tabchange('quantity', 5);
+            }
+        }
+    };
+
 
     //    end
     // $scope.toOrderSummary = function() {
@@ -7227,7 +7272,7 @@ $scope.singleAmount = 850;
             });
         }
     })
-    .controller('OrderSummaryCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $window, cfpLoadingBar) {
+    .controller('OrderSummaryCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $window, cfpLoadingBar, $uibModal) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("ordersummary");
         $scope.menutitle = NavigationService.makeactive("OrderSummary");
@@ -7488,6 +7533,61 @@ $scope.singleAmount = 850;
         }, function(err) {
             console.log(err);
         });
+
+        $scope.savedDesigns = function() {
+            $scope.user = $.jStorage.get("user");
+            if (user) {
+                $scope.allLogos = {};
+                if ($scope.customizedShirt.mainlogo) {
+                    $scope.allLogos.mainlogo = $scope.tshirtdata.customizedShirt.mainlogo.image;
+                }
+                if ($scope.customizedShirt.rightchest) {
+                    $scope.allLogos.rightchest = $scope.tshirtdata.customizedShirt.rightchest.image;
+                }
+                if ($scope.customizedShirt.leftsleeve) {
+                    $scope.allLogos.leftsleeve = $scope.tshirtdata.customizedShirt.leftsleeve.image;
+                }
+                if ($scope.customizedShirt.rightsleeve) {
+                    $scope.allLogos.rightsleeve = $scope.tshirtdata.customizedShirt.rightsleeve.image;
+                }
+                if ($scope.customizedShirt.teamlogo) {
+                    $scope.allLogos.teamlogo = $scope.tshirtdata.customizedShirt.teamlogo.image;
+                }
+                if ($scope.customizedShirt.backlogo) {
+                    $scope.allLogos.backlogo = $scope.tshirtdata.customizedShirt.backlogo.image;
+                }
+                
+                $scope.combineJSON = {
+                    "trimTshirt": $scope.tshirtdata.trim,
+                    "customizedShirt": $scope.tshirtdata.customizedShirt,
+                    "jerseyBackArr": $scope.tshirtdata.jerseyBack,
+                    "allLogos": $scope.allLogos,
+                    "designName": $scope.tshirtdata.designName,
+                    "designType": $scope.tshirtdata.designType,
+                    "totalAmount": $scope.tshirtdata.totalAmount,
+                    "totalQuan": $scope.tshirtdata.totalQuan,
+                    "name": $scope.tshirtdata.name
+                };
+                $scope.lastJSON = JSON.stringify($scope.combineJSON);
+                console.log($scope.combineJSON);
+                NavigationService.saveDesign(user.email, $scope.combineJSON, 'odishirt',
+                    function(data) {
+                    console.log('Save Design data: ', data);
+                    // $state.go('savedesign');
+                }, function(err) {
+                    console.log(err);
+                });
+            } else {
+                $scope.openLogin();
+            }
+        }
+
+        $scope.openSaveDesignPopup = function () {
+            $uibModal.open({
+                templateUrl: 'views/modal/savedesign.html',
+                scope: $scope
+            });
+        };
 
     })
     .controller('CheckoutCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $interval, cfpLoadingBar, $uibModal, $window) {

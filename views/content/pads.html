@@ -6,17 +6,17 @@
         <div class="row">
             <div class="step">
                 <ul>
-                    <li class="tab-item breadcrums {{classa}}" ng-click="tabchange('design',1)">
+                    <li class="tab-item breadcrums {{classa}} {{tabAllowa}}" ng-disabled="tabAllowToa" ng-click="switchNavigation('a');">
                         <span class="bread-frnt"></span>
                         <p>1. DESIGN</p>
                         <span class="bread-back"></span>
                     </li>
-                    <li class="tab-item breadcrums {{classb}}" ng-click="tabchange('trim',2)">
+                    <li class="tab-item breadcrums {{classb}}  {{tabAllowb}}" ng-disabled="tabAllowTob" ng-click="switchNavigation('b');">
                         <span class="bread-frnt"></span>
                         <p>2. TRIM</p>
                         <span class="bread-back"></span>
                     </li>
-                    <li class="tab-item breadcrums {{classc}}" ng-click="tabchange('team',3)">
+                    <li class="tab-item breadcrums {{classc}} {{tabAllowc}}" ng-disabled="tabAllowToc" ng-click="switchNavigation('c');">
                         <span class="bread-frnt"></span>
                         <p>3. LOGO</p>
                         <span class="bread-back"></span>
@@ -26,7 +26,7 @@
                         <p>4. SPONSOR LOGOS</p>
                         <span class="bread-back"></span>
                     </li> -->
-                    <li class="tab-item breadcrums {{classe}}" ng-click="tabchange('quantity',5)">
+                    <li class="tab-item breadcrums {{classe}} {{tabAllowd}}" ng-disabled="tabAllowTod" ng-click="switchNavigation('d');">
                         <span class="bread-frnt"></span>
                         <p>4. QUANTITY</p>
                         <span class="bread-back"></span>
@@ -98,10 +98,10 @@
                             </div>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                            <!--<button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>-->
                         </div>
                         <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing"  ng-click="tabchange('trim',2)">NEXT</button>
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('trim', 2); openTab('b');">NEXT</button>
                         </div>
                         <div class="customize-design">
                             <span>Learn How To Customise Your Design By </span>
@@ -171,10 +171,10 @@
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">COLLAR</button>
                         </div> -->
                         <div class="edit-btn inline-block">
-                            <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                            <!--<button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>-->
                         </div>
                         <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('team',2)">NEXT</button>
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('team',2); openTab('c');">NEXT</button>
                         </div>
 
 
@@ -245,10 +245,10 @@
 
                             </div>
                             <div class="edit-btn inline-block">
-                                <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                                <!--<button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>-->
                             </div>
                             <div class="edit-btn inline-block">
-                                <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('quantity',5)">NEXT</button>
+                                <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('quantity',5); openTab('d');">NEXT</button>
                             </div>
                         </div>
                         <div class="modal fade custom" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -323,7 +323,7 @@
 
                             </div>
                             <div class="edit-btn inline-block">
-                                <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                                <!--<button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>-->
                             </div>
                             <div class="edit-btn inline-block">
                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('quantity',5)">NEXT</button>
@@ -433,7 +433,7 @@
 
                         </div>
                         <div class="edit-btn inline-block">
-                            <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                            <!--<button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>-->
                         </div>
                         <div class="edit-btn inline-block">
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing"  ng-click="tabchange('quantity',5)">NEXT</button>
@@ -468,7 +468,7 @@
                             </div>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                            <!--<button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>-->
                         </div>
                         <div class="edit-btn inline-block">
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="proceed()">NEXT</button>
@@ -533,7 +533,7 @@
                         </div>
                         <div class="eds">
                             <div class="edit-btn inline-block">
-                                <button href="" class=" btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                                <!--<button href="" class=" btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>-->
                             </div>
                         </div>
                         <div class="edit-btn inline-block">
@@ -579,7 +579,7 @@
                             </div>
 
                             <div class="edit-btn">
-                                <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>
+                                <!--<button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>-->
                                 <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" ng-click="toOrderSummary()">next</button>
                                 <br>
                             </div>
