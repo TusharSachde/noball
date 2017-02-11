@@ -2770,7 +2770,7 @@ footer {
 
 .gully-shirt {
     height: 460px;
-    // margin-top: 25px;
+    margin-top: -20px;
     position: relative;
 
     .div-main-logo {
@@ -6161,19 +6161,39 @@ h2 {
 
 .noAllow {
     background: lightgray;
+    cursor: default;
     span.bread-back {
         border-left: 15px solid lightgray !important;
+        cursor: default;
         &:hover {
             border-left: 15px solid lightgray !important; // #90c73e
+            cursor: default;
+        }
+    }
+    p {
+        border: 1px solid lightgray !important;
+        &:after {
+            border-left: 15px solid lightgray !important; // #90c73e;
         }
     }
     &:hover {
+        cursor: default;
         p {
             background: lightgray !important;
+            cursor: default;
         }
         span.bread-back:hover {
             border-left: 15px solid lightgray !important; // #90c73e
+            cursor: default;
         }
+    }
+}
+
+.size-chart {
+    a {
+        position: absolute;
+        top: 5px;
+        right: 0;
     }
 }
 

@@ -3843,7 +3843,7 @@ $scope.singleAmount = 850;
             }
         }
         if ($scope.totalQuan) {
-            $scope.totalAmount = $scope.singleAmount * $scope.totalQuan + 5000;
+            $scope.totalAmount = $scope.singleAmount * $scope.totalQuan;
         }
     };
 
@@ -3973,13 +3973,12 @@ $scope.singleAmount = 850;
         })
     };
 
-    // $scope.ohYeahBold = false;
-
-    // $scope.makeMeBold = function() {
-    //     if (!$scope.statuses.uploadStatus || !$scope.statuses.permission) {
-    //         $scope.ohYeahBold = true;
-    //     }
-    // };
+    $scope.openSizeChart = function() {
+        $uibModal.open({
+            templateUrl: 'views/modal/sizechart.html',
+            scope: $scope
+        });
+    };
 
     $scope.trimTshirt.highlightOne.flag = true;
     $scope.trimTshirt.highlightTwo.flag = true;
