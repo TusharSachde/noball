@@ -2306,7 +2306,14 @@ $scope.singleAmount = 850;
                 scope: $scope
             });
         }
-    }
+    };
+
+    $scope.openSaveDesignPopup = function () {
+        $uibModal.open({
+            templateUrl: 'views/modal/savedesign.html',
+            scope: $scope
+        });
+    };
 
     $scope.openLogin = function() {
         $uibModal.open({
@@ -3553,6 +3560,13 @@ $scope.singleAmount = 850;
             });
         }
     }
+
+    $scope.openSaveDesignPopup = function () {
+        $uibModal.open({
+            templateUrl: 'views/modal/savedesign.html',
+            scope: $scope
+        });
+    };
 
     $scope.proceed = function() {
             $uibModal.open({
