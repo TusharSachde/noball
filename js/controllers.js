@@ -2177,6 +2177,7 @@ $scope.singleAmount = 850;
     };
 
     $scope.padLogo = {};
+    $scope.padLogo.isTeamLogo = false;
     $scope.padLogo.divattributes = {
         top: '386px',
         left: '278px'
@@ -2294,6 +2295,18 @@ $scope.singleAmount = 850;
         $rootScope.$broadcast('changeImage', {});
 
     };
+
+    $scope.checkTeamLogo = function() {
+        if($scope.padLogo.isTeamLogo || $scope.padLogo.image) {
+            $scope.tabchange('quantity', 5);
+            $scope.openTab('d');
+        } else {
+            $uibModal.open({
+                templateUrl: 'views/modal/checkTeamLogo.html',
+                scope: $scope
+            });
+        }
+    }
 
     $scope.openLogin = function() {
         $uibModal.open({

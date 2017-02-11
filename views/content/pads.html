@@ -183,7 +183,7 @@
                     <div class="choos m20-l" ng-show="tab=='team'">
                         <!--<p>Upload Your Logo</p>-->
                         <div class="checkboxing">
-                            <input type="checkbox" class="form-control" id="later">
+                            <input type="checkbox" class="form-control" id="later" ng-model="padLogo.isTeamLogo">
                             <label for="later"><span></span>SEND TEAM LOGO LATER</label>
                         </div>
                         <!--<div class="logo-text">
@@ -248,7 +248,7 @@
                                 <!--<button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>-->
                             </div>
                             <div class="edit-btn inline-block">
-                                <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('quantity',5); openTab('d');">NEXT</button>
+                                <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="checkTeamLogo();">NEXT</button>
                             </div>
                         </div>
                         <div class="modal fade custom" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -574,7 +574,7 @@
                                 <p class="pointer" ng-click="addPadsValues(); addQuantity(pad.quantity);"><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</p>
                             </div>
                             <div class="total-amount">
-                                <p>One time customization fee for Pads is <i class="fa fa-inr"></i> 5000</p>
+                                <p class="more-price">One time customization fee for Pads is <i class="fa fa-inr"></i> 5000</p>
                                 <span class="pull-right uppercase totalAmount Raleway-Medium">Total: {{totalAmount}}</span>
                             </div>
 
