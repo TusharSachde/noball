@@ -2769,8 +2769,8 @@ footer {
 }
 
 .gully-shirt {
-    height: 500px;
-    margin-top: 25px;
+    height: 460px;
+    // margin-top: 25px;
     position: relative;
 
     .div-main-logo {
@@ -5166,6 +5166,11 @@ input[type=number]::-webkit-outer-spin-button {
     justify-content: space-between;
 }
 
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
+}
+
 .extra-pd {
     padding: 220px 0 4%;
 }
@@ -6144,6 +6149,7 @@ h2 {
 .design-arrow-prev {
     width: 40px;
     height: 40px;
+    margin-right: 20px;
     padding: 0 !important;
 }
 
@@ -6151,6 +6157,24 @@ h2 {
     width: 40px;
     height: 40px;
     padding: 0 !important;
+}
+
+.noAllow {
+    background: lightgray;
+    span.bread-back {
+        border-left: 15px solid lightgray !important;
+        &:hover {
+            border-left: 15px solid lightgray !important; // #90c73e
+        }
+    }
+    &:hover {
+        p {
+            background: lightgray !important;
+        }
+        span.bread-back:hover {
+            border-left: 15px solid lightgray !important; // #90c73e
+        }
+    }
 }
 
 .default {

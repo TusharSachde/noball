@@ -2451,6 +2451,7 @@ $scope.singleAmount = 850;
                 "teamlogo": $scope.tl,
 				"totalAmount": $scope.totalAmount,
 				"totalQuan": $scope.totalQuan,
+                "name": 'Inside Edge 202',
                 "designType": 'pads'
 			};
 			$scope.lastJSON = JSON.stringify($scope.combineJSON);
@@ -3474,7 +3475,6 @@ $scope.singleAmount = 850;
         } else {
             $scope.tab = "teamlogo";
         }
-
     }
     $scope.openUploadNew = function() {
         $uibModal.open({
@@ -3560,6 +3560,7 @@ $scope.singleAmount = 850;
                 "teamlogo": $scope.tl,
 				"totalAmount": $scope.totalAmount,
 				"totalQuan": $scope.totalQuan,
+                "name": 'Switch',
                 "designType": 'gloves'
 			};
 			$scope.lastJSON = JSON.stringify($scope.combineJSON);
@@ -4074,10 +4075,11 @@ $scope.singleAmount = 850;
             $scope.tabchange('quantity', 5);
             $scope.switchFrontBackQuantity(false);
             $scope.turnOnQuantity(true);
+            $scope.openTab('d');
             if (!state) {
-                 $scope.switchTrimHighlightBase(false, $scope.trimTshirt.highlightBase.tcolor);
-                 $scope.switchTrimHighlightOne(false, $scope.trimTshirt.highlightOne.tcolor);
-                 $scope.switchTrimHighlightTwo(false, $scope.trimTshirt.highlightTwo.tcolor);
+                $scope.switchTrimHighlightBase(false, $scope.trimTshirt.highlightBase.tcolor);
+                $scope.switchTrimHighlightOne(false, $scope.trimTshirt.highlightOne.tcolor);
+                $scope.switchTrimHighlightTwo(false, $scope.trimTshirt.highlightTwo.tcolor);
             }
         } else {
             $uibModal.open({
@@ -5086,6 +5088,64 @@ $scope.singleAmount = 850;
                 $scope.switchTrimHighlightBase(false, $scope.trimTshirt.highlightBase.tcolor);
                 $scope.switchTrimHighlightOne(false, $scope.trimTshirt.highlightOne.tcolor);
                 $scope.switchTrimHighlightTwo(false, $scope.trimTshirt.highlightTwo.tcolor);
+            }
+        }
+    };
+
+    $scope.tabAllowa = '';
+    $scope.tabAllowb = 'noAllow';
+    $scope.tabAllowc = 'noAllow';
+    $scope.tabAllowd = 'noAllow';
+    $scope.tabAllowToa = false;
+    $scope.tabAllowTob = true;
+    $scope.tabAllowToc = true;
+    $scope.tabAllowTod = true;
+
+    $scope.openTab = function(tab) {
+        if (tab === 'a') {
+            $scope.tabAllowa = '';
+            $scope.tabAllowToa = false;
+        } else if (tab === 'b') {
+            $scope.tabAllowb = '';
+            $scope.tabAllowTob = false;
+        } else if (tab === 'c') {
+            $scope.tabAllowc = '';
+            $scope.tabAllowToc = false;
+        } else if (tab === 'd') {
+            $scope.tabAllowd = '';
+            $scope.tabAllowTod = false;
+        }
+    };
+
+    $scope.switchNavigation = function(tab) {
+        if (tab === 'a') {
+            if (!$scope.tabAllowToa) {
+                $scope.tabchange('design', 1);
+                $scope.switchFrontBack(true);
+                $scope.switchTrimHighlightBase(true, $scope.trimTshirt.highlightBase.tcolor);
+                $scope.switchTrimHighlightOne(true, $scope.trimTshirt.highlightOne.tcolor);
+                $scope.switchTrimHighlightTwo(true, $scope.trimTshirt.highlightTwo.tcolor);
+            }
+        } else if (tab === 'b') {
+            if (!$scope.tabAllowTob) {
+                $scope.tabchange('trim', 2);
+                $scope.switchFrontBack(true);
+                $scope.switchTrimHighlightBase(true, $scope.trimTshirt.highlightBase.tcolor);
+                $scope.switchTrimHighlightOne(true, $scope.trimTshirt.highlightOne.tcolor);
+                $scope.switchTrimHighlightTwo(true, $scope.trimTshirt.highlightTwo.tcolor);
+            }
+        } else if (tab === 'c') {
+            if (!$scope.tabAllowToc) {
+                $scope.tabchange('team',3);
+                $scope.switchFrontBack(true);
+                $scope.switchTrimHighlightBase(true, $scope.trimTshirt.highlightBase.tcolor);
+                $scope.switchTrimHighlightOne(true, $scope.trimTshirt.highlightOne.tcolor);
+                $scope.switchTrimHighlightTwo(true, $scope.trimTshirt.highlightTwo.tcolor);
+                $scope.turnOnLogos(true);
+            }
+        } else if (tab === 'd') {
+            if (!$scope.tabAllowTod) {
+                $scope.checkTeamLogo(true);
             }
         }
     };
@@ -7467,14 +7527,25 @@ $scope.singleAmount = 850;
             $scope.latestOrder = $.jStorage.get('latestorder');
             console.log($scope.latestOrder);
 
+            $scope.designColorName = '';
+
+            if ($scope.latestOrder.description.designType === 'odi' || $scope.latestOrder.description.designType === 'training' || $scope.latestOrder.description.designType === 'whites') {
+                $scope.designColorName = $scope.latestOrder.description.trim.highlightBase.tcolor;
+            } else if ($scope.latestOrder.description.designType === 'gloves') {
+                $scope.designColorName = $scope.latestOrder.description.glovesDesign.color;
+            } else if ($scope.latestOrder.description.designType === 'pads') {
+                $scope.designColorName = $scope.latestOrder.description.padsDesign.color;
+                console.log($scope.designColorName);
+            }
+
             $scope.currentCart = {
-                design: $scope.latestOrder.description.designName,
+                design: $scope.latestOrder.description.name,
                 image: '',
                 id: $scope.latestOrder.data.id,
-                maxQuantity: 10,
+                maxQuantity: 100,
                 options: {
                     colorid: '',
-                    colorname: $scope.latestOrder.description.trim.highlightBase.tcolor,
+                    colorname: $scope.designColorName,
                     realname: $scope.latestOrder.description.name,
                     sizeid: '',
                     sizename: ''
@@ -7484,6 +7555,8 @@ $scope.singleAmount = 850;
                 subtotal: $scope.latestOrder.description.totalAmount,
                 user: $scope.user.id
             };
+
+            console.log('$scope.currentCart: ', $scope.currentCart);
 
             $scope.allNewCart.push($scope.currentCart);
 

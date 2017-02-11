@@ -7,22 +7,22 @@
       <div class="row" scrolladd1class>
         <div class="step ">
           <ul class="pad0">
-            <li class="tab-item breadcrums {{classa}}" ng-click="tabchange('design',1); switchFrontBack(true); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor);">
+            <li class="tab-item breadcrums {{classa}} {{tabAllowa}}" ng-disabled="tabAllowToa" ng-click="switchNavigation('a');">
               <span class="bread-frnt"></span>
               <p>1. DESIGN</p>
               <span class="bread-back"></span>
             </li>
-            <li class="tab-item breadcrums {{classb}}" ng-click="tabchange('trim',2); switchFrontBack(true); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor);">
+            <li class="tab-item breadcrums {{classb}} {{tabAllowb}}" ng-disabled="tabAllowTob" ng-click="switchNavigation('b');">
               <span class="bread-frnt"></span>
               <p>2. TRIM</p>
               <span class="bread-back"></span>
             </li>
-            <li class="tab-item breadcrums {{classc}}" ng-click="tabchange('team',3); switchFrontBack(true); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor); turnOnLogos(true);">
+            <li class="tab-item breadcrums {{classc}} {{tabAllowc}}" ng-disabled="tabAllowToc" ng-click="switchNavigation('c');">
               <span class="bread-frnt"></span>
               <p class="{{backwhite3}}">3. LOGOS</p>
               <span class="bread-back"></span>
             </li>
-            <li class="tab-item breadcrums {{classe}}" ng-click="checkTeamLogo(true);">
+            <li class="tab-item breadcrums {{classe}} {{tabAllowd}}" ng-disabled="tabAllowTod" ng-click="switchNavigation('d');">
               <span class="bread-frnt"></span>
               <p class="{{backwhite5}}">4. QUANTITY</p>
               <span class="bread-back"></span>
@@ -128,10 +128,10 @@
                 <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="type=3">Whites</button>
               </div>-->
               <div class="mb20 flex-around odi-design-buttons">
-                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-prev" ng-disabled="page!=2" ng-click="page=1">
+                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-prev" ng-disabled="page==1" ng-click="page=1">
                   <img src="img/design_arrow_previous.png" alt="Prev Button" class="img-responsive">
                 </button>
-                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-next" ng-disabled="page!=1" ng-click="page=2">
+                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-next" ng-disabled="page==2" ng-click="page=2">
                   <img src="img/design_arrow_next.png" alt="Next Button" class="img-responsive">
                 </button>
                 <!--<button class="{{designButton.design1.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=2; changeDesignButton(1);">Whites</button>
@@ -163,7 +163,19 @@
                   </div>-->
                 </div>
               </div>
-              <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="tabchange('trim',2); switchFrontBack(true); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor);">Continue</button>
+              <div class="mb20 flex-end odi-design-buttons">
+                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-prev" ng-disabled="page==1" ng-click="page=1">
+                  <img src="img/design_arrow_previous.png" alt="Prev Button" class="img-responsive">
+                </button>
+                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-next" ng-disabled="page==2" ng-click="page=2">
+                  <img src="img/design_arrow_next.png" alt="Next Button" class="img-responsive">
+                </button>
+                <!--<button class="{{designButton.design1.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=2; changeDesignButton(1);">Whites</button>
+                <button class="{{designButton.design2.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(2);">Sublimation</button>
+                <button class="{{designButton.design3.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(3);">Cut &amp; Sew</button>
+                <button class="{{designButton.design4.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(4);">Polo</button>-->
+              </div>
+              <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="tabchange('trim',2); switchFrontBack(true); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor); openTab('b');">NEXT</button>
               <!-- <div class="edit-btn inline-block">
                                 <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                             </div>
@@ -240,7 +252,7 @@
                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('team',3)">NEXT</button>
                             </div> -->
             <button class="classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block mt-20" ng-click="tabchange('design',1); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor);">BACK</button>
-            <button class="classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block mt-20" ng-click="tabchange('team',3); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor); turnOnLogos(true);">NEXT</button>
+            <button class="classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block mt-20" ng-click="openTab('c'); switchNavigation('c')">NEXT</button>
             </div>
 
 
