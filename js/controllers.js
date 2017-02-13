@@ -714,7 +714,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.emptyImage = function(key) {
         $scope.customizedTrouser[key] = null;
     }
-    
+
     $scope.confirmUpload = function(variable, name) {
         $scope.customizedTrouser[variable].image = $scope.tempImage;
         $scope.customizedTrouser[variable].name = name;
@@ -770,7 +770,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     };
     $scope.switchTrimHighlightBase(true, $scope.trimTrouser.highlightBase.tcolor);
-        
+
     $scope.trouskitbag = {
         'size': 'L',
         'quantity': 1
@@ -875,7 +875,7 @@ $scope.singleAmount = 850;
     $scope.teamloging = function() {
         $scope.tab = "teamlogo";
     };
-    
+
     $scope.color = [{
         colr: "#ffffff",
         name: "white"
@@ -974,7 +974,7 @@ $scope.singleAmount = 850;
             $scope.trimTrouser.highlightTwo.disable = "noable";
             $scope.designName = "design1";
             $scope.pantType = "trousers";
-            $scope.singleAmount = 850;  
+            $scope.singleAmount = 850;
             $scope.switchTrimHighlightOne(true, 'red');
             $scope.switchTrimHighlightTwo(true, '');
             $scope.switchTrimHighlightBase(true, 'black');
@@ -989,7 +989,7 @@ $scope.singleAmount = 850;
             $scope.trimTabs.light3.show = "active-tab";
             $scope.switchTrimHighlightOne(true, 'lemon_yellow');
             $scope.switchTrimHighlightTwo(true, '');
-            $scope.switchTrimHighlightBase(true, 'royal_blue');  
+            $scope.switchTrimHighlightBase(true, 'royal_blue');
         } else if (index === 2) {
             $scope.trimTrouser.highlightBase.disable = "unnoable";
             $scope.trimTrouser.highlightOne.disable = "unnoable";
@@ -1047,7 +1047,7 @@ $scope.singleAmount = 850;
             $scope.trimTabs.light3.show = "active-tab";
             $scope.switchTrimHighlightOne(true, 'australian_green');
             $scope.switchTrimHighlightTwo(true, '');
-            $scope.switchTrimHighlightBase(true, 'black');  
+            $scope.switchTrimHighlightBase(true, 'black');
         } else if (index === 7) {
             $scope.trimTrouser.highlightBase.disable = "unnoable";
             $scope.trimTrouser.highlightOne.disable = "unnoable";
@@ -1332,7 +1332,7 @@ $scope.singleAmount = 850;
     $scope.emptyImage = function(key) {
         $scope.customizedCaps[key] = null;
     }
-    
+
     $scope.confirmUpload = function(variable, name) {
         $scope.customizedCaps[variable].image = $scope.tempImage;
         $scope.customizedCaps[variable].name = name;
@@ -1438,7 +1438,7 @@ $scope.singleAmount = 850;
     $scope.teamloging = function() {
         $scope.tab = "teamlogo";
     };
-    
+
     $scope.color = [{
         colr: "#0f0f3b",
         name: "navy_blue"
@@ -1532,7 +1532,7 @@ $scope.singleAmount = 850;
             }
             $scope.trimTabs.light3.active = "activeme";
             $scope.trimTabs.light3.show = "active-tab";
-            $scope.switchTrimHighlightBase(true, 'white');  
+            $scope.switchTrimHighlightBase(true, 'white');
         }
     }
 
@@ -1749,7 +1749,7 @@ $scope.singleAmount = 850;
                             }
                         });
                     },30);
-                    
+
                 },30);
         };
         $scope.changeTopText = function() {
@@ -1772,7 +1772,7 @@ $scope.singleAmount = 850;
                                 }
                             });
                         },30);
-                        
+
                     },30);
         };
 
@@ -2235,13 +2235,13 @@ $scope.singleAmount = 850;
         console.log($scope.Arrayname);
         if ($scope.Arrayname == '$scope.padImages1') {
             $scope.padLogo.divattributes = {
-                top: '386px',
-                left: '278px'
+                top: '341px',
+                left: '277px'
             };
         }
         if ($scope.Arrayname == '$scope.padImages2') {
             $scope.padLogo.divattributes = {
-                top: '399px',
+                top: '353px',
                 left: '295px'
             };
         }
@@ -3398,19 +3398,19 @@ $scope.singleAmount = 850;
         console.log($scope.Arrayname);
         if ($scope.Arrayname == '$scope.glovesImages1') {
             $scope.glovesLogo.divattributes = {
-                top: '246px',
+                top: '203px',
                 left: '355px'
             };
         }
         if ($scope.Arrayname == '$scope.glovesImages2') {
             $scope.glovesLogo.divattributes = {
-                top: '292px',
+                top: '249px',
                 left: '302px'
             };
         }
         if ($scope.Arrayname == '$scope.glovesImages3') {
             $scope.glovesLogo.divattributes = {
-                top: '285px',
+                top: '238px',
                 left: '305px'
             };
         }
@@ -4076,7 +4076,7 @@ $scope.singleAmount = 850;
         // if (variable !== 'teamlogo') {
         //   $scope.statuses.modal.close();
         // }
-        
+
         if ($scope.statuses.permission) {
             if ($scope.tempImage) {
                 $scope.customizedShirt[variable].image = $scope.tempImage;
@@ -4319,7 +4319,7 @@ $scope.singleAmount = 850;
                 $scope.trimHexColors('highlightOne', '#00308f');
                 $scope.trimHexColors('highlightTwo', '#ffff00');
                 $scope.trimHexColors('highlightBase', '#008000');
-            } else if (index === 4) {                  
+            } else if (index === 4) {
                 $scope.trimTshirt.highlightBase.disable = "unnoable";
                 $scope.trimTshirt.highlightOne.disable = "unnoable";
                 $scope.trimTshirt.highlightTwo.disable = "noable";
@@ -4717,7 +4717,7 @@ $scope.singleAmount = 850;
     //         console.log(canvas.toDataURL('image/png'));
     //     });
     // };
-	
+
 	$scope.openLogin = function() {
 		$.jStorage.set("isExpert", false);
 		// $scope.changeTab(2);
@@ -4885,7 +4885,7 @@ $scope.singleAmount = 850;
 		} else {
 			$scope.openLogin();
 		}
-        
+
         // if ($.jStorage.get('savedDesigns')) {
         //     $scope.allSavedDesigns = $.jStorage.get('savedDesigns');
         //     $scope.allSavedDesigns.push($scope.combineJSON);
@@ -5501,7 +5501,7 @@ $scope.singleAmount = 850;
         // $scope.showproceedTab() = function(){
         //   $scope.tab = "sponsorlogo";
         // }
-    
+
     $scope.color = [{
         colr: "#f5b122"
     }, {
@@ -5749,7 +5749,7 @@ $scope.singleAmount = 850;
     $scope.teamloging = function() {
         $scope.tab = "teamlogo";
     }
-    
+
     $scope.color = [{
         colr: "#f5b122"
     }, {
@@ -6777,7 +6777,7 @@ $scope.singleAmount = 850;
     $scope.teamloging = function() {
         $scope.tab = "teamlogo";
     }
-    
+
     $scope.color = [{
         colr: "#f5b122"
     }, {
@@ -7707,7 +7707,7 @@ $scope.singleAmount = 850;
                 if ($scope.customizedShirt.backlogo) {
                     $scope.allLogos.backlogo = $scope.tshirtdata.customizedShirt.backlogo.image;
                 }
-                
+
                 $scope.combineJSON = {
                     "trimTshirt": $scope.tshirtdata.trim,
                     "customizedShirt": $scope.tshirtdata.customizedShirt,
@@ -9082,7 +9082,7 @@ $scope.singleAmount = 850;
             image: 'img/landing/showcase/4.jpg',
             link: 'shorts'
         }];
-       
+
 
     })
     .controller('ApparelsCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
