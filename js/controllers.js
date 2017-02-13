@@ -2179,7 +2179,7 @@ $scope.singleAmount = 850;
     $scope.padLogo = {};
     $scope.padLogo.isTeamLogo = false;
     $scope.padLogo.divattributes = {
-        top: '386px',
+        top: '342px',
         left: '278px'
     };
     $scope.padLogo.attributes = {};
@@ -3342,7 +3342,7 @@ $scope.singleAmount = 850;
     $scope.glovesLogo = {};
     $scope.glovesLogo.isTeamLogo = false;
     $scope.glovesLogo.divattributes = {
-        top: '246px',
+        top: '200px',
         left: '355px'
     };
     $scope.glovesLogo.attributes = {};
