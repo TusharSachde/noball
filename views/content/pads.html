@@ -48,7 +48,7 @@
                           <img src="{{selectedImage}}" class="img-responsive" alt="">
                       </div>
                       <div class="pad-logo" ng-if="padLogo.image" ng-style="padLogo.divattributes">
-                          <img ng-src="{{padLogo.image | serverimage}}" class="img-responsive" alt="" ng-style="padLogo.attributes">
+                          <img ng-src="{{padLogo.image | serverimage}}" alt="" ng-style="padLogo.attributes">
                       </div>
                         <div class="prev inline-block" style="display:none">
                             <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">back</p>
@@ -81,6 +81,8 @@
                         <span class="Raleway-Medium"><em>Minimum order to be placed for pads is 12.</em></span>
                     </div>
                     <!--                    // design tab-->
+
+
                     <div class="choos m20-l" ng-show="tab=='design'">
                         <p>Choose Your Type Of Design (2/2)</p>
                         <div class="row">
@@ -170,34 +172,34 @@
                             <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="openSaveDesignPopup();">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('teamlogo',3); openTab('c');">NEXT</button>
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('team',3); openTab('c');">NEXT</button>
                         </div>
 
 
                     </div>
                     <!--  team logo-->
-                    <!-- <div class="choos m20-l" ng-show="tab=='team'"> -->
+                    <div class="choos m20-l" ng-show="tab=='team'">
                         <!--<p>Upload Your Logo</p>-->
-                        <!-- <div class="checkboxing">
+                        <div class="checkboxing">
                             <input type="checkbox" class="form-control" id="later" ng-model="padLogo.isTeamLogo">
                             <label for="later"><span></span>SEND TEAM LOGO LATER</label>
-                        </div> -->
+                        </div>
                         <!--<div class="logo-text">
                             <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" >TEAM LOGO</button>
                             <span class="uppercase inline-block mright15">or</span>
                             <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="showColorTab()">TEAM TEXT</button>
                         </div>-->
-                        <!-- <div class="logo-text mt10 inline-box"> -->
-                            <!-- <button class="btn inline-block btn-dark padding-btn letter-spacing mright15">TEAM LOGO</button> -->
+                        <div class="logo-text mt10 inline-box">
+                            <button class="btn inline-block btn-dark padding-btn letter-spacing mright15">TEAM LOGO</button>
                             <!--<div class="checkboxing">
                                 <input type="checkbox" class="form-control" id="later">
                                 <label for="later"><span></span>Send it Later</label>
                             </div>-->
                             <!--<span class="uppercase inline-block mright15">or</span>
                                             <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor();">TEAM TEXT</button>-->
-                        <!-- </div> -->
-                        <!-- <div class="block-box"> -->
-                            <!-- <div class="teamlogo-box">
+                        </div>
+                        <div class="block-box">
+                            <div class="teamlogo-box">
                             <div class="inline-box box-custom">
                                 <img ng-src="{{padLogo.image | serverimage}}" alt="" ng-if="padLogo.image">
                             </div>
@@ -210,11 +212,11 @@
                             <div class="edit-btn">
                                 <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('padlogo', 'Team Logo')" ng-if="!padLogo.image">upload</button>
                                 <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('padlogo', 'Team Logo')" ng-if="padLogo.image">change</button>
-                                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('padlogo')" ng-if="padLogo.image">remove</button> -->
+                                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('padlogo')" ng-if="padLogo.image">remove</button>
                                 <!-- <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="UploadTeamLogo()" ng-if="customizedShirt.teamlogo">change</button> -->
                                 <!-- <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="UploadTeamLogo()" ng-if="customizedShirt.teamlogo">remove</button> -->
-                            <!-- </div>
-                            </div> -->
+                            </div>
+                            </div>
 
                             <!--<div class="print-typ printing inline-box">
                                 <p class="bold">Select The Printing Type For Your Team Logo</p>
@@ -229,8 +231,8 @@
                                 </form>
                             </div>-->
 
-                        <!-- </div> -->
-                        <!-- <div class="print-typ printing">
+                        </div>
+                        <div class="print-typ printing">
                             <div class="pbotom">
                                 <span class="block">Notes :</span>
                                 <span class="block">1. The printed CCC Logo will always be embroidered on your pads.</span>
@@ -246,8 +248,8 @@
                             <div class="edit-btn inline-block">
                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="checkTeamLogo();">NEXT</button>
                             </div>
-                        </div> -->
-                        <!-- <div class="modal fade custom" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        </div>
+                        <div class="modal fade custom" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -266,8 +268,8 @@
 
                                 </div>
                             </div>
-                        </div> -->
-                    <!-- </div> -->
+                        </div>
+                    </div>
 
                     <div class="choos m20-l next-level" ng-show="tab=='teamlogo'">
                         <p>Upload Your Logo</p>
