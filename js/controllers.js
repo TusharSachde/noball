@@ -2108,7 +2108,18 @@ $scope.singleAmount = 850;
     //     "gold": ["img/padscolor/gold/3.png"]
 
     // };
-
+    $scope.openDesign = function(index, tab) {
+        if ($scope.LogosTab) {
+            $scope.designIndex = index;
+            $scope.designTab = tab;
+            $uibModal.open({
+                templateUrl: "views/modal/tshirtdesign.html",
+                scope: $scope
+            });
+        } else {
+            $scope.changeDesign(index, tab);
+        }
+    }
     $scope.padscolor = [{
        colr: "#000000",
        name: "black"
@@ -2310,13 +2321,15 @@ $scope.singleAmount = 850;
             });
         }
     };
-
-    $scope.openSaveDesignPopup = function () {
+      $scope.openSaveDesignPopup = function () {
         $uibModal.open({
             templateUrl: 'views/modal/savedesign.html',
             scope: $scope
         });
     };
+
+
+  
 
     $scope.openLogin = function() {
         $uibModal.open({
@@ -2575,7 +2588,11 @@ $scope.singleAmount = 850;
             $scope.tabAllowTod = false;
         }
     };
-
+ $scope.LogosTab = false;
+    $scope.quantityTab = false;
+    $scope.turnOnLogos = function(val) {
+        $scope.LogosTab = val;
+    }
     $scope.switchNavigation = function(tab) {
         if (tab === 'a') {
             if (!$scope.tabAllowToa) {
@@ -2588,6 +2605,7 @@ $scope.singleAmount = 850;
         } else if (tab === 'c') {
             if (!$scope.tabAllowToc) {
                 $scope.tabchange('team', 3);
+                  $scope.turnOnLogos(true);
             }
         } else if (tab === 'd') {
             if (!$scope.tabAllowTod) {
@@ -3258,6 +3276,49 @@ $scope.singleAmount = 850;
     $scope.toggleTab = function(val) {
         $scope.activeButton = val;
     };
+
+$scope.LogosTab = false;
+    $scope.quantityTab = false;
+    $scope.turnOnLogos = function(val) {
+        $scope.LogosTab = val;
+    }
+        $scope.openDesign = function(index, tab,img) {
+            console.log('//////////');
+        if ($scope.LogosTab) {
+              console.log('//////////11111');
+            $scope.designIndex = index;
+            $scope.designTab = tab;
+            $uibModal.open({
+                templateUrl: "views/modal/tshirtdesign.html",
+                scope: $scope
+            });
+        } else {
+              console.log('//////////33333');
+            $scope.selectDesign(img);
+        }
+    }
+       $scope.switchNavigation = function(tab) {
+           console.log('aaaaaaaaaaaaaaaaaaaaaa');
+        if (tab === 'a') {
+            if (!$scope.tabAllowToa) {
+                $scope.tabchange('design', 1);
+            }
+        } else if (tab === 'b') {
+            if (!$scope.tabAllowTob) {
+                $scope.tabchange('trim', 2);
+            }
+        } else if (tab === 'c') {
+            if (!$scope.tabAllowToc) {
+                $scope.tabchange('team', 3);
+                $scope.turnOnLogos(true);
+            }
+$scope.turnOnLogos(true);
+        } else if (tab === 'd') {
+            if (!$scope.tabAllowTod) {
+                $scope.tabchange('quantity', 5);
+            }
+        }
+    };
     $scope.glovescolor = [{
         colr: "#ffd700",
         name: "yellow"
@@ -3286,8 +3347,59 @@ $scope.singleAmount = 850;
         colr: "#d2b48c",
         name: "gold"
     }];
+      $scope.openLogin = function() {
+        $uibModal.open({
+            animation: true,
+            templateUrl: 'views/modal/login.html',
+            controller: 'headerctrl',
+            scope: $scope
+        })
+    };
 
+$scope.checkloginGloves = function(){
+     console.log('qqqqqqq////////////');
+     if (NavigationService.getUser()) {
+            $scope.isLogin = true;
+        } else {
+            $scope.isLogin = false;
+        }
+        if($scope.isLogin){
+            console.log('////////////');
+//   $scope.openSaveDesignPopup = function () {
+        $uibModal.open({
+            templateUrl: 'views/modal/savedesign.html',
+            scope: $scope
+        });
+    // };
+    }else{
+         console.log('////////////1111111');
+         $scope.openLogin();
+        // $uibModal.open({
+        //     templateUrl: 'views/modal/login.html',
+        //     scope: $scope
+        // });
+  
 
+    }
+    }
+        $scope.doLogin = function(input, formValidate) {
+                $scope.validatelogin = false;
+                $scope.inputall = false;
+
+                if (formValidate.$valid) {
+                    NavigationService.login(input, function(data) {
+                        if (data.value === false) {
+                            $scope.validatelogin = true;
+                        } else {
+                            NavigationService.setUser(data);
+                            // window.location.reload();
+                            $scope.openLogin.close();
+                        }
+                    }, function(err) {})
+                } else {
+                    $scope.inputall = true;
+                }
+            }
     //glovesImages path
     $scope.glovesImages1 = {
         "yellow": ["img/glovescolor/yellow/1.png"],
@@ -3443,6 +3555,8 @@ $scope.singleAmount = 850;
             }
             // $scope.myChoice=item;
     }
+    
+     
     $scope.selectDesign($scope.myArr[0]);
     console.log($scope.myArr[0]);
     // $scope.changeGlovesImages = function(color) {
@@ -3464,14 +3578,7 @@ $scope.singleAmount = 850;
         $scope.glovesLogo.image = null;
     }
 
-    $scope.openLogin = function() {
-        $uibModal.open({
-            animation: true,
-            templateUrl: 'views/modal/login.html',
-            controller: 'headerctrl',
-            scope: $scope
-        })
-    };
+  
 
     $scope.selectGlovesImage = function(image) {
         console.log(image);
@@ -3746,6 +3853,11 @@ $scope.singleAmount = 850;
             $scope.tabAllowTod = false;
         }
     };
+     $scope.LogosTab = false;
+    $scope.quantityTab = false;
+    $scope.turnOnLogos = function(val) {
+        $scope.LogosTab = val;
+    }
 
     $scope.switchNavigation = function(tab) {
         if (tab === 'a') {
@@ -3759,7 +3871,9 @@ $scope.singleAmount = 850;
         } else if (tab === 'c') {
             if (!$scope.tabAllowToc) {
                 $scope.tabchange('team', 3);
+                $scope.turnOnLogos(true);
             }
+$scope.turnOnLogos(true);
         } else if (tab === 'd') {
             if (!$scope.tabAllowTod) {
                 $scope.tabchange('quantity', 5);
