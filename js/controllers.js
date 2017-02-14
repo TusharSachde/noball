@@ -3288,6 +3288,7 @@ $scope.LogosTab = false;
               console.log('//////////11111');
             $scope.designIndex = index;
             $scope.designTab = tab;
+            $scope.designImage = img;
             $uibModal.open({
                 templateUrl: "views/modal/tshirtdesign.html",
                 scope: $scope
