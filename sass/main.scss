@@ -2989,22 +2989,30 @@ footer {
 }
 
 .pad-logo {
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
     position: absolute;
     top: 386px;
     left: 278px;
     overflow: hidden;
-    @extend .div-flex;
+    display: flex;
+align-items: center;
+justify-content: center;
+align-content: center;
+    // @extend .div-flex;
 }
 
 .gloves-logo {
-    width: 45px;
-    height: 45px;
+
+    width: 48px;
+    height: 48px;
     position: absolute;
     top: 246px;
     left: 355px;
     overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
     // @include transform(rotate(180deg));
     // @extend .div-flex;
 }
