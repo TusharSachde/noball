@@ -2238,15 +2238,25 @@ $scope.singleAmount = 850;
         console.log($scope.Arrayname);
         if ($scope.Arrayname == '$scope.padImages1') {
             $scope.padLogo.divattributes = {
+<<<<<<< HEAD
 
                 top: '338px',
                 left: '273px'
+=======
+                top: '328px',
+                left: '266px'
+>>>>>>> 324c92f1d78409dd7ba4d43b5c4d867f62dacc65
             };
         }
         if ($scope.Arrayname == '$scope.padImages2') {
             $scope.padLogo.divattributes = {
+<<<<<<< HEAD
                 top: '350px',
                 left: '289px'
+=======
+                top: '342px',
+                left: '284px'
+>>>>>>> 324c92f1d78409dd7ba4d43b5c4d867f62dacc65
             };
         }
         $scope.changePadsImages = function(color) {
