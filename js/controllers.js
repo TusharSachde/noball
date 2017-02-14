@@ -2040,7 +2040,10 @@ $scope.singleAmount = 850;
     $scope.menutitle = NavigationService.makeactive("Pads");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-
+    $scope.activeButton = 1;
+    $scope.toggleTab = function(val) {
+        $scope.activeButton = val;
+    };
     // $scope.padscolor = [{
     //     colr: "#ffd700",
     //     name: "yellow"
@@ -3251,7 +3254,10 @@ $scope.singleAmount = 850;
     $scope.menutitle = NavigationService.makeactive("Gloves");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-
+    $scope.activeButton = 1;
+    $scope.toggleTab = function(val) {
+        $scope.activeButton = val;
+    };
     $scope.glovescolor = [{
         colr: "#ffd700",
         name: "yellow"
@@ -3866,6 +3872,10 @@ $scope.singleAmount = 850;
     $scope.previewImages = {};
     $scope.designType = 'odi';
 
+    $scope.activeButton = 1;
+    $scope.toggleTab = function(val) {
+        $scope.activeButton = val;
+    };
     // image upload variables
     $scope.variable = "";
 

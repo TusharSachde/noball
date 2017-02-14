@@ -87,9 +87,9 @@
                         </div>
                         <!-- </div> -->
                         <div class="feature-buttons">
-                            <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing">FORM + FUNCTION</button>
-                            <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing">DELIVERY</button>
-                            <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing">CARE</button>
+                            <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 1}" ng-click="toggleTab(1)">FORM + FUNCTION</button>
+                            <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 2}" ng-click="toggleTab(2)">DELIVERY</button>
+                            <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 3}" ng-click="toggleTab(3)">CARE</button>
                         </div>
                         <ul class="tshirt-features">
                             <li> Miniroll style finger and thumb splits</li>
@@ -604,7 +604,7 @@
                         </select></div> -->
                             <a href="" class="bin"><img src="img/rubbishbin.png" class="img-responsive" alt="" ng-click="removeGlovesValue($index); addQuantity();"></a>
                         </div>
-                            
+
                             <div class="add-button">
                                 <p class="pointer" ng-click="addGlovesValues(); addQuantity(glove.quantity);"><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</p>
                             </div>
