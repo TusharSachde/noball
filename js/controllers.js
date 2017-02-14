@@ -2034,7 +2034,7 @@ $scope.singleAmount = 850;
 
     })
 
-.controller('PadsCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
+    .controller('PadsCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("pads");
     $scope.menutitle = NavigationService.makeactive("Pads");
@@ -2108,18 +2108,7 @@ $scope.singleAmount = 850;
     //     "gold": ["img/padscolor/gold/3.png"]
 
     // };
-    $scope.openDesign = function(index, tab) {
-        if ($scope.LogosTab) {
-            $scope.designIndex = index;
-            $scope.designTab = tab;
-            $uibModal.open({
-                templateUrl: "views/modal/tshirtdesign.html",
-                scope: $scope
-            });
-        } else {
-            $scope.changeDesign(index, tab);
-        }
-    }
+
     $scope.padscolor = [{
        colr: "#000000",
        name: "black"
@@ -2197,7 +2186,7 @@ $scope.singleAmount = 850;
         left: '278px'
     };
     $scope.padLogo.attributes = {};
-    $scope.padLogo.attributes.width = 50;
+    $scope.padLogo.attributes.width = 34;
     $scope.padLogo.printType = 'embroidered';
     $scope.statuses = {};
 
@@ -2249,14 +2238,15 @@ $scope.singleAmount = 850;
         console.log($scope.Arrayname);
         if ($scope.Arrayname == '$scope.padImages1') {
             $scope.padLogo.divattributes = {
-                top: '341px',
-                left: '277px'
+
+                top: '338px',
+                left: '273px'
             };
         }
         if ($scope.Arrayname == '$scope.padImages2') {
             $scope.padLogo.divattributes = {
-                top: '353px',
-                left: '295px'
+                top: '350px',
+                left: '289px'
             };
         }
         $scope.changePadsImages = function(color) {
@@ -2321,15 +2311,13 @@ $scope.singleAmount = 850;
             });
         }
     };
-      $scope.openSaveDesignPopup = function () {
+
+    $scope.openSaveDesignPopup = function () {
         $uibModal.open({
             templateUrl: 'views/modal/savedesign.html',
             scope: $scope
         });
     };
-
-
-  
 
     $scope.openLogin = function() {
         $uibModal.open({
@@ -2588,11 +2576,7 @@ $scope.singleAmount = 850;
             $scope.tabAllowTod = false;
         }
     };
- $scope.LogosTab = false;
-    $scope.quantityTab = false;
-    $scope.turnOnLogos = function(val) {
-        $scope.LogosTab = val;
-    }
+
     $scope.switchNavigation = function(tab) {
         if (tab === 'a') {
             if (!$scope.tabAllowToa) {
@@ -2605,7 +2589,6 @@ $scope.singleAmount = 850;
         } else if (tab === 'c') {
             if (!$scope.tabAllowToc) {
                 $scope.tabchange('team', 3);
-                  $scope.turnOnLogos(true);
             }
         } else if (tab === 'd') {
             if (!$scope.tabAllowTod) {
@@ -2693,6 +2676,8 @@ $scope.singleAmount = 850;
 
 
 })
+
+
 
 .controller('ShortsCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar, $filter) {
     //Used to name the .html file
@@ -3288,6 +3273,7 @@ $scope.LogosTab = false;
               console.log('//////////11111');
             $scope.designIndex = index;
             $scope.designTab = tab;
+             $scope.designImage = img;
             $uibModal.open({
                 templateUrl: "views/modal/tshirtdesign.html",
                 scope: $scope
