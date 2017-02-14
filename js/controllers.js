@@ -2329,7 +2329,7 @@ $scope.singleAmount = 850;
     };
 
 
-  
+
 
     $scope.openLogin = function() {
         $uibModal.open({
@@ -3378,7 +3378,7 @@ $scope.checkloginGloves = function(){
         //     templateUrl: 'views/modal/login.html',
         //     scope: $scope
         // });
-  
+
 
     }
     }
@@ -3517,19 +3517,19 @@ $scope.checkloginGloves = function(){
         if ($scope.Arrayname == '$scope.glovesImages1') {
             $scope.glovesLogo.divattributes = {
                 top: '203px',
-                left: '355px'
+                left: '352px'
             };
         }
         if ($scope.Arrayname == '$scope.glovesImages2') {
             $scope.glovesLogo.divattributes = {
                 top: '249px',
-                left: '302px'
+                left: '298px'
             };
         }
         if ($scope.Arrayname == '$scope.glovesImages3') {
             $scope.glovesLogo.divattributes = {
                 top: '238px',
-                left: '305px'
+                left: '298px'
             };
         }
         $scope.changeGlovesImages = function(color) {
@@ -3555,8 +3555,8 @@ $scope.checkloginGloves = function(){
             }
             // $scope.myChoice=item;
     }
-    
-     
+
+
     $scope.selectDesign($scope.myArr[0]);
     console.log($scope.myArr[0]);
     // $scope.changeGlovesImages = function(color) {
@@ -3578,7 +3578,7 @@ $scope.checkloginGloves = function(){
         $scope.glovesLogo.image = null;
     }
 
-  
+
 
     $scope.selectGlovesImage = function(image) {
         console.log(image);
