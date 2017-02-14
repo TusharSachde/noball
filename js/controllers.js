@@ -2249,14 +2249,14 @@ $scope.singleAmount = 850;
         console.log($scope.Arrayname);
         if ($scope.Arrayname == '$scope.padImages1') {
             $scope.padLogo.divattributes = {
-                top: '341px',
-                left: '277px'
+                top: '328px',
+                left: '266px'
             };
         }
         if ($scope.Arrayname == '$scope.padImages2') {
             $scope.padLogo.divattributes = {
-                top: '353px',
-                left: '295px'
+                top: '342px',
+                left: '284px'
             };
         }
         $scope.changePadsImages = function(color) {
