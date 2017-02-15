@@ -76,7 +76,10 @@
                         <div class="row">
                             <div class="col-md-10">
                                 <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images track by $index">
-                                    <div class="cat-img" ng-click="changeDesign(img.title)">
+                                    <!--<div class="cat-img" ng-click="changeDesign(img.title)">
+                                        <img ng-src="{{img.src}}" class="img-responsive">
+                                    </div>-->
+                                    <div class="cat-img" ng-click="openDesignKitBag($index, 1,img.title)">
                                         <img ng-src="{{img.src}}" class="img-responsive">
                                     </div>
                                 </div>
@@ -139,10 +142,10 @@
                             </div>-->
                         </div>
                         <div class="edit-btn inline-block">
-                            <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="openSaveDesignPopup();">SAVE DESIGN &amp; EDIT LATER</button>
+                            <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginKitBag();">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('team', 3); openTab('c');">NEXT</button>
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('team', 3); openTab('c');switchNavigation('c');">NEXT</button>
                         </div>
 
 
@@ -205,7 +208,7 @@
                             </div>
                         </div>-->
                         <div class="checkboxing">
-                            <input type="checkbox" class="form-control" id="later" ng-model="glovesLogo.isTeamLogo">
+                            <input type="checkbox" class="form-control" id="later" ng-model="kitbag.isTeamLogo">
                             <label for="later"><span></span>SEND TEAM LOGO LATER</label>
                         </div>
                         <div class="logo-text mt10 mt-20 inline-box">
@@ -230,7 +233,10 @@
                             </div>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="openSaveDesignPopup();">SAVE DESIGN &amp; EDIT LATER</button>
+                            <!--<button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="openSaveDesignPopup();">SAVE DESIGN &amp; EDIT LATER</button>-->
+                            <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginKitBag();">SAVE DESIGN &amp; EDIT LATER</button>
+
+                            
                         </div>
                         <div class="edit-btn inline-block">
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="checkTeamLogo();">NEXT</button>
@@ -280,7 +286,7 @@
                                 <span>The printed CCC Logo will always be embroidered on your t-shirt</span>
                             </div>
                             <div class="edit-btn inline-block">
-                                <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                                <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginKitBag()">SAVE DESIGN &amp; EDIT LATER</button>
                             </div>
                             <div class="edit-btn inline-block">
                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="openColor()">NEXT</button>
@@ -386,7 +392,7 @@
 
                             </div>
                             <div class="edit-btn inline-block">
-                                <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                                <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginKitBag();">SAVE DESIGN &amp; EDIT LATER</button>
                             </div>
                             <div class="edit-btn inline-block">
                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
@@ -421,7 +427,7 @@
                             </div>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                            <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginKitBag();">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
                         <div class="edit-btn inline-block">
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="UploadTeamLogo1()" >NEXT</button>
@@ -486,7 +492,7 @@
                         </div>
                         <div class="eds">
                             <div class="edit-btn inline-block">
-                                <button href="" class=" btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                                <button href="" class=" btn btn-outline btn-dark letter-spacing" ng-click="checkloginKitBag();">SAVE DESIGN &amp; EDIT LATER</button>
                             </div>
                         </div>
                         <div class="edit-btn inline-block">
@@ -771,7 +777,7 @@
                                 </uib-accordion-group>
                                 </uib-accordion>
                                 <div class="edit-btn inline-block">
-                                    <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                                    <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginKitBag();">SAVE DESIGN &amp; EDIT LATER</button>
                                 </div>
                                 <div class="edit-btn inline-block">
                                     <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>

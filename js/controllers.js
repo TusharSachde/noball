@@ -6107,11 +6107,46 @@ $scope.turnOnLogos(true);
             scope: $scope
         })
     };
+     $scope.openLogin = function() {
+        $uibModal.open({
+            animation: true,
+            templateUrl: 'views/modal/login.html',
+            controller: 'headerctrl',
+            scope: $scope
+        })
+    };
+$scope.qtyValidation = false;
+$scope.checkloginKitBag = function(){
+    
+     console.log('qqqqqqq////////////');
+     if (NavigationService.getUser()) {
+            $scope.isLogin = true;
+        } else {
+            $scope.isLogin = false;
+        }
+        if($scope.isLogin){
+            console.log('////////////');
+//   $scope.openSaveDesignPopup = function () {
+        $uibModal.open({
+            templateUrl: 'views/modal/savedesign.html',
+            scope: $scope
+        });
+    // };
+    }else{
+         console.log('////////////1111111');
+         $scope.openLogin();
+        // $uibModal.open({
+        //     templateUrl: 'views/modal/login.html',
+        //     scope: $scope
+        // });
 
+
+    }
+    }
     var check = 1;
 
     $scope.kitbag = {};
-    $scope.kitbag.isTeamLogo = true;
+    $scope.kitbag.isTeamLogo = false;
     $scope.kitbag.name = "kitbags";
     $scope.kitbag.front = "img/" + $scope.kitbag.name + "/kitbag_ry.png";
     $scope.kitbag.divattributes = {
@@ -6394,6 +6429,8 @@ $scope.turnOnLogos(true);
         });
     };
 
+    
+
     $scope.changeDesign = function(name) {
         $scope.kitbag.name = name;
         $scope.kitbag.front = "img/" + $scope.kitbag.name + "/kitbag_ry.png";
@@ -6434,6 +6471,23 @@ $scope.turnOnLogos(true);
                     // transform: 'rotate(-2deg)'
                 }
             }
+        }
+    }
+
+           $scope.openDesignKitBag = function(index, tab,img) {
+            console.log('//////////');
+        if ($scope.LogosTab) {
+              console.log('//////////11111');
+            $scope.designIndex = index;
+            $scope.designTab = tab;
+            $scope.designImage = img;
+            $uibModal.open({
+                templateUrl: "views/modal/tshirtdesign.html",
+                scope: $scope
+            });
+        } else {
+              console.log('//////////33333');
+            $scope.changeDesign(img);
         }
     }
 
@@ -6513,6 +6567,10 @@ $scope.turnOnLogos(true);
         }
     };
 
+$scope.LogosTab = false;
+    $scope.turnOnLogos = function(val) {
+        $scope.LogosTab = val;
+    }
     $scope.switchNavigation = function(tab) {
         if (tab === 'a') {
             if (!$scope.tabAllowToa) {
@@ -6525,7 +6583,9 @@ $scope.turnOnLogos(true);
         } else if (tab === 'c') {
             if (!$scope.tabAllowToc) {
                 $scope.tabchange('team', 3);
+                  $scope.turnOnLogos(true);
             }
+              $scope.turnOnLogos(true);
         } else if (tab === 'd') {
             if (!$scope.tabAllowTod) {
                 $scope.tabchange('quantity', 5);
