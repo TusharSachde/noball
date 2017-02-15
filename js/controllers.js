@@ -2680,7 +2680,7 @@ $scope.checkloginPads = function(){
     $scope.openUpload = function() {
         $uibModal.open({
             templateUrl: "views/modal/tshirt.html",
-            controller: "GloveCtrl",
+            controller: "PadsCtrl",
             scope: $scope
         })
     };
@@ -2688,7 +2688,7 @@ $scope.checkloginPads = function(){
     $scope.copy = function() {
         $uibModal.open({
             templateUrl: "views/modal/outofplace.html",
-            controller: "GloveCtrl",
+            controller: "PadsCtrl",
             scope: $scope
         })
     };
@@ -2696,7 +2696,7 @@ $scope.checkloginPads = function(){
     $scope.continue = function() {
         $uibModal.open({
             templateUrl: "views/modal/continue.html",
-            controller: "GloveCtrl",
+            controller: "PadsCtrl",
             scope: $scope
         })
     };
@@ -2704,7 +2704,7 @@ $scope.checkloginPads = function(){
     $scope.choose = function() {
         $uibModal.open({
             templateUrl: "views/modal/choosefile.html",
-            controller: "GloveCtrl",
+            controller: "PadsCtrl",
             scope: $scope
         })
     };
@@ -2712,7 +2712,7 @@ $scope.checkloginPads = function(){
     $scope.copyright = function() {
         $uibModal.open({
             templateUrl: "views/modal/copyrights.html",
-            controller: "GloveCtrl",
+            controller: "PadsCtrl",
             scope: $scope
         })
     };
@@ -2721,7 +2721,7 @@ $scope.checkloginPads = function(){
     $scope.tshirtUpload = function() {
         $uibModal.open({
             templateUrl: "views/modal/tshirt-popup.html",
-            controller: "OdiCtrl",
+            controller: "PadsCtrl",
             scope: $scope
         })
     };
@@ -2729,7 +2729,7 @@ $scope.checkloginPads = function(){
     $scope.outplace = function() {
         $uibModal.open({
             templateUrl: "views/modal/outofplace.html",
-            controller: "OdiCtrl",
+            controller: "PadsCtrl",
             windowClass: "modal-dialogintro",
             scope: $scope
         })
@@ -3970,7 +3970,7 @@ $scope.turnOnLogos(true);
     $scope.openUpload = function() {
         $uibModal.open({
             templateUrl: "views/modal/tshirt.html",
-            controller: "GloveCtrl",
+            controller: "GlovesCtrl",
             scope: $scope
         })
     };
@@ -3978,7 +3978,7 @@ $scope.turnOnLogos(true);
     $scope.copy = function() {
         $uibModal.open({
             templateUrl: "views/modal/outofplace.html",
-            controller: "GloveCtrl",
+            controller: "GlovesCtrl",
             scope: $scope
         })
     };
@@ -3986,7 +3986,7 @@ $scope.turnOnLogos(true);
     $scope.continue = function() {
         $uibModal.open({
             templateUrl: "views/modal/continue.html",
-            controller: "GloveCtrl",
+            controller: "GlovesCtrl",
             scope: $scope
         })
     };
@@ -3994,7 +3994,7 @@ $scope.turnOnLogos(true);
     $scope.choose = function() {
         $uibModal.open({
             templateUrl: "views/modal/choosefile.html",
-            controller: "GloveCtrl",
+            controller: "GlovesCtrl",
             scope: $scope
         })
     };
@@ -4002,7 +4002,7 @@ $scope.turnOnLogos(true);
     $scope.copyright = function() {
         $uibModal.open({
             templateUrl: "views/modal/copyrights.html",
-            controller: "GloveCtrl",
+            controller: "GlovesCtrl",
             scope: $scope
         })
     };
@@ -4011,7 +4011,7 @@ $scope.turnOnLogos(true);
     $scope.tshirtUpload = function() {
         $uibModal.open({
             templateUrl: "views/modal/tshirt-popup.html",
-            controller: "OdiCtrl",
+            controller: "GlovesCtrl",
             scope: $scope
         })
     };
@@ -4019,7 +4019,7 @@ $scope.turnOnLogos(true);
     $scope.outplace = function() {
         $uibModal.open({
             templateUrl: "views/modal/outofplace.html",
-            controller: "OdiCtrl",
+            controller: "GlovesCtrl",
             windowClass: "modal-dialogintro",
             scope: $scope
         })
@@ -9327,7 +9327,7 @@ $scope.turnOnLogos(true);
             $uibModal.open({
                 animation: true,
                 templateUrl: "views/modal/customizepop.html",
-                controller: 'CustomiseInfoCtrl',
+                controller: 'headerctrl',
                 backdrop: 'static',
                 keyboard: false
             });
