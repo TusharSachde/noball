@@ -2593,6 +2593,24 @@ $scope.singleAmount = 850;
     $scope.turnOnLogos = function(val) {
         $scope.LogosTab = val;
     }
+
+          $scope.openDesign = function(index, tab,img) {
+            console.log('//////////');
+        if ($scope.LogosTab) {
+              console.log('//////////11111');
+            $scope.designIndex = index;
+            $scope.designTab = tab;
+            $scope.designImage = img;
+            $uibModal.open({
+                templateUrl: "views/modal/tshirtdesign.html",
+                scope: $scope
+            });
+        } else {
+              console.log('//////////33333');
+            $scope.selectPadsDesign(img);
+        }
+    }
+    
     $scope.switchNavigation = function(tab) {
         if (tab === 'a') {
             if (!$scope.tabAllowToa) {
