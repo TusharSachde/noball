@@ -3400,8 +3400,11 @@ $scope.turnOnLogos(true);
             scope: $scope
         })
     };
-
-$scope.checkloginGloves = function(){
+$scope.qtyValidation = false;
+$scope.checkloginGloves = function(qty){
+    if(qty == 0){
+        $scope.qtyValidation = true;
+    }
      console.log('qqqqqqq////////////');
      if (NavigationService.getUser()) {
             $scope.isLogin = true;
@@ -3788,8 +3791,14 @@ $scope.checkloginGloves = function(){
     }];
     //tab changes
 
-
-    $scope.toOrderSummary = function() {
+ $scope.qtyVal = false;
+    $scope.toOrderSummary = function(qty) {
+        console.log('drfghjrftghbsssssssssss',qty);
+        if(qty == '0'){
+            console.log('drfghjrftghb');
+            $scope.qtyVal = true;
+        }else{
+             console.log('drfghjrftghbsssssssssss');
         $scope.tl = "";
         $scope.user = $.jStorage.get("user");
 		if (user) {
@@ -3819,6 +3828,7 @@ $scope.checkloginGloves = function(){
 		} else {
 			$scope.openLogin();
 		}
+    }
     }
 
 

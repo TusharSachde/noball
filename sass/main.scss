@@ -2999,7 +2999,7 @@ footer {
 align-items: center;
 justify-content: center;
 align-content: center;
-    // @extend .div-flex;
+    @extend .div-flex;
 }
 
 .gloves-logo {
@@ -3014,8 +3014,8 @@ align-content: center;
     align-items: center;
     justify-content: center;
     align-content: center;
-    // @include transform(rotate(180deg));
-    // @extend .div-flex;
+    @include transform(rotate(180deg));
+    @extend .div-flex;
 }
 
 .btn-disabled {
