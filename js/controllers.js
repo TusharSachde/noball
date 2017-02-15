@@ -2108,10 +2108,11 @@ $scope.singleAmount = 850;
     //     "gold": ["img/padscolor/gold/3.png"]
 
     // };
-    $scope.openDesign = function(index, tab) {
+    $scope.openDesign = function(index, tab,img) {
         if ($scope.LogosTab) {
             $scope.designIndex = index;
             $scope.designTab = tab;
+            $scope.designImage = img;
             $uibModal.open({
                 templateUrl: "views/modal/tshirtdesign.html",
                 scope: $scope
@@ -2247,7 +2248,7 @@ $scope.singleAmount = 850;
         $scope.padsDesign.image = item.img[0];
         $scope.Arrayname = item.name;
         $scope.selectedImage = item.img[0];
-        console.log($scope.Arrayname);
+        console.log($scope.Arrayname);  
         if ($scope.Arrayname == '$scope.padImages1') {
             $scope.padLogo.divattributes = {
                 top: '343px',
@@ -4403,16 +4404,17 @@ $scope.turnOnLogos(true);
     $scope.trimTwoDisable = "";
     $scope.designTab = 1;
     $scope.trimTshirt.highlightOne.tcolor = 'black';
-    $scope.openDesign = function(index, tab) {
+    $scope.openDesign = function(index, tab,img) {
         if ($scope.LogosTab) {
             $scope.designIndex = index;
             $scope.designTab = tab;
+             $scope.designImage = img;
             $uibModal.open({
                 templateUrl: "views/modal/tshirtdesign.html",
                 scope: $scope
             });
         } else {
-            $scope.changeDesign(index, tab);
+            $scope.selectPadsDesign(img);
         }
     }
     $scope.changeDesign = function(index, tab) {
