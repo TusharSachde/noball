@@ -2120,6 +2120,7 @@ $scope.singleAmount = 850;
             $scope.changeDesign(index, tab);
         }
     }
+    
     $scope.padscolor = [{
        colr: "#000000",
        name: "black"
@@ -2339,7 +2340,32 @@ $scope.singleAmount = 850;
             scope: $scope
         })
     };
+$scope.checkloginPads = function(){
+     console.log('ppppppppppp////////////');
+     if (NavigationService.getUser()) {
+            $scope.isLogin = true;
+        } else {
+            $scope.isLogin = false;
+        }
+        if($scope.isLogin){
+            console.log('////////////');
+//   $scope.openSaveDesignPopup = function () {
+        $uibModal.open({
+            templateUrl: 'views/modal/savedesign.html',
+            scope: $scope
+        });
+    // };
+    }else{
+         console.log('////////////1111111');
+         $scope.openLogin();
+        // $uibModal.open({
+        //     templateUrl: 'views/modal/login.html',
+        //     scope: $scope
+        // });
 
+
+    }
+    }
     var check = 1;
 
     $scope.UploadTeamLogo = function() {
