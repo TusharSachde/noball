@@ -2250,14 +2250,14 @@ $scope.singleAmount = 850;
         console.log($scope.Arrayname);
         if ($scope.Arrayname == '$scope.padImages1') {
             $scope.padLogo.divattributes = {
-                top: '328px',
-                left: '266px'
+                top: '343px',
+                left: '279px'
             };
         }
         if ($scope.Arrayname == '$scope.padImages2') {
             $scope.padLogo.divattributes = {
-                top: '342px',
-                left: '284px'
+                top: '355px',
+                left: '296px'
             };
         }
         $scope.changePadsImages = function(color) {
