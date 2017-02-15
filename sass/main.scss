@@ -4955,6 +4955,7 @@ input[type=number]::-webkit-outer-spin-button {
 .modal.in .modal-dialog {
     height: 100%;
       position: relative;
+          top: 9%;
     // position: absolute;
     // top: 10%;
     // left: 27%;
@@ -6544,7 +6545,7 @@ h2 {
 
 .modal-dialogintro .modal-dialog {
     width: 68% !important;
-    left: 19% !important;
+    // left: 19% !important;
     top: 8% !important;
 }
 
