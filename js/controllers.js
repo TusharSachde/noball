@@ -1254,7 +1254,8 @@ $scope.singleAmount = 850;
     $scope.outplace = function() {
         $uibModal.open({
             templateUrl: "views/modal/outofplace.html",
-            controller: "OdiCtrl",
+            // controller: "OdiCtrl",
+            windowClass: "modal-dialogintro",
             scope: $scope
         })
     };
@@ -2025,7 +2026,8 @@ $scope.singleAmount = 850;
         $scope.outplace = function() {
             $uibModal.open({
                 templateUrl: "views/modal/outofplace.html",
-                controller: "OdiCtrl",
+                // controller: "OdiCtrl",
+                windowClass: "modal-dialogintro",
                 scope: $scope
             })
         };
@@ -2729,7 +2731,7 @@ $scope.checkloginPads = function(){
     $scope.outplace = function() {
         $uibModal.open({
             templateUrl: "views/modal/outofplace.html",
-            controller: "PadsCtrl",
+            // controller: "PadsCtrl",
             windowClass: "modal-dialogintro",
             scope: $scope
         })
@@ -3304,7 +3306,7 @@ $scope.checkloginPads = function(){
     $scope.outplace = function() {
         $uibModal.open({
             templateUrl: "views/modal/outofplace.html",
-            controller: "ShortsCtrl",
+            // controller: "ShortsCtrl",
             windowClass: "modal-dialogintro",
             scope: $scope
         })
@@ -4019,8 +4021,10 @@ $scope.turnOnLogos(true);
     $scope.outplace = function() {
         $uibModal.open({
             templateUrl: "views/modal/outofplace.html",
-            controller: "GlovesCtrl",
+             animation: true,
+            // controller: "GlovesCtrl",
             windowClass: "modal-dialogintro",
+            backdrop: 'static',
             scope: $scope
         })
     };
@@ -5604,7 +5608,7 @@ $scope.turnOnLogos(true);
     $scope.outplace = function() {
         $uibModal.open({
             templateUrl: "views/modal/outofplace.html",
-            controller: "OdiCtrl",
+            // controller: "OdiCtrl",
             windowClass: "modal-dialogintro",
             scope: $scope
         })
@@ -5844,7 +5848,8 @@ $scope.turnOnLogos(true);
     $scope.outplace = function() {
         $uibModal.open({
             templateUrl: "views/modal/outofplace.html",
-            controller: "CustomCtrl",
+            // controller: "CustomCtrl",
+            windowClass: "modal-dialogintro",
             scope: $scope
         })
     };
@@ -6073,7 +6078,8 @@ $scope.turnOnLogos(true);
     $scope.outplace = function() {
         $uibModal.open({
             templateUrl: "views/modal/outofplace.html",
-            controller: "OdiCtrl",
+            // controller: "OdiCtrl",
+            windowClass: "modal-dialogintro",
             scope: $scope
         })
     };
@@ -6089,6 +6095,19 @@ $scope.turnOnLogos(true);
     $scope.menutitle = NavigationService.makeactive("Kit-bag");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+      $scope.activeButton = 1;
+    $scope.toggleTab = function(val) {
+        $scope.activeButton = val;
+    };
+        $scope.outplace = function() {
+        $uibModal.open({
+            templateUrl: "views/modal/outofplace.html",
+            // controller: "KitBagCtrl",
+            windowClass: "modal-dialogintro",
+            scope: $scope
+        })
+    };
+
     var check = 1;
 
     $scope.kitbag = {};
@@ -6112,7 +6131,7 @@ $scope.turnOnLogos(true);
         $scope.kitbag.front = "img/" + $scope.kitbag.name + "/kitbag_" + color + ".png";
     }
 
-    $scope.switchTrimBase("bglg");
+    $scope.switchTrimBase("ry");
 
     // slider
     $scope.rslider = {
@@ -6405,12 +6424,14 @@ $scope.turnOnLogos(true);
                 'name': {
                     top: '320px',
                     left: '150px',
-                    transform: 'rotate(-2deg)'
+                        transform: 'rotate(3deg)'
+                    // transform: 'rotate(-2deg)'
                 },
                 'number': {
                     top: '255px',
                     left: '160px',
-                    transform: 'rotate(-2deg)'
+                        transform: 'rotate(3deg)'
+                    // transform: 'rotate(-2deg)'
                 }
             }
         }
@@ -6634,7 +6655,8 @@ $scope.turnOnLogos(true);
     $scope.outplace = function() {
         $uibModal.open({
             templateUrl: "views/modal/outofplace.html",
-            controller: "CustomCtrl",
+            // controller: "CustomCtrl",
+            windowClass: "modal-dialogintro",
             scope: $scope
         })
     };
@@ -6837,7 +6859,8 @@ $scope.turnOnLogos(true);
     $scope.outplace = function() {
         $uibModal.open({
             templateUrl: "views/modal/outofplace.html",
-            controller: "OdiCtrl",
+            // controller: "OdiCtrl",
+            windowClass: "modal-dialogintro",
             scope: $scope
         })
     };
@@ -7102,7 +7125,8 @@ $scope.turnOnLogos(true);
     $scope.outplace = function() {
         $uibModal.open({
             templateUrl: "views/modal/outofplace.html",
-            controller: "OdiCtrl",
+            // controller: "OdiCtrl",
+            windowClass: "modal-dialogintro",
             scope: $scope
         })
     };

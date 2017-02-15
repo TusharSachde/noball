@@ -1429,6 +1429,7 @@ footer {
     position: absolute;
     top: 110px;
     left: 203px;
+    overflow: hidden;
     @extend .div-flex;
 }
 
