@@ -831,6 +831,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 
     $scope.confirmUpload = function(variable, name) {
+        $scope.trousersLogo.image = $scope.tempImage;
         $scope.customizedTrouser[variable].image = $scope.tempImage;
         $scope.customizedTrouser[variable].name = name;
         console.log($scope.customizedTrouser);
@@ -1352,10 +1353,14 @@ $scope.checkloginTrousers = function(qty){
 
    $scope.trousersLogo = {};
     $scope.trousersLogo.isTeamLogo = false;
-
+$scope.emptyImage = function(key) {
+        $scope.trousersLogo.image = null;
+    }
 
        $scope.checkTeamLogo = function() {
+            console.log('troooo',$scope.trousersLogo.image);
         if($scope.trousersLogo.isTeamLogo || $scope.trousersLogo.image) {
+            $scope.switchNavigation('d');
             $scope.tabchange('quantity', 5);
             $scope.openTab('d');
         } else {
@@ -3912,6 +3917,7 @@ $scope.checkloginGloves = function(qty){
     }
 
     $scope.checkTeamLogo = function() {
+        console.log('troooo',$scope.glovesLogo.image);
         if($scope.glovesLogo.isTeamLogo || $scope.glovesLogo.image) {
             $scope.tabchange('quantity', 5);
             $scope.openTab('d');
