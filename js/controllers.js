@@ -1038,7 +1038,11 @@ $scope.singleAmount = 850;
         name: "navy_blue"
     }];
 
-    $scope.images = [{
+    $scope.page = 1;
+
+    $scope.images = {
+        "page1": [{
+   
         src: "img/trousers/design1/front.png"
     }, {
         src: "img/trousers/design2/front.png"
@@ -1048,7 +1052,8 @@ $scope.singleAmount = 850;
         src: "img/trousers/design4/front.png"
     }, {
         src: "img/trousers/design5/front.png"
-    }, {
+    }],
+    "page2": [{ 
         src: "img/shorts/design1/front.png"
     }, {
         src: "img/shorts/design2/front.png"
@@ -1058,7 +1063,8 @@ $scope.singleAmount = 850;
         src: "img/shorts/design4/front.png"
     }, {
         src: "img/shorts/design5/front.png"
-    }];
+    }]
+    };
     //tab changes
 
     $scope.tabs = 'light3';
