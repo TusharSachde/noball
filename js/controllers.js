@@ -749,7 +749,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.turnOnLogos = function(val) {
         $scope.LogosTab = val;
     }
-
+    
         $scope.switchNavigation = function(tab) {
         if (tab === 'a') {
             if (!$scope.tabAllowToa) {
@@ -1202,7 +1202,61 @@ $scope.singleAmount = 850;
         }
     }
 
+   $scope.openDesign = function(index, tab,img) {
+            console.log('//////////');
+        if ($scope.LogosTab) {
+              console.log('//////////11111');
+            $scope.designIndex = index;
+            $scope.designTab = tab;
+            $scope.designImage = img;
+            $uibModal.open({
+                templateUrl: "views/modal/tshirtdesign.html",
+                scope: $scope
+            });
+        } else {
+              console.log('//////////33333');
+            $scope.changeDesign(index);
+        }
+    }
     $scope.changeDesign(0);
+  $scope.openLogin = function() {
+        $uibModal.open({
+            animation: true,
+            templateUrl: 'views/modal/login.html',
+            controller: 'headerctrl',
+            scope: $scope
+        })
+    };
+$scope.qtyValidation = false;
+$scope.checkloginTrousers = function(qty){
+    if(qty == 0){
+        $scope.qtyValidation = true;
+    }
+     console.log('qqqqqqq////////////');
+     if (NavigationService.getUser()) {
+            $scope.isLogin = true;
+        } else {
+            $scope.isLogin = false;
+        }
+        if($scope.isLogin){
+            console.log('////////////');
+//   $scope.openSaveDesignPopup = function () {
+        $uibModal.open({
+            templateUrl: 'views/modal/savedesign.html',
+            scope: $scope
+        });
+    // };
+    }else{
+         console.log('////////////1111111');
+         $scope.openLogin();
+        // $uibModal.open({
+        //     templateUrl: 'views/modal/login.html',
+        //     scope: $scope
+        // });
+
+
+    }
+    }
 
     $scope.tabchanges = function(tabs, b) {
         $scope.tabs = tabs;
@@ -1290,7 +1344,21 @@ $scope.singleAmount = 850;
         maxPrice: 4000
     };
 
+   $scope.trousersLogo = {};
+    $scope.trousersLogo.isTeamLogo = false;
 
+
+       $scope.checkTeamLogo = function() {
+        if($scope.trousersLogo.isTeamLogo || $scope.trousersLogo.image) {
+            $scope.tabchange('quantity', 5);
+            $scope.openTab('d');
+        } else {
+            $uibModal.open({
+                templateUrl: 'views/modal/checkTeamLogo.html',
+                scope: $scope
+            });
+        }
+    }
     //    end
     $scope.toOrderSummary = function() {
         $scope.allLogos = {};
@@ -3518,6 +3586,7 @@ $scope.turnOnLogos(true);
             scope: $scope
         })
     };
+
 $scope.qtyValidation = false;
 $scope.checkloginGloves = function(qty){
     if(qty == 0){

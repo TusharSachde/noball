@@ -86,7 +86,8 @@
                         <div class="row">
                             <div class="col-md-10">
                                 <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images track by $index">
-                                    <div class="cat-img pointer" ng-click="changeDesign($index)" title="Design {{$index + 1}}">
+                                    <!--<div class="cat-img pointer" ng-click="changeDesign($index)" title="Design {{$index + 1}}">-->
+                                        <div class="cat-img pointer" ng-click="openDesign($index,1,img)" title="Design {{$index + 1}}">
                                         <img ng-src="{{img.src}}" class="img-responsive">
                                     </div>
                                 </div>
@@ -94,7 +95,7 @@
                             </div>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                            <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginTrousers();">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
                         <div class="edit-btn inline-block">
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('trim', 2); openTab('b');">NEXT</button>
@@ -176,7 +177,7 @@
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">COLLAR</button>
                         </div> -->
                         <div class="edit-btn inline-block">
-                            <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                            <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginTrousers();">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
                         <div class="edit-btn inline-block">
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('team',3); openTab('c');switchNavigation('c');">NEXT</button>
@@ -187,7 +188,7 @@
                     <!--                    //trim tab-->
                     <div class="choos m20-l" ng-show="tab=='team'">
                         <div class="checkboxing">
-                            <input type="checkbox" class="form-control" id="later">
+                            <input type="checkbox" class="form-control" id="later" ng-model="trousersLogo.isTeamLogo">
                             <label for="later"><span></span>SEND TEAM LOGO LATER</label>
                         </div>
                         <div>
@@ -239,10 +240,10 @@
                             </div>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                            <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginTrousers();">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('quantity',5); openTab('d');switchNavigation('d');" >NEXT</button>
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="switchNavigation('d'); checkTeamLogo();" >NEXT</button>
                         </div>
                         <!--<div class="logo-text">
                             <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="teamloging()">TEAM LOGO</button>
@@ -352,7 +353,7 @@
 
                             </div>
                             <div class="edit-btn inline-block">
-                                <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                                <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginTrousers();">SAVE DESIGN &amp; EDIT LATER</button>
                             </div>
                             <div class="edit-btn inline-block">
                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="openColor()">NEXT</button>
@@ -462,7 +463,7 @@
 
                             </div>
                             <div class="edit-btn inline-block">
-                                <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                                <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginTrousers();">SAVE DESIGN &amp; EDIT LATER</button>
                             </div>
                             <div class="edit-btn inline-block">
                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
@@ -497,7 +498,7 @@
                             </div>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                            <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginTrousers();">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
                         <div class="edit-btn inline-block">
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="proceed()">NEXT</button>
@@ -562,7 +563,7 @@
                         </div>
                         <div class="eds">
                             <div class="edit-btn inline-block">
-                                <button href="" class=" btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                                <button href="" class=" btn btn-outline btn-dark letter-spacing" ng-click="checkloginTrousers();">SAVE DESIGN &amp; EDIT LATER</button>
                             </div>
                         </div>
                         <div class="edit-btn inline-block">
@@ -643,7 +644,7 @@
                         <!--<a href="" class="bins"><img src="img/rubbishbin.png" class="img-responsive" alt=""></a>-->
 
                         <div class="edit-btn">
-                            <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>
+                            <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="checkloginTrousers();">save design</button>
                             <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5">next</button>
                             <br>
                         </div>
@@ -699,7 +700,7 @@
     </div>
 
   <div class="edit-btn">
-      <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>
+      <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="checkloginTrousers();">save design</button>
       <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5">next</button>
       <br>
   </div>
@@ -924,7 +925,7 @@
                                 </uib-accordion-group>
                         </div>
                         <div class="edit-btn">
-                            <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>
+                            <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="checkloginTrousers();">save design</button>
                             <button href=""  class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5">next</button>
                             <br>
                         </div>
