@@ -83,17 +83,38 @@
 
                     <div class="choos m20-l" ng-show="tab=='design'">
                         <p>Choose Your Type Of Design</p>
+                         <div class="mb20 flex-around odi-design-buttons">
+                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-prev" ng-disabled="page==1" ng-click="page=1">
+                  <img src="img/design_arrow_previous.png" alt="Prev Button" class="img-responsive">
+                </button>
+                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-next" ng-disabled="page==2" ng-click="page=2">
+                  <img src="img/design_arrow_next.png" alt="Next Button" class="img-responsive">
+                </button>               
+              </div>
                         <div class="row">
                             <div class="col-md-10">
-                                <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images track by $index">
+                                <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images track by $index"  ng-if="page==1">
                                     <!--<div class="cat-img pointer" ng-click="changeDesign($index)" title="Design {{$index + 1}}">-->
                                         <div class="cat-img pointer" ng-click="openDesign($index,1,img)" title="Design {{$index + 1}}">
                                         <img ng-src="{{img.src}}" class="img-responsive">
                                     </div>
                                 </div>
-
+                                <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images track by $index"  ng-if="page==2">
+                                    <!--<div class="cat-img pointer" ng-click="changeDesign($index)" title="Design {{$index + 1}}">-->
+                                        <div class="cat-img pointer" ng-click="openDesign($index,2,img)" title="Design {{$index + 2}}">
+                                        <img ng-src="{{img.src}}" class="img-responsive">
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                         <div class="mb20 flex-end odi-design-buttons">
+                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-prev" ng-disabled="page==1" ng-click="page=1">
+                  <img src="img/design_arrow_previous.png" alt="Prev Button" class="img-responsive">
+                </button>
+                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-next" ng-disabled="page==2" ng-click="page=2">
+                  <img src="img/design_arrow_next.png" alt="Next Button" class="img-responsive">
+                </button>              
+              </div>
                         <div class="edit-btn inline-block">
                             <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginTrousers();">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
