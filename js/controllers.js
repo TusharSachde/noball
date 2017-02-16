@@ -2229,6 +2229,14 @@ $scope.checkloginTrousers = function(qty){
     $scope.toggleTab = function(val) {
         $scope.activeButton = val;
     };
+       $scope.outplace = function() {
+        $uibModal.open({
+            templateUrl: "views/modal/outofplace.html",
+            // controller: "OdiCtrl",
+            windowClass: "modal-dialogintro",
+            scope: $scope
+        })
+    };
     // $scope.padscolor = [{
     //     colr: "#ffd700",
     //     name: "yellow"

@@ -44,10 +44,10 @@
                             <img ng-src="{{trimTrouser.highlightTwo.image}}" ng-if="trimTrouser.highlightTwo.image" class="trimshirt img-responsive" alt="">
                             <img ng-src="{{trimTrouser.highlightBase.image}}" ng-if="trimTrouser.highlightBase.image" class="trimshirtbase img-responsive" alt="">
                             <div class="div-trouser-left-logo" ng-if="customizedTrouser.front && customizedTrouser.leftlogo.image" ng-style="customizedTrouser.leftlogo.divattributes">
-                                <img id="trouserleftlogo" ng-src="{{customizedTrouser.leftlogo.image | serverimage}}" class="img-responsive trouser-left-logo" alt="" ng-style="customizedTrouser.leftlogo.attributes">
+                                <img id="trouserleftlogo" ng-src="{{customizedTrouser.leftlogo.image | serverimage}}" class="trouser-left-logo" alt="" ng-style="customizedTrouser.leftlogo.attributes">
                             </div>
                             <div class="div-trouser-right-logo" ng-if="customizedTrouser.front && customizedTrouser.rightlogo.image" ng-style="customizedTrouser.rightlogo.divattributes">
-                                <img id="trouserrightlogo" ng-src="{{customizedTrouser.rightlogo.image | serverimage}}" class="img-responsive trouser-right-logo" alt="" ng-style="customizedTrouser.rightlogo.attributes">
+                                <img id="trouserrightlogo" ng-src="{{customizedTrouser.rightlogo.image | serverimage}}" class="trouser-right-logo" alt="" ng-style="customizedTrouser.rightlogo.attributes">
                             </div>
                         </div>  
                         <div class="prev inline-block">
@@ -192,7 +192,7 @@
                             <label for="later"><span></span>SEND TEAM LOGO LATER</label>
                         </div>
                         <div>
-                            <div class="inline-block h300">
+                            <div class="inline-block h300 static-top">
                                 <div class="logo-text mt10 inline-box">
                                     <button class="btn inline-block btn-dark padding-btn letter-spacing mright15">RIGHT LOGO</button>
                                 </div>
@@ -215,7 +215,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="inline-block h300 mgl-20">
+                            <div class="inline-block h300 mgl-20 static-top">
                                 <div class="logo-text mt10 inline-box">
                                     <button class="btn inline-block btn-dark padding-btn letter-spacing mright15">LEFT LOGO</button>
                                 </div>
@@ -635,10 +635,11 @@
                             <div class="add-button">
                                 <p class="pointer" ng-click="addTrouserValues(); addQuantity(trouser.quantity);"><i class="fa mr7 fa-plus" aria-hidden="true"></i> ADD</p>
                             </div>
-                            <p>One time customization fee for Trouser is <i class="fa fa-inr"></i> 5000</p>
+                            
                             <div class="total-amount">
-                                <span class="pull-right tamount uppercase Raleway-Medium">Total Amount: {{totalAmount}}</span>
-                                <span class="pull-right tquantity uppercase Raleway-Medium">Total Quantity: {{totalQuan}}</span>
+                                <p class="more-price">One time customization fee for Trouser is <i class="fa fa-inr"></i> 5000</p>
+                                <span class="pull-right tamount uppercase Raleway-Medium mar20">Total Amount: {{totalAmount}}</span>
+                                <span class="pull-right tquantity uppercase Raleway-Medium mar20">Total Quantity: {{totalQuan}}</span>
                             </div>
                         </div>
                         <!--<a href="" class="bins"><img src="img/rubbishbin.png" class="img-responsive" alt=""></a>-->

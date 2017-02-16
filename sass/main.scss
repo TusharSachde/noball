@@ -102,9 +102,9 @@ body {
 }
 
 .no-margin {
-    margin: 0;
+    margin: 0 !important;
 }
-
+.mar20{    margin: 0px 0px 0px 20px !important;}
 button {
     &:focus {
         box-shadow: none !important;
@@ -2956,7 +2956,11 @@ footer {
     position: absolute;
     top: 150px;
     left: 190px;
-    overflow: hidden;
+  overflow: hidden;
+    display: flex;
+align-items: center;
+justify-content: center;
+align-content: center;
     z-index: 100;
 
     img {
@@ -2973,7 +2977,11 @@ footer {
     position: absolute;
     top: 125px;
     left: 260px;
-    overflow: hidden;
+   overflow: hidden;
+    display: flex;
+align-items: center;
+justify-content: center;
+align-content: center;
     z-index: 100;
     @extend .div-flex;
 }
@@ -2986,6 +2994,11 @@ footer {
     left: 168px;
     overflow: hidden;
     z-index: 100;
+   
+    display: flex;
+align-items: center;
+justify-content: center;
+align-content: center;
     @extend .div-flex;
 }
 
@@ -3024,7 +3037,8 @@ align-content: center;
     pointer-events: none;
     cursor: not-allowed;
 }
-
+.static-top{    position: static;
+    vertical-align: bottom;}
 .tshirt-name {
     min-width: 120px;
     height: 32px;
@@ -6154,7 +6168,7 @@ h2 {
 }
 
 .total-amount {
-     padding-right: 35px;
+        padding: 21px 33px 16px 0px;
 }
 
 .totalAmount {
