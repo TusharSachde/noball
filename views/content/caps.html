@@ -6,17 +6,17 @@
         <div class="row">
             <div class="step">
                 <ul>
-                    <li class="tab-item breadcrums {{classa}}" ng-click="tabchange('design',1)">
+                    <li class="tab-item breadcrums {{classa}} {{tabAllowa}}" ng-disabled="tabAllowToa" ng-click="switchNavigation('a');">
                         <span class="bread-frnt"></span>
                         <p>1. DESIGN</p>
                         <span class="bread-back"></span>
                     </li>
-                    <li class="tab-item breadcrums {{classb}}" ng-click="tabchange('trim',2)">
+                    <li class="tab-item breadcrums {{classb}} {{tabAllowb}}" ng-disabled="tabAllowToa" ng-click="switchNavigation('b');">
                         <span class="bread-frnt"></span>
                         <p>2. COLOR</p>
                         <span class="bread-back"></span>
                     </li>
-                    <li class="tab-item breadcrums {{classc}}" ng-click="tabchange('team',3)">
+                    <li class="tab-item breadcrums {{classc}} {{tabAllowc}}" ng-disabled="tabAllowToa" ng-click="switchNavigation('c');">
                         <span class="bread-frnt"></span>
                         <p>3. LOGOS</p>
                         <span class="bread-back"></span>
@@ -26,7 +26,7 @@
                         <p>4. SPONSOR LOGOS</p>
                         <span class="bread-back"></span>
                     </li> -->
-                    <li class="tab-item breadcrums {{classe}}" ng-click="tabchange('quantity',5)">
+                    <li class="tab-item breadcrums {{classe}} {{tabAllowd}}" ng-disabled="tabAllowToa" ng-click="switchNavigation('d');">
                         <span class="bread-frnt"></span>
                         <p>4. QUANTITY</p>
                         <span class="bread-back"></span>
@@ -51,9 +51,9 @@
                             <p class="uppercase" ng-click="switchFrontBack(false); switchTrimHighlightBase(false, trimTrouser.highlightBase.tcolor); switchTrimHighlightOne(false, trimTrouser.highlightOne.tcolor); switchTrimHighlightTwo(false, trimTrouser.highlightTwo.tcolor);"><img src="img/back.png" class="img-responsive" alt="">back</p>
                         </div>-->
                         <div class="feature-buttons">
-                            <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing">FORM + FUNCTION</button>
-                            <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing">DELIVERY</button>
-                            <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing">CARE</button>
+                           <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 1}" ng-click="toggleTab(1)">FORM + FUNCTION</button>
+                            <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 2}" ng-click="toggleTab(2)">DELIVERY</button>
+                            <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 3}" ng-click="toggleTab(3)">CARE</button>
                         </div>
                         <ul class="tshirt-features">
                             <li>100% polyester</li>
