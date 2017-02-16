@@ -6,27 +6,27 @@
         <div class="row">
             <div class="step">
                 <ul>
-                    <li class="tab-item breadcrums {{classa}}" ng-click="tabchange('design',1)">
+                    <li class="tab-item breadcrums {{classa}} {{tabAllowa}}" ng-disabled="tabAllowToa" ng-click="switchNavigation('a');">
                         <span class="bread-frnt"></span>
                         <p>1. DESIGN</p>
                         <span class="bread-back"></span>
                     </li>
-                    <li class="tab-item breadcrums {{classb}}" ng-click="tabchange('trim',2)">
+                    <li class="tab-item breadcrums {{classb}}  {{tabAllowb}}" ng-disabled="tabAllowTob" ng-click="switchNavigation('b');">
                         <span class="bread-frnt"></span>
                         <p>2. TRIMS</p>
                         <span class="bread-back"></span>
                     </li>
-                    <li class="tab-item breadcrums {{classc}}" ng-click="tabchange('team',3)">
+                    <li class="tab-item breadcrums {{classc}} {{tabAllowc}}" ng-disabled="tabAllowTob" ng-click="switchNavigation('c');">
                         <span class="bread-frnt"></span>
                         <p>3. LOGOS</p>
                         <span class="bread-back"></span>
                     </li>
-                    <!-- <li class="tab-item breadcrums {{classd}}" ng-click="tabchange('logo',4)">
+                    <!-- <li class="tab-item breadcrums {{classd}} {{tabAllowb}}" ng-disabled="tabAllowTob" ng-click="switchNavigation('b');">
                         <span class="bread-frnt"></span>
                         <p>4. SPONSOR LOGOS</p>
                         <span class="bread-back"></span>
                     </li> -->
-                    <li class="tab-item breadcrums {{classe}}" ng-click="tabchange('quantity',5)">
+                    <li class="tab-item breadcrums {{classe}} {{tabAllowd}}" ng-disabled="tabAllowTob" ng-click="switchNavigation('d');">
                         <span class="bread-frnt"></span>
                         <p>4. QUANTITY</p>
                         <span class="bread-back"></span>
@@ -57,9 +57,9 @@
                             <p class="uppercase" ng-click="switchFrontBack(false); switchTrimHighlightBase(false, trimTrouser.highlightBase.tcolor); switchTrimHighlightOne(false, trimTrouser.highlightOne.tcolor); switchTrimHighlightTwo(false, trimTrouser.highlightTwo.tcolor);"><img src="img/back.png" class="img-responsive" alt="">back</p>
                         </div>
                         <div class="feature-buttons">
-                            <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing">FORM + FUNCTION</button>
-                            <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing">DELIVERY</button>
-                            <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing">CARE</button>
+                            <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 1}" ng-click="toggleTab(1)">FORM + FUNCTION</button>
+                            <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 2}" ng-click="toggleTab(2)">DELIVERY</button>
+                            <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 3}" ng-click="toggleTab(3)">CARE</button>
                         </div>
                         <ul class="tshirt-features">
                             <li>100% polyester</li>
@@ -97,11 +97,11 @@
                             <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('trim', 2); openTab('b');">NEXT</button>
                         </div>
                         <div class="customize-design">
                             <span>Learn How To Customise Your Design By </span>
-                            <a href="" class="text-bold">Clicking Here</a>
+                            <a href="" class="text-bold" ng-click="outplace();">Clicking Here</a>
                         </div>
                     </div>
                     <!--                    //trim tab-->
@@ -179,7 +179,7 @@
                             <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('team',3); openTab('c');switchNavigation('c');">NEXT</button>
                         </div>
 
 
@@ -242,7 +242,7 @@
                             <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('quantity',5); openTab('d');switchNavigation('d');" >NEXT</button>
                         </div>
                         <!--<div class="logo-text">
                             <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="teamloging()">TEAM LOGO</button>
@@ -604,7 +604,7 @@
                                 <tbody>
                                 <tr class="option-shirt" ng-repeat="trouser in trouserQuanArr track by $index">
                                     <td>
-                                        <span class="uppercase">size</span>
+                                        <span class="uppercase pad-5">size</span>
                                         <select ng-model="trouser.size">
                                             <option value="S">S</option>
                                             <option value="M">M</option>
@@ -615,7 +615,7 @@
                                         </select>
                                     </td>
                                     <td>
-                                        <span class="inline-block uppercase">quantity</span>
+                                        <span class="inline-block uppercase pad-5">quantity</span>
                                         <input type="number" name="quantity" class="wid20p" ng-change="addQuantity(trouser.quantity)" ng-model="trouser.quantity" min="1" maxlength="3">
                                     </td>
                                     <td></td>

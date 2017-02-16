@@ -2678,7 +2678,7 @@ footer {
     input {
         padding: 0 6px;
         border: 1px solid #000;
-
+    height: 34px;
         &:focus {
             border: 1px solid #000;
             outline: none;
@@ -6154,7 +6154,7 @@ h2 {
 }
 
 .total-amount {
-    padding: 20px 32px;
+     padding-right: 35px;
 }
 
 .totalAmount {

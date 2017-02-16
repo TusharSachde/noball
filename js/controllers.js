@@ -656,6 +656,121 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         min: 10,
         max: 100
     };
+     $scope.outplace = function() {
+        $uibModal.open({
+            templateUrl: "views/modal/outofplace.html",
+            // controller: "OdiCtrl",
+            windowClass: "modal-dialogintro",
+            scope: $scope
+        })
+    };
+   $scope.activeButton = 1;
+    $scope.toggleTab = function(val) {
+        $scope.activeButton = val;
+    };
+    
+    $scope.tab = "design";
+    $scope.classa = 'active';
+    $scope.classb = '';
+    $scope.classc = '';
+    $scope.classd = '';
+    $scope.classe = '';
+
+    $scope.tabchange = function(tab, a) {
+        $scope.axd = a;
+        $scope.tab = tab;
+        if (a == 1) {
+            $scope.classa = 'active';
+            $scope.classb = '';
+            $scope.classc = '';
+            $scope.classd = '';
+            $scope.classe = '';
+
+        }
+        if (a == 2) {
+            // $scope.a =a;
+            $scope.classb = 'active';
+            $scope.classa = '';
+            $scope.classc = '';
+            $scope.classd = '';
+            $scope.classe = '';
+
+        }
+        if (a == 3) {
+            // $scope.a =a;
+            $scope.classc = 'active';
+            $scope.classb = '';
+            $scope.classa = '';
+            $scope.classd = '';
+            $scope.classe = '';
+
+        } else if (a == 4) {
+            // $scope.a =a;
+            $scope.classe = 'active';
+            $scope.classb = '';
+            $scope.classc = '';
+            $scope.classd = '';
+            $scope.classa = '';
+        } else if (a == 5) {
+            $scope.classe = 'active';
+            $scope.classb = '';
+            $scope.classc = '';
+            $scope.classd = '';
+            $scope.classa = '';
+
+        }
+    };
+   $scope.tabAllowa = '';
+    $scope.tabAllowb = 'noAllow';
+    $scope.tabAllowc = 'noAllow';
+    $scope.tabAllowd = 'noAllow';
+    $scope.tabAllowToa = false;
+    $scope.tabAllowTob = true;
+    $scope.tabAllowToc = true;
+    $scope.tabAllowTod = true;
+
+    $scope.openTab = function(tab) {
+        if (tab === 'a') {
+            $scope.tabAllowa = '';
+            $scope.tabAllowToa = false;
+        } else if (tab === 'b') {
+            $scope.tabAllowb = '';
+            $scope.tabAllowTob = false;
+        } else if (tab === 'c') {
+            $scope.tabAllowc = '';
+            $scope.tabAllowToc = false;
+        } else if (tab === 'd') {
+            $scope.tabAllowd = '';
+            $scope.tabAllowTod = false;
+        }
+    };
+     $scope.LogosTab = false;
+    $scope.quantityTab = false;
+    $scope.turnOnLogos = function(val) {
+        $scope.LogosTab = val;
+    }
+
+        $scope.switchNavigation = function(tab) {
+        if (tab === 'a') {
+            if (!$scope.tabAllowToa) {
+                $scope.tabchange('design', 1);
+            }
+        } else if (tab === 'b') {
+            if (!$scope.tabAllowTob) {
+                $scope.tabchange('trim', 2);
+            }
+        } else if (tab === 'c') {
+            if (!$scope.tabAllowToc) {
+                $scope.tabchange('team', 3);
+                  $scope.turnOnLogos(true);
+            }
+        } else if (tab === 'd') {
+            if (!$scope.tabAllowTod) {
+                $scope.tabchange('quantity', 5);
+            }
+        }
+    };
+
 
     $scope.trimTrouser = {};
     $scope.trimTrouser.highlightOne = {};
