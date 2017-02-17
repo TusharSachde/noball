@@ -21,12 +21,7 @@
                         <p>3. LOGOS</p>
                         <span class="bread-back"></span>
                     </li>
-                    <!-- <li class="tab-item breadcrums {{classd}} {{tabAllowb}}" ng-disabled="tabAllowTob" ng-click="switchNavigation('b');">
-                        <span class="bread-frnt"></span>
-                        <p>4. SPONSOR LOGOS</p>
-                        <span class="bread-back"></span>
-                    </li> -->
-                    <li class="tab-item breadcrums {{classe}} {{tabAllowd}}" ng-disabled="tabAllowTob" ng-click="switchNavigation('d');">
+                     <li class="tab-item breadcrums {{classe}} {{tabAllowd}}" ng-disabled="tabAllowTob" ng-click="switchNavigation('d');">
                         <span class="bread-frnt"></span>
                         <p>4. QUANTITY</p>
                         <span class="bread-back"></span>
@@ -37,9 +32,9 @@
         <div class="product-detail">
             <div class="row">
                 <div class="col-md-5">
+                    <div class="scroll-image" id="style-2">    
                     <div class="text-center">
-                        <div class="gully-shirt">
-                            <!--<img src="img/trousers/tro.png" class="img-responsive" alt="">-->
+                        <div class="gully-shirt">                           
                             <img ng-src="{{trimTrouser.highlightOne.image}}" ng-if="trimTrouser.highlightOne.image" class="trimshirt img-responsive" alt="">
                             <img ng-src="{{trimTrouser.highlightTwo.image}}" ng-if="trimTrouser.highlightTwo.image" class="trimshirt img-responsive" alt="">
                             <img ng-src="{{trimTrouser.highlightBase.image}}" ng-if="trimTrouser.highlightBase.image" class="trimshirtbase img-responsive" alt="">
@@ -69,28 +64,18 @@
 
                         </ul>
                     </div>
+                    </div>
                 </div>
                 <div class="col-md-7">
+                    <div class="scroll-image" id="style-1">                    
                     <div class="det-name">
                         <h4>LONG LEG</h4>
-                        <!--<p>The Custom Cricket company cricket trouser is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest .
-                        </p>-->
                         <h3><i class="fa fa-inr"></i>{{singleAmount}}</h3>
                         <span><i>Minimum order to be placed for Trousers is 20.</i></span>
                     </div>
-                    <!--                    // design tab-->
-
-
+                    <!--    // design tab-->
                     <div class="choos m20-l" ng-show="tab=='design'">
                         <p>Choose Your Type Of Design</p>
-                         <!--<div class="mb20 flex-around odi-design-buttons">
-                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-prev" ng-disabled="page==1" ng-click="page=1">
-                  <img src="img/design_arrow_previous.png" alt="Prev Button" class="img-responsive">
-                </button>
-                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-next" ng-disabled="page==2" ng-click="page=2">
-                  <img src="img/design_arrow_next.png" alt="Next Button" class="img-responsive">
-                </button>               
-              </div>-->
                         <div class="row">
                             <div class="col-md-10">
                                 <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images track by $index">
@@ -99,25 +84,8 @@
                                         <img ng-src="{{img.src}}" class="img-responsive">
                                     </div>
                                 </div>
-                                <!--<div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images.page2 track by $index"  ng-if="page==2">
-                                   
-                                        <div class="cat-img pointer" ng-click="openDesign($index,2,img)" title="Design {{$index + 2}}">
-                                        <img ng-src="{{img.src}}" class="img-responsive">
-                                    </div>
-                                </div>-->
                             </div>
                         </div>
-                         <!--<div class="mb20 flex-end odi-design-buttons">
-                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-prev" ng-disabled="page==1" ng-click="page=1">
-                  <img src="img/design_arrow_previous.png" alt="Prev Button" class="img-responsive">
-                </button>
-                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-next" ng-disabled="page==2" ng-click="page=2">
-                  <img src="img/design_arrow_next.png" alt="Next Button" class="img-responsive">
-                </button>              
-              </div>-->
-                        <!--<div class="edit-btn inline-block">
-                            <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginTrousers();">SAVE DESIGN &amp; EDIT LATER</button>
-                        </div>-->
                         <div class="edit-btn inline-block">
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('trim', 2); openTab('b');">NEXT</button>
                         </div>
@@ -126,7 +94,7 @@
                             <a href="" class="text-bold" ng-click="outplace();">Clicking Here</a>
                         </div>
                     </div>
-                    <!--                    //trim tab-->
+                    <!--       //trim tab-->
                     <div class="choos m20-l " ng-show="tab=='trim'">
                         <div class="options">
                             <button class="{{trimTabs.light3.active}} {{trimTrouser.highlightBase.disable}} classshow btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-click="tabchanges('light3',3)">BASE</button>
@@ -145,9 +113,6 @@
 
                                 </div>
                             </div>
-                            <!--<div class="edit-btn margintp">
-                                <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
-                            </div>-->
                         </div>
                         <div class="{{trimTrouser.highlightTwo.disable}} {{trimTabs.light2.show}} classv outline disnon" ng-if="tabs=='light2'">
                             <div class="row">
@@ -173,30 +138,6 @@
                             </div>
                             </div>
                         </div>
-                        <!-- <div class="outline">
-                            <span>HIGHLIGHT 2</span>
-                            <p>Select The Trim Colour Of Your Choice</p>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h4>Select The Colour</h4>
-                                    <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
-                                        <div class="colo-pallet text-center ">
-                                            <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="edit-btn margintp">
-                                <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
-
-                            </div>
-                        </div> -->
-                        <!-- <div class="options">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">PALETTE</button>
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">COLLAR</button>
-                        </div> -->
                         <div class="edit-btn inline-block">
                             <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginTrousers();">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
@@ -206,7 +147,7 @@
 
 
                     </div>
-                    <!--                    //trim tab-->
+                    <!--        //trim tab-->
                     <div class="choos m20-l" ng-show="tab=='team'">
                         <div class="checkboxing">
                             <input type="checkbox" class="form-control" id="later" ng-model="trousersLogo.isTeamLogo">
@@ -266,66 +207,7 @@
                         <div class="edit-btn inline-block">
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="checkTeamLogo();" >NEXT</button>
                         </div>
-                        <!--<div class="logo-text">
-                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="teamloging()">TEAM LOGO</button>
-                            <span class="uppercase inline-block mright15">or</span>
-                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click = "showColorTab()">TEAM TEXT</button>
-                        </div>
-                        <div class="print-typ printing">
-                            <p>Select The Printing Type For Your Team Logo</p>
-                            <form action="" class="radio">
-                                <input type="radio" id="radio1" name="radio" />
-                                <label for="radio1">
-                                    <span></span> Embroidered <a href="" class="link mleft10">VIEW EXAMPLE</a></label>
-
-                                <br>
-                                <input type="radio" id="radio2" name="radio" />
-                                <label for="radio2">
-                                    <span></span> Sublimated
-                                    <a href="" class="link mleft22">VIEW EXAMPLE</a></label>
-                            </form>
-                            <div class="edit-btn">
-                                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15">upload</button>
-                            </div>
-                            <div class="pbotom">
-                                <span class="block">Notes :</span>
-                                <span class="block">1. The printed CCC Logo will always be embroidered on your trouser</span>
-                                <span class="block">2. If you feel something is not great, our design team can fix it for you.</span>
-                                  <span class="block"><a href="" ng-click="outplace();">Click here</a> to find out how?</span>
-                                <span class="block">3.CCC logo colour will match colour of the trim.</span>
-
-                            </div>
-                            <div class="edit-btn inline-block">
-                                <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
-                            </div>
-                            <div class="edit-btn inline-block">
-                                <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
-                            </div>
-                        </div>
-
-
-                        <div class="modal fade custom" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-
-                                    </div>
-                                    <div class="modal-body text-center">
-                                        <div class="mod-img ">
-
-                                            <div class="noti-imgs" ng-style="{'background-image':'url(img/custom/c4.jpg)'}"></div>
-                                            <button href="" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing">SUBMIT</button>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>-->
                     </div>
-
                     <div class="choos m20-l next-level" ng-show="tab=='teamlogo'">
                         <p>Upload Your Logo</p>
 
@@ -495,20 +377,13 @@
                         <p>Upload Your Sponsor Logo (Optional)</p>
                         <div class="sp-logo">
                             <button href="" class="btn pad1 btn-outline btn-dark  block" data-toggle="modal" data-target="#myModal1">MAIN SPONSOR</button>
-
                             <button href="" class="btn pad2 btn-outline btn-dark  block " data-toggle="modal" data-target="#myModal1">BACK SPONSOR 1</button>
-
                             <button href="" class="btn pad2 btn-outline btn-dark  block " data-toggle="modal" data-target="#myModal1">BACK SPONSOR 2</button>
-
                             <button href="" class="btn pad3 btn-outline btn-dark  block" data-toggle="modal" data-target="#myModal1">LEFT SLEEVE SPONSOR</button>
-
-
                             <button href="" class="btn pad4 btn-outline btn-dark block" data-toggle="modal" data-target="#myModal1">RIGHT SLEEVE SPONSOR</button>
-
                               <button href="" class="btn pad5 btn-outline btn-dark  block" data-toggle="modal" data-target="#myModal1">LEFT CHEST SPONSOR</button>
-
                                   <button href="" class="btn pad3 btn-outline btn-dark block" data-toggle="modal" data-target="#myModal1">RIGHT CHEST SPONSOR</button>
-                        </div>
+                                                          </div>
                         <div class="print-typ">
                             <div class="pbotom">
                                 <span class="block">Notes :</span>
@@ -524,7 +399,6 @@
                         <div class="edit-btn inline-block">
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="proceed()">NEXT</button>
                         </div>
-<!-- ng-click="UploadTeamLogo1()" -->
                     </div>
                     <div class="choos m20-l nextest-level" ng-show="tab=='sponsorlogo'">
                         <p>Upload Your Sponsor Logo (Optional)</p>
@@ -601,26 +475,6 @@
                       </div>
                       <div class="table-detail relative">
                         <p class="capitalize">Select the size for your trouser</p>
-                        <!--<div class="option-shirt relative gloves">
-                          <div class="sizes size inline-block">
-                            <span class="uppercase">size</span>
-                            <select>
-                              <option value="S">S</option>
-                              <option value="M">M</option>
-                              <option value="L">L</option>
-                              <option value="XL">XL</option>
-                              <option value="XXL">XXL</option>
-                              <option value="XXXL">XXXL</option>
-                          </select>
-                          </div>
-                          <div class="sizes size inline-block">
-                              <span class="inline-block uppercase">quantity</span>
-                              <input type="text" class="form-control inline-block" name="name" value="">
-                          </div>
-                          <div class="sizes size inline-block">
-                              <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">preview</button>
-                          </div>
-                        </div>-->
                         <div class="table-responsive">
                             <table class="table table95">
                                 <tbody>
@@ -643,7 +497,6 @@
                                     <td></td>
                                     <td></td>
                                     <td>
-                                    <!--<button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-if="$index == 0">PREVIEW</button>-->
                                     </td>
 
                                     <td class="binbord-rgt"><img src="img/rubbishbin.png" class="img-responsive pointer" alt="" ng-click="removeTrouserValue($index); addQuantity()"></td>
@@ -663,29 +516,12 @@
                                 <span class="pull-right tquantity uppercase Raleway-Medium mar20">Total Quantity: {{totalQuan}}</span>
                             </div>
                         </div>
-                        <!--<a href="" class="bins"><img src="img/rubbishbin.png" class="img-responsive" alt=""></a>-->
-
                         <div class="edit-btn">
                             <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="checkloginTrousers();">save design</button>
                             <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5">next</button>
                             <br>
                         </div>
                       </div>
-
-                             <!-- <div class="eds inline-block">
-                                 <div class="edit-btn inline-block">
-                                     <button href="" class=" btn btn-outline btn-dark letter-spacing">SAVE DESIGN</button>
-                                 </div>
-                             </div>
-                             <div class="edit-btn inline-block">
-                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing" >NEXT</button>
-                             </div> -->
-                             <!-- <div class="continue-buttons mr">
-                                 <button ng-click="showQuantiyTab()" class="btn btn-outline btn-dark mar15 mr10 padding-btn letter-spacing uppercase">yes,continue</button>
-                                 <button href="" ng-click="showQuantyTab()" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase">no</button>
-                             </div> -->
-
-
 </div>
 <div class="choos quantity m20-l nexterest-level" ng-show="tab=='quanty'">
 <div class="table-detail relative">
@@ -952,6 +788,7 @@
                             <br>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
