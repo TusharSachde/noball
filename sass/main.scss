@@ -3034,6 +3034,37 @@ align-content: center;
     @extend .div-flex;
 }
 
+.div-short-left-logo {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+          bottom: 72px;
+    left: 283px;
+   overflow: hidden;
+    display: flex;
+ align-items: center;
+    justify-content: center;
+    align-content: center;
+
+    z-index: 100;
+    @extend .div-flex;
+}
+
+.div-short-right-logo {
+       position: absolute;
+       top: 338px;
+    left: 129px;
+    width: 50px;
+    height: 50px;
+    z-index: 99;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+justify-content: center;
+    @extend .div-flex;
+}
 .pad-logo {
     width: 23px;
     height: 23px;
