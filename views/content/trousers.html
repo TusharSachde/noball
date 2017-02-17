@@ -43,6 +43,13 @@
                             </div>
                             <div class="div-trouser-right-logo" ng-if="customizedTrouser.front && customizedTrouser.rightlogo.image" ng-style="customizedTrouser.rightlogo.divattributes">
                                 <img id="trouserrightlogo" ng-src="{{customizedTrouser.rightlogo.image | serverimage}}" class="trouser-right-logo" alt="" ng-style="customizedTrouser.rightlogo.attributes">
+                            </div> 
+                            <!--shorts logo upload section -->
+                             <div class="div-left-short" ng-if="customizedShort.front && mainlogo.image" ng-style="mainlogo.divattributes">
+                                <img class="left-chest" ng-src="{{mainlogo.image | serverimage}}" alt="" ng-style="mainlogo.attributes">
+                            </div>
+                            <div class="div-right-short" ng-if="customizedShort.front && customizedShort.teamlogo.image" ng-style="customizedShort.teamlogo.divattributes">
+                                <img class="left-chest" ng-src="{{customizedShort.teamlogo.image | serverimage}}" alt="" ng-style="customizedShort.teamlogo.attributes">
                             </div>
                         </div>  
                         <div class="prev inline-block">
