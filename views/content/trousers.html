@@ -34,16 +34,28 @@
                 <div class="col-md-5">
                     <div class="scroll-image" id="style-2">    
                     <div class="text-center">
-                        <div class="gully-shirt">                           
+                        <div class="gully-shirt">  
+                            {{pantType}}                         
                             <img ng-src="{{trimTrouser.highlightOne.image}}" ng-if="trimTrouser.highlightOne.image" class="trimshirt img-responsive" alt="">
                             <img ng-src="{{trimTrouser.highlightTwo.image}}" ng-if="trimTrouser.highlightTwo.image" class="trimshirt img-responsive" alt="">
                             <img ng-src="{{trimTrouser.highlightBase.image}}" ng-if="trimTrouser.highlightBase.image" class="trimshirtbase img-responsive" alt="">
-                            <div class="div-trouser-left-logo" ng-if="customizedTrouser.front && customizedTrouser.leftlogo.image" ng-style="customizedTrouser.leftlogo.divattributes">
+                            <!---if pants-->
+                            <div class="div-trouser-left-logo" ng-if="pantType=='trousers' && customizedTrouser.front && customizedTrouser.leftlogo.image" ng-style="customizedTrouser.leftlogo.divattributes">
                                 <img id="trouserleftlogo" ng-src="{{customizedTrouser.leftlogo.image | serverimage}}" class="trouser-left-logo" alt="" ng-style="customizedTrouser.leftlogo.attributes">
                             </div>
-                            <div class="div-trouser-right-logo" ng-if="customizedTrouser.front && customizedTrouser.rightlogo.image" ng-style="customizedTrouser.rightlogo.divattributes">
+                            <div class="div-trouser-right-logo" ng-if="pantType=='trousers' && customizedTrouser.front && customizedTrouser.rightlogo.image" ng-style="customizedTrouser.rightlogo.divattributes">
                                 <img id="trouserrightlogo" ng-src="{{customizedTrouser.rightlogo.image | serverimage}}" class="trouser-right-logo" alt="" ng-style="customizedTrouser.rightlogo.attributes">
                             </div> 
+                            <!---close of if pants-->
+
+                            <!--if shorts-->
+                                      <div class="div-shorts-left-logo" ng-if="pantType=='shorts' && customizedTrouser.front && customizedTrouser.leftlogo.image" ng-style="customizedTrouser.leftlogo.divattributes">
+                                <img id="trouserleftlogo" ng-src="{{customizedTrouser.leftlogo.image | serverimage}}" class="trouser-left-logo" alt="" ng-style="customizedTrouser.leftlogo.attributes">
+                            </div>
+                            <div class="iv-shorts-right-logo" ng-if="pantType=='shorts' && customizedTrouser.front && customizedTrouser.rightlogo.image" ng-style="customizedTrouser.rightlogo.divattributes">
+                                <img id="trouserrightlogo" ng-src="{{customizedTrouser.rightlogo.image | serverimage}}" class="trouser-right-logo" alt="" ng-style="customizedTrouser.rightlogo.attributes">
+                            </div>
+                            <!--close of if shorts -->
                             <!--shorts logo upload section -->
                              <div class="div-left-short" ng-if="customizedShort.front && mainlogo.image" ng-style="mainlogo.divattributes">
                                 <img class="left-chest" ng-src="{{mainlogo.image | serverimage}}" alt="" ng-style="mainlogo.attributes">

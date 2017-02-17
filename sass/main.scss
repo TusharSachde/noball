@@ -3002,6 +3002,38 @@ align-content: center;
     @extend .div-flex;
 }
 
+.div-shorts-left-logo {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    bottom: 125px;
+    left: 270px;
+   overflow: hidden;
+    display: flex;
+align-items: center;
+justify-content: center;
+align-content: center;
+    z-index: 100;
+    @extend .div-flex;
+}
+
+.div-shorts-right-logo {
+       position: absolute;
+    top: 350px;
+    left: 107px;
+    width: 50px;
+    height: 50px;
+    z-index: 99;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+justify-content: center;
+align-content: center;
+    @extend .div-flex;
+}
+
 .pad-logo {
     width: 23px;
     height: 23px;
