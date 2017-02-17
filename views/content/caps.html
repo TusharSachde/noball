@@ -36,9 +36,15 @@
                         <div class="gully-shirt">
                             <img ng-src="{{trimCaps.highlightBase.image}}" ng-if="trimCaps.highlightBase.image" class="trimshirt img-responsive" alt="">
                             <div class="div-cap-logo" ng-if="customizedCaps.teamlogo.image" ng-style="customizedCaps.teamlogo.divattributes">
-                                <img id="trouserteamlogo" ng-src="{{customizedCaps.teamlogo.image | serverimage}}" class="img-responsive trouser-right-logo" alt="" ng-style="customizedCaps.teamlogo.attributes">
+                                <img id="trouserteamlogo" ng-src="{{customizedCaps.teamlogo.image | serverimage}}" class="trouser-right-logo" alt="" ng-style="customizedCaps.teamlogo.attributes">
                             </div>
                         </div>  
+                          <div class="prev inline-block">
+                            <p class="uppercase" ng-click="switchFrontBack(true); switchTrimHighlightBase(true, trimTrouser.highlightBase.tcolor); switchTrimHighlightOne(true, trimTrouser.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTrouser.highlightTwo.tcolor);"><img src="img/back.png" class="img-responsive" alt="">front</p>
+                        </div>
+                        <div class="next inline-block">
+                            <p class="uppercase" ng-click="switchFrontBack(false); switchTrimHighlightBase(false, trimTrouser.highlightBase.tcolor); switchTrimHighlightOne(false, trimTrouser.highlightOne.tcolor); switchTrimHighlightTwo(false, trimTrouser.highlightTwo.tcolor);"><img src="img/back.png" class="img-responsive" alt="">back</p>
+                        </div>
                         <div class="feature-buttons">
                            <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 1}" ng-click="toggleTab(1)">FORM + FUNCTION</button>
                             <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 2}" ng-click="toggleTab(2)">DELIVERY</button>
@@ -75,7 +81,7 @@
                         </div>
                         <div class="customize-design">
                             <span>Learn How To Customise Your Design By </span>
-                            <a href="" class="text-bold">Clicking Here</a>
+                            <a href="" class="text-bold" ng-click="outplace();">Clicking Here</a>
                         </div>
                     </div>
                     <!--                    //trim tab-->
