@@ -826,9 +826,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     }
 
-    $scope.emptyImage = function(key) {
-        $scope.customizedTrouser[key] = null;
-    }
+  
 
     $scope.confirmUpload = function(variable, name) {
         $scope.trousersLogo.image = $scope.tempImage;
@@ -1374,8 +1372,13 @@ $scope.checkloginTrousers = function(qty){
 
    $scope.trousersLogo = {};
     $scope.trousersLogo.isTeamLogo = false;
-$scope.emptyImage = function(key) {
-        $scope.trousersLogo.image = null;
+// $scope.emptyImage = function(key) {
+//         $scope.trousersLogo.image = null;
+//     }
+  $scope.emptyImage = function(key) {
+        console.log('ddddddddddd');
+        $scope.customizedTrouser[key] = null;
+         $scope.trousersLogo.image = null;
     }
 
        $scope.checkTeamLogo = function() {
