@@ -858,7 +858,7 @@ footer {
         border-bottom: 15px solid rgba(128, 128, 128, 0.9);
         border-left: 15px solid transparent;
         position: absolute;
-        top: -30px;
+        top: -28px;
         left: 50%;
         @include transform(translateX(-50%));
     }
@@ -6156,8 +6156,8 @@ h2 {
 
     input[type="checkbox"]+label span {
         display: inline-block;
-        width: 13px;
-        height: 13px;
+        width: 18px;
+        height: 18px;
         margin-left: -17px;
         margin-right: 5px;
         vertical-align: middle;
