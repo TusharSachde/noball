@@ -1731,8 +1731,8 @@ $scope.checkloginTrousers = function(qty){
                 $scope.customizedCaps.teamlogo.divattributes = {
                     width: '90px',
                     height: '90px',
-                    top: '150px',
-                    left: '190px'
+                    top: '168px',
+                    left: '203px'
                 };
             }
             $scope.switchTrimHighlightBase(true, 'white');
@@ -1814,8 +1814,7 @@ $scope.checkloginTrousers = function(qty){
     $scope.toggleTab = function(val) {
         $scope.activeButton = val;
     };
-    
-    $scope.tab = "design";
+        $scope.tab = "design";
     $scope.classa = 'active';
     $scope.classb = '';
     $scope.classc = '';
@@ -1866,7 +1865,8 @@ $scope.checkloginTrousers = function(qty){
 
         }
     };
-   $scope.tabAllowa = '';
+
+    $scope.tabAllowa = '';
     $scope.tabAllowb = 'noAllow';
     $scope.tabAllowc = 'noAllow';
     $scope.tabAllowd = 'noAllow';
@@ -1895,8 +1895,8 @@ $scope.checkloginTrousers = function(qty){
     $scope.turnOnLogos = function(val) {
         $scope.LogosTab = val;
     }
-    
-        $scope.switchNavigation = function(tab) {
+
+    $scope.switchNavigation = function(tab) {
         if (tab === 'a') {
             if (!$scope.tabAllowToa) {
                 $scope.tabchange('design', 1);
@@ -1908,43 +1908,17 @@ $scope.checkloginTrousers = function(qty){
         } else if (tab === 'c') {
             if (!$scope.tabAllowToc) {
                 $scope.tabchange('team', 3);
-                  $scope.turnOnLogos(true);
+                $scope.turnOnLogos(true);
             }
+$scope.turnOnLogos(true);
         } else if (tab === 'd') {
             if (!$scope.tabAllowTod) {
                 $scope.tabchange('quantity', 5);
             }
         }
     };
-    $scope.changeDesign(0);
 
-    $scope.tabchanges = function(tabs, b) {
-        $scope.tabs = tabs;
-        if (b == 1) {
-            $scope.trimTabs.light1.active = "activeme";
-            $scope.trimTabs.light1.show = "active-tab";
-            $scope.trimTabs.light2.active = "";
-            $scope.trimTabs.light2.show = "";
-            $scope.trimTabs.light3.active = "";
-            $scope.trimTabs.light3.show = "";
-        }
-        if (b == 2) {
-            $scope.trimTabs.light1.active = "";
-            $scope.trimTabs.light1.show = "";
-            $scope.trimTabs.light2.active = "activeme";
-            $scope.trimTabs.light2.show = "active-tab";
-            $scope.trimTabs.light3.active = "";
-            $scope.trimTabs.light3.show = "";
-        }
-        if (b == 3) {
-            $scope.trimTabs.light1.active = "";
-            $scope.trimTabs.light1.show = "";
-            $scope.trimTabs.light2.active = "";
-            $scope.trimTabs.light2.show = "";
-            $scope.trimTabs.light3.active = "activeme";
-            $scope.trimTabs.light3.show = "active-tab";
-        }
-    };
+
 
     $scope.demo2 = {
         range: {
