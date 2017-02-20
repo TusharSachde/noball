@@ -1501,6 +1501,8 @@ $scope.checkloginTrousers = function(qty){
 
     $scope.trimCaps = {};
     $scope.trimCaps.highlightBase = {};
+        $scope.trimCaps.highlightOne = {};
+            $scope.trimCaps.highlightTwo = {};
     $scope.customizedCaps = {};
 
     // $scope.customizedCaps.teamlogo.divattributes = {
@@ -1562,14 +1564,46 @@ $scope.checkloginTrousers = function(qty){
     $scope.trimCaps.highlightBase.flag = true;
     $scope.trimCaps.highlightBase.tcolor = "white";
     $scope.trimCaps.highlightBase.disable = "noable";
+        $scope.trimCaps.highlightOne.flag = true;
+    $scope.trimCaps.highlightOne.tcolor = "white";
+    $scope.trimCaps.highlightOne.disable = "noable";
+        $scope.trimCaps.highlightTwo.flag = true;
+    $scope.trimCaps.highlightTwo.tcolor = "white";
+    $scope.trimCaps.highlightTwo.disable = "noable";
 
     $scope.switchTrimHighlightBase = function(flag, color) {
         $scope.trimCaps.highlightBase.flag = flag;
         $scope.trimCaps.highlightBase.tcolor = color;
         if (flag) {
-            $scope.trimCaps.highlightBase.image = "img/" + $scope.capType + "/" + color + ".png";
+            $scope.trimCaps.highlightBase.image = "img/" + $scope.capType + "/front/" + color + ".png";
         } else {
-            $scope.trimCaps.highlightBase.image = "img/" + $scope.capType + "/" + color + ".png";
+            $scope.trimCaps.highlightBase.image = "img/" + $scope.capType + "/back/" + color + ".png";
+        }
+    };
+      $scope.switchTrimHighlightOne = function(flag, color) {
+        $scope.trimCaps.highlightOne.flag = flag;
+        $scope.trimCaps.highlightOne.tcolor = color;
+        if ($scope.trimCaps.highlightOne.tcolor != "") {
+            if (flag) {
+                $scope.trimCaps.highlightOne.image = "img/" + $scope.capType + "/" + color + ".png";
+            } else {
+                $scope.trimCaps.highlightOne.image = "img/" + $scope.capType + "/" + color + ".png";
+            }
+        } else {
+            $scope.trimCaps.highlightOne.image = "";
+        }
+    };
+    $scope.switchTrimHighlightTwo = function(flag, color) {
+        $scope.trimCaps.highlightTwo.flag = flag;
+        $scope.trimCaps.highlightTwo.tcolor = color;
+        if ($scope.trimCaps.highlightTwo.tcolor != "") {
+            if (flag) {
+                $scope.trimCaps.highlightTwo.image = "img/" + $scope.capType + "/" + color + ".png";
+            } else {
+                $scope.trimCaps.highlightTwo.image = "img/" + $scope.capType + "/" + color + ".png";
+            }
+        } else {
+            $scope.trimCaps.highlightTwo.image = "";
         }
     };
     $scope.switchTrimHighlightBase(true, $scope.trimCaps.highlightBase.tcolor);
@@ -1691,10 +1725,10 @@ $scope.checkloginTrousers = function(qty){
     }];
 
     $scope.images = [{
-        src: "img/caps/white.png",
+        src: "img/caps/front/white.png",
         title: "MODENA"
     }, {
-        src: "img/hats/white.png",
+        src: "img/hats/front/white.png",
         title: "TRINIDAD"
     }];
     //tab changes
@@ -1721,46 +1755,58 @@ $scope.checkloginTrousers = function(qty){
     $scope.trimCaps.highlightBase.tcolor = 'white';
     $scope.capName = "MODENA";
 
-    $scope.changeDesign = function(index) {
-        if (index === 0) {
-            $scope.trimCaps.highlightBase.disable = "unnoable";
-            $scope.designName = "design1";
-            $scope.capType = "caps";
-            $scope.capName = "MODENA";
-            if ($scope.customizedCaps.teamlogo) {
-                $scope.customizedCaps.teamlogo.divattributes = {
-                    width: '90px',
-                    height: '90px',
-                    top: '168px',
-                    left: '203px'
-                };
-            }
-            $scope.switchTrimHighlightBase(true, 'white');
-        } else if (index === 1) {
-            $scope.trimCaps.highlightBase.disable = "unnoable";
-            $scope.designName = "design2";
-            $scope.capType = "hats";
-            $scope.capName = "TRINIDAD";
-            if ($scope.customizedCaps.teamlogo) {
-                $scope.customizedCaps.teamlogo.divattributes = {
-                    width: '50px',
-                    height: '40px',
-                    top: '240px',
-                    left: '200px'
-                };
-            }
-            $scope.trimTabs.light3.active = "activeme";
-            $scope.trimTabs.light3.show = "active-tab";
-            $scope.switchTrimHighlightBase(true, 'white');
-        }
-    }
-   $scope.switchFrontBack = function(front) {
-        $scope.customizedTrouser.front =  front;
-        $scope.customizedTrouser.back =  !front;
+    // $scope.changeDesign = function(index) {
+    //     if (index === 0) {
+    //         $scope.trimCaps.highlightBase.disable = "unnoable";
+    //         $scope.designName = "design1";
+    //         $scope.capType = "caps";
+    //         $scope.capName = "MODENA";
+    //         if ($scope.customizedCaps.teamlogo) {
+    //             $scope.customizedCaps.teamlogo.divattributes = {
+    //                 width: '90px',
+    //                 height: '90px',
+    //                 top: '168px',
+    //                 left: '203px'
+    //             };
+    //         }
+    //         $scope.switchTrimHighlightBase(true, 'white');
+    //     } else if (index === 1) {
+    //         $scope.trimCaps.highlightBase.disable = "unnoable";
+    //         $scope.designName = "design2";
+    //         $scope.capType = "hats";
+    //         $scope.capName = "TRINIDAD";
+    //         if ($scope.customizedCaps.teamlogo) {
+    //             $scope.customizedCaps.teamlogo.divattributes = {
+    //                 width: '50px',
+    //                 height: '40px',
+    //                 top: '240px',
+    //                 left: '200px'
+    //             };
+    //         }
+    //         $scope.trimTabs.light3.active = "activeme";
+    //         $scope.trimTabs.light3.show = "active-tab";
+    //         $scope.switchTrimHighlightBase(true, 'white');
+    //     }
+    // }
+//    $scope.switchFrontBack = function(front) {
+//         $scope.customizedTrouser.front =  front;
+//         $scope.customizedTrouser.back =  !front;
+//         if (front) {
+//             $scope.customizedTrouser.cloth = 'img/' + $scope.pantType + '/' + $scope.designType + 'base/front/' + $scope.trimTrouser.highlightBase.tcolor + '.png';
+//         } else {
+//             $scope.customizedTrouser.cloth = 'img/' + $scope.pantType + '/' + $scope.designType + 'base/back/' + $scope.trimTrouser.highlightBase.tcolor + '.png';
+//         }
+//     }
+  $scope.switchFrontBack = function(front) {
+        $scope.customizedCaps.front =  front;
+        $scope.customizedCaps.back =  !front;
         if (front) {
-            $scope.customizedTrouser.cloth = 'img/' + $scope.pantType + '/' + $scope.designType + 'base/front/' + $scope.trimTrouser.highlightBase.tcolor + '.png';
+            console.log('ifffff');
+            $scope.customizedCaps.cloth = 'img/front/' + $scope.trimCaps.highlightBase.tcolor + '.png';
         } else {
-            $scope.customizedTrouser.cloth = 'img/' + $scope.pantType + '/' + $scope.designType + 'base/back/' + $scope.trimTrouser.highlightBase.tcolor + '.png';
+            // trimCaps.highlightOne.image = '';
+             console.log('ifffffeeeeeee');
+            $scope.customizedCaps.cloth = 'img/back/' + $scope.trimCaps.highlightBase.tcolor + '.png';
         }
     }
     $scope.designName = "design1";
@@ -1772,6 +1818,8 @@ $scope.checkloginTrousers = function(qty){
     $scope.changeDesign = function(index) {
         if (index === 0) {
             $scope.trimCaps.highlightBase.disable = "unnoable";
+             $scope.trimCaps.highlightOne.disable = "unnoable";
+              $scope.trimCaps.highlightTwo.disable = "noable";
             $scope.designName = "design1";
             $scope.capType = "caps";
             $scope.capName = "MODENA";
@@ -1784,8 +1832,14 @@ $scope.checkloginTrousers = function(qty){
                 };
             }
             $scope.switchTrimHighlightBase(true, 'white');
+             $scope.switchTrimHighlightOne(true, '');
+            $scope.switchTrimHighlightTwo(true, '');
         } else if (index === 1) {
+            console.log('index11')
+            $scope.trimCaps.highlightBase.image = '';
             $scope.trimCaps.highlightBase.disable = "unnoable";
+              $scope.trimCaps.highlightOne.disable = "noable";
+              $scope.trimCaps.highlightTwo.disable = "unnoable";
             $scope.designName = "design2";
             $scope.capType = "hats";
             $scope.capName = "TRINIDAD";
@@ -1800,6 +1854,8 @@ $scope.checkloginTrousers = function(qty){
             $scope.trimTabs.light3.active = "activeme";
             $scope.trimTabs.light3.show = "active-tab";
             $scope.switchTrimHighlightBase(true, 'white');
+            //  $scope.switchTrimHighlightOne(true, '');
+            // $scope.switchTrimHighlightTwo(true, '');
         }
     }
   $scope.outplace = function() {
@@ -10250,3 +10306,4 @@ $scope.LogosTab = false;
         };
 
     });
+

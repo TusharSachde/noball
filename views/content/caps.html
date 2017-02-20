@@ -35,15 +35,17 @@
                     <div class="text-center">
                         <div class="gully-shirt">
                             <img ng-src="{{trimCaps.highlightBase.image}}" ng-if="trimCaps.highlightBase.image" class="trimshirt img-responsive" alt="">
+                            <img ng-src="{{trimCaps.highlightOne.image}}" ng-if="trimCaps.highlightOne.image" class="trimshirt img-responsive" alt="">
+                            <!--<img ng-src="{{trimCaps.highlightTwo.image}}" ng-if="trimCaps.highlightTwo.image" class="trimshirt img-responsive" alt="">-->
                             <div class="div-cap-logo" ng-if="customizedCaps.teamlogo.image" ng-style="customizedCaps.teamlogo.divattributes">
                                 <img id="trouserteamlogo" ng-src="{{customizedCaps.teamlogo.image | serverimage}}" class="trouser-right-logo" alt="" ng-style="customizedCaps.teamlogo.attributes">
                             </div>
                         </div>  
                           <div class="prev inline-block">
-                            <p class="uppercase" ng-click="switchFrontBack(true); switchTrimHighlightBase(true, trimTrouser.highlightBase.tcolor); switchTrimHighlightOne(true, trimTrouser.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTrouser.highlightTwo.tcolor);"><img src="img/back.png" class="img-responsive" alt="">front</p>
+                            <p class="uppercase" ng-click="switchFrontBack(true); switchTrimHighlightBase(true, trimCaps.highlightBase.tcolor); switchTrimHighlightOne(true, trimCaps.highlightOne.tcolor); switchTrimHighlightTwo(true, trimCaps.highlightTwo.tcolor);"><img src="img/back.png" class="img-responsive" alt="">front</p> 
                         </div>
                         <div class="next inline-block">
-                            <p class="uppercase" ng-click="switchFrontBack(false); switchTrimHighlightBase(false, trimTrouser.highlightBase.tcolor); switchTrimHighlightOne(false, trimTrouser.highlightOne.tcolor); switchTrimHighlightTwo(false, trimTrouser.highlightTwo.tcolor);"><img src="img/back.png" class="img-responsive" alt="">back</p>
+                            <p class="uppercase" ng-click="switchFrontBack(false); switchTrimHighlightBase(false, trimCaps.highlightBase.tcolor); switchTrimHighlightOne(false, trimCaps.highlightOne.tcolor); switchTrimHighlightTwo(false, trimCaps.highlightTwo.tcolor);"><img src="img/back.png" class="img-responsive" alt="">back</p>
                         </div>
                         <div class="feature-buttons">
                            <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 1}" ng-click="toggleTab(1)">FORM + FUNCTION</button>
