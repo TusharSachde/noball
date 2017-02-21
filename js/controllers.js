@@ -3836,7 +3836,7 @@ $scope.turnOnLogos(true);
         $uibModal.open({
             animation: true,
             templateUrl: 'views/modal/login.html',
-            controller: 'headerctrl',
+            // controller: 'headerctrl',
             scope: $scope
         })
     };
@@ -9854,7 +9854,7 @@ $scope.LogosTab = false;
                 animation: true,
                 templateUrl: "views/modal/customizepop.html",
                 controller: 'headerctrl',
-                backdrop: 'static',
+                // backdrop: 'static',
                 keyboard: false
             });
         };

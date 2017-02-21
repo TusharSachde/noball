@@ -95,14 +95,13 @@
       </div>
     </div>
   </div>
-</div> -->
-
+</div>-->
 
 <div class="login-tab">
     <uib-tabset>
         <uib-tab heading="Login">
             <div class="login-form">
-                <form name="loginForm" ng-submit="">
+                <form name="loginForm">
                     <div class="row">
                         <div class="col-md-offset-1 col-md-10">
                             <div class="form-group">
@@ -135,7 +134,6 @@
                             <div class="text-center ">
                                 <span class="forgot text-uppercase" ng-click="openForgot();">Forgot Your Password ?</span>
                             </div>
-
                             <div class="text-center submit">
                                 <button class="text-uppercase btn btn-light letter-spacing" ng-click="doLogin(login,loginForm)" type="submit">Login</button>
                             </div>
@@ -215,30 +213,29 @@
                                 <div class="ab" ng-show="alreadyReg">
                                     Email ID is already registered
                                 </div>
-
                             </div>
                             <div class="text-center submit sign-submit">
                                 <button class="btn btn-light letter-spacing text-uppercase" ng-click="doSignup(accept,signup,signupForm)">Signup</button>
                             </div>
                         </div>
                     </div>
-            </div>
+            <!--</div>-->
             </form>
             <div class="text-center text-uppercase">
                 <p>or sign up via</p>
             </div>
             <div class="social-icon text-center">
                 <button class="btn btn-facebook pad-btn" ng-click="facebooklogin()">
-          <i class="fa fa-facebook social-f"></i>
-        </button>
+                         <i class="fa fa-facebook social-f"></i>
+                 </button>
                 <button class="btn btn-google pad-btn" ng-click="googlelogin()">
-          <i class="fa fa-google-plus"></i>
-        </button>
+                     <i class="fa fa-google-plus"></i>
+                 </button>
                 <button class="btn btn-twitter pad-btn" ng-click="twitterlogin()">
-          <i class="fa fa-twitter"></i>
-        </button>
+                     <i class="fa fa-twitter"></i>
+                </button>
             </div>
-</div>
-</uib-tab>
-</uib-tabset>
+         </div>
+        </uib-tab>
+    </uib-tabset>
 </div>
