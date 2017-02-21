@@ -70,7 +70,11 @@
                         <div class="row">
                             <div class="col-md-10">
                                 <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images track by $index">
-                                    <div class="cat-img pointer" ng-click="changeDesign($index)" title="Design {{$index + 1}}">
+                                    <!--<div class="cat-img pointer" ng-click="changeDesign($index, 1,img)" title="Design {{$index + 1}}">
+                                        <img ng-src="{{img.src}}" class="img-responsive">
+                                        <p class="text-center uppercase">{{img.title}}</p>
+                                    </div>-->
+                                    <div class="cat-img pointer" ng-click="openDesign($index, 1,img)" title="Design {{$index + 1}}">
                                         <img ng-src="{{img.src}}" class="img-responsive">
                                         <p class="text-center uppercase">{{img.title}}</p>
                                     </div>
@@ -104,7 +108,7 @@
                             <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginCaps();">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('team', 3); openTab('c');">NEXT</button>
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('team', 3); openTab('c');;switchNavigation('c');">NEXT</button>
                         </div>
 
 
@@ -144,7 +148,7 @@
                             <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginCaps();">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing"  ng-click="tabchange('quantity', 5); openTab('d');">NEXT</button>
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing"  ng-click="checkTeamLogo();">NEXT</button>
                         </div>
                     </div>
 

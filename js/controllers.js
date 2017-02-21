@@ -1504,6 +1504,20 @@ $scope.checkloginTrousers = function(qty){
         $scope.trimCaps.highlightOne = {};
             $scope.trimCaps.highlightTwo = {};
     $scope.customizedCaps = {};
+         $scope.capsLogo = {};
+    $scope.capsLogo.isTeamLogo = false;
+    $scope.checkTeamLogo = function() {
+        console.log('troooo',$scope.capsLogo.image);
+        if($scope.capsLogo.isTeamLogo || $scope.capsLogo.image) {
+            $scope.tabchange('quantity', 5);
+            $scope.openTab('d');
+        } else {
+            $uibModal.open({
+                templateUrl: 'views/modal/checkTeamLogo.html',
+                scope: $scope
+            });
+        }
+    }
 
     // $scope.customizedCaps.teamlogo.divattributes = {
     //     width: '90px',
@@ -1815,6 +1829,8 @@ $scope.checkloginTrousers = function(qty){
     $scope.trimCaps.highlightBase.tcolor = 'white';
     $scope.capName = "MODENA";
 
+ 
+
     $scope.changeDesign = function(index) {
         if (index === 0) {
             $scope.trimCaps.highlightBase.disable = "unnoable";
@@ -1989,7 +2005,22 @@ $scope.checkloginCaps = function(qty){
     $scope.turnOnLogos = function(val) {
         $scope.LogosTab = val;
     }
-
+    $scope.openDesign = function(index, tab,img) {
+            console.log('//////////');
+        if ($scope.LogosTab) {
+              console.log('//////////11111');
+            $scope.designIndex = index;
+            $scope.designTab = tab;
+            $scope.designImage = img;
+            $uibModal.open({
+                templateUrl: "views/modal/tshirtdesign.html",
+                scope: $scope
+            });
+        } else {
+              console.log('//////////33333');
+            $scope.changeDesign(index);
+        }
+    }
     $scope.switchNavigation = function(tab) {
         if (tab === 'a') {
             if (!$scope.tabAllowToa) {
