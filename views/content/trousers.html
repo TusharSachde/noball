@@ -97,8 +97,7 @@
                         <p>Choose Your Type Of Design</p>
                         <div class="row">
                             <div class="col-md-10">
-                                <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images track by $index">
-                                    
+                                <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images track by $index">                                    
                                         <div class="cat-img pointer" ng-click="openDesign($index,1,img)" title="Design {{$index + 1}}">
                                         <img ng-src="{{img.src}}" class="img-responsive">
                                     </div>
@@ -109,9 +108,12 @@
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('trim', 2); openTab('b');">NEXT</button>
                         </div>
                         <div class="customize-design">
-                            <span>Learn How To Customise Your Design By </span>
-                            <a href="" class="text-bold" ng-click="outplace();">Clicking Here</a>
-                        </div>
+              <ul>
+                <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span> to know more about customization tools.</li>               
+                <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves & pads attract a nominal one-time customization fees).</li>               
+                             
+              </ul>                              
+              </div>
                     </div>
                     <!--       //trim tab-->
                     <div class="choos m20-l " ng-show="tab=='trim'">

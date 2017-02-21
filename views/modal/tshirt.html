@@ -32,11 +32,11 @@
       <div class="col-md-7">
         <div class="format-type">
           <h2>File Type Format</h2>
-          <span>You are required to upload only jpg and png</span>
+          <span>.png or .jpg or .jpeg will be accepted. Upload .png for the best visualization. Find various free online file converters to change file format to .png – please upload a good resolution image for the best possible output.</span>
         </div>
         <div class="file-size">
-          <h2>Maximum Upload File Size 20MB</h2>
-          <span>File may take anywhere from a few seconds to a few minutes to upload.</span>
+          <h2>Maximum File Upload Size = 20MB</h2>
+          <span>File may take a few seconds to a few minutes to upload.</span>
         </div>
         <span ng-if="toolarge" style="font-weight: bold">Please upload images below 20MB</span>
         <div ng-if="statuses.uploadStatus">
@@ -77,7 +77,7 @@
     <!-- <div class="check" ng-if="!statuses.showcopy"> -->
     <div class="check">
     <input type="checkbox" class="form-control" id="log" name="hereby" ng-required="!statuses.showcopy" ng-model="statuses.permission">
-    <label for="log" ng-class="{ makeMeRedBold: !statuses.permission }"><span></span>I hereby declare I have permission to use this file.</label>
+    <label for="log" ng-class="{ makeMeRedBold: !statuses.permission }"><span></span>(_) I hereby declare I have permission to use this file.</label>
   </div>
   <div class="check" ng-if="!statuses.showcopy">
   <!-- <div class="check"> -->

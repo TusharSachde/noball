@@ -13,7 +13,7 @@
                     </li>
                     <li class="tab-item breadcrums {{classb}} {{tabAllowb}}" ng-disabled="tabAllowTob" ng-click="switchNavigation('b');">
                         <span class="bread-frnt"></span>
-                        <p>2. COLOR</p>
+                        <p>2. TRIM</p>
                         <span class="bread-back"></span>
                     </li>
                     <li class="tab-item breadcrums {{classc}} {{tabAllowc}}" ng-disabled="tabAllowToc" ng-click="switchNavigation('c');">
@@ -48,17 +48,27 @@
                             <p class="uppercase" ng-click="switchFrontBack(false); switchTrimHighlightBase(false, trimCaps.highlightBase.tcolor); switchTrimHighlightOne(false, trimCaps.highlightOne.tcolor); switchTrimHighlightTwo(false, trimCaps.highlightTwo.tcolor);"><img src="img/back.png" class="img-responsive" alt="">back</p>
                         </div>
                         <div class="feature-buttons">
-                           <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 1}" ng-click="toggleTab(1)">FORM + FUNCTION</button>
-                            <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 2}" ng-click="toggleTab(2)">DELIVERY</button>
-                            <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 3}" ng-click="toggleTab(3)">CARE</button>
-                        </div>
-                        <ul class="tshirt-features">
-                            <li>100% polyester</li>
-                            <li>Drawstring elastic waistband with fly finished front</li>
-                            <li>200 GSM weight of fabric</li>
-                            <li>Tested and fitted for optimum performance in warm and cold conditions</li>
-
-                        </ul>
+                <button class="btn  btn-outline inline-block btn-dark  padding-btn letter-spacing"  ng-class="{'active-btn': activeButton == 1}" ng-click="toggleTab(1)">FORM + FUNCTION</button>
+                <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing"  ng-class="{'active-btn': activeButton == 2}" ng-click="toggleTab(2)">DELIVERY</button>
+                <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing"  ng-class="{'active-btn': activeButton == 3}" ng-click="toggleTab(3)">CARE</button>
+              </div>
+              <ul class="tshirt-features" ng-if="activeButton == 1">
+                <li>It features the Custom Cricket company on the right chest</li>
+                <li>100% polyester</li>
+                <li>160 gsm</li>
+                <li>Polo collar</li>
+                <li>Cut & Sew technique</li>
+                <li>Tested and fitted for optimum performance in warm and cold conditions</li>
+              </ul>
+               <ul class="tshirt-features" ng-if="activeButton == 2">
+                <li>In-stock tees are shipped immediately. Customisation delivery worldwide takes 3-4 weeks from date of order.</li>               
+              </ul>
+              <ul class="tshirt-features" ng-if="activeButton == 3">
+                <li>We recommend washing in cold water with powder detergent</li>               
+                <li>Do not wash with other coloured clothes to avoid bleeding and run-off</li>               
+                <li>Avoid drying machines which can weaken the fabric's effectiveness</li>               
+                <li>Steam iron preferably</li>               
+              </ul>
                     </div>
                 </div>
                 <div class="col-md-7">
@@ -81,10 +91,13 @@
                         <div class="edit-btn inline-block">
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('trim', 2); openTab('b');">NEXT</button>
                         </div>
-                        <div class="customize-design">
-                            <span>Learn How To Customise Your Design By </span>
-                            <a href="" class="text-bold" ng-click="outplace();">Clicking Here</a>
-                        </div>
+                         <div class="customize-design">
+              <ul>
+                <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span> to know more about customization tools.</li>               
+                <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves & pads attract a nominal one-time customization fees).</li>               
+                             
+              </ul>                              
+              </div>
                     </div>
                     <!--                    //trim tab-->
                     <div class="choos m20-l " ng-show="tab=='trim'">

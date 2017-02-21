@@ -94,16 +94,26 @@
                 <p class="uppercase" ng-click="switchFrontBack(false); switchTrimHighlightBase(false, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(false, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(false, trimTshirt.highlightTwo.tcolor)"><img src="img/back.png" class="img-responsive" alt="">back</p>
               </div>
               <div class="feature-buttons">
-                <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing"  ng-class="{'active-btn': activeButton == 1}" ng-click="toggleTab(1)">FORM + FUNCTION</button>
+                <button class="btn  btn-outline inline-block btn-dark  padding-btn letter-spacing"  ng-class="{'active-btn': activeButton == 1}" ng-click="toggleTab(1)">FORM + FUNCTION</button>
                 <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing"  ng-class="{'active-btn': activeButton == 2}" ng-click="toggleTab(2)">DELIVERY</button>
                 <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing"  ng-class="{'active-btn': activeButton == 3}" ng-click="toggleTab(3)">CARE</button>
               </div>
-              <ul class="tshirt-features">
-                <li>It features the Custom Cricket Company logo on the right chest</li>
-                <li>100% polyester dri-fit</li>
-                <li>180 GSM in weight</li>
-                <li>Ribbed polo collar with 3-button placket</li>
-                <li>Tested and fitted for optimum performance for all playing conditions</li>
+              <ul class="tshirt-features" ng-if="activeButton == 1">
+                <li>It features the Custom Cricket company on the right chest</li>
+                <li>100% polyester</li>
+                <li>160 gsm</li>
+                <li>Polo collar</li>
+                <li>Cut & Sew technique</li>
+                <li>Tested and fitted for optimum performance in warm and cold conditions</li>
+              </ul>
+               <ul class="tshirt-features" ng-if="activeButton == 2">
+                <li>In-stock tees are shipped immediately. Customisation delivery worldwide takes 3-4 weeks from date of order.</li>               
+              </ul>
+              <ul class="tshirt-features" ng-if="activeButton == 3">
+                <li>We recommend washing in cold water with powder detergent</li>               
+                <li>Do not wash with other coloured clothes to avoid bleeding and run-off</li>               
+                <li>Avoid drying machines which can weaken the fabric's effectiveness</li>               
+                <li>Steam iron preferably</li>               
               </ul>
             </div>
           </div>
@@ -117,7 +127,7 @@
                             Cricket company on the right chest .
                         </p>-->
               <h3><i class="fa fa-inr"></i>{{singleAmount}}</h3>
-              <span class="Raleway-Medium"><em>Minimum order to be placed for Playing T-Shirts is 20.</em></span>
+              <span class="Raleway-Medium"><em>Minimum Order Quantity (MOQ) =  20 Tees</em></span>
             </div>
             <!--                    // design tab-->
             <div class="choos m20-l" ng-show="tab=='design'">
@@ -185,8 +195,11 @@
                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('trim',2)">NEXT</button>
                             </div> -->
               <div class="customize-design">
-                <span>Learn How To Customise Your Design By </span>
-                <a href="" class="text-bold" ng-click="outplace();">Clicking Here</a>
+              <ul>
+                <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span> to know more about customization tools.</li>               
+                <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves & pads attract a nominal one-time customization fees).</li>               
+                             
+              </ul>                              
               </div>
             </div>
 
@@ -440,13 +453,15 @@
               <div class="print-typ printing">
                 <div class="pbotom">
                   <span class="block">Notes :</span>
-                  <span class="block">1. The logo of your sponsors will be sublimated. </span>
-                  <span class="block">2. The logo on the sleeves are not cut in half. It’s just to provide realistic
-                    feel.</span>
-                  <span class="block">3. If you feel something is not great, our design team can fix it for you.
-                    <a href="" ng-click="outplace();">Click here</a> to find out how?</span>
-                  <span class="block">4. The printed CCC Logo will always be embroidered on your t-shirt</span>
-                  <span class="block">5. CCC logo colour will match colour of the trim.</span>
+                  <span class="block">1. C&amp;S = Cut &amp; Sew Tees, SUB = Sublimated Tees. </span>
+                  <span class="block">2. The logos of your sponsors will be sublimated.</span>
+                  <span class="block">3. The CCC logo will be sublimated or embroidered based on your selection of ‘printing type’ for your Team Logo.</span>
+                  <span class="block">4. The CCC logo colour will be black or white depending on your choice of the base colour chosen.</span>
+                  <span class="block">5. If you remove the CCC logo from Right Chest area the CCC logo will automatically move to the back of your tee under the collar.</span>
+                  <ul class="pad-17">
+                    <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span> to know more about customization tools.</li>               
+                 <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves & pads attract a nominal one-time customization fees).</li> 
+                 </ul>
                   <!--<span><a href="" ng-click="outplace();">Click here</a> to find out how?</span>-->
                 </div>
               </div>
@@ -569,9 +584,14 @@
 
                   <div class="pbotom">
                     <span class="block">Note </span>
-                    <span class="block">1. Your t-shirt name can be up to 10 characters and t-shirt number can be selected from 0 to 999.</span>
-                    <span class="block">2. You can select sleeves from being short (S.S) or long (L.S).</span>
-                    <span class="block">3. (*) - this denotes the field is mandatory.</span>
+                    <span class="block">1. Leave name and number fields blank if you do not wish to choose this option.</span>
+                    <span class="block">2. If you would like to reposition or tweak your back sponsor logo, please leave your comments in the remarks field in the next step and our graphic team will get back to you.</span>
+                    <span class="block">3. Name will be printed in upper case / capital letters.</span>
+                    <span class="block">4. * denotes mandatory fields.</span>
+                     <ul class="pad-17">
+                    <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span> to know more about customization tools.</li>               
+                 <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves & pads attract a nominal one-time customization fees).</li> 
+                 </ul>
                   </div>
 
                   <uib-accordion-group class="panel-default" is-open="status.open2">
