@@ -1858,6 +1858,44 @@ $scope.checkloginTrousers = function(qty){
             // $scope.switchTrimHighlightTwo(true, '');
         }
     }
+      $scope.openLogin = function() {
+        $uibModal.open({
+            animation: true,
+            templateUrl: 'views/modal/login.html',
+            controller: 'headerctrl',
+            scope: $scope
+        })
+    };
+$scope.qtyValidation = false;
+$scope.checkloginCaps = function(qty){
+    if(qty == 0){
+        $scope.qtyValidation = true;
+    }
+     console.log('qqqqqqq////////////');
+     if (NavigationService.getUser()) {
+            $scope.isLogin = true;
+        } else {
+            $scope.isLogin = false;
+        }
+        if($scope.isLogin){
+            console.log('////////////');
+//   $scope.openSaveDesignPopup = function () {
+        $uibModal.open({
+            templateUrl: 'views/modal/savedesign.html',
+            scope: $scope
+        });
+    // };
+    }else{
+         console.log('////////////1111111');
+         $scope.openLogin();
+        // $uibModal.open({
+        //     templateUrl: 'views/modal/login.html',
+        //     scope: $scope
+        // });
+
+
+    }
+    }
   $scope.outplace = function() {
         $uibModal.open({
             templateUrl: "views/modal/outofplace.html",
@@ -4779,6 +4817,7 @@ $scope.turnOnLogos(true);
     $scope.designTab = 1;
     $scope.trimTshirt.highlightOne.tcolor = 'black';
     $scope.openDesign = function(index, tab,img) {
+        console.log('fghjfgvbhnj');
         if ($scope.LogosTab) {
             $scope.designIndex = index;
             $scope.designTab = tab;
@@ -4788,7 +4827,9 @@ $scope.turnOnLogos(true);
                 scope: $scope
             });
         } else {
-            $scope.selectPadsDesign(img);
+            $scope.changeDesign(index, tab,img);
+            console.log('elsee');
+            //  $scope.selectPadsDesign(img);
         }
     }
     $scope.changeDesign = function(index, tab) {

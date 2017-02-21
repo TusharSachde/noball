@@ -101,7 +101,7 @@
                             </div>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                            <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginCaps();">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
                         <div class="edit-btn inline-block">
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('team', 3); openTab('c');">NEXT</button>
@@ -112,7 +112,7 @@
                     <!--                    //trim tab-->
                     <div class="choos m20-l" ng-show="tab=='team'">
                         <div class="checkboxing">
-                            <input type="checkbox" class="form-control" id="later">
+                            <input type="checkbox" class="form-control" id="later" ng-model="capsLogo.isTeamLogo">
                             <label for="later"><span></span>SEND TEAM LOGO LATER</label>
                         </div>
                         <div>
@@ -141,7 +141,7 @@
                             </div>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                            <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginCaps();">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
                         <div class="edit-btn inline-block">
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing"  ng-click="tabchange('quantity', 5); openTab('d');">NEXT</button>
@@ -164,7 +164,7 @@
                             <span class="pull-right tquantity uppercase Raleway-Medium">Total Quantity: {{capQuantity.quantity}}</span>
                         </div>
                         <div class="edit-btn">
-                            <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>
+                            <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="checkloginCaps();">save design</button>
                             <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing">next</button>
                             <br>
                         </div>
@@ -206,7 +206,7 @@
     </div>
 
   <div class="edit-btn">
-      <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>
+      <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="checkloginCaps();">save design</button>
       <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5">next</button>
       <br>
   </div>
@@ -431,7 +431,7 @@
                                 </uib-accordion-group>
                         </div>
                         <div class="edit-btn">
-                            <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>
+                            <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="checkloginCaps();">save design</button>
                             <button href=""  class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5">next</button>
                             <br>
                         </div>
