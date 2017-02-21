@@ -131,8 +131,8 @@
             </div>
             <!--                    // design tab-->
             <div class="choos m20-l" ng-show="tab=='design'">
-              <p ng-if="page==1">Choose Your Type Of Design ({{images.page1.length}}/14)</p>
-               <p ng-if="page==2">Choose Your Type Of Design (14/14)</p>
+              <p ng-if="page==1">Choose Your Type Of Design ({{images.page1.length}}/{{images.page1.length + images.page2.length}})</p>
+               <p ng-if="page==2">Choose Your Type Of Design ({{images.page2.length}}/{{images.page1.length + images.page2.length}})</p>
               <!--<div class="mb20">
                 <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="type=1">Odi</button>
                 <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="type=2">Training</button>
