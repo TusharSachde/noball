@@ -1525,7 +1525,7 @@ footer {
 
         .div-back {
             position: absolute;
-            top: 220px;
+            top: 230px;
             left: 155px;
             width: 150px;
             height: 150px;
@@ -2874,8 +2874,8 @@ footer {
     .div-left-sleeve {
         position: absolute;
         top: 130px;
-        right: 65px;
-        width: 50px;
+        right: 82px;
+        width: 26px;
         height: 50px;
         transform: rotate(-10deg);
         z-index: 99;
@@ -2886,9 +2886,32 @@ footer {
     .div-right-sleeve {
         position: absolute;
         top: 130px;
-        left: 65px;
+        left: 82px;
         transform: rotate(10deg);
-        width: 50px;
+        width: 26px;
+        height: 50px;
+        z-index: 99;
+        overflow: hidden;
+        @extend .div-flex;
+    }
+     .div-left-sleeve-back {
+        position: absolute;
+        top: 130px;
+        right: 76px;
+        width: 26px;
+        height: 50px;
+        transform: rotate(-10deg);
+        z-index: 99;
+        overflow: hidden;
+        @extend .div-flex;
+    }
+
+    .div-right-sleeve-back {
+        position: absolute;
+        top: 130px;
+        left: 79px;
+        transform: rotate(10deg);
+        width: 26px;
         height: 50px;
         z-index: 99;
         overflow: hidden;
@@ -2897,7 +2920,7 @@ footer {
 
     .div-back {
         position: absolute;
-        top: 230px;
+        top: 76px;
         left: 155px;
         width: 150px;
         height: 150px;
@@ -6588,7 +6611,7 @@ h2 {
 
 .odi-t {
     position: absolute;
-    top: 120px;
+    top: 250px;
     left: 50%;
     font-size: 22px;
     @include transform(translateX(-50%));
@@ -6609,8 +6632,8 @@ h2 {
     }
 
     &.jersey-name {
-        top: 100px;
-        width: 180px;
+        top: 235px;
+        width: 161px;
         height: 50px;
         display: -webkit-flex;
         display: -ms-flex;

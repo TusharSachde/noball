@@ -56,7 +56,7 @@
                 <div class="div-left-chest" ng-if="customizedShirt.front && customizedShirt.teamlogo.image" ng-style="customizedShirt.teamlogo.divattributes">
                   <img id="teamlogo" class="left-chest" ng-src="{{customizedShirt.teamlogo.image | serverimage}}" alt="" ng-style="customizedShirt.teamlogo.attributes">
                 </div>
-                <div class="div-left-sleeve" ng-if="customizedShirt.leftsleeve.image" ng-style="customizedShirt.leftsleeve.divattributes" ng-class="{'div-left-sleeve':customizedShirt.front,'div-right-sleeve':customizedShirt.back}">
+                <div class="div-left-sleeve" ng-if="customizedShirt.leftsleeve.image" ng-style="customizedShirt.leftsleeve.divattributes" ng-class="{'div-left-sleeve':customizedShirt.front,'div-right-sleeve-back':customizedShirt.back}">
                   <img id="leftsleeve" ng-class="{'left-sleeve':customizedShirt.front,'right-sleeve':customizedShirt.back}" ng-src="{{customizedShirt.leftsleeve.image | serverimage}}" alt="" ng-style="customizedShirt.leftsleeve.attributes">
                 </div>
                 <div class="div-right-chest" ng-if="customizedShirt.front && customizedShirt.rightchest.image" ng-style="customizedShirt.rightchest.divattributes">
@@ -67,11 +67,11 @@
                   <div style="color:{{myClolr}};transform: rotate({{myArc1}}deg);font-size:{{mySize1}}px;transform: rotate({{myRotate1}}deg);letter-spacing: {{myWordSpace1}}px;"> {{addtxt10}}</div>
 
                   <!-- <img class="right-chest" ng-src="{{customizedShirt.rightchest.image | serverimage}}" alt="" ng-style="customizedShirt.rightchest.attributes"> -->
-                </div>
+                </div> 
                 <!-- <br>
                                 <div class="div-right-chest" ng-if="customizedShirt.front" ng-style="customizedShirt.rightchest.divattributes"><!-- <img class="right-chest" ng-src="{{customizedShirt.rightchest.image | serverimage}}" alt="" ng-style="customizedShirt.rightchest.attributes"> -->
                 <!-- </div> -->
-                <div class="div-right-sleeve" ng-if="customizedShirt.rightsleeve.image" ng-style="customizedShirt.rightsleeve.divattributes" ng-class="{'div-right-sleeve':customizedShirt.front,'div-left-sleeve':customizedShirt.back}">
+                <div class="div-right-sleeve" ng-if="customizedShirt.rightsleeve.image" ng-style="customizedShirt.rightsleeve.divattributes" ng-class="{'div-right-sleeve':customizedShirt.front,'div-left-sleeve-back':customizedShirt.back}">
                   <img ng-class="{'right-sleeve':customizedShirt.front,'left-sleeve':customizedShirt.back}" ng-src="{{customizedShirt.rightsleeve.image | serverimage}}" alt="" ng-style="customizedShirt.rightsleeve.attributes">
                 </div>
                 <div class="div-back" ng-if="customizedShirt.back && customizedShirt.backlogo.image" ng-style="customizedShirt.backlogo.divattributes">
