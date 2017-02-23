@@ -4470,7 +4470,7 @@ $scope.turnOnLogos(true);
 
 })
 
-.controller('OdiCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar, $filter, $interval) {
+.controller('OdiCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar, $filter, $interval , $rootScope) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("odi-shirt");
     $scope.menutitle = NavigationService.makeactive("Odi T-shirt");
@@ -4478,6 +4478,19 @@ $scope.turnOnLogos(true);
     $scope.navigation = NavigationService.getnav();
     $scope.originURL = window.location.origin + "/";
     var check = 1;
+
+        $rootScope.$on('$locationChangeStart', function (event, toState, fromState) {
+           console.log('tostate',toState);  
+           if(toState) {
+               event.preventDefault(); 
+            //        $scope.odiLeaveModal = $uibModal.open({
+            //     templateUrl: "views/modal/tshirtdesign.html",
+            //     scope: $scope
+            // });
+            var answer = alert("Hi! You cannot go back in the middle of the survey.");
+              
+             }                                                                                                                                  
+        });
     // $scope.displayImage = "img/tinytshirt 7.png";
     $scope.customizedShirt = {};
     $scope.statuses = {};
@@ -4489,6 +4502,7 @@ $scope.turnOnLogos(true);
     $scope.toggleTab = function(val) {
         $scope.activeButton = val;
     };
+
     // image upload variables
     $scope.variable = "";
 
@@ -4529,7 +4543,7 @@ $scope.turnOnLogos(true);
         'no': '',
         'font': 'arial',
         'color': 'white',
-        'quantity': 1,
+        'quantity': '',
         'size': 'L',
         'sleeve': 'short',
         'attributes': {
@@ -4552,7 +4566,7 @@ $scope.turnOnLogos(true);
         'no': '',
         'font': 'arial',
         'color': 'white',
-        'quantity': 1,
+        'quantity': '',
         'size': 'L',
         'sleeve': 'short',
         'attributes': {
@@ -4684,8 +4698,18 @@ $scope.turnOnLogos(true);
                 }
             });
         } else {
-            $scope.customizedShirt[key] = null;
+            $scope.saveKey = key;
+              $scope.odiDeleteModal = $uibModal.open({
+                templateUrl: "views/modal/odi-delete.html",
+                scope: $scope
+            });
+       
         }
+    }
+    $scope.deleteOdi = function(){
+        console.log('sssssssssss');
+        $scope.odiDeleteModal.close();
+             $scope.customizedShirt[$scope.saveKey] = null;
     }
     $scope.checkCustomizeShirt = function(key) {
         return angular.isObject($scope.customizedShirt[key]);

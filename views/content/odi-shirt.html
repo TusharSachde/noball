@@ -633,8 +633,9 @@
                                 <option value="long">Long</option>
                               </select>
                             </td>
-                            <td>
-                              <input type="number" name="quantity" ng-change="addQuantity(jersey.quantity)" ng-model="jersey.quantity" min="1" maxlength="3">
+                             <td>
+                              <input type="number" name="quantity" placeholder="20" ng-change="addQuantity(jersey.quantity)" ng-model="jersey.quantity" min="20" maxlength="3">
+                              <p ng-if="jersey.quantity == null">Please enter correct quantity </p>
                             </td>
                             <td>
                               <input type="text" ng-model="jersey.name" placeholder="Name" name="name"> <!-- ng-model="jerseyBack.name" maxlength="10" -->
