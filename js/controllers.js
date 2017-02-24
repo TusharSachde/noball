@@ -3322,7 +3322,7 @@ $scope.checkloginPads = function(){
     $scope.switchFrontBack(true);
     $scope.statuses.uploadStatus = false;
     $scope.tempImage = "";
-    $scope.changeLogo = function(key) {
+    $scope.changeLogo = function(key) { 
         console.log(key);
         $scope.customizedShort[key].divattributes.border = "1px solid #ccc";
     };
@@ -4508,8 +4508,8 @@ $scope.turnOnLogos(true);
 
     // slider
     $scope.rslider = {
-        min: 10,
-        max: 100
+        min: -130,
+        max: 200
     };
     // $scope.statuses.copyright = false;
     $scope.trimTshirt = {};
@@ -6079,9 +6079,6 @@ $scope.turnOnLogos(true);
             scope: $scope
         })
     };
-
-
-
 })
 
 .controller('CustomCtrl', function($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {

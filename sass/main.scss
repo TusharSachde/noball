@@ -7,6 +7,7 @@
 @import "../bower_components/angular-loading-bar/src/loading-bar.css";
 @import "../bower_components/fancyBox/source/jquery.fancybox.css";
 @import "../bower_components/angular-rangeslider/angular.rangeSlider.css";
+
 @font-face {
     font-family: "Facile Sans";
     src: url("../fonts/Facile-Sans.otf");
@@ -6052,6 +6053,7 @@ a:focus {
         }
 
         .ngrs-handle {
+            left: 51.5%;
             position: absolute;
             z-index: 2;
             height: 7px;
@@ -6501,6 +6503,7 @@ h2 {
         }
 
         .ngrs-handle {
+               
             position: absolute;
             z-index: 2;
             height: 10px;
