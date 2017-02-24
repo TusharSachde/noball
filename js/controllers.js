@@ -4485,18 +4485,30 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.originURL = window.location.origin + "/";
         var check = 1;
 
-        $rootScope.$on('$locationChangeStart', function (event, toState, fromState) {
-            console.log('tostate', toState);
-            if (toState) {
+        $scope.$on('$stateChangeStart', function (event, toState) {
+            console.log(event);
+            if (toState.name != 'order') {
+                var myAlert = alert("Changing the design will erase all previously made changes. Logos shall remain unchanged.Are you sure you want to continue?");
                 event.preventDefault();
-                //        $scope.odiLeaveModal = $uibModal.open({
-                //     templateUrl: "views/modal/tshirtdesign.html",
-                //     scope: $scope
-                // });
-                var answer = alert("Hi! You cannot go back in the middle of the survey.");
-
+            } else {
+                console.log('herer');
             }
         });
+
+        // $rootScope.$on('$locationChangeStart', function (event, toState, fromState) {
+        //     console.log('tostate', toState);
+        //     if (toState) {
+
+        //         //        $scope.odiLeaveModal = $uibModal.open({
+        //         //     templateUrl: "views/modal/tshirtdesign.html",
+        //         //     scope: $scope
+        //         // });
+        //         alert("Changing the design will erase all previously made changes. Logos shall remain unchanged.Are you sure you want to continue?");
+        //         event.preventDefault();
+
+
+        //     }
+        // });
         // $scope.displayImage = "img/tinytshirt 7.png";
         $scope.customizedShirt = {};
         $scope.statuses = {};
@@ -9328,8 +9340,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.switchTrimHighlightOne(true);
                     $scope.switchTrimHighlightTwo(true);
                     $scope.switchTrimHighlightBase(true);
-                    $scope.deletePopup = function (index) {
+                    $scope.deletePopup = function (index, id) {
                         $scope.designIndex = index;
+                        $scope.designId = id;
                         $scope.deletePopup1 = $uibModal.open({
                             templateUrl: "views/modal/odi-delete.html",
                             // controller: "SaveDesignCtrl",       
@@ -9342,9 +9355,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         $scope.savedDesigns.splice(index, 1);
                         $.jStorage.set('savedDesigns', $scope.savedDesigns);
                         $scope.savedDesigns = $.jStorage.get('savedDesigns');
-                        // NavigationService.deleteSaveDesign(id,function(){
-                        //     console.log('deleted');
-                        // })
+                        NavigationService.deleteSaveDesign($scope.designId, function () {
+                            console.log('deleted', $scope.designId);
+                        })
                     }
                 },
                 function (err) {
