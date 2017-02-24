@@ -154,7 +154,7 @@
                 <div class="col-md-10">
                   <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images.page1 track by $index" ng-if="page==1">
                     
-                    <div class="cat-img pointer" ng-click="openDesign($index, 1)" title="Design {{$index + 1}}">
+                    <div class="cat-img pointer" ng-class="{'border-line':$index + 1 = true}" ng-click="openDesign($index, 1)" title="Design {{$index + 1}}">
                       <img ng-src="{{img.src}}" class="img-responsive">
                     </div>
                   </div>
@@ -226,10 +226,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
-                <!-- <div class="edit-btn margintp">
-                                    <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
-                                </div> -->
+                </div>               
               </div>
               <div class="{{trimTshirt.highlightTwo.disable}} {{trimTabs.light2.show}} classv outline disnon" ng-if="tabs=='light2'">
                 <div class="row">
@@ -237,14 +234,13 @@
                     <h4>Choose Your Color</h4>
                     <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in odicolor track by $index">
                       <div class="colo-pallet text-center">
-                        <div class="noti-img notihov" ng-class="{{'coloracive':trimTshirt.highlightTwo.tcolor == col.name, 'borergrey':col.name == 'white'};" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightTwo(trimTshirt.highlightTwo.flag, col.name); trimHexColors('highlightTwo', col.colr);" title="{{col.name | capitalize}}"></div>
+                        <!--<div class="noti-img notihov" ng-class="{{'coloracive':trimTshirt.highlightTwo.tcolor == col.name, 'borergrey':col.name == 'white'};" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightTwo(trimTshirt.highlightTwo.flag, col.name); trimHexColors('highlightTwo', col.colr);" title="{{col.name | capitalize}}"></div>-->
+
+                          <div class="noti-img notihov" ng-class="{'coloracive':trimTshirt.highlightTwo.tcolor == col.name, 'borergrey':col.name == 'white'};" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightTwo(trimTshirt.highlightTwo.flag, col.name); trimHexColors('highlightTwo', col.colr);" title="{{col.name | capitalize}}"></div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <!-- <div class="edit-btn margintp">
-                                    <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
-                                </div> -->
+                </div>              
               </div>
               <div class="{{trimTshirt.highlightBase.disable}} {{trimTabs.light3.show}} classv outline disnon" ng-if="tabs=='light3'">
                 <div class="row">
@@ -600,7 +596,7 @@
                       <i class="pull-left fa " ng-class="{'fa fa-minus': status.open2, 'fa fa-plus': !status.open2}"></i>Choose Your Size
                     </uib-accordion-heading>
                     <div class="table-responsive">
-                      <table class="table">
+                      <table class="table relative">
                         <thead>
                           <tr>
                             <th class="uppercase">size <sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></th>
@@ -635,8 +631,11 @@
                             </td>
                              <td>
                               <input type="number" name="quantity" placeholder="20" ng-change="addQuantity(jersey.quantity)" ng-model="jersey.quantity" min="20" maxlength="3">
-                              <p ng-if="jersey.quantity == null">Please enter correct quantity </p>
+                              <p class="error-td"ng-if="jersey.quantity == null">Please enter correct quantity </p>
                             </td>
+                            <!--<td>                              
+                              <p ng-if="jersey.quantity == null">Please enter correct quantity </p>
+                            </td>-->
                             <td>
                               <input type="text" ng-model="jersey.name" placeholder="Name" name="name"> <!-- ng-model="jerseyBack.name" maxlength="10" -->
                             </td>
@@ -649,6 +648,7 @@
 
                             <td class="binbord-rgt"><img src="img/rubbishbin.png" class="img-responsive doneLoading" alt="" ng-click="removeJerseyValue($index); addQuantity()"></td>
                           </tr>
+                          
                           <tr class="nothing">
                             <td></td>
                           </tr>

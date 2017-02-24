@@ -89,7 +89,7 @@ body {
 .Raleway-Medium {
     font-family: "Raleway-Medium";
 }
-
+.border-line{border: 1px solid !important;}
 .Raleway {
     font-family: "Raleway";
 }
@@ -2097,7 +2097,7 @@ footer {
     }
 }
 //ready
-
+.relative{    position: relative;}
 .accordion {
     position: relative;
 
@@ -2123,6 +2123,7 @@ footer {
     }
 
     .table {
+
         span {
             font-size: 18px;
         }
@@ -2576,7 +2577,7 @@ footer {
 }
 
 .active-btn {
-    border-left: 2px solid #53c8eb !important;
+    border-left: 6px solid #53c8eb !important;
     background-color: #1b1b1b !important;
     color: white!important;
     outline: 0!important;
@@ -6659,9 +6660,12 @@ h2 {
 
 .activated,
 .coloracive {
-    border: 3px solid #888888;
+    border: 3px solid #888888 !important;
 }
-
+.error-td{position: absolute;
+    left: 142px;
+    bottom: -23px;
+    color: red;}
 .clickinfo {
     font-size: 12px;
     font-weight: 600;
