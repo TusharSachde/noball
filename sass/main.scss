@@ -85,7 +85,7 @@ body {
     -moz-appearance: $value;
     appearance: $value;
 }
-
+.ngrs-range-slider .ngrs-value,.ngrs-range-slider .ngrs-value.ngrs-value-max{display:none;}
 .Raleway-Medium {
     font-family: "Raleway-Medium";
 }
