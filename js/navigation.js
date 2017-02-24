@@ -583,6 +583,9 @@ var navigationservice = angular.module('navigationservice', [])
     getSlider: function(callback, err) {
       $http.get(adminurl + 'getSlide').success(callback).error(err);
     },
+     deleteSaveDesign: function(id, callback) {
+      $http.get(adminurl + 'deleteSaveDesign/' + id).success(callback);
+    },
     getCurrency: function(callback, err) {
       $http.get(adminurl + 'getCurrency').success(callback).error(err);
     },

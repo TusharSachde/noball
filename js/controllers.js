@@ -9206,7 +9206,7 @@ $scope.LogosTab = false;
         $scope.products = _.chunk($scope.product, 3);
 
     })
-    .controller('SaveDesignCtrl', function($scope, $state, TemplateService, NavigationService, $timeout) {
+    .controller('SaveDesignCtrl', function($scope,$uibModal, $state, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("save-design");
         $scope.menutitle = NavigationService.makeactive("Save Design");
@@ -9298,11 +9298,23 @@ $scope.LogosTab = false;
                 $scope.switchTrimHighlightOne(true);
                 $scope.switchTrimHighlightTwo(true);
                 $scope.switchTrimHighlightBase(true);
-
+  $scope.deletePopup = function(index) {
+      $scope.designIndex = index;
+      $scope.deletePopup1 = $uibModal.open({
+           templateUrl: "views/modal/odi-delete.html",  
+            // controller: "SaveDesignCtrl",       
+           scope: $scope
+       })
+   };
                 $scope.removeSavedDesign = function(index) {
+                    $scope.deletePopup1.close();
+                    console.log('hhhhhhhhhhh',$scope.savedDesigns,index);
                     $scope.savedDesigns.splice(index, 1);
                     $.jStorage.set('savedDesigns', $scope.savedDesigns);
                     $scope.savedDesigns = $.jStorage.get('savedDesigns');
+                    // NavigationService.deleteSaveDesign(id,function(){
+                    //     console.log('deleted');
+                    // })
                 }
             }, function(err) {
                 console.log(err);
