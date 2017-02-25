@@ -583,9 +583,9 @@ var navigationservice = angular.module('navigationservice', [])
     getSlider: function(callback, err) {
       $http.get(adminurl + 'getSlide').success(callback).error(err);
     },
-     deleteSaveDesign: function(id, callback) {
-      $http.get(adminurl + 'deleteSaveDesign/' + id).success(callback);
-    },
+    //  deleteSaveDesign: function(id, callback) {
+    //   $http.get(adminurl + 'deleteSaveDesign/' + id).success(callback);
+    // },
     getCurrency: function(callback, err) {
       $http.get(adminurl + 'getCurrency').success(callback).error(err);
     },
@@ -604,6 +604,16 @@ var navigationservice = angular.module('navigationservice', [])
         $.jStorage.set("cartCount", data.quantity);
         callback(data, status);
       }).error(err);
+    },
+       deleteSaveDesign: function(data,callback, err) {
+         console.log('data',data);
+      return $http({
+        url: adminurl + "deleteSaveDesign",
+        method: "POST",
+        data: {
+          "id": data
+        }
+      }).success(callback);
     },
     getSubCategory: function(name, callback, err) {
       $http.get(adminurl + 'getSubCategory?name=' + name).success(callback).error(err);
@@ -715,6 +725,20 @@ var navigationservice = angular.module('navigationservice', [])
       console.log(JSON.stringify(jsonData));
       return $http({
         url: adminurl + "saveDesign",
+        method: "POST",
+        data: myData
+      }).success(callback).error(err);
+    },
+        editSaveDesign: function(user, jsonData, type,id, callback, err) {
+      var myData = {
+        "user": user,
+        "description": jsonData,
+        "type": type,
+        "id" :id
+      };
+      console.log(JSON.stringify(jsonData));
+      return $http({
+        url: adminurl + "editSaveDesign",
         method: "POST",
         data: myData
       }).success(callback).error(err);

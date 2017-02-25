@@ -4485,18 +4485,50 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.originURL = window.location.origin + "/";
         var check = 1;
 
-        $rootScope.$on('$locationChangeStart', function (event, toState, fromState) {
-            console.log('tostate', toState);
-            if (toState) {
-                event.preventDefault();
-                //        $scope.odiLeaveModal = $uibModal.open({
-                //     templateUrl: "views/modal/tshirtdesign.html",
-                //     scope: $scope
-                // });
-                var answer = alert("Hi! You cannot go back in the middle of the survey.");
+        $scope.$on('$stateChangeStart', function (event, toState, fromState) {
+            // console.log(event);
+            console.log('$scope.changeID', $scope.changeID);
+            console.log('fromState', fromState);
+            console.log('toState111', toState);
+            if (toState.name == 'order' || toState.name ==  'ordersummary' || toState.name == 'savedesign') {
+                // $rootScope.editId = {};
+                          console.log('herer');
 
+
+            }else{
+  $scope.changeDesign(0, 1);
+                console.log('ifff toState.name != order');
+                var answer = confirm("Changing the design will erase all previously made changes. Logos shall remain unchanged.Are you sure you want to continue?");
+                if (answer) {
+                    console.log('yes ans');
+                    $rootScope.editId = {};
+                    // $state.go(toState.name);
+                } else {
+                    console.log('no ans');
+                    event.preventDefault();
+                }
             }
+            // if(fromState.name === 'savedesign'){
+            //      console.log('ifff fromState.name == order');
+            //      $scope.changeID = $rootScope.editId;
+            //      $scope.changeDesign($scope.changeID, 1);
+            // }
         });
+
+        // $rootScope.$on('$locationChangeStart', function (event, toState, fromState) {
+        //     console.log('tostate', toState);
+        //     if (toState) {
+
+        //         //        $scope.odiLeaveModal = $uibModal.open({
+        //         //     templateUrl: "views/modal/tshirtdesign.html",
+        //         //     scope: $scope
+        //         // });
+        //         alert("Changing the design will erase all previously made changes. Logos shall remain unchanged.Are you sure you want to continue?");
+        //         event.preventDefault();
+
+
+        //     }
+        // });
         // $scope.displayImage = "img/tinytshirt 7.png";
         $scope.customizedShirt = {};
         $scope.statuses = {};
@@ -4980,7 +5012,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.trimTshirt.highlightBase.disable = "unnoable";
                     $scope.trimTshirt.highlightOne.disable = "unnoable";
                     $scope.trimTshirt.highlightTwo.disable = "noable";
-                    $scope.shirtName = "Pace C & S";
+                    $scope.shirtName = "Pace C&S";
                     $scope.designName = "design1";
                     $scope.designType = 'training';
                     $scope.singleAmount = 850;
@@ -4996,7 +5028,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.trimTshirt.highlightBase.disable = "unnoable";
                     $scope.trimTshirt.highlightOne.disable = "unnoable";
                     $scope.trimTshirt.highlightTwo.disable = "noable";
-                    $scope.shirtName = "Seam C & S";
+                    $scope.shirtName = "Seam C&S";
                     $scope.designName = "design2";
                     $scope.designType = 'training';
                     $scope.singleAmount = 850;
@@ -5012,7 +5044,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.trimTshirt.highlightBase.disable = "unnoable";
                     $scope.trimTshirt.highlightOne.disable = "unnoable";
                     $scope.trimTshirt.highlightTwo.disable = "noable";
-                    $scope.shirtName = "Dipper C & S";
+                    $scope.shirtName = "Dipper C&S";
                     $scope.designName = "design3";
                     $scope.designType = 'training';
                     $scope.singleAmount = 850;
@@ -5028,7 +5060,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.trimTshirt.highlightBase.disable = "unnoable";
                     $scope.trimTshirt.highlightOne.disable = "unnoable";
                     $scope.trimTshirt.highlightTwo.disable = "noable";
-                    $scope.shirtName = "Flipper C & S";
+                    $scope.shirtName = "Flipper C&S";
                     $scope.designName = "design4";
                     $scope.designType = 'training';
                     $scope.singleAmount = 850;
@@ -5044,7 +5076,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.trimTshirt.highlightBase.disable = "unnoable";
                     $scope.trimTshirt.highlightOne.disable = "unnoable";
                     $scope.trimTshirt.highlightTwo.disable = "noable";
-                    $scope.shirtName = "Drift C & S";
+                    $scope.shirtName = "Drift C&S";
                     $scope.designName = "design5";
                     $scope.designType = 'training';
                     $scope.singleAmount = 850;
@@ -5156,7 +5188,66 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         }
 
-        $scope.changeDesign(0, 1);
+        //         $rootScope.$on('$stateChangeStart', function (event, toState, fromState) {
+        //             $scope.changeID = $rootScope.editId;
+        //             console.log('$scope.changeID', $scope.changeID);
+        //             console.log('fromState', fromState);
+        //             console.log('toState111', toState);
+
+        //             if (fromState == 'order') {
+        //                 console.log('ifff');
+        //                 $scope.changeDesign($scope.changeID, 1);
+        //             }else if(toState.name != 'order'){
+        //                  console.log('elseeifff');
+        //  var myAlert = alert("Changing the design will erase all previously made changes. Logos shall remain unchanged.Are you sure you want to continue?");
+        //                 // event.preventDefault();
+        //                  $state.go(toState.name);
+        //             } else {
+        //                 console.log('elsee');
+        //                 // $scope.changeDesign(0, 1);
+        //             }
+        //         });
+        // $scope.changeDesignId ='';
+        console.log('$rootScope.editId', $rootScope.editId);
+        if ($rootScope.editId != undefined) {
+            $scope.changeID = $rootScope.editId.description;
+            console.log('$scope.changeID', $scope.changeID);
+            if ($scope.changeID != undefined) {
+                console.log('if changeid');
+                $scope.trimTshirt = $scope.changeID.trimTshirt;
+                $scope.customizedShirt = $scope.changeID.customizedShirt;
+                $scope.jerseyBackArr = $scope.changeID.jerseyBackArr;
+                $scope.allLogos = $scope.changeID.allLogos;
+                $scope.designName = $scope.changeID.designName;
+                $scope.designType = $scope.changeID.designType;
+                $scope.totalAmount = $scope.changeID.totalAmount;
+                $scope.totalQuan = $scope.changeID.totalQuan;
+                $scope.name = $scope.changeID.name;
+                // $scope.changeDesignId = $rootScope.editId.id;
+            } else {
+                $scope.changeDesign(0, 1);
+            }
+        } else {
+            $scope.changeDesign(0, 1);
+        }
+
+
+        //        $scope.$on('$stateChangeStart', function (event, toState) {
+        //     console.log(toState);
+
+        //     console.log(answer);
+        //     //  if (!answer) {
+        //     //      event.preventDefault();
+        //     //  }
+        //     if (toState.name == 'thankyou') {
+
+        //         console.log('herer');
+        //     } else {
+        //         $scope.changeDesign(0, 1);
+        //     }
+        // });
+
+        // $scope.changeDesign(0, 1);
 
         $scope.designButton = {};
         $scope.designButton.design1 = {};
@@ -5548,7 +5639,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 };
                 $scope.lastJSON = JSON.stringify($scope.combineJSON);
                 console.log($scope.combineJSON);
-                NavigationService.saveDesign(user.email, $scope.combineJSON, 'odishirt',
+                if($rootScope.editId.id !== undefined){
+                    console.log($rootScope.editId,'yes there');
+  NavigationService.editSaveDesign(user.email, $scope.combineJSON, 'odishirt',$rootScope.editId.id,
                     function (data) {
                         console.log('Save Design data: ', data);
                         $state.go('savedesign');
@@ -5556,6 +5649,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     function (err) {
                         console.log(err);
                     });
+                }else{
+                console.log($rootScope.editId,'no not there');
+  NavigationService.saveDesign(user.email, $scope.combineJSON, 'odishirt',
+                    function (data) {
+                        console.log('Save Design data: ', data);
+                        $state.go('savedesign');
+                    },
+                    function (err) {
+                        console.log(err);
+                    });
+                }
+              
             } else {
                 $scope.openLogin();
             }
@@ -9236,7 +9341,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.products = _.chunk($scope.product, 3);
 
     })
-    .controller('SaveDesignCtrl', function ($scope, $uibModal, $state, TemplateService, NavigationService, $timeout) {
+    .controller('SaveDesignCtrl', function ($rootScope, $scope, $uibModal, $state, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("save-design");
         $scope.menutitle = NavigationService.makeactive("Save Design");
@@ -9328,8 +9433,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.switchTrimHighlightOne(true);
                     $scope.switchTrimHighlightTwo(true);
                     $scope.switchTrimHighlightBase(true);
-                    $scope.deletePopup = function (index) {
+                    $scope.editDesign = function (id) {
+                        $state.go('odi-shirt');
+                        $rootScope.editId = id;
+                        console.log('$rootScope.editId222', $rootScope.editId);
+                    }
+                    $scope.deletePopup = function (index, id) {
                         $scope.designIndex = index;
+                        $scope.designId = id;
                         $scope.deletePopup1 = $uibModal.open({
                             templateUrl: "views/modal/odi-delete.html",
                             // controller: "SaveDesignCtrl",       
@@ -9342,9 +9453,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         $scope.savedDesigns.splice(index, 1);
                         $.jStorage.set('savedDesigns', $scope.savedDesigns);
                         $scope.savedDesigns = $.jStorage.get('savedDesigns');
-                        // NavigationService.deleteSaveDesign(id,function(){
-                        //     console.log('deleted');
-                        // })
+                        NavigationService.deleteSaveDesign($scope.designId, function () {
+                            console.log('deleted', $scope.designId);
+                        })
                     }
                 },
                 function (err) {
