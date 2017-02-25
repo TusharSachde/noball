@@ -4499,7 +4499,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }else{
   $scope.changeDesign(0, 1);
                 console.log('ifff toState.name != order');
-                var answer = confirm("Changing the design will erase all previously made changes. Logos shall remain unchanged.Are you sure you want to continue?");
+                var answer = confirm("Are you sure you want to leave this page? Your changes will not be saved.");
                 if (answer) {
                     console.log('yes ans');
                     $rootScope.editId = {};
