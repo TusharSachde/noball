@@ -2877,12 +2877,15 @@ footer {
         position: absolute;
         top: 130px;
         right: 82px;
-        width: 26px;
+        width: 34px;
         height: 50px;
         transform: rotate(-10deg);
         z-index: 99;
         overflow: hidden;
-        @extend .div-flex;
+            display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    align-content: center;
     }
 
     .div-right-sleeve {
@@ -2890,22 +2893,28 @@ footer {
         top: 130px;
         left: 82px;
         transform: rotate(10deg);
-        width: 26px;
+        width: 34px;
         height: 50px;
         z-index: 99;
         overflow: hidden;
-        @extend .div-flex;
+           display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    align-content: center;
     }
      .div-left-sleeve-back {
         position: absolute;
         top: 130px;
         right: 76px;
-        width: 26px;
+        width: 34px;
         height: 50px;
         transform: rotate(-10deg);
         z-index: 99;
         overflow: hidden;
-        @extend .div-flex;
+           display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    align-content: center;
     }
 
     .div-right-sleeve-back {
@@ -2913,11 +2922,14 @@ footer {
         top: 130px;
         left: 79px;
         transform: rotate(10deg);
-        width: 26px;
+        width: 34px;
         height: 50px;
         z-index: 99;
         overflow: hidden;
-        @extend .div-flex;
+           display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    align-content: center;
     }
 
     .div-back {
