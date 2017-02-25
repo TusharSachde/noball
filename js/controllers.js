@@ -5645,9 +5645,10 @@ $scope.odiDeleteModal.close();
                 };
                 $scope.lastJSON = JSON.stringify($scope.combineJSON);
                 console.log($scope.combineJSON);
-                if($rootScope.editId.id !== undefined){
-                    console.log($rootScope.editId,'yes there');
-  NavigationService.editSaveDesign(user.email, $scope.combineJSON, 'odishirt',$rootScope.editId.id,
+                if($rootScope.editId == undefined){
+
+console.log($rootScope.editId,'no not there');
+  NavigationService.saveDesign(user.email, $scope.combineJSON, 'odishirt',
                     function (data) {
                         console.log('Save Design data: ', data);
                         $state.go('savedesign');
@@ -5655,9 +5656,11 @@ $scope.odiDeleteModal.close();
                     function (err) {
                         console.log(err);
                     });
+
+                  
                 }else{
-                console.log($rootScope.editId,'no not there');
-  NavigationService.saveDesign(user.email, $scope.combineJSON, 'odishirt',
+                  console.log($rootScope.editId,'yes there');
+  NavigationService.editSaveDesign(user.email, $scope.combineJSON, 'odishirt',$rootScope.editId.id,
                     function (data) {
                         console.log('Save Design data: ', data);
                         $state.go('savedesign');
