@@ -3342,6 +3342,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.$apply();
         };
         $scope.emptyImage = function (key) {
+            console.log('sssssss');
             $scope.customizedShort[key] = null;
             console.log(key, $scope.customizedShort);
         }
@@ -4726,7 +4727,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.toolarge = true;
             }
         }
+        $scope.confirmEmptyImage = function (key) {
+            console.log('confirmEmptyImage',key);
+$scope.customizedShirt[key] = null;
+$scope.odiDeleteModal.close();
+        }
+ 
+
         $scope.emptyImage = function (key) {
+            $scope.saveKey = key;
+               console.log('sssssss111',key);
             if (key === 'rightchest' && $scope.customizedShirt.rightchest.image === "img/logo_black.png") {
                 $scope.statuses.modal = $uibModal.open({
                     templateUrl: "views/modal/proceed.html",
@@ -4736,19 +4746,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     }
                 });
             } else {
-                $scope.saveKey = key;
+                 console.log('sssssss111555555555555555555',key);
                 $scope.odiDeleteModal = $uibModal.open({
                     templateUrl: "views/modal/odi-delete.html",
                     scope: $scope
                 });
-
             }
         }
-        $scope.deleteOdi = function () {
-            console.log('sssssssssss');
-            $scope.odiDeleteModal.close();
-            $scope.customizedShirt[$scope.saveKey] = null;
-        }
+        // $scope.deleteOdi = function () {
+        //     console.log('sssssssssss');
+        //     $scope.odiDeleteModal.close();
+        //     $scope.customizedShirt[$scope.saveKey] = null;
+        // }
         $scope.checkCustomizeShirt = function (key) {
             return angular.isObject($scope.customizedShirt[key]);
         }
