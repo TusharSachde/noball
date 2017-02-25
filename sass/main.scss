@@ -2882,10 +2882,7 @@ footer {
         transform: rotate(-10deg);
         z-index: 99;
         overflow: hidden;
-            display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    align-content: center;
+         @extend .div-flex;
     }
 
     .div-right-sleeve {
@@ -2897,10 +2894,7 @@ footer {
         height: 50px;
         z-index: 99;
         overflow: hidden;
-           display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    align-content: center;
+        @extend .div-flex;
     }
      .div-left-sleeve-back {
         position: absolute;
@@ -2911,10 +2905,7 @@ footer {
         transform: rotate(-10deg);
         z-index: 99;
         overflow: hidden;
-           display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    align-content: center;
+   @extend .div-flex;
     }
 
     .div-right-sleeve-back {
@@ -2926,10 +2917,7 @@ footer {
         height: 50px;
         z-index: 99;
         overflow: hidden;
-           display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    align-content: center;
+     @extend .div-flex;
     }
 
     .div-back {

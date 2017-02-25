@@ -9442,7 +9442,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         $scope.designIndex = index;
                         $scope.designId = id;
                         $scope.deletePopup1 = $uibModal.open({
-                            templateUrl: "views/modal/odi-delete.html",
+                            templateUrl: "views/modal/odi-summery-delete.html",
                             // controller: "SaveDesignCtrl",       
                             scope: $scope
                         })
