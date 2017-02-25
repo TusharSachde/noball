@@ -729,6 +729,20 @@ var navigationservice = angular.module('navigationservice', [])
         data: myData
       }).success(callback).error(err);
     },
+        editSaveDesign: function(user, jsonData, type,id, callback, err) {
+      var myData = {
+        "user": user,
+        "description": jsonData,
+        "type": type,
+        "id" :id
+      };
+      console.log(JSON.stringify(jsonData));
+      return $http({
+        url: adminurl + "editSaveDesign",
+        method: "POST",
+        data: myData
+      }).success(callback).error(err);
+    },
     getDesigns: function(user, callback, err) {
       var myData = {
         "user": user
