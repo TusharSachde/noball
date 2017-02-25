@@ -4728,7 +4728,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         }
         $scope.confirmEmptyImage = function (key) {
-            console.log('confirmEmptyImage',key);
 $scope.customizedShirt[key] = null;
 $scope.odiDeleteModal.close();
         }
@@ -4736,7 +4735,6 @@ $scope.odiDeleteModal.close();
 
         $scope.emptyImage = function (key) {
             $scope.saveKey = key;
-               console.log('sssssss111',key);
             if (key === 'rightchest' && $scope.customizedShirt.rightchest.image === "img/logo_black.png") {
                 $scope.statuses.modal = $uibModal.open({
                     templateUrl: "views/modal/proceed.html",
@@ -4746,7 +4744,6 @@ $scope.odiDeleteModal.close();
                     }
                 });
             } else {
-                 console.log('sssssss111555555555555555555',key);
                 $scope.odiDeleteModal = $uibModal.open({
                     templateUrl: "views/modal/odi-delete.html",
                     scope: $scope
