@@ -75,7 +75,9 @@
                                 <div class="div-right-chest" ng-if="customizedShirt.front" ng-style="customizedShirt.rightchest.divattributes"><!-- <img class="right-chest" ng-src="{{customizedShirt.rightchest.image | serverimage}}" alt="" ng-style="customizedShirt.rightchest.attributes"> -->
                 <!-- </div> -->
                 <div class="div-right-sleeve" ng-if="customizedShirt.rightsleeve.image" ng-style="customizedShirt.rightsleeve.divattributes" ng-class="{'div-right-sleeve':customizedShirt.front,'div-left-sleeve-back':customizedShirt.back}">
+                  <div class="rel">
                   <img ng-class="{'right-sleeve':customizedShirt.front,'left-sleeve':customizedShirt.back}" ng-src="{{customizedShirt.rightsleeve.image | serverimage}}" alt="" ng-style="customizedShirt.rightsleeve.attributes">
+                </div>
                 </div>
                 <div class="div-back" ng-if="customizedShirt.back && customizedShirt.backlogo.image" ng-style="customizedShirt.backlogo.divattributes">
                   <img ng-src="{{customizedShirt.backlogo.image | serverimage}}" alt="" ng-style="customizedShirt.backlogo.attributes">

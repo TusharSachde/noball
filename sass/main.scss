@@ -2876,48 +2876,81 @@ footer {
     .div-left-sleeve {
         position: absolute;
         top: 130px;
-        right: 82px;
-        width: 34px;
+            right: 57px;
+        width: 50px;
         height: 50px;
         transform: rotate(-10deg);
         z-index: 99;
         overflow: hidden;
          @extend .div-flex;
+         .rel{  @extend .div-flex;  position: relative;
+    height: 100%;
+    width: 100%;
+
+   img{   
+       clip-path: inset(0px 50% 0px 0px);
+    }
+    }
     }
 
-    .div-right-sleeve {
-        position: absolute;
-        top: 130px;
-        left: 82px;
-        transform: rotate(10deg);
-        width: 34px;
-        height: 50px;
-        z-index: 99;
-        overflow: hidden;
-        @extend .div-flex;
-    }
+   
      .div-left-sleeve-back {
         position: absolute;
         top: 130px;
-        right: 76px;
-        width: 34px;
+        right: 53px;
+        width: 50px;
         height: 50px;
         transform: rotate(-10deg);
         z-index: 99;
         overflow: hidden;
    @extend .div-flex;
+   .rel{  @extend .div-flex;  position: relative;
+    height: 100%;
+    width: 100%;
+
+    img{   
+       clip-path: inset(0px 50% 0px 0px);
+    }
+    }
     }
 
+ .div-right-sleeve {
+        position: absolute;
+        top: 130px;
+        left: 58px;
+        transform: rotate(10deg);
+        width: 50px;
+        height: 50px;
+        z-index: 99;
+        overflow: hidden;
+        @extend .div-flex;
+        .rel{  @extend .div-flex;  position: relative;
+    height: 100%;
+    width: 100%;
+
+    img{   
+    clip-path: inset(0px 0px 0px 50%);
+    }
+    }
+    }
     .div-right-sleeve-back {
         position: absolute;
         top: 130px;
-        left: 79px;
+        left:54px;
         transform: rotate(10deg);
-        width: 34px;
+        width: 50px;
         height: 50px;
         z-index: 99;
         overflow: hidden;
      @extend .div-flex;
+     .rel{  @extend .div-flex;  position: relative;
+    height: 100%;
+    width: 100%;
+
+    img{  
+    clip-path: inset(0px 0px 0px 50%);
+    }
+    }
     }
 
     .div-back {
