@@ -10358,7 +10358,7 @@ console.log($rootScope.editId,'no not there');
                         $scope.validatelogin = true;
                     } else {
                         NavigationService.setUser(data);
-                        // window.location.reload();
+                        window.location.reload();
             //             console.log('ddddddddddddelssssssssseeeeeeeee');
             //             $scope.ml = "";
             // $scope.bl = "";
