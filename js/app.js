@@ -428,6 +428,58 @@
       }
     };
   });
+firstapp.directive('onlyDigits', function () {
+    return {
+        require: 'ngModel',
+        restrict: 'A',
+        link: function (scope, element, attr, ctrl) {
+            var digits;
+
+            function inputValue(val) {
+                if (val) {
+                    if (attr.type == "text") {
+                        digits = val.replace(/[^0-9\-\\]/g, '');
+                    } else {
+                        digits = val.replace(/[^0-9\-\\]/g, '');
+                    }
+
+
+                    if (digits !== val) {
+                        ctrl.$setViewValue(digits);
+                        ctrl.$render();
+                    }
+                    return parseInt(digits, 10);
+                }
+                return undefined;
+            }
+            ctrl.$parsers.push(inputValue);
+        }
+    };
+});
+firstapp.directive('replace', function () {
+    return {
+        require: 'ngModel',
+        scope: {
+            regex: '@replace',
+            with: '@with'
+        },
+        link: function (scope, element, attrs, model) {
+            model.$parsers.push(function (val) {
+                if (!val) {
+                    return;
+                }
+                var regex = new RegExp(scope.regex);
+                var replaced = val.replace(regex, scope.with);
+                if (replaced !== val) {
+                    model.$setViewValue(replaced);
+                    model.$render();
+                }
+                return replaced;
+            });
+        }
+    };
+});
+
 firstapp.directive('aplhaOnly', function () {
    return {
        require: 'ngModel',

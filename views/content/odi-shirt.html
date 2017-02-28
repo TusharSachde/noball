@@ -39,7 +39,7 @@
           <div class="scroll-image" id="style-2">
             <div class="text-center">
               <div class="gully-shirt" id="gully-shirt">
-                
+              
                 <!-- <img ng-src="{{customizedShirt.cloth}}" class="img-responsive" alt=""> -->
                 <img ng-src="{{customizedShirt.backdrop}}" class="backdrop img-responsive" alt="">
                 <img ng-src="{{trimTshirt.highlightOne.image}}" ng-if="trimTshirt.highlightOne.image" class="trimshirt img-responsive" alt="">
@@ -85,9 +85,11 @@
                 <div class="div-backccc" ng-if="customizedShirt.back && customizedShirt.rightchest.image != 'img/logo_black.png'">
                   <img src="img/logo_green.png" alt="" class="img-responsive">
                 </div>
+                
                 <div ng-if="customizedShirt.back && quantityTab && tabFive" class="{{jerseyBack.font+'-font'}}" ng-style="{'color': jerseyBack.color}">
-                  <div class="odi-t jersey-name uppercase text-center"><p ng-style="jerseyBackArr[0].attributes.name">{{jerseyBackArr[0].name}}</p></div>
+                  <div class="odi-t jersey-name uppercase text-center"><p ng-style="jerseyBackArr[0].attributes.name">{{jerseyBackArr[0].name}} </p></div>
                   <div class="odi-t jersey-no text-center" ng-style="jerseyBackArr[0].attributes.number">{{jerseyBackArr[0].no}}</div>
+                  <!--<div class="odi-t jersey-no text-center" ng-style="jerseyBackArr[0].attributes.number">{{jersey.no}}</div>-->
                 </div>
                 <!-- <img class="" src="img/people.png" alt=""> -->
                 <!-- <img class="" src="img/people.png" alt=""> -->
@@ -468,7 +470,7 @@
                 </div>
               </div>
               <div class="edit-btn inline-block">
-                  <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="savedDesigns()">SAVE DESIGN &amp; EDIT LATER</button>
+                  <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="savedDesigns('savedesign3')">SAVE DESIGN &amp; EDIT LATER</button>
               </div>
               <div class="edit-btn inline-block">
                   <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="checkTeamLogo(false);">NEXT</button>
@@ -645,7 +647,7 @@
                               <input type="text" ng-model="jersey.name" placeholder="Name" name="name" aplha-only> <!-- ng-model="jerseyBack.name" maxlength="10" -->
                             </td>
                             <td>
-                              <input type="number" ng-model="jersey.no" name="number" maxlength="3"> <!-- ng-model="jerseyBack.no" -->
+                              <input type="text" ng-model="jersey.no" name="number" maxlength="3" replace="[^0-9 ]" with=""> <!-- ng-model="jerseyBack.no" -->
                             </td>
                             <td>
                               <!--<button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-if="$index == 0">PREVIEW</button>-->
@@ -747,14 +749,15 @@
                       </div>
                       <!--<p>One time customization fee for Tee is <i class="fa fa-inr"></i> 5000</p>-->
                       <span class="pull-right tamount uppercase Raleway-Medium">Total Amount: {{totalAmount}}</span>
-                      <span class="pull-right tquantity uppercase Raleway-Medium">Total Quantity: {{totalQuan}}</span>
+                      <span class="pull-right tquantity uppercase Raleway-Medium">Total Quantity: {{totalQuan}}</span>  
                     </div>
                   </uib-accordion-group>
                 </uib-accordion>
 
                 <div class="edit-btn">
-                  <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="savedDesigns()">save design</button>
-                  <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" ng-click="toOrderSummary()">next</button>
+                  <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="savedDesigns('saveDesign4')">save design</button>
+                  <!--<button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" ng-click="toOrderSummary()" ng-disabled="jersey.quantity == null">next</button>-->
+                  <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" ng-click="toOrderSummary()" ng-disabled="totalQuan==0">next </button>
                   <br>
                 </div>
               </div>
