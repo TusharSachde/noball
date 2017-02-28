@@ -10358,79 +10358,82 @@ console.log($rootScope.editId,'no not there');
                         $scope.validatelogin = true;
                     } else {
                         NavigationService.setUser(data);
-                        window.location.reload();
-            //             console.log('ddddddddddddelssssssssseeeeeeeee');
-            //             $scope.ml = "";
-            // $scope.bl = "";
-            // $scope.rc = "";
-            // $scope.ls = "";
-            // $scope.rs = "";
-            // $scope.tl = "";
-            // $scope.user = $.jStorage.get("user");
+                        
+                        // $scope.openLoginModal.close();
+                        // window.location.reload();
+                        // console.log('ddddddddddddelssssssssseeeeeeeee',data);
+                        $scope.ml = "";
+            $scope.bl = "";
+            $scope.rc = "";
+            $scope.ls = "";
+            $scope.rs = "";
+            $scope.tl = "";
+            $scope.user = $.jStorage.get("user");
             // if (user) {
-            //     $scope.allLogos = {};
-            //     if ($scope.customizedShirt.mainlogo) {
-            //         $scope.allLogos.mainlogo = $scope.customizedShirt.mainlogo.image;
-            //     }
-            //     if ($scope.customizedShirt.rightchest) {
-            //         $scope.allLogos.rightchest = $scope.customizedShirt.rightchest.image;
-            //     }
-            //     if ($scope.customizedShirt.leftsleeve) {
-            //         $scope.allLogos.leftsleeve = $scope.customizedShirt.leftsleeve.image;
-            //     }
-            //     if ($scope.customizedShirt.rightsleeve) {
-            //         $scope.allLogos.rightsleeve = $scope.customizedShirt.rightsleeve.image;
-            //     }
-            //     if ($scope.customizedShirt.teamlogo) {
-            //         $scope.allLogos.teamlogo = $scope.customizedShirt.teamlogo.image;
-            //     }
-            //     if ($scope.customizedShirt.backlogo) {
-            //         $scope.allLogos.backlogo = $scope.customizedShirt.backlogo.image;
-            //     }
+                // console.log('ffffff')
+                $scope.allLogos = {};
+                if ($scope.customizedShirt.mainlogo) {
+                    $scope.allLogos.mainlogo = $scope.customizedShirt.mainlogo.image;
+                }
+                if ($scope.customizedShirt.rightchest) {
+                    $scope.allLogos.rightchest = $scope.customizedShirt.rightchest.image;
+                }
+                if ($scope.customizedShirt.leftsleeve) {
+                    $scope.allLogos.leftsleeve = $scope.customizedShirt.leftsleeve.image;
+                }
+                if ($scope.customizedShirt.rightsleeve) {
+                    $scope.allLogos.rightsleeve = $scope.customizedShirt.rightsleeve.image;
+                }
+                if ($scope.customizedShirt.teamlogo) {
+                    $scope.allLogos.teamlogo = $scope.customizedShirt.teamlogo.image;
+                }
+                if ($scope.customizedShirt.backlogo) {
+                    $scope.allLogos.backlogo = $scope.customizedShirt.backlogo.image;
+                }
 
 
-            //     if ($scope.customizedShirt.mainlogo) {
-            //         $scope.ml = $scope.customizedShirt.mainlogo.image;
-            //     }
-            //     if ($scope.customizedShirt.backlogo) {
-            //         $scope.bl = $scope.customizedShirt.backlogo.image;
-            //     }
-            //     if ($scope.customizedShirt.rightchest) {
-            //         $scope.rc = $scope.customizedShirt.rightchest.image;
-            //     }
-            //     if ($scope.customizedShirt.leftsleeve) {
-            //         $scope.ls = $scope.customizedShirt.leftsleeve.image;
-            //     }
-            //     if ($scope.customizedShirt.rightsleeve) {
-            //         $scope.rs = $scope.customizedShirt.rightsleeve.image;
-            //     }
-            //     if ($scope.customizedShirt.teamlogo) {
-            //         $scope.tl = $scope.customizedShirt.teamlogo.image;
-            //     }
-            //     $scope.combineJSON = {
-            //         "trim": $scope.trimTshirt,
-            //         "customizedShirt": $scope.customizedShirt,
-            //         "jerseyBack": $scope.jerseyBackArr,
-            //         "allLogos": $scope.allLogos,
-            //         "designName": $scope.designName,
-            //         "designType": $scope.designType,
-            //         "totalAmount": $scope.totalAmount,
-            //         "totalQuan": $scope.totalQuan,
-            //         "name": $scope.shirtName
-            //     };
-            //     $scope.lastJSON = JSON.stringify($scope.combineJSON);
-            //     console.log($scope.combineJSON);
-            //     console.log($scope.lastJSON);
-            //     NavigationService.orderSummaryOdi(user.email, $scope.combineJSON, $scope.ml, $scope.bl, $scope.rc, $scope.ls, $scope.rs, $scope.tl, 'odishirt',
-            //         function (data) {
-            //             console.log('Order Summary odi data: ', data);
-            //             $state.go('ordersummary', {
-            //                 id: data.id
-            //             });
-            //         },
-            //         function (err) {
-            //             console.log(err);
-            //         });
+                if ($scope.customizedShirt.mainlogo) {
+                    $scope.ml = $scope.customizedShirt.mainlogo.image;
+                }
+                if ($scope.customizedShirt.backlogo) {
+                    $scope.bl = $scope.customizedShirt.backlogo.image;
+                }
+                if ($scope.customizedShirt.rightchest) {
+                    $scope.rc = $scope.customizedShirt.rightchest.image;
+                }
+                if ($scope.customizedShirt.leftsleeve) {
+                    $scope.ls = $scope.customizedShirt.leftsleeve.image;
+                }
+                if ($scope.customizedShirt.rightsleeve) {
+                    $scope.rs = $scope.customizedShirt.rightsleeve.image;
+                }
+                if ($scope.customizedShirt.teamlogo) {
+                    $scope.tl = $scope.customizedShirt.teamlogo.image;
+                }
+                $scope.combineJSON = {
+                    "trim": $scope.trimTshirt,
+                    "customizedShirt": $scope.customizedShirt,
+                    "jerseyBack": $scope.jerseyBackArr,
+                    "allLogos": $scope.allLogos,
+                    "designName": $scope.designName,
+                    "designType": $scope.designType,
+                    "totalAmount": $scope.totalAmount,
+                    "totalQuan": $scope.totalQuan,
+                    "name": $scope.shirtName
+                };
+                $scope.lastJSON = JSON.stringify($scope.combineJSON);
+                console.log($scope.combineJSON);
+                console.log($scope.lastJSON);
+                NavigationService.orderSummaryOdi($scope.user.email, $scope.combineJSON, $scope.ml, $scope.bl, $scope.rc, $scope.ls, $scope.rs, $scope.tl, 'odishirt',
+                    function (data) {
+                        console.log('Order Summary odi data: ', data);
+                        $state.go('ordersummary', {
+                            id: data.id
+                        });
+                    },
+                    function (err) {
+                        console.log(err);
+                    });
             // }
                         // $scope.openLoginModal.close();
                         // $scope.cancel();
