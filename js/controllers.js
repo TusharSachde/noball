@@ -10372,11 +10372,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         $scope.validatelogin = true;
                     } else {
                         NavigationService.setUser(data);
-                        if (id == 'saveDesign3') {
+                        if (id == 'savedesignThree') {
                             console.log('from tab 3')
                             $scope.openConfirm();
                             $scope.openLoginModal.close();
-                        } else if (id == 'saveDesign4') {
+                        } else if (id == 'savedesignFour') {
                             console.log('from tab 4')
                             $scope.ml = "";
                             $scope.bl = "";
