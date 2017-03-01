@@ -4494,6 +4494,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             if (toState.name == 'order' || toState.name == 'ordersummary' || toState.name == 'savedesign') {
                 // $rootScope.editId = {};
                 console.log('herer');
+                // $state.go(toState.name);
+                window.location.reload();
 
 
             } else {
@@ -4728,12 +4730,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         }
         $scope.confirmEmptyImage = function (key) {
+            console.log('key',key);
             $scope.customizedShirt[key] = null;
             $scope.odiDeleteModal.close();
         }
 
 
         $scope.emptyImage = function (key) {
+            console.log('ftyghftg',key);
             $scope.saveKey = key;
             if (key === 'rightchest' && $scope.customizedShirt.rightchest.image === "img/logo_black.png") {
                 $scope.statuses.modal = $uibModal.open({
@@ -5337,14 +5341,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.myhide = true;
         $scope.openUploads = function (variable, name) {
             if ($scope.customizedShirt.rightchest === null) {
-                $scope.customizedShirt.rightchest.image = "";
+                // $scope.customizedShirt.rightchest.image = "";
                 $scope.changeRightLogo(variable, name);
             } else {
                 $scope.changeRightLogo(variable, name);
             }
         }
         $scope.changeRightLogo = function (variable, name) {
-            if (variable === 'rightchest' && $scope.customizedShirt.rightchest.image === "img/logo_black.png") {
+            // if (variable === 'rightchest' && $scope.customizedShirt.rightchest.image === "img/logo_black.png") 
+             if (variable === 'rightchest') {
                 $scope.statuses.modal = $uibModal.open({
                     templateUrl: "views/modal/proceed.html",
                     scope: $scope,
@@ -5506,9 +5511,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //     });
         // };
 
-        $scope.openLogin = function (id) {
-            console.log('$scope.fromTab', id)
-            $scope.fromTab = id;
+        $scope.openLogin = function () {
+            // console.log('$scope.fromTab', id)
+            // $scope.fromTa'/>p dsb = id;
             $.jStorage.set("isExpert", false);
             // $scope.changeTab(2);
             $scope.openLoginModal = $uibModal.open({
@@ -5667,10 +5672,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             // $state.go('ordersummary');
         }
 
-        $scope.savedDesigns = function (id) {
-            console.log('id', id);
+        $scope.savedDesigns = function () {
+            console.log('goToReloadafter');
             $scope.user = $.jStorage.get("user");
-            if (user) {
+            console.log('ffffffffffff',$scope.user);
+            if ($scope.user) {
                 $scope.allLogos = {};
                 if ($scope.customizedShirt.mainlogo) {
                     $scope.allLogos.mainlogo = $scope.customizedShirt.mainlogo.image;
@@ -5706,7 +5712,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 if ($rootScope.editId == undefined) {
 
                     console.log($rootScope.editId, 'no not there');
-                    NavigationService.saveDesign(user.email, $scope.combineJSON, 'odishirt',
+                    NavigationService.saveDesign($scope.user.email, $scope.combineJSON, 'odishirt',
                         function (data) {
                             console.log('Save Design data: ', data);
                             $state.go('savedesign');
@@ -5718,7 +5724,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
                 } else {
                     console.log($rootScope.editId, 'yes there');
-                    NavigationService.editSaveDesign(user.email, $scope.combineJSON, 'odishirt', $rootScope.editId.id,
+                    NavigationService.editSaveDesign($scope.user.email, $scope.combineJSON, 'odishirt', $rootScope.editId.id,
                         function (data) {
                             console.log('Save Design data: ', data);
                             $state.go('savedesign');
@@ -5742,7 +5748,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 };
                 console.log('else $scope.combineJSON', $scope.combineJSON);
                 $.jStorage.set('beforeLogin', $scope.combineJSON);
-                $scope.openLogin(id);
+                $scope.openLogin();
             }
 
             // if ($.jStorage.get('savedDesigns')) {
@@ -10349,7 +10355,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 templateUrl: 'views/modal/onlogin.html',
                 scope: $scope
             })
-            //  window.location.reload();
         };
         $scope.cancel = function () {
             $uibModalInstance.dismiss('cancel');
@@ -10359,12 +10364,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.inputall = false;
 
         $scope.goToReload = function () {
-            window.location.reload();
+            console.log('goToReload');
+            $scope.savedDesigns();
+            // $state.go('savedesign');
+            // window.location.reload();
+            // $scope.changeTab(3);
         }
         //login
-        $scope.doLogin = function (input, formValidate, id) {
+        $scope.doLogin = function (input, formValidate) {
             $scope.validatelogin = false;
             $scope.inputall = false;
+            // $scope.toDoLogin = id;
 
             if (formValidate.$valid) {
                 NavigationService.login(input, function (data) {
@@ -10372,88 +10382,91 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         $scope.validatelogin = true;
                     } else {
                         NavigationService.setUser(data);
-                        if (id == 'savedesignThree') {
-                            console.log('from tab 3')
-                            $scope.openConfirm();
-                            $scope.openLoginModal.close();
-                        } else if (id == 'savedesignFour') {
-                            console.log('from tab 4')
-                            $scope.ml = "";
-                            $scope.bl = "";
-                            $scope.rc = "";
-                            $scope.ls = "";
-                            $scope.rs = "";
-                            $scope.tl = "";
-                            $scope.user = $.jStorage.get("user");
-                            $scope.allLogos = {};
-                            if ($scope.customizedShirt.mainlogo) {
-                                $scope.allLogos.mainlogo = $scope.customizedShirt.mainlogo.image;
-                            }
-                            if ($scope.customizedShirt.rightchest) {
-                                $scope.allLogos.rightchest = $scope.customizedShirt.rightchest.image;
-                            }
-                            if ($scope.customizedShirt.leftsleeve) {
-                                $scope.allLogos.leftsleeve = $scope.customizedShirt.leftsleeve.image;
-                            }
-                            if ($scope.customizedShirt.rightsleeve) {
-                                $scope.allLogos.rightsleeve = $scope.customizedShirt.rightsleeve.image;
-                            }
-                            if ($scope.customizedShirt.teamlogo) {
-                                $scope.allLogos.teamlogo = $scope.customizedShirt.teamlogo.image;
-                            }
-                            if ($scope.customizedShirt.backlogo) {
-                                $scope.allLogos.backlogo = $scope.customizedShirt.backlogo.image;
-                            }
+                        // if (id == 'savedesignThree') {
+                        //     console.log('from tab 3');
+                        //     $scope.openConfirm();
+                        //     $scope.openLoginModal.close();
+                        // } else if (id == 'savedesignFour') {
+                        //     console.log('from tab 4')
+                            // $scope.ml = "";
+                            // $scope.bl = "";
+                            // $scope.rc = "";
+                            // $scope.ls = "";
+                            // $scope.rs = "";
+                            // $scope.tl = "";
+                            // $scope.user = $.jStorage.get("user");
+                            // $scope.allLogos = {};
+                            // if ($scope.customizedShirt.mainlogo) {
+                            //     $scope.allLogos.mainlogo = $scope.customizedShirt.mainlogo.image;
+                            // }
+                            // if ($scope.customizedShirt.rightchest) {
+                            //     $scope.allLogos.rightchest = $scope.customizedShirt.rightchest.image;
+                            // }
+                            // if ($scope.customizedShirt.leftsleeve) {
+                            //     $scope.allLogos.leftsleeve = $scope.customizedShirt.leftsleeve.image;
+                            // }
+                            // if ($scope.customizedShirt.rightsleeve) {
+                            //     $scope.allLogos.rightsleeve = $scope.customizedShirt.rightsleeve.image;
+                            // }
+                            // if ($scope.customizedShirt.teamlogo) {
+                            //     $scope.allLogos.teamlogo = $scope.customizedShirt.teamlogo.image;
+                            // }
+                            // if ($scope.customizedShirt.backlogo) {
+                            //     $scope.allLogos.backlogo = $scope.customizedShirt.backlogo.image;
+                            // }
 
 
-                            if ($scope.customizedShirt.mainlogo) {
-                                $scope.ml = $scope.customizedShirt.mainlogo.image;
-                            }
-                            if ($scope.customizedShirt.backlogo) {
-                                $scope.bl = $scope.customizedShirt.backlogo.image;
-                            }
-                            if ($scope.customizedShirt.rightchest) {
-                                $scope.rc = $scope.customizedShirt.rightchest.image;
-                            }
-                            if ($scope.customizedShirt.leftsleeve) {
-                                $scope.ls = $scope.customizedShirt.leftsleeve.image;
-                            }
-                            if ($scope.customizedShirt.rightsleeve) {
-                                $scope.rs = $scope.customizedShirt.rightsleeve.image;
-                            }
-                            if ($scope.customizedShirt.teamlogo) {
-                                $scope.tl = $scope.customizedShirt.teamlogo.image;
-                            }
-                            $scope.combineJSON = {
-                                "trim": $scope.trimTshirt,
-                                "customizedShirt": $scope.customizedShirt,
-                                "jerseyBack": $scope.jerseyBackArr,
-                                "allLogos": $scope.allLogos,
-                                "designName": $scope.designName,
-                                "designType": $scope.designType,
-                                "totalAmount": $scope.totalAmount,
-                                "totalQuan": $scope.totalQuan,
-                                "name": $scope.shirtName
-                            };
-                            $scope.lastJSON = JSON.stringify($scope.combineJSON);
-                            console.log($scope.combineJSON);
-                            console.log($scope.lastJSON);
-                            NavigationService.orderSummaryOdi($scope.user.email, $scope.combineJSON, $scope.ml, $scope.bl, $scope.rc, $scope.ls, $scope.rs, $scope.tl, 'odishirt',
-                                function (data) {
-                                    console.log('Order Summary odi data: ', data);
-                                    $state.go('ordersummary', {
-                                        id: data.id
-                                    });
-                                },
-                                function (err) {
-                                    console.log(err);
-                                });
-                        } else {
-                            window.location.reload();
-                        }
+                            // if ($scope.customizedShirt.mainlogo) {
+                            //     $scope.ml = $scope.customizedShirt.mainlogo.image;
+                            // }
+                            // if ($scope.customizedShirt.backlogo) {
+                            //     $scope.bl = $scope.customizedShirt.backlogo.image;
+                            // }
+                            // if ($scope.customizedShirt.rightchest) {
+                            //     $scope.rc = $scope.customizedShirt.rightchest.image;
+                            // }
+                            // if ($scope.customizedShirt.leftsleeve) {
+                            //     $scope.ls = $scope.customizedShirt.leftsleeve.image;
+                            // }
+                            // if ($scope.customizedShirt.rightsleeve) {
+                            //     $scope.rs = $scope.customizedShirt.rightsleeve.image;
+                            // }
+                            // if ($scope.customizedShirt.teamlogo) {
+                            //     $scope.tl = $scope.customizedShirt.teamlogo.image;
+                            // }
+                            // $scope.combineJSON = {
+                            //     "trim": $scope.trimTshirt,
+                            //     "customizedShirt": $scope.customizedShirt,
+                            //     "jerseyBack": $scope.jerseyBackArr,
+                            //     "allLogos": $scope.allLogos,
+                            //     "designName": $scope.designName,
+                            //     "designType": $scope.designType,
+                            //     "totalAmount": $scope.totalAmount,
+                            //     "totalQuan": $scope.totalQuan,
+                            //     "name": $scope.shirtName
+                            // };
+                            // $scope.lastJSON = JSON.stringify($scope.combineJSON);
+                            // console.log($scope.combineJSON);
+                            // console.log($scope.lastJSON);
+                            // NavigationService.orderSummaryOdi($scope.user.email, $scope.combineJSON, $scope.ml, $scope.bl, $scope.rc, $scope.ls, $scope.rs, $scope.tl, 'odishirt',
+                            //     function (data) {
+                            //         console.log('Order Summary odi data: ', data);
+                            //         $state.go('ordersummary', {
+                            //             id: data.id
+                            //         });
+                            //     },
+                            //     function (err) {
+                            //         console.log(err);
+                            //     });
+                        //         $state.go('savedesign');
+                        // } else {
+                        //     window.location.reload();
+                        // }
 
 
                         // window.location.reload();
+                        // $state.go('savedesign');
+                        $scope.openConfirm();
 
                     }
                 }, function (err) {})

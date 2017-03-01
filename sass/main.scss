@@ -2897,7 +2897,7 @@ footer {
      .div-left-sleeve-back {
         position: absolute;
         top: 130px;
-        right: 53px;
+        right: 42px;
         width: 50px;
         height: 50px;
         transform: rotate(-10deg);
@@ -2917,7 +2917,7 @@ footer {
  .div-right-sleeve {
         position: absolute;
         top: 130px;
-        left: 58px;
+        left: 48px;
         transform: rotate(10deg);
         width: 50px;
         height: 50px;
@@ -5092,7 +5092,7 @@ input[type=number]::-webkit-outer-spin-button {
 .modal.in .modal-dialog {
     height: 100%;
       position: relative;
-          top: 9%;
+        //   top: 9%;
     // position: absolute;
     // top: 10%;
     // left: 27%;
