@@ -2897,7 +2897,7 @@ footer {
      .div-left-sleeve-back {
         position: absolute;
         top: 130px;
-        right: 42px;
+        right: 53px;
         width: 50px;
         height: 50px;
         transform: rotate(-10deg);
@@ -2917,7 +2917,7 @@ footer {
  .div-right-sleeve {
         position: absolute;
         top: 130px;
-        left: 48px;
+        left: 57px;
         transform: rotate(10deg);
         width: 50px;
         height: 50px;
@@ -2983,7 +2983,7 @@ footer {
 
     .trimshirt {
         position: absolute;
-        top: 0;
+        top: 0px;
         z-index: 99;
     }
 
@@ -2992,6 +2992,10 @@ footer {
         top: 0;
         z-index: 50;
     }
+
+    // .top10{
+    //     top:10px !important;
+    // }
 
     .bat-text {
         position: absolute;

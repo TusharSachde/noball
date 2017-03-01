@@ -4869,7 +4869,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 } else {
                     $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/" + $scope.designType + "/base/front/" + color + ".png"; //"img/odi-tshirts/trims/base/front/" + color + ".png";
                 }
-                $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/' + $scope.designType + '/front.png';
+                $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/' + $scope.designType + '/front3.png';
                 $scope.customizedShirt.front = flag;
             } else {
                 if ($scope.designType === 'whites') {
@@ -4877,7 +4877,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 } else {
                     $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/" + $scope.designType + "/base/back/" + color + ".png"; //"img/odi-tshirts/trims/base/back/" + color + ".png";
                 }
-                $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/' + $scope.designType + '/back.png';
+                $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/' + $scope.designType + '/back3.png';
                 $scope.customizedShirt.front = flag;
             }
             console.log('$scope.customizedShirt -switchTrimHighlightBase', $scope.customizedShirt);
