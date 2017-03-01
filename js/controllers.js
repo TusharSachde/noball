@@ -4477,7 +4477,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
 
-    .controller('OdiCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar, $filter, $interval, $rootScope) {
+    .controller('OdiCtrl', function ($scope,$rootScope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar, $filter, $interval, $rootScope) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("odi-shirt");
         $scope.menutitle = NavigationService.makeactive("Odi T-shirt");
@@ -5735,6 +5735,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
 
             } else {
+                $rootScope.afterSessionSave = true;
                 $scope.combineJSON = {
                     "trimTshirt": $scope.trimTshirt,
                     "customizedShirt": $scope.customizedShirt,
@@ -10107,7 +10108,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
 
     })
-    .controller('headerctrl', function ($scope, $state, TemplateService, $uibModal, NavigationService, $interval, $upload, $timeout) {
+    .controller('headerctrl', function ($scope,$rootScope, $state, TemplateService, $uibModal, NavigationService, $interval, $upload, $timeout) {
         $scope.template = TemplateService;
         $scope.logintab = {};
         $scope.login = {};
@@ -10466,7 +10467,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
                         // window.location.reload();
                         // $state.go('savedesign');
-                        $scope.openConfirm();
+                        if($rootScope.afterSessionSave){
+                            console.log('$rootScope.afterSessionSave',$rootScope.afterSessionSave);
+$scope.openConfirm();
+                        }else{
+                            window.location.reload();
+                        }
+                        
 
                     }
                 }, function (err) {})
