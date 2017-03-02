@@ -639,8 +639,8 @@
                              <td>
                               
                               <input type="number" name="quantity" placeholder="20" ng-change="addQuantity(jersey.quantity)" ng-model="jersey.quantity" maxlength="3">
-                              <p class="error-td" ng-if="totalQuan<20 && totalQuan!=1">Please enter correct quantity </p>
-                               {{jersey.quantity}}
+                              <p class="error-td f13" ng-if="totalQuan<20 && totalQuan!=0">Please enter valid quantity.The MOQ is 20</p>
+                               
                             </td>
                             <!--<td>                              
                               <p ng-if="jersey.quantity == null">Please enter correct quantity </p>
