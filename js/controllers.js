@@ -5050,7 +5050,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.trimTshirt.highlightBase.disable = "unnoable";
                     $scope.trimTshirt.highlightOne.disable = "unnoable";
                     $scope.trimTshirt.highlightTwo.disable = "unnoable";
-                    $scope.shirtName = "Googly SUB";
+                    $scope.shirtName = "Googly (SUB)";
                     $scope.designName = "design1";
                     $scope.designType = 'odi';
                     $scope.singleAmount = 1000;
@@ -5074,7 +5074,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.trimTshirt.highlightBase.disable = "unnoable";
                     $scope.trimTshirt.highlightOne.disable = "unnoable";
                     $scope.trimTshirt.highlightTwo.disable = "unnoable";
-                    $scope.shirtName = "Grubber SUB";
+                    $scope.shirtName = "Grubber (SUB)";
                     $scope.designName = "design3";
                     $scope.designType = 'odi';
                     $scope.trimTabs.light3.active = "activeme";
@@ -5089,7 +5089,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.trimTshirt.highlightBase.disable = "unnoable";
                     $scope.trimTshirt.highlightOne.disable = "unnoable";
                     $scope.trimTshirt.highlightTwo.disable = "unnoable";
-                    $scope.shirtName = "Plumb SUB";
+                    $scope.shirtName = "Plumb (SUB)";
                     $scope.designName = "design4";
                     $scope.designType = 'odi';
                     $scope.singleAmount = 1000;
@@ -5105,7 +5105,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.trimTshirt.highlightBase.disable = "unnoable";
                     $scope.trimTshirt.highlightOne.disable = "unnoable";
                     $scope.trimTshirt.highlightTwo.disable = "unnoable";
-                    $scope.shirtName = "Floater SUB";
+                    $scope.shirtName = "Floater (SUB)";
                     $scope.designName = "design5";
                     $scope.designType = 'odi';
                     $scope.singleAmount = 1000;
@@ -5121,7 +5121,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.trimTshirt.highlightBase.disable = "unnoable";
                     $scope.trimTshirt.highlightOne.disable = "unnoable";
                     $scope.trimTshirt.highlightTwo.disable = "noable";
-                    $scope.shirtName = "Pace C&S";
+                    $scope.shirtName = "Pace (C&S)";
                     $scope.designName = "design1";
                     $scope.designType = 'training';
                     $scope.singleAmount = 850;
@@ -5137,7 +5137,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.trimTshirt.highlightBase.disable = "unnoable";
                     $scope.trimTshirt.highlightOne.disable = "unnoable";
                     $scope.trimTshirt.highlightTwo.disable = "noable";
-                    $scope.shirtName = "Seam C&S";
+                    $scope.shirtName = "Seam (C&S)";
                     $scope.designName = "design2";
                     $scope.designType = 'training';
                     $scope.singleAmount = 850;
@@ -5153,7 +5153,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.trimTshirt.highlightBase.disable = "unnoable";
                     $scope.trimTshirt.highlightOne.disable = "unnoable";
                     $scope.trimTshirt.highlightTwo.disable = "noable";
-                    $scope.shirtName = "Dipper C&S";
+                    $scope.shirtName = "Dipper (C&S)";
                     $scope.designName = "design3";
                     $scope.designType = 'training';
                     $scope.singleAmount = 850;
@@ -5169,7 +5169,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.trimTshirt.highlightBase.disable = "unnoable";
                     $scope.trimTshirt.highlightOne.disable = "unnoable";
                     $scope.trimTshirt.highlightTwo.disable = "noable";
-                    $scope.shirtName = "Flipper C&S";
+                    $scope.shirtName = "Flipper (C&S)";
                     $scope.designName = "design4";
                     $scope.designType = 'training';
                     $scope.singleAmount = 850;
@@ -5185,7 +5185,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.trimTshirt.highlightBase.disable = "unnoable";
                     $scope.trimTshirt.highlightOne.disable = "unnoable";
                     $scope.trimTshirt.highlightTwo.disable = "noable";
-                    $scope.shirtName = "Drift C&S";
+                    $scope.shirtName = "Drift (C&S)";
                     $scope.designName = "design5";
                     $scope.designType = 'training';
                     $scope.singleAmount = 850;
@@ -8546,7 +8546,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                             } else {
                                 $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/" + $scope.designType + "/base/front/" + $scope.trimTshirt.highlightBase.tcolor + ".png";
                             }
-                            $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/' + $scope.designType + '/front.png';
+                            $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/' + $scope.designType + '/front3.png';
                             $scope.customizedShirt.front = flag;
                         } else {
                             if ($scope.designType === 'whites') {
@@ -8554,7 +8554,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                             } else {
                                 $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/" + $scope.designType + "/base/back/" + $scope.trimTshirt.highlightBase.tcolor + ".png"; //"img/odi-tshirts/trims/base/back/" + color + ".png";
                             }
-                            $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/' + $scope.designType + '/back.png';
+                            $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/' + $scope.designType + '/back3.png';
                             $scope.customizedShirt.front = flag;
                         }
                     };
@@ -9587,7 +9587,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                 } else {
                                     $scope.savedDesigns[i].description.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/" + $scope.designType + "/base/front/" + $scope.savedDesigns[i].description.trimTshirt.highlightBase.tcolor + ".png";
                                 }
-                                $scope.savedDesigns[i].description.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/' + $scope.designType + '/front.png';
+                                $scope.savedDesigns[i].description.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/' + $scope.designType + '/front3.png';
                                 $scope.savedDesigns[i].description.customizedShirt.front = flag;
                             } else {
                                 if ($scope.designType === 'whites') {
@@ -9595,7 +9595,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                 } else {
                                     $scope.savedDesigns[i].description.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/" + $scope.designType + "/base/front/" + $scope.savedDesigns[i].description.trimTshirt.highlightBase.tcolor + ".png";
                                 }
-                                $scope.savedDesigns[i].description.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/' + $scope.designType + '/front.png';
+                                $scope.savedDesigns[i].description.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/' + $scope.designType + '/back3.png';
                                 $scope.savedDesigns[i].description.customizedShirt.front = flag;
                             }
                         }
