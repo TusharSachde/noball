@@ -1284,6 +1284,87 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         }
 
+        //         $scope.savedDesigns = function () {
+        //     console.log('goToReloadafter');
+        //     $scope.user = $.jStorage.get("user");
+        //     console.log('ffffffffffff',$scope.user);
+        //     if ($scope.user) {
+        //         $scope.allLogos = {};
+        //         if ($scope.customizedShirt.mainlogo) {
+        //             $scope.allLogos.mainlogo = $scope.customizedShirt.mainlogo.image;
+        //         }
+        //         if ($scope.customizedShirt.rightchest) {
+        //             $scope.allLogos.rightchest = $scope.customizedShirt.rightchest.image;
+        //         }
+        //         if ($scope.customizedShirt.leftsleeve) {
+        //             $scope.allLogos.leftsleeve = $scope.customizedShirt.leftsleeve.image;
+        //         }
+        //         if ($scope.customizedShirt.rightsleeve) {
+        //             $scope.allLogos.rightsleeve = $scope.customizedShirt.rightsleeve.image;
+        //         }
+        //         if ($scope.customizedShirt.teamlogo) {
+        //             $scope.allLogos.teamlogo = $scope.customizedShirt.teamlogo.image;
+        //         }
+        //         if ($scope.customizedShirt.backlogo) {
+        //             $scope.allLogos.backlogo = $scope.customizedShirt.backlogo.image;
+        //         }
+        //         $scope.combineJSON = {
+        //             "trimTshirt": $scope.trimTshirt,
+        //             "customizedShirt": $scope.customizedShirt,
+        //             "jerseyBackArr": $scope.jerseyBackArr,
+        //             "allLogos": $scope.allLogos,
+        //             "designName": $scope.designName,
+        //             "designType": $scope.designType,
+        //             "totalAmount": $scope.totalAmount,
+        //             "totalQuan": $scope.totalQuan,
+        //             "name": $scope.shirtName
+        //         };
+        //         $scope.lastJSON = JSON.stringify($scope.combineJSON);
+        //         console.log($scope.combineJSON);
+        //         if ($rootScope.editId == undefined) {
+
+        //             console.log($rootScope.editId, 'no not there');
+        //             NavigationService.saveDesign($scope.user.email, $scope.combineJSON, 'odishirt',
+        //                 function (data) {
+        //                     console.log('Save Design data: ', data);
+        //                     $state.go('savedesign');
+        //                 },
+        //                 function (err) {
+        //                     console.log(err);
+        //                 });
+
+
+        //         } else {
+        //             console.log($rootScope.editId, 'yes there');
+        //             NavigationService.editSaveDesign($scope.user.email, $scope.combineJSON, 'odishirt', $rootScope.editId.id,
+        //                 function (data) {
+        //                     console.log('Save Design data: ', data);
+        //                     $state.go('savedesign');
+        //                 },
+        //                 function (err) {
+        //                     console.log(err);
+        //                 });
+        //         }
+
+        //     } else {
+        //         $rootScope.afterSessionSave = true;
+        //         $scope.combineJSON = {
+        //             "trimTshirt": $scope.trimTshirt,
+        //             "customizedShirt": $scope.customizedShirt,
+        //             "jerseyBackArr": $scope.jerseyBackArr,
+        //             "allLogos": $scope.allLogos,
+        //             "designName": $scope.designName,
+        //             "designType": $scope.designType,
+        //             "totalAmount": $scope.totalAmount,
+        //             "totalQuan": $scope.totalQuan,
+        //             "name": $scope.shirtName
+        //         };
+        //         console.log('else $scope.combineJSON', $scope.combineJSON);
+        //         $.jStorage.set('beforeLogin', $scope.combineJSON);
+        //         $scope.openLogin();
+        //     }
+        // }
+
         $scope.tabchanges = function (tabs, b) {
             $scope.tabs = tabs;
             if (b == 1) {
@@ -4641,11 +4722,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.totalAmount = 1000;
         $scope.totalQuan = 1;
 
+// console.log('jersey.quantity000000000000000000000000',$scope.jersey.quantity);
         $scope.addQuantity = function (q) {
+            // $scope.jersey.quantity += q;
+            console.log('$scope.jerseyBackArr[i].quantity',q);
             $scope.totalAmount = 0;
             $scope.totalQuan = 0;
             for (var i = 0; i < $scope.jerseyBackArrCount; i++) {
-                console.log($scope.jerseyBackArr[i].quantity);
+                console.log('777777777777777777777',$scope.jerseyBackArr[i].quantity);
                 if ($scope.jerseyBackArr[i].quantity !== undefined) {
                     $scope.totalQuan += $scope.jerseyBackArr[i].quantity;
                 }
@@ -4655,7 +4739,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         };
 
-        $scope.addQuantity(1);
+        // $scope.addQuantity(1);
 
         $scope.switchFrontBack = function (front) {
             console.log('switchFrontBack');

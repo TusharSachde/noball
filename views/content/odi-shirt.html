@@ -637,8 +637,10 @@
                               </select>
                             </td>
                              <td>
-                              <input type="number" name="quantity" placeholder="20" ng-change="addQuantity(jersey.quantity)" ng-model="jersey.quantity" min="20" maxlength="3">
-                              <p class="error-td"ng-if="jersey.quantity == null">Please enter correct quantity </p>
+                              
+                              <input type="number" name="quantity" placeholder="20" ng-change="addQuantity(jersey.quantity)" ng-model="jersey.quantity" maxlength="3">
+                              <p class="error-td" ng-if="totalQuan<20 && totalQuan!=1">Please enter correct quantity </p>
+                               {{jersey.quantity}}
                             </td>
                             <!--<td>                              
                               <p ng-if="jersey.quantity == null">Please enter correct quantity </p>
@@ -757,7 +759,7 @@
                 <div class="edit-btn">
                   <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="savedDesigns()">save design</button>
                   <!--<button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" ng-click="toOrderSummary()" ng-disabled="jersey.quantity == null">next</button>-->
-                  <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" ng-click="toOrderSummary()" ng-disabled="totalQuan==0">next </button>
+                  <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" ng-click="toOrderSummary()" ng-disabled="totalQuan<20">next </button>
                   <br>
                 </div>
               </div>
