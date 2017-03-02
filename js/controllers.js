@@ -1052,7 +1052,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // }, {
         //     src: "img/trousers/design5/front.png"
         // }],
-        // "page2": [{ 
+        // "page2": [{
         //     src: "img/shorts/design1/front.png"
         // }, {
         //     src: "img/shorts/design2/front.png"
@@ -5020,6 +5020,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.trimTshirt.highlightOne.tcolor = 'black';
         $scope.openDesign = function (index, tab, img) {
             console.log('fghjfgvbhnj');
+
+            $scope.switchFrontBack(true)
+
             if ($scope.LogosTab) {
                 $scope.designIndex = index;
                 $scope.designTab = tab;
@@ -5432,7 +5435,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         }
         $scope.changeRightLogo = function (variable, name) {
-            // if (variable === 'rightchest' && $scope.customizedShirt.rightchest.image === "img/logo_black.png") 
+            // if (variable === 'rightchest' && $scope.customizedShirt.rightchest.image === "img/logo_black.png")
              if (variable === 'rightchest') {
                 $scope.statuses.modal = $uibModal.open({
                     templateUrl: "views/modal/proceed.html",
@@ -9616,7 +9619,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         $scope.designId = id;
                         $scope.deletePopup1 = $uibModal.open({
                             templateUrl: "views/modal/odi-summery-delete.html",
-                            // controller: "SaveDesignCtrl",       
+                            // controller: "SaveDesignCtrl",
                             scope: $scope
                         })
                     };
@@ -10558,7 +10561,7 @@ $scope.openConfirm();
                         }else{
                             window.location.reload();
                         }
-                        
+
 
                     }
                 }, function (err) {})

@@ -39,7 +39,7 @@
           <div class="scroll-image" id="style-2">
             <div class="text-center">
               <div class="gully-shirt" id="gully-shirt">
-              
+
                 <!-- <img ng-src="{{customizedShirt.cloth}}" class="img-responsive" alt=""> -->
                 <img ng-src="{{customizedShirt.backdrop}}" class="backdrop img-responsive" alt="">
                 <img ng-src="{{trimTshirt.highlightOne.image}}" ng-if="trimTshirt.highlightOne.image" class="trimshirt top10 img-responsive" alt="">
@@ -57,6 +57,7 @@
                 <div class="div-left-chest" ng-if="customizedShirt.front && customizedShirt.teamlogo.image" ng-style="customizedShirt.teamlogo.divattributes">
                   <img id="teamlogo" class="left-chest" ng-src="{{customizedShirt.teamlogo.image | serverimage}}" alt="" ng-style="customizedShirt.teamlogo.attributes">
                 </div>
+                {{customizedShirt.back}}
                 <div class="div-left-sleeve" ng-if="customizedShirt.leftsleeve.image" ng-style="customizedShirt.leftsleeve.divattributes" ng-class="{'div-left-sleeve':customizedShirt.front,'div-right-sleeve-back':customizedShirt.back}">
                   <div class="rel">
                   <img id="leftsleeve" ng-class="{'left-sleeve':customizedShirt.front,'right-sleeve':customizedShirt.back}" ng-src="{{customizedShirt.leftsleeve.image | serverimage}}" alt="" ng-style="customizedShirt.leftsleeve.attributes">
@@ -70,7 +71,7 @@
                   <div style="color:{{myClolr}};transform: rotate({{myArc1}}deg);font-size:{{mySize1}}px;transform: rotate({{myRotate1}}deg);letter-spacing: {{myWordSpace1}}px;"> {{addtxt10}}</div>
 
                   <!-- <img class="right-chest" ng-src="{{customizedShirt.rightchest.image | serverimage}}" alt="" ng-style="customizedShirt.rightchest.attributes"> -->
-                </div> 
+                </div>
                 <!-- <br>
                                 <div class="div-right-chest" ng-if="customizedShirt.front" ng-style="customizedShirt.rightchest.divattributes"><!-- <img class="right-chest" ng-src="{{customizedShirt.rightchest.image | serverimage}}" alt="" ng-style="customizedShirt.rightchest.attributes"> -->
                 <!-- </div> -->
@@ -85,7 +86,7 @@
                 <div class="div-backccc" ng-if="customizedShirt.back && customizedShirt.rightchest.image != 'img/logo_black.png'">
                   <img src="img/logo_green.png" alt="" class="img-responsive">
                 </div>
-                
+
                 <div ng-if="customizedShirt.back && quantityTab && tabFive" class="{{jerseyBack.font+'-font'}}" ng-style="{'color': jerseyBack.color}">
                   <div class="odi-t jersey-name uppercase text-center"><p ng-style="jerseyBackArr[0].attributes.name">{{jerseyBackArr[0].name}} </p></div>
                   <div class="odi-t jersey-no text-center" ng-style="jerseyBackArr[0].attributes.number">{{jerseyBackArr[0].no}}</div>
@@ -114,13 +115,13 @@
                 <li>Tested and fitted for optimum performance in warm and cold conditions</li>
               </ul>
                <ul class="tshirt-features" ng-if="activeButton == 2">
-                <li>In-stock tees are shipped immediately. Customisation delivery worldwide takes 3-4 weeks from date of order.</li>               
+                <li>In-stock tees are shipped immediately. Customisation delivery worldwide takes 3-4 weeks from date of order.</li>
               </ul>
               <ul class="tshirt-features" ng-if="activeButton == 3">
-                <li>We recommend washing in cold water with powder detergent</li>               
-                <li>Do not wash with other coloured clothes to avoid bleeding and run-off</li>               
-                <li>Avoid drying machines which can weaken the fabric's effectiveness</li>               
-                <li>Steam iron preferably</li>               
+                <li>We recommend washing in cold water with powder detergent</li>
+                <li>Do not wash with other coloured clothes to avoid bleeding and run-off</li>
+                <li>Avoid drying machines which can weaken the fabric's effectiveness</li>
+                <li>Steam iron preferably</li>
               </ul>
             </div>
           </div>
@@ -160,13 +161,13 @@
               <div class="row">
                 <div class="col-md-10">
                   <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images.page1 track by $index" ng-if="page==1">
-                    
+
                     <div class="cat-img pointer" ng-class="{'border-line':$index + 1 = true}" ng-click="openDesign($index, 1)" title="Design {{$index + 1}}">
                       <img ng-src="{{img.src}}" class="img-responsive">
                     </div>
                   </div>
                   <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images.page2 track by $index" ng-if="page==2">
-                    
+
                     <div class="cat-img pointer" ng-click="openDesign($index, 2)" title="Design {{$index + 1}}">
                       <img ng-src="{{img.src}}" class="img-responsive">
                     </div>
@@ -204,10 +205,10 @@
                             </div> -->
               <div class="customize-design">
               <ul>
-                <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span> to know more about customization tools.</li>               
-                <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves & pads attract a nominal one-time customization fees).</li>               
-                             
-              </ul>                              
+                <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span> to know more about customization tools.</li>
+                <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves & pads attract a nominal one-time customization fees).</li>
+
+              </ul>
               </div>
             </div>
 
@@ -233,7 +234,7 @@
                       </div>
                     </div>
                   </div>
-                </div>               
+                </div>
               </div>
               <div class="{{trimTshirt.highlightTwo.disable}} {{trimTabs.light2.show}} classv outline disnon" ng-if="tabs=='light2'">
                 <div class="row">
@@ -247,7 +248,7 @@
                       </div>
                     </div>
                   </div>
-                </div>              
+                </div>
               </div>
               <div class="{{trimTshirt.highlightBase.disable}} {{trimTabs.light3.show}} classv outline disnon" ng-if="tabs=='light3'">
                 <div class="row">
@@ -463,8 +464,8 @@
                   <span class="block">4. The CCC logo colour will be black or white depending on your choice of the base colour chosen.</span>
                   <span class="block">5. If you remove the CCC logo from Right Chest area the CCC logo will automatically move to the back of your tee under the collar.</span>
                   <ul class="pad-17">
-                    <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span> to know more about customization tools.</li>               
-                 <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves & pads attract a nominal one-time customization fees).</li> 
+                    <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span> to know more about customization tools.</li>
+                 <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves & pads attract a nominal one-time customization fees).</li>
                  </ul>
                   <!--<span><a href="" ng-click="outplace();">Click here</a> to find out how?</span>-->
                 </div>
@@ -593,8 +594,8 @@
                     <span class="block">3. Name will be printed in upper case / capital letters.</span>
                     <span class="block">4. * denotes mandatory fields.</span>
                      <ul class="pad-17">
-                    <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span> to know more about customization tools.</li>               
-                 <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves & pads attract a nominal one-time customization fees).</li> 
+                    <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span> to know more about customization tools.</li>
+                 <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves & pads attract a nominal one-time customization fees).</li>
                  </ul>
                   </div>
 
@@ -637,12 +638,12 @@
                               </select>
                             </td>
                              <td>
-                              
+
                               <input type="number" name="quantity" placeholder="20" ng-change="addQuantity(jersey.quantity)" ng-model="jersey.quantity" maxlength="3">
                               <p class="error-td f13" ng-if="totalQuan<20 && totalQuan!=1">Please enter valid quantity.The MOQ is 20</p>
-                               
+
                             </td>
-                            <!--<td>                              
+                            <!--<td>
                               <p ng-if="jersey.quantity == null">Please enter correct quantity </p>
                             </td>-->
                             <td>
@@ -657,7 +658,7 @@
 
                             <td class="binbord-rgt"><img src="img/rubbishbin.png" class="img-responsive doneLoading" alt="" ng-click="removeJerseyValue($index); addQuantity()"></td>
                           </tr>
-                          
+
                           <tr class="nothing">
                             <td></td>
                           </tr>
@@ -751,7 +752,7 @@
                       </div>
                       <!--<p>One time customization fee for Tee is <i class="fa fa-inr"></i> 5000</p>-->
                       <span class="pull-right tamount uppercase Raleway-Medium">Total Amount: {{totalAmount}}</span>
-                      <span class="pull-right tquantity uppercase Raleway-Medium">Total Quantity: {{totalQuan}}</span>  
+                      <span class="pull-right tquantity uppercase Raleway-Medium">Total Quantity: {{totalQuan}}</span>
                     </div>
                   </uib-accordion-group>
                 </uib-accordion>
