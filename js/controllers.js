@@ -6208,6 +6208,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             } else if (tab === 'b') {
                 if (!$scope.tabAllowTob) {
+                    $scope.tabchanges('light3',3);
                     $scope.tabchange('trim', 2);
                     $scope.switchFrontBack(true);
                     $scope.switchTrimHighlightBase(true, $scope.trimTshirt.highlightBase.tcolor);
