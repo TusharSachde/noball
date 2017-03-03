@@ -516,8 +516,10 @@
                                     </td>
                                     <td>
                                         <span class="inline-block uppercase pad-5">quantity</span>
-                                        <input type="number" name="quantity" class="wid20p" ng-change="addQuantity(trouser.quantity)" ng-model="trouser.quantity" min="1" maxlength="3">
+                                        <input type="number" name="quantity" placeholder="20" class="wid20p" ng-change="addQuantity(trouser.quantity)" ng-model="trouser.quantity" maxlength="3">
                                     </td>
+                                        <p class="error-td f13" ng-if="totalQuan<20 && totalQuan!=1">Please enter valid quantity.The MOQ is 20</p>
+                                    
                                     <td></td>
                                     <td></td>
                                     <td>
