@@ -778,6 +778,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.trimTrouser.highlightTwo = {};
         $scope.trimTrouser.highlightBase = {};
         $scope.customizedTrouser = {};
+        // $scope.rightlogo={};
+        // $scope.attributes={};
+        // $scope.customizedTrouser.rightlogo.attributes.width = 100;
+        
 
         $scope.switchFrontBack = function (front) {
             $scope.customizedTrouser.front =  front;
@@ -816,7 +820,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                             $scope.customizedTrouser[variable] = {};
                             $scope.customizedTrouser[variable].attributes = {};
                             $scope.customizedTrouser[variable].divattributes = {};
-                            $scope.customizedTrouser[variable].attributes.width = 25;
+                            $scope.customizedTrouser[variable].attributes.width = 100;
                         }
                         console.log($scope.tempImage);
                     }
@@ -1069,27 +1073,68 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //     src: "img/shorts/design5/front.png"
         // }]
         // };
-        $scope.images = [{
-            src: "img/trousers/design1/front.png"
-        }, {
-            src: "img/trousers/design2/front.png"
-        }, {
-            src: "img/trousers/design3/front.png"
-        }, {
-            src: "img/trousers/design4/front.png"
-        }, {
-            src: "img/trousers/design5/front.png"
-        }, {
-            src: "img/shorts/design1/front.png"
-        }, {
-            src: "img/shorts/design2/front.png"
-        }, {
-            src: "img/shorts/design3/front.png"
-        }, {
-            src: "img/shorts/design4/front.png"
-        }, {
-            src: "img/shorts/design5/front.png"
-        }];
+             $scope.page = 1;
+
+        $scope.images = {
+            "page1": [{
+                src: "img/trousers/design1/front.png",
+                // type: "odi"
+                // }, {
+                //     src: "img/odi-tshirts/trims/odi/design2/front.png",
+                //     type: "odi"
+            }, {
+                src: "img/trousers/design2/front.png",
+                // type: "odi"
+            }, {
+                src: "img/trousers/design3/front.png",
+                // type: "odi"
+            }, {
+                src: "img/trousers/design4/front.png",
+                // type: "odi"
+            }, {
+                src: "img/trousers/design5/front.png",
+                // type: "training"
+            }, {
+                src: "img/shorts/design1/front.png",
+                // type: "training"
+            }, {
+                src: "img/shorts/design2/front.png",
+                // type: "training"
+            }, {
+                src: "img/shorts/design3/front.png",
+                // type: "training"
+            }
+            , {
+                src: "img/shorts/design4/front.png",
+                // type: "training"
+            }],
+            "page2": [ {
+                src: "img/shorts/design5/front.png",
+                // type: "whites"
+            }]
+        };
+
+        // $scope.images = [{
+        //     src: "img/trousers/design1/front.png"
+        // }, {
+        //     src: "img/trousers/design2/front.png"
+        // }, {
+        //     src: "img/trousers/design3/front.png"
+        // }, {
+        //     src: "img/trousers/design4/front.png"
+        // }, {
+        //     src: "img/trousers/design5/front.png"
+        // }, {
+        //     src: "img/shorts/design1/front.png"
+        // }, {
+        //     src: "img/shorts/design2/front.png"
+        // }, {
+        //     src: "img/shorts/design3/front.png"
+        // }, {
+        //     src: "img/shorts/design4/front.png"
+        // }, {
+        //     src: "img/shorts/design5/front.png"
+        // }];
         //tab changes
 
         $scope.tabs = 'light3';
@@ -1329,10 +1374,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         //     }
         // }
-
-
+      
         $scope.checkloginTrousers = function () {
             console.log('goToReloadafter');
+           
             $scope.user = $.jStorage.get("user");
             console.log('ffffffffffff', $scope.user);
             if ($scope.user) {
@@ -1341,7 +1386,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.allLogos.mainlogo = $scope.customizedTrouser.mainlogo.image;
                 }
                 if ($scope.customizedTrouser.rightlogo) {
-                    $scope.allLogos.rightlogo = $scope.customizedTrouser.rightlogo.image;
+                    $scope.allLogos.rightlogo = $scope.custo
+                    mizedTrouser.rightlogo.image;
                 }
                 if ($scope.customizedTrouser.leftlogo) {
                     $scope.allLogos.leftlogo = $scope.customizedTrouser.leftlogo.image;
@@ -2847,7 +2893,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             left: '278px'
         };
         $scope.padLogo.attributes = {};
-        $scope.padLogo.attributes.width = 50;
+        $scope.padLogo.attributes.width = 100;
         $scope.padLogo.printType = 'embroidered';
         $scope.statuses = {};
 
@@ -2899,14 +2945,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log($scope.Arrayname);
             if ($scope.Arrayname == '$scope.padImages1') {
                 $scope.padLogo.divattributes = {
-                    top: '343px',
-                    left: '279px'
+                    // top: '343px',
+                    // left: '279px'
+                    top: '327px',
+                    left: '264px',
+                    width: '52px',
+                    height: '52px'
                 };
             }
             if ($scope.Arrayname == '$scope.padImages2') {
                 $scope.padLogo.divattributes = {
-                    top: '355px',
-                    left: '296px'
+                    // top: '355px',
+                    // left: '296px'
+                    top: '340px',
+                    left: '282px',
+                    width: '52px',
+                    height: '52px'
                 };
             }
             $scope.changePadsImages = function (color) {
@@ -4166,7 +4220,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             left: '355px'
         };
         $scope.glovesLogo.attributes = {};
-        $scope.glovesLogo.attributes.width = 50;
+        $scope.glovesLogo.attributes.width = 100;
         $scope.glovesLogo.printType = 'embroidered';
         $scope.statuses = {};
 
@@ -4218,20 +4272,28 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log($scope.Arrayname);
             if ($scope.Arrayname == '$scope.glovesImages1') {
                 $scope.glovesLogo.divattributes = {
-                    top: '203px',
-                    left: '352px'
+                    // top: '203px',
+                    // left: '352px'
+                    top:'188px',
+                    left: '344px',
+                    width: '60px',
+                    height:'80px'
                 };
             }
             if ($scope.Arrayname == '$scope.glovesImages2') {
                 $scope.glovesLogo.divattributes = {
-                    top: '249px',
-                    left: '298px'
+                    top: '232px',
+                    left: '298px',
+                    width: '58px',
+                    height:'72px'
                 };
             }
             if ($scope.Arrayname == '$scope.glovesImages3') {
                 $scope.glovesLogo.divattributes = {
-                    top: '238px',
-                    left: '298px'
+                    top: '228px',
+                    left: '292px',
+                    width: '62px',
+                    height:'72px'
                 };
             }
             $scope.changeGlovesImages = function (color) {

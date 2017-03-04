@@ -78,9 +78,10 @@
                             </div> -->
                         <div class="gloves-logo" ng-if="glovesLogo.image" ng-style="glovesLogo.divattributes">
                             <img ng-src="{{glovesLogo.image | serverimage}}"  alt="" ng-style="glovesLogo.attributes">
+                            <!--{{glovesLogo.divattributes}}-->
                         </div>
                         <div class="prev inline-block" style="display:none">
-                            <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">back</p>
+                            <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">back </p>
                         </div>
                         <div class="next inline-block" style="display:none">
                             <p class="uppercase"><img src="img/back.png" class="img-responsive" alt="">front</p>
@@ -91,12 +92,23 @@
                             <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 2}" ng-click="toggleTab(2)">DELIVERY</button>
                             <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 3}" ng-click="toggleTab(3)">CARE</button>
                         </div>
-                        <ul class="tshirt-features">
-                            <li> Miniroll style finger and thumb splits</li>
-                            <li>Lightweight high-density foam finger</li>
-                            <li>Split thumb and one-piece sidebar on lead hand</li>
-                            <li>Leather tabs on fingertips</li>
-                            <li>Toweled wristband with embossed velcro for perfect fits</li>
+                        <ul class="tshirt-features" ng-if="activeButton == 1">
+                            <li>Lightweight high-density foam finger with thermoplastic polyurethane inserts</li>
+                            <li>Split thumb and three-piece sidebars on lead hand</li>
+                            <li>Leather tabs on fingertips, leather tip on thumb of both hands with extra leather patch on hard-wearing areas of the palm</li>
+                            <li>Polyurethane embossed knuckles</li>
+                            <li>Toweled wristband with embossed velcro for perfect fit</li>
+                            <li>Nylon gusset for ventilation to keep your hands feeling fresh even on the hottest days</li>
+                            <li>Perforation in palm fingers for maximum air flow</li>
+                        </ul>
+                        <ul class="tshirt-features" ng-if="activeButton == 2">
+                            <li>In-stock tees are shipped immediately. Customisation delivery worldwide takes 3-4 weeks from date of order.</li>
+                        </ul>
+                        <ul class="tshirt-features" ng-if="activeButton == 3">
+                            <li>We recommend washing in cold water with powder detergent</li>
+                            <li>Do not wash with other coloured clothes to avoid bleeding and run-off</li>
+                            <li>Avoid drying machines which can weaken the fabric's effectiveness</li>
+                            <li>Steam iron preferably</li>
                         </ul>
                     </div>
                 </div>
@@ -276,9 +288,10 @@
                                 <span class="block">1. The printed CCC Logo will always be embroidered on your gloves.</span>
                                 <span class="block">2. Embossing your logo will incur a one time cost of  `5000 or your
                                     logo can be screen printed at no additional cost.</span>
-                                <span class="block">3. If you feel something is not great, our design team can fix it for you.</span>
+                                <span class="block">3. Your logo will be screen printed and then laminated. </span>
+                                <span class="block">4. If you feel something is not great, our design team can fix it for you.</span>
                                 <span class="block"><a href="" class="clickinfo"  ng-click="outplace();">Click here</a> to find out how?</span>
-                                <span class="block">4.CCC logo colour will match colour of the trim.</span>
+                                <span class="block">5.CCC logo colour will match colour of the trim.</span>
                                  <ul class="pad-17">
                     <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span> to know more about customization tools.</li>               
                  <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves & pads attract a nominal one-time customization fees).</li> 
@@ -615,7 +628,8 @@
                                 <p class="pointer" ng-click="addGlovesValues(); addQuantity(glove.quantity);"><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</p>
                             </div>
                             <div class="total-amount">
-                                <p class="more-price">One time customization fee for Glove is <i class="fa fa-inr"></i> 5000</p>
+                                <!--<p class="more-price">One time customization fee for Glove is <i class="fa fa-inr"></i> 5000</p>-->
+                                <p class="more-price">A one-time customization fees of INR 5000/- or equivalent (in your currency) will be incurred for your logo customization.</p>
                                 <span class="pull-right uppercase totalAmount Raleway-Medium">Total: {{totalAmount}}</span>
                             </div>
 
