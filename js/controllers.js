@@ -810,6 +810,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
         $scope.switchFrontBack = function (front) {
+               if ($scope.changeIDTrouser) {
+                console.log('$scope.changeIDTrouser.customizedTrouser.cloth', $scope.changeIDTrouser.customizedTrouser.cloth);
+                if ($scope.changeIDTrouser.customizedTrouser.cloth.indexOf('img/shorts') == -1) {
+                    $scope.pantType = "trousers";
+                } else {
+                    $scope.pantType = "shorts";
+                }
+            } else {
+                // $scope.pantType = "trousers";
+            }
             $scope.customizedTrouser.front =  front;
             $scope.customizedTrouser.back =  !front;
             if (front) {
@@ -886,7 +896,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.pantType = "shorts";
                 }
             } else {
-                $scope.pantType = "trousers";
+                // $scope.pantType = "trousers";
             }
             console.log(flag, color);
             $scope.trimTrouser.highlightOne.flag = flag;
@@ -903,6 +913,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         };
         $scope.switchTrimHighlightTwo = function (flag, color) {
+               if ($scope.changeIDTrouser) {
+                console.log('$scope.changeIDTrouser.customizedTrouser.cloth', $scope.changeIDTrouser.customizedTrouser.cloth);
+                if ($scope.changeIDTrouser.customizedTrouser.cloth.indexOf('img/shorts') == -1) {
+                    $scope.pantType = "trousers";
+                } else {
+                    $scope.pantType = "shorts";
+                }
+            } else {
+                // $scope.pantType = "trousers";
+            }
             $scope.trimTrouser.highlightTwo.flag = flag;
             $scope.trimTrouser.highlightTwo.tcolor = color;
             if ($scope.trimTrouser.highlightTwo.tcolor != "") {
@@ -916,6 +936,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         };
         $scope.switchTrimHighlightBase = function (flag, color) {
+               if ($scope.changeIDTrouser) {
+                console.log('$scope.changeIDTrouser.customizedTrouser.cloth', $scope.changeIDTrouser.customizedTrouser.cloth);
+                if ($scope.changeIDTrouser.customizedTrouser.cloth.indexOf('img/shorts') == -1) {
+                    $scope.pantType = "trousers";
+                } else {
+                    $scope.pantType = "shorts";
+                }
+            } else {
+                // $scope.pantType = "trousers";
+            }
             $scope.trimTrouser.highlightBase.flag = flag;
             $scope.trimTrouser.highlightBase.tcolor = color;
             if (flag) {
