@@ -649,7 +649,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
         var check = 1;
         $scope.statuses = {};
-        $scope.pantType = "trousers";
+        // $scope.pantType = "trousers";
+
         $scope.$on('$stateChangeStart', function (event, toState, fromState) {
             // console.log(event);
             console.log('$scope.changeIDTrouser', $scope.changeIDTrouser);
@@ -877,11 +878,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.trimTrouser.highlightTwo.disable = "noable";
 
         $scope.switchTrimHighlightOne = function (flag, color) {
+            if ($scope.changeIDTrouser) {
+                console.log('$scope.changeIDTrouser.customizedTrouser.cloth', $scope.changeIDTrouser.customizedTrouser.cloth);
+                if ($scope.changeIDTrouser.customizedTrouser.cloth.indexOf('img/shorts') == -1) {
+                    $scope.pantType = "trousers";
+                } else {
+                    $scope.pantType = "shorts";
+                }
+            } else {
+                $scope.pantType = "trousers";
+            }
+            console.log(flag, color);
             $scope.trimTrouser.highlightOne.flag = flag;
             $scope.trimTrouser.highlightOne.tcolor = color;
             if ($scope.trimTrouser.highlightOne.tcolor != "") {
                 if (flag) {
                     $scope.trimTrouser.highlightOne.image = "img/" + $scope.pantType + "/" + $scope.designName + "/front/trim1/" + color + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
+                    console.log('sssssssssssssssssssss', $scope.trimTrouser.highlightOne.image)
                 } else {
                     $scope.trimTrouser.highlightOne.image = "img/" + $scope.pantType + "/" + $scope.designName + "/back/trim1/" + color + ".png"; // "img/odi-tshirts/trims/highlight1/back/trim_" + color + ".png";
                 }
@@ -1410,8 +1423,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.allLogos.mainlogo = $scope.customizedTrouser.mainlogo.image;
                 }
                 if ($scope.customizedTrouser.rightlogo) {
-                    $scope.allLogos.rightlogo = $scope.custo
-                    mizedTrouser.rightlogo.image;
+                    $scope.allLogos.rightlogo = $scope.customizedTrouser.rightlogo.image;
                 }
                 if ($scope.customizedTrouser.leftlogo) {
                     $scope.allLogos.leftlogo = $scope.customizedTrouser.leftlogo.image;
@@ -1452,7 +1464,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
                 } else {
                     console.log($rootScope.editIdTrouser, 'yes there');
-                    NavigationService.editSaveDesign($scope.user.email, $scope.combineJSON, 'odishirt', $rootScope.editId.id,
+                    NavigationService.editSaveDesign($scope.user.email, $scope.combineJSON, 'odishirt', $rootScope.editIdTrouser.id,
                         function (data) {
                             console.log('Save Design data: ', data);
                             $state.go('savedesign');

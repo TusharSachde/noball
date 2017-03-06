@@ -48,12 +48,12 @@
                             <!---close of if pants-->
 
                             <!--if shorts-->
-                                      <div class="div-short-left-logo" ng-if="pantType=='shorts' && customizedTrouser.front && customizedTrouser.leftlogo.image" ng-style="customizedTrouser.leftlogo.divattributes">
+                                      <!--<div class="div-short-left-logo" ng-if="pantType=='shorts' && customizedTrouser.front && customizedTrouser.leftlogo.image" ng-style="customizedTrouser.leftlogo.divattributes">
                                 <img id="trouserleftlogo" ng-src="{{customizedTrouser.leftlogo.image | serverimage}}" class="trouser-left-logo" alt="" ng-style="customizedTrouser.leftlogo.attributes">
                             </div>
                             <div class="div-short-right-logo" ng-if="pantType=='shorts' && customizedTrouser.front && customizedTrouser.rightlogo.image" ng-style="customizedTrouser.rightlogo.divattributes">
                                 <img id="trouserrightlogo" ng-src="{{customizedTrouser.rightlogo.image | serverimage}}" class="trouser-right-logo" alt="" ng-style="customizedTrouser.rightlogo.attributes">
-                            </div>
+                            </div>-->
                             <!--close of if shorts -->
                             <!--shorts logo upload section -->
                              <div class="div-left-short" ng-if="customizedShort.front && mainlogo.image" ng-style="mainlogo.divattributes">
@@ -171,7 +171,7 @@
                 <button class="{{designButton.design3.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(3);">Cut &amp; Sew</button>
                 <button class="{{designButton.design4.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(4);">Polo</button>-->
               </div>
-              <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="tabchange('trim',2); switchFrontBack(true); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor); openTab('b');">NEXT</button>
+              <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="tabchange('trim',2); switchFrontBack(true); switchTrimHighlightBase(true, trimTrouser.highlightBase.tcolor); switchTrimHighlightOne(true, trimTrouser.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTrouser.highlightTwo.tcolor); openTab('b');">NEXT</button>
                         <!--<div class="edit-btn inline-block">
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('trim', 2); openTab('b');">NEXT</button>
                         </div>-->
