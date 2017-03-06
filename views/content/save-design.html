@@ -20,6 +20,11 @@
               <img ng-src="{{design.description.trimTrouser.highlightOne.image}}" ng-if="design.type == 'trouser' && design.description.trimTrouser.highlightOne.image" class="trimshirt img-responsive" alt="">
               <img ng-src="{{design.description.trimTrouser.highlightTwo.image}}" ng-if="design.type == 'trouser' && design.description.trimTrouser.highlightTwo.image" class="trimshirt img-responsive" alt="">
               <img ng-src="{{design.description.trimTrouser.highlightBase.image}}" ng-if="design.type == 'trouser' && design.description.trimTrouser.highlightBase.image" class="trimshirtbase img-responsive" alt="">
+              <!--//ruchi-->
+              <img ng-src="{{design.description.trimShort.highlightOne.image}}" ng-if="design.type == 'shorts' && design.description.trimShort.highlightOne.image" class="trimshirt img-responsive" alt="">
+              <img ng-src="{{design.description.trimShort.highlightTwo.image}}" ng-if="design.type == 'shorts' && design.description.trimShort.highlightTwo.image" class="trimshirt img-responsive" alt="">
+              <img ng-src="{{design.description.trimShort.highlightBase.image}}" ng-if="design.type == 'shorts' && design.description.trimShort.highlightBase.image" class="trimshirtbase img-responsive" alt="">
+                <!--//ruchi-->
               <div class="div-main-logo" ng-if="design.description.customizedShirt.front && design.description.customizedShirt.mainlogo.image" ng-style="design.description.customizedShirt.mainlogo.divattributes">
                 <img id="mainlogo" class="main-logo" ng-src="{{design.description.customizedShirt.mainlogo.image | serverimage}}" alt="" ng-style="design.description.customizedShirt.mainlogo.attributes">
               </div>
@@ -45,6 +50,22 @@
               <div class="div-right-sleeve" ng-if="design.description.customizedShirt.rightsleeve.image" ng-style="design.description.customizedShirt.rightsleeve.divattributes" ng-class="{'div-right-sleeve':design.description.customizedShirt.front,'div-left-sleeve':design.description.customizedShirt.back}">
                 <img ng-class="{'right-sleeve':design.description.customizedShirt.front,'left-sleeve':design.description.customizedShirt.back}" ng-src="{{design.description.customizedShirt.rightsleeve.image | serverimage}}" alt="" ng-style="design.description.customizedShirt.rightsleeve.attributes">
               </div>
+               <!--<div class="div-trouser-right-logo" ng-if="pantType=='trousers' && customizedTrouser.front && customizedTrouser.rightlogo.image" ng-style="customizedTrouser.rightlogo.divattributes">
+                                <img id="trouserrightlogo" ng-src="{{customizedTrouser.rightlogo.image | serverimage}}" class="trouser-right-logo" alt="" ng-style="customizedTrouser.rightlogo.attributes">
+                            </div> -->
+               <div class="div-trouser-right-logo">
+                <img ng-class="{'right-logo':design.description.customizedTrouser.front,'left-logo':design.description.customizedTrouser.back}" ng-src="{{design.description.customizedTrouser.rightlogo.image | serverimage}}" alt="" ng-style="design.description.customizedTrouser.rightlogo.attributes">
+              </div>
+                  <div class="div-trouser-left-logo" >
+                                <img ng-class="{'right-logo':design.description.customizedTrouser.front,'left-logo':design.description.customizedTrouser.back}" ng-src="{{design.description.customizedTrouser.rightlogo.image | serverimage}}" alt="" ng-style="design.description.customizedTrouser.rightlogo.attributes">
+                  
+                            </div>
+                               <div class="div-left-short" >
+                                 <img src="img/ball/back.png">
+                            </div>
+                            <div class="div-right-short" >
+                              <img src="img/ball/back.png">
+                            </div>
               <div class="div-back" ng-if="design.description.customizedShirt.back && design.description.customizedShirt.backlogo.image" ng-style="design.description.customizedShirt.backlogo.divattributes">
                 <img ng-src="{{design.description.customizedShirt.backlogo.image | serverimage}}" alt="" ng-style="design.description.customizedShirt.backlogo.attributes">
               </div>
@@ -56,7 +77,7 @@
                 <div class="odi-t jersey-no text-center" ng-style="design.description.jerseyBackArr[0].attributes.number">{{design.description.jerseyBackArr[0].no}}</div>
               </div>
             </div>
-             <!--<div class="gully-trouser saved-design" ng-if="design.type='trouser'">
+             <!--<div class="gully-trouser saved-design">
               <img ng-src="{{design.description.customizedTrouser.backdrop}}" class="backdrop img-responsive" alt="">
               <img ng-src="{{design.description.trimTrouser.highlightOne.image}}" ng-if="design.description.trimTrouser.highlightOne.image" class="trimshirt img-responsive" alt="">
               <img ng-src="{{design.description.trimTrouser.highlightTwo.image}}" ng-if="design.description.trimTrouser.highlightTwo.image" class="trimshirt img-responsive" alt="">
