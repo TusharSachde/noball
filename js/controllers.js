@@ -641,7 +641,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
 
 
-    .controller('TrousersCtrl', function ($scope, $rootScope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
+     .controller('TrousersCtrl', function ($scope, $rootScope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("trousers");
         $scope.menutitle = NavigationService.makeactive("Trousers");
@@ -895,14 +895,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 } else {
                     $scope.pantType = "shorts";
                 }
-            } else {
-                // $scope.pantType = "trousers";
-            }
+            } 
+            if($scope.saveStateTrouser){
+                console.log('inside savesttate',$scope.saveStateTrouser);
+              if ($scope.saveStateTrouser.trousers.trim.highlightBase.image.indexOf('img/trousers') != -1) {
+                    $scope.pantType = 'shorts';
+                } else {
+                    $scope.pantType = 'trouser';
+                }
+                 }
             console.log(flag, color);
             $scope.trimTrouser.highlightOne.flag = flag;
             $scope.trimTrouser.highlightOne.tcolor = color;
             if ($scope.trimTrouser.highlightOne.tcolor != "") {
                 if (flag) {
+                    // console.log('beforessss',$scope.saveStateTrouser);
                     $scope.trimTrouser.highlightOne.image = "img/" + $scope.pantType + "/" + $scope.designName + "/front/trim1/" + color + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
                     console.log('sssssssssssssssssssss', $scope.trimTrouser.highlightOne.image)
                 } else {
@@ -992,7 +999,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.totalQuan += $scope.trouserQuanArr[i].quantity;
             }
             if ($scope.totalQuan) {
-                $scope.totalAmount = $scope.singleAmount * $scope.totalQuan + 5000;
+                $scope.totalAmount = $scope.singleAmount * $scope.totalQuan;
             }
         };
 
@@ -1382,21 +1389,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.changeDesign(0, 1);
             }
         } else {
-            $scope.saveStateTrouser = $.jStorage.get('beforeLogin');
+            $scope.saveStateTrouser = $.jStorage.get('beforeLoginTrouser');
             console.log('$scope.saveStateTrouser', $scope.saveStateTrouser);
             if ($scope.saveStateTrouser) {
+                if ($scope.saveStateTrouser.trousers.trim.highlightBase.image.indexOf('img/trousers') != -1) {
+                    $scope.pantType = 'shorts';
+                } else {
+                    $scope.pantType = 'trouser';
+                }
                 console.log('these iffff');
                 console.log('$scope.saveStateTrouser', $scope.saveStateTrouser.trousers);
                 $scope.trimTrouser = $scope.saveStateTrouser.trousers.trim;
                 $scope.customizedTrouser = $scope.saveStateTrouser.trousers.customizedTrouser;
+                $scope.customizedTrouser.leftlogo.image = $scope.saveStateTrouser.trousers.customizedTrouser.leftlogo.image;
+                $scope.customizedTrouser.rightlogo.image = $scope.saveStateTrouser.trousers.customizedTrouser.rightlogo.image;
+                console.log('$scope.customizedTrouser.rightlogo.image', $scope.customizedTrouser);
                 // $scope.jerseyBackArr = $scope.saveStateTrouser.jerseyBackArr;
-                $scope.allLogos = $scope.saveStateTrouser.trousers.allLogos;
+                // $scope.allLogos = $scope.saveStateTrouser.trousers.allLogos;
                 $scope.designName = $scope.saveStateTrouser.trousers.designName;
                 $scope.designType = $scope.saveStateTrouser.trousers.designType;
                 $scope.totalAmount = $scope.saveStateTrouser.trousers.totalAmount;
                 $scope.totalQuan = $scope.saveStateTrouser.trousers.totalQuan;
                 $scope.name = $scope.saveStateTrouser.name;
-                console.log('$scope.saveStateTrouser', $scope.saveStateTrouser);
+                // console.log('$scope.saveStateTrouser', $scope.saveStateTrouser);
             } else {
                 $scope.changeDesign(0);
             }
@@ -1518,7 +1533,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     "name": $scope.name
                 };
                 console.log('else $scope.combineJSON', $scope.combineJSON);
-                $.jStorage.set('beforeLogin', $scope.combineJSON);
+                $.jStorage.set('beforeLoginTrouser', $scope.combineJSON);
                 $scope.openLogin();
             }
         }
@@ -1600,7 +1615,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //             "name": $scope.shirtName
         //         };
         //         console.log('else $scope.combineJSON', $scope.combineJSON);
-        //         $.jStorage.set('beforeLogin', $scope.combineJSON);
+        //         $.jStorage.set('beforeLoginTrouser', $scope.combineJSON);
         //         $scope.openLogin();
         //     }
         // }
@@ -1741,7 +1756,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // }
 
         $scope.toOrderSummary = function () {
-            console.log('ffffffffffff');
+            console.log('ffffffffffffTOOrderSumm');
             $scope.ml = "";
             $scope.bl = "";
             $scope.rc = "";
@@ -1799,8 +1814,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     },
                     "type": "trousers"
                 };
-                console.log('else $scope.combineJSON', $scope.combineJSON);
-                $.jStorage.set('beforeLogin', $scope.combineJSON);
+                console.log('else $scope.combineJSON', $scope.$scope.trimTrouser);
+                $.jStorage.set('beforeLoginTrouser', $scope.combineJSON);
                 $scope.openLogin();
             }
         }
@@ -9011,54 +9026,54 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.nameXL = [];
                     $scope.nameXXL = [];
                     $scope.nameXXXL = [];
-if($scope.jerseyBackArr){
- for (var i = 0; i < $scope.jerseyBackArr.length; i++) {
-                        if ($scope.jerseyBackArr[i].size === 'S') {
-                            $scope.quantitySizeS += $scope.jerseyBackArr[i].quantity;
-                            $scope.singleNameS = {
-                                'name': $scope.jerseyBackArr[i].name,
-                                'no': $scope.jerseyBackArr[i].no,
+                    if ($scope.jerseyBackArr) {
+                        for (var i = 0; i < $scope.jerseyBackArr.length; i++) {
+                            if ($scope.jerseyBackArr[i].size === 'S') {
+                                $scope.quantitySizeS += $scope.jerseyBackArr[i].quantity;
+                                $scope.singleNameS = {
+                                    'name': $scope.jerseyBackArr[i].name,
+                                    'no': $scope.jerseyBackArr[i].no,
+                                }
+                                $scope.nameS.push($scope.singleNameS);
+                            } else if ($scope.jerseyBackArr[i].size === 'M') {
+                                $scope.quantitySizeM += $scope.jerseyBackArr[i].quantity;
+                                $scope.singleNameM = {
+                                    'name': $scope.jerseyBackArr[i].name,
+                                    'no': $scope.jerseyBackArr[i].no,
+                                }
+                                $scope.nameM.push($scope.singleNameM);
+                            } else if ($scope.jerseyBackArr[i].size === 'L') {
+                                $scope.quantitySizeL += $scope.jerseyBackArr[i].quantity;
+                                $scope.singleNameL = {
+                                    'name': $scope.jerseyBackArr[i].name,
+                                    'no': $scope.jerseyBackArr[i].no,
+                                }
+                                $scope.nameL.push($scope.singleNameL);
+                            } else if ($scope.jerseyBackArr[i].size === 'XL') {
+                                $scope.quantitySizeXL += $scope.jerseyBackArr[i].quantity;
+                                $scope.singleNameXL = {
+                                    'name': $scope.jerseyBackArr[i].name,
+                                    'no': $scope.jerseyBackArr[i].no,
+                                }
+                                $scope.nameXL.push($scope.singleNameXL);
+                            } else if ($scope.jerseyBackArr[i].size === 'XXL') {
+                                $scope.quantitySizeXXL += $scope.jerseyBackArr[i].quantity;
+                                $scope.singleNameXXL = {
+                                    'name': $scope.jerseyBackArr[i].name,
+                                    'no': $scope.jerseyBackArr[i].no,
+                                }
+                                $scope.nameXXL.push($scope.singleNameXXL);
+                            } else if ($scope.jerseyBackArr[i].size === 'XXXL') {
+                                $scope.quantitySizeXXXL += $scope.jerseyBackArr[i].quantity;
+                                $scope.singleNameXXXL = {
+                                    'name': $scope.jerseyBackArr[i].name,
+                                    'no': $scope.jerseyBackArr[i].no,
+                                }
+                                $scope.nameXXXL.push($scope.singleNameXXXL);
                             }
-                            $scope.nameS.push($scope.singleNameS);
-                        } else if ($scope.jerseyBackArr[i].size === 'M') {
-                            $scope.quantitySizeM += $scope.jerseyBackArr[i].quantity;
-                            $scope.singleNameM = {
-                                'name': $scope.jerseyBackArr[i].name,
-                                'no': $scope.jerseyBackArr[i].no,
-                            }
-                            $scope.nameM.push($scope.singleNameM);
-                        } else if ($scope.jerseyBackArr[i].size === 'L') {
-                            $scope.quantitySizeL += $scope.jerseyBackArr[i].quantity;
-                            $scope.singleNameL = {
-                                'name': $scope.jerseyBackArr[i].name,
-                                'no': $scope.jerseyBackArr[i].no,
-                            }
-                            $scope.nameL.push($scope.singleNameL);
-                        } else if ($scope.jerseyBackArr[i].size === 'XL') {
-                            $scope.quantitySizeXL += $scope.jerseyBackArr[i].quantity;
-                            $scope.singleNameXL = {
-                                'name': $scope.jerseyBackArr[i].name,
-                                'no': $scope.jerseyBackArr[i].no,
-                            }
-                            $scope.nameXL.push($scope.singleNameXL);
-                        } else if ($scope.jerseyBackArr[i].size === 'XXL') {
-                            $scope.quantitySizeXXL += $scope.jerseyBackArr[i].quantity;
-                            $scope.singleNameXXL = {
-                                'name': $scope.jerseyBackArr[i].name,
-                                'no': $scope.jerseyBackArr[i].no,
-                            }
-                            $scope.nameXXL.push($scope.singleNameXXL);
-                        } else if ($scope.jerseyBackArr[i].size === 'XXXL') {
-                            $scope.quantitySizeXXXL += $scope.jerseyBackArr[i].quantity;
-                            $scope.singleNameXXXL = {
-                                'name': $scope.jerseyBackArr[i].name,
-                                'no': $scope.jerseyBackArr[i].no,
-                            }
-                            $scope.nameXXXL.push($scope.singleNameXXXL);
                         }
                     }
-}
-                   
+
 
                 } else if ($scope.tshirtdata.designType === 'bat') {
                     console.log($scope.tshirtdata);
