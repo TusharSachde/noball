@@ -36,8 +36,13 @@
       <flex-slider flex-slide="banner in showcaseSlides track by $index" prev-text="" next-text="" startAt="0" item-width="240" item-margin="40" animation="slide" move="1" slideshow="true" slideshowSpeed="500" class="mt25">
         <li class="text-center">
             <a ui-sref="{{banner.link}}">
-                <figure class="">
-                    <img ng-src="{{banner.image}}" class="img-responsive iconBlue">
+                <figure class="backdrop relative">
+                 
+  <img ng-src="{{banner.image}}" class="img-responsive iconBlue">
+   <div class="grey-fade">
+     <p>{{banner.text}}</p>
+                  </div>
+                  
                    
                 </figure>
             </a>

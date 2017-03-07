@@ -7249,4 +7249,33 @@ h2 {
 
 .trouser-new{ width: 55%; }
 
+.backdrop{
+    .grey-fade{
+        width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: all 300ms ease-in-out;
+    p{
+    height: 100%;
+    letter-spacing: 3px;
+    font-size: 20px;
+    font-weight: bold;
+    color: lightgreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    }
+    }
+    &:hover{
+        .grey-fade{
+            opacity: 1;
+        }
+    }
+}
+
 @import "mobile/mobile";

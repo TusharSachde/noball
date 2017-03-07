@@ -10618,20 +10618,57 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         ];
 
         $scope.showcaseSlides = [{
-            image: 'img/landing/showcase/1.jpg',
-            link: 'trousers'
+            image: 'img/showcase/1.jpg',
+            link: 'trousers',
+            text:'apparels'
         }, {
-            image: 'img/landing/showcase/2.jpg',
-            link: 'pads'
+            image: 'img/showcase/2.jpg',
+            link: 'pads',
+            text:'caps'
         }, {
-            image: 'img/landing/showcase/3.jpg',
-            link: 'odi-shirt'
+            image: 'img/showcase/3.jpg',
+            link: 'odi-shirt',
+            text:'caps'
         }, {
-            image: 'img/landing/showcase/4.jpg',
-            link: 'shorts'
+            image: 'img/showcase/4.jpg',
+            link: 'pads',
+            text:'pads'
         }, {
-            image: 'img/landing/showcase/4.jpg',
-            link: 'shorts'
+            image: 'img/showcase/5.jpg',
+            link: 'pads',
+            text:'pads'
+        },
+        {
+            image: 'img/showcase/6.jpg',
+            link: 'shorts',
+            text:'kitbags'
+        }, {
+            image: 'img/showcase/7.jpg',
+            link: 'shorts',
+            text:'kitbags'
+        }, {
+            image: 'img/showcase/8.jpg',
+            link: 'shorts',
+            text:'logos'
+        }, {
+            image: 'img/showcase/9.jpg',
+            link: 'shorts',
+            text:'logos'
+        }
+        , {
+            image: 'img/showcase/10.jpg',
+            link: 'shorts',
+            text:'logos'
+        }
+        , {
+            image: 'img/showcase/11.jpg',
+            link: 'shorts',
+            text:'logos'
+        }
+        , {
+            image: 'img/showcase/12.jpg',
+            link: 'shorts',
+            text:'logos'
         }];
 
 
