@@ -7278,4 +7278,36 @@ h2 {
     }
 }
 
+.greyfade-text{
+    letter-spacing: 3px;
+    font-size: 20px;
+    font-weight: bold;
+    color: lightgreen;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    p{
+        text-align: center;
+    }
+    p+p{
+        font-size: 16px !important;
+    }
+}
+
+.coming-soon{
+    position: absolute;
+    top: 0;
+    left: 36%;
+    opacity: 0;
+}
+
+.btn-classes{
+  
+        .coming-soon:hover{
+            opacity: 1;
+        }
+}
+
+
 @import "mobile/mobile";

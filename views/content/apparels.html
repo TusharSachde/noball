@@ -22,13 +22,20 @@
         <div class="travel-img marg">
           <img src="img/landing/apparels/3.png" alt="" class="img-responsive">
         </div>
-        <button class="btn btn-outline btn-dark letter-spacing uppercase block marg">Travel Wear</button>
+        <div class="btn-classes relative">
+ <button class="btn btn-outline btn-dark letter-spacing uppercase block marg travel-type">Travel Wear</button>
+         <button class="btn btn-outline btn-dark letter-spacing uppercase block marg coming-soon">coming soon</button>
+        </div>
+       
       </div>
       <div class="caps w50p inline-block">
         <div class="caps-img marg">
           <img src="img/landing/apparels/4.png" alt="" class="img-responsive">
         </div>
-        <button class="btn btn-outline btn-dark letter-spacing uppercase block marg">Caps/Hats</button>
+         <div class="btn-classes relative">
+ <button class="btn btn-outline btn-dark letter-spacing uppercase block marg">Caps/Hats</button>
+         <button class="btn btn-outline btn-dark letter-spacing uppercase block marg coming-soon">coming soon</button>
+        </div>
       </div>
     </div>
   </div>
@@ -50,7 +57,11 @@
             <a ui-sref="{{banner.link}}">
                 <figure class="">
                     <img ng-src="{{banner.image}}" class="img-responsive iconBlue">
-                     <span class="uppercase">{{banner.text}}</span>
+                    <div class="greyfade-text">
+ <p class="uppercase">{{banner.text}}</p>
+                      <p class="uppercase">{{banner.subtext}}</p>
+                    </div>
+                    
                 </figure>
             </a>
             

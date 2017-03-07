@@ -10588,14 +10588,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.items = [{
             image: 'img/landing/items/Bats.jpg',
             name: 'Bats',
+            subname:'(Coming Soon)',
             link: 'bat'
         }, {
             image: 'img/landing/items/Ball.jpg',
             name: 'Balls',
+            subname:'(Coming Soon)',
             link: 'balls'
         }, {
             image: 'img/landing/items/Gloves.jpg',
             name: 'Gloves',
+            // subname:'Coming Soon',
             link: 'gloves'
         }, {
             image: 'img/landing/items/Pads.jpg',
@@ -10604,10 +10607,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }, {
             image: 'img/landing/items/Apparels.jpg',
             name: 'Apparels',
+            // subname:'Coming Soon',
             link: 'apparels'
         }, {
             image: 'img/landing/items/Kit-Bag.jpg',
             name: 'Kit Bags',
+            subname:'(Coming Soon)',
             link: 'kit-bag'
         }];
 
@@ -10682,23 +10687,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.showcaseSlides = [{
             image: 'img/landing/apparels-switch/bats.jpg',
             link: 'bat',
-            text: 'bats'
+            text: 'bats',
+            subtext:'coming soon'
         }, {
+            image: 'img/landing/apparels-switch/ball.jpg',
+            link: 'balls',
+            text: 'balls',
+            subtext:'coming soon'
+        }, {
+            image: 'img/landing/apparels-switch/kit-bags.jpg',
+            link: 'kit-bag',
+            text: 'kit-bags',
+            subtext:'coming soon'
+        },{
             image: 'img/landing/apparels-switch/pads.jpg',
             link: 'pads',
             text: 'pads'
         }, {
-            image: 'img/landing/apparels-switch/apparels.jpg',
-            link: 'odi-shirt',
-            text: 'apparels'
-        }, {
-            image: 'img/landing/apparels-switch/kit-bags.jpg',
-            link: 'kit-bag',
-            text: 'kit-bags'
-        }, {
-            image: 'img/landing/apparels-switch/kit-bags.jpg',
-            link: 'kit-bag',
-            text: 'kit-bags'
+            image: 'img/landing/apparels-switch/gloves.jpg',
+            link: 'gloves',
+            text: 'gloves'
         }];
 
     })

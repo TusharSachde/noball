@@ -16,7 +16,11 @@
           <div class="single-box" ui-sref="{{item.link}}" ng-repeat="item in items">
             <img ng-src="{{item.image}}" alt="{{item.name}}" class="img-responisve">
             <div class="grey-fade">
-              <p class="uppercase">{{item.name}}</p>
+              <div class="greyfade-text">
+ <p class="uppercase">{{item.name}}</p>
+                <p class="uppercase">{{item.subname}}</p>
+              </div>
+             
             </div>
           </div>
         </div>
@@ -39,9 +43,9 @@
                 <figure class="backdrop relative">
                  
   <img ng-src="{{banner.image}}" class="img-responsive iconBlue">
-   <div class="grey-fade">
+   <!--<div class="grey-fade">
      <p>{{banner.text}}</p>
-                  </div>
+                  </div>-->
                   
                    
                 </figure>
