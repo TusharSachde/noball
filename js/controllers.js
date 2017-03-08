@@ -651,9 +651,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.pantType = "trousers";
 
         // slider
-        $scope.rslider = {
-            min: 10,
-            max: 100
+         $scope.rslider = {
+            min: -130,
+            max: 200
         };
         $scope.outplace = function () {
             $uibModal.open({
@@ -780,7 +780,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
          $scope.customizedTrouser.rightlogo = {};
         $scope.customizedTrouser.rightlogo.image = "img/logo_black.png";
         $scope.customizedTrouser.rightlogo.attributes = {};
-        $scope.customizedTrouser.rightlogo.attributes.width = 100;
+        $scope.customizedTrouser.rightlogo.attributes.width = 25;
 
         $scope.switchFrontBack = function (front) {
             $scope.customizedTrouser.front =  front;
@@ -11516,10 +11516,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }];
         
  $scope.topSlides = [
-            'img/custombanner/gloves_banner.jpg',
-            'img/custombanner/pads_banner.jpg',
-            'img/custombanner/pants_banner.jpg',
-            'img/custombanner/tees_banner.jpg'
+     {
+            image: 'img/custombanner/gloves_banner.jpg',
+            link: 'gloves'
+        }, {
+            image: 'img/custombanner/pads_banner.jpg',
+            link: 'pads'
+        },
+         {
+            image: 'img/custombanner/pants_banner.jpg',
+            link: 'trousers'
+        },{
+            image: 'img/custombanner/tees_banner.jpg',
+            link: 'odi-shirt'
+        },
         ];
 
         $scope.showcaseSlides = [{

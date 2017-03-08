@@ -4,7 +4,7 @@
   <div class="customize-slider custom-height">
     <flex-slider flex-slide="s in topSlides track by $index" prev-text="" next-text="" slideshow="true" slideshow-speed="5000" class="topSlide">
        <li>
-           <img ng-src="{{s}}">
+           <a ui-sref="{{s.link}}"><img ng-src="{{s.image}}"></a>
        </li>
    </flex-slider>
   </div>
