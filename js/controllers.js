@@ -912,9 +912,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.totalQuan = 0;
             for (var i = 0; i < $scope.trouserQuanArrCount; i++) {
                 // $scope.totalQuan += $scope.trouserQuanArr[i].quantity;
-                  if ($scope.trouserQuanArr[i].quantity !== undefined) {
+                //   if ($scope.trouserQuanArr[i].quantity !== undefined) {
                     $scope.totalQuan += $scope.trouserQuanArr[i].quantity;
-                }
+                // }
             }
             if ($scope.totalQuan) {
                 $scope.totalAmount = $scope.singleAmount * $scope.totalQuan;
