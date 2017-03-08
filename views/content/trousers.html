@@ -500,7 +500,7 @@
                       <div class="table-detail relative">
                         <p class="capitalize">Select the size for your trouser</p>
                         <div class="table-responsive">
-                            <table class="table table95">
+                            <table class="table table95 relative">
                                 <tbody>
                                 <tr class="option-shirt" ng-repeat="trouser in trouserQuanArr track by $index">
                                     <td>
@@ -514,12 +514,18 @@
                                             <option value="XXXL">XXXL</option>
                                         </select>
                                     </td>
-                                    <td class="relative">
+                                    <!--<td class="relative">
                                         <span class="inline-block uppercase pad-5">quantity</span>
                                         <input type="number" name="quantity" class="wid20p" ng-change="addQuantity(trouser.quantity)" ng-model="trouser.quantity" min="1" maxlength="3">
                                            <p class="error-td f13 error-quantity" ng-if="totalQuan<20 && totalQuan!=1">Please enter valid quantity.The MOQ is 20</p>
                 
-                                    </td>
+                                    </td>-->
+                                      <td>
+  <span class="inline-block uppercase pad-5">quantity</span>
+                              <input type="number" name="quantity" class="wid20p" placeholder="20" ng-change="addQuantity(trouser.quantity)" ng-model="trouser.quantity" min="1" maxlength="3">
+                              <p class="error-td f13" ng-if="totalQuan<20 && totalQuan!=1">Please enter valid quantity.The MOQ is 20</p>
+
+                            </td>
                                     <td></td>
                                     <td></td>
                                     <td>
