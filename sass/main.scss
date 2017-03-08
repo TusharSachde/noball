@@ -3212,7 +3212,7 @@ align-content: center;
     @include transform(rotate(180deg));
     @extend .div-flex;
     img{
-        width: 100% !important;
+        // width: 100% !important;
     }
 }
 
