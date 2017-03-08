@@ -779,6 +779,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.customizedTrouser = {};
          $scope.customizedTrouser.rightlogo = {};
         $scope.customizedTrouser.rightlogo.image = "img/logo_black.png";
+        $scope.customizedTrouser.rightlogo.attributes = {};
+        $scope.customizedTrouser.rightlogo.attributes.width = 100;
 
         $scope.switchFrontBack = function (front) {
             $scope.customizedTrouser.front =  front;
@@ -792,10 +794,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.switchFrontBack(true);
         $scope.tempImage = "";
         $scope.changeLogo = function (key) {
+            $scope.customizedTrouser[key].divattributes = {};
             console.log(key);
             $scope.customizedTrouser[key].divattributes.border = "1px solid #ccc";
         };
         $scope.resetLogoStyle = function (key) {
+            $scope.customizedTrouser[key].divattributes = {};
             $scope.customizedTrouser[key].divattributes.border = "none";
             $scope.$apply();
         };

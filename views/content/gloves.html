@@ -595,7 +595,7 @@
                     </div>
 
 
-                    <div class="choos quantity m20-l" ng-show="tab=='quantity'">
+                    <div class="choos quantity m20-l " ng-show="tab=='quantity'">
                         <div class="table-detail relative">
                             <p class="capitalize">Select the size for your gloves</p>
                             <div class="option-shirt relative gloves" ng-repeat="glove in glovesArr track by $index">
@@ -609,7 +609,7 @@
                                 <div class="sizes size inline-block">
                                     <span class="inline-block uppercase pad-5">quantity</span>
                                     <input type="number" class="form-control inline-block" name="name" value="" ng-change="addQuantity(glove.quantity)" ng-model="glove.quantity" placeholder="12" maxlength="3">
-                                    <p class="error-td f13" ng-if="totalQuan<12 && totalQuan!=0">Please enter valid quantity.The MOQ is 12</p>
+                                    <p class="error-td error-quantity f13" ng-if="totalQuan<12 && totalQuan!=0">Please enter valid quantity.The MOQ is 12</p>
                                 </div>
                                 <!--<div class="sizes size inline-block">
                                     <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">preview</button>
