@@ -776,6 +776,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.trimTrouser.highlightTwo = {};
         $scope.trimTrouser.highlightBase = {};
         $scope.customizedTrouser = {};
+         $scope.customizedTrouser.rightlogo = {};
+        $scope.customizedTrouser.rightlogo.image = "img/logo_black.png";
 
         $scope.switchFrontBack = function (front) {
             $scope.customizedTrouser.front =  front;
@@ -888,6 +890,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             'size': 'L',
             'quantity': 1
         };
+         $scope.trouserQuan = [{
+            'size': 'L',
+            'quantity': ''
+        }];
         $scope.trouserQuanArr = [{
             'size': 'L',
             'quantity': ''
@@ -912,9 +918,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.totalQuan = 0;
             for (var i = 0; i < $scope.trouserQuanArrCount; i++) {
                 // $scope.totalQuan += $scope.trouserQuanArr[i].quantity;
-                //   if ($scope.trouserQuanArr[i].quantity !== undefined) {
+                  if ($scope.trouserQuanArr[i].quantity !== undefined) {
                     $scope.totalQuan += $scope.trouserQuanArr[i].quantity;
-                // }
+                }
             }
             if ($scope.totalQuan) {
                 $scope.totalAmount = $scope.singleAmount * $scope.totalQuan;

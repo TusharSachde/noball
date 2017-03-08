@@ -89,11 +89,12 @@
                     <div class="det-name">
                         <h4>LONG LEG</h4>
                         <h3><i class="fa fa-inr"></i>{{singleAmount}}</h3>
-                        <span><i>Minimum order to be placed for Trousers is 20.</i></span>
+                        <span><i>Minimum Order Quantity (MOQ) = 20 Trousers / Shorts</i></span>
                     </div>
                     <!--    // design tab-->
                     <div class="choos m20-l" ng-show="tab=='design'">
-                        <p>Choose Your Type Of Design</p>
+                        <p>Choose Your Type Of Design ({{images.length}}/{{images.length}})</p>
+
                         <div class="row">
                             <div class="col-md-10">
                                 <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images track by $index">                                    
