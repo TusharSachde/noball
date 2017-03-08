@@ -3938,9 +3938,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             'direction': 'left',
             'quantity': 1
         };
+          $scope.pads = [{
+            'direction': 'left',
+            'quantity': ''
+        }];
         $scope.padsArr = [{
             'direction': 'left',
-            'quantity': 1
+            'quantity': ''
         }];
 
         $scope.padsArrCount = 1;
