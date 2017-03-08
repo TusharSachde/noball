@@ -755,6 +755,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.tabchange('design', 1);
                 }
             } else if (tab === 'b') {
+                  $scope.tabchanges('light3', 3);
                 if (!$scope.tabAllowTob) {
                     $scope.tabchange('trim', 2);
                 }
