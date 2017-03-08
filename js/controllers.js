@@ -11460,11 +11460,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             subname:'(Coming Soon)',
             link: 'kit-bag'
         }];
-
-        $scope.topSlides = [
-            'img/landing/1.jpg',
-            'img/landing/2.jpg',
-            'img/landing/3.jpg'
+        
+ $scope.topSlides = [
+            'img/custombanner/gloves_banner.jpg',
+            'img/custombanner/pads_banner.jpg',
+            'img/custombanner/pants_banner.jpg',
+            'img/custombanner/tees_banner.jpg'
         ];
 
         $scope.showcaseSlides = [{
