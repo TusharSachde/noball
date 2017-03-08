@@ -5224,11 +5224,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.gloves = {
             'direction': 'left',
-            'quantity': 1
+            'quantity': ''
         };
         $scope.glovesArr = [{
             'direction': 'left',
-            'quantity': 1
+            'quantity': ''
         }];
 
         $scope.glovesArrCount = 1;
@@ -5244,7 +5244,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.singleAmount = 1800;
         $scope.totalAmount = 1800;
-        $scope.totalQuan = 1;
+        $scope.totalQuan = 0;
 
         $scope.addQuantity = function (q) {
             $scope.totalQuan = 0;
@@ -5257,7 +5257,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         };
 
-        $scope.addQuantity();
+        // $scope.addQuantity();
 
         $scope.glovesDesign = {};
 
