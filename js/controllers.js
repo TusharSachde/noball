@@ -1073,28 +1073,67 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //     src: "img/shorts/design5/front.png"
         // }]
         // };
-        $scope.images = [{
-            src: "img/trousers/design1/front.png"
-        }, {
-            src: "img/trousers/design2/front.png"
-        }, {
-            src: "img/trousers/design3/front.png"
-        }, {
-            src: "img/trousers/design4/front.png"
-        }, {
-            src: "img/trousers/design5/front.png"
-        }, {
-            src: "img/shorts/design1/front.png"
-        }, {
-            src: "img/shorts/design2/front.png"
-        }, {
-            src: "img/shorts/design3/front.png"
-        }, {
-            src: "img/shorts/design4/front.png"
-        }, {
-            src: "img/shorts/design5/front.png"
-        }];
+        // $scope.images = [{
+        //     src: "img/trousers/design1/front.png"
+        // }, {
+        //     src: "img/trousers/design2/front.png"
+        // }, {
+        //     src: "img/trousers/design3/front.png"
+        // }, {
+        //     src: "img/trousers/design4/front.png"
+        // }, {
+        //     src: "img/trousers/design5/front.png"
+        // }, {
+        //     src: "img/shorts/design1/front.png"
+        // }, {
+        //     src: "img/shorts/design2/front.png"
+        // }, {
+        //     src: "img/shorts/design3/front.png"
+        // }, {
+        //     src: "img/shorts/design4/front.png"
+        // }, {
+        //     src: "img/shorts/design5/front.png"
+        // }];
         //tab changes
+         $scope.page = 1;
+
+        $scope.images = {
+            "page1": [{
+                src: "img/trousers/design1/front.png",
+                // type: "odi"
+                // }, {
+                //     src: "img/odi-tshirts/trims/odi/design2/front.png",
+                //     type: "odi"
+            }, {
+                src: "img/trousers/design2/front.png",
+                // type: "odi"
+            }, {
+                src: "img/trousers/design3/front.png",
+                // type: "odi"
+            }, {
+                src: "img/trousers/design4/front.png",
+                // type: "odi"
+            }, {
+                src: "img/trousers/design5/front.png",
+                // type: "training"
+            }, {
+                src: "img/shorts/design1/front.png",
+                // type: "training"
+            }, {
+                src: "img/shorts/design2/front.png",
+                // type: "training"
+            }, {
+                src: "img/shorts/design3/front.png",
+                // type: "training"
+            }, {
+                src: "img/shorts/design4/front.png",
+                // type: "training"
+            }],
+            "page2": [{
+                src: "img/shorts/design5/front.png",
+                // type: "whites"
+            }]
+        };
 
         $scope.tabs = 'light3';
         $scope.classp = 'active-tab';
@@ -1249,7 +1288,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     scope: $scope
                 });
             } else {
-                console.log('//////////33333');
+                console.log('//////////33333',index);
                 $scope.changeDesign(index);
             }
         }
@@ -3917,7 +3956,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.singleAmount = 2750;
         $scope.totalAmount = 2750;
-        $scope.totalQuan = 1;
+        $scope.totalQuan = 0;
 
         $scope.addQuantity = function (q) {
             $scope.totalQuan = 0;
@@ -3930,7 +3969,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         };
 
-        $scope.addQuantity();
+        // $scope.addQuantity();
 
         $scope.padsDesign = {};
 
