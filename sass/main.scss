@@ -7336,7 +7336,7 @@ h2 {
     width: 200px;
        &:before{
     content: "";
-    // background-image: url(../img/custombanner/previous.png);
+    background-image: url(../img/custombanner/next-slide.png);
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;
@@ -7354,7 +7354,7 @@ h2 {
     width: 200px;
        &:before{
             content: "";
-    // background-image: url(../img/custombanner/previous.png);
+    background-image: url(../img/custombanner/prev-slide.png);
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;
@@ -7374,5 +7374,17 @@ h2 {
     left: 142px;
     bottom: -27px;
     color: red;
+}
+
+.flexslider .flex-direction-nav .flex-prev {
+    left: -30px !important;
+    opacity: 1 !important;
+    top: 150px;
+}
+
+.flexslider .flex-direction-nav .flex-next {
+    right: -30px !important;
+    opacity: 1 !important;
+    top: 150px;
 }
 @import "mobile/mobile";
