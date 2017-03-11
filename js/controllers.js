@@ -640,7 +640,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     })
 
-    .controller('TrousersCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) { 
+    .controller('TrousersCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("trousers");
         $scope.menutitle = NavigationService.makeactive("Trousers");
@@ -796,22 +796,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // $scope.color.trim1 = "white";
         $scope.trouserJson.design = {};
         // $scope.type = 'trousers';
-        // $scope.designName = "design1";
-        $scope.switchFrontBack = function (front,type) {
+        // $scope.trouserJson.design.name = "design1";
+        $scope.switchFrontBack = function (front, type) {
             // console.log('type',type);
             $scope.trouserJson.type = type;
             // $scope.customizedTrouser.front =  front;
             // $scope.customizedTrouser.back =  !front;
             if (front) {
-                $scope.trouserJson.design.base = 'img/' + $scope.trouserJson.type + '/' + $scope.designName + '/base/front/' + $scope.trouserJson.color.base + '.png';
-                console.log('$scope.design.base',$scope.trouserJson.design.base,$scope.trouserJson.color.base);
+                $scope.trouserJson.design.base = 'img/' + $scope.trouserJson.type + '/' + $scope.trouserJson.design.name + '/base/front/' + $scope.trouserJson.color.base + '.png';
+                console.log('$scope.design.base', $scope.trouserJson.design.base, $scope.trouserJson.color.base);
             } else {
                 $scope.customizedTrouser.cloth = 'img/' + $scope.pantType + '/' + $scope.designType + 'base/back/' + $scope.trimTrouser.highlightBase.tcolor + '.png';
             }
         }
-        $scope.switchFrontBack(true,$scope.trouserJson.type);
+        $scope.switchFrontBack(true, $scope.trouserJson.type);
         $scope.tempImage = "";
-         $scope.trouserJson.leftLogo = {};
+        $scope.trouserJson.leftLogo = {};
         $scope.changeLogo = function (key) {
             $scope.customizedTrouser[key].divattributes = {};
             console.log(key);
@@ -851,14 +851,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         }
 
-$scope.getTrouserJson = function(data){
-    console.log('getTrouserJson',data);
-}
-       
+        $scope.getTrouserJson = function (data) {
+            console.log('getTrouserJson', data);
+        }
+
         $scope.confirmUpload = function (variable, name) {
             $scope.trousersLogo.image = $scope.tempImage;
             $scope.trouserJson.leftLogo.image = $scope.tempImage;
-            
+
             // $scope.customizedTrouser[variable].image = $scope.tempImage;
             // $scope.customizedTrouser[variable].name = name;
             // console.log($scope.customizedTrouser);
@@ -876,19 +876,19 @@ $scope.getTrouserJson = function(data){
         $scope.trimTrouser.highlightTwo.disable = "noable";
 
         $scope.switchTrimHighlightOne = function (color) {
-            console.log('colorrr',color);
+            console.log('colorrr', color);
             $scope.trouserJson.color.trim1 = color;
-            $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.designName + "/front/trim1/" + color + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
+            $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim1/" + color + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
 
         };
         $scope.switchTrimHighlightTwo = function (color) {
             //  console.log('colorswitchTrimHighlighttwo', color);
             $scope.trouserJson.color.trim2 = color;
-            $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.designName + "/front/trim2/" + color + ".png";
+            $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim2/" + color + ".png";
 
         };
         $scope.switchTrimHighlightBase = function (color) {
-           
+
             $scope.trouserJson.color.base = color;
             $scope.trouserJson.design.base = "img/" + $scope.trouserJson.type + "/base/front/" + color + ".png";
 
@@ -909,8 +909,15 @@ $scope.getTrouserJson = function(data){
 
         $scope.trouserQuanArrCount = 1;
 
-        $scope.addTrouserValues = function () {
-            $scope.trouserJson.quantity.push(_.clone($scope.trouserQuan));
+        $scope.addTrouserValues = function (qty, size) {
+            console.log('trouser', qty, size);
+            var tempObj = {
+                'size': size,
+                'quantity': qty
+            }
+            // $scope.trouserJson.quantity.push(_.clone($scope.trouserQuan));
+            $scope.trouserJson.quantity.push(tempObj);
+            console.log('$scope.trouserJson.quantity', $scope.trouserJson.quantity);
             $scope.trouserQuanArrCount = $scope.trouserQuanArrCount + 1;
         }
         $scope.removeTrouserValue = function (index) {
@@ -918,20 +925,20 @@ $scope.getTrouserJson = function(data){
             $scope.trouserQuanArrCount = $scope.trouserQuanArrCount - 1;
         }
         $scope.singleAmount = 850;
-        $scope.totalAmount = 850;
-        $scope.totalQuan = 1;
+        $scope.trouserJson.totalAmount = 850;
+        $scope.trouserJson.totalQuan = 1;
 
         $scope.addQuantity = function (q) {
-            $scope.totalAmount = 0;
-            $scope.totalQuan = 0;
+            $scope.trouserJson.totalAmount = 0;
+            $scope.trouserJson.totalQuan = 0;
             for (var i = 0; i < $scope.trouserQuanArrCount; i++) {
                 // $scope.totalQuan += $scope.quantity[i].quantity;
                 if ($scope.trouserJson.quantity[i].quantity !== undefined) {
-                    $scope.totalQuan += $scope.trouserJson.quantity[i].quantity;
+                    $scope.trouserJson.totalQuan += $scope.trouserJson.quantity[i].quantity;
                 }
             }
-            if ($scope.totalQuan) {
-                $scope.totalAmount = $scope.singleAmount * $scope.totalQuan;
+            if ($scope.trouserJson.totalQuan) {
+                $scope.trouserJson.totalAmount = $scope.singleAmount * $scope.trouserJson.totalQuan;
             }
         };
 
@@ -1168,20 +1175,20 @@ $scope.getTrouserJson = function(data){
                 $scope.trimTrouser.highlightBase.disable = "unnoable";
                 $scope.trimTrouser.highlightOne.disable = "unnoable";
                 $scope.trimTrouser.highlightTwo.disable = "noable";
-                $scope.designName = "design1";
+                $scope.trouserJson.design.name = "design1";
                 $scope.trouserJson.type = "trousers";
                 $scope.singleAmount = 850;
                 $scope.trouserJson.color.base = "black";
                 $scope.trouserJson.color.trim1 = "red";
                 $scope.trouserJson.color.trim2 = "";
                 $scope.trouserJson.design.base = "img/" + $scope.trouserJson.type + "/base/front/" + 'black' + ".png";
-                $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.designName + "/front/trim1/" + 'red' + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
-                $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.designName + "/front/trim2/" + '' + ".png";
+                $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim1/" + 'red' + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
+                $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim2/" + '' + ".png";
             } else if (index === 1) {
                 $scope.trimTrouser.highlightBase.disable = "unnoable";
                 $scope.trimTrouser.highlightOne.disable = "unnoable";
                 $scope.trimTrouser.highlightTwo.disable = "noable";
-                $scope.designName = "design2";
+                $scope.trouserJson.design.name = "design2";
                 $scope.trouserJson.type = "trousers";
                 $scope.singleAmount = 850;
                 $scope.trimTabs.light3.active = "activeme";
@@ -1190,13 +1197,13 @@ $scope.getTrouserJson = function(data){
                 $scope.trouserJson.color.trim1 = "lemon_yellow";
                 $scope.trouserJson.color.trim2 = "";
                 $scope.trouserJson.design.base = "img/" + $scope.trouserJson.type + "/base/front/" + 'royal_blue' + ".png";
-                $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.designName + "/front/trim1/" + 'lemon_yellow' + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
-                $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.designName + "/front/trim2/" + '' + ".png";
+                $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim1/" + 'lemon_yellow' + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
+                $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim2/" + '' + ".png";
             } else if (index === 2) {
                 $scope.trimTrouser.highlightBase.disable = "unnoable";
                 $scope.trimTrouser.highlightOne.disable = "unnoable";
                 $scope.trimTrouser.highlightTwo.disable = "noable";
-                $scope.designName = "design3";
+                $scope.trouserJson.design.name = "design3";
                 $scope.trouserJson.type = "trousers";
                 $scope.singleAmount = 850;
                 $scope.trimTabs.light3.active = "activeme";
@@ -1205,60 +1212,60 @@ $scope.getTrouserJson = function(data){
                 $scope.trouserJson.color.trim1 = "orange";
                 $scope.trouserJson.color.trim2 = "";
                 $scope.trouserJson.design.base = "img/" + $scope.trouserJson.type + "/base/front/" + 'white' + ".png";
-                $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.designName + "/front/trim1/" + 'orange' + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
-                $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.designName + "/front/trim2/" + '' + ".png";
+                $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim1/" + 'orange' + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
+                $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim2/" + '' + ".png";
 
             } else if (index === 3) {
                 $scope.trimTrouser.highlightBase.disable = "unnoable";
                 $scope.trimTrouser.highlightOne.disable = "unnoable";
                 $scope.trimTrouser.highlightTwo.disable = "noable";
-                $scope.designName = "design4";
+                $scope.trouserJson.design.name = "design4";
                 $scope.trouserJson.type = "trousers";
                 $scope.singleAmount = 850;
                 $scope.trimTabs.light3.active = "activeme";
                 $scope.trimTabs.light3.show = "active-tab";
-                  $scope.trouserJson.color.base = "red";
+                $scope.trouserJson.color.base = "red";
                 $scope.trouserJson.color.trim1 = "white";
                 $scope.trouserJson.color.trim2 = "";
                 $scope.trouserJson.design.base = "img/" + $scope.trouserJson.type + "/base/front/" + 'red' + ".png";
-                $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.designName + "/front/trim1/" + 'white' + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
-                $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.designName + "/front/trim2/" + '' + ".png";
+                $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim1/" + 'white' + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
+                $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim2/" + '' + ".png";
 
             } else if (index === 4) {
                 $scope.trimTrouser.highlightBase.disable = "unnoable";
                 $scope.trimTrouser.highlightOne.disable = "unnoable";
                 $scope.trimTrouser.highlightTwo.disable = "noable";
-                $scope.designName = "design5";
+                $scope.trouserJson.design.name = "design5";
                 $scope.trouserJson.type = "trousers";
                 $scope.singleAmount = 850;
                 $scope.trimTabs.light3.active = "activeme";
                 $scope.trimTabs.light3.show = "active-tab";
-                  $scope.trouserJson.color.base = "lemon_yellow";
+                $scope.trouserJson.color.base = "lemon_yellow";
                 $scope.trouserJson.color.trim1 = "australian_green";
                 $scope.trouserJson.color.trim2 = "";
                 $scope.trouserJson.design.base = "img/" + $scope.trouserJson.type + "/base/front/" + 'lemon_yellow' + ".png";
-                $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.designName + "/front/trim1/" + 'australian_green' + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
-                $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.designName + "/front/trim2/" + '' + ".png";
+                $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim1/" + 'australian_green' + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
+                $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim2/" + '' + ".png";
 
             } else if (index === 5) {
                 $scope.trimTrouser.highlightBase.disable = "unnoable";
                 $scope.trimTrouser.highlightOne.disable = "unnoable";
                 $scope.trimTrouser.highlightTwo.disable = "noable";
-                $scope.designName = "design1";
+                $scope.trouserJson.design.name = "design1";
                 $scope.trouserJson.type = "shorts";
                 $scope.singleAmount = 650;
                 $scope.trouserJson.color.base = "australian_green";
                 $scope.trouserJson.color.trim1 = "black";
                 $scope.trouserJson.color.trim2 = "";
                 $scope.trouserJson.design.base = "img/" + $scope.trouserJson.type + "/base/front/" + 'australian_green' + ".png";
-                $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.designName + "/front/trim1/" + 'black' + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
-                $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.designName + "/front/trim2/" + '' + ".png";
+                $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim1/" + 'black' + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
+                $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim2/" + '' + ".png";
 
             } else if (index === 6) {
                 $scope.trimTrouser.highlightBase.disable = "unnoable";
                 $scope.trimTrouser.highlightOne.disable = "unnoable";
                 $scope.trimTrouser.highlightTwo.disable = "noable";
-                $scope.designName = "design2";
+                $scope.trouserJson.design.name = "design2";
                 $scope.trouserJson.type = "shorts";
                 $scope.singleAmount = 650;
                 $scope.trouserJson.color.base = "black";
@@ -1267,55 +1274,55 @@ $scope.getTrouserJson = function(data){
                 $scope.trimTabs.light3.active = "activeme";
                 $scope.trimTabs.light3.show = "active-tab";
                 $scope.trouserJson.design.base = "img/" + $scope.trouserJson.type + "/base/front/" + 'black' + ".png";
-                $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.designName + "/front/trim1/" + 'australian_green' + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
-                $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.designName + "/front/trim2/" + '' + ".png";
+                $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim1/" + 'australian_green' + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
+                $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim2/" + '' + ".png";
             } else if (index === 7) {
                 $scope.trimTrouser.highlightBase.disable = "unnoable";
                 $scope.trimTrouser.highlightOne.disable = "unnoable";
                 $scope.trimTrouser.highlightTwo.disable = "noable";
-                $scope.designName = "design3";
+                $scope.trouserJson.design.name = "design3";
                 $scope.trouserJson.type = "shorts";
                 $scope.singleAmount = 650;
-                  $scope.trouserJson.color.base = "grey";
+                $scope.trouserJson.color.base = "grey";
                 $scope.trouserJson.color.trim1 = "lemon_yellow";
                 $scope.trouserJson.color.trim2 = "";
                 $scope.trimTabs.light3.active = "activeme";
                 $scope.trimTabs.light3.show = "active-tab";
                 $scope.trouserJson.design.base = "img/" + $scope.trouserJson.type + "/base/front/" + 'grey' + ".png";
-                $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.designName + "/front/trim1/" + 'lemon_yellow' + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
-                $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.designName + "/front/trim2/" + '' + ".png";
+                $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim1/" + 'lemon_yellow' + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
+                $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim2/" + '' + ".png";
 
             } else if (index === 8) {
                 $scope.trimTrouser.highlightBase.disable = "unnoable";
                 $scope.trimTrouser.highlightOne.disable = "unnoable";
                 $scope.trimTrouser.highlightTwo.disable = "noable";
-                $scope.designName = "design4";
+                $scope.trouserJson.design.name = "design4";
                 $scope.trouserJson.type = "shorts";
                 $scope.singleAmount = 650;
-                  $scope.trouserJson.color.base = "orange";
+                $scope.trouserJson.color.base = "orange";
                 $scope.trouserJson.color.trim1 = "white";
                 $scope.trouserJson.color.trim2 = "";
                 $scope.trimTabs.light3.active = "activeme";
                 $scope.trimTabs.light3.show = "active-tab";
                 $scope.trouserJson.design.base = "img/" + $scope.trouserJson.type + "/base/front/" + 'orange' + ".png";
-                $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.designName + "/front/trim1/" + 'white' + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
-                $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.designName + "/front/trim2/" + '' + ".png";
+                $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim1/" + 'white' + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
+                $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim2/" + '' + ".png";
 
             } else if (index === 9) {
                 $scope.trimTrouser.highlightBase.disable = "unnoable";
                 $scope.trimTrouser.highlightOne.disable = "unnoable";
                 $scope.trimTrouser.highlightTwo.disable = "unnoable";
-                $scope.designName = "design5";
+                $scope.trouserJson.design.name = "design5";
                 $scope.trouserJson.type = "shorts";
                 $scope.singleAmount = 650;
-                  $scope.trouserJson.color.base = "royal_blue";
+                $scope.trouserJson.color.base = "royal_blue";
                 $scope.trouserJson.color.trim1 = "lemon_yellow";
                 $scope.trouserJson.color.trim2 = "";
                 $scope.trimTabs.light3.active = "activeme";
                 $scope.trimTabs.light3.show = "active-tab";
                 $scope.trouserJsondesign.base = "img/" + $scope.trouserJson.type + "/base/front/" + 'royal_blue' + ".png";
-                $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.designName + "/front/trim1/" + 'lemon_yellow' + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
-                $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.designName + "/front/trim2/" + 'australian_green' + ".png";
+                $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim1/" + 'lemon_yellow' + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
+                $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim2/" + 'australian_green' + ".png";
 
             }
         }
@@ -1349,10 +1356,9 @@ $scope.getTrouserJson = function(data){
         };
         $scope.qtyValidation = false;
         $scope.checkloginTrousers = function (qty) {
-            if (qty == 0) {
-                $scope.qtyValidation = true;
-            }
-            console.log('qqqqqqq////////////');
+            // if (qty == 0) {
+            //     $scope.qtyValidation = true;
+            // }
             if (NavigationService.getUser()) {
                 $scope.isLogin = true;
             } else {
@@ -1360,7 +1366,14 @@ $scope.getTrouserJson = function(data){
             }
             if ($scope.isLogin) {
                 console.log('////////////');
-                //   $scope.openSaveDesignPopup = function () {
+                       NavigationService.saveDesign(user.email, $scope.trouserJson, 'trouser',
+                        function (data) {
+                            console.log('Save Design data: ', data);
+                            $state.go('savedesign');
+                        },
+                        function (err) {
+                            console.log(err);
+                        });
                 $uibModal.open({
                     templateUrl: 'views/modal/savedesign.html',
                     scope: $scope
@@ -1476,7 +1489,7 @@ $scope.getTrouserJson = function(data){
         }
 
         $scope.checkTeamLogo = function () {
-            console.log('troooo', $scope.trouserJson.leftLogo.image,$scope.trouserJson.sendTeamLogoLater);
+            console.log('troooo', $scope.trouserJson.leftLogo.image, $scope.trouserJson.sendTeamLogoLater);
             if ($scope.trouserJson.sendTeamLogoLater || $scope.trouserJson.leftLogo.image) {
                 $scope.switchNavigation('d');
                 $scope.tabchange('quantity', 5);
@@ -1490,7 +1503,7 @@ $scope.getTrouserJson = function(data){
         }
         //    end
         $scope.toOrderSummary = function () {
-          
+
             // $scope.combineJSON = {
             //     "trousers": {
             //         "trim": $scope.trimTrouser,
@@ -1503,23 +1516,23 @@ $scope.getTrouserJson = function(data){
             //     "type": "trousers"
             // };
 
-                NavigationService.orderSummaryTrouser(user.email, $scope.combineJSON, 'trousers',
-                    function (data) {
-                        console.log('Order Summary odi data: ', data);
-                        $state.go('ordersummary', {
-                            id: data.id
-                        });
-                    },
-                    function (err) {
-                        console.log(err);
+            NavigationService.orderSummaryTrouser(user.email, $scope.trouserJson, 'trousers',
+                function (data) {
+                    console.log('Order Summary odi data: ', data);
+                    $state.go('ordersummary', {
+                        id: data.id
                     });
+                },
+                function (err) {
+                    console.log(err);
+                });
 
             $scope.lastJSON = JSON.stringify($scope.combineJSON);
             console.log($scope.combineJSON);
             console.log($scope.lastJSON);
         }
 
-      console.log($scope.type)
+        console.log($scope.type)
         $scope.openUpload = function () {
             $uibModal.open({
                 templateUrl: "views/modal/tshirt.html",
@@ -1582,7 +1595,7 @@ $scope.getTrouserJson = function(data){
         // $scope.design = {};
         //  $scope.type = 'trousers';
         //    $scope.design.base = "img/" + $scope.type + "/base/front/" + color + ".png";
-        //     $scope.design.highlightOne = "img/" + $scope.type + "/" + $scope.designName + "/front/trim1/" + color + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
+        //     $scope.design.highlightOne = "img/" + $scope.type + "/" + $scope.trouserJson.design.name + "/front/trim1/" + color + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
         //     $scope.design.highlightTwo = design;
 
         // $scope.designTabJson = function(design,type){
@@ -1598,1247 +1611,6 @@ $scope.getTrouserJson = function(data){
 
 
 
-    //  .controller('TrousersCtrl', function ($scope, $rootScope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
-    //     //Used to name the .html file
-    //     $scope.template = TemplateService.changecontent("trousers");
-    //     $scope.menutitle = NavigationService.makeactive("Trousers");
-    //     TemplateService.title = $scope.menutitle;
-    //     $scope.navigation = NavigationService.getnav();
-    //     var check = 1;
-    //     $scope.statuses = {};
-    //     // $scope.pantType = "trousers";
-
-    //     $scope.$on('$stateChangeStart', function (event, toState, fromState) {
-    //         // console.log(event);
-    //         console.log('$scope.changeIDTrouser', $scope.changeIDTrouser);
-    //         console.log('fromState', fromState);
-    //         console.log('toState111', toState);
-    //         if (toState.name == 'order' || toState.name == 'ordersummary' || toState.name == 'savedesign') {
-    //             // $rootScope.editId = {};
-    //             console.log('herer');
-    //             // $state.go(toState.name);
-    //             window.location.reload();
-
-
-    //         } else {
-    //             $scope.changeDesign(0, 1);
-    //             console.log('ifff toState.name != order');
-    //             var answer = confirm("Are you sure you want to leave this page? Your changes will not be saved.");
-    //             if (answer) {
-    //                 console.log('yes ans');
-    //                 $rootScope.editIdTrouser = {};
-    //                 // $state.go(toState.name);
-    //             } else {
-    //                 console.log('no ans');
-    //                 event.preventDefault();
-    //             }
-    //         }
-    //     });
-    //     // slider
-    //     $scope.rslider = {
-    //         min: 10,
-    //         max: 100
-    //     };
-    //     $scope.outplace = function () {
-    //         $uibModal.open({
-    //             templateUrl: "views/modal/outofplace.html",
-    //             // controller: "OdiCtrl",
-    //             windowClass: "modal-dialogintro",
-    //             scope: $scope
-    //         })
-    //     };
-    //     $scope.activeButton = 1;
-    //     $scope.toggleTab = function (val) {
-    //         $scope.activeButton = val;
-    //     };
-
-    //     $scope.tab = "design";
-    //     $scope.classa = 'active';
-    //     $scope.classb = '';
-    //     $scope.classc = '';
-    //     $scope.classd = '';
-    //     $scope.classe = '';
-
-    //     $scope.tabchange = function (tab, a) {
-    //         $scope.axd = a;
-    //         $scope.tab = tab;
-    //         if (a == 1) {
-    //             $scope.classa = 'active';
-    //             $scope.classb = '';
-    //             $scope.classc = '';
-    //             $scope.classd = '';
-    //             $scope.classe = '';
-
-    //         }
-    //         if (a == 2) {
-    //             // $scope.a =a;
-    //             $scope.classb = 'active';
-    //             $scope.classa = '';
-    //             $scope.classc = '';
-    //             $scope.classd = '';
-    //             $scope.classe = '';
-
-    //         }
-    //         if (a == 3) {
-    //             // $scope.a =a;
-    //             $scope.classc = 'active';
-    //             $scope.classb = '';
-    //             $scope.classa = '';
-    //             $scope.classd = '';
-    //             $scope.classe = '';
-
-    //         } else if (a == 4) {
-    //             // $scope.a =a;
-    //             $scope.classe = 'active';
-    //             $scope.classb = '';
-    //             $scope.classc = '';
-    //             $scope.classd = '';
-    //             $scope.classa = '';
-    //         } else if (a == 5) {
-    //             $scope.classe = 'active';
-    //             $scope.classb = '';
-    //             $scope.classc = '';
-    //             $scope.classd = '';
-    //             $scope.classa = '';
-
-    //         }
-    //     };
-    //     $scope.tabAllowa = '';
-    //     $scope.tabAllowb = 'noAllow';
-    //     $scope.tabAllowc = 'noAllow';
-    //     $scope.tabAllowd = 'noAllow';
-    //     $scope.tabAllowToa = false;
-    //     $scope.tabAllowTob = true;
-    //     $scope.tabAllowToc = true;
-    //     $scope.tabAllowTod = true;
-
-    //     $scope.openTab = function (tab) {
-    //         if (tab === 'a') {
-    //             $scope.tabAllowa = '';
-    //             $scope.tabAllowToa = false;
-    //         } else if (tab === 'b') {
-    //             $scope.tabAllowb = '';
-    //             $scope.tabAllowTob = false;
-    //         } else if (tab === 'c') {
-    //             $scope.tabAllowc = '';
-    //             $scope.tabAllowToc = false;
-    //         } else if (tab === 'd') {
-    //             $scope.tabAllowd = '';
-    //             $scope.tabAllowTod = false;
-    //         }
-    //     };
-    //     $scope.LogosTab = false;
-    //     $scope.quantityTab = false;
-    //     $scope.turnOnLogos = function (val) {
-    //         $scope.LogosTab = val;
-    //     }
-
-    //     $scope.switchNavigation = function (tab) {
-    //         if (tab === 'a') {
-    //             if (!$scope.tabAllowToa) {
-    //                 $scope.tabchange('design', 1);
-    //             }
-    //         } else if (tab === 'b') {
-    //             if (!$scope.tabAllowTob) {
-    //                 $scope.tabchanges('light3', 3);
-    //                 $scope.tabchange('trim', 2);
-    //             }
-    //         } else if (tab === 'c') {
-    //             if (!$scope.tabAllowToc) {
-    //                 $scope.tabchange('team', 3);
-    //                 $scope.turnOnLogos(true);
-    //             }
-    //         } else if (tab === 'd') {
-    //             if (!$scope.tabAllowTod) {
-    //                 $scope.tabchange('quantity', 5);
-    //             }
-    //         }
-    //     };
-
-
-    //     $scope.trimTrouser = {};
-    //     $scope.trimTrouser.highlightOne = {};
-    //     $scope.trimTrouser.highlightTwo = {};
-    //     $scope.trimTrouser.highlightBase = {};
-    //     $scope.customizedTrouser = {};
-    //     // $scope.rightlogo={};
-    //     // $scope.attributes={};
-    //     // $scope.customizedTrouser.rightlogo.attributes.width = 100;
-
-
-    //     $scope.switchFrontBack = function (front) {
-    //         if ($scope.changeIDTrouser) {
-    //             console.log('$scope.changeIDTrouser.customizedTrouser.cloth', $scope.changeIDTrouser.customizedTrouser.cloth);
-    //             if ($scope.changeIDTrouser.customizedTrouser.cloth.indexOf('img/shorts') == -1) {
-    //                 $scope.pantType = "trousers";
-    //             } else {
-    //                 $scope.pantType = "shorts";
-    //             }
-    //         } else {
-    //             // $scope.pantType = "trousers";
-    //         }
-    //         $scope.customizedTrouser.front =  front;
-    //         $scope.customizedTrouser.back =  !front;
-    //         if (front) {
-    //             $scope.customizedTrouser.cloth = 'img/' + $scope.pantType + '/' + $scope.designType + 'base/front/' + $scope.trimTrouser.highlightBase.tcolor + '.png';
-    //         } else {
-    //             $scope.customizedTrouser.cloth = 'img/' + $scope.pantType + '/' + $scope.designType + 'base/back/' + $scope.trimTrouser.highlightBase.tcolor + '.png';
-    //         }
-    //     }
-    //     $scope.switchFrontBack(true);
-    //     $scope.tempImage = "";
-    //     $scope.changeLogo = function (key) {
-    //         console.log(key);
-    //         $scope.customizedTrouser[key].divattributes.border = "1px solid #ccc";
-    //     };
-    //     $scope.resetLogoStyle = function (key) {
-    //         $scope.customizedTrouser[key].divattributes.border = "none";
-    //         $scope.$apply();
-    //     };
-
-    //     $scope.onFileSelect = function ($files, whichone, uploadtype, variable) {
-    //         $scope.toolarge = false;
-    //         console.log($files);
-    //         if ($files[0].size < 20000000) {
-    //             $scope.statuses.uploadStatus = true;
-    //             cfpLoadingBar.start();
-    //             $scope.showimage = true;
-    //             globalfunction.onFileSelect($files, function (image) {
-
-    //                 cfpLoadingBar.complete();
-    //                 if (whichone == 1) {
-    //                     console.log(image);
-    //                     $scope.tempImage = image[0];
-    //                     if (!$scope.customizedTrouser[variable]) {
-    //                         $scope.customizedTrouser[variable] = {};
-    //                         $scope.customizedTrouser[variable].attributes = {};
-    //                         $scope.customizedTrouser[variable].divattributes = {};
-    //                         $scope.customizedTrouser[variable].attributes.width = 100;
-    //                     }
-    //                     console.log($scope.tempImage);
-    //                 }
-    //             })
-    //         } else {
-    //             $files = [];
-    //             $scope.toolarge = true;
-    //         }
-    //     }
-
-
-
-    //     $scope.confirmUpload = function (variable, name) {
-    //         $scope.trousersLogo.image = $scope.tempImage;
-    //         $scope.customizedTrouser[variable].image = $scope.tempImage;
-    //         $scope.customizedTrouser[variable].name = name;
-    //         console.log($scope.customizedTrouser);
-    //         $scope.tempImage = "";
-    //     }
-
-    //     $scope.trimTrouser.highlightOne.flag = true;
-    //     $scope.trimTrouser.highlightTwo.flag = true;
-    //     $scope.trimTrouser.highlightBase.flag = true;
-    //     $scope.trimTrouser.highlightOne.tcolor = "white";
-    //     $scope.trimTrouser.highlightTwo.tcolor = "white";
-    //     $scope.trimTrouser.highlightBase.tcolor = "white";
-    //     $scope.trimTrouser.highlightBase.disable = "noable";
-    //     $scope.trimTrouser.highlightOne.disable = "noable";
-    //     $scope.trimTrouser.highlightTwo.disable = "noable";
-
-    //     $scope.switchTrimHighlightOne = function (flag, color) {
-    //         if ($scope.changeIDTrouser) {
-    //             console.log('$scope.changeIDTrouser.customizedTrouser.cloth', $scope.changeIDTrouser.customizedTrouser.cloth);
-    //             if ($scope.changeIDTrouser.customizedTrouser.cloth.indexOf('img/shorts') == -1) {
-    //                 $scope.pantType = "trousers";
-    //             } else {
-    //                 $scope.pantType = "shorts";
-    //             }
-    //         } 
-    //         if($scope.saveStateTrouser){
-    //             console.log('inside savesttate',$scope.saveStateTrouser);
-    //           if ($scope.saveStateTrouser.trousers.trim.highlightBase.image.indexOf('img/trousers') != -1) {
-    //                 $scope.pantType = 'shorts';
-    //             } else {
-    //                 $scope.pantType = 'trouser';
-    //             }
-    //              }
-    //         console.log(flag, color);
-    //         $scope.trimTrouser.highlightOne.flag = flag;
-    //         $scope.trimTrouser.highlightOne.tcolor = color;
-    //         if ($scope.trimTrouser.highlightOne.tcolor != "") {
-    //             if (flag) {
-    //                 // console.log('beforessss',$scope.saveStateTrouser);
-    //                 $scope.trimTrouser.highlightOne.image = "img/" + $scope.pantType + "/" + $scope.designName + "/front/trim1/" + color + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
-    //                 console.log('sssssssssssssssssssss', $scope.trimTrouser.highlightOne.image)
-    //             } else {
-    //                 $scope.trimTrouser.highlightOne.image = "img/" + $scope.pantType + "/" + $scope.designName + "/back/trim1/" + color + ".png"; // "img/odi-tshirts/trims/highlight1/back/trim_" + color + ".png";
-    //             }
-    //         } else {
-    //             $scope.trimTrouser.highlightOne.image = "";
-    //         }
-    //     };
-    //     $scope.switchTrimHighlightTwo = function (flag, color) {
-    //         if ($scope.changeIDTrouser) {
-    //             console.log('$scope.changeIDTrouser.customizedTrouser.cloth', $scope.changeIDTrouser.customizedTrouser.cloth);
-    //             if ($scope.changeIDTrouser.customizedTrouser.cloth.indexOf('img/shorts') == -1) {
-    //                 $scope.pantType = "trousers";
-    //             } else {
-    //                 $scope.pantType = "shorts";
-    //             }
-    //         } else {
-    //             // $scope.pantType = "trousers";
-    //         }
-    //         $scope.trimTrouser.highlightTwo.flag = flag;
-    //         $scope.trimTrouser.highlightTwo.tcolor = color;
-    //         if ($scope.trimTrouser.highlightTwo.tcolor != "") {
-    //             if (flag) {
-    //                 $scope.trimTrouser.highlightTwo.image = "img/" + $scope.pantType + "/" + $scope.designName + "/front/trim2/" + color + ".png";
-    //             } else {
-    //                 $scope.trimTrouser.highlightTwo.image = "img/" + $scope.pantType + "/" + $scope.designName + "/back/trim2/" + color + ".png";
-    //             }
-    //         } else {
-    //             $scope.trimTrouser.highlightTwo.image = "";
-    //         }
-    //     };
-    //     $scope.switchTrimHighlightBase = function (flag, color) {
-    //         if ($scope.changeIDTrouser) {
-    //             console.log('$scope.changeIDTrouser.customizedTrouser.cloth', $scope.changeIDTrouser.customizedTrouser.cloth);
-    //             if ($scope.changeIDTrouser.customizedTrouser.cloth.indexOf('img/shorts') == -1) {
-    //                 $scope.pantType = "trousers";
-    //             } else {
-    //                 $scope.pantType = "shorts";
-    //             }
-    //         } else {
-    //             // $scope.pantType = "trousers";
-    //         }
-    //         $scope.trimTrouser.highlightBase.flag = flag;
-    //         $scope.trimTrouser.highlightBase.tcolor = color;
-    //         if (flag) {
-    //             $scope.trimTrouser.highlightBase.image = "img/" + $scope.pantType + "/base/front/" + color + ".png";
-    //             $scope.customizedTrouser.front = flag;
-    //         } else {
-    //             $scope.trimTrouser.highlightBase.image = "img/" + $scope.pantType + "/base/back/" + color + ".png";
-    //             $scope.customizedTrouser.front = flag;
-    //         }
-    //     };
-    //     $scope.switchTrimHighlightBase(true, $scope.trimTrouser.highlightBase.tcolor);
-
-    //     $scope.trouskitbag = {
-    //         'size': 'L',
-    //         'quantity': 1
-    //     };
-    //     $scope.trouserQuan = [{
-    //         'size': 'L',
-    //         'quantity': ''
-    //     }];
-    //     $scope.trouserQuanArr = [{
-    //         'size': 'L',
-    //         'quantity': ''
-    //     }];
-
-    //     $scope.trouserQuanArrCount = 1;
-
-    //     $scope.addTrouserValues = function () {
-    //         $scope.trouserQuanArr.push(_.clone($scope.trouserQuan));
-    //         $scope.trouserQuanArrCount = $scope.trouserQuanArrCount + 1;
-    //     }
-    //     $scope.removeTrouserValue = function (index) {
-    //         $scope.trouserQuanArr.splice(index, 1);
-    //         $scope.trouserQuanArrCount = $scope.trouserQuanArrCount - 1;
-    //     }
-    //     $scope.singleAmount = 850;
-    //     $scope.totalAmount = 850;
-    //     $scope.totalQuan = 1;
-
-    //     $scope.addQuantity = function (q) {
-    //         $scope.totalAmount = 0;
-    //         $scope.totalQuan = 0;
-    //         for (var i = 0; i < $scope.trouserQuanArrCount; i++) {
-    //             $scope.totalQuan += $scope.trouserQuanArr[i].quantity;
-    //         }
-    //         if ($scope.totalQuan) {
-    //             $scope.totalAmount = $scope.singleAmount * $scope.totalQuan;
-    //         }
-    //     };
-
-    //     // $scope.addQuantity(1);
-
-    //     $scope.UploadTeamLogo = function () {
-    //         check = 2;
-    //         $uibModal.open({
-    //             templateUrl: "views/modal/copyrights.html",
-    //             scope: $scope
-    //         });
-    //     };
-    //     $scope.UploadTeamLogo1 = function () {
-    //         check = 3;
-    //         $uibModal.open({
-    //             templateUrl: "views/modal/copyrights.html",
-    //             scope: $scope
-    //         });
-    //     };
-    //     $scope.openChooseFile = function () {
-    //         $uibModal.open({
-    //             templateUrl: "views/modal/choosefile.html",
-    //             scope: $scope
-    //         });
-    //     };
-    //     $scope.openUploads = function (variable, name) {
-    //         $scope.statuses.uploadStatus = false;
-    //         $scope.variable = variable;
-    //         $scope.name = name;
-    //         $uibModal.open({
-    //             templateUrl: "views/modal/tshirt.html",
-    //             scope: $scope
-    //         });
-    //     };
-    //     $scope.doneUploading = function () {
-    //         if (check == 3) {
-    //             $scope.tab = "sponsorlogo"
-    //         } else {
-    //             $scope.tab = "teamlogo";
-    //         }
-
-    //     };
-    //     $scope.openUploadNew = function () {
-    //         $uibModal.open({
-    //             templateUrl: "views/modal/tshirt-popup.html",
-    //             scope: $scope
-    //         });
-    //     };
-
-    //     $scope.proceed = function () {
-    //         $uibModal.open({
-    //             templateUrl: "views/modal/proceed.html",
-    //             scope: $scope
-    //         });
-    //     };
-
-    //     $scope.showColorTab = function () {
-    //         $scope.tab = "teamcolor";
-    //     };
-    //     $scope.showQuantiyTab = function () {
-    //         $scope.tab = "quantiy";
-    //     };
-    //     $scope.showQuantyTab = function () {
-    //         $scope.tab = "quanty";
-    //     };
-
-    //     $scope.proceedNext = function () {
-    //         $scope.tab = "sponsorlogo";
-    //     };
-
-    //     $scope.teamloging = function () {
-    //         $scope.tab = "teamlogo";
-    //     };
-
-    //     $scope.color = [{
-    //         colr: "#ffffff",
-    //         name: "white"
-    //     }, {
-    //         colr: "#000000",
-    //         name: "black"
-    //     }, {
-    //         colr: "#bf0000",
-    //         name: "red"
-    //     }, {
-    //         colr: "#00308f",
-    //         name: "royal_blue"
-    //     }, {
-    //         colr: "#2175d9",
-    //         name: "india_blue"
-    //     }, {
-    //         colr: "#008000",
-    //         name: "australian_green"
-    //     }, {
-    //         colr: "#ffff00",
-    //         name: "lemon_yellow"
-    //     }, {
-    //         colr: "#ffd700",
-    //         name: "golden_yellow"
-    //     }, {
-    //         colr: "#1a472a",
-    //         name: "dark_green"
-    //     }, {
-    //         colr: "#ccff00",
-    //         name: "neon_green"
-    //     }, {
-    //         colr: "#f07f13",
-    //         name: "neon_orange"
-    //     }, {
-    //         colr: "#666666",
-    //         name: "grey"
-    //     }, {
-    //         colr: "#800000",
-    //         name: "maroon"
-    //     }, {
-    //         colr: "#ffa500",
-    //         name: "orange"
-    //     }, {
-    //         colr: "#032149",
-    //         name: "navy_blue"
-    //     }];
-
-    //     // $scope.page = 1;
-
-    //     // $scope.images = {
-    //     //     "page1": [{
-
-    //     //     src: "img/trousers/design1/front.png"
-    //     // }, {
-    //     //     src: "img/trousers/design2/front.png"
-    //     // }, {
-    //     //     src: "img/trousers/design3/front.png"
-    //     // }, {
-    //     //     src: "img/trousers/design4/front.png"
-    //     // }, {
-    //     //     src: "img/trousers/design5/front.png"
-    //     // }],
-    //     // "page2": [{
-    //     //     src: "img/shorts/design1/front.png"
-    //     // }, {
-    //     //     src: "img/shorts/design2/front.png"
-    //     // }, {
-    //     //     src: "img/shorts/design3/front.png"
-    //     // }, {
-    //     //     src: "img/shorts/design4/front.png"
-    //     // }, {
-    //     //     src: "img/shorts/design5/front.png"
-    //     // }]
-    //     // };
-    //     $scope.page = 1;
-
-    //     $scope.images = {
-    //         "page1": [{
-    //             src: "img/trousers/design1/front.png",
-    //             // type: "odi"
-    //             // }, {
-    //             //     src: "img/odi-tshirts/trims/odi/design2/front.png",
-    //             //     type: "odi"
-    //         }, {
-    //             src: "img/trousers/design2/front.png",
-    //             // type: "odi"
-    //         }, {
-    //             src: "img/trousers/design3/front.png",
-    //             // type: "odi"
-    //         }, {
-    //             src: "img/trousers/design4/front.png",
-    //             // type: "odi"
-    //         }, {
-    //             src: "img/trousers/design5/front.png",
-    //             // type: "training"
-    //         }, {
-    //             src: "img/shorts/design1/front.png",
-    //             // type: "training"
-    //         }, {
-    //             src: "img/shorts/design2/front.png",
-    //             // type: "training"
-    //         }, {
-    //             src: "img/shorts/design3/front.png",
-    //             // type: "training"
-    //         }, {
-    //             src: "img/shorts/design4/front.png",
-    //             // type: "training"
-    //         }],
-    //         "page2": [{
-    //             src: "img/shorts/design5/front.png",
-    //             // type: "whites"
-    //         }]
-    //     };
-
-    //     // $scope.images = [{
-    //     //     src: "img/trousers/design1/front.png"
-    //     // }, {
-    //     //     src: "img/trousers/design2/front.png"
-    //     // }, {
-    //     //     src: "img/trousers/design3/front.png"
-    //     // }, {
-    //     //     src: "img/trousers/design4/front.png"
-    //     // }, {
-    //     //     src: "img/trousers/design5/front.png"
-    //     // }, {
-    //     //     src: "img/shorts/design1/front.png"
-    //     // }, {
-    //     //     src: "img/shorts/design2/front.png"
-    //     // }, {
-    //     //     src: "img/shorts/design3/front.png"
-    //     // }, {
-    //     //     src: "img/shorts/design4/front.png"
-    //     // }, {
-    //     //     src: "img/shorts/design5/front.png"
-    //     // }];
-    //     //tab changes
-
-    //     $scope.tabs = 'light3';
-    //     $scope.classp = 'active-tab';
-    //     $scope.classv = '';
-    //     $scope.classshow = 'activeme';
-    //     $scope.classhide = '';
-    //     $scope.trimTabs = {};
-    //     $scope.trimTabs.light1 = {};
-    //     $scope.trimTabs.light2 = {};
-    //     $scope.trimTabs.light3 = {};
-    //     $scope.trimTabs.light1.active = "";
-    //     $scope.trimTabs.light1.show = "";
-    //     $scope.trimTabs.light2.active = "";
-    //     $scope.trimTabs.light2.show = "";
-    //     $scope.trimTabs.light3.active = "activeme";
-    //     $scope.trimTabs.light3.show = "active-tab";
-
-    //     $scope.designName = "design1";
-    //     $scope.designStatus = false;
-    //     $scope.designTab = 1;
-    //     $scope.trimTrouser.highlightOne.tcolor = 'black';
-
-    //     $scope.changeDesign = function (index) {
-    //         if (index === 0) {
-    //             $scope.trimTrouser.highlightBase.disable = "unnoable";
-    //             $scope.trimTrouser.highlightOne.disable = "unnoable";
-    //             $scope.trimTrouser.highlightTwo.disable = "noable";
-    //             $scope.designName = "design1";
-    //             $scope.pantType = "trousers";
-    //             $scope.singleAmount = 850;
-    //             $scope.switchTrimHighlightOne(true, 'red');
-    //             $scope.switchTrimHighlightTwo(true, '');
-    //             $scope.switchTrimHighlightBase(true, 'black');
-    //         } else if (index === 1) {
-    //             $scope.trimTrouser.highlightBase.disable = "unnoable";
-    //             $scope.trimTrouser.highlightOne.disable = "unnoable";
-    //             $scope.trimTrouser.highlightTwo.disable = "noable";
-    //             $scope.designName = "design2";
-    //             $scope.pantType = "trousers";
-    //             $scope.singleAmount = 850;
-    //             $scope.trimTabs.light3.active = "activeme";
-    //             $scope.trimTabs.light3.show = "active-tab";
-    //             $scope.switchTrimHighlightOne(true, 'lemon_yellow');
-    //             $scope.switchTrimHighlightTwo(true, '');
-    //             $scope.switchTrimHighlightBase(true, 'royal_blue');
-    //         } else if (index === 2) {
-    //             $scope.trimTrouser.highlightBase.disable = "unnoable";
-    //             $scope.trimTrouser.highlightOne.disable = "unnoable";
-    //             $scope.trimTrouser.highlightTwo.disable = "noable";
-    //             $scope.designName = "design3";
-    //             $scope.pantType = "trousers";
-    //             $scope.singleAmount = 850;
-    //             $scope.trimTabs.light3.active = "activeme";
-    //             $scope.trimTabs.light3.show = "active-tab";
-    //             $scope.switchTrimHighlightOne(true, 'orange');
-    //             $scope.switchTrimHighlightTwo(true, '');
-    //             $scope.switchTrimHighlightBase(true, 'white');
-    //         } else if (index === 3) {
-    //             $scope.trimTrouser.highlightBase.disable = "unnoable";
-    //             $scope.trimTrouser.highlightOne.disable = "unnoable";
-    //             $scope.trimTrouser.highlightTwo.disable = "noable";
-    //             $scope.designName = "design4";
-    //             $scope.pantType = "trousers";
-    //             $scope.singleAmount = 850;
-    //             $scope.trimTabs.light3.active = "activeme";
-    //             $scope.trimTabs.light3.show = "active-tab";
-    //             $scope.switchTrimHighlightOne(true, 'white');
-    //             $scope.switchTrimHighlightTwo(true, '');
-    //             $scope.switchTrimHighlightBase(true, 'red');
-    //         } else if (index === 4) {
-    //             $scope.trimTrouser.highlightBase.disable = "unnoable";
-    //             $scope.trimTrouser.highlightOne.disable = "unnoable";
-    //             $scope.trimTrouser.highlightTwo.disable = "noable";
-    //             $scope.designName = "design5";
-    //             $scope.pantType = "trousers";
-    //             $scope.singleAmount = 850;
-    //             $scope.trimTabs.light3.active = "activeme";
-    //             $scope.trimTabs.light3.show = "active-tab";
-    //             $scope.switchTrimHighlightOne(true, 'australian_green');
-    //             $scope.switchTrimHighlightTwo(true, '');
-    //             $scope.switchTrimHighlightBase(true, 'lemon_yellow');
-    //         } else if (index === 5) {
-    //             $scope.trimTrouser.highlightBase.disable = "unnoable";
-    //             $scope.trimTrouser.highlightOne.disable = "unnoable";
-    //             $scope.trimTrouser.highlightTwo.disable = "noable";
-    //             $scope.designName = "design1";
-    //             $scope.pantType = "shorts";
-    //             $scope.singleAmount = 650;
-    //             $scope.switchTrimHighlightOne(true, 'black');
-    //             $scope.switchTrimHighlightTwo(true, '');
-    //             $scope.switchTrimHighlightBase(true, 'australian_green');
-    //         } else if (index === 6) {
-    //             $scope.trimTrouser.highlightBase.disable = "unnoable";
-    //             $scope.trimTrouser.highlightOne.disable = "unnoable";
-    //             $scope.trimTrouser.highlightTwo.disable = "noable";
-    //             $scope.designName = "design2";
-    //             $scope.pantType = "shorts";
-    //             $scope.singleAmount = 650;
-    //             $scope.trimTabs.light3.active = "activeme";
-    //             $scope.trimTabs.light3.show = "active-tab";
-    //             $scope.switchTrimHighlightOne(true, 'australian_green');
-    //             $scope.switchTrimHighlightTwo(true, '');
-    //             $scope.switchTrimHighlightBase(true, 'black');
-    //         } else if (index === 7) {
-    //             $scope.trimTrouser.highlightBase.disable = "unnoable";
-    //             $scope.trimTrouser.highlightOne.disable = "unnoable";
-    //             $scope.trimTrouser.highlightTwo.disable = "noable";
-    //             $scope.designName = "design3";
-    //             $scope.pantType = "shorts";
-    //             $scope.singleAmount = 650;
-    //             $scope.trimTabs.light3.active = "activeme";
-    //             $scope.trimTabs.light3.show = "active-tab";
-    //             $scope.switchTrimHighlightOne(true, 'lemon_yellow');
-    //             $scope.switchTrimHighlightTwo(true, '');
-    //             $scope.switchTrimHighlightBase(true, 'grey');
-    //         } else if (index === 8) {
-    //             $scope.trimTrouser.highlightBase.disable = "unnoable";
-    //             $scope.trimTrouser.highlightOne.disable = "unnoable";
-    //             $scope.trimTrouser.highlightTwo.disable = "noable";
-    //             $scope.designName = "design4";
-    //             $scope.pantType = "shorts";
-    //             $scope.singleAmount = 650;
-    //             $scope.trimTabs.light3.active = "activeme";
-    //             $scope.trimTabs.light3.show = "active-tab";
-    //             $scope.switchTrimHighlightOne(true, 'white');
-    //             $scope.switchTrimHighlightTwo(true, '');
-    //             $scope.switchTrimHighlightBase(true, 'orange');
-    //         } else if (index === 9) {
-    //             $scope.trimTrouser.highlightBase.disable = "unnoable";
-    //             $scope.trimTrouser.highlightOne.disable = "unnoable";
-    //             $scope.trimTrouser.highlightTwo.disable = "unnoable";
-    //             $scope.designName = "design5";
-    //             $scope.pantType = "shorts";
-    //             $scope.singleAmount = 650;
-    //             $scope.trimTabs.light3.active = "activeme";
-    //             $scope.trimTabs.light3.show = "active-tab";
-    //             $scope.switchTrimHighlightOne(true, 'lemon_yellow');
-    //             $scope.switchTrimHighlightTwo(true, 'australian_green');
-    //             $scope.switchTrimHighlightBase(true, 'royal_blue');
-    //         }
-    //     }
-
-    //     $scope.openDesign = function (index, tab, img) {
-    //         console.log('//////////');
-    //         if ($scope.LogosTab) {
-    //             console.log('//////////11111');
-    //             $scope.designIndex = index;
-    //             $scope.designTab = tab;
-    //             $scope.designImage = img;
-    //             $uibModal.open({
-    //                 templateUrl: "views/modal/tshirtdesign.html",
-    //                 scope: $scope
-    //             });
-    //         } else {
-    //             console.log('//////////33333');
-    //             $scope.changeDesign(index);
-    //         }
-    //     }
-    //     console.log('$rootScope.editIdTrouser', $rootScope.editIdTrouser);
-    //     if ($rootScope.editIdTrouser != undefined) {
-    //         $scope.changeIDTrouser = $rootScope.editIdTrouser.description;
-    //         console.log('$scope.changeIDTrouser', $scope.changeIDTrouser);
-    //         if ($scope.changeIDTrouser != undefined) {
-    //             console.log('if changeIDTrouser', $scope.changeIDTrouser.trimTrouser);
-    //             $scope.trimTrouser = $scope.changeIDTrouser.trimTrouser;
-    //             $scope.customizedTrouser = $scope.changeIDTrouser.customizedTrouser;
-    //             // $scope.jerseyBackArr = $scope.changeIDTrouser.jerseyBackArr;
-    //             $scope.allLogos = $scope.changeIDTrouser.allLogos;
-    //             $scope.designName = $scope.changeIDTrouser.designName;
-    //             $scope.designType = $scope.changeIDTrouser.designType;
-    //             $scope.totalAmount = $scope.changeIDTrouser.totalAmount;
-    //             $scope.totalQuan = $scope.changeIDTrouser.totalQuan;
-    //             $scope.name = $scope.changeIDTrouser.name;
-    //             // $scope.changeDesignId = $rootScope.editIdTrouser.id;
-    //         } else {
-    //             console.log('these elee')
-    //             $scope.changeDesign(0, 1);
-    //         }
-    //     } else {
-    //         $scope.saveStateTrouser = $.jStorage.get('beforeLoginTrouser');
-    //         console.log('$scope.saveStateTrouser', $scope.saveStateTrouser);
-    //         if ($scope.saveStateTrouser) {
-    //             if ($scope.saveStateTrouser.trousers.trim.highlightBase.image.indexOf('img/trousers') != -1) {
-    //                 $scope.pantType = 'shorts';
-    //             } else {
-    //                 $scope.pantType = 'trouser';
-    //             }
-    //             console.log('these iffff');
-    //             console.log('$scope.saveStateTrouser', $scope.saveStateTrouser.trousers);
-    //             $scope.trimTrouser = $scope.saveStateTrouser.trousers.trim;
-    //             $scope.customizedTrouser = $scope.saveStateTrouser.trousers.customizedTrouser;
-    //             $scope.customizedTrouser.leftlogo.image = $scope.saveStateTrouser.trousers.customizedTrouser.leftlogo.image;
-    //             $scope.customizedTrouser.rightlogo.image = $scope.saveStateTrouser.trousers.customizedTrouser.rightlogo.image;
-    //             console.log('$scope.customizedTrouser.rightlogo.image', $scope.customizedTrouser);
-    //             // $scope.jerseyBackArr = $scope.saveStateTrouser.jerseyBackArr;
-    //             // $scope.allLogos = $scope.saveStateTrouser.trousers.allLogos;
-    //             $scope.designName = $scope.saveStateTrouser.trousers.designName;
-    //             $scope.designType = $scope.saveStateTrouser.trousers.designType;
-    //             $scope.totalAmount = $scope.saveStateTrouser.trousers.totalAmount;
-    //             $scope.totalQuan = $scope.saveStateTrouser.trousers.totalQuan;
-    //             $scope.name = $scope.saveStateTrouser.name;
-    //             // console.log('$scope.saveStateTrouser', $scope.saveStateTrouser);
-    //         } else {
-    //             $scope.changeDesign(0);
-    //         }
-
-    //     }
-    //     // $scope.changeDesign(0);
-    //     $scope.openLogin = function () {
-    //         $uibModal.open({
-    //             animation: true,
-    //             templateUrl: 'views/modal/login.html',
-    //             controller: 'headerctrl',
-    //             scope: $scope
-    //         })
-    //     };
-    //     $scope.qtyValidation = false;
-    //     // $scope.checkloginTrousers = function (qty) {
-    //     //     if (qty == 0) {
-    //     //         $scope.qtyValidation = true;
-    //     //     }
-    //     //     console.log('qqqqqqq////////////');
-    //     //     if (NavigationService.getUser()) {
-    //     //         $scope.isLogin = true;
-    //     //     } else {
-    //     //         $scope.isLogin = false;
-    //     //     }
-    //     //     if ($scope.isLogin) {
-    //     //         console.log('////////////');
-    //     //         //   $scope.openSaveDesignPopup = function () {
-    //     //         $uibModal.open({
-    //     //             templateUrl: 'views/modal/savedesign.html',
-    //     //             scope: $scope
-    //     //         });
-    //     //         // };
-    //     //     } else {
-    //     //         console.log('////////////1111111');
-    //     //         $scope.openLogin();
-    //     //         // $uibModal.open({
-    //     //         //     templateUrl: 'views/modal/login.html',
-    //     //         //     scope: $scope
-    //     //         // });
-
-
-    //     //     }
-    //     // }
-
-    //     $scope.checkloginTrousers = function () {
-    //         console.log('goToReloadafter');
-
-    //         $scope.user = $.jStorage.get("user");
-    //         console.log('ffffffffffff', $scope.user);
-    //         if ($scope.user) {
-    //             $scope.allLogos = {};
-    //             if ($scope.customizedTrouser.mainlogo) {
-    //                 $scope.allLogos.mainlogo = $scope.customizedTrouser.mainlogo.image;
-    //             }
-    //             if ($scope.customizedTrouser.rightlogo) {
-    //                 $scope.allLogos.rightlogo = $scope.customizedTrouser.rightlogo.image;
-    //             }
-    //             if ($scope.customizedTrouser.leftlogo) {
-    //                 $scope.allLogos.leftlogo = $scope.customizedTrouser.leftlogo.image;
-    //             }
-    //             if ($scope.customizedTrouser.rightlogo) {
-    //                 $scope.allLogos.rightlogo = $scope.customizedTrouser.rightlogo.image;
-    //             }
-    //             if ($scope.customizedTrouser.teamlogo) {
-    //                 $scope.allLogos.teamlogo = $scope.customizedTrouser.teamlogo.image;
-    //             }
-    //             if ($scope.customizedTrouser.backlogo) {
-    //                 $scope.allLogos.backlogo = $scope.customizedTrouser.backlogo.image;
-    //             }
-    //             $scope.combineJSON = {
-    //                 "trimTrouser": $scope.trimTrouser,
-    //                 "customizedTrouser": $scope.customizedTrouser,
-    //                 "jerseyBackArr": $scope.jerseyBackArr,
-    //                 "allLogos": $scope.allLogos,
-    //                 "designName": $scope.designName,
-    //                 "designType": $scope.designType,
-    //                 "totalAmount": $scope.totalAmount,
-    //                 "totalQuan": $scope.totalQuan,
-    //                 "name": $scope.name
-    //             };
-    //             $scope.lastJSON = JSON.stringify($scope.combineJSON);
-    //             console.log($scope.combineJSON);
-    //             if ($rootScope.editIdTrouser == undefined) {
-    //                 console.log($rootScope.editIdTrouser, 'no not there');
-    //                 NavigationService.saveDesign($scope.user.email, $scope.combineJSON, 'trouser',
-    //                     function (data) {
-    //                         console.log('Save Design data: ', data);
-    //                         $state.go('savedesign');
-    //                     },
-    //                     function (err) {
-    //                         console.log(err);
-    //                     });
-
-
-    //             } else {
-    //                 console.log($rootScope.editIdTrouser, 'yes there');
-    //                 NavigationService.editSaveDesign($scope.user.email, $scope.combineJSON, 'odishirt', $rootScope.editIdTrouser.id,
-    //                     function (data) {
-    //                         console.log('Save Design data: ', data);
-    //                         $state.go('savedesign');
-    //                     },
-    //                     function (err) {
-    //                         console.log(err);
-    //                     });
-    //             }
-
-    //         } else {
-    //             $rootScope.afterSessionSave = true;
-    //             $scope.combineJSON = {
-    //                 "trimTrouser": $scope.trimTrouser,
-    //                 "customizedTrouser": $scope.customizedTrouser,
-    //                 "jerseyBackArr": $scope.jerseyBackArr,
-    //                 "allLogos": $scope.allLogos,
-    //                 "designName": $scope.designName,
-    //                 "designType": $scope.designType,
-    //                 "totalAmount": $scope.totalAmount,
-    //                 "totalQuan": $scope.totalQuan,
-    //                 "name": $scope.name
-    //             };
-    //             console.log('else $scope.combineJSON', $scope.combineJSON);
-    //             $.jStorage.set('beforeLoginTrouser', $scope.combineJSON);
-    //             $scope.openLogin();
-    //         }
-    //     }
-
-
-    //     //         $scope.savedDesigns = function () {
-    //     //     console.log('goToReloadafter');
-    //     //     $scope.user = $.jStorage.get("user");
-    //     //     console.log('ffffffffffff',$scope.user);
-    //     //     if ($scope.user) {
-    //     //         $scope.allLogos = {};
-    //     //         if ($scope.customizedShirt.mainlogo) {
-    //     //             $scope.allLogos.mainlogo = $scope.customizedShirt.mainlogo.image;
-    //     //         }
-    //     //         if ($scope.customizedShirt.rightchest) {
-    //     //             $scope.allLogos.rightchest = $scope.customizedShirt.rightchest.image;
-    //     //         }
-    //     //         if ($scope.customizedShirt.leftsleeve) {
-    //     //             $scope.allLogos.leftsleeve = $scope.customizedShirt.leftsleeve.image;
-    //     //         }
-    //     //         if ($scope.customizedShirt.rightsleeve) {
-    //     //             $scope.allLogos.rightsleeve = $scope.customizedShirt.rightsleeve.image;
-    //     //         }
-    //     //         if ($scope.customizedShirt.teamlogo) {
-    //     //             $scope.allLogos.teamlogo = $scope.customizedShirt.teamlogo.image;
-    //     //         }
-    //     //         if ($scope.customizedShirt.backlogo) {
-    //     //             $scope.allLogos.backlogo = $scope.customizedShirt.backlogo.image;
-    //     //         }
-    //     //         $scope.combineJSON = {
-    //     //             "trimTshirt": $scope.trimTshirt,
-    //     //             "customizedShirt": $scope.customizedShirt,
-    //     //             "jerseyBackArr": $scope.jerseyBackArr,
-    //     //             "allLogos": $scope.allLogos,
-    //     //             "designName": $scope.designName,
-    //     //             "designType": $scope.designType,
-    //     //             "totalAmount": $scope.totalAmount,
-    //     //             "totalQuan": $scope.totalQuan,
-    //     //             "name": $scope.shirtName
-    //     //         };
-    //     //         $scope.lastJSON = JSON.stringify($scope.combineJSON);
-    //     //         console.log($scope.combineJSON);
-    //     //         if ($rootScope.editId == undefined) {
-
-    //     //             console.log($rootScope.editId, 'no not there');
-    //     //             NavigationService.saveDesign($scope.user.email, $scope.combineJSON, 'odishirt',
-    //     //                 function (data) {
-    //     //                     console.log('Save Design data: ', data);
-    //     //                     $state.go('savedesign');
-    //     //                 },
-    //     //                 function (err) {
-    //     //                     console.log(err);
-    //     //                 });
-
-
-    //     //         } else {
-    //     //             console.log($rootScope.editId, 'yes there');
-    //     //             NavigationService.editSaveDesign($scope.user.email, $scope.combineJSON, 'odishirt', $rootScope.editId.id,
-    //     //                 function (data) {
-    //     //                     console.log('Save Design data: ', data);
-    //     //                     $state.go('savedesign');
-    //     //                 },
-    //     //                 function (err) {
-    //     //                     console.log(err);
-    //     //                 });
-    //     //         }
-
-    //     //     } else {
-    //     //         $rootScope.afterSessionSave = true;
-    //     //         $scope.combineJSON = {
-    //     //             "trimTshirt": $scope.trimTshirt,
-    //     //             "customizedShirt": $scope.customizedShirt,
-    //     //             "jerseyBackArr": $scope.jerseyBackArr,
-    //     //             "allLogos": $scope.allLogos,
-    //     //             "designName": $scope.designName,
-    //     //             "designType": $scope.designType,
-    //     //             "totalAmount": $scope.totalAmount,
-    //     //             "totalQuan": $scope.totalQuan,
-    //     //             "name": $scope.shirtName
-    //     //         };
-    //     //         console.log('else $scope.combineJSON', $scope.combineJSON);
-    //     //         $.jStorage.set('beforeLoginTrouser', $scope.combineJSON);
-    //     //         $scope.openLogin();
-    //     //     }
-    //     // }
-
-    //     $scope.tabchanges = function (tabs, b) {
-    //         $scope.tabs = tabs;
-    //         if (b == 1) {
-    //             $scope.trimTabs.light1.active = "activeme";
-    //             $scope.trimTabs.light1.show = "active-tab";
-    //             $scope.trimTabs.light2.active = "";
-    //             $scope.trimTabs.light2.show = "";
-    //             $scope.trimTabs.light3.active = "";
-    //             $scope.trimTabs.light3.show = "";
-    //         }
-    //         if (b == 2) {
-    //             $scope.trimTabs.light1.active = "";
-    //             $scope.trimTabs.light1.show = "";
-    //             $scope.trimTabs.light2.active = "activeme";
-    //             $scope.trimTabs.light2.show = "active-tab";
-    //             $scope.trimTabs.light3.active = "";
-    //             $scope.trimTabs.light3.show = "";
-    //         }
-    //         if (b == 3) {
-    //             $scope.trimTabs.light1.active = "";
-    //             $scope.trimTabs.light1.show = "";
-    //             $scope.trimTabs.light2.active = "";
-    //             $scope.trimTabs.light2.show = "";
-    //             $scope.trimTabs.light3.active = "activeme";
-    //             $scope.trimTabs.light3.show = "active-tab";
-    //         }
-    //     };
-
-    //     $scope.tab = "design";
-    //     $scope.classa = 'active';
-    //     $scope.classb = '';
-    //     $scope.classc = '';
-    //     $scope.classd = '';
-    //     $scope.classe = '';
-
-    //     $scope.tabchange = function (tab, a) {
-    //         $scope.tab = tab;
-    //         if (a == 1) {
-    //             $scope.classa = 'active';
-    //             $scope.classb = '';
-    //             $scope.classc = '';
-    //             $scope.classd = '';
-    //             $scope.classe = '';
-
-    //         }
-    //         if (a == 2) {
-    //             $scope.classb = 'active';
-    //             $scope.classa = '';
-    //             $scope.classc = '';
-    //             $scope.classd = '';
-    //             $scope.classe = '';
-
-    //         }
-    //         if (a == 3) {
-    //             $scope.classc = 'active';
-    //             $scope.classb = '';
-    //             $scope.classa = '';
-    //             $scope.classd = '';
-    //             $scope.classe = '';
-
-    //         }
-    //         if (a == 4) {
-    //             $scope.classd = 'active';
-    //             $scope.classb = '';
-    //             $scope.classc = '';
-    //             $scope.classa = '';
-    //             $scope.classe = '';
-
-    //         } else if (a == 5) {
-    //             $scope.classe = 'active';
-    //             $scope.classb = '';
-    //             $scope.classc = '';
-    //             $scope.classd = '';
-    //             $scope.classa = '';
-
-    //         }
-    //     };
-    //     $scope.demo2 = {
-    //         range: {
-    //             min: 0,
-    //             max: 10050
-    //         },
-    //         minPrice: 1000,
-    //         maxPrice: 4000
-    //     };
-
-    //     $scope.trousersLogo = {};
-    //     $scope.trousersLogo.isTeamLogo = false;
-    //     // $scope.emptyImage = function(key) {
-    //     //         $scope.trousersLogo.image = null;
-    //     //     }
-    //     $scope.emptyImage = function (key) {
-    //         console.log('ddddddddddd');
-    //         $scope.customizedTrouser[key] = null;
-    //         $scope.trousersLogo.image = null;
-    //     }
-
-    //     $scope.checkTeamLogo = function () {
-    //         console.log('troooo', $scope.trousersLogo.image);
-    //         if ($scope.trousersLogo.isTeamLogo || $scope.trousersLogo.image) {
-    //             $scope.switchNavigation('d');
-    //             $scope.tabchange('quantity', 5);
-    //             $scope.openTab('d');
-    //         } else {
-    //             $uibModal.open({
-    //                 templateUrl: 'views/modal/checkTeamLogo.html',
-    //                 scope: $scope
-    //             });
-    //         }
-    //     }
-    //     //    end
-    //     // $scope.toOrderSummary = function () {
-    //     //     $scope.allLogos = {};
-    //     //     if ($scope.customizedTrouser.leftlogo) {
-    //     //         $scope.allLogos.leftlogo = $scope.customizedTrouser.leftlogo.image;
-    //     //     }
-    //     //     if ($scope.customizedTrouser.rightlogo) {
-    //     //         $scope.allLogos.rightlogo = $scope.customizedTrouser.rightlogo.image;
-    //     //     }
-    //     //     $scope.combineJSON = {
-    //     //         "trousers": {
-    //     //             "trim": $scope.trimTrouser,
-    //     //             "customizedTrouser": $scope.customizedTrouser,
-    //     //             "trouserQuan": $scope.trouserQuanArr,
-    //     //             "allLogos": $scope.allLogos,
-    //     //             "totalAmount": $scope.totalAmount,
-    //     //             "totalQuan": $scope.totalQuan
-    //     //         },
-    //     //         "type": "trousers"
-    //     //     };
-    //     //     $scope.lastJSON = JSON.stringify($scope.combineJSON);
-    //     //     console.log($scope.combineJSON);
-    //     //     console.log($scope.lastJSON);
-    //     // }
-
-    //     $scope.toOrderSummary = function () {
-    //         console.log('ffffffffffffTOOrderSumm');
-    //         $scope.ml = "";
-    //         $scope.bl = "";
-    //         $scope.rc = "";
-    //         $scope.ls = "";
-    //         $scope.rs = "";
-    //         $scope.tl = "";
-    //         $scope.user = $.jStorage.get("user");
-    //         if (user) {
-    //             $scope.allLogos = {};
-    //             if ($scope.customizedTrouser.leftlogo) {
-    //                 $scope.allLogos.leftlogo = $scope.customizedTrouser.leftlogo.image;
-    //             }
-    //             if ($scope.customizedTrouser.rightlogo) {
-    //                 $scope.allLogos.rightlogo = $scope.customizedTrouser.rightlogo.image;
-    //             }
-    //             $scope.combineJSON = {
-    //                 "trousers": {
-    //                     "trim": $scope.trimTrouser,
-    //                     "customizedTrouser": $scope.customizedTrouser,
-    //                     "trouserQuan": $scope.trouserQuanArr,
-    //                     "allLogos": $scope.allLogos,
-    //                     "allLogos": $scope.allLogos,
-    //                     "designName": $scope.designName,
-    //                     "designType": $scope.designType,
-    //                     "totalAmount": $scope.totalAmount,
-    //                     "totalQuan": $scope.totalQuan
-    //                 },
-    //                 "type": "trousers"
-    //             };
-    //             $scope.lastJSON = JSON.stringify($scope.combineJSON);
-    //             console.log($scope.combineJSON);
-    //             console.log($scope.lastJSON);
-    //             NavigationService.orderSummaryOdi(user.email, $scope.combineJSON, $scope.ml, $scope.bl, $scope.rc, $scope.ls, $scope.rs, $scope.tl, 'trousers',
-    //                 function (data) {
-    //                     console.log('Order Summary trousers data: ', data);
-    //                     $state.go('ordersummary', {
-    //                         id: data.id
-    //                     });
-    //                 },
-    //                 function (err) {
-    //                     console.log(err);
-    //                 });
-    //         } else {
-    //             $scope.combineJSON = {
-    //                 "trousers": {
-    //                     "trim": $scope.trimTrouser,
-    //                     "customizedTrouser": $scope.customizedTrouser,
-    //                     "trouserQuan": $scope.trouserQuanArr,
-    //                     "allLogos": $scope.allLogos,
-    //                     "allLogos": $scope.allLogos,
-    //                     "designName": $scope.designName,
-    //                     "designType": $scope.designType,
-    //                     "totalAmount": $scope.totalAmount,
-    //                     "totalQuan": $scope.totalQuan
-    //                 },
-    //                 "type": "trousers"
-    //             };
-    //             console.log('else $scope.combineJSON', $scope.$scope.trimTrouser);
-    //             $.jStorage.set('beforeLoginTrouser', $scope.combineJSON);
-    //             $scope.openLogin();
-    //         }
-    //     }
-
-
-    //     $scope.openUpload = function () {
-    //         $uibModal.open({
-    //             templateUrl: "views/modal/tshirt.html",
-    //             controller: "GloveCtrl",
-    //             scope: $scope
-    //         })
-    //     };
-
-    //     $scope.copy = function () {
-    //         $uibModal.open({
-    //             templateUrl: "views/modal/outofplace.html",
-    //             controller: "GloveCtrl",
-    //             scope: $scope
-    //         })
-    //     };
-
-    //     $scope.continue = function () {
-    //         $uibModal.open({
-    //             templateUrl: "views/modal/continue.html",
-    //             controller: "GloveCtrl",
-    //             scope: $scope
-    //         })
-    //     };
-
-    //     $scope.choose = function () {
-    //         $uibModal.open({
-    //             templateUrl: "views/modal/choosefile.html",
-    //             controller: "GloveCtrl",
-    //             scope: $scope
-    //         })
-    //     };
-
-    //     $scope.copyright = function () {
-    //         $uibModal.open({
-    //             templateUrl: "views/modal/copyrights.html",
-    //             controller: "GloveCtrl",
-    //             scope: $scope
-    //         })
-    //     };
-
-
-    //     $scope.tshirtUpload = function () {
-    //         $uibModal.open({
-    //             templateUrl: "views/modal/tshirt-popup.html",
-    //             controller: "OdiCtrl",
-    //             scope: $scope
-    //         })
-    //     };
-
-    //     $scope.outplace = function () {
-    //         $uibModal.open({
-    //             templateUrl: "views/modal/outofplace.html",
-    //             // controller: "OdiCtrl",
-    //             windowClass: "modal-dialogintro",
-    //             scope: $scope
-    //         })
-    //     };
-
-
-
-    // })
 
 
     .controller('CapsCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
@@ -5124,7 +3896,7 @@ $scope.getTrouserJson = function(data){
         };
     })
 
-        .controller('GlovesCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $rootScope, cfpLoadingBar) {
+    .controller('GlovesCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $rootScope, cfpLoadingBar) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("gloves");
         $scope.menutitle = NavigationService.makeactive("Gloves");
@@ -10493,7 +9265,7 @@ $scope.getTrouserJson = function(data){
         }
     })
 
-     .controller('OrderSummaryCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $window, cfpLoadingBar, $uibModal) {
+    .controller('OrderSummaryCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $window, cfpLoadingBar, $uibModal) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("ordersummary");
         $scope.menutitle = NavigationService.makeactive("OrderSummary");
@@ -10505,13 +9277,14 @@ $scope.getTrouserJson = function(data){
 
         NavigationService.getOrderSummary($state.params.id,
             function (data) {
-                console.log('Order Summary data: ', data);
-                data = data.data;
-
+                $scope.design = data.data;
+                $scope.design.description = JSON.parse(data.data.description);
+                console.log($scope.design.description);
             },
             function (err) {
                 console.log(err);
-            });
+            }
+        );
     })
 
     // .controller('OrderSummaryCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $window, cfpLoadingBar, $uibModal) {
@@ -11690,168 +10463,17 @@ $scope.getTrouserJson = function(data){
         $scope.menutitle = NavigationService.makeactive("Save Design");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-
-        // $scope.savedDesigns = [];
-
-        // $scope.savedDesigns = $.jStorage.get('savedDesigns');
+        
         $scope.user = $.jStorage.get('user');
-
         if (user) {
             NavigationService.getDesigns(user.email,
                 function (data) {
                     console.log('Save Design data: ', data);
-
-                    $scope.savedDesigns = data.data;
-                    console.log($scope.savedDesigns);
-                    _.each($scope.savedDesigns, function (n) {
-                        console.log(n);
-                        if (n.type == 'odishirt') {
-                            $scope.switchFrontBack(true);
-                            $scope.switchTrimHighlightOne(true);
-                            $scope.switchTrimHighlightTwo(true);
-                            $scope.switchTrimHighlightBase(true);
-                        } else {
-                            console.log('rtfgyhjfrtgh');
-                            $scope.switchFrontBack(true);
-                            $scope.switchTrimHighlightOne(true);
-                            $scope.switchTrimHighlightTwo(true);
-                            $scope.switchTrimHighlightBase(true);
-                        }
-                    });
-                },
+                    // $scope.savedDesigns = data.data;              },
                 function (err) {
                     console.log(err);
                 });
         } else {}
-
-        $scope.switchFrontBack = function (front) {
-            for (var i = 0; i < $scope.savedDesigns.length; i++) {
-                $scope.savedDesigns[i].description = JSON.parse($scope.savedDesigns[i].description);
-                $scope.savedDesigns[i].description.trimTshirt = $scope.savedDesigns[i].description.trimTshirt;
-                $scope.savedDesigns[i].description.customizedShirt = $scope.savedDesigns[i].description.customizedShirt;
-                console.log('$scope.savedDesigns[i].description.customizedShirt', $scope.savedDesigns[i].description.customizedShirt);
-                if ($scope.savedDesigns[i].description.customizedShirt) {
-                    $scope.savedDesigns[i].description.customizedShirt.front =  front;
-                    $scope.savedDesigns[i].description.customizedShirt.back =  !front;
-                }
-
-                front = true;
-                $scope.designType = $scope.savedDesigns[i].description.designType;
-                if (front) {
-                    if ($scope.savedDesigns[i].description.customizedShirt) {
-
-
-                        $scope.savedDesigns[i].description.customizedShirt.cloth = 'img/odi-tshirts/trims/' + $scope.designType + 'base/front/' + $scope.savedDesigns[i].description.trimTshirt.highlightBase.tcolor + '.png'; //'img/tinytshirt 7.png';
-                        $scope.savedDesigns[i].description.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/' + $scope.designType + '/front.png'; //'img/tinytshirt 7 back.png';
-                    }
-                } else {
-                    if ($scope.savedDesigns[i].description.customizedShirt) {
-                        $scope.savedDesigns[i].description.customizedShirt.cloth = 'img/odi-tshirts/trims/' + $scope.designType + 'base/back/' + $scope.savedDesigns[i].description.trimTshirt.highlightBase.tcolor + '.png'; //'img/tinytshirt 1 back.png';
-                        $scope.savedDesigns[i].description.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/' + $scope.designType + '/back.png'; //'img/tinytshirt 1 back back.png';
-                    }
-                }
-            }
-
-        }
-        $scope.switchTrimHighlightOne = function (flag) {
-            for (var i = 0; i < $scope.savedDesigns.length; i++) {
-                if ($scope.savedDesigns[i].description.trimTshirt) {
-                    $scope.savedDesigns[i].description.trimTshirt.highlightOne.flag = flag;
-
-                    flag = true;
-                    $scope.designName = $scope.savedDesigns[i].description.designName;
-                    $scope.designType = $scope.savedDesigns[i].description.designType;
-                    if (flag) {
-                        $scope.savedDesigns[i].description.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/" + $scope.designType + "/" + $scope.designName + "/front/trim1/" + $scope.savedDesigns[i].description.trimTshirt.highlightOne.tcolor + ".png";
-                    } else {
-                        $scope.savedDesigns[i].description.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/" + $scope.designType + "/" + $scope.designName + "/front/trim1/" + $scope.savedDesigns[i].description.trimTshirt.highlightOne.tcolor + ".png";
-                    }
-                }
-            }
-        };
-        $scope.switchTrimHighlightTwo = function (flag) {
-            for (var i = 0; i < $scope.savedDesigns.length; i++) {
-                if ($scope.savedDesigns[i].description.trimTshirt) {
-                    $scope.savedDesigns[i].description.trimTshirt.highlightTwo.flag = flag;
-                    flag = true;
-                    $scope.designName = $scope.savedDesigns[i].description.designName;
-                    $scope.designType = $scope.savedDesigns[i].description.designType;
-                    if (flag) {
-                        $scope.savedDesigns[i].description.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/" + $scope.designType + "/" + $scope.designName + "/front/trim2/" + $scope.savedDesigns[i].description.trimTshirt.highlightTwo.tcolor + ".png";
-                    } else {
-                        $scope.savedDesigns[i].description.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/" + $scope.designType + "/" + $scope.designName + "/front/trim2/" + $scope.savedDesigns[i].description.trimTshirt.highlightTwo.tcolor + ".png";
-                    }
-                }
-            }
-        };
-        $scope.switchTrimHighlightBase = function (flag) {
-            for (var i = 0; i < $scope.savedDesigns.length; i++) {
-                if ($scope.savedDesigns[i].description.trimTshirt) {
-                    $scope.savedDesigns[i].description.trimTshirt.highlightBase.flag = flag;
-                }
-
-                $scope.designName = $scope.savedDesigns[i].description.designName;
-                $scope.designType = $scope.savedDesigns[i].description.designType;
-                if (flag) {
-                    if ($scope.savedDesigns[i].description.trimTshirt) {
-                        if ($scope.designType === 'whites') {
-                            $scope.savedDesigns[i].description.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/" + $scope.designType + "/" + $scope.designName + "/front.png";
-                        } else {
-                            $scope.savedDesigns[i].description.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/" + $scope.designType + "/base/front/" + $scope.savedDesigns[i].description.trimTshirt.highlightBase.tcolor + ".png";
-                        }
-                    }
-                    if ($scope.savedDesigns[i].description.customizedShirt) {
-                        $scope.savedDesigns[i].description.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/' + $scope.designType + '/front3.png';
-                        $scope.savedDesigns[i].description.customizedShirt.front = flag;
-                    }
-                } else {
-                    if ($scope.designType === 'whites') {
-                        $scope.savedDesigns[i].description.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/" + $scope.designType + "/" + $scope.designName + "/front.png";
-                    } else {
-                        $scope.savedDesigns[i].description.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/" + $scope.designType + "/base/front/" + $scope.savedDesigns[i].description.trimTshirt.highlightBase.tcolor + ".png";
-                    }
-                    $scope.savedDesigns[i].description.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/' + $scope.designType + '/back3.png';
-                    $scope.savedDesigns[i].description.customizedShirt.front = flag;
-                }
-            }
-        };
-
-
-
-        $scope.editDesign = function (id) {
-            console.log('iddddddddddd', id.type);
-            if (id.type == 'odishirt') {
-                $rootScope.editId = id;
-                console.log('$rootScope.editId222', $rootScope.editId);
-                $state.go('odi-shirt');
-            } else {
-                $rootScope.editIdTrouser = id;
-                console.log('$rootScope.editId222', $rootScope.editIdTrouser);
-                $state.go('trousers');
-            }
-
-        }
-        $scope.deletePopup = function (index, id) {
-            $scope.designIndex = index;
-            $scope.designId = id;
-            $scope.deletePopup1 = $uibModal.open({
-                templateUrl: "views/modal/odi-summery-delete.html",
-                // controller: "SaveDesignCtrl",
-                scope: $scope
-            })
-        };
-        $scope.removeSavedDesign = function (index) {
-            $scope.deletePopup1.close();
-            console.log('hhhhhhhhhhh', $scope.savedDesigns, index);
-            $scope.savedDesigns.splice(index, 1);
-            $.jStorage.set('savedDesigns', $scope.savedDesigns);
-            $scope.savedDesigns = $.jStorage.get('savedDesigns');
-            NavigationService.deleteSaveDesign($scope.designId, function () {
-                console.log('deleted', $scope.designId);
-            })
-        }
-
-
     })
     .controller('WishlistCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file

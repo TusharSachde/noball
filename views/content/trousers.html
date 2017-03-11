@@ -593,7 +593,7 @@
                                       <td>
   <span class="inline-block uppercase pad-5">quantity</span>
                               <input type="number" name="quantity" class="wid20p" placeholder="20" ng-change="addQuantity(trouser.quantity)" ng-model="trouser.quantity" maxlength="3">
-                              <p class="error-td f13" ng-if="totalQuan<20 && totalQuan!=1">Please enter valid quantity.The MOQ is 20</p>
+                              <p class="error-td f13" ng-if="trouserJson.totalQuan<20 && trouserJson.totalQuan!=1">Please enter valid quantity.The MOQ is 20</p>
 
                             </td>
                                     <td></td>
@@ -610,13 +610,13 @@
                                 </tbody>
                             </table>
                             <div class="add-button">
-                                <p class="pointer" ng-click="addTrouserValues(); addQuantity(trouser.quantity);"><i class="fa mr7 fa-plus" aria-hidden="true"></i> ADD</p>
+                                <p class="pointer" ng-click="addTrouserValues(trouser.quantity,trouser.size); addQuantity(trouser.quantity);"><i class="fa mr7 fa-plus" aria-hidden="true"></i> ADD</p>
                             </div>
                             
                             <div class="total-amount">
                                 <p class="more-price">One time customization fee for Trouser is <i class="fa fa-inr"></i> 5000</p>
-                                <span class="pull-right tamount uppercase Raleway-Medium mar20">Total Amount: {{totalAmount}}</span>
-                                <span class="pull-right tquantity uppercase Raleway-Medium mar20">Total Quantity: {{totalQuan}}</span>
+                                <span class="pull-right tamount uppercase Raleway-Medium mar20">Total Amount: {{trouserJson.totalAmount}}</span>
+                                <span class="pull-right tquantity uppercase Raleway-Medium mar20">Total Quantity: {{trouserJson.totalQuan}}</span>
                             </div>
                         </div>
                         <div class="edit-btn">
