@@ -640,7 +640,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     })
 
-    .controller('TrousersCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
+    .controller('TrousersCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) { 
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("trousers");
         $scope.menutitle = NavigationService.makeactive("Trousers");
@@ -847,7 +847,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
 
-$scope.leftLogo = {};
+        $scope.leftLogo = {};
         $scope.confirmUpload = function (variable, name) {
             $scope.trousersLogo.image = $scope.tempImage;
             $scope.leftLogo.image = $scope.tempImage;
@@ -1193,7 +1193,7 @@ $scope.leftLogo = {};
                 $scope.singleAmount = 850;
                 $scope.trimTabs.light3.active = "activeme";
                 $scope.trimTabs.light3.show = "active-tab";
-                    $scope.color.base = "white";
+                $scope.color.base = "white";
                 $scope.color.trim1 = "orange";
                 $scope.color.trim2 = "";
                 $scope.design.base = "img/" + $scope.type + "/base/front/" + 'white' + ".png";
@@ -1468,8 +1468,8 @@ $scope.leftLogo = {};
         }
 
         $scope.checkTeamLogo = function () {
-            console.log('troooo', $scope.trousersLogo.image);
-            if ($scope.sendTeamLogoLater || $scope.trousersLogo.image) {
+            console.log('troooo', $scope.leftLogo.image,$scope.sendTeamLogoLater);
+            if ($scope.sendTeamLogoLater || $scope.leftLogo.image) {
                 $scope.switchNavigation('d');
                 $scope.tabchange('quantity', 5);
                 $scope.openTab('d');
@@ -1505,7 +1505,7 @@ $scope.leftLogo = {};
             console.log($scope.lastJSON);
         }
 
-console.log($scope.type)
+      console.log($scope.type)
         $scope.openUpload = function () {
             $uibModal.open({
                 templateUrl: "views/modal/tshirt.html",
@@ -5110,7 +5110,7 @@ console.log($scope.type)
         };
     })
 
-    .controller('GlovesCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $rootScope, cfpLoadingBar) {
+        .controller('GlovesCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $rootScope, cfpLoadingBar) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("gloves");
         $scope.menutitle = NavigationService.makeactive("Gloves");
@@ -5120,7 +5120,10 @@ console.log($scope.type)
         $scope.toggleTab = function (val) {
             $scope.activeButton = val;
         };
-
+        $scope.type = 'gloves';
+        $scope.design = {};
+        // $scope.design.base = ''
+        $scope.color = {};
         $scope.LogosTab = false;
         $scope.quantityTab = false;
         $scope.turnOnLogos = function (val) {
@@ -5361,7 +5364,7 @@ console.log($scope.type)
             $scope.glovesDesign.name = item.name;
             $scope.glovesDesign.image = item.img[0];
             $scope.Arrayname = item.name;
-            $scope.selectedImage = item.img[0];
+            $scope.design.base = item.img[0];
             console.log($scope.Arrayname);
             if ($scope.Arrayname == '$scope.glovesImages1') {
                 $scope.glovesLogo.divattributes = {
@@ -5389,21 +5392,24 @@ console.log($scope.type)
                     height: '72px'
                 };
             }
+            $scope.color = {};
+
             $scope.changeGlovesImages = function (color) {
                 console.log(color);
+                $scope.color.base = color;
                 $scope.glovesColors = color;
                 $scope.glovesDesign.color = $scope.glovesColors;
                 if ($scope.Arrayname == '$scope.glovesImages1') {
                     console.log('here');
-                    $scope.selectedImage = $scope.glovesImages1[color][0];
+                    $scope.design.base = $scope.glovesImages1[color][0];
                     $scope.glovesDesign.image = $scope.glovesImages1[color][0];
                 }
                 if ($scope.Arrayname == '$scope.glovesImages2') {
-                    $scope.selectedImage = $scope.glovesImages2[color][0];
+                    $scope.design.base = $scope.glovesImages2[color][0];
                     $scope.glovesDesign.image = $scope.glovesImages2[color][0];
                 }
                 if ($scope.Arrayname == '$scope.glovesImages3') {
-                    $scope.selectedImage = $scope.glovesImages3[color][0];
+                    $scope.design.base = $scope.glovesImages3[color][0];
                     $scope.glovesDesign.image = $scope.glovesImages3[color][0];
                 }
 
@@ -5439,7 +5445,7 @@ console.log($scope.type)
 
         $scope.selectGlovesImage = function (image) {
             console.log(image);
-            $scope.selectedImage = {
+            $scope.design.base = {
                 image: image
             }
             $rootScope.$broadcast('changeImage', {});
@@ -5447,8 +5453,8 @@ console.log($scope.type)
         };
         $scope.selectColoredImages = function (image) {
             console.log(image);
-            $scope.selectedImage = image;
-            $scope.selectedImage.local = true;
+            $scope.design.base = image;
+            $scope.design.base.local = true;
             $rootScope.$broadcast('changeImage', {});
         };
 
@@ -5840,6 +5846,737 @@ console.log($scope.type)
         };
 
     })
+
+    // .controller('GlovesCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $rootScope, cfpLoadingBar) {
+    //     //Used to name the .html file
+    //     $scope.template = TemplateService.changecontent("gloves");
+    //     $scope.menutitle = NavigationService.makeactive("Gloves");
+    //     TemplateService.title = $scope.menutitle;
+    //     $scope.navigation = NavigationService.getnav();
+    //     $scope.activeButton = 1;
+    //     $scope.toggleTab = function (val) {
+    //         $scope.activeButton = val;
+    //     };
+
+    //     $scope.LogosTab = false;
+    //     $scope.quantityTab = false;
+    //     $scope.turnOnLogos = function (val) {
+    //         $scope.LogosTab = val;
+    //     }
+    //     $scope.openDesign = function (index, tab, img) {
+    //         console.log('//////////');
+    //         if ($scope.LogosTab) {
+    //             console.log('//////////11111');
+    //             $scope.designIndex = index;
+    //             $scope.designTab = tab;
+    //             $scope.designImage = img;
+    //             $uibModal.open({
+    //                 templateUrl: "views/modal/tshirtdesign.html",
+    //                 scope: $scope
+    //             });
+    //         } else {
+    //             console.log('//////////33333');
+    //             $scope.selectDesign(img);
+    //         }
+    //     }
+    //     $scope.switchNavigation = function (tab) {
+    //         console.log('aaaaaaaaaaaaaaaaaaaaaa');
+    //         if (tab === 'a') {
+    //             if (!$scope.tabAllowToa) {
+    //                 $scope.tabchange('design', 1);
+    //             }
+    //         } else if (tab === 'b') {
+    //             if (!$scope.tabAllowTob) {
+    //                 $scope.tabchange('trim', 2);
+    //             }
+    //         } else if (tab === 'c') {
+    //             if (!$scope.tabAllowToc) {
+    //                 $scope.tabchange('team', 3);
+    //                 $scope.turnOnLogos(true);
+    //             }
+    //             $scope.turnOnLogos(true);
+    //         } else if (tab === 'd') {
+    //             if (!$scope.tabAllowTod) {
+    //                 $scope.tabchange('quantity', 5);
+    //             }
+    //         }
+    //     };
+    //     $scope.glovescolor = [{
+    //         colr: "#ffd700",
+    //         name: "yellow"
+    //     }, {
+    //         colr: "#cd3700",
+    //         name: "red"
+    //     }, {
+    //         colr: "#63b8ff",
+    //         name: "lblue"
+    //     }, {
+    //         colr: "#00008b",
+    //         name: "dblue"
+    //     }, {
+    //         colr: "#bcee68",
+    //         name: "lgreen"
+    //     }, {
+    //         colr: "#66cd00",
+    //         name: "dgreen"
+    //     }, {
+    //         colr: "#ff8247",
+    //         name: "lorange"
+    //     }, {
+    //         colr: "#ff3030",
+    //         name: "dorange"
+    //     }, {
+    //         colr: "#d2b48c",
+    //         name: "gold"
+    //     }];
+    //     $scope.openLogin = function () {
+    //         $uibModal.open({
+    //             animation: true,
+    //             templateUrl: 'views/modal/login.html',
+    //             // controller: 'headerctrl',
+    //             scope: $scope
+    //         })
+    //     };
+
+    //     $scope.qtyValidation = false;
+    //     $scope.checkloginGloves = function (qty) {
+    //         if (qty == 0) {
+    //             $scope.qtyValidation = true;
+    //         }
+    //         console.log('qqqqqqq////////////');
+    //         if (NavigationService.getUser()) {
+    //             $scope.isLogin = true;
+    //         } else {
+    //             $scope.isLogin = false;
+    //         }
+    //         if ($scope.isLogin) {
+    //             console.log('////////////');
+    //             //   $scope.openSaveDesignPopup = function () {
+    //             $uibModal.open({
+    //                 templateUrl: 'views/modal/savedesign.html',
+    //                 scope: $scope
+    //             });
+    //             // };
+    //         } else {
+    //             console.log('////////////1111111');
+    //             $scope.openLogin();
+    //             // $uibModal.open({
+    //             //     templateUrl: 'views/modal/login.html',
+    //             //     scope: $scope
+    //             // });
+
+
+    //         }
+    //     }
+    //     $scope.doLogin = function (input, formValidate) {
+    //         $scope.validatelogin = false;
+    //         $scope.inputall = false;
+
+    //         if (formValidate.$valid) {
+    //             NavigationService.login(input, function (data) {
+    //                 if (data.value === false) {
+    //                     $scope.validatelogin = true;
+    //                 } else {
+    //                     NavigationService.setUser(data);
+    //                     // window.location.reload();
+    //                     $scope.openLogin.close();
+    //                 }
+    //             }, function (err) {})
+    //         } else {
+    //             $scope.inputall = true;
+    //         }
+    //     }
+    //     //glovesImages path
+    //     $scope.glovesImages1 = {
+    //         "yellow": ["img/glovescolor/yellow/1.png"],
+    //         "red": ["img/glovescolor/red/1.png"],
+    //         "lblue": ["img/glovescolor/lblue/1.png"],
+    //         "dblue": ["img/glovescolor/dblue/1.png"],
+    //         "lgreen": ["img/glovescolor/lgreen/1.png"],
+    //         "dgreen": ["img/glovescolor/dgreen/1.png"],
+    //         "lorange": ["img/glovescolor/lorange/1.png"],
+    //         "dorange": ["img/glovescolor/dorange/1.png"],
+    //         "gold": ["img/glovescolor/gold/1.png"]
+
+    //     };
+    //     //glovesImages path
+    //     $scope.glovesImages2 = {
+    //         "yellow": ["img/glovescolor/yellow/2.png"],
+    //         "red": ["img/glovescolor/red/2.png"],
+    //         "lblue": ["img/glovescolor/lblue/2.png"],
+    //         "dblue": ["img/glovescolor/dblue/2.png"],
+    //         "lgreen": ["img/glovescolor/lgreen/2.png"],
+    //         "dgreen": ["img/glovescolor/dgreen/2.png"],
+    //         "lorange": ["img/glovescolor/lorange/2.png"],
+    //         "dorange": ["img/glovescolor/dorange/2.png"],
+    //         "gold": ["img/glovescolor/gold/2.png"]
+
+    //     };
+    //     //glovesImages path
+    //     $scope.glovesImages3 = {
+    //         "yellow": ["img/glovescolor/yellow/3.png"],
+    //         "red": ["img/glovescolor/red/3.png"],
+    //         "lblue": ["img/glovescolor/lblue/3.png"],
+    //         "dblue": ["img/glovescolor/dblue/3.png"],
+    //         "lgreen": ["img/glovescolor/lgreen/3.png"],
+    //         "dgreen": ["img/glovescolor/dgreen/3.png"],
+    //         "lorange": ["img/glovescolor/lorange/3.png"],
+    //         "dorange": ["img/glovescolor/dorange/3.png"],
+    //         "gold": ["img/glovescolor/gold/3.png"]
+
+    //     };
+
+    //     // $scope.myArr=[$scope.glovesImages1.yellow,$scope.glovesImages2.yellow,$scope.glovesImages3.yellow];
+    //     $scope.myArr = [{
+    //         name: "$scope.glovesImages1",
+    //         img: $scope.glovesImages1.yellow
+    //     }, {
+    //         name: "$scope.glovesImages2",
+    //         img: $scope.glovesImages2.yellow
+    //     }, {
+    //         name: "$scope.glovesImages3",
+    //         img: $scope.glovesImages3.yellow
+    //     }];
+
+    //     $scope.rslider = {
+    //         min: 10,
+    //         max: 100
+    //     };
+
+    //     $scope.glovesLogo = {};
+    //     $scope.glovesLogo.isTeamLogo = false;
+    //     $scope.glovesLogo.divattributes = {
+    //         top: '200px',
+    //         left: '355px'
+    //     };
+    //     $scope.glovesLogo.attributes = {};
+    //     $scope.glovesLogo.attributes.width = 100;
+    //     $scope.glovesLogo.printType = 'embroidered';
+    //     $scope.statuses = {};
+
+    //     $scope.gloves = {
+    //         'direction': 'left',
+    //         'quantity': ''
+    //     };
+    //     $scope.glovesArr = [{
+    //         'direction': 'left',
+    //         'quantity': ''
+    //     }];
+
+    //     $scope.glovesArrCount = 1;
+
+    //     $scope.addGlovesValues = function () {
+    //         $scope.glovesArr.push(_.clone($scope.gloves));
+    //         $scope.glovesArrCount = $scope.glovesArrCount + 1;
+    //     }
+    //     $scope.removeGlovesValue = function (index) {
+    //         $scope.glovesArr.splice(index, 1);
+    //         $scope.glovesArrCount = $scope.glovesArrCount - 1;
+    //     }
+
+    //     $scope.singleAmount = 1800;
+    //     $scope.totalAmount = 1800;
+    //     $scope.totalQuan = 0;
+
+    //     $scope.addQuantity = function (q) {
+    //         $scope.totalQuan = 0;
+    //         $scope.totalAmount = 0;
+    //         for (var i = 0; i < $scope.glovesArrCount; i++) {
+    //             $scope.totalQuan += $scope.glovesArr[i].quantity;
+    //         }
+    //         if ($scope.totalQuan) {
+    //             $scope.totalAmount = $scope.singleAmount * $scope.totalQuan + 5000;
+    //         }
+    //     };
+
+    //     // $scope.addQuantity();
+
+    //     $scope.glovesDesign = {};
+
+    //     $scope.selectDesign = function (item) {
+    //         console.log(item);
+    //         $scope.glovesDesign.name = item.name;
+    //         $scope.glovesDesign.image = item.img[0];
+    //         $scope.Arrayname = item.name;
+    //         $scope.selectedImage = item.img[0];
+    //         console.log($scope.Arrayname);
+    //         if ($scope.Arrayname == '$scope.glovesImages1') {
+    //             $scope.glovesLogo.divattributes = {
+    //                 // top: '203px',
+    //                 // left: '352px'
+    //                 top: '188px',
+    //                 left: '344px',
+    //                 width: '60px',
+    //                 height: '80px'
+    //             };
+    //         }
+    //         if ($scope.Arrayname == '$scope.glovesImages2') {
+    //             $scope.glovesLogo.divattributes = {
+    //                 top: '232px',
+    //                 left: '298px',
+    //                 width: '58px',
+    //                 height: '72px'
+    //             };
+    //         }
+    //         if ($scope.Arrayname == '$scope.glovesImages3') {
+    //             $scope.glovesLogo.divattributes = {
+    //                 top: '228px',
+    //                 left: '292px',
+    //                 width: '62px',
+    //                 height: '72px'
+    //             };
+    //         }
+    //         $scope.changeGlovesImages = function (color) {
+    //             console.log(color);
+    //             $scope.glovesColors = color;
+    //             $scope.glovesDesign.color = $scope.glovesColors;
+    //             if ($scope.Arrayname == '$scope.glovesImages1') {
+    //                 console.log('here');
+    //                 $scope.selectedImage = $scope.glovesImages1[color][0];
+    //                 $scope.glovesDesign.image = $scope.glovesImages1[color][0];
+    //             }
+    //             if ($scope.Arrayname == '$scope.glovesImages2') {
+    //                 $scope.selectedImage = $scope.glovesImages2[color][0];
+    //                 $scope.glovesDesign.image = $scope.glovesImages2[color][0];
+    //             }
+    //             if ($scope.Arrayname == '$scope.glovesImages3') {
+    //                 $scope.selectedImage = $scope.glovesImages3[color][0];
+    //                 $scope.glovesDesign.image = $scope.glovesImages3[color][0];
+    //             }
+
+    //             $rootScope.$broadcast('changeImage', {});
+
+    //         }
+    //         // $scope.myChoice=item;
+    //     }
+
+
+    //     $scope.selectDesign($scope.myArr[0]);
+    //     console.log($scope.myArr[0]);
+    //     // $scope.changeGlovesImages = function(color) {
+    //     //     console.log(color);
+    //     //     $scope.padColors = color;
+    //     //     $scope.selectedImage = $scope.glovesImages1[color][0];
+    //     //     $rootScope.$broadcast('changeImage', {});
+    //     //
+    //     // }
+
+    //     $scope.changeLogo = function (key) {
+    //         $scope.glovesLogo.divattributes.border = "1px solid #ccc";
+    //     };
+    //     $scope.resetLogoStyle = function (key) {
+    //         $scope.glovesLogo.divattributes.border = "none";
+    //         $scope.$apply();
+    //     };
+    //     $scope.emptyImage = function (key) {
+    //         $scope.glovesLogo.image = null;
+    //     }
+
+
+
+    //     $scope.selectGlovesImage = function (image) {
+    //         console.log(image);
+    //         $scope.selectedImage = {
+    //             image: image
+    //         }
+    //         $rootScope.$broadcast('changeImage', {});
+
+    //     };
+    //     $scope.selectColoredImages = function (image) {
+    //         console.log(image);
+    //         $scope.selectedImage = image;
+    //         $scope.selectedImage.local = true;
+    //         $rootScope.$broadcast('changeImage', {});
+    //     };
+
+    //     var check = 1;
+
+    //     $scope.UploadTeamLogo = function () {
+    //         check = 2;
+    //         $uibModal.open({
+    //             templateUrl: "views/modal/copyrights.html",
+    //             scope: $scope
+    //         })
+    //     }
+    //     $scope.UploadTeamLogo1 = function () {
+    //         check = 3;
+    //         $uibModal.open({
+    //             templateUrl: "views/modal/copyrights.html",
+    //             scope: $scope
+    //         })
+    //     }
+    //     $scope.openChooseFile = function () {
+    //         $uibModal.open({
+    //             templateUrl: "views/modal/choosefile.html",
+    //             scope: $scope
+    //         })
+    //     }
+    //     $scope.openUploads = function () {
+    //         $scope.statuses.uploadStatus = false;
+    //         $uibModal.open({
+    //             templateUrl: "views/modal/tshirt.html",
+    //             scope: $scope
+    //         })
+    //     }
+    //     $scope.onFileSelect = function ($files, whichone, uploadtype, variable) {
+    //         $scope.toolarge = false;
+    //         console.log($files);
+    //         if ($files[0].size < 20000000) {
+    //             $scope.statuses.uploadStatus = true;
+    //             cfpLoadingBar.start();
+    //             $scope.showimage = true;
+    //             globalfunction.onFileSelect($files, function (image) {
+    //                 cfpLoadingBar.complete();
+    //                 if (whichone == 1) {
+    //                     console.log(image);
+    //                     $scope.tempImage = image[0];
+    //                     console.log($scope.tempImage);
+    //                 }
+    //             })
+    //         } else {
+    //             $files = [];
+    //             $scope.toolarge = true;
+    //         }
+    //     }
+    //     $scope.confirmUpload = function (variable, name) {
+    //         $scope.glovesLogo.image = $scope.tempImage;
+    //         $scope.tempImage = "";
+    //     }
+    //     $scope.doneUploading = function () {
+    //         if (check == 3) {
+    //             $scope.tab = "sponsorlogo"
+    //         } else {
+    //             $scope.tab = "teamlogo";
+    //         }
+    //     }
+    //     $scope.openUploadNew = function () {
+    //         $uibModal.open({
+    //             templateUrl: "views/modal/tshirt-popup.html",
+    //             scope: $scope
+    //         })
+    //     }
+
+    //     $scope.checkTeamLogo = function () {
+    //         console.log('troooo', $scope.glovesLogo.image);
+    //         if ($scope.glovesLogo.isTeamLogo || $scope.glovesLogo.image) {
+    //             $scope.tabchange('quantity', 5);
+    //             $scope.openTab('d');
+    //         } else {
+    //             $uibModal.open({
+    //                 templateUrl: 'views/modal/checkTeamLogo.html',
+    //                 scope: $scope
+    //             });
+    //         }
+    //     }
+
+    //     $scope.openSaveDesignPopup = function () {
+    //         $uibModal.open({
+    //             templateUrl: 'views/modal/savedesign.html',
+    //             scope: $scope
+    //         });
+    //     };
+
+    //     $scope.proceed = function () {
+    //         $uibModal.open({
+    //             templateUrl: "views/modal/proceed.html",
+    //             scope: $scope
+    //         })
+    //     }
+    //     // $scope.copyrighting = function(){
+    //     //   $uibModal.open({
+    //     //     templateUrl: "views/modal/copyrighting.html",
+    //     //     scope: $scope
+    //     //   })
+    //     // }
+    //     // $scope.openColor = function(){
+    //     //   $uibModal.open({
+    //     //     templateUrl: "views/modal/continue.html",
+    //     //     scope: $scope
+    //     //   })
+    //     // }
+    //     $scope.showColorTab = function () {
+    //         $scope.tab = "teamcolor";
+    //     }
+    //     $scope.showQuantiyTab = function () {
+    //         $scope.tab = "quantiy";
+    //     }
+    //     $scope.showQuantyTab = function () {
+    //         $scope.tab = "quanty";
+    //     }
+
+    //     $scope.proceedNext = function () {
+    //         $scope.tab = "sponsorlogo";
+    //     }
+
+    //     $scope.teamloging = function () {
+    //         $scope.tab = "teamlogo";
+    //     }
+    //     $scope.color = [{
+    //         colr: "#f5b122"
+    //     }, {
+    //         colr: "#c80d28"
+    //     }, {
+    //         colr: "#318db2"
+    //     }, {
+    //         colr: "#2c8b47"
+    //     }, {
+    //         colr: "#0036ff"
+    //     }, {
+    //         colr: "#491f61"
+    //     }, {
+    //         colr: "#e87024"
+    //     }, {
+    //         colr: "#501e1f"
+    //     }];
+
+    //     $scope.images = [{
+    //         src: "img/gloves/Gloves.png"
+    //     }, {
+    //         src: "img/gloves/gloveslemon.png"
+    //     }, {
+    //         src: "img/gloves/glovesorange.png"
+    //     }];
+    //     //tab changes
+
+    //     $scope.qtyVal = false;
+    //     $scope.toOrderSummary = function (qty) {
+    //         console.log('drfghjrftghbsssssssssss', qty);
+    //         if (qty == '0') {
+    //             console.log('drfghjrftghb');
+    //             $scope.qtyVal = true;
+    //         } else {
+    //             console.log('drfghjrftghbsssssssssss');
+    //             $scope.tl = "";
+    //             $scope.user = $.jStorage.get("user");
+    //             if (user) {
+    //                 if ($scope.glovesLogo.image) {
+    //                     $scope.tl = $scope.glovesLogo.image;
+    //                 }
+    //                 $scope.combineJSON = {
+    //                     "glovesLogo": $scope.glovesLogo,
+    //                     "glovesArr": $scope.glovesArr,
+    //                     "glovesDesign": $scope.glovesDesign,
+    //                     "teamlogo": $scope.tl,
+    //                     "totalAmount": $scope.totalAmount,
+    //                     "totalQuan": $scope.totalQuan,
+    //                     "name": 'Switch',
+    //                     "designType": 'gloves'
+    //                 };
+    //                 $scope.lastJSON = JSON.stringify($scope.combineJSON);
+    //                 console.log($scope.combineJSON);
+    //                 console.log($scope.lastJSON);
+    //                 NavigationService.orderSummaryGloves(user.email, $scope.combineJSON, $scope.tl, 'gloves',
+    //                     function (data) {
+    //                         console.log('Order Summary gloves data: ', data);
+    //                         $state.go('ordersummary', {
+    //                             id: data.id
+    //                         });
+    //                     },
+    //                     function (err) {
+    //                         console.log(err);
+    //                     });
+    //             } else {
+    //                 $scope.openLogin();
+    //             }
+    //         }
+    //     }
+
+
+    //     $scope.tab = "design";
+    //     $scope.classa = 'active';
+    //     $scope.classb = '';
+    //     $scope.classc = '';
+    //     $scope.classd = '';
+    //     $scope.classe = '';
+
+    //     $scope.tabchange = function (tab, a) {
+    //         $scope.axd = a;
+    //         $scope.tab = tab;
+    //         if (a == 1) {
+    //             $scope.classa = 'active';
+    //             $scope.classb = '';
+    //             $scope.classc = '';
+    //             $scope.classd = '';
+    //             $scope.classe = '';
+
+    //         }
+    //         if (a == 2) {
+    //             // $scope.a =a;
+    //             $scope.classb = 'active';
+    //             $scope.classa = '';
+    //             $scope.classc = '';
+    //             $scope.classd = '';
+    //             $scope.classe = '';
+
+    //         }
+    //         if (a == 3) {
+    //             // $scope.a =a;
+    //             $scope.classc = 'active';
+    //             $scope.classb = '';
+    //             $scope.classa = '';
+    //             $scope.classd = '';
+    //             $scope.classe = '';
+
+    //         } else if (a == 4) {
+    //             // $scope.a =a;
+    //             $scope.classe = 'active';
+    //             $scope.classb = '';
+    //             $scope.classc = '';
+    //             $scope.classd = '';
+    //             $scope.classa = '';
+    //         } else if (a == 5) {
+    //             $scope.classe = 'active';
+    //             $scope.classb = '';
+    //             $scope.classc = '';
+    //             $scope.classd = '';
+    //             $scope.classa = '';
+
+    //         }
+    //     };
+
+    //     $scope.tabAllowa = '';
+    //     $scope.tabAllowb = 'noAllow';
+    //     $scope.tabAllowc = 'noAllow';
+    //     $scope.tabAllowd = 'noAllow';
+    //     $scope.tabAllowToa = false;
+    //     $scope.tabAllowTob = true;
+    //     $scope.tabAllowToc = true;
+    //     $scope.tabAllowTod = true;
+
+    //     $scope.openTab = function (tab) {
+    //         if (tab === 'a') {
+    //             $scope.tabAllowa = '';
+    //             $scope.tabAllowToa = false;
+    //         } else if (tab === 'b') {
+    //             $scope.tabAllowb = '';
+    //             $scope.tabAllowTob = false;
+    //         } else if (tab === 'c') {
+    //             $scope.tabAllowc = '';
+    //             $scope.tabAllowToc = false;
+    //         } else if (tab === 'd') {
+    //             $scope.tabAllowd = '';
+    //             $scope.tabAllowTod = false;
+    //         }
+    //     };
+    //     $scope.LogosTab = false;
+    //     $scope.quantityTab = false;
+    //     $scope.turnOnLogos = function (val) {
+    //         $scope.LogosTab = val;
+    //     }
+
+    //     $scope.switchNavigation = function (tab) {
+    //         if (tab === 'a') {
+    //             if (!$scope.tabAllowToa) {
+    //                 $scope.tabchange('design', 1);
+    //             }
+    //         } else if (tab === 'b') {
+    //             if (!$scope.tabAllowTob) {
+    //                 $scope.tabchange('trim', 2);
+    //             }
+    //         } else if (tab === 'c') {
+    //             if (!$scope.tabAllowToc) {
+    //                 $scope.tabchange('team', 3);
+    //                 $scope.turnOnLogos(true);
+    //             }
+    //             $scope.turnOnLogos(true);
+    //         } else if (tab === 'd') {
+    //             if (!$scope.tabAllowTod) {
+    //                 $scope.tabchange('quantity', 5);
+    //             }
+    //         }
+    //     };
+
+
+    //     $scope.demo2 = {
+    //         range: {
+    //             min: 0,
+    //             max: 10050
+    //         },
+    //         minPrice: 1000,
+    //         maxPrice: 4000
+    //     };
+
+
+    //     //    end
+
+    //     // $scope.toOrderSummary = function() {
+    //     //     $scope.allLogos = {};
+    //     //     $scope.combineJSON = {
+    //     //         "gloves": {
+    //     //             "gloves": $scope.glovesArr,
+    //     //             "allLogos": $scope.glovesLogo,
+    //     //             "totalAmount": $scope.totalAmount,
+    //     //             "totalQuan": $scope.totalQuan
+    //     //         },
+    //     //         "type": "gloves"
+    //     //     };
+    //     //     $scope.lastJSON = JSON.stringify($scope.combineJSON);
+    //     //     console.log($scope.combineJSON);
+    //     //     console.log($scope.lastJSON);
+    //     // }
+
+
+    //     $scope.openUpload = function () {
+    //         $uibModal.open({
+    //             templateUrl: "views/modal/tshirt.html",
+    //             controller: "GlovesCtrl",
+    //             scope: $scope
+    //         })
+    //     };
+
+    //     $scope.copy = function () {
+    //         $uibModal.open({
+    //             templateUrl: "views/modal/outofplace.html",
+    //             controller: "GlovesCtrl",
+    //             scope: $scope
+    //         })
+    //     };
+
+    //     $scope.continue = function () {
+    //         $uibModal.open({
+    //             templateUrl: "views/modal/continue.html",
+    //             controller: "GlovesCtrl",
+    //             scope: $scope
+    //         })
+    //     };
+
+    //     $scope.choose = function () {
+    //         $uibModal.open({
+    //             templateUrl: "views/modal/choosefile.html",
+    //             controller: "GlovesCtrl",
+    //             scope: $scope
+    //         })
+    //     };
+
+    //     $scope.copyright = function () {
+    //         $uibModal.open({
+    //             templateUrl: "views/modal/copyrights.html",
+    //             controller: "GlovesCtrl",
+    //             scope: $scope
+    //         })
+    //     };
+
+
+    //     $scope.tshirtUpload = function () {
+    //         $uibModal.open({
+    //             templateUrl: "views/modal/tshirt-popup.html",
+    //             controller: "GlovesCtrl",
+    //             scope: $scope
+    //         })
+    //     };
+
+    //     $scope.outplace = function () {
+    //         $uibModal.open({
+    //             templateUrl: "views/modal/outofplace.html",
+    //             animation: true,
+    //             // controller: "GlovesCtrl",
+    //             windowClass: "modal-dialogintro",
+    //             backdrop: 'static',
+    //             scope: $scope
+    //         })
+    //     };
+
+    // })
 
     .controller('OdiCtrl', function ($scope, $rootScope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar, $filter, $interval, $rootScope) {
         //Used to name the .html file
