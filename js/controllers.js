@@ -10,7 +10,7 @@ var bigcount = {};
 // window.uploadUrl = "http://192.168.0.22/cccbackend/index.php/json/uploadImage";
 window.uploadUrl = "http://wohlig.co.in/cccbackend/index.php/json/uploadImage";
 
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'duScroll', 'cfp.loadingBar', 'ngDialog', 'angularFileUpload', 'ngSanitize', 'ui-rangeSlider'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngSanitize', 'angular-flexslider', 'duScroll', 'cfp.loadingBar', 'ngDialog', 'angularFileUpload', 'ngSanitize', 'ui-rangeSlider', "customUI"])
 
     .controller('HomeCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $uibModal, cfpLoadingBar) {
         //Used to name the .html file
@@ -1366,14 +1366,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
             if ($scope.isLogin) {
                 console.log('////////////');
-                       NavigationService.saveDesign(user.email, $scope.trouserJson, 'trouser',
-                        function (data) {
-                            console.log('Save Design data: ', data);
-                            $state.go('savedesign');
-                        },
-                        function (err) {
-                            console.log(err);
-                        });
+                NavigationService.saveDesign(user.email, $scope.trouserJson, 'trouser',
+                    function (data) {
+                        console.log('Save Design data: ', data);
+                        $state.go('savedesign');
+                    },
+                    function (err) {
+                        console.log(err);
+                    });
                 $uibModal.open({
                     templateUrl: 'views/modal/savedesign.html',
                     scope: $scope
@@ -10463,14 +10463,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Save Design");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-        
+
         $scope.user = $.jStorage.get('user');
         if (user) {
             NavigationService.getDesigns(user.email,
                 function (data) {
                     console.log('Save Design data: ', data);
                     // $scope.savedDesigns = data.data;              },
-                function (err) {
                     console.log(err);
                 });
         } else {}

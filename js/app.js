@@ -1,52 +1,53 @@
 // JavaScript Document
-  var firstapp = angular.module('firstapp', [
-    'ui.router',
-    'phonecatControllers',
-    'templateservicemod',
-    'navigationservice'
-  ]);
+var firstapp = angular.module('firstapp', [
+  'ui.router',
+  'phonecatControllers',
+  'templateservicemod',
+  'navigationservice',
+  "customUI"
+]);
 
-  firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, cfpLoadingBarProvider) {
+firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, cfpLoadingBarProvider) {
 
-    // for http request with session
-    $httpProvider.defaults.headers.common = {};
-    $httpProvider.defaults.headers.post = {};
-    $httpProvider.defaults.headers.put = {};
-    $httpProvider.defaults.headers.patch = {};
+  // for http request with session
+  $httpProvider.defaults.headers.common = {};
+  $httpProvider.defaults.headers.post = {};
+  $httpProvider.defaults.headers.put = {};
+  $httpProvider.defaults.headers.patch = {};
 
-    $httpProvider.defaults.withCredentials = true;
-    cfpLoadingBarProvider.includeSpinner = true;
-    cfpLoadingBarProvider.latencyThreshold = 2000;
-    cfpLoadingBarProvider.includeBar = false;
-    cfpLoadingBarProvider.spinnerTemplate = '<div class="loading-bar"><span><img src="img/logo.png" class="rotate"></span></div>';
-    $stateProvider
+  $httpProvider.defaults.withCredentials = true;
+  cfpLoadingBarProvider.includeSpinner = true;
+  cfpLoadingBarProvider.latencyThreshold = 2000;
+  cfpLoadingBarProvider.includeBar = false;
+  cfpLoadingBarProvider.spinnerTemplate = '<div class="loading-bar"><span><img src="img/logo.png" class="rotate"></span></div>';
+  $stateProvider
 
-      .state('home', {
+    .state('home', {
       url: "/home",
       templateUrl: "views/template.html",
       controller: 'HomeCtrl'
     })
 
     .state('categories', {
-        url: "/categories/:name",
-        templateUrl: "views/template.html",
-        controller: 'CategoriesCtrl'
-      })
-      .state('custom', {
-        url: "/custom",
-        templateUrl: "views/template.html",
-        controller: 'CustomCtrl'
-      })
-      .state('apparels', {
-        url: "/apparels",
-        templateUrl: "views/template.html",
-        controller: 'ApparelsCtrl'
-      })
-      .state('odi-shirt', {
-        url: "/odi-shirt",
-        templateUrl: "views/template.html",
-        controller: 'OdiCtrl'
-      })
+      url: "/categories/:name",
+      templateUrl: "views/template.html",
+      controller: 'CategoriesCtrl'
+    })
+    .state('custom', {
+      url: "/custom",
+      templateUrl: "views/template.html",
+      controller: 'CustomCtrl'
+    })
+    .state('apparels', {
+      url: "/apparels",
+      templateUrl: "views/template.html",
+      controller: 'ApparelsCtrl'
+    })
+    .state('odi-shirt', {
+      url: "/odi-shirt",
+      templateUrl: "views/template.html",
+      controller: 'OdiCtrl'
+    })
 
     .state('capsandhats', {
       url: "/capsandhats",
@@ -85,15 +86,15 @@
     })
 
     .state('pads-review', {
-        url: "/pads-review",
-        templateUrl: "views/template.html",
-        controller: 'PadsreviewCtrl'
-      })
-      .state('shorts-review', {
-        url: "/shorts-review",
-        templateUrl: "views/template.html",
-        controller: 'ShortsReviewCtrl'
-      })
+      url: "/pads-review",
+      templateUrl: "views/template.html",
+      controller: 'PadsreviewCtrl'
+    })
+    .state('shorts-review', {
+      url: "/shorts-review",
+      templateUrl: "views/template.html",
+      controller: 'ShortsReviewCtrl'
+    })
 
     .state('review-balls', {
       url: "/review-balls",
@@ -102,15 +103,15 @@
     })
 
     .state('final-trouser', {
-        url: "/final-trouser",
-        templateUrl: "views/template.html",
-        controller: 'FinalTrouserReviewCtrl'
-      })
-      .state('final-shorts', {
-        url: "/final-shorts",
-        templateUrl: "views/template.html",
-        controller: 'FinalShortsReviewCtrl'
-      })
+      url: "/final-trouser",
+      templateUrl: "views/template.html",
+      controller: 'FinalTrouserReviewCtrl'
+    })
+    .state('final-shorts', {
+      url: "/final-shorts",
+      templateUrl: "views/template.html",
+      controller: 'FinalShortsReviewCtrl'
+    })
 
     .state('final-pad', {
       url: "/final-pad",
@@ -126,25 +127,25 @@
 
 
     .state('bat', {
-        url: "/bat",
-        templateUrl: "views/template.html",
-        controller: 'BatCtrl'
-      })
-      .state('sweater', {
-        url: "/sweater",
-        templateUrl: "views/template.html",
-        controller: 'SweaterCtrl'
-      })
-      .state('odi-trouser', {
-        url: "/odi-trouser",
-        templateUrl: "views/template.html",
-        controller: 'OdiTrouserCtrl'
-      })
-      .state('kit-bag', {
-        url: "/kit-bag",
-        templateUrl: "views/template.html",
-        controller: 'KitBagCtrl'
-      })
+      url: "/bat",
+      templateUrl: "views/template.html",
+      controller: 'BatCtrl'
+    })
+    .state('sweater', {
+      url: "/sweater",
+      templateUrl: "views/template.html",
+      controller: 'SweaterCtrl'
+    })
+    .state('odi-trouser', {
+      url: "/odi-trouser",
+      templateUrl: "views/template.html",
+      controller: 'OdiTrouserCtrl'
+    })
+    .state('kit-bag', {
+      url: "/kit-bag",
+      templateUrl: "views/template.html",
+      controller: 'KitBagCtrl'
+    })
 
 
     .state('categories-inside', {
@@ -154,17 +155,17 @@
     })
 
     .state('privacypolicy', {
-        url: "/privacypolicy",
-        templateUrl: "views/template.html",
-        controller: 'PrivacyPolicyCtrl'
-      })
-      .state('review', {
-        url: "/review",
-        templateUrl: "views/template.html",
-        controller: 'ReviewCtrl'
-      })
+      url: "/privacypolicy",
+      templateUrl: "views/template.html",
+      controller: 'PrivacyPolicyCtrl'
+    })
+    .state('review', {
+      url: "/review",
+      templateUrl: "views/template.html",
+      controller: 'ReviewCtrl'
+    })
 
-      .state('gloves', {
+    .state('gloves', {
       url: "/gloves",
       templateUrl: "views/template.html",
       controller: 'GlovesCtrl'
@@ -195,36 +196,36 @@
     })
 
     .state('cart', {
-        url: "/cart",
-        templateUrl: "views/template.html",
-        controller: 'CartCtrl'
-      })
-      .state('profile', {
-        url: "/profile",
-        templateUrl: "views/template.html",
-        controller: 'ProfileCtrl'
-      })
-      .state('product-detail', {
-        url: "/categories/:category/:subcategory/:id",
-        templateUrl: "views/template.html",
-        controller: 'Product-DetailCtrl'
-      })
-      .state('services', {
-        url: "/services",
-        templateUrl: "views/template.html",
-        controller: 'ServicesCtrl'
-      })
+      url: "/cart",
+      templateUrl: "views/template.html",
+      controller: 'CartCtrl'
+    })
+    .state('profile', {
+      url: "/profile",
+      templateUrl: "views/template.html",
+      controller: 'ProfileCtrl'
+    })
+    .state('product-detail', {
+      url: "/categories/:category/:subcategory/:id",
+      templateUrl: "views/template.html",
+      controller: 'Product-DetailCtrl'
+    })
+    .state('services', {
+      url: "/services",
+      templateUrl: "views/template.html",
+      controller: 'ServicesCtrl'
+    })
 
     .state('servicesid', {
-        url: "/services/:id",
-        templateUrl: "views/template.html",
-        controller: 'ServicesCtrl'
-      })
-      .state('extras', {
-        url: "/extras",
-        templateUrl: "views/template.html",
-        controller: 'ExtrasCtrl'
-      })
+      url: "/services/:id",
+      templateUrl: "views/template.html",
+      controller: 'ServicesCtrl'
+    })
+    .state('extras', {
+      url: "/extras",
+      templateUrl: "views/template.html",
+      controller: 'ExtrasCtrl'
+    })
 
     .state('extrasid', {
       url: "/extras/:id",
@@ -233,35 +234,35 @@
     })
 
     .state('savedesign', {
-        url: "/save-design",
-        templateUrl: "views/template.html",
-        controller: 'SaveDesignCtrl'
-      })
-      .state('termsconditions', {
-        url: "/terms-conditions",
-        templateUrl: "views/template.html",
-        controller: 'TermsConditionsCtrl'
-      })
-      .state('about', {
-        url: "/about",
-        templateUrl: "views/template.html",
-        controller: 'AboutCtrl'
-      })
-      .state('contact', {
-        url: "/contact",
-        templateUrl: "views/template.html",
-        controller: 'ContactCtrl'
-      })
-      .state('wishlist', {
-        url: "/wishlist",
-        templateUrl: "views/template.html",
-        controller: 'WishlistCtrl'
-      })
-      .state('order', {
-        url: "/order",
-        templateUrl: "views/template.html",
-        controller: 'OrderCtrl'
-      })
+      url: "/save-design",
+      templateUrl: "views/template.html",
+      controller: 'SaveDesignCtrl'
+    })
+    .state('termsconditions', {
+      url: "/terms-conditions",
+      templateUrl: "views/template.html",
+      controller: 'TermsConditionsCtrl'
+    })
+    .state('about', {
+      url: "/about",
+      templateUrl: "views/template.html",
+      controller: 'AboutCtrl'
+    })
+    .state('contact', {
+      url: "/contact",
+      templateUrl: "views/template.html",
+      controller: 'ContactCtrl'
+    })
+    .state('wishlist', {
+      url: "/wishlist",
+      templateUrl: "views/template.html",
+      controller: 'WishlistCtrl'
+    })
+    .state('order', {
+      url: "/order",
+      templateUrl: "views/template.html",
+      controller: 'OrderCtrl'
+    })
     .state('checkout', {
       url: "/checkout",
       templateUrl: "views/template.html",
@@ -273,500 +274,500 @@
       controller: 'OrderSummaryCtrl'
     })
     .state('mywishlist', {
-        url: "/mywishlist",
-        templateUrl: "views/template.html",
-        controller: 'MyWishListCtrl'
-      })
-      .state('thank', {
-        url: "/thank",
-        templateUrl: "views/template.html",
-        controller: 'ThankCtrl'
-      })
-      .state('forgot', {
-        url: "/forgot",
-        templateUrl: "views/template.html",
-        controller: 'ForgotCtrl'
-      })
-      .state('forgotpassword', {
-        url: "/forgot-password/:hash",
-        templateUrl: "views/template.html",
-        controller: 'ForgotPasswordCtrl'
-      })
-      .state('customdirect', {
-        url: "/custom-direct",
-        templateUrl: "views/template.html",
-        controller: 'CustomDirectCtrl'
-      })
-      .state('error', {
-        url: "/error",
-        templateUrl: "views/template.html",
-        controller: 'ErrorCtrl'
-      })
-      .state('thankyou', {
-        url: "/thankyou/:orderid/:amount",
-        templateUrl: "views/template.html",
-        controller: 'ThankyouCtrl'
-      })
-      .state('wrong', {
-        url: "/wrong/:orderid",
-        templateUrl: "views/template.html",
-        controller: 'WrongCtrl'
-      })
-      .state('customerror', {
-        url: "/error/:orderid",
-        templateUrl: "views/template.html",
-        controller: 'CustomErrorCtrl'
-      })
+      url: "/mywishlist",
+      templateUrl: "views/template.html",
+      controller: 'MyWishListCtrl'
+    })
+    .state('thank', {
+      url: "/thank",
+      templateUrl: "views/template.html",
+      controller: 'ThankCtrl'
+    })
+    .state('forgot', {
+      url: "/forgot",
+      templateUrl: "views/template.html",
+      controller: 'ForgotCtrl'
+    })
+    .state('forgotpassword', {
+      url: "/forgot-password/:hash",
+      templateUrl: "views/template.html",
+      controller: 'ForgotPasswordCtrl'
+    })
+    .state('customdirect', {
+      url: "/custom-direct",
+      templateUrl: "views/template.html",
+      controller: 'CustomDirectCtrl'
+    })
+    .state('error', {
+      url: "/error",
+      templateUrl: "views/template.html",
+      controller: 'ErrorCtrl'
+    })
+    .state('thankyou', {
+      url: "/thankyou/:orderid/:amount",
+      templateUrl: "views/template.html",
+      controller: 'ThankyouCtrl'
+    })
+    .state('wrong', {
+      url: "/wrong/:orderid",
+      templateUrl: "views/template.html",
+      controller: 'WrongCtrl'
+    })
+    .state('customerror', {
+      url: "/error/:orderid",
+      templateUrl: "views/template.html",
+      controller: 'CustomErrorCtrl'
+    })
 
-    $urlRouterProvider.otherwise("/home");
+  $urlRouterProvider.otherwise("/home");
 
-  });
+});
 
 
-  firstapp.filter('serverimage', function () {
-    return function (input) {
-      if (input) {
-        if (input.substring(0, 4) === "img/") {
-          return input;
-        } else {
-          return (imgurl + input).toString();
-        }
+firstapp.filter('serverimage', function () {
+  return function (input) {
+    if (input) {
+      if (input.substring(0, 4) === "img/") {
+        return input;
       } else {
-        // return "img/logo.png";
-        return "";
+        return (imgurl + input).toString();
       }
-    };
-  });
-  firstapp.filter('translateRotate', function () {
-    return function (input,scope) {
-      if(input){
-        scope.jerseyBack.attributes.transform = "rotate("+input + "deg)";
-      }
-    };
-  });
-
-  firstapp.filter('serverimage2', function () {
-    return function (input) {
-      if (input) {
-        if (input.substring(0, 4) === "img/") {
-          return 'url(\"' + input + '\")';
-        } else {
-          return 'url(\"' + imgurl + input + '\")';
-        }
-      } else {
-        // return "img/logo.png";
-        return "";
-      }
-    };
-  });
-
-  firstapp.filter('rawHtml', ['$sce',
-    function ($sce) {
-      return function (val) {
-        return $sce.trustAsHtml(val);
-      };
+    } else {
+      // return "img/logo.png";
+      return "";
     }
-  ])
-  firstapp.filter('resizeimage', function () {
-    return function (input) {
-      if (input) {
-        return mainurl + 'image/index?name=' + input + '&width=600';
-      } else {
-        // return "img/logo.png";
-        return "";
-      }
-    };
-  });
-  firstapp.filter('resizeimage300', function () {
-    return function (input) {
-      if (input) {
-        return mainurl + 'image/index?name=' + input + '&width=300';
-      } else {
-        // return "img/logo.png";
-        return "";
-      }
-    };
-  });
-  firstapp.filter('resizeimage800', function () {
-    return function (input) {
-      if (input) {
-        return mainurl + 'image/index?name=' + input + '&width=800';
-      } else {
-        // return "img/logo.png";
-        return "";
-      }
-    };
-  });
-  firstapp.filter('resizeimage400', function () {
-    return function (input) {
-      if (input) {
-        return mainurl + 'image/index?name=' + input + '&width=400';
-      } else {
-        // return "img/logo.png";
-        return "";
-      }
-    };
-  });
-  firstapp.filter('resizeimage1300', function () {
-    return function (input) {
-      if (input) {
-        return mainurl + 'image/index?name=' + input + '&width=1300';
-      } else {
-        // return "img/logo.png";
-        return "";
-      }
-    };
-  });
+  };
+});
+firstapp.filter('translateRotate', function () {
+  return function (input, scope) {
+    if (input) {
+      scope.jerseyBack.attributes.transform = "rotate(" + input + "deg)";
+    }
+  };
+});
 
-  firstapp.filter('largeImage', function () {
-    return function (input) {
-      if (input) {
-        return 'http://customcricketcompany.com/admin/index.php/image/index?name=' + input + '&width=2000';
+firstapp.filter('serverimage2', function () {
+  return function (input) {
+    if (input) {
+      if (input.substring(0, 4) === "img/") {
+        return 'url(\"' + input + '\")';
       } else {
-        // return "img/logo.png";
-        return "";
+        return 'url(\"' + imgurl + input + '\")';
       }
+    } else {
+      // return "img/logo.png";
+      return "";
+    }
+  };
+});
+
+firstapp.filter('rawHtml', ['$sce',
+  function ($sce) {
+    return function (val) {
+      return $sce.trustAsHtml(val);
     };
-  });
+  }
+])
+firstapp.filter('resizeimage', function () {
+  return function (input) {
+    if (input) {
+      return mainurl + 'image/index?name=' + input + '&width=600';
+    } else {
+      // return "img/logo.png";
+      return "";
+    }
+  };
+});
+firstapp.filter('resizeimage300', function () {
+  return function (input) {
+    if (input) {
+      return mainurl + 'image/index?name=' + input + '&width=300';
+    } else {
+      // return "img/logo.png";
+      return "";
+    }
+  };
+});
+firstapp.filter('resizeimage800', function () {
+  return function (input) {
+    if (input) {
+      return mainurl + 'image/index?name=' + input + '&width=800';
+    } else {
+      // return "img/logo.png";
+      return "";
+    }
+  };
+});
+firstapp.filter('resizeimage400', function () {
+  return function (input) {
+    if (input) {
+      return mainurl + 'image/index?name=' + input + '&width=400';
+    } else {
+      // return "img/logo.png";
+      return "";
+    }
+  };
+});
+firstapp.filter('resizeimage1300', function () {
+  return function (input) {
+    if (input) {
+      return mainurl + 'image/index?name=' + input + '&width=1300';
+    } else {
+      // return "img/logo.png";
+      return "";
+    }
+  };
+});
+
+firstapp.filter('largeImage', function () {
+  return function (input) {
+    if (input) {
+      return 'http://customcricketcompany.com/admin/index.php/image/index?name=' + input + '&width=2000';
+    } else {
+      // return "img/logo.png";
+      return "";
+    }
+  };
+});
 firstapp.directive('onlyDigits', function () {
-    return {
-        require: 'ngModel',
-        restrict: 'A',
-        link: function (scope, element, attr, ctrl) {
-            var digits;
+  return {
+    require: 'ngModel',
+    restrict: 'A',
+    link: function (scope, element, attr, ctrl) {
+      var digits;
 
-            function inputValue(val) {
-                if (val) {
-                    if (attr.type == "text") {
-                        digits = val.replace(/[^0-9\-\\]/g, '');
-                    } else {
-                        digits = val.replace(/[^0-9\-\\]/g, '');
-                    }
+      function inputValue(val) {
+        if (val) {
+          if (attr.type == "text") {
+            digits = val.replace(/[^0-9\-\\]/g, '');
+          } else {
+            digits = val.replace(/[^0-9\-\\]/g, '');
+          }
 
 
-                    if (digits !== val) {
-                        ctrl.$setViewValue(digits);
-                        ctrl.$render();
-                    }
-                    return parseInt(digits, 10);
-                }
-                return undefined;
-            }
-            ctrl.$parsers.push(inputValue);
+          if (digits !== val) {
+            ctrl.$setViewValue(digits);
+            ctrl.$render();
+          }
+          return parseInt(digits, 10);
         }
-    };
+        return undefined;
+      }
+      ctrl.$parsers.push(inputValue);
+    }
+  };
 });
 firstapp.directive('replace', function () {
-    return {
-        require: 'ngModel',
-        scope: {
-            regex: '@replace',
-            with: '@with'
-        },
-        link: function (scope, element, attrs, model) {
-            model.$parsers.push(function (val) {
-                if (!val) {
-                    return;
-                }
-                var regex = new RegExp(scope.regex);
-                var replaced = val.replace(regex, scope.with);
-                if (replaced !== val) {
-                    model.$setViewValue(replaced);
-                    model.$render();
-                }
-                return replaced;
-            });
+  return {
+    require: 'ngModel',
+    scope: {
+      regex: '@replace',
+      with: '@with'
+    },
+    link: function (scope, element, attrs, model) {
+      model.$parsers.push(function (val) {
+        if (!val) {
+          return;
         }
-    };
+        var regex = new RegExp(scope.regex);
+        var replaced = val.replace(regex, scope.with);
+        if (replaced !== val) {
+          model.$setViewValue(replaced);
+          model.$render();
+        }
+        return replaced;
+      });
+    }
+  };
 });
 
 firstapp.directive('aplhaOnly', function () {
-   return {
-       require: 'ngModel',
-       link: function (scope, element, attr, ngModelCtrl) {
-           function fromUser(text) {
-               var transformedInput = text.replace(/[^a-zA-Z]/g, '');
-               if (transformedInput !== text) {
-                   ngModelCtrl.$setViewValue(transformedInput);
-                   ngModelCtrl.$render();
-               }
-               return transformedInput;
-           }
-           ngModelCtrl.$parsers.push(fromUser);
-       }
-   };
-});
-  firstapp.filter('loginame', function () {
-    return function (value) {
-      if (value) {
-        var splitname = value.split(' ');
-        if (splitname.length == 2) {
-
-          return splitname[0] + ' ' + splitname[1].charAt(0) + '.';
-        } else {
-          return value;
+  return {
+    require: 'ngModel',
+    link: function (scope, element, attr, ngModelCtrl) {
+      function fromUser(text) {
+        var transformedInput = text.replace(/[^a-zA-Z]/g, '');
+        if (transformedInput !== text) {
+          ngModelCtrl.$setViewValue(transformedInput);
+          ngModelCtrl.$render();
         }
-      } else {
-        return null;
+        return transformedInput;
       }
-    };
-  });
-
-  firstapp.filter('alertopup', function () {
-    return function (input) {
-      console.log(input);
-      this.alerts.push({
-        type: 'danger',
-        msg: 'Input all information'
-      });
-    };
-  });
-
-  firstapp.filter('capitalize', function() {
-    return function(input) {
-      var i = (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
-      return i.replace('_', ' ');
+      ngModelCtrl.$parsers.push(fromUser);
     }
-  });
-
-  var formvalidation = function (allvalidation) {
-    var isvalid2 = true;
-    for (var i = 0; i < allvalidation.length; i++) {
-      console.log(allvalidation[i].field);
-      if (allvalidation[i].field == "" || !allvalidation[i].field || allvalidation[i].field == "Please select" || allvalidation[i].field == "Please Select") {
-        allvalidation[i].validation = "ng-invalid";
-        isvalid2 = false;
-      }
-    }
-    return isvalid2;
   };
-  firstapp.directive('fancyboxBox', function ($document) {
-    return {
-      restrict: 'EA',
-      replace: false,
-      link: function (scope, element, attr) {
-        var $element = $(element);
-        var $target;
-        if (attr.rel) {
-          $target = $("[rel='" + attr.rel + "']");
-        } else {
-          $target = element;
-        }
+});
+firstapp.filter('loginame', function () {
+  return function (value) {
+    if (value) {
+      var splitname = value.split(' ');
+      if (splitname.length == 2) {
 
-        $target.fancybox({
-          openEffect: 'fade',
-          closeEffect: 'fade',
-          prevEffect: 'none',
-          nextEffect: 'none',
-          closeBtn: true,
-          helpers: {
-            media: {},
-            title: {
-              type: 'outside'
-            },
-            thumbs: {
-              width: 50,
-              height: 50
-            }
-          }
-        });
+        return splitname[0] + ' ' + splitname[1].charAt(0) + '.';
+      } else {
+        return value;
+      }
+    } else {
+      return null;
+    }
+  };
+});
 
+firstapp.filter('alertopup', function () {
+  return function (input) {
+    console.log(input);
+    this.alerts.push({
+      type: 'danger',
+      msg: 'Input all information'
+    });
+  };
+});
+
+firstapp.filter('capitalize', function () {
+  return function (input) {
+    var i = (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
+    return i.replace('_', ' ');
+  }
+});
+
+var formvalidation = function (allvalidation) {
+  var isvalid2 = true;
+  for (var i = 0; i < allvalidation.length; i++) {
+    console.log(allvalidation[i].field);
+    if (allvalidation[i].field == "" || !allvalidation[i].field || allvalidation[i].field == "Please select" || allvalidation[i].field == "Please Select") {
+      allvalidation[i].validation = "ng-invalid";
+      isvalid2 = false;
+    }
+  }
+  return isvalid2;
+};
+firstapp.directive('fancyboxBox', function ($document) {
+  return {
+    restrict: 'EA',
+    replace: false,
+    link: function (scope, element, attr) {
+      var $element = $(element);
+      var $target;
+      if (attr.rel) {
+        $target = $("[rel='" + attr.rel + "']");
+      } else {
+        $target = element;
       }
-    };
-  });
-  firstapp.directive("ballText", ["$interval", function($interval) {
-      return {
-          restrict: "A",
-          link: function(scope, elem, attrs) {
-              //On interval
-              // $interval(function() {
-              //     $(elem).lettering();
-              // }, 10000);
+
+      $target.fancybox({
+        openEffect: 'fade',
+        closeEffect: 'fade',
+        prevEffect: 'none',
+        nextEffect: 'none',
+        closeBtn: true,
+        helpers: {
+          media: {},
+          title: {
+            type: 'outside'
+          },
+          thumbs: {
+            width: 50,
+            height: 50
           }
-      }
-  }]);
-  firstapp.directive("scrolladd1class", function ($window) {
-    return function (scope, element, attrs) {
-      angular.element($window).bind("scroll", function () {
-        var windowHeight = $(window).height();
-        if (this.pageYOffset >= 150) {
-          // console.log(windowHeight);
-          element.addClass('addfixed');
-        } else {
-          element.removeClass('addfixed');
         }
       });
-    };
-  });
-  firstapp.directive('elevateZoom', function ($document, $filter) {
-    return {
-      restrict: 'EA',
-      link: function ($scope, element, attr) {
-        $scope.$watch(attr.image, function () {
-          $scope.changeImage = function () {
-            console.log($scope[attr.image]);
-            var $element = $(element);
-            var image = $scope[attr.image].image;
-            console.log(image);
-            // image = image.productdetail.image[0];
-            var smallimg = attr.smallImage;
-            var bigimg = attr.bigImage;
-            // $element.attr('data-zoom-image', image);
-            // $element.attr('src', image);
-            var ez = $element.data("elevateZoom");
-            if (!ez) {
-              $element.attr('data-zoom-image', $filter('serverimage')(image));
-              $element.attr('src', $filter('serverimage')(image));
-              $element.elevateZoom();
-            } else {
-              var newImage = $filter('serverimage')(image);
-              var smallImage = $filter('serverimage')(image);
-              ez.swaptheimage(smallImage, newImage);
-            }
+
+    }
+  };
+});
+firstapp.directive("ballText", ["$interval", function ($interval) {
+  return {
+    restrict: "A",
+    link: function (scope, elem, attrs) {
+      //On interval
+      // $interval(function() {
+      //     $(elem).lettering();
+      // }, 10000);
+    }
+  }
+}]);
+firstapp.directive("scrolladd1class", function ($window) {
+  return function (scope, element, attrs) {
+    angular.element($window).bind("scroll", function () {
+      var windowHeight = $(window).height();
+      if (this.pageYOffset >= 150) {
+        // console.log(windowHeight);
+        element.addClass('addfixed');
+      } else {
+        element.removeClass('addfixed');
+      }
+    });
+  };
+});
+firstapp.directive('elevateZoom', function ($document, $filter) {
+  return {
+    restrict: 'EA',
+    link: function ($scope, element, attr) {
+      $scope.$watch(attr.image, function () {
+        $scope.changeImage = function () {
+          console.log($scope[attr.image]);
+          var $element = $(element);
+          var image = $scope[attr.image].image;
+          console.log(image);
+          // image = image.productdetail.image[0];
+          var smallimg = attr.smallImage;
+          var bigimg = attr.bigImage;
+          // $element.attr('data-zoom-image', image);
+          // $element.attr('src', image);
+          var ez = $element.data("elevateZoom");
+          if (!ez) {
+            $element.attr('data-zoom-image', $filter('serverimage')(image));
+            $element.attr('src', $filter('serverimage')(image));
+            $element.elevateZoom();
+          } else {
+            var newImage = $filter('serverimage')(image);
+            var smallImage = $filter('serverimage')(image);
+            ez.swaptheimage(smallImage, newImage);
           }
-          $scope.$on('changeImage', function (event, data) {
-            $scope.changeImage();
-          });
+        }
+        $scope.$on('changeImage', function (event, data) {
           $scope.changeImage();
-        })
-      }
-    }
-  });
-  firstapp.directive('zoomContainer', function () {
-    return {
-      restrict: 'A',
-      link: function (scope, element, attrs) {
-        scope.$on('$stateChangeSuccess', function () {
-          var target = element.children('div.zoomContainer').remove();
-        })
-      }
-    }
-
-  });
-  firstapp.directive('uiFileUpload', function ($compile, $parse) {
-    return {
-      restrict: 'EA',
-      replace: false,
-      link: function ($scope, element, attrs) {
-        var $element = $(element);
-        $element.bootstrapFileInput();
-      }
-    };
-  });
-  firstapp.directive('uploadImage', function ($http) {
-    return {
-      templateUrl: 'views/directive/uploadFile.html',
-      scope: {
-        model: '=ngModel'
-      },
-      link: function ($scope, element, attrs) {
-        $scope.isMultiple = false;
-        if (attrs.multiple || attrs.multiple === "") {
-          console.log("Its Multiple");
-          $scope.isMultiple = true;
-
-          $("#inputImage").attr("multiple", "ADD");
-        }
-
-        $scope.clearOld = function () {
-          $scope.model = [];
-        };
-
-        $scope.upload = function (image) {
-          var Template = this;
-          image.hide = true;
-          var formData = new FormData();
-          formData.append('file', image.file, image.name);
-          $http.post(adminurl + 'upload', formData, {
-            headers: {
-              'Content-Type': undefined
-            },
-            transformRequest: angular.identity
-          }).success(function (data) {
-            if ($scope.isMultiple) {
-              $scope.model.push(data.data[0]);
-
-            } else {
-              $scope.model = data.data[0];
-            }
-
-          });
-
-        };
-
-      }
-    };
-  });
-
-  firstapp.directive('imageonload', function () {
-    return {
-      restrict: 'A',
-      link: function (scope, element, attrs) {
-        element.bind('load', function () {
-          scope.$apply(attrs.imageonload);
         });
+        $scope.changeImage();
+      })
+    }
+  }
+});
+firstapp.directive('zoomContainer', function () {
+  return {
+    restrict: 'A',
+    link: function (scope, element, attrs) {
+      scope.$on('$stateChangeSuccess', function () {
+        var target = element.children('div.zoomContainer').remove();
+      })
+    }
+  }
+
+});
+firstapp.directive('uiFileUpload', function ($compile, $parse) {
+  return {
+    restrict: 'EA',
+    replace: false,
+    link: function ($scope, element, attrs) {
+      var $element = $(element);
+      $element.bootstrapFileInput();
+    }
+  };
+});
+firstapp.directive('uploadImage', function ($http) {
+  return {
+    templateUrl: 'views/directive/uploadFile.html',
+    scope: {
+      model: '=ngModel'
+    },
+    link: function ($scope, element, attrs) {
+      $scope.isMultiple = false;
+      if (attrs.multiple || attrs.multiple === "") {
+        console.log("Its Multiple");
+        $scope.isMultiple = true;
+
+        $("#inputImage").attr("multiple", "ADD");
       }
-    };
-  });
-  firstapp.filter('reverse', function () {
-    return function (items) {
-      return items.slice().reverse();
-    };
-  });
-  firstapp.directive('img', function ($compile, $parse) {
-    return {
-      restrict: 'E',
-      replace: false,
-      link: function ($scope, element, attrs) {
-        var $element = $(element);
-        if (!attrs.noloading) {
-          $element.after("<img src='img/loading.gif' class='loading' />");
-          var $loading = $element.next(".loading");
-          $element.load(function () {
-            $loading.remove();
-            $(this).addClass("doneLoading");
-          });
-        } else {
-          $($element).addClass("doneLoading");
-        }
+
+      $scope.clearOld = function () {
+        $scope.model = [];
+      };
+
+      $scope.upload = function (image) {
+        var Template = this;
+        image.hide = true;
+        var formData = new FormData();
+        formData.append('file', image.file, image.name);
+        $http.post(adminurl + 'upload', formData, {
+          headers: {
+            'Content-Type': undefined
+          },
+          transformRequest: angular.identity
+        }).success(function (data) {
+          if ($scope.isMultiple) {
+            $scope.model.push(data.data[0]);
+
+          } else {
+            $scope.model = data.data[0];
+          }
+
+        });
+
+      };
+
+    }
+  };
+});
+
+firstapp.directive('imageonload', function () {
+  return {
+    restrict: 'A',
+    link: function (scope, element, attrs) {
+      element.bind('load', function () {
+        scope.$apply(attrs.imageonload);
+      });
+    }
+  };
+});
+firstapp.filter('reverse', function () {
+  return function (items) {
+    return items.slice().reverse();
+  };
+});
+firstapp.directive('img', function ($compile, $parse) {
+  return {
+    restrict: 'E',
+    replace: false,
+    link: function ($scope, element, attrs) {
+      var $element = $(element);
+      if (!attrs.noloading) {
+        $element.after("<img src='img/loading.gif' class='loading' />");
+        var $loading = $element.next(".loading");
+        $element.load(function () {
+          $loading.remove();
+          $(this).addClass("doneLoading");
+        });
+      } else {
+        $($element).addClass("doneLoading");
       }
-    };
-  });
-  firstapp.directive('equalHeight', function ($compile, $parse) {
-    return {
-      restrict: 'EA',
-      replace: false,
-      link: function ($scope, element, attrs) {
-        var $element = $(element);
+    }
+  };
+});
+firstapp.directive('equalHeight', function ($compile, $parse) {
+  return {
+    restrict: 'EA',
+    replace: false,
+    link: function ($scope, element, attrs) {
+      var $element = $(element);
+      var wid = $element.width();
+      $element.css({
+        'height': wid
+      });
+      $(window).resize(function () {
         var wid = $element.width();
         $element.css({
           'height': wid
         });
-        $(window).resize(function () {
-          var wid = $element.width();
-          $element.css({
-            'height': wid
-          });
-        });
-      }
-    };
-  });
-  firstapp.directive('equalWidth', function ($compile, $parse) {
-    return {
-      restrict: 'EA',
-      replace: false,
-      link: function ($scope, element, attrs) {
-        var $element = $(element);
-        var height = $element.height();
+      });
+    }
+  };
+});
+firstapp.directive('equalWidth', function ($compile, $parse) {
+  return {
+    restrict: 'EA',
+    replace: false,
+    link: function ($scope, element, attrs) {
+      var $element = $(element);
+      var height = $element.height();
+      $element.css({
+        'width': height
+      });
+      $(window).resize(function () {
+        var height = $element.width();
         $element.css({
           'width': height
         });
-        $(window).resize(function () {
-          var height = $element.width();
-          $element.css({
-            'width': height
-          });
-        });
-      }
-    };
-  });
+      });
+    }
+  };
+});

@@ -32,6 +32,7 @@ var jsArray = [
 
   './js/app.js',
   './js/controllers.js',
+  './js/customui.js',
   './js/navigation.js',
   './js/templateservice.js',
 
@@ -85,7 +86,7 @@ var shell = require('gulp-shell');
 
 var templateCacheBootstrap = "firstapp.run(['$templateCache', function($templateCache) {";
 
-gulp.task('imagemin', function() {
+gulp.task('imagemin', function () {
   return gulp.src('./img/**')
     .pipe(imagemin({
       progressive: true,
@@ -97,13 +98,13 @@ gulp.task('imagemin', function() {
 });
 
 
-gulp.task('deploy', function() {
+gulp.task('deploy', function () {
   return gulp.src('./index.html')
     .pipe(prompt.prompt([{
       type: 'password',
       name: 'password',
       message: 'Enter Encryption Password:'
-    }], function(res) {
+    }], function (res) {
       password = res.password;
       gulp.start('ftp');
     }));
@@ -111,7 +112,7 @@ gulp.task('deploy', function() {
 
 
 
-gulp.task('ftp', function() {
+gulp.task('ftp', function () {
   var decrypted = CryptoJS.AES.decrypt(ftpString, password);
   var decryptedJSON = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));
 
@@ -135,7 +136,7 @@ gulp.task('ftp', function() {
 
 });
 
-gulp.task('clean:production', function() {
+gulp.task('clean:production', function () {
   return gulp.src('./production', {
       read: false
     })
@@ -145,7 +146,7 @@ gulp.task('clean:production', function() {
     }));
 });
 
-gulp.task('clean:tmp', function() {
+gulp.task('clean:tmp', function () {
   return gulp.src('./tmp', {
       read: false
     })
@@ -156,7 +157,7 @@ gulp.task('clean:tmp', function() {
 });
 
 
-gulp.task('clean:w', function() {
+gulp.task('clean:w', function () {
   return gulp.src('./w', {
       read: false
     })
@@ -164,7 +165,7 @@ gulp.task('clean:w', function() {
     .pipe(clean());
 });
 
-gulp.task('minify:css', function() {
+gulp.task('minify:css', function () {
   return gulp.src('./w/main.css')
     .pipe(minifyCss({
       keepSpecialComments: 0,
@@ -177,14 +178,14 @@ gulp.task('minify:css', function() {
     .pipe(gulp.dest('./w/'));
 });
 
-gulp.task('copy:indexhtml', function() {
+gulp.task('copy:indexhtml', function () {
   return gulp.src("./w/index.html")
     .pipe(gulpCopy("./production/", {
       prefix: 1
     }));
 });
 
-gulp.task('gzipfile', function() {
+gulp.task('gzipfile', function () {
   gulp.src('./w/index.html')
     .pipe(gzip({
       preExtension: 'gz'
@@ -192,7 +193,7 @@ gulp.task('gzipfile', function() {
     .pipe(gulp.dest('./production/'));
 });
 
-gulp.task('tarball', function() {
+gulp.task('tarball', function () {
   gulp.src('./production/**')
     .pipe(tar('production.tar'), {
       "mode": 0755,
@@ -201,7 +202,7 @@ gulp.task('tarball', function() {
     .pipe(gulp.dest('./'));
 });
 
-gulp.task('inlinesource', function() {
+gulp.task('inlinesource', function () {
   return gulp.src('./w/index.html')
     .pipe(inline({
       base: './w',
@@ -212,7 +213,7 @@ gulp.task('inlinesource', function() {
 
 
 
-gulp.task('uglify:js', function() {
+gulp.task('uglify:js', function () {
   return gulp.src('./w/w.js')
     .pipe(uglify({
       mangle: false
@@ -220,17 +221,17 @@ gulp.task('uglify:js', function() {
     .pipe(gulp.dest('./w'));
 });
 
-gulp.task('concat:js', function() {
+gulp.task('concat:js', function () {
   return gulp.src(jsArray)
     .pipe(concat('w.js'))
     .pipe(replace(replacehostFrom, replacehostTo))
     .pipe(gulp.dest('./w'));
 });
 
-gulp.task('templatecache', function() {
+gulp.task('templatecache', function () {
   return gulp.src('./w/views/**/*.html')
 
-  .pipe(templateCache({
+    .pipe(templateCache({
       root: "views/",
       templateHeader: templateCacheBootstrap
     }))
@@ -238,18 +239,18 @@ gulp.task('templatecache', function() {
 });
 
 
-gulp.task('copy:img', function() {
+gulp.task('copy:img', function () {
   return gulp.src("./img/**")
     .pipe(gulpCopy("./production/"));
 });
 
-gulp.task('copy:fonts', function() {
+gulp.task('copy:fonts', function () {
   return gulp.src("./fonts/**")
     .pipe(gulpCopy("./production/"));
 });
 
 
-gulp.task('sass:production', function() {
+gulp.task('sass:production', function () {
   gulp.src('./sass/*.scss')
     .pipe(sass({
       outputStyle: 'compressed'
@@ -257,7 +258,7 @@ gulp.task('sass:production', function() {
     .pipe(gulp.dest('./w'));
 });
 
-gulp.task('sass:development', function() {
+gulp.task('sass:development', function () {
   gulp.src('./sass/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
@@ -265,7 +266,7 @@ gulp.task('sass:development', function() {
     .pipe(gulp.dest('./css'))
     .pipe(connect.reload());
 });
-gulp.task('minify:indexproduction', function() {
+gulp.task('minify:indexproduction', function () {
   var opts = {
     conditionals: true,
     spare: true
@@ -275,7 +276,7 @@ gulp.task('minify:indexproduction', function() {
     .pipe(rename('index.html'))
     .pipe(gulp.dest('./w/'));
 });
-gulp.task('minify:views', function() {
+gulp.task('minify:views', function () {
   var opts = {
     conditionals: true,
     spare: true
@@ -285,15 +286,15 @@ gulp.task('minify:views', function() {
     .pipe(minifyHTML(opts))
     .pipe(gulp.dest('./w/views/'));
 });
-gulp.task('connect:html', function() {
+gulp.task('connect:html', function () {
   gulp.src('./**/*.html')
     .pipe(connect.reload());
 });
-gulp.task('connect:js', function() {
+gulp.task('connect:js', function () {
   gulp.src('./js/*.js')
     .pipe(connect.reload());
 });
-gulp.task('watch:all', function() {
+gulp.task('watch:all', function () {
   connect.server({
     root: './',
     livereload: true
@@ -305,7 +306,7 @@ gulp.task('watch:all', function() {
   gulp.watch(['./**/*.html', './sass/*.scss', './js/*.js'], ['sass:development', 'connect:html', 'connect:js']);
 });
 
-gulp.task('zip', function() {
+gulp.task('zip', function () {
   return gulp.src('./production/**/*')
     .pipe(zip('production.zip'))
     .pipe(gulp.dest('./'));
@@ -331,5 +332,5 @@ gulp.task('cloudTest', shell.task([
   "mv /var/www/html/test/img /var/www/html/"
 ]));
 
-gulp.task('productioncloud', gulpSequence("production2","cloudTest"));
+gulp.task('productioncloud', gulpSequence("production2", "cloudTest"));
 gulp.task('productionc', gulpSequence(["copy:img", "copy:fonts", "sass:production", "minify:indexproduction", "minify:views"], 'clean:tmp', "concat:js", 'clean:tmp', "templatecache", "uglify:js", "minify:css", 'clean:tmp', "inlinesource", 'clean:tmp', 'clean:production', "gzipfile", 'clean:tmp', 'clean:tmp', "zip", 'deploy'));
