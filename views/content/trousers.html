@@ -35,9 +35,9 @@
                     <div class="scroll-image" id="style-2">    
                     <div class="text-center">
                         <div class="gully-shirt">                        
-                            <img ng-src="{{design.highlightOne}}"  class="trimshirt img-responsive" alt="">
-                            <img ng-src="{{design.highlightTwo}}" class="trimshirt img-responsive" alt="">
-                            <img ng-src="{{design.base}}" class="trimshirtbase img-responsive" alt="">
+                            <img ng-src="{{trouserJson.design.highlightOne}}"  class="trimshirt img-responsive" alt="">
+                            <img ng-src="{{trouserJson.design.highlightTwo}}" class="trimshirt img-responsive" alt="">
+                            <img ng-src="{{trouserJson.design.base}}" class="trimshirtbase img-responsive" alt="">
                             <!---if pants-->
                             <!--<div class="div-trouser-left-logo" ng-if="pantType=='trousers' && customizedTrouser.front && customizedTrouser.leftlogo.image" ng-style="customizedTrouser.leftlogo.divattributes">
                                 <img id="trouserleftlogo" ng-src="{{customizedTrouser.leftlogo.image | serverimage}}" class="trouser-left-logo" alt="" ng-style="customizedTrouser.leftlogo.attributes">
@@ -64,10 +64,10 @@
                             </div>
                         </div>  
                         <div class="prev inline-block">
-                            <p class="uppercase" ng-click="switchFrontBack(true,type); switchTrimHighlightBase(color.base); switchTrimHighlightOne(color.trim1); switchTrimHighlightTwo(color.trim2);"><img src="img/back.png" class="img-responsive" alt="">front</p>
+                            <p class="uppercase" ng-click="switchFrontBack(true,trouserJson.type); switchTrimHighlightBase(color.base); switchTrimHighlightOne(color.trim1); switchTrimHighlightTwo(color.trim2);"><img src="img/back.png" class="img-responsive" alt="">front</p>
                         </div>
                         <div class="next inline-block">
-                            <p class="uppercase" ng-click="switchFrontBack(false,type); switchTrimHighlightBase(color.base); switchTrimHighlightOne(color.trim1); switchTrimHighlightTwo(color.trim2);"><img src="img/back.png" class="img-responsive" alt="">back</p>
+                            <p class="uppercase" ng-click="switchFrontBack(false,trouserJson.type); switchTrimHighlightBase(color.base); switchTrimHighlightOne(color.trim1); switchTrimHighlightTwo(color.trim2);"><img src="img/back.png" class="img-responsive" alt="">back</p>
                         </div>
                         <div class="feature-buttons">
                             <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 1}" ng-click="toggleTab(1)">FORM + FUNCTION</button>
@@ -171,7 +171,7 @@
                 <button class="{{designButton.design3.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(3);">Cut &amp; Sew</button>
                 <button class="{{designButton.design4.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(4);">Polo</button>-->
               </div>
-              <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="tabchange('trim',2); switchFrontBack(true,type); switchTrimHighlightBase(color.base); switchTrimHighlightOne(color.trim1); switchTrimHighlightTwo(color.trim2); openTab('b');">NEXT</button>
+              <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="tabchange('trim',2); switchFrontBack(true,trouserJson.type); switchTrimHighlightBase(trouserJson.color.base); switchTrimHighlightOne(trouserJson.color.trim1); switchTrimHighlightTwo(trouserJson.color.trim2); openTab('b');">NEXT</button>
                         <!--<div class="edit-btn inline-block">
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('trim', 2); openTab('b');">NEXT</button>
                         </div>-->
@@ -240,7 +240,7 @@
                     <!--        //trim tab-->
                     <div class="choos m20-l" ng-show="tab=='team'">
                         <div class="checkboxing">
-                            <input type="checkbox" class="form-control" id="later" ng-model="sendTeamLogoLater">
+                            <input type="checkbox" class="form-control" id="later" ng-model="trouserJson.sendTeamLogoLater">
                             <label for="later"><span></span>SEND TEAM LOGO LATER</label>
                         </div>
                         <div>
@@ -251,18 +251,18 @@
                                 <div class="block-box">
                                     <div class="teamlogo-box">
                                         <div class="inline-box box-custom">
-                                            <img ng-src="{{rightlogo.image | serverimage}}" alt="" ng-if="rightlogo.image">
+                                            <img ng-src="{{trouserJson.rightlogo.image | serverimage}}" alt="" ng-if="trouserJson.rightlogo.image">
                                         </div>
-                                        <div class="size-box" ng-if="rightlogo.image">
+                                        <div class="size-box" ng-if="trouserJson.rightlogo.image">
                                             Size:
                                             <div class="range">
-                                            <div range-slider on-handle-down="changeLogo('rightlogo')" on-handle-up="resetLogoStyle('rightlogo')" ng-model="rightlogo.size" min="-150" max="200" model-max="rightlogo.size" model-min="rslider.min" pin-handle="min"></div>
+                                            <div range-slider on-handle-down="changeLogo('rightlogo')" on-handle-up="resetLogoStyle('rightlogo')" ng-model="trouserJson.rightlogo.size" min="-150" max="200" model-max="trouserJson.rightlogo.size" model-min="rslider.min" pin-handle="min"></div>
                                             </div>
                                         </div>
                                         <div class="edit-btn">
-                                            <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('rightlogo', 'Right Logo')" ng-if="!rightlogo.image">upload</button>
-                                            <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('rightlogo', 'Right Logo')" ng-if="rightlogo.image">change</button>
-                                            <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('rightlogo')" ng-if="rightlogo.image">remove</button>
+                                            <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('rightlogo', 'Right Logo')" ng-if="!trouserJson.rightlogo.image">upload</button>
+                                            <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('rightlogo', 'Right Logo')" ng-if="trouserJson.rightlogo.image">change</button>
+                                            <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('rightlogo')" ng-if="trouserJson.rightlogo.image">remove</button>
                                         </div>
                                     </div>
                                 </div>
@@ -274,18 +274,18 @@
                                 <div class="block-box">
                                     <div class="teamlogo-box">
                                         <div class="inline-box box-custom">
-                                            <img ng-src="{{leftLogo.image | serverimage}}" alt="" ng-if="leftLogo.image">
+                                            <img ng-src="{{trouserJson.leftLogo.image | serverimage}}" alt="" ng-if="trouserJson.leftLogo.image">
                                         </div>
-                                        <div class="size-box" ng-if="leftLogo">
+                                        <div class="size-box" ng-if="trouserJson.leftLogo">
                                             Size:
                                             <div class="range">
-                                            <div range-slider on-handle-down="changeLogo('leftlogo')" on-handle-up="resetLogoStyle('leftlogo')" ng-model="leftLogo.size" min="0" max="200" model-max="leftLogo.size" model-min="rslider.min" pin-handle="min"></div>
+                                            <div range-slider on-handle-down="changeLogo('leftlogo')" on-handle-up="resetLogoStyle('leftlogo')" ng-model="trouserJson.leftLogo.size" min="0" max="200" model-max="trouserJson.leftLogo.size" model-min="rslider.min" pin-handle="min"></div>
                                             </div>
                                         </div>
                                         <div class="edit-btn">
-                                            <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('leftlogo', 'Left Logo')" ng-if="!leftLogo">upload</button>
-                                            <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('leftlogo', 'Left Logo')" ng-if="leftLogo">change</button>
-                                            <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('leftlogo')" ng-if="leftLogo">remove</button>
+                                            <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('leftlogo', 'Left Logo')" ng-if="!trouserJson.leftLogo">upload</button>
+                                            <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('leftlogo', 'Left Logo')" ng-if="trouserJson.leftLogo">change</button>
+                                            <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('leftlogo')" ng-if="trouserJson.leftLogo">remove</button>
                                         </div>
                                     </div>
                                 </div>
@@ -572,7 +572,7 @@
                         <div class="table-responsive">
                             <table class="table table95 relative">
                                 <tbody>
-                                <tr class="option-shirt" ng-repeat="trouser in quantity track by $index">
+                                <tr class="option-shirt" ng-repeat="trouser in trouserJson.quantity track by $index">
                                     <td>
                                         <span class="uppercase pad-5">size</span>
                                         <select ng-model="trouser.size">
@@ -621,7 +621,7 @@
                         </div>
                         <div class="edit-btn">
                             <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="checkloginTrousers();">save design</button>
-                            <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5" ng-disabled="totalQuan<20">next</button>
+                            <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5" ng-disabled="totalQuan<20" ng-click="getTrouserJson(trouserJson);">next</button>
                             <br>
                         </div>
                       </div>
