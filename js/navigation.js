@@ -675,6 +675,20 @@ var navigationservice = angular.module('navigationservice', [])
         data: myData
       }).success(callback).error(err);
     },
+     orderSummaryTrouser: function(user, jsonData, type, callback, err) {
+      var myData = {
+        "email": user,
+        "description": jsonData,
+        "type": type
+      };
+      
+      console.log(JSON.stringify(jsonData));
+      return $http({
+        url: adminurl + "saveCustomizeOrder",
+        method: "POST",
+        data: myData
+      }).success(callback).error(err);
+    },
     orderSummaryGloves: function(user, jsonData, tl, type, callback, err) {
       var myData = {
         "email": user,

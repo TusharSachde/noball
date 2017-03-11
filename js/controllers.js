@@ -1490,24 +1490,30 @@ $scope.getTrouserJson = function(data){
         }
         //    end
         $scope.toOrderSummary = function () {
-            $scope.allLogos = {};
-            if ($scope.leftLogo.image) {
-                $scope.allLogos.leftlogo = $scope.leftLogo.image;
-            }
-            if ($scope.customizedTrouser.rightlogo) {
-                $scope.allLogos.rightlogo = $scope.customizedTrouser.rightlogo.image;
-            }
-            $scope.combineJSON = {
-                "trousers": {
-                    "trim": $scope.trimTrouser,
-                    "customizedTrouser": $scope.customizedTrouser,
-                    "trouserQuan": $scope.trouserQuanArr,
-                    "allLogos": $scope.allLogos,
-                    "totalAmount": $scope.totalAmount,
-                    "totalQuan": $scope.totalQuan
-                },
-                "type": "trousers"
-            };
+          
+            // $scope.combineJSON = {
+            //     "trousers": {
+            //         "trim": $scope.trimTrouser,
+            //         "customizedTrouser": $scope.customizedTrouser,
+            //         "trouserQuan": $scope.trouserQuanArr,
+            //         "allLogos": $scope.allLogos,
+            //         "totalAmount": $scope.totalAmount,
+            //         "totalQuan": $scope.totalQuan
+            //     },
+            //     "type": "trousers"
+            // };
+
+                NavigationService.orderSummaryTrouser(user.email, $scope.combineJSON, 'trousers',
+                    function (data) {
+                        console.log('Order Summary odi data: ', data);
+                        $state.go('ordersummary', {
+                            id: data.id
+                        });
+                    },
+                    function (err) {
+                        console.log(err);
+                    });
+
             $scope.lastJSON = JSON.stringify($scope.combineJSON);
             console.log($scope.combineJSON);
             console.log($scope.lastJSON);
@@ -10486,7 +10492,8 @@ $scope.getTrouserJson = function(data){
             });
         }
     })
-    .controller('OrderSummaryCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $window, cfpLoadingBar, $uibModal) {
+
+     .controller('OrderSummaryCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $window, cfpLoadingBar, $uibModal) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("ordersummary");
         $scope.menutitle = NavigationService.makeactive("OrderSummary");
@@ -10500,423 +10507,444 @@ $scope.getTrouserJson = function(data){
             function (data) {
                 console.log('Order Summary data: ', data);
                 data = data.data;
-                $scope.tshirtdata = JSON.parse(data.description);
-
-                if ($scope.tshirtdata.designType === 'odi' || data.type === 'trousers' || $scope.tshirtdata.designType === 'training' || $scope.tshirtdata.designType === 'whites') {
-
-                    $scope.fulldata = {
-                        "description": JSON.parse(data.description),
-                        "mainsponserlogo": data.mainsponserlogo,
-                        "leftsleeve": data.leftsleeve,
-                        "rightsleeve": data.rightsleeve,
-                        "backsponser": data.backsponser,
-                        "teamlogo": data.teamlogo,
-                        "rightchest": data.rightchest,
-                        "data": data
-                    }
-
-                    $.jStorage.set('latestorder', $scope.fulldata);
-
-                    // $scope.tshirtdata = $.jStorage.get('oditshirtdata');
-                    // $scope.tshirtdata = $scope.tshirtdata.odishirt;
-
-                    console.log($scope.tshirtdata);
-
-                    if ($scope.tshirtdata.type != 'trousers') {
-                        $scope.customizedShirt = $scope.tshirtdata.customizedShirt;
-                        $scope.printType = $scope.tshirtdata.customizedShirt.printType;
-                        // $scope.customizedShirt.front = true;
-                        // $scope.customizedShirt.back = false;
-
-                        $scope.trimTshirt = $scope.tshirtdata.trim;
-                        $scope.jerseyBackArr = $scope.tshirtdata.jerseyBack;
-                        $scope.designName = $scope.tshirtdata.designName;
-                        $scope.designType = $scope.tshirtdata.designType;
-                        $scope.totalAmount = $scope.tshirtdata.totalAmount;
-                        $scope.totalQuan = $scope.tshirtdata.totalQuan;
-                        $scope.shirtName = $scope.tshirtdata.name;
-                        $scope.fontType = $scope.jerseyBackArr[0].font;
-                        $scope.fontColor = $scope.jerseyBackArr[0].color;
-                        $scope.fontNameSize = $scope.jerseyBackArr[0].attributes.name.fontSize;
-                        $scope.fontNumberSize = $scope.jerseyBackArr[0].attributes.number.fontSize;
-
-                        $scope.switchFrontBack = function (front) {
-                            $scope.customizedShirt.front =  front;
-                            $scope.customizedShirt.back =  !front;
-                            if (front) {
-                                $scope.customizedShirt.cloth = 'img/odi-tshirts/trims/' + $scope.designType + 'base/front/' + $scope.trimTshirt.highlightBase.tcolor + '.png'; //'img/tinytshirt 7.png';
-                                $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/' + $scope.designType + '/front.png'; //'img/tinytshirt 7 back.png';
-                            } else {
-                                $scope.customizedShirt.cloth = 'img/odi-tshirts/trims/' + $scope.designType + 'base/back/' + $scope.trimTshirt.highlightBase.tcolor + '.png'; //'img/tinytshirt 1 back.png';
-                                $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/' + $scope.designType + '/back.png'; //'img/tinytshirt 1 back back.png';
-                            }
-                        }
-
-                        $scope.switchTrimHighlightOne = function (flag) {
-                            $scope.trimTshirt.highlightOne.flag = flag;
-                            // $scope.trimTshirt.highlightOne.tcolor = color;
-                            if (flag) {
-                                $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/" + $scope.designType + "/" + $scope.designName + "/front/trim1/" + $scope.trimTshirt.highlightOne.tcolor + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
-                            } else {
-                                $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/" + $scope.designType + "/" + $scope.designName + "/back/trim1/" + $scope.trimTshirt.highlightOne.tcolor + ".png"; // "img/odi-tshirts/trims/highlight1/back/trim_" + color + ".png";
-                            }
-                        };
-                        $scope.switchTrimHighlightTwo = function (flag) {
-                            $scope.trimTshirt.highlightTwo.flag = flag;
-                            // $scope.trimTshirt.highlightTwo.tcolor = color;
-                            if (flag) {
-                                $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/" + $scope.designType + "/" + $scope.designName + "/front/trim2/" + $scope.trimTshirt.highlightTwo.tcolor + ".png"; // "img/odi-tshirts/trims/highlight2/front/trim_" + color + ".png";
-                            } else {
-                                $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/" + $scope.designType + "/" + $scope.designName + "/back/trim2/" + $scope.trimTshirt.highlightTwo.tcolor + ".png"; // "img/odi-tshirts/trims/highlight2/back/trim_" + color + ".png";
-                            }
-                        };
-                        $scope.switchTrimHighlightBase = function (flag) {
-                            $scope.trimTshirt.highlightBase.flag = flag;
-                            // $scope.trimTshirt.highlightBase.tcolor = color;
-                            if (flag) {
-                                if ($scope.designType === 'whites') {
-                                    $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/" + $scope.designType + "/" + $scope.designName + "/front.png";
-                                } else {
-                                    $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/" + $scope.designType + "/base/front/" + $scope.trimTshirt.highlightBase.tcolor + ".png";
-                                }
-                                $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/' + $scope.designType + '/front3.png';
-                                $scope.customizedShirt.front = flag;
-                            } else {
-                                if ($scope.designType === 'whites') {
-                                    $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/" + $scope.designType + "/" + $scope.designName + "/back.png";
-                                } else {
-                                    $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/" + $scope.designType + "/base/back/" + $scope.trimTshirt.highlightBase.tcolor + ".png"; //"img/odi-tshirts/trims/base/back/" + color + ".png";
-                                }
-                                $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/' + $scope.designType + '/back3.png';
-                                $scope.customizedShirt.front = flag;
-                            }
-                        };
-                    } else {
-                        console.log('elsssssssssseeeeeeee');
-                        $scope.customizedShirt = $scope.tshirtdata.trousers.customizedTrouser;
-                        // $scope.printType = $scope.tshirtdata.customizedShirt.printType;
-                        // $scope.customizedShirt.front = true;
-                        // $scope.customizedShirt.back = false;
-
-                        $scope.trimTshirt = $scope.tshirtdata.trousers.trim;
-                        // $scope.jerseyBackArr = $scope.tshirtdata.jerseyBack;
-                        $scope.designName = $scope.tshirtdata.type;
-                        $scope.designType = $scope.tshirtdata.designType;
-                        $scope.totalAmount = $scope.tshirtdata.trousers.totalAmount;
-                        $scope.totalQuan = $scope.tshirtdata.trousers.totalQuan;
-                        // $scope.shirtName = $scope.tshirtdata.name;
-                        // $scope.fontType = $scope.jerseyBackArr[0].font;
-                        // $scope.fontColor = $scope.jerseyBackArr[0].color;
-                        // $scope.fontNameSize = $scope.jerseyBackArr[0].attributes.name.fontSize;
-                        // $scope.fontNumberSize = $scope.jerseyBackArr[0].attributes.number.fontSize;
-                        $scope.switchFrontBack = function (front) {
-                            if ($scope.customizedShirt) {
-                                console.log('$scope.customizedShirt.cloth', $scope.customizedShirt.cloth);
-                                if ($scope.customizedShirt.cloth.indexOf('img/shorts') == -1) {
-                                    $scope.pantType = "trousers";
-                                } else {
-                                    $scope.pantType = "shorts";
-                                }
-                            } else {
-                                // $scope.pantType = "trousers";
-                            }
-                            $scope.customizedShirt.front =  front;
-                            $scope.customizedShirt.back =  !front;
-                            if (front) {
-                                $scope.customizedShirt.cloth = 'img/' + $scope.pantType + '/' + $scope.designType + 'base/front/' + $scope.trimTshirt.highlightBase.tcolor + '.png';
-                            } else {
-                                $scope.customizedShirt.cloth = 'img/' + $scope.pantType + '/' + $scope.designType + 'base/back/' + $scope.trimTshirt.highlightBase.tcolor + '.png';
-                            }
-                        }
-                        $scope.switchTrimHighlightOne = function (flag, color) {
-                            if ($scope.customizedShirt) {
-                                console.log('$scope.customizedShirt.cloth', $scope.customizedShirt.cloth);
-                                if ($scope.customizedShirt.cloth.indexOf('img/shorts') == -1) {
-                                    $scope.pantType = "trousers";
-                                } else {
-                                    $scope.pantType = "shorts";
-                                }
-                            } else {
-                                // $scope.pantType = "trousers";
-                            }
-                            console.log(flag, color);
-                            $scope.trimTshirt.highlightOne.flag = flag;
-                            $scope.trimTshirt.highlightOne.tcolor = color;
-                            if ($scope.trimTshirt.highlightOne.tcolor != "") {
-                                if (flag) {
-                                    $scope.trimTshirt.highlightOne.image = "img/" + $scope.pantType + "/" + $scope.designName + "/front/trim1/" + color + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
-                                    console.log('sssssssssssssssssssss', $scope.trimTshirt.highlightOne.image)
-                                } else {
-                                    $scope.trimTshirt.highlightOne.image = "img/" + $scope.pantType + "/" + $scope.designName + "/back/trim1/" + color + ".png"; // "img/odi-tshirts/trims/highlight1/back/trim_" + color + ".png";
-                                }
-                            } else {
-                                $scope.trimTshirt.highlightOne.image = "";
-                            }
-                        };
-                        $scope.switchTrimHighlightTwo = function (flag, color) {
-                            if ($scope.changeIDTrouser) {
-                                console.log('$scope.customizedShirt.cloth', $scope.customizedShirt.cloth);
-                                if ($scope.customizedShirt.cloth.indexOf('img/shorts') == -1) {
-                                    $scope.pantType = "trousers";
-                                } else {
-                                    $scope.pantType = "shorts";
-                                }
-                            } else {
-                                // $scope.pantType = "trousers";
-                            }
-                            $scope.trimTshirt.highlightTwo.flag = flag;
-                            $scope.trimTshirt.highlightTwo.tcolor = color;
-                            if ($scope.trimTshirt.highlightTwo.tcolor != "") {
-                                if (flag) {
-                                    $scope.trimTshirt.highlightTwo.image = "img/" + $scope.pantType + "/" + $scope.designName + "/front/trim2/" + color + ".png";
-                                } else {
-                                    $scope.trimTshirt.highlightTwo.image = "img/" + $scope.pantType + "/" + $scope.designName + "/back/trim2/" + color + ".png";
-                                }
-                            } else {
-                                $scope.trimTshirt.highlightTwo.image = "";
-                            }
-                        };
-                        $scope.switchTrimHighlightBase = function (flag, color) {
-                            if ($scope.changeIDTrouser) {
-                                console.log('$scope.customizedShirt.cloth', $scope.customizedShirt.cloth);
-                                if ($scope.customizedShirt.cloth.indexOf('img/shorts') == -1) {
-                                    $scope.pantType = "trousers";
-                                } else {
-                                    $scope.pantType = "shorts";
-                                }
-                            } else {
-                                // $scope.pantType = "trousers";
-                            }
-                            $scope.trimTshirt.highlightBase.flag = flag;
-                            $scope.trimTshirt.highlightBase.tcolor = color;
-                            if (flag) {
-                                $scope.trimTshirt.highlightBase.image = "img/" + $scope.pantType + "/base/front/" + color + ".png";
-                                $scope.customizedShirt.front = flag;
-                            } else {
-                                $scope.trimTshirt.highlightBase.image = "img/" + $scope.pantType + "/base/back/" + color + ".png";
-                                $scope.customizedShirt.front = flag;
-                            }
-                        }
-                    }
-
-
-                    $scope.switchFrontBack(true);
-                    $scope.switchTrimHighlightOne(true);
-                    $scope.switchTrimHighlightTwo(true);
-                    $scope.switchTrimHighlightBase(true);
-
-                    $scope.quantitySizeS = 0;
-                    $scope.quantitySizeM = 0;
-                    $scope.quantitySizeL = 0;
-                    $scope.quantitySizeXL = 0;
-                    $scope.quantitySizeXXL = 0;
-                    $scope.quantitySizeXXXL = 0;
-
-                    $scope.nameS = [];
-                    $scope.nameM = [];
-                    $scope.nameL = [];
-                    $scope.nameXL = [];
-                    $scope.nameXXL = [];
-                    $scope.nameXXXL = [];
-                    if ($scope.jerseyBackArr) {
-                        for (var i = 0; i < $scope.jerseyBackArr.length; i++) {
-                            if ($scope.jerseyBackArr[i].size === 'S') {
-                                $scope.quantitySizeS += $scope.jerseyBackArr[i].quantity;
-                                $scope.singleNameS = {
-                                    'name': $scope.jerseyBackArr[i].name,
-                                    'no': $scope.jerseyBackArr[i].no,
-                                }
-                                $scope.nameS.push($scope.singleNameS);
-                            } else if ($scope.jerseyBackArr[i].size === 'M') {
-                                $scope.quantitySizeM += $scope.jerseyBackArr[i].quantity;
-                                $scope.singleNameM = {
-                                    'name': $scope.jerseyBackArr[i].name,
-                                    'no': $scope.jerseyBackArr[i].no,
-                                }
-                                $scope.nameM.push($scope.singleNameM);
-                            } else if ($scope.jerseyBackArr[i].size === 'L') {
-                                $scope.quantitySizeL += $scope.jerseyBackArr[i].quantity;
-                                $scope.singleNameL = {
-                                    'name': $scope.jerseyBackArr[i].name,
-                                    'no': $scope.jerseyBackArr[i].no,
-                                }
-                                $scope.nameL.push($scope.singleNameL);
-                            } else if ($scope.jerseyBackArr[i].size === 'XL') {
-                                $scope.quantitySizeXL += $scope.jerseyBackArr[i].quantity;
-                                $scope.singleNameXL = {
-                                    'name': $scope.jerseyBackArr[i].name,
-                                    'no': $scope.jerseyBackArr[i].no,
-                                }
-                                $scope.nameXL.push($scope.singleNameXL);
-                            } else if ($scope.jerseyBackArr[i].size === 'XXL') {
-                                $scope.quantitySizeXXL += $scope.jerseyBackArr[i].quantity;
-                                $scope.singleNameXXL = {
-                                    'name': $scope.jerseyBackArr[i].name,
-                                    'no': $scope.jerseyBackArr[i].no,
-                                }
-                                $scope.nameXXL.push($scope.singleNameXXL);
-                            } else if ($scope.jerseyBackArr[i].size === 'XXXL') {
-                                $scope.quantitySizeXXXL += $scope.jerseyBackArr[i].quantity;
-                                $scope.singleNameXXXL = {
-                                    'name': $scope.jerseyBackArr[i].name,
-                                    'no': $scope.jerseyBackArr[i].no,
-                                }
-                                $scope.nameXXXL.push($scope.singleNameXXXL);
-                            }
-                        }
-                    }
-
-
-                } else if ($scope.tshirtdata.designType === 'bat') {
-                    console.log($scope.tshirtdata);
-
-                    $scope.fulldata = {
-                        "description": JSON.parse(data.description),
-                        "batText": $scope.tshirtdata.batText,
-                        "batQuantity": $scope.tshirtdata.batQuantity,
-                        "totalAmount": $scope.tshirtdata.totalAmount,
-                        "data": data
-                    }
-
-                    $.jStorage.set('latestorder', $scope.fulldata);
-                } else if ($scope.tshirtdata.designType === 'gloves') {
-                    console.log($scope.tshirtdata);
-
-                    $scope.tshirtdata.designType = 'gloves';
-
-                    $scope.Arrayname = $scope.tshirtdata.glovesDesign.name;
-                    $scope.selectedImage = $scope.tshirtdata.glovesDesign.image;
-                    $scope.baseColor = $scope.tshirtdata.glovesDesign.color;
-
-                    $scope.glovesLogo = $scope.tshirtdata.glovesLogo;
-                    $scope.totalAmount = $scope.tshirtdata.totalAmount;
-                    $scope.glovesArr = $scope.tshirtdata.glovesArr;
-                    $scope.totalQuan = $scope.tshirtdata.totalQuan;
-
-                    $scope.nameLeft = [];
-                    $scope.nameRight = [];
-                    $scope.quantityLeft = 0;
-                    $scope.quantityRight = 0;
-
-                    for (var i = 0; i < $scope.glovesArr.length; i++) {
-                        if ($scope.glovesArr[i].direction === 'left') {
-                            $scope.quantityLeft += $scope.glovesArr[i].quantity;
-                        } else if ($scope.glovesArr[i].direction === 'right') {
-                            $scope.quantityRight += $scope.glovesArr[i].quantity;
-                        }
-                    }
-
-                    $scope.fulldata = {
-                        "description": JSON.parse(data.description),
-                        "glovesArr": $scope.tshirtdata.glovesArr,
-                        "glovesLogo": $scope.tshirtdata.glovesLogo,
-                        "totalQuan": $scope.tshirtdata.totalQuan,
-                        "totalAmount": $scope.tshirtdata.totalAmount,
-                        "data": data
-                    }
-
-                    $.jStorage.set('latestorder', $scope.fulldata);
-                } else if ($scope.tshirtdata.designType === 'pads') {
-                    console.log($scope.tshirtdata);
-
-                    $scope.tshirtdata.designType = 'pads';
-
-                    $scope.Arrayname = $scope.tshirtdata.padsDesign.name;
-                    $scope.selectedImage = $scope.tshirtdata.padsDesign.image;
-                    $scope.baseColor = $scope.tshirtdata.padsDesign.color;
-
-                    $scope.padLogo = $scope.tshirtdata.padLogo;
-                    $scope.totalAmount = $scope.tshirtdata.totalAmount;
-                    $scope.padsArr = $scope.tshirtdata.padsArr;
-                    $scope.totalQuan = $scope.tshirtdata.totalQuan;
-
-                    $scope.quantityLeft = 0;
-                    $scope.quantityRight = 0;
-
-                    for (var i = 0; i < $scope.padsArr.length; i++) {
-                        if ($scope.padsArr[i].direction === 'left') {
-                            $scope.quantityLeft += $scope.padsArr[i].quantity;
-                        } else if ($scope.padsArr[i].direction === 'right') {
-                            $scope.quantityRight += $scope.padsArr[i].quantity;
-                        }
-                    }
-
-                    $scope.fulldata = {
-                        "description": JSON.parse(data.description),
-                        "padsArr": $scope.tshirtdata.padsArr,
-                        "padLogo": $scope.tshirtdata.padLogo,
-                        "totalQuan": $scope.tshirtdata.totalQuan,
-                        "totalAmount": $scope.tshirtdata.totalAmount,
-                        "data": data
-                    }
-
-                    $.jStorage.set('latestorder', $scope.fulldata);
-                }
-
-                console.log($scope.tshirtdata);
 
             },
             function (err) {
                 console.log(err);
             });
-
-        $scope.savedDesigns = function () {
-            $scope.user = $.jStorage.get("user");
-            if (user) {
-                $scope.allLogos = {};
-                if ($scope.customizedShirt.mainlogo) {
-                    $scope.allLogos.mainlogo = $scope.tshirtdata.customizedShirt.mainlogo.image;
-                }
-                if ($scope.customizedShirt.rightchest) {
-                    $scope.allLogos.rightchest = $scope.tshirtdata.customizedShirt.rightchest.image;
-                }
-                if ($scope.customizedShirt.leftsleeve) {
-                    $scope.allLogos.leftsleeve = $scope.tshirtdata.customizedShirt.leftsleeve.image;
-                }
-                if ($scope.customizedShirt.rightsleeve) {
-                    $scope.allLogos.rightsleeve = $scope.tshirtdata.customizedShirt.rightsleeve.image;
-                }
-                if ($scope.customizedShirt.teamlogo) {
-                    $scope.allLogos.teamlogo = $scope.tshirtdata.customizedShirt.teamlogo.image;
-                }
-                if ($scope.customizedShirt.backlogo) {
-                    $scope.allLogos.backlogo = $scope.tshirtdata.customizedShirt.backlogo.image;
-                }
-
-                $scope.combineJSON = {
-                    "trimTshirt": $scope.tshirtdata.trim,
-                    "customizedShirt": $scope.tshirtdata.customizedShirt,
-                    "jerseyBackArr": $scope.tshirtdata.jerseyBack,
-                    "allLogos": $scope.allLogos,
-                    "designName": $scope.tshirtdata.designName,
-                    "designType": $scope.tshirtdata.designType,
-                    "totalAmount": $scope.tshirtdata.totalAmount,
-                    "totalQuan": $scope.tshirtdata.totalQuan,
-                    "name": $scope.tshirtdata.name
-                };
-                $scope.lastJSON = JSON.stringify($scope.combineJSON);
-                console.log($scope.combineJSON);
-                NavigationService.saveDesign(user.email, $scope.combineJSON, 'odishirt',
-                    function (data) {
-                        console.log('Save Design data: ', data);
-                        // $state.go('savedesign');
-                    },
-                    function (err) {
-                        console.log(err);
-                    });
-            } else {
-                $scope.openLogin();
-            }
-        }
-
-        $scope.openSaveDesignPopup = function () {
-            $uibModal.open({
-                templateUrl: 'views/modal/savedesign.html',
-                scope: $scope
-            });
-        };
-
     })
+
+    // .controller('OrderSummaryCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $window, cfpLoadingBar, $uibModal) {
+    //     //Used to name the .html file
+    //     $scope.template = TemplateService.changecontent("ordersummary");
+    //     $scope.menutitle = NavigationService.makeactive("OrderSummary");
+    //     TemplateService.title = $scope.menutitle;
+    //     $scope.navigation = NavigationService.getnav();
+    //     // $scope.tshirtdata = {};
+
+    //     console.log('id: ', $state.params.id);
+
+    //     NavigationService.getOrderSummary($state.params.id,
+    //         function (data) {
+    //             console.log('Order Summary data: ', data);
+    //             data = data.data;
+    //             $scope.tshirtdata = JSON.parse(data.description);
+
+    //             if ($scope.tshirtdata.designType === 'odi' || data.type === 'trousers' || $scope.tshirtdata.designType === 'training' || $scope.tshirtdata.designType === 'whites') {
+
+    //                 $scope.fulldata = {
+    //                     "description": JSON.parse(data.description),
+    //                     "mainsponserlogo": data.mainsponserlogo,
+    //                     "leftsleeve": data.leftsleeve,
+    //                     "rightsleeve": data.rightsleeve,
+    //                     "backsponser": data.backsponser,
+    //                     "teamlogo": data.teamlogo,
+    //                     "rightchest": data.rightchest,
+    //                     "data": data
+    //                 }
+
+    //                 $.jStorage.set('latestorder', $scope.fulldata);
+
+    //                 // $scope.tshirtdata = $.jStorage.get('oditshirtdata');
+    //                 // $scope.tshirtdata = $scope.tshirtdata.odishirt;
+
+    //                 console.log($scope.tshirtdata);
+
+    //                 if ($scope.tshirtdata.type != 'trousers') {
+    //                     $scope.customizedShirt = $scope.tshirtdata.customizedShirt;
+    //                     $scope.printType = $scope.tshirtdata.customizedShirt.printType;
+    //                     // $scope.customizedShirt.front = true;
+    //                     // $scope.customizedShirt.back = false;
+
+    //                     $scope.trimTshirt = $scope.tshirtdata.trim;
+    //                     $scope.jerseyBackArr = $scope.tshirtdata.jerseyBack;
+    //                     $scope.designName = $scope.tshirtdata.designName;
+    //                     $scope.designType = $scope.tshirtdata.designType;
+    //                     $scope.totalAmount = $scope.tshirtdata.totalAmount;
+    //                     $scope.totalQuan = $scope.tshirtdata.totalQuan;
+    //                     $scope.shirtName = $scope.tshirtdata.name;
+    //                     $scope.fontType = $scope.jerseyBackArr[0].font;
+    //                     $scope.fontColor = $scope.jerseyBackArr[0].color;
+    //                     $scope.fontNameSize = $scope.jerseyBackArr[0].attributes.name.fontSize;
+    //                     $scope.fontNumberSize = $scope.jerseyBackArr[0].attributes.number.fontSize;
+
+    //                     $scope.switchFrontBack = function (front) {
+    //                         $scope.customizedShirt.front =  front;
+    //                         $scope.customizedShirt.back =  !front;
+    //                         if (front) {
+    //                             $scope.customizedShirt.cloth = 'img/odi-tshirts/trims/' + $scope.designType + 'base/front/' + $scope.trimTshirt.highlightBase.tcolor + '.png'; //'img/tinytshirt 7.png';
+    //                             $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/' + $scope.designType + '/front.png'; //'img/tinytshirt 7 back.png';
+    //                         } else {
+    //                             $scope.customizedShirt.cloth = 'img/odi-tshirts/trims/' + $scope.designType + 'base/back/' + $scope.trimTshirt.highlightBase.tcolor + '.png'; //'img/tinytshirt 1 back.png';
+    //                             $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/' + $scope.designType + '/back.png'; //'img/tinytshirt 1 back back.png';
+    //                         }
+    //                     }
+
+    //                     $scope.switchTrimHighlightOne = function (flag) {
+    //                         $scope.trimTshirt.highlightOne.flag = flag;
+    //                         // $scope.trimTshirt.highlightOne.tcolor = color;
+    //                         if (flag) {
+    //                             $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/" + $scope.designType + "/" + $scope.designName + "/front/trim1/" + $scope.trimTshirt.highlightOne.tcolor + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
+    //                         } else {
+    //                             $scope.trimTshirt.highlightOne.image = "img/odi-tshirts/trims/" + $scope.designType + "/" + $scope.designName + "/back/trim1/" + $scope.trimTshirt.highlightOne.tcolor + ".png"; // "img/odi-tshirts/trims/highlight1/back/trim_" + color + ".png";
+    //                         }
+    //                     };
+    //                     $scope.switchTrimHighlightTwo = function (flag) {
+    //                         $scope.trimTshirt.highlightTwo.flag = flag;
+    //                         // $scope.trimTshirt.highlightTwo.tcolor = color;
+    //                         if (flag) {
+    //                             $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/" + $scope.designType + "/" + $scope.designName + "/front/trim2/" + $scope.trimTshirt.highlightTwo.tcolor + ".png"; // "img/odi-tshirts/trims/highlight2/front/trim_" + color + ".png";
+    //                         } else {
+    //                             $scope.trimTshirt.highlightTwo.image = "img/odi-tshirts/trims/" + $scope.designType + "/" + $scope.designName + "/back/trim2/" + $scope.trimTshirt.highlightTwo.tcolor + ".png"; // "img/odi-tshirts/trims/highlight2/back/trim_" + color + ".png";
+    //                         }
+    //                     };
+    //                     $scope.switchTrimHighlightBase = function (flag) {
+    //                         $scope.trimTshirt.highlightBase.flag = flag;
+    //                         // $scope.trimTshirt.highlightBase.tcolor = color;
+    //                         if (flag) {
+    //                             if ($scope.designType === 'whites') {
+    //                                 $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/" + $scope.designType + "/" + $scope.designName + "/front.png";
+    //                             } else {
+    //                                 $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/" + $scope.designType + "/base/front/" + $scope.trimTshirt.highlightBase.tcolor + ".png";
+    //                             }
+    //                             $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/' + $scope.designType + '/front3.png';
+    //                             $scope.customizedShirt.front = flag;
+    //                         } else {
+    //                             if ($scope.designType === 'whites') {
+    //                                 $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/" + $scope.designType + "/" + $scope.designName + "/back.png";
+    //                             } else {
+    //                                 $scope.trimTshirt.highlightBase.image = "img/odi-tshirts/trims/" + $scope.designType + "/base/back/" + $scope.trimTshirt.highlightBase.tcolor + ".png"; //"img/odi-tshirts/trims/base/back/" + color + ".png";
+    //                             }
+    //                             $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/' + $scope.designType + '/back3.png';
+    //                             $scope.customizedShirt.front = flag;
+    //                         }
+    //                     };
+    //                 } else {
+    //                     console.log('elsssssssssseeeeeeee');
+    //                     $scope.customizedShirt = $scope.tshirtdata.trousers.customizedTrouser;
+    //                     // $scope.printType = $scope.tshirtdata.customizedShirt.printType;
+    //                     // $scope.customizedShirt.front = true;
+    //                     // $scope.customizedShirt.back = false;
+
+    //                     $scope.trimTshirt = $scope.tshirtdata.trousers.trim;
+    //                     // $scope.jerseyBackArr = $scope.tshirtdata.jerseyBack;
+    //                     $scope.designName = $scope.tshirtdata.type;
+    //                     $scope.designType = $scope.tshirtdata.designType;
+    //                     $scope.totalAmount = $scope.tshirtdata.trousers.totalAmount;
+    //                     $scope.totalQuan = $scope.tshirtdata.trousers.totalQuan;
+    //                     // $scope.shirtName = $scope.tshirtdata.name;
+    //                     // $scope.fontType = $scope.jerseyBackArr[0].font;
+    //                     // $scope.fontColor = $scope.jerseyBackArr[0].color;
+    //                     // $scope.fontNameSize = $scope.jerseyBackArr[0].attributes.name.fontSize;
+    //                     // $scope.fontNumberSize = $scope.jerseyBackArr[0].attributes.number.fontSize;
+    //                     $scope.switchFrontBack = function (front) {
+    //                         if ($scope.customizedShirt) {
+    //                             console.log('$scope.customizedShirt.cloth', $scope.customizedShirt.cloth);
+    //                             if ($scope.customizedShirt.cloth.indexOf('img/shorts') == -1) {
+    //                                 $scope.pantType = "trousers";
+    //                             } else {
+    //                                 $scope.pantType = "shorts";
+    //                             }
+    //                         } else {
+    //                             // $scope.pantType = "trousers";
+    //                         }
+    //                         $scope.customizedShirt.front =  front;
+    //                         $scope.customizedShirt.back =  !front;
+    //                         if (front) {
+    //                             $scope.customizedShirt.cloth = 'img/' + $scope.pantType + '/' + $scope.designType + 'base/front/' + $scope.trimTshirt.highlightBase.tcolor + '.png';
+    //                         } else {
+    //                             $scope.customizedShirt.cloth = 'img/' + $scope.pantType + '/' + $scope.designType + 'base/back/' + $scope.trimTshirt.highlightBase.tcolor + '.png';
+    //                         }
+    //                     }
+    //                     $scope.switchTrimHighlightOne = function (flag, color) {
+    //                         if ($scope.customizedShirt) {
+    //                             console.log('$scope.customizedShirt.cloth', $scope.customizedShirt.cloth);
+    //                             if ($scope.customizedShirt.cloth.indexOf('img/shorts') == -1) {
+    //                                 $scope.pantType = "trousers";
+    //                             } else {
+    //                                 $scope.pantType = "shorts";
+    //                             }
+    //                         } else {
+    //                             // $scope.pantType = "trousers";
+    //                         }
+    //                         console.log(flag, color);
+    //                         $scope.trimTshirt.highlightOne.flag = flag;
+    //                         $scope.trimTshirt.highlightOne.tcolor = color;
+    //                         if ($scope.trimTshirt.highlightOne.tcolor != "") {
+    //                             if (flag) {
+    //                                 $scope.trimTshirt.highlightOne.image = "img/" + $scope.pantType + "/" + $scope.designName + "/front/trim1/" + color + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
+    //                                 console.log('sssssssssssssssssssss', $scope.trimTshirt.highlightOne.image)
+    //                             } else {
+    //                                 $scope.trimTshirt.highlightOne.image = "img/" + $scope.pantType + "/" + $scope.designName + "/back/trim1/" + color + ".png"; // "img/odi-tshirts/trims/highlight1/back/trim_" + color + ".png";
+    //                             }
+    //                         } else {
+    //                             $scope.trimTshirt.highlightOne.image = "";
+    //                         }
+    //                     };
+    //                     $scope.switchTrimHighlightTwo = function (flag, color) {
+    //                         if ($scope.changeIDTrouser) {
+    //                             console.log('$scope.customizedShirt.cloth', $scope.customizedShirt.cloth);
+    //                             if ($scope.customizedShirt.cloth.indexOf('img/shorts') == -1) {
+    //                                 $scope.pantType = "trousers";
+    //                             } else {
+    //                                 $scope.pantType = "shorts";
+    //                             }
+    //                         } else {
+    //                             // $scope.pantType = "trousers";
+    //                         }
+    //                         $scope.trimTshirt.highlightTwo.flag = flag;
+    //                         $scope.trimTshirt.highlightTwo.tcolor = color;
+    //                         if ($scope.trimTshirt.highlightTwo.tcolor != "") {
+    //                             if (flag) {
+    //                                 $scope.trimTshirt.highlightTwo.image = "img/" + $scope.pantType + "/" + $scope.designName + "/front/trim2/" + color + ".png";
+    //                             } else {
+    //                                 $scope.trimTshirt.highlightTwo.image = "img/" + $scope.pantType + "/" + $scope.designName + "/back/trim2/" + color + ".png";
+    //                             }
+    //                         } else {
+    //                             $scope.trimTshirt.highlightTwo.image = "";
+    //                         }
+    //                     };
+    //                     $scope.switchTrimHighlightBase = function (flag, color) {
+    //                         if ($scope.changeIDTrouser) {
+    //                             console.log('$scope.customizedShirt.cloth', $scope.customizedShirt.cloth);
+    //                             if ($scope.customizedShirt.cloth.indexOf('img/shorts') == -1) {
+    //                                 $scope.pantType = "trousers";
+    //                             } else {
+    //                                 $scope.pantType = "shorts";
+    //                             }
+    //                         } else {
+    //                             // $scope.pantType = "trousers";
+    //                         }
+    //                         $scope.trimTshirt.highlightBase.flag = flag;
+    //                         $scope.trimTshirt.highlightBase.tcolor = color;
+    //                         if (flag) {
+    //                             $scope.trimTshirt.highlightBase.image = "img/" + $scope.pantType + "/base/front/" + color + ".png";
+    //                             $scope.customizedShirt.front = flag;
+    //                         } else {
+    //                             $scope.trimTshirt.highlightBase.image = "img/" + $scope.pantType + "/base/back/" + color + ".png";
+    //                             $scope.customizedShirt.front = flag;
+    //                         }
+    //                     }
+    //                 }
+
+
+    //                 $scope.switchFrontBack(true);
+    //                 $scope.switchTrimHighlightOne(true);
+    //                 $scope.switchTrimHighlightTwo(true);
+    //                 $scope.switchTrimHighlightBase(true);
+
+    //                 $scope.quantitySizeS = 0;
+    //                 $scope.quantitySizeM = 0;
+    //                 $scope.quantitySizeL = 0;
+    //                 $scope.quantitySizeXL = 0;
+    //                 $scope.quantitySizeXXL = 0;
+    //                 $scope.quantitySizeXXXL = 0;
+
+    //                 $scope.nameS = [];
+    //                 $scope.nameM = [];
+    //                 $scope.nameL = [];
+    //                 $scope.nameXL = [];
+    //                 $scope.nameXXL = [];
+    //                 $scope.nameXXXL = [];
+    //                 if ($scope.jerseyBackArr) {
+    //                     for (var i = 0; i < $scope.jerseyBackArr.length; i++) {
+    //                         if ($scope.jerseyBackArr[i].size === 'S') {
+    //                             $scope.quantitySizeS += $scope.jerseyBackArr[i].quantity;
+    //                             $scope.singleNameS = {
+    //                                 'name': $scope.jerseyBackArr[i].name,
+    //                                 'no': $scope.jerseyBackArr[i].no,
+    //                             }
+    //                             $scope.nameS.push($scope.singleNameS);
+    //                         } else if ($scope.jerseyBackArr[i].size === 'M') {
+    //                             $scope.quantitySizeM += $scope.jerseyBackArr[i].quantity;
+    //                             $scope.singleNameM = {
+    //                                 'name': $scope.jerseyBackArr[i].name,
+    //                                 'no': $scope.jerseyBackArr[i].no,
+    //                             }
+    //                             $scope.nameM.push($scope.singleNameM);
+    //                         } else if ($scope.jerseyBackArr[i].size === 'L') {
+    //                             $scope.quantitySizeL += $scope.jerseyBackArr[i].quantity;
+    //                             $scope.singleNameL = {
+    //                                 'name': $scope.jerseyBackArr[i].name,
+    //                                 'no': $scope.jerseyBackArr[i].no,
+    //                             }
+    //                             $scope.nameL.push($scope.singleNameL);
+    //                         } else if ($scope.jerseyBackArr[i].size === 'XL') {
+    //                             $scope.quantitySizeXL += $scope.jerseyBackArr[i].quantity;
+    //                             $scope.singleNameXL = {
+    //                                 'name': $scope.jerseyBackArr[i].name,
+    //                                 'no': $scope.jerseyBackArr[i].no,
+    //                             }
+    //                             $scope.nameXL.push($scope.singleNameXL);
+    //                         } else if ($scope.jerseyBackArr[i].size === 'XXL') {
+    //                             $scope.quantitySizeXXL += $scope.jerseyBackArr[i].quantity;
+    //                             $scope.singleNameXXL = {
+    //                                 'name': $scope.jerseyBackArr[i].name,
+    //                                 'no': $scope.jerseyBackArr[i].no,
+    //                             }
+    //                             $scope.nameXXL.push($scope.singleNameXXL);
+    //                         } else if ($scope.jerseyBackArr[i].size === 'XXXL') {
+    //                             $scope.quantitySizeXXXL += $scope.jerseyBackArr[i].quantity;
+    //                             $scope.singleNameXXXL = {
+    //                                 'name': $scope.jerseyBackArr[i].name,
+    //                                 'no': $scope.jerseyBackArr[i].no,
+    //                             }
+    //                             $scope.nameXXXL.push($scope.singleNameXXXL);
+    //                         }
+    //                     }
+    //                 }
+
+
+    //             } else if ($scope.tshirtdata.designType === 'bat') {
+    //                 console.log($scope.tshirtdata);
+
+    //                 $scope.fulldata = {
+    //                     "description": JSON.parse(data.description),
+    //                     "batText": $scope.tshirtdata.batText,
+    //                     "batQuantity": $scope.tshirtdata.batQuantity,
+    //                     "totalAmount": $scope.tshirtdata.totalAmount,
+    //                     "data": data
+    //                 }
+
+    //                 $.jStorage.set('latestorder', $scope.fulldata);
+    //             } else if ($scope.tshirtdata.designType === 'gloves') {
+    //                 console.log($scope.tshirtdata);
+
+    //                 $scope.tshirtdata.designType = 'gloves';
+
+    //                 $scope.Arrayname = $scope.tshirtdata.glovesDesign.name;
+    //                 $scope.selectedImage = $scope.tshirtdata.glovesDesign.image;
+    //                 $scope.baseColor = $scope.tshirtdata.glovesDesign.color;
+
+    //                 $scope.glovesLogo = $scope.tshirtdata.glovesLogo;
+    //                 $scope.totalAmount = $scope.tshirtdata.totalAmount;
+    //                 $scope.glovesArr = $scope.tshirtdata.glovesArr;
+    //                 $scope.totalQuan = $scope.tshirtdata.totalQuan;
+
+    //                 $scope.nameLeft = [];
+    //                 $scope.nameRight = [];
+    //                 $scope.quantityLeft = 0;
+    //                 $scope.quantityRight = 0;
+
+    //                 for (var i = 0; i < $scope.glovesArr.length; i++) {
+    //                     if ($scope.glovesArr[i].direction === 'left') {
+    //                         $scope.quantityLeft += $scope.glovesArr[i].quantity;
+    //                     } else if ($scope.glovesArr[i].direction === 'right') {
+    //                         $scope.quantityRight += $scope.glovesArr[i].quantity;
+    //                     }
+    //                 }
+
+    //                 $scope.fulldata = {
+    //                     "description": JSON.parse(data.description),
+    //                     "glovesArr": $scope.tshirtdata.glovesArr,
+    //                     "glovesLogo": $scope.tshirtdata.glovesLogo,
+    //                     "totalQuan": $scope.tshirtdata.totalQuan,
+    //                     "totalAmount": $scope.tshirtdata.totalAmount,
+    //                     "data": data
+    //                 }
+
+    //                 $.jStorage.set('latestorder', $scope.fulldata);
+    //             } else if ($scope.tshirtdata.designType === 'pads') {
+    //                 console.log($scope.tshirtdata);
+
+    //                 $scope.tshirtdata.designType = 'pads';
+
+    //                 $scope.Arrayname = $scope.tshirtdata.padsDesign.name;
+    //                 $scope.selectedImage = $scope.tshirtdata.padsDesign.image;
+    //                 $scope.baseColor = $scope.tshirtdata.padsDesign.color;
+
+    //                 $scope.padLogo = $scope.tshirtdata.padLogo;
+    //                 $scope.totalAmount = $scope.tshirtdata.totalAmount;
+    //                 $scope.padsArr = $scope.tshirtdata.padsArr;
+    //                 $scope.totalQuan = $scope.tshirtdata.totalQuan;
+
+    //                 $scope.quantityLeft = 0;
+    //                 $scope.quantityRight = 0;
+
+    //                 for (var i = 0; i < $scope.padsArr.length; i++) {
+    //                     if ($scope.padsArr[i].direction === 'left') {
+    //                         $scope.quantityLeft += $scope.padsArr[i].quantity;
+    //                     } else if ($scope.padsArr[i].direction === 'right') {
+    //                         $scope.quantityRight += $scope.padsArr[i].quantity;
+    //                     }
+    //                 }
+
+    //                 $scope.fulldata = {
+    //                     "description": JSON.parse(data.description),
+    //                     "padsArr": $scope.tshirtdata.padsArr,
+    //                     "padLogo": $scope.tshirtdata.padLogo,
+    //                     "totalQuan": $scope.tshirtdata.totalQuan,
+    //                     "totalAmount": $scope.tshirtdata.totalAmount,
+    //                     "data": data
+    //                 }
+
+    //                 $.jStorage.set('latestorder', $scope.fulldata);
+    //             }
+
+    //             console.log($scope.tshirtdata);
+
+    //         },
+    //         function (err) {
+    //             console.log(err);
+    //         });
+
+    //     $scope.savedDesigns = function () {
+    //         $scope.user = $.jStorage.get("user");
+    //         if (user) {
+    //             $scope.allLogos = {};
+    //             if ($scope.customizedShirt.mainlogo) {
+    //                 $scope.allLogos.mainlogo = $scope.tshirtdata.customizedShirt.mainlogo.image;
+    //             }
+    //             if ($scope.customizedShirt.rightchest) {
+    //                 $scope.allLogos.rightchest = $scope.tshirtdata.customizedShirt.rightchest.image;
+    //             }
+    //             if ($scope.customizedShirt.leftsleeve) {
+    //                 $scope.allLogos.leftsleeve = $scope.tshirtdata.customizedShirt.leftsleeve.image;
+    //             }
+    //             if ($scope.customizedShirt.rightsleeve) {
+    //                 $scope.allLogos.rightsleeve = $scope.tshirtdata.customizedShirt.rightsleeve.image;
+    //             }
+    //             if ($scope.customizedShirt.teamlogo) {
+    //                 $scope.allLogos.teamlogo = $scope.tshirtdata.customizedShirt.teamlogo.image;
+    //             }
+    //             if ($scope.customizedShirt.backlogo) {
+    //                 $scope.allLogos.backlogo = $scope.tshirtdata.customizedShirt.backlogo.image;
+    //             }
+
+    //             $scope.combineJSON = {
+    //                 "trimTshirt": $scope.tshirtdata.trim,
+    //                 "customizedShirt": $scope.tshirtdata.customizedShirt,
+    //                 "jerseyBackArr": $scope.tshirtdata.jerseyBack,
+    //                 "allLogos": $scope.allLogos,
+    //                 "designName": $scope.tshirtdata.designName,
+    //                 "designType": $scope.tshirtdata.designType,
+    //                 "totalAmount": $scope.tshirtdata.totalAmount,
+    //                 "totalQuan": $scope.tshirtdata.totalQuan,
+    //                 "name": $scope.tshirtdata.name
+    //             };
+    //             $scope.lastJSON = JSON.stringify($scope.combineJSON);
+    //             console.log($scope.combineJSON);
+    //             NavigationService.saveDesign(user.email, $scope.combineJSON, 'odishirt',
+    //                 function (data) {
+    //                     console.log('Save Design data: ', data);
+    //                     // $state.go('savedesign');
+    //                 },
+    //                 function (err) {
+    //                     console.log(err);
+    //                 });
+    //         } else {
+    //             $scope.openLogin();
+    //         }
+    //     }
+
+    //     $scope.openSaveDesignPopup = function () {
+    //         $uibModal.open({
+    //             templateUrl: 'views/modal/savedesign.html',
+    //             scope: $scope
+    //         });
+    //     };
+
+    // })
     .controller('CheckoutCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $interval, cfpLoadingBar, $uibModal, $window) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("checkout");
