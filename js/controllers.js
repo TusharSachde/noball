@@ -777,7 +777,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.trimTrouser.highlightOne = {};
         $scope.trimTrouser.highlightTwo = {};
         $scope.trimTrouser.highlightBase = {};
-        // $scope.customizedTrouser = {};
+        $scope.customizedTrouser = {};
         // $scope.customizedTrouser.rightlogo = {};
         // $scope.customizedTrouser.rightlogo.image = "img/logo_black.png";
         // $scope.customizedTrouser.rightlogo.attributes = {};
@@ -813,13 +813,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.tempImage = "";
         $scope.trouserJson.leftLogo = {};
         $scope.changeLogo = function (key) {
-            $scope.customizedTrouser[key].divattributes = {};
-            console.log(key);
-            $scope.customizedTrouser[key].divattributes.border = "1px solid #ccc";
+            $scope.trouserJson.key = {};
+            // $scope.customizedTrouser[key].divattributes = {};
+            // console.log(key);
+            // $scope.customizedTrouser[key].divattributes.border = "1px solid #ccc";
         };
         $scope.resetLogoStyle = function (key) {
-            $scope.customizedTrouser[key].divattributes = {};
-            $scope.customizedTrouser[key].divattributes.border = "none";
+             $scope.trouserJson.key = {};
+            // $scope.customizedTrouser[key].divattributes = {};
+            // $scope.customizedTrouser[key].divattributes.border = "none";
             $scope.$apply();
         };
 
@@ -836,11 +838,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     if (whichone == 1) {
                         console.log(image);
                         $scope.tempImage = image[0];
-                        if (!$scope.customizedTrouser[variable]) {
-                            $scope.customizedTrouser[variable] = {};
-                            $scope.customizedTrouser[variable].attributes = {};
-                            $scope.customizedTrouser[variable].divattributes = {};
-                            $scope.customizedTrouser[variable].attributes.width = 25;
+                        if (!$scope.trouserJson.variable) {
+                            $scope.trouserJson.variable = {};
+                            $scope.trouserJson.variable.width = 25;
+                            // $scope.customizedTrouser[variable] = {};
+                            // $scope.customizedTrouser[variable].attributes = {};
+                            // $scope.customizedTrouser[variable].divattributes = {};
+                            // $scope.customizedTrouser[variable].attributes.width = 25;
                         }
                         console.log($scope.tempImage);
                     }
@@ -856,8 +860,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
         $scope.confirmUpload = function (variable, name) {
-            $scope.trousersLogo.image = $scope.tempImage;
-            $scope.trouserJson.leftLogo.image = $scope.tempImage;
+            console.log('llllllllllllllllll',variable,name);
+            $scope.trouserJson[variable].image = $scope.tempImage;
+            console.log('llllllllllllllllllpppppppppppp',$scope.trouserJson[variable].image);
+            // $scope.trouserJson.leftLogo.image = $scope.tempImage;
 
             // $scope.customizedTrouser[variable].image = $scope.tempImage;
             // $scope.customizedTrouser[variable].name = name;
@@ -10443,12 +10449,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
         $scope.user = $.jStorage.get('user');
-        if (user) {
-            NavigationService.getDesigns(user.email,
+        if ($scope.user) {
+            NavigationService.getDesigns($scope.user.email,
                 function (data) {
-                    console.log('Save Design data: ', data);
-                    // $scope.savedDesigns = data.data;              },
-                    console.log(err);
+                    $scope.savedDesigns = data.data;
+                    $scope.savedDesigns = _.map($scope.savedDesigns,function(n) {
+                        n.description = JSON.parse(n.description);
+                        return n;
+                    });
+                    console.log(data);
                 });
         } else {}
     })

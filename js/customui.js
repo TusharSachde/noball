@@ -24,16 +24,16 @@
                   ],
                   "trousers": {
                       leftLogo: {
-                          width: 100,
-                          height: 100,
-                           top: 75,
-                          left: 125
+                          width: 30,
+                          height: 30,
+                           top: 109,
+                          left: 130
                       },
                       rightLogo: {
-                          width: 100,
-                          height: 100,
-                           top: 75,
-                          right: 125
+                          width: 30,
+                          height: 30,
+                           top: 109,
+                          right: 130
                       },
                   },
                   "shorts": {

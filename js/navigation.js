@@ -765,7 +765,7 @@ var navigationservice = angular.module('navigationservice', [])
         url: adminurl + "getDesigns",
         method: "POST",
         data: myData
-      }).success(callback).error(err);
+      }).success(callback);
     },
     saveOrderOdi: function(user, jsonData, ml, rc, ls, rs, bl, tl, type, callback, err) {
       var myData = {

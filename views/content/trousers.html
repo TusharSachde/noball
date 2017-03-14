@@ -21,7 +21,7 @@
                         <p>3. LOGOS</p>
                         <span class="bread-back"></span>
                     </li>
-                     <li class="tab-item breadcrums {{classe}} {{tabAllowd}}" ng-disabled="tabAllowTob" ng-click="switchNavigation('d');">
+                    <li class="tab-item breadcrums {{classe}} {{tabAllowd}}" ng-disabled="tabAllowTob" ng-click="switchNavigation('d');">
                         <span class="bread-frnt"></span>
                         <p>4. QUANTITY</p>
                         <span class="bread-back"></span>
@@ -32,23 +32,24 @@
         <div class="product-detail">
             <div class="row">
                 <div class="col-md-5">
-                    <div class="scroll-image" id="style-2">    
-                    <div class="text-center">
-                        <div class="gully-shirt">                        
+                    <div class="scroll-image" id="style-2">
+                        <div class="text-center">
+                            <custom design="trouserJson" ng-if="trouserJson">
+                            </custom>
+                            <!--<div class="gully-shirt">                        
                             <img ng-src="{{trouserJson.design.highlightOne}}"  class="trimshirt img-responsive" alt="">
                             <img ng-src="{{trouserJson.design.highlightTwo}}" class="trimshirt img-responsive" alt="">
-                            <img ng-src="{{trouserJson.design.base}}" class="trimshirtbase img-responsive" alt="">
+                            <img ng-src="{{trouserJson.design.base}}" class="trimshirtbase img-responsive" alt="">-->
                             <!---if pants-->
-                            <div class="div-trouser-left-logo" ng-if="pantType=='trousers' && trouserJson.leftLogo.image" ng-style="customizedTrouser.leftlogo.divattributes">
+                            <!--<div class="div-trouser-left-logo" ng-if="pantType=='trousers' && trouserJson.leftLogo.image" ng-style="customizedTrouser.leftlogo.divattributes">
                                 <img id="trouserleftlogo" ng-src="{{trouserJson.leftLogo.image | serverimage}}" class="trouser-left-logo" alt="" ng-style="customizedTrouser.leftlogo.attributes">
                             </div>
                             <div class="div-trouser-right-logo" ng-if="pantType=='trousers' && trouserJson.rightLogo.image" ng-style="trouserJson.rightlogo.divattributes">
                                 <img id="trouserrightlogo" ng-src="{{trouserJson.rightLogo.image | serverimage}}" class="trouser-right-logo" alt="" ng-style="customizedTrouser.rightlogo.attributes">
-                            </div> 
+                            </div> -->
                             <!---close of if pants-->
-
                             <!--if shorts-->
-                                      <!--<div class="div-short-left-logo" ng-if="pantType=='shorts' && customizedTrouser.front && customizedTrouser.leftlogo.image" ng-style="customizedTrouser.leftlogo.divattributes">
+                            <!--<div class="div-short-left-logo" ng-if="pantType=='shorts' && customizedTrouser.front && customizedTrouser.leftlogo.image" ng-style="customizedTrouser.leftlogo.divattributes">
                                 <img id="trouserleftlogo" ng-src="{{customizedTrouser.leftlogo.image | serverimage}}" class="trouser-left-logo" alt="" ng-style="customizedTrouser.leftlogo.attributes">
                             </div>
                             <div class="div-short-right-logo" ng-if="pantType=='shorts' && customizedTrouser.front && customizedTrouser.rightlogo.image" ng-style="customizedTrouser.rightlogo.divattributes">
@@ -56,88 +57,91 @@
                             </div>-->
                             <!--close of if shorts -->
                             <!--shorts logo upload section -->
-                             <div class="div-left-short" ng-if="customizedShort.front && mainlogo.image" ng-style="mainlogo.divattributes">
+                            <!--<div class="div-left-short" ng-if="customizedShort.front && mainlogo.image" ng-style="mainlogo.divattributes">
                                 <img class="left-chest" ng-src="{{mainlogo.image | serverimage}}" alt="" ng-style="mainlogo.attributes">
                             </div>
                             <div class="div-right-short" ng-if="customizedShort.front && customizedShort.teamlogo.image" ng-style="customizedShort.teamlogo.divattributes">
                                 <img class="left-chest" ng-src="{{customizedShort.teamlogo.image | serverimage}}" alt="" ng-style="customizedShort.teamlogo.attributes">
                             </div>
-                        </div>  
-                        <div class="prev inline-block">
-                            <p class="uppercase" ng-click="switchFrontBack(true,trouserJson.type); switchTrimHighlightBase(color.base); switchTrimHighlightOne(color.trim1); switchTrimHighlightTwo(color.trim2);"><img src="img/back.png" class="img-responsive" alt="">front</p>
-                        </div>
-                        <div class="next inline-block">
-                            <p class="uppercase" ng-click="switchFrontBack(false,trouserJson.type); switchTrimHighlightBase(color.base); switchTrimHighlightOne(color.trim1); switchTrimHighlightTwo(color.trim2);"><img src="img/back.png" class="img-responsive" alt="">back</p>
-                        </div>
-                        <div class="feature-buttons">
-                            <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 1}" ng-click="toggleTab(1)">FORM + FUNCTION</button>
-                            <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 2}" ng-click="toggleTab(2)">DELIVERY</button>
-                            <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 3}" ng-click="toggleTab(3)">CARE</button>
-                        </div>
-                        <ul class="tshirt-features" ng-if="activeButton == 1">
+                        </div>  -->
+                            <div class="prev inline-block">
+                                <p class="uppercase" ng-click="switchFrontBack(true,trouserJson.type); switchTrimHighlightBase(color.base); switchTrimHighlightOne(color.trim1); switchTrimHighlightTwo(color.trim2);"><img src="img/back.png" class="img-responsive" alt="">front</p>
+                            </div>
+                            <div class="next inline-block">
+                                <p class="uppercase" ng-click="switchFrontBack(false,trouserJson.type); switchTrimHighlightBase(color.base); switchTrimHighlightOne(color.trim1); switchTrimHighlightTwo(color.trim2);"><img src="img/back.png" class="img-responsive" alt="">back</p>
+                            </div>
+                            <div class="feature-buttons">
+                                <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 1}"
+                                    ng-click="toggleTab(1)">FORM + FUNCTION</button>
+                                <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 2}"
+                                    ng-click="toggleTab(2)">DELIVERY</button>
+                                <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 3}"
+                                    ng-click="toggleTab(3)">CARE</button>
+                            </div>
+                            <ul class="tshirt-features" ng-if="activeButton == 1">
                                 <li>Windcheater material</li>
                                 <li>Drawstring elastic waistband</li>
                                 <li>180 GSM weight of fabric</li>
                                 <li>Inner mesh briefs</li>
                                 <li>Tested and fitted for optimum performance</li>
                                 <!--<li>Tested and fitted for optimum performance in warm and cold conditions</li>-->
-                            <!--<li>100% polyester</li>
+                                <!--<li>100% polyester</li>
                             <li>Drawstring elastic waistband with fly finished front</li>
                             <li>200 GSM weight of fabric</li>
                             <li>Tested and fitted for optimum performance in warm and cold conditions</li>-->
-
-                        </ul>
-                         <ul class="tshirt-features" ng-if="activeButton == 2">
-                            <li>In-stock designs are available for immediate shipment. Customisation takes 3-4 weeks for worldwide delivery.</li>
-                        </ul>
-                        <ul class="tshirt-features" ng-if="activeButton == 3">
-                            <li>We recommend washing in cold water with powder detergent</li>
-                            <li>Avoid drying machines which can weaken the fabric's effectiveness</li>
-                            <li>Tumble dry</li>
-                            <li>Steam iron if needed</li>
-                        </ul>
-                    </div>
+                            </ul>
+                            <ul class="tshirt-features" ng-if="activeButton == 2">
+                                <li>In-stock designs are available for immediate shipment. Customisation takes 3-4 weeks for
+                                    worldwide delivery.</li>
+                            </ul>
+                            <ul class="tshirt-features" ng-if="activeButton == 3">
+                                <li>We recommend washing in cold water with powder detergent</li>
+                                <li>Avoid drying machines which can weaken the fabric's effectiveness</li>
+                                <li>Tumble dry</li>
+                                <li>Steam iron if needed</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-7">
-                    <div class="scroll-image" id="style-1">                    
-                    <div class="det-name">
-                        <h4>LONG LEG</h4>
-                        <h3><i class="fa fa-inr"></i>{{singleAmount}}</h3>
-                        <span><i>Minimum Order Quantity (MOQ) = 20 Trousers / Shorts</i></span>
-                    </div>
-                    <!--    // design tab-->
-                    <div class="choos m20-l" ng-show="tab=='design'">
-                        <!--<p>Choose Your Type Of Design</p>-->
-                         <p ng-if="page==1">Choose Your Type Of Design ({{images.page1.length}}/{{images.page1.length + images.page2.length}})</p>
-               <p ng-if="page==2">Choose Your Type Of Design ({{images.page1.length + images.page2.length}}/{{images.page1.length + images.page2.length}})</p>
-                           <div class="mb20 flex-around odi-design-buttons">
-                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-prev" ng-disabled="page==1" ng-click="page=1">
+                    <div class="scroll-image" id="style-1">
+                        <div class="det-name">
+                            <h4>LONG LEG</h4>
+                            <h3><i class="fa fa-inr"></i>{{singleAmount}}</h3>
+                            <span><i>Minimum Order Quantity (MOQ) = 20 Trousers / Shorts</i></span>
+                        </div>
+                        <!--    // design tab-->
+                        <div class="choos m20-l" ng-show="tab=='design'">
+                            <!--<p>Choose Your Type Of Design</p>-->
+                            <p ng-if="page==1">Choose Your Type Of Design ({{images.page1.length}}/{{images.page1.length + images.page2.length}})</p>
+                            <p ng-if="page==2">Choose Your Type Of Design ({{images.page1.length + images.page2.length}}/{{images.page1.length
+                                + images.page2.length}})</p>
+                            <div class="mb20 flex-around odi-design-buttons">
+                                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-prev" ng-disabled="page==1" ng-click="page=1">
                   <img src="img/design_arrow_previous.png" alt="Prev Button" class="img-responsive">
                 </button>
-                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-next" ng-disabled="page==2" ng-click="page=2">
+                                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-next" ng-disabled="page==2" ng-click="page=2">
                   <img src="img/design_arrow_next.png" alt="Next Button" class="img-responsive">
                 </button>
-                <!--<button class="{{designButton.design1.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=2; changeDesignButton(1);">Whites</button>
+                                <!--<button class="{{designButton.design1.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=2; changeDesignButton(1);">Whites</button>
                 <button class="{{designButton.design2.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(2);">Sublimation</button>
                 <button class="{{designButton.design3.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(3);">Cut &amp; Sew</button>
                 <button class="{{designButton.design4.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(4);">Polo</button>-->
-              </div>
-                  <div class="row">
-                <div class="col-md-10">
-                  <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images.page1 track by $index" ng-if="page==1">
-
-                    <div class="cat-img pointer" ng-class="{'border-line':$index + 1 = true}" ng-click="openDesign($index, 1);designTabJson(img,'trousers')" title="Design {{$index + 1}}">
-                      <img ng-src="{{img.src}}" class="img-responsive">
-                    </div>
-                  </div>
-                  <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images.page2 track by $index" ng-if="page==2">
-
-                    <div class="cat-img pointer" ng-click="openDesign(9, 2);designTabJson(img,'shorts')" title="Design {{$index + 1}}">
-                      <img ng-src="{{img.src}}" class="img-responsive">
-                    </div>
-                  </div>
-                  <!--<div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images.training track by $index" ng-if="type==2">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images.page1 track by $index" ng-if="page==1">
+                                        <div class="cat-img pointer" ng-class="{'border-line':$index + 1 = true}" ng-click="openDesign($index, 1);designTabJson(img,'trousers')"
+                                            title="Design {{$index + 1}}">
+                                            <img ng-src="{{img.src}}" class="img-responsive">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images.page2 track by $index" ng-if="page==2">
+                                        <div class="cat-img pointer" ng-click="openDesign(9, 2);designTabJson(img,'shorts')" title="Design {{$index + 1}}">
+                                            <img ng-src="{{img.src}}" class="img-responsive">
+                                        </div>
+                                    </div>
+                                    <!--<div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images.training track by $index" ng-if="type==2">
                     <div class="cat-img pointer" ng-click="openDesign($index)" title="Design {{$index + 1}}">
                       <img ng-src="{{img}}" class="img-responsive">
                     </div>
@@ -147,10 +151,9 @@
                       <img ng-src="{{img}}" class="img-responsive">
                     </div>
                   </div>-->
-                </div>
-              </div>
-                       
-                        <!--<div class="row">
+                                </div>
+                            </div>
+                            <!--<div class="row">
                             <div class="col-md-10">
                                 <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images track by $index">                                    
                                         <div class="cat-img pointer" ng-click="openDesign($index,1,img)" title="Design {{$index + 1}}">
@@ -159,205 +162,219 @@
                                 </div>
                             </div>
                         </div>-->
-                         <div class="mb20 flex-end odi-design-buttons">
-                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-prev" ng-disabled="page==1" ng-click="page=1">
+                            <div class="mb20 flex-end odi-design-buttons">
+                                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-prev" ng-disabled="page==1" ng-click="page=1">
                   <img src="img/design_arrow_previous.png" alt="Prev Button" class="img-responsive">
                 </button>
-                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-next" ng-disabled="page==2" ng-click="page=2">
+                                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-next" ng-disabled="page==2" ng-click="page=2">
                   <img src="img/design_arrow_next.png" alt="Next Button" class="img-responsive">
                 </button>
-                <!--<button class="{{designButton.design1.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=2; changeDesignButton(1);">Whites</button>
+                                <!--<button class="{{designButton.design1.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=2; changeDesignButton(1);">Whites</button>
                 <button class="{{designButton.design2.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(2);">Sublimation</button>
                 <button class="{{designButton.design3.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(3);">Cut &amp; Sew</button>
                 <button class="{{designButton.design4.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(4);">Polo</button>-->
-              </div>
-              <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="tabchange('trim',2); switchFrontBack(true,trouserJson.type); switchTrimHighlightBase(trouserJson.color.base); switchTrimHighlightOne(trouserJson.color.trim1); switchTrimHighlightTwo(trouserJson.color.trim2); openTab('b');">NEXT</button>
-                        <!--<div class="edit-btn inline-block">
+                            </div>
+                            <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="tabchange('trim',2); switchFrontBack(true,trouserJson.type); switchTrimHighlightBase(trouserJson.color.base); switchTrimHighlightOne(trouserJson.color.trim1); switchTrimHighlightTwo(trouserJson.color.trim2); openTab('b');">NEXT</button>
+                            <!--<div class="edit-btn inline-block">
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('trim', 2); openTab('b');">NEXT</button>
                         </div>-->
-                        <div class="customize-design">
-                            
-              <ul>
-                <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span> to know more about customization tools.</li>               
-                <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves & pads attract a nominal one-time customization fees).</li>               
-                             
-              </ul>                              
-              </div>
-                    </div>
-                    <!--       //trim tab-->
-                    <div class="choos m20-l " ng-show="tab=='trim'">
-                        <div class="options">
-                            <button class="{{trimTabs.light3.active}} {{trimTrouser.highlightBase.disable}} classshow btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-click="tabchanges('light3',3)">BASE</button>
-                            <button class="{{trimTabs.light1.active}} {{trimTrouser.highlightOne.disable}} classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-click="tabchanges('light1',1)">TRIM 1</button>
-                            <button class="{{trimTabs.light2.active}} {{trimTrouser.highlightTwo.disable}} classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-click="tabchanges('light2',2)">TRIM 2</button>
-                        </div>
-                        <div class="{{trimTrouser.highlightOne.disable}} {{trimTabs.light1.show}} classp outline disnon" ng-if="tabs=='light1'">
-                            <h4>Choose Your Color</h4>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in colorr track by $index">
-                                        <div class="colo-pallet text-center">
-                                            <div class="noti-img notihov" ng-class="{'coloracive':colorr.highlightOne == col.name, 'borergrey':col.name == 'white'};" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightOne(col.name); trimHexColors('highlightOne', col.colr);" title="{{col.name | capitalize}}"></div>
-                                        </div>
-                                    </div>
-
-                                </div>
+                            <div class="customize-design">
+                                <ul>
+                                    <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span>                                        to know more about customization tools.</li>
+                                    <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves & pads
+                                        attract a nominal one-time customization fees).</li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="{{trimTrouser.highlightTwo.disable}} {{trimTabs.light2.show}} classv outline disnon" ng-if="tabs=='light2'">
-                            <div class="row">
-                            <div class="col-md-12">
+                        <!--       //trim tab-->
+                        <div class="choos m20-l " ng-show="tab=='trim'">
+                            <div class="options">
+                                <button class="{{trimTabs.light3.active}} {{trimTrouser.highlightBase.disable}} classshow btn btn-outline btn-dark padding-btn letter-spacing inline-block"
+                                    ng-click="tabchanges('light3',3)">BASE</button>
+                                <button class="{{trimTabs.light1.active}} {{trimTrouser.highlightOne.disable}} classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block"
+                                    ng-click="tabchanges('light1',1)">TRIM 1</button>
+                                <button class="{{trimTabs.light2.active}} {{trimTrouser.highlightTwo.disable}} classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block"
+                                    ng-click="tabchanges('light2',2)">TRIM 2</button>
+                            </div>
+                            <div class="{{trimTrouser.highlightOne.disable}} {{trimTabs.light1.show}} classp outline disnon" ng-if="tabs=='light1'">
                                 <h4>Choose Your Color</h4>
-                                <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in colorr track by $index">
-                                <div class="colo-pallet text-center">
-                                    <div class="noti-img notihov" ng-class="{'coloracive':color.trim2 == col.name, 'borergrey':col.name == 'white'};" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightTwo(col.name); trimHexColors('highlightTwo', col.colr);" title="{{col.name | capitalize}}"></div>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="{{trimTrouser.highlightBase.disable}} {{trimTabs.light3.show}} classv outline disnon" ng-if="tabs=='light3'">
-                            <div class="row">
-                            <div class="col-md-12">
-                                <h4>Choose Your Color</h4>
-                                <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in colorr track by $index">
-                                <div class="colo-pallet text-center">
-                                    <div class="noti-img notihov" ng-class="{'coloracive':color.base == col.name, 'borergrey':col.name == 'white'};" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightBase(col.name); trimHexColors('highlightBase', col.colr);" title="{{col.name | capitalize}}"></div>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="edit-btn inline-block">
-                            <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginTrousers();">SAVE DESIGN &amp; EDIT LATER</button>
-                        </div>
-                        <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('team',3); openTab('c');switchNavigation('c');">NEXT</button>
-                        </div>
-
-
-                    </div>
-                    <!--        //trim tab-->
-                    <div class="choos m20-l" ng-show="tab=='team'">
-                        <div class="checkboxing">
-                            <input type="checkbox" class="form-control" id="later" ng-model="trouserJson.sendTeamLogoLater">
-                            <label for="later"><span></span>SEND TEAM LOGO LATER</label>
-                        </div>
-                        <div>
-                            <div class="inline-block h300 static-top">
-                                <div class="logo-text mt10 inline-box">
-                                    <button class="btn inline-block btn-dark padding-btn letter-spacing mright15">RIGHT LOGO</button>
-                                </div>
-                                <div class="block-box">
-                                    <div class="teamlogo-box">
-                                        <div class="inline-box box-custom">
-                                            <img ng-src="{{trouserJson.rightLogo.image | serverimage}}" alt="" ng-if="trouserJson.rightLogo.image">
-                                        </div>
-                                        <div class="size-box" ng-if="trouserJson.rightLogo.image">
-                                            Size:
-                                            <div class="range">
-                                            <div range-slider on-handle-down="changeLogo('rightLogo')" on-handle-up="resetLogoStyle('rightLogo')" ng-model="trouserJson.rightLogo.size" min="-150" max="200" model-max="trouserJson.rightLogo.size" model-min="rslider.min" pin-handle="min"></div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in colorr track by $index">
+                                            <div class="colo-pallet text-center">
+                                                <div class="noti-img notihov" ng-class="{'coloracive':colorr.highlightOne == col.name, 'borergrey':col.name == 'white'};"
+                                                    ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightOne(col.name); trimHexColors('highlightOne', col.colr);"
+                                                    title="{{col.name | capitalize}}"></div>
                                             </div>
                                         </div>
-                                        <div class="edit-btn">
-                                            <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('rightLogo', 'Right Logo')" ng-if="!trouserJson.rightLogo.image">upload</button>
-                                            <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('rightLogo', 'Right Logo')" ng-if="trouserJson.rightLogo.image">change</button>
-                                            <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('rightLogo')" ng-if="trouserJson.rightLogo.image">remove</button>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="inline-block h300 mgl-20 static-top">
-                                <div class="logo-text mt10 inline-box">
-                                    <button class="btn inline-block btn-dark padding-btn letter-spacing mright15">LEFT LOGO</button>
-                                </div>
-                                <div class="block-box">
-                                    <div class="teamlogo-box">
-                                        <div class="inline-box box-custom">
-                                            <img ng-src="{{trouserJson.leftLogo.image | serverimage}}" alt="" ng-if="trouserJson.leftLogo.image">
-                                        </div>
-                                        <div class="size-box" ng-if="trouserJson.leftLogo">
-                                            Size:
-                                            <div class="range">
-                                            <div range-slider on-handle-down="changeLogo('leftlogo')" on-handle-up="resetLogoStyle('leftlogo')" ng-model="trouserJson.leftLogo.size" min="0" max="200" model-max="trouserJson.leftLogo.size" model-min="rslider.min" pin-handle="min"></div>
+                            <div class="{{trimTrouser.highlightTwo.disable}} {{trimTabs.light2.show}} classv outline disnon" ng-if="tabs=='light2'">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4>Choose Your Color</h4>
+                                        <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in colorr track by $index">
+                                            <div class="colo-pallet text-center">
+                                                <div class="noti-img notihov" ng-class="{'coloracive':color.trim2 == col.name, 'borergrey':col.name == 'white'};" ng-style="{'background-color':'{{col.colr}}'}"
+                                                    ng-click="switchTrimHighlightTwo(col.name); trimHexColors('highlightTwo', col.colr);"
+                                                    title="{{col.name | capitalize}}"></div>
                                             </div>
                                         </div>
-                                        <div class="edit-btn">
-                                            <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('leftlogo', 'Left Logo')" ng-if="!trouserJson.leftLogo">upload</button>
-                                            <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('leftlogo', 'Left Logo')" ng-if="trouserJson.leftLogo">change</button>
-                                            <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('leftlogo')" ng-if="trouserJson.leftLogo">remove</button>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="edit-btn inline-block">
-                            <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginTrousers();">SAVE DESIGN &amp; EDIT LATER</button>
-                        </div>
-                        <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="checkTeamLogo();" >NEXT</button>
-                        </div>
-                    </div>
-                    <div class="choos m20-l next-level" ng-show="tab=='teamlogo'">
-                        <p>Upload Your Logo</p>
-
-                        <div class="logo-text">
-                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15">TEAM LOGO</button>
-                            <span class="uppercase inline-block mright15">or</span>
-                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor();">TEAM TEXT</button>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="up-img">
-                                    <div class="mod-img ">
-                                        <div class="noti-imgs" ng-style="{'background-image':'url(img/custom/c4.jpg)'}">
-                                        </div>
-                                        <div class="edit-btn">
-                                            <button href="" class="btn btn-outline btn-dark">CHANGE</button>
-                                            <br>
-                                            <button href="" class="btn btn-outline btn-dark">REMOVE</button>
-                                        </div>
-                                        <div class="check">
-                                            <input type="checkbox" class="form-control" id="login">
-                                            <label for="login"><span></span>Remove Image From Background</label>
+                            <div class="{{trimTrouser.highlightBase.disable}} {{trimTabs.light3.show}} classv outline disnon" ng-if="tabs=='light3'">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4>Choose Your Color</h4>
+                                        <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in colorr track by $index">
+                                            <div class="colo-pallet text-center">
+                                                <div class="noti-img notihov" ng-class="{'coloracive':color.base == col.name, 'borergrey':col.name == 'white'};" ng-style="{'background-color':'{{col.colr}}'}"
+                                                    ng-click="switchTrimHighlightBase(col.name); trimHexColors('highlightBase', col.colr);"
+                                                    title="{{col.name | capitalize}}"></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="print-typ printing">
-                            <p>Select The Printing Type For Your Team Logo</p>
-                            <form action="" class="radio">
-                                <input type="radio" id="radio1" name="radio" />
-                                <label for="radio1">
-                                    <span></span> Embroidered <a href="" class="link mleft10">VIEW EXAMPLE</a></label>
-                                <br>
-                                <input type="radio" id="radio2" name="radio" />
-                                <label for="radio2">
-                                    <span></span> Sublimated
-                                    <a href="" class="link mleft22">VIEW EXAMPLE</a></label>
-                            </form>
-                            <div class="pbotom">
-                              <span class="block">Notes :</span>
-                              <span class="block">1. The printed CCC Logo will always be embroidered on your trouser</span>
-                              <span class="block">2. If you feel something is not great, our design team can fix it for you.</span>
-                                <span class="block"><a href="" ng-click="outplace();">Click here</a> to find out how?</span>
-                              <span class="block">3.CCC logo colour will match colour of the trim.</span>
-                               <ul class="pad-17">
-                    <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span> to know more about customization tools.</li>               
-                 <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves & pads attract a nominal one-time customization fees).</li> 
-                 </ul>
-
                             </div>
                             <div class="edit-btn inline-block">
                                 <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginTrousers();">SAVE DESIGN &amp; EDIT LATER</button>
                             </div>
                             <div class="edit-btn inline-block">
-                                <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="openColor()">NEXT</button>
+                                <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('team',3); openTab('c');switchNavigation('c');">NEXT</button>
                             </div>
                         </div>
-                      </div>
-                      <div class="choos m20-l nexter-level"  ng-show="tab=='teamcolor'">
+                        <!--        //trim tab-->
+                        <div class="choos m20-l" ng-show="tab=='team'">
+                            <div class="checkboxing">
+                                <input type="checkbox" class="form-control" id="later" ng-model="trouserJson.sendTeamLogoLater">
+                                <label for="later"><span></span>SEND TEAM LOGO LATER</label>
+                            </div>
+                            <div>
+                                <div class="inline-block h300 static-top">
+                                    <div class="logo-text mt10 inline-box">
+                                        <button class="btn inline-block btn-dark padding-btn letter-spacing mright15">RIGHT LOGO</button>
+                                    </div>
+                                    <div class="block-box">
+                                        <div class="teamlogo-box">
+                                            <div class="inline-box box-custom">
+                                                <img ng-src="{{trouserJson.rightLogo.image | serverimage}}" alt="" ng-if="trouserJson.rightLogo.image">
+                                            </div>
+                                            <div class="size-box" ng-if="trouserJson.rightLogo.image">
+                                                Size:
+                                                <div class="range">
+                                                    <div range-slider on-handle-down="changeLogo('rightLogo')" on-handle-up="resetLogoStyle('rightLogo')" ng-model="trouserJson.rightLogo.size"
+                                                        min="-150" max="200" model-max="trouserJson.rightLogo.size" model-min="rslider.min"
+                                                        pin-handle="min"></div>
+                                                </div>
+                                            </div>
+                                            <div class="edit-btn">
+                                                <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('rightLogo', 'Right Logo')"
+                                                    ng-if="!trouserJson.rightLogo.image">upload</button>
+                                                <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('rightLogo', 'Right Logo')"
+                                                    ng-if="trouserJson.rightLogo.image">change</button>
+                                                <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('rightLogo')"
+                                                    ng-if="trouserJson.rightLogo.image">remove</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="inline-block h300 mgl-20 static-top">
+                                    <div class="logo-text mt10 inline-box">
+                                        <button class="btn inline-block btn-dark padding-btn letter-spacing mright15">LEFT LOGO</button>
+                                    </div>
+                                    <div class="block-box">
+                                        <div class="teamlogo-box">
+                                            <div class="inline-box box-custom">
+                                                <img ng-src="{{trouserJson.leftLogo.image | serverimage}}" alt="" ng-if="trouserJson.leftLogo.image">
+                                            </div>
+                                            <div class="size-box" ng-if="trouserJson.leftLogo">
+                                                Size:
+                                                <div class="range">
+                                                    <div range-slider on-handle-down="changeLogo('leftLogo')" on-handle-up="resetLogoStyle('leftLogo')" ng-model="trouserJson.leftLogo.size"
+                                                        min="0" max="200" model-max="trouserJson.leftLogo.size" model-min="rslider.min"
+                                                        pin-handle="min"></div>
+                                                </div>
+                                            </div>
+                                            <div class="edit-btn">
+                                                <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('leftLogo', 'Left Logo')"
+                                                    ng-if="!trouserJson.leftLogo">upload</button>
+                                                <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('leftLogo', 'Left Logo')"
+                                                    ng-if="trouserJson.leftLogo">change</button>
+                                                <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('leftLogo')"
+                                                    ng-if="trouserJson.leftLogo">remove</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="edit-btn inline-block">
+                                <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginTrousers();">SAVE DESIGN &amp; EDIT LATER</button>
+                            </div>
+                            <div class="edit-btn inline-block">
+                                <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="checkTeamLogo();">NEXT</button>
+                            </div>
+                        </div>
+                        <div class="choos m20-l next-level" ng-show="tab=='teamlogo'">
+                            <p>Upload Your Logo</p>
+                            <div class="logo-text">
+                                <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15">TEAM LOGO</button>
+                                <span class="uppercase inline-block mright15">or</span>
+                                <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor();">TEAM TEXT</button>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="up-img">
+                                        <div class="mod-img ">
+                                            <div class="noti-imgs" ng-style="{'background-image':'url(img/custom/c4.jpg)'}">
+                                            </div>
+                                            <div class="edit-btn">
+                                                <button href="" class="btn btn-outline btn-dark">CHANGE</button>
+                                                <br>
+                                                <button href="" class="btn btn-outline btn-dark">REMOVE</button>
+                                            </div>
+                                            <div class="check">
+                                                <input type="checkbox" class="form-control" id="login">
+                                                <label for="login"><span></span>Remove Image From Background</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="print-typ printing">
+                                <p>Select The Printing Type For Your Team Logo</p>
+                                <form action="" class="radio">
+                                    <input type="radio" id="radio1" name="radio" />
+                                    <label for="radio1">
+                                    <span></span> Embroidered <a href="" class="link mleft10">VIEW EXAMPLE</a></label>
+                                    <br>
+                                    <input type="radio" id="radio2" name="radio" />
+                                    <label for="radio2">
+                                    <span></span> Sublimated
+                                    <a href="" class="link mleft22">VIEW EXAMPLE</a></label>
+                                </form>
+                                <div class="pbotom">
+                                    <span class="block">Notes :</span>
+                                    <span class="block">1. The printed CCC Logo will always be embroidered on your trouser</span>
+                                    <span class="block">2. If you feel something is not great, our design team can fix it for you.</span>
+                                    <span class="block"><a href="" ng-click="outplace();">Click here</a> to find out how?</span>
+                                    <span class="block">3.CCC logo colour will match colour of the trim.</span>
+                                    <ul class="pad-17">
+                                        <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span>                                            to know more about customization tools.</li>
+                                        <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves
+                                            & pads attract a nominal one-time customization fees).</li>
+                                    </ul>
+                                </div>
+                                <div class="edit-btn inline-block">
+                                    <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginTrousers();">SAVE DESIGN &amp; EDIT LATER</button>
+                                </div>
+                                <div class="edit-btn inline-block">
+                                    <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="openColor()">NEXT</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="choos m20-l nexter-level" ng-show="tab=='teamcolor'">
                             <p>Upload Your Text</p>
                             <div class="checkboxing">
                                 <input type="checkbox" class="form-control" id="later">
@@ -368,7 +385,6 @@
                                 <span class="uppercase inline-block mright15">or</span>
                                 <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor();">TEAM TEXT</button>
                             </div>
-
                             <div class="radio-options">
                                 <h4>Select The Font For Your Jersey Name</h4>
                                 <form action="" class="radio">
@@ -399,7 +415,6 @@
                                             <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                             <div class="notes">
@@ -457,7 +472,6 @@
                                         <input type="text" name="size">
                                     </div>
                                 </div>
-
                             </div>
                             <div class="edit-btn inline-block">
                                 <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginTrousers();">SAVE DESIGN &amp; EDIT LATER</button>
@@ -466,116 +480,110 @@
                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
                             </div>
                         </div>
-
-                    <div class="choos m20-l" ng-show="tab=='logo'">
-                        <p>Upload Your Sponsor Logo (Optional)</p>
-                        <div class="sp-logo">
-                            <button href="" class="btn pad1 btn-outline btn-dark  block" data-toggle="modal" data-target="#myModal1">MAIN SPONSOR</button>
-                            <button href="" class="btn pad2 btn-outline btn-dark  block " data-toggle="modal" data-target="#myModal1">BACK SPONSOR 1</button>
-                            <button href="" class="btn pad2 btn-outline btn-dark  block " data-toggle="modal" data-target="#myModal1">BACK SPONSOR 2</button>
-                            <button href="" class="btn pad3 btn-outline btn-dark  block" data-toggle="modal" data-target="#myModal1">LEFT SLEEVE SPONSOR</button>
-                            <button href="" class="btn pad4 btn-outline btn-dark block" data-toggle="modal" data-target="#myModal1">RIGHT SLEEVE SPONSOR</button>
-                              <button href="" class="btn pad5 btn-outline btn-dark  block" data-toggle="modal" data-target="#myModal1">LEFT CHEST SPONSOR</button>
-                                  <button href="" class="btn pad3 btn-outline btn-dark block" data-toggle="modal" data-target="#myModal1">RIGHT CHEST SPONSOR</button>
-                                                          </div>
-                        <div class="print-typ">
-                            <div class="pbotom">
-                                <span class="block">Notes :</span>
-                                <span class="block">1. The logo of your sponsors will be sublimated. </span>
-                                <span class="block">2. The logo on the sleeves are not cut in half. It’s just to provide realistic feel.</span>
-                                <span class="block">3. If you feel something is not great, our design team can fix it for you.</span>
-                                <span><a href="">Click here</a> to find out how?</span>
+                        <div class="choos m20-l" ng-show="tab=='logo'">
+                            <p>Upload Your Sponsor Logo (Optional)</p>
+                            <div class="sp-logo">
+                                <button href="" class="btn pad1 btn-outline btn-dark  block" data-toggle="modal" data-target="#myModal1">MAIN SPONSOR</button>
+                                <button href="" class="btn pad2 btn-outline btn-dark  block " data-toggle="modal" data-target="#myModal1">BACK SPONSOR 1</button>
+                                <button href="" class="btn pad2 btn-outline btn-dark  block " data-toggle="modal" data-target="#myModal1">BACK SPONSOR 2</button>
+                                <button href="" class="btn pad3 btn-outline btn-dark  block" data-toggle="modal" data-target="#myModal1">LEFT SLEEVE SPONSOR</button>
+                                <button href="" class="btn pad4 btn-outline btn-dark block" data-toggle="modal" data-target="#myModal1">RIGHT SLEEVE SPONSOR</button>
+                                <button href="" class="btn pad5 btn-outline btn-dark  block" data-toggle="modal" data-target="#myModal1">LEFT CHEST SPONSOR</button>
+                                <button href="" class="btn pad3 btn-outline btn-dark block" data-toggle="modal" data-target="#myModal1">RIGHT CHEST SPONSOR</button>
                             </div>
-                        </div>
-                        <div class="edit-btn inline-block">
-                            <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginTrousers();">SAVE DESIGN &amp; EDIT LATER</button>
-                        </div>
-                        <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="proceed()">NEXT</button>
-                        </div>
-                    </div>
-                    <div class="choos m20-l nextest-level" ng-show="tab=='sponsorlogo'">
-                        <p>Upload Your Sponsor Logo (Optional)</p>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="up-img">
-                                    <div class="mod-img ">
-                                        <div class="noti-imgs" ng-style="{'background-image':'url(img/custom/c4.jpg)'}">
-                                        </div>
-                                        <div class="edit-btn">
-                                            <button href="" class="btn  btn-outline btn-dark">CHANGE</button>
-                                            <br>
-                                            <button href="" class="btn bits btn-outline btn-dark">REMOVE</button>
-                                        </div>
-                                        <div class="check">
-                                            <input type="checkbox" class="form-control" id="login">
-                                            <label for="login"><span></span>Remove Image From Background</label>
-                                        </div>
-                                    </div>
+                            <div class="print-typ">
+                                <div class="pbotom">
+                                    <span class="block">Notes :</span>
+                                    <span class="block">1. The logo of your sponsors will be sublimated. </span>
+                                    <span class="block">2. The logo on the sleeves are not cut in half. It’s just to provide realistic feel.</span>
+                                    <span class="block">3. If you feel something is not great, our design team can fix it for you.</span>
+                                    <span><a href="">Click here</a> to find out how?</span>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="up-img">
-                                    <div class="mod-img ">
-                                        <div class="noti-imgs" ng-style="{'background-image':'url(img/custom/c4.jpg)'}">
-                                        </div>
-                                        <div class="edit-btn">
-                                            <button href="" class="btn btn-outline btn-dark">CHANGE</button>
-                                            <br>
-                                            <button href="" class="btn btn-outline btn-dark">REMOVE</button>
-                                        </div>
-                                        <div class="check">
-                                            <input type="checkbox" class="form-control" id="login">
-                                            <label for="login"><span></span>Remove Image From Background</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sp-logo">
-                            <button href="" class="btn bit pad4 btn-outline btn-dark block" data-toggle="modal" data-target="#myModal1">RIGHT SLEEVE SPONSOR</button>
-
-                            <button href="" class="btn bit pad2 btn-outline btn-dark  block " data-toggle="modal" data-target="#myModal1">BACK SPONSOR 1</button>
-
-                            <button href="" class="btn pad2 btn-outline btn-dark  block " data-toggle="modal" data-target="#myModal1">BACK SPONSOR 2</button>
-                        </div>
-
-                        <div class="print-typ">
-                            <div class="pbotom">
-                                <span class="block">Notes :</span>
-                                <span class="block">1. The logo of your sponsors will be sublimated. </span>
-                                <span class="block">2. The logo on the sleeves are not cut in half. It’s just to provide realistic
-                    feel.</span>
-                                <span class="block">3. If you feel something is not great, our design team can fix it for you.</span>
-                                <span><a href="">Click here</a> to find out how?</span>
-                            </div>
-                        </div>
-                        <div class="eds">
                             <div class="edit-btn inline-block">
-                                <button href="" class=" btn btn-outline btn-dark letter-spacing" ng-click="checkloginTrousers();">SAVE DESIGN &amp; EDIT LATER</button>
+                                <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginTrousers();">SAVE DESIGN &amp; EDIT LATER</button>
+                            </div>
+                            <div class="edit-btn inline-block">
+                                <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="proceed()">NEXT</button>
                             </div>
                         </div>
-                        <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" >NEXT</button>
+                        <div class="choos m20-l nextest-level" ng-show="tab=='sponsorlogo'">
+                            <p>Upload Your Sponsor Logo (Optional)</p>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="up-img">
+                                        <div class="mod-img ">
+                                            <div class="noti-imgs" ng-style="{'background-image':'url(img/custom/c4.jpg)'}">
+                                            </div>
+                                            <div class="edit-btn">
+                                                <button href="" class="btn  btn-outline btn-dark">CHANGE</button>
+                                                <br>
+                                                <button href="" class="btn bits btn-outline btn-dark">REMOVE</button>
+                                            </div>
+                                            <div class="check">
+                                                <input type="checkbox" class="form-control" id="login">
+                                                <label for="login"><span></span>Remove Image From Background</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="up-img">
+                                        <div class="mod-img ">
+                                            <div class="noti-imgs" ng-style="{'background-image':'url(img/custom/c4.jpg)'}">
+                                            </div>
+                                            <div class="edit-btn">
+                                                <button href="" class="btn btn-outline btn-dark">CHANGE</button>
+                                                <br>
+                                                <button href="" class="btn btn-outline btn-dark">REMOVE</button>
+                                            </div>
+                                            <div class="check">
+                                                <input type="checkbox" class="form-control" id="login">
+                                                <label for="login"><span></span>Remove Image From Background</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sp-logo">
+                                <button href="" class="btn bit pad4 btn-outline btn-dark block" data-toggle="modal" data-target="#myModal1">RIGHT SLEEVE SPONSOR</button>
+                                <button href="" class="btn bit pad2 btn-outline btn-dark  block " data-toggle="modal" data-target="#myModal1">BACK SPONSOR 1</button>
+                                <button href="" class="btn pad2 btn-outline btn-dark  block " data-toggle="modal" data-target="#myModal1">BACK SPONSOR 2</button>
+                            </div>
+                            <div class="print-typ">
+                                <div class="pbotom">
+                                    <span class="block">Notes :</span>
+                                    <span class="block">1. The logo of your sponsors will be sublimated. </span>
+                                    <span class="block">2. The logo on the sleeves are not cut in half. It’s just to provide realistic
+                    feel.</span>
+                                    <span class="block">3. If you feel something is not great, our design team can fix it for you.</span>
+                                    <span><a href="">Click here</a> to find out how?</span>
+                                </div>
+                            </div>
+                            <div class="eds">
+                                <div class="edit-btn inline-block">
+                                    <button href="" class=" btn btn-outline btn-dark letter-spacing" ng-click="checkloginTrousers();">SAVE DESIGN &amp; EDIT LATER</button>
+                                </div>
+                            </div>
+                            <div class="edit-btn inline-block">
+                                <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
+                            </div>
                         </div>
-                    </div>
-
-
-                    <div class="choos quantity m20-l" ng-show="tab=='quantity'">
-                      <div class="chart mar15">
-                          <p>view:
-                              <span data-toggle="modal" data-target="#myModal4">Size Chart</span>
-                          </p>
-                      </div>
-                      <div class="table-detail relative">
-                        <p class="capitalize">Select the size for your trouser</p>
-                        <div class="table-responsive">
-                            <table class="table table95 relative">
-                                <tbody>
-                                <tr class="option-shirt" ng-repeat="trouser in trouserJson.quantity track by $index">
-                                    <td>
-                                        <span class="uppercase pad-5">size</span>
-                                        <select ng-model="trouser.size">
+                        <div class="choos quantity m20-l" ng-show="tab=='quantity'">
+                            <div class="chart mar15">
+                                <p>view:
+                                    <span data-toggle="modal" data-target="#myModal4">Size Chart</span>
+                                </p>
+                            </div>
+                            <div class="table-detail relative">
+                                <p class="capitalize">Select the size for your trouser</p>
+                                <div class="table-responsive">
+                                    <table class="table table95 relative">
+                                        <tbody>
+                                            <tr class="option-shirt" ng-repeat="trouser in trouserJson.quantity track by $index">
+                                                <td>
+                                                    <span class="uppercase pad-5">size</span>
+                                                    <select ng-model="trouser.size">
                                             <option value="S">S</option>
                                             <option value="M">M</option>
                                             <option value="L">L</option>
@@ -583,315 +591,305 @@
                                             <option value="XXL">XXL</option>
                                             <option value="XXXL">XXXL</option>
                                         </select>
-                                    </td>
-                                    <!--<td class="relative">
+                                                </td>
+                                                <!--<td class="relative">
                                         <span class="inline-block uppercase pad-5">quantity</span>
                                         <input type="number" name="quantity" class="wid20p" ng-change="addQuantity(trouser.quantity)" ng-model="trouser.quantity" min="1" maxlength="3">
                                            <p class="error-td f13 error-quantity" ng-if="totalQuan<20 && totalQuan!=1">Please enter valid quantity.The MOQ is 20</p>
                 
                                     </td>-->
-                                      <td>
-  <span class="inline-block uppercase pad-5">quantity</span>
-                              <input type="number" name="quantity" class="wid20p" placeholder="20" ng-change="addQuantity(trouser.quantity)" ng-model="trouser.quantity" maxlength="3">
-                              <p class="error-td f13" ng-if="trouserJson.totalQuan<20 && trouserJson.totalQuan!=1">Please enter valid quantity.The MOQ is 20</p>
-
-                            </td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                    </td>
-
-                                    <td class="binbord-rgt"><img src="img/rubbishbin.png" class="img-responsive pointer" alt="" ng-click="removeTrouserValue($index); addQuantity()"></td>
-                                
-                                </tr>
-                                <tr class="nothing">
-                                    <td></td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            <div class="add-button">
-                                <p class="pointer" ng-click="addTrouserValues(trouser.quantity,trouser.size); addQuantity(trouser.quantity);"><i class="fa mr7 fa-plus" aria-hidden="true"></i> ADD</p>
-                            </div>
-                            
-                            <div class="total-amount">
-                                <p class="more-price">One time customization fee for Trouser is <i class="fa fa-inr"></i> 5000</p>
-                                <span class="pull-right tamount uppercase Raleway-Medium mar20">Total Amount: {{trouserJson.totalAmount}}</span>
-                                <span class="pull-right tquantity uppercase Raleway-Medium mar20">Total Quantity: {{trouserJson.totalQuan}}</span>
+                                                <td>
+                                                    <span class="inline-block uppercase pad-5">quantity</span>
+                                                    <input type="number" name="quantity" class="wid20p" placeholder="20" ng-change="addQuantity(trouser.quantity)" ng-model="trouser.quantity"
+                                                        maxlength="3">
+                                                    <p class="error-td f13" ng-if="trouserJson.totalQuan<20 && trouserJson.totalQuan!=1">Please enter valid quantity.The MOQ is 20</p>
+                                                </td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>
+                                                </td>
+                                                <td class="binbord-rgt"><img src="img/rubbishbin.png" class="img-responsive pointer" alt="" ng-click="removeTrouserValue($index); addQuantity()"></td>
+                                            </tr>
+                                            <tr class="nothing">
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="add-button">
+                                        <p class="pointer" ng-click="addTrouserValues(trouser.quantity,trouser.size); addQuantity(trouser.quantity);"><i class="fa mr7 fa-plus" aria-hidden="true"></i> ADD</p>
+                                    </div>
+                                    <div class="total-amount">
+                                        <p class="more-price">One time customization fee for Trouser is <i class="fa fa-inr"></i> 5000</p>
+                                        <span class="pull-right tamount uppercase Raleway-Medium mar20">Total Amount: {{trouserJson.totalAmount}}</span>
+                                        <span class="pull-right tquantity uppercase Raleway-Medium mar20">Total Quantity: {{trouserJson.totalQuan}}</span>
+                                    </div>
+                                </div>
+                                <div class="edit-btn">
+                                    <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="checkloginTrousers();">save design</button>
+                                    <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5"
+                                        ng-disabled="totalQuan<20" ng-click="toOrderSummary();">next</button>
+                                    <br>
+                                </div>
                             </div>
                         </div>
-                        <div class="edit-btn">
-                            <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="checkloginTrousers();">save design</button>
-                            <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5" ng-disabled="totalQuan<20" ng-click="toOrderSummary();">next</button>
-                            <br>
-                        </div>
-                      </div>
-</div>
-<div class="choos quantity m20-l nexterest-level" ng-show="tab=='quanty'">
-<div class="table-detail relative">
-  <p class="capitalize">Select the size for your jersey</p>
-  <div class="option-shirt relative">
-    <div class="sizes size inline-block">
-      <span class="uppercase">size</span>
-      <select>
+                        <div class="choos quantity m20-l nexterest-level" ng-show="tab=='quanty'">
+                            <div class="table-detail relative">
+                                <p class="capitalize">Select the size for your jersey</p>
+                                <div class="option-shirt relative">
+                                    <div class="sizes size inline-block">
+                                        <span class="uppercase">size</span>
+                                        <select>
         <option value="XL">XL</option>
         <option value="20">20</option>
         <option value="30">30</option>
         <option value="40">40</option>
     </select>
-    </div>
-    <div class="sizes size inline-block">
-      <span class="uppercase">sleeve</span>
-    <select>
+                                    </div>
+                                    <div class="sizes size inline-block">
+                                        <span class="uppercase">sleeve</span>
+                                        <select>
       <option value="XL">XL</option>
       <option value="20">20</option>
       <option value="30">30</option>
       <option value="40">40</option>
   </select></div>
-    <div class="sizes size inline-block">
-        <span class="inline-block uppercase">quantity</span>
-        <input type="text" class="form-control inline-block" name="name" value="">
-    </div>
-  </div>
-  <a href="" class="bins"><img src="img/rubbishbin.png" class="img-responsive" alt=""></a>
-    <div class="add-button">
-      <p><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</p>
-    </div>
-    <div class="total-amount">
-        <span class="pull-right uppercase">Total:20</span>
-    </div>
-
-  <div class="edit-btn">
-      <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="checkloginTrousers();">save design</button>
-      <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5">next</button>
-      <br>
-  </div>
-</div>
-</div>
-
-<div class="choos quantity m20-l" ng-show="tab=='quantiy'">
-                        <div class="chart mar15">
-                            <p>view:
-                                <span data-toggle="modal" data-target="#myModal4">Size Chart</span>
-                            </p>
+                                    <div class="sizes size inline-block">
+                                        <span class="inline-block uppercase">quantity</span>
+                                        <input type="text" class="form-control inline-block" name="name" value="">
+                                    </div>
+                                </div>
+                                <a href="" class="bins"><img src="img/rubbishbin.png" class="img-responsive" alt=""></a>
+                                <div class="add-button">
+                                    <p><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</p>
+                                </div>
+                                <div class="total-amount">
+                                    <span class="pull-right uppercase">Total:20</span>
+                                </div>
+                                <div class="edit-btn">
+                                    <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="checkloginTrousers();">save design</button>
+                                    <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5">next</button>
+                                    <br>
+                                </div>
+                            </div>
                         </div>
-                        <div class="accordion">
-
-                            <uib-accordion close-others="oneAtATime">
-                                <uib-accordion-group is-open="status.open1">
-                                    <uib-accordion-heading>
-                                        <i class="pull-left fa " ng-class="{'fa fa-minus': status.open1, 'fa fa-plus': !status.open1}"></i>Select The Font For Your Jersey Name
-                                    </uib-accordion-heading>
-                                    <div class="radio-options">
-                                        <form action="" class="radio">
-                                            <div class="form-group">
-                                                <input type="radio" id="jerseyradio1" name="jerseyradio" />
-                                                <label for="jerseyradio1">
+                        <div class="choos quantity m20-l" ng-show="tab=='quantiy'">
+                            <div class="chart mar15">
+                                <p>view:
+                                    <span data-toggle="modal" data-target="#myModal4">Size Chart</span>
+                                </p>
+                            </div>
+                            <div class="accordion">
+                                <uib-accordion close-others="oneAtATime">
+                                    <uib-accordion-group is-open="status.open1">
+                                        <uib-accordion-heading>
+                                            <i class="pull-left fa " ng-class="{'fa fa-minus': status.open1, 'fa fa-plus': !status.open1}"></i>Select
+                                            The Font For Your Jersey Name
+                                        </uib-accordion-heading>
+                                        <div class="radio-options">
+                                            <form action="" class="radio">
+                                                <div class="form-group">
+                                                    <input type="radio" id="jerseyradio1" name="jerseyradio" />
+                                                    <label for="jerseyradio1">
                                                     <span></span> Arial
                                                 </label>
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="radio" id="jerseyradio2" name="jerseyradio" />
-                                                <label for="jerseyradio2">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="radio" id="jerseyradio2" name="jerseyradio" />
+                                                    <label for="jerseyradio2">
                                                     <span></span> Times roman</label>
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="radio" id="jerseyradio3" name="jerseyradio" />
-                                                <label for="jerseyradio3">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="radio" id="jerseyradio3" name="jerseyradio" />
+                                                    <label for="jerseyradio3">
                                                     <span></span> Helvetica
                                                 </label>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <h2>Select The Colour</h2>
-                                            <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in colorr track by $index">
-                                                <div class="colo-pallet text-center ">
-                                                    <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h2>Select The Colour</h2>
+                                                <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in colorr track by $index">
+                                                    <div class="colo-pallet text-center ">
+                                                        <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
+                                                    </div>
                                                 </div>
                                             </div>
-
                                         </div>
-                                    </div>
-                                </uib-accordion-group>
-                        </div>
-                        <div class="pbotom">
-                            <span class="block">Note </span>
-                            <span class="block">1. Your t-shirt name can be up to 10 characters and t-shirt number can be selected from 0 to 999.</span>
-                            <span class="block">2. You can select sleeves from being short (S.S) or long (L.S).</span>
-                            <span class="block">3. (*) - this denotes the field is mandatory.</span>
-                        </div>
-                        <div class="accordion">
-                            <uib-accordion close-others="oneAtATime">
-                                <uib-accordion-group is-open="status.open1">
-                                    <uib-accordion-heading>
-                                        <i class="pull-left fa " ng-class="{'fa fa-minus': status.open1, 'fa fa-plus': !status.open1}"></i>Select The Dimensions For Your Jersey
-                                    </uib-accordion-heading>
-                                    <div class="table-responsive">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th class="uppercase">sizeup <sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></th>
-                                                    <th class="uppercase">sleeve <sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></th>
-                                                    <th class="uppercase">qty <sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></th>
-                                                    <th class="uppercase">name</th>
-                                                    <th class="uppercase">number</th>
-                                                    <th></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr class="nothing">
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <select>
+                                    </uib-accordion-group>
+                            </div>
+                            <div class="pbotom">
+                                <span class="block">Note </span>
+                                <span class="block">1. Your t-shirt name can be up to 10 characters and t-shirt number can be selected from 0 to 999.</span>
+                                <span class="block">2. You can select sleeves from being short (S.S) or long (L.S).</span>
+                                <span class="block">3. (*) - this denotes the field is mandatory.</span>
+                            </div>
+                            <div class="accordion">
+                                <uib-accordion close-others="oneAtATime">
+                                    <uib-accordion-group is-open="status.open1">
+                                        <uib-accordion-heading>
+                                            <i class="pull-left fa " ng-class="{'fa fa-minus': status.open1, 'fa fa-plus': !status.open1}"></i>Select
+                                            The Dimensions For Your Jersey
+                                        </uib-accordion-heading>
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="uppercase">sizeup <sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></th>
+                                                        <th class="uppercase">sleeve <sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></th>
+                                                        <th class="uppercase">qty <sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></th>
+                                                        <th class="uppercase">name</th>
+                                                        <th class="uppercase">number</th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="nothing">
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <select>
                                                             <option value="XL">XL</option>
                                                             <option value="20">20</option>
                                                             <option value="30">30</option>
                                                             <option value="40">40</option>
                                                         </select>
-                                                    </td>
-                                                    <td>
-                                                        <select>
+                                                        </td>
+                                                        <td>
+                                                            <select>
                                                             <option value="L.S">L.S</option>
                                                             <option value="30">30</option>
                                                             <option value="40">40</option>
                                                             <option value="40">40</option>
                                                         </select>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" name="quantity" value="10">
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" name="name" value="MANAN">
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" name="number" value="07">
-                                                    </td>
-                                                    <td>
-                                                        <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">preview</button>
-                                                    </td>
-                                                </tr>
-                                                <tr class="nothing">
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <select>
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="quantity" value="10">
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="name" value="MANAN">
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="number" value="07">
+                                                        </td>
+                                                        <td>
+                                                            <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">preview</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="nothing">
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <select>
                                                             <option value="XL">M</option>
                                                             <option value="20">20</option>
                                                             <option value="30">30</option>
                                                             <option value="40">40</option>
                                                         </select>
-                                                    </td>
-                                                    <td>
-                                                        <select>
+                                                        </td>
+                                                        <td>
+                                                            <select>
                                                             <option value="L.S">S.S</option>
                                                             <option value="30">30</option>
                                                             <option value="40">40</option>
                                                             <option value="40">40</option>
                                                         </select>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" name="quantity" value="10">
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" name="name" value="HARSHIT">
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" name="number" value="09">
-                                                    </td>
-                                                    <td>
-                                                        <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">preview</button>
-                                                    </td>
-                                                </tr>
-                                                <tr class="nothing">
-                                                    <td></td>
-                                                </tr>
-
-
-
-
-                                                <tr>
-                                                    <td class="pad6"><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr class="nothing">
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                  <td class="name">
-                                                       <span>size</span>
-                                                     </td>
-                                                     <td class="sliding">
-                                                       <div range-slider min="0" max="100" model-max="max" pin-handle="min">
-                                                       </div>
-                                                     </td>
-                                                     <td class="texting">
-                                                         <input type="text" name="size">
-                                                     </td>
-                                                   </tr>
-                                                   <tr>
-                                                     <td class="name">
-                                                          <span>arc</span>
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="quantity" value="10">
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="name" value="HARSHIT">
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="number" value="09">
+                                                        </td>
+                                                        <td>
+                                                            <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">preview</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="nothing">
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="pad6"><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr class="nothing">
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="name">
+                                                            <span>size</span>
                                                         </td>
                                                         <td class="sliding">
-                                                          <div range-slider min="0" max="100" model-max="max" pin-handle="min">
-                                                          </div>
+                                                            <div range-slider min="0" max="100" model-max="max" pin-handle="min">
+                                                            </div>
                                                         </td>
                                                         <td class="texting">
                                                             <input type="text" name="size">
                                                         </td>
-                                                      </tr>
-                                                      <tr>
+                                                    </tr>
+                                                    <tr>
                                                         <td class="name">
-                                                             <span>rotation</span>
-                                                           </td>
-                                                           <td class="sliding">
-                                                             <div range-slider min="0" max="100" model-max="max" pin-handle="min">
-                                                             </div>
-                                                           </td>
-                                                           <td class="texting">
-                                                               <input type="text" name="size">
-                                                           </td>
-
-                                                       </tr>
-                                                         <tr>
-                                                           <td class="name">
-                                                                <span>spacing</span>
-                                                              </td>
-                                                              <td class="sliding">
-                                                                <div range-slider min="0" max="100" model-max="max" pin-handle="min">
-                                                                </div>
-                                                              </td>
-                                                              <td class="texting">
-                                                                  <input type="text" name="size">
-                                                              </td>
-                                                            </tr>
-                                                            <tr class="nothing">
-                                                                <td></td>
-                                                            </tr>
-                                            </tbody>
-                                        </table>
-                                        <a href="" class="bin"><img src="img/rubbishbin.png" class="img-responsive" alt=""></a>
-                                        <a href="" class="rubbish"><img src="img/rubbishbin.png" class="img-responsive" alt=""></a>
-                                        <span class="pull-right uppercase">Total</span>
-
-                                    </div>
-                                </uib-accordion-group>
-                        </div>
-                        <div class="edit-btn">
-                            <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="checkloginTrousers();">save design</button>
-                            <button href=""  class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5">next</button>
-                            <br>
+                                                            <span>arc</span>
+                                                        </td>
+                                                        <td class="sliding">
+                                                            <div range-slider min="0" max="100" model-max="max" pin-handle="min">
+                                                            </div>
+                                                        </td>
+                                                        <td class="texting">
+                                                            <input type="text" name="size">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="name">
+                                                            <span>rotation</span>
+                                                        </td>
+                                                        <td class="sliding">
+                                                            <div range-slider min="0" max="100" model-max="max" pin-handle="min">
+                                                            </div>
+                                                        </td>
+                                                        <td class="texting">
+                                                            <input type="text" name="size">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="name">
+                                                            <span>spacing</span>
+                                                        </td>
+                                                        <td class="sliding">
+                                                            <div range-slider min="0" max="100" model-max="max" pin-handle="min">
+                                                            </div>
+                                                        </td>
+                                                        <td class="texting">
+                                                            <input type="text" name="size">
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="nothing">
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <a href="" class="bin"><img src="img/rubbishbin.png" class="img-responsive" alt=""></a>
+                                            <a href="" class="rubbish"><img src="img/rubbishbin.png" class="img-responsive" alt=""></a>
+                                            <span class="pull-right uppercase">Total</span>
+                                        </div>
+                                    </uib-accordion-group>
+                            </div>
+                            <div class="edit-btn">
+                                <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="checkloginTrousers();">save design</button>
+                                <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5">next</button>
+                                <br>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </div>
             </div>
         </div>
