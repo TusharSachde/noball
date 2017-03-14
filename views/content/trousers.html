@@ -39,12 +39,12 @@
                             <img ng-src="{{trouserJson.design.highlightTwo}}" class="trimshirt img-responsive" alt="">
                             <img ng-src="{{trouserJson.design.base}}" class="trimshirtbase img-responsive" alt="">
                             <!---if pants-->
-                            <!--<div class="div-trouser-left-logo" ng-if="pantType=='trousers' && customizedTrouser.front && customizedTrouser.leftlogo.image" ng-style="customizedTrouser.leftlogo.divattributes">
-                                <img id="trouserleftlogo" ng-src="{{customizedTrouser.leftlogo.image | serverimage}}" class="trouser-left-logo" alt="" ng-style="customizedTrouser.leftlogo.attributes">
+                            <div class="div-trouser-left-logo" ng-if="pantType=='trousers' && trouserJson.leftLogo.image" ng-style="customizedTrouser.leftlogo.divattributes">
+                                <img id="trouserleftlogo" ng-src="{{trouserJson.leftLogo.image | serverimage}}" class="trouser-left-logo" alt="" ng-style="customizedTrouser.leftlogo.attributes">
                             </div>
-                            <div class="div-trouser-right-logo" ng-if="pantType=='trousers' && customizedTrouser.front && customizedTrouser.rightlogo.image" ng-style="customizedTrouser.rightlogo.divattributes">
-                                <img id="trouserrightlogo" ng-src="{{customizedTrouser.rightlogo.image | serverimage}}" class="trouser-right-logo" alt="" ng-style="customizedTrouser.rightlogo.attributes">
-                            </div> -->
+                            <div class="div-trouser-right-logo" ng-if="pantType=='trousers' && trouserJson.rightLogo.image" ng-style="trouserJson.rightlogo.divattributes">
+                                <img id="trouserrightlogo" ng-src="{{trouserJson.rightLogo.image | serverimage}}" class="trouser-right-logo" alt="" ng-style="customizedTrouser.rightlogo.attributes">
+                            </div> 
                             <!---close of if pants-->
 
                             <!--if shorts-->
@@ -251,18 +251,18 @@
                                 <div class="block-box">
                                     <div class="teamlogo-box">
                                         <div class="inline-box box-custom">
-                                            <img ng-src="{{trouserJson.rightlogo.image | serverimage}}" alt="" ng-if="trouserJson.rightlogo.image">
+                                            <img ng-src="{{trouserJson.rightLogo.image | serverimage}}" alt="" ng-if="trouserJson.rightLogo.image">
                                         </div>
-                                        <div class="size-box" ng-if="trouserJson.rightlogo.image">
+                                        <div class="size-box" ng-if="trouserJson.rightLogo.image">
                                             Size:
                                             <div class="range">
-                                            <div range-slider on-handle-down="changeLogo('rightlogo')" on-handle-up="resetLogoStyle('rightlogo')" ng-model="trouserJson.rightlogo.size" min="-150" max="200" model-max="trouserJson.rightlogo.size" model-min="rslider.min" pin-handle="min"></div>
+                                            <div range-slider on-handle-down="changeLogo('rightLogo')" on-handle-up="resetLogoStyle('rightLogo')" ng-model="trouserJson.rightLogo.size" min="-150" max="200" model-max="trouserJson.rightLogo.size" model-min="rslider.min" pin-handle="min"></div>
                                             </div>
                                         </div>
                                         <div class="edit-btn">
-                                            <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('rightlogo', 'Right Logo')" ng-if="!trouserJson.rightlogo.image">upload</button>
-                                            <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('rightlogo', 'Right Logo')" ng-if="trouserJson.rightlogo.image">change</button>
-                                            <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('rightlogo')" ng-if="trouserJson.rightlogo.image">remove</button>
+                                            <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('rightLogo', 'Right Logo')" ng-if="!trouserJson.rightLogo.image">upload</button>
+                                            <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('rightLogo', 'Right Logo')" ng-if="trouserJson.rightLogo.image">change</button>
+                                            <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('rightLogo')" ng-if="trouserJson.rightLogo.image">remove</button>
                                         </div>
                                     </div>
                                 </div>

@@ -29,7 +29,7 @@
                            top: 75,
                           left: 125
                       },
-                      rightlogo: {
+                      rightLogo: {
                           width: 100,
                           height: 100,
                            top: 75,

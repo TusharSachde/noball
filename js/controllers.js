@@ -783,10 +783,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // $scope.customizedTrouser.rightlogo.attributes = {};
         // $scope.customizedTrouser.rightlogo.attributes.width = 25;
         //    $scope.rightLogo = {};
-        $scope.trouserJson.rightlogo = {};
-        $scope.trouserJson.rightlogo.image = "img/logo_black.png";
+        $scope.trouserJson.rightLogo = {};
+        $scope.trouserJson.rightLogo.image = "img/logo_black.png";
         // $scope.rightlogo.attributes = {};
-        $scope.trouserJson.rightlogo.size = 25;
+        $scope.trouserJson.rightLogo.size = 25;
         $scope.trouserJson.color = {};
         $scope.trouserJson.color.base = "white";
         $scope.trouserJson.color.trim1 = "white";
