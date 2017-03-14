@@ -8,6 +8,7 @@
               design: "=design"
           },
           link: function ($scope, element, attrs) {
+              console.log('design type:',$scope.design.type);
               var design = $scope.design;
               $scope.backgroundImages = function () {
                   var obj = _.compact(_.map(design.design, function (n, key) {
@@ -18,16 +19,17 @@
                   console.log(obj);
                   return obj;
               };
+             
               var allOtherImages = {
                   "odishirt": [
 
                   ],
                   "trousers": {
                       leftLogo: {
-                              width: 30,
-                              height: 30,
-                              top: 125,
-                              left: 162
+                          width: 30,
+                          height: 30,
+                          top: 125,
+                          left: 162
                       },
                       rightLogo: {
                           width: 30,
@@ -38,22 +40,24 @@
                   },
                   "shorts": {
                       leftLogo: {
-                             width: 30,
-    height: 30,
-    bottom: 85,
-    left: 130
+                          width: 30,
+                          height: 30,
+                          bottom: 85,
+                          left: 130
                       },
                       rightLogo: {
                           width: 30,
-    height: 30,
-    bottom: 85,
-    right: 130
+                          height: 30,
+                          bottom: 85,
+                          right: 130
                       },
                   },
                   "gloves": [],
                   "pads": []
               };
-              $scope.imagesPositions = allOtherImages[$scope.design.type];
+              $scope.imagesPositions = function() {
+                  return allOtherImages[$scope.design.type];
+              }
 
 
           }

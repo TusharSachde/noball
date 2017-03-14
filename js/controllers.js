@@ -1181,7 +1181,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trimTrouser.highlightBase.disable = "unnoable";
                 $scope.trimTrouser.highlightOne.disable = "unnoable";
                 $scope.trimTrouser.highlightTwo.disable = "noable";
-                $scope.trouserJson.design.name = "design1";
+                $scope.trouserJson.design.name = "Square Leg";
                 $scope.trouserJson.type = "trousers";
                 $scope.singleAmount = 850;
                 $scope.trouserJson.color.base = "black";
@@ -1194,7 +1194,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trimTrouser.highlightBase.disable = "unnoable";
                 $scope.trimTrouser.highlightOne.disable = "unnoable";
                 $scope.trimTrouser.highlightTwo.disable = "noable";
-                $scope.trouserJson.design.name = "design2";
+                $scope.trouserJson.design.name = "Fine Leg";
                 $scope.trouserJson.type = "trousers";
                 $scope.singleAmount = 850;
                 $scope.trimTabs.light3.active = "activeme";
@@ -1209,7 +1209,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trimTrouser.highlightBase.disable = "unnoable";
                 $scope.trimTrouser.highlightOne.disable = "unnoable";
                 $scope.trimTrouser.highlightTwo.disable = "noable";
-                $scope.trouserJson.design.name = "design3";
+                $scope.trouserJson.design.name = "Long Off";
                 $scope.trouserJson.type = "trousers";
                 $scope.singleAmount = 850;
                 $scope.trimTabs.light3.active = "activeme";
@@ -1225,7 +1225,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trimTrouser.highlightBase.disable = "unnoable";
                 $scope.trimTrouser.highlightOne.disable = "unnoable";
                 $scope.trimTrouser.highlightTwo.disable = "noable";
-                $scope.trouserJson.design.name = "design4";
+                $scope.trouserJson.design.name = "Long Leg";
                 $scope.trouserJson.type = "trousers";
                 $scope.singleAmount = 850;
                 $scope.trimTabs.light3.active = "activeme";
@@ -1241,7 +1241,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trimTrouser.highlightBase.disable = "unnoable";
                 $scope.trimTrouser.highlightOne.disable = "unnoable";
                 $scope.trimTrouser.highlightTwo.disable = "noable";
-                $scope.trouserJson.design.name = "design5";
+                $scope.trouserJson.design.name = "Long On";
                 $scope.trouserJson.type = "trousers";
                 $scope.singleAmount = 850;
                 $scope.trimTabs.light3.active = "activeme";
@@ -1257,7 +1257,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trimTrouser.highlightBase.disable = "unnoable";
                 $scope.trimTrouser.highlightOne.disable = "unnoable";
                 $scope.trimTrouser.highlightTwo.disable = "noable";
-                $scope.trouserJson.design.name = "design1";
+                $scope.trouserJson.design.name = "Runner";
                 $scope.trouserJson.type = "shorts";
                 $scope.singleAmount = 650;
                 $scope.trouserJson.color.base = "australian_green";
@@ -1271,7 +1271,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trimTrouser.highlightBase.disable = "unnoable";
                 $scope.trimTrouser.highlightOne.disable = "unnoable";
                 $scope.trimTrouser.highlightTwo.disable = "noable";
-                $scope.trouserJson.design.name = "design2";
+                $scope.trouserJson.design.name = "Sprint";
                 $scope.trouserJson.type = "shorts";
                 $scope.singleAmount = 650;
                 $scope.trouserJson.color.base = "black";
@@ -1286,7 +1286,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trimTrouser.highlightBase.disable = "unnoable";
                 $scope.trimTrouser.highlightOne.disable = "unnoable";
                 $scope.trimTrouser.highlightTwo.disable = "noable";
-                $scope.trouserJson.design.name = "design3";
+                $scope.trouserJson.design.name = "Slogger";
                 $scope.trouserJson.type = "shorts";
                 $scope.singleAmount = 650;
                 $scope.trouserJson.color.base = "grey";
@@ -1302,7 +1302,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trimTrouser.highlightBase.disable = "unnoable";
                 $scope.trimTrouser.highlightOne.disable = "unnoable";
                 $scope.trimTrouser.highlightTwo.disable = "noable";
-                $scope.trouserJson.design.name = "design4";
+                $scope.trouserJson.design.name = "Stirde";
                 $scope.trouserJson.type = "shorts";
                 $scope.singleAmount = 650;
                 $scope.trouserJson.color.base = "orange";
@@ -1318,7 +1318,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trimTrouser.highlightBase.disable = "unnoable";
                 $scope.trimTrouser.highlightOne.disable = "unnoable";
                 $scope.trimTrouser.highlightTwo.disable = "unnoable";
-                $scope.trouserJson.design.name = "design5";
+                $scope.trouserJson.design.name = "Scamper";
                 $scope.trouserJson.type = "shorts";
                 $scope.singleAmount = 650;
                 $scope.trouserJson.color.base = "royal_blue";
@@ -1326,7 +1326,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trouserJson.color.trim2 = "";
                 $scope.trimTabs.light3.active = "activeme";
                 $scope.trimTabs.light3.show = "active-tab";
-                $scope.trouserJsondesign.base = "img/" + $scope.trouserJson.type + "/base/front/" + 'royal_blue' + ".png";
+                $scope.trouserJson.design.base = "img/" + $scope.trouserJson.type + "/base/front/" + 'royal_blue' + ".png";
                 $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim1/" + 'lemon_yellow' + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
                 $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim2/" + 'australian_green' + ".png";
 
@@ -1380,10 +1380,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     function (err) {
                         console.log(err);
                     });
-                $uibModal.open({
-                    templateUrl: 'views/modal/savedesign.html',
-                    scope: $scope
-                });
+                // $uibModal.open({
+                //     templateUrl: 'views/modal/savedesign.html',
+                //     scope: $scope
+                // });
                 // };
             } else {
                 console.log('////////////1111111');
@@ -1493,7 +1493,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.customizedTrouser[key] = null;
             $scope.trouserJson.leftLogo.image = null;
         }
-
+// console.log('trouserJson',trouserJson);
         $scope.checkTeamLogo = function () {
             console.log('troooo', $scope.trouserJson.leftLogo.image, $scope.trouserJson.sendTeamLogoLater);
             if ($scope.trouserJson.sendTeamLogoLater || $scope.trouserJson.leftLogo.image) {

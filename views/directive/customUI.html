@@ -1,7 +1,7 @@
 <div class="text-center">
     <div class="gully-shirt">
         <img ng-repeat="background in backgroundImages()" noloading="true" ng-src="{{background}}" class="trimshirt img-responsive">
-        <div class="div-internal-image" ng-repeat="(key,imagePos) in imagesPositions" ng-style="imagePos">
+        <div class="div-internal-image" ng-repeat="(key,imagePos) in imagesPositions()" ng-style="imagePos">
            <img ng-src="{{design[key].image | serverimage}}" ng-if="design[key].image || design[key].image != ''" ng-style="{width:design[key].size}"
                 noloading="true" class="div-internal-image" alt="">
         </div>
