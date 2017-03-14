@@ -5398,28 +5398,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     event.preventDefault();
                 }
             }
-            // if(fromState.name === 'savedesign'){
-            //      console.log('ifff fromState.name == order');
-            //      $scope.changeID = $rootScope.editId;
-            //      $scope.changeDesign($scope.changeID, 1);
-            // }
         });
 
-        // $rootScope.$on('$locationChangeStart', function (event, toState, fromState) {
-        //     console.log('tostate', toState);
-        //     if (toState) {
-
-        //         //        $scope.odiLeaveModal = $uibModal.open({
-        //         //     templateUrl: "views/modal/tshirtdesign.html",
-        //         //     scope: $scope
-        //         // });
-        //         alert("Changing the design will erase all previously made changes. Logos shall remain unchanged.Are you sure you want to continue?");
-        //         event.preventDefault();
-
-
-        //     }
-        // });
-        // $scope.displayImage = "img/tinytshirt 7.png";
         $scope.customizedShirt = {};
         $scope.statuses = {};
         $scope.statuses.showcopy = false;
@@ -5430,8 +5410,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.toggleTab = function (val) {
             $scope.activeButton = val;
         };
-
-        // image upload variables
         $scope.variable = "";
 
         // slider
