@@ -26,17 +26,30 @@
                       leftLogo: {
                           width: 100,
                           height: 100,
-                          top: 100,
-                          left: 100
+                           top: 75,
+                          left: 125
                       },
                       rightlogo: {
                           width: 100,
                           height: 100,
-                          top: 100,
-                          left: 100
+                           top: 75,
+                          right: 125
                       },
                   },
-                  "shorts": [],
+                  "shorts": {
+                      leftLogo: {
+                          width: 100,
+                          height: 100,
+                          bottom: 40,
+                          left: 90
+                      },
+                      rightlogo: {
+                          width: 100,
+                          height: 100,
+                          bottom: 40,
+                          right: 90
+                      },
+                  },
                   "gloves": [],
                   "pads": []
               };
