@@ -105,7 +105,9 @@
                         <h4>LONG LEG</h4>
                         <h3><i class="fa fa-inr"></i>{{singleAmount}}</h3>
                         <span><i>Minimum Order Quantity (MOQ) = 20 Trousers / Shorts</i></span>
+                        
                     </div>
+                    
                     <!--    // design tab-->
                     <div class="choos m20-l" ng-show="tab=='design'">
                         <!--<p>Choose Your Type Of Design</p>-->
@@ -149,6 +151,7 @@
                   </div>-->
                 </div>
               </div>
+               <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing mleft20" ng-click="tabchange('trim',2); switchFrontBack(true); switchTrimHighlightBase(true, trimTrouser.highlightBase.tcolor); switchTrimHighlightOne(true, trimTrouser.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTrouser.highlightTwo.tcolor); openTab('b');">NEXT</button>
                        
                         <!--<div class="row">
                             <div class="col-md-10">
@@ -160,18 +163,20 @@
                             </div>
                         </div>-->
                          <div class="mb20 flex-end odi-design-buttons">
+                             
                 <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-prev" ng-disabled="page==1" ng-click="page=1">
                   <img src="img/design_arrow_previous.png" alt="Prev Button" class="img-responsive">
                 </button>
                 <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-next" ng-disabled="page==2" ng-click="page=2">
                   <img src="img/design_arrow_next.png" alt="Next Button" class="img-responsive">
                 </button>
+                
                 <!--<button class="{{designButton.design1.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=2; changeDesignButton(1);">Whites</button>
                 <button class="{{designButton.design2.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(2);">Sublimation</button>
                 <button class="{{designButton.design3.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(3);">Cut &amp; Sew</button>
                 <button class="{{designButton.design4.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(4);">Polo</button>-->
               </div>
-              <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="tabchange('trim',2); switchFrontBack(true); switchTrimHighlightBase(true, trimTrouser.highlightBase.tcolor); switchTrimHighlightOne(true, trimTrouser.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTrouser.highlightTwo.tcolor); openTab('b');">NEXT</button>
+              <!--<button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="tabchange('trim',2); switchFrontBack(true); switchTrimHighlightBase(true, trimTrouser.highlightBase.tcolor); switchTrimHighlightOne(true, trimTrouser.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTrouser.highlightTwo.tcolor); openTab('b');">NEXT</button>-->
                         <!--<div class="edit-btn inline-block">
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('trim', 2); openTab('b');">NEXT</button>
                         </div>-->
@@ -266,7 +271,27 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="inline-block h300 mgl-20 static-top">
+
+<!--//added-->
+ <div class="print-typ printing inline-box logo-printtype mgl-20">
+                  <p class="bold">Select The Printing Type For Your Team Logo</p>
+                  <form action="" class="radio">
+                    <input type="radio" id="radio1" name="radio" value="embroidered" ng-model="customizedShirt.printType" />
+                    <label for="radio1">
+                      <span></span> Embroidered <a href="" class="link mleft10">VIEW EXAMPLES</a></label>
+                    <br>
+                    <input type="radio" id="radio2" name="radio" value="sublimated" ng-model="customizedShirt.printType" />
+                    <label for="radio2">
+                      <span></span> Sublimated <a href="" class="link mleft20">VIEW EXAMPLES</a></label>
+                  </form>
+                </div>
+
+
+
+
+
+
+                            <div class="inline-block h300  static-top mt20">
                                 <div class="logo-text mt10 inline-box">
                                     <button class="btn inline-block btn-dark padding-btn letter-spacing mright15">LEFT LOGO</button>
                                 </div>
@@ -290,12 +315,37 @@
                                 </div>
                             </div>
                         </div>
+<!--//added-->
+ <div class="print-typ printing">
+                <div class="pbotom">
+                  <span class="block">Notes :</span>
+                  
+
+
+                  <span class="block">1. Logos will be embroidered or sublimated based upon your selection. </span>
+                  <span class="block">2. The CCC logo colour will be black or white depending your choice of base colour of the product.</span>
+                  <!--<span class="block">3. The CCC logo will be sublimated or embroidered based on your selection of ‘printing type’ for your Team Logo.</span>
+                  <span class="block">4. The CCC logo colour will be black or white depending on your choice of the base colour chosen.</span>
+                  <span class="block">5. If you remove the CCC logo from Right Chest area the CCC logo will automatically move to the back of your tee under the collar.</span>-->
+                  <ul class="pad-17">
+                    <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span> to know more about customization tools.</li>
+                 <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves & pads attract a nominal one-time customization fees).</li>
+                 </ul>
+                  <!--<span><a href="" ng-click="outplace();">Click here</a> to find out how?</span>-->
+                </div>
+              </div>
+
+
+
+
+
                         <div class="edit-btn inline-block">
                             <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginTrousers();">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
                         <div class="edit-btn inline-block">
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="checkTeamLogo();" >NEXT</button>
                         </div>
+
                     </div>
                     <div class="choos m20-l next-level" ng-show="tab=='teamlogo'">
                         <p>Upload Your Logo</p>
