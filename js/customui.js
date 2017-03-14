@@ -29,13 +29,13 @@
                           width: 30,
                           height: 30,
                           top: 125,
-                          left: 162
+                          right: 162
                       },
                       rightLogo: {
                           width: 30,
                           height: 30,
                           top: 125,
-                          right: 162
+                          left: 162
                       },
                   },
                   "shorts": {
@@ -43,13 +43,13 @@
                           width: 30,
                           height: 30,
                           bottom: 85,
-                          left: 130
+                          right: 130
                       },
                       rightLogo: {
                           width: 30,
                           height: 30,
                           bottom: 85,
-                          right: 130
+                          left: 130
                       },
                   },
                   "gloves": [],
