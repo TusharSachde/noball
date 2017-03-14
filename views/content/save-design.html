@@ -8,64 +8,21 @@
   </div>
   <div class="container check-out">
     <div class="tab-content">
-      <!--{{savedDesigns}}-->
       <div class="row" ng-if="savedDesigns">
         <div class="col-md-4 col-sm-6" ng-repeat="design in savedDesigns track by $index">
 
           <div class="design-patt text-center">
-            <custom design="design.description">
+            <custom design="design.description" style="zoom:0.6521">
             </custom>
             <p class="">{{design.description.name}}</p>
             <button class="btn btn-outline btn-dark padding-btn mg10" ng-click="editDesign(design)">EDIT</button>
             <button class="btn btn-outline btn-dark padding-btn mg10 mg-tp-0" ng-click="deletePopup($index,design.id)">DELETE</button>
           </div>
         </div>
-        <!--<div class="col-md-4 col-sm-6">
-          <div class="design-patt text-center">
-            <div class="img-holder">
-              <img src="img/custom/t2.jpg" class="img-responsive">
-            </div>
-            <p class="">PLAYING T-SHIRT</p>
-            <button class="btn btn-outline btn-dark padding-btn mg10">VIEW</button>
-            <button class="btn btn-outline btn-dark padding-btn mg10 mg-tp-0" data-toggle="modal" data-target="#myModal5">DELETE</button>
-            <br>
-            <button class="btn btn-outline btn-dark padding-btn ">EDIT</button>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-          <div class="design-patt text-center">
-            <div class="img-holder">
-              <img src="img/custom/t2.jpg" class="img-responsive">
-            </div>
-            <p class="">PLAYING T-SHIRT</p>
-            <button class="btn btn-outline btn-dark padding-btn mg10">VIEW</button>
-            <button class="btn btn-outline btn-dark padding-btn mg10 mg-tp-0" data-toggle="modal" data-target="#myModal5">DELETE</button>
-            <br>
-            <button class="btn btn-outline btn-dark padding-btn">EDIT</button>
-          </div>
-        </div>-->
+       
       </div>
     </div>
-    <!--<hr>
-    <div class="tab-content">
-      <div class="account-design-bg no-bg">
-        <div class="row">
-          <div class="col-md-4 col-sm-6">
-            <div class="design-patt text-center">
-              <div class="img-holder">
-                <img src="img/custom/t2.jpg" class="img-responsive">
-              </div>
-              <p class="">PLAYING T-SHIRT</p>
-              <button class="btn btn-outline btn-dark padding-btn mg10">VIEW</button>
-              <button class="btn btn-outline btn-dark padding-btn mg10 mg-tp-0" data-toggle="modal" data-target="#myModal5">DELETE</button>
-              <br>
-              <button class="btn btn-outline btn-dark padding-btn">EDIT</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>-->
-    <!-- Modal -->
+   
     <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">

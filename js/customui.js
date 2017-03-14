@@ -24,30 +24,30 @@
                   ],
                   "trousers": {
                       leftLogo: {
-                          width: 30,
-                          height: 30,
-                           top: 109,
-                          left: 130
+                              width: 30,
+                              height: 30,
+                              top: 125,
+                              left: 162
                       },
                       rightLogo: {
                           width: 30,
                           height: 30,
-                           top: 109,
-                          right: 130
+                          top: 125,
+                          right: 162
                       },
                   },
                   "shorts": {
                       leftLogo: {
-                          width: 100,
-                          height: 100,
-                          bottom: 40,
-                          left: 90
+                             width: 30,
+    height: 30,
+    bottom: 85,
+    left: 130
                       },
-                      rightlogo: {
-                          width: 100,
-                          height: 100,
-                          bottom: 40,
-                          right: 90
+                      rightLogo: {
+                          width: 30,
+    height: 30,
+    bottom: 85,
+    right: 130
                       },
                   },
                   "gloves": [],
