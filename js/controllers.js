@@ -9840,32 +9840,32 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             $scope.designColorName = '';
 
-            if ($scope.latestOrder.description.designType === 'odi' || $scope.latestOrder.description.designType === 'training' || $scope.latestOrder.description.designType === 'whites') {
-                $scope.designColorName = $scope.latestOrder.description.trim.highlightBase.tcolor;
-            } else if ($scope.latestOrder.description.designType === 'gloves') {
-                $scope.designColorName = $scope.latestOrder.description.glovesDesign.color;
-            } else if ($scope.latestOrder.description.designType === 'pads') {
-                $scope.designColorName = $scope.latestOrder.description.padsDesign.color;
-                console.log($scope.designColorName);
-            }
+            // if ($scope.latestOrder.description.designType === 'odi' || $scope.latestOrder.description.designType === 'training' || $scope.latestOrder.description.designType === 'whites') {
+            //     $scope.designColorName = $scope.latestOrder.description.trim.highlightBase.tcolor;
+            // } else if ($scope.latestOrder.description.designType === 'gloves') {
+            //     $scope.designColorName = $scope.latestOrder.description.glovesDesign.color;
+            // } else if ($scope.latestOrder.description.designType === 'pads') {
+            //     $scope.designColorName = $scope.latestOrder.description.padsDesign.color;
+            //     console.log($scope.designColorName);
+            // }
 
-            $scope.currentCart = {
-                design: $scope.latestOrder.description.name,
-                image: '',
-                id: $scope.latestOrder.data.id,
-                maxQuantity: 100,
-                options: {
-                    colorid: '',
-                    colorname: $scope.designColorName,
-                    realname: $scope.latestOrder.description.name,
-                    sizeid: '',
-                    sizename: ''
-                },
-                price: $scope.latestOrder.description.totalAmount,
-                qty: $scope.latestOrder.description.totalQuan,
-                subtotal: $scope.latestOrder.description.totalAmount,
-                user: $scope.user.id
-            };
+            // $scope.currentCart = {
+            //     design: $scope.latestOrder.description.name,
+            //     image: '',
+            //     id: $scope.latestOrder.data.id,
+            //     maxQuantity: 100,
+            //     options: {
+            //         colorid: '',
+            //         colorname: $scope.designColorName,
+            //         realname: $scope.latestOrder.description.name,
+            //         sizeid: '',
+            //         sizename: ''
+            //     },
+            //     price: $scope.latestOrder.description.totalAmount,
+            //     qty: $scope.latestOrder.description.totalQuan,
+            //     subtotal: $scope.latestOrder.description.totalAmount,
+            //     user: $scope.user.id
+            // };
 
             console.log('$scope.currentCart: ', $scope.currentCart);
 
