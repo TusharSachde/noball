@@ -1119,7 +1119,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.images = {
             "page1": [{
-                src: "img/trousers/design1/front.png",
+                src: "img/trousers/design4/front.png",
                 // type: "odi"
                 // }, {
                 //     src: "img/odi-tshirts/trims/odi/design2/front.png",
@@ -1131,7 +1131,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 src: "img/trousers/design3/front.png",
                 // type: "odi"
             }, {
-                src: "img/trousers/design4/front.png",
+                src: "img/trousers/design1/front.png",
                 // type: "odi"
             }, {
                 src: "img/trousers/design5/front.png",
@@ -1177,6 +1177,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.changeDesign = function (index) {
             if (index === 0) {
+<<<<<<< HEAD
 
                 $scope.trimTrouser.highlightBase.disable = "unnoable";
                 $scope.trimTrouser.highlightOne.disable = "unnoable";
@@ -1190,6 +1191,31 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trouserJson.design.base = "img/" + $scope.trouserJson.type + "/base/front/" + 'black' + ".png";
                 $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim1/" + 'red' + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
                 $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim2/" + '' + ".png";
+=======
+ $scope.trimTrouser.highlightBase.disable = "unnoable";
+                $scope.trimTrouser.highlightOne.disable = "unnoable";
+                $scope.trimTrouser.highlightTwo.disable = "noable";
+                $scope.designName = "design4";
+                $scope.pantType = "trousers";
+                $scope.singleAmount = 850;
+                $scope.trimTabs.light3.active = "activeme";
+                $scope.trimTabs.light3.show = "active-tab";
+                $scope.switchTrimHighlightOne(true, 'white');
+                $scope.switchTrimHighlightTwo(true, '');
+                $scope.switchTrimHighlightBase(true, 'red');
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> master
             } else if (index === 1) {
                 $scope.trimTrouser.highlightBase.disable = "unnoable";
                 $scope.trimTrouser.highlightOne.disable = "unnoable";
@@ -1222,9 +1248,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim2/" + '' + ".png";
 
             } else if (index === 3) {
+
                 $scope.trimTrouser.highlightBase.disable = "unnoable";
                 $scope.trimTrouser.highlightOne.disable = "unnoable";
                 $scope.trimTrouser.highlightTwo.disable = "noable";
+<<<<<<< HEAD
                 $scope.trouserJson.design.name = "Long Leg";
                 $scope.trouserJson.type = "trousers";
                 $scope.singleAmount = 850;
@@ -1237,6 +1265,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim1/" + 'white' + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
                 $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim2/" + '' + ".png";
 
+=======
+                $scope.designName = "design1";
+                $scope.pantType = "trousers";
+                $scope.singleAmount = 850;
+                $scope.switchTrimHighlightOne(true, 'red');
+                $scope.switchTrimHighlightTwo(true, '');
+                $scope.switchTrimHighlightBase(true, 'black');
+               
+>>>>>>> master
             } else if (index === 4) {
                 $scope.trimTrouser.highlightBase.disable = "unnoable";
                 $scope.trimTrouser.highlightOne.disable = "unnoable";
@@ -3073,6 +3110,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }, {
             colr: "#491f61"
         }, {
+<<<<<<< HEAD
             colr: "#e87024"
         }, {
             colr: "#501e1f"
@@ -3084,6 +3122,87 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             src: "img/pads/padslemon.png"
         }, {
             src: "img/pads/orangepads.png"
+=======
+            colr: "#ffd700",
+            name: "yellow"
+        }];
+        $scope.padImages1 = {
+             "dblue": ["img/padscolor/dblue/dblue.png"],
+            "black": ["img/padscolor/updated/black/1.png"],
+            "grey": ["img/padscolor/updated/grey/1.png"],
+            "nblue": ["img/padscolor/updated/nblue/1.png"],
+            "ngreen": ["img/padscolor/updated/ngreen/1.png"],
+            "pink": ["img/padscolor/updated/pink/1.png"],
+            "white": ["img/padscolor/updated/white/1.png"],
+            "yellow": ["img/padscolor/updated/yellow/1.png"]
+        };
+        $scope.padImages2 = {
+             "dgreen": ["img/padscolor/dblue/dgreen.png"],
+            "black": ["img/padscolor/updated/black/2.png"],
+            "grey": ["img/padscolor/updated/grey/2.png"],
+            "nblue": ["img/padscolor/updated/nblue/2.png"],
+            "ngreen": ["img/padscolor/updated/ngreen/2.png"],
+            "pink": ["img/padscolor/updated/pink/2.png"],
+            "white": ["img/padscolor/updated/white/2.png"],
+            "yellow": ["img/padscolor/updated/yellow/2.png"]
+
+        };
+        // $scope.padImages3 = {
+              
+         
+        //     "red": ["img/padscolor/red/3.png"],
+        //     "lblue": ["img/padscolor/lblue/3.png"],
+        //      "yellow": ["img/padscolor/yellow/3.png"],
+        //     "lgreen": ["img/padscolor/lgreen/3.png"],
+        //     "dgreen": ["img/padscolor/dgreen/3.png"],
+        //     "lorange": ["img/padscolor/lorange/3.png"],
+        //     "dorange": ["img/padscolor/dorange/3.png"],
+        //     "gold": ["img/padscolor/gold/3.png"]
+
+        // };
+
+        
+        $scope.myArr = [{
+            name: "$scope.padImages1",
+            img: $scope.padImages1.dblue
+        }, {
+            name: "$scope.padImages2",
+            img: $scope.padImages2.dgreen
+            // }, {
+            //     name: "$scope.padImages3",
+            //     img: $scope.padImages3.yellow
+        }];
+
+      
+
+        $scope.rslider = {
+            min: 10,
+            max: 100
+        };
+
+        $scope.padLogo = {};
+        $scope.padLogo.isTeamLogo = false;
+        $scope.padLogo.divattributes = {
+            top: '342px',
+            left: '278px'
+        };
+        $scope.padLogo.attributes = {};
+        $scope.padLogo.attributes.width = 100;
+        $scope.padLogo.printType = 'embroidered';
+        $scope.statuses = {};
+
+        $scope.pads = {
+            'direction': 'left',
+            'quantity': 1
+        };
+          $scope.pads = [{
+            'direction': 'left',
+            'quantity': ''
+        }];
+        $scope.padsArr = [{
+            'direction': 'left',
+            'quantity': ''
+>>>>>>> master
         }];
         //tab changes
 
@@ -4546,6 +4665,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             }
         };
+<<<<<<< HEAD
 
 
         $scope.demo2 = {
@@ -4555,6 +4675,43 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             },
             minPrice: 1000,
             maxPrice: 4000
+=======
+        $scope.glovescolor = [{
+            colr: "#ffd700",
+            name: "yellow"
+        }, {
+            colr: "#db2123",
+            name: "red"
+        }, {
+            colr: "#63b8ff",
+            name: "lblue"
+        }, {
+            colr: "#00008b",
+            name: "dblue"
+        }, {
+            colr: "#bcee68",
+            name: "lgreen"
+        }, {
+            colr: "#66cd00",
+            name: "dgreen"
+        }, {
+            colr: "#ff8247",
+            name: "lorange"
+        }, {
+            colr: "#ee3301",
+            name: "dorange"
+        }, {
+            colr: "#d2b48c",
+            name: "gold"
+        }];
+        $scope.openLogin = function () {
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/login.html',
+                // controller: 'headerctrl',
+                scope: $scope
+            })
+>>>>>>> master
         };
 
 
@@ -4585,6 +4742,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             })
         };
 
+<<<<<<< HEAD
         $scope.copy = function () {
             $uibModal.open({
                 templateUrl: "views/modal/outofplace.html",
@@ -4592,6 +4750,34 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 scope: $scope
             })
         };
+=======
+            if (formValidate.$valid) {
+                NavigationService.login(input, function (data) {
+                    if (data.value === false) {
+                        $scope.validatelogin = true;
+                    } else {
+                        NavigationService.setUser(data);
+                        // window.location.reload();
+                        $scope.openLogin.close();
+                    }
+                }, function (err) {})
+            } else {
+                $scope.inputall = true;
+            }
+        }
+        //glovesImages path
+        $scope.glovesImages1 = {
+              "dblue": ["img/glovescolor/dblue/1.png"],
+          
+            "red": ["img/glovescolor/red/1.png"],
+            "lblue": ["img/glovescolor/lblue/1.png"],
+            "yellow": ["img/glovescolor/yellow/1.png"],
+            "lgreen": ["img/glovescolor/lgreen/1.png"],
+            "dgreen": ["img/glovescolor/dgreen/1.png"],
+            "lorange": ["img/glovescolor/lorange/1.png"],
+            "dorange": ["img/glovescolor/dorange/1.png"],
+            "gold": ["img/glovescolor/gold/1.png"]
+>>>>>>> master
 
         $scope.continue = function () {
             $uibModal.open({
@@ -4600,6 +4786,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 scope: $scope
             })
         };
+<<<<<<< HEAD
+=======
+        //glovesImages path
+        $scope.glovesImages2 = {
+             "dgreen": ["img/glovescolor/dgreen/2.png"],
+            "red": ["img/glovescolor/red/2.png"],
+            "lblue": ["img/glovescolor/lblue/2.png"],
+            "dblue": ["img/glovescolor/dblue/2.png"],
+            "lgreen": ["img/glovescolor/lgreen/2.png"],
+            "yellow": ["img/glovescolor/yellow/2.png"],
+           
+            "lorange": ["img/glovescolor/lorange/2.png"],
+            "dorange": ["img/glovescolor/dorange/2.png"],
+            "gold": ["img/glovescolor/gold/2.png"]
+>>>>>>> master
 
         $scope.choose = function () {
             $uibModal.open({
@@ -4608,6 +4809,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 scope: $scope
             })
         };
+<<<<<<< HEAD
+=======
+        //glovesImages path
+        $scope.glovesImages3 = {
+          
+            "red": ["img/glovescolor/red/3.png"],
+              "yellow": ["img/glovescolor/yellow/3.png"],
+            "lblue": ["img/glovescolor/lblue/3.png"],
+            "dblue": ["img/glovescolor/dblue/3.png"],
+            "lgreen": ["img/glovescolor/lgreen/3.png"],
+            "dgreen": ["img/glovescolor/dgreen/3.png"],
+            "lorange": ["img/glovescolor/lorange/3.png"],
+            "dorange": ["img/glovescolor/dorange/3.png"],
+            "gold": ["img/glovescolor/gold/3.png"]
+>>>>>>> master
 
         $scope.copyright = function () {
             $uibModal.open({
@@ -4617,6 +4833,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             })
         };
 
+<<<<<<< HEAD
+=======
+        // $scope.myArr=[$scope.glovesImages1.yellow,$scope.glovesImages2.yellow,$scope.glovesImages3.yellow];
+        $scope.myArr = [{
+            name: "$scope.glovesImages1",
+            img: $scope.glovesImages1.dblue
+        }, {
+            name: "$scope.glovesImages2",
+            img: $scope.glovesImages2.dgreen
+        }, {
+            name: "$scope.glovesImages3",
+            img: $scope.glovesImages3.red
+        }];
+>>>>>>> master
 
         $scope.tshirtUpload = function () {
             $uibModal.open({
@@ -4637,6 +4867,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             })
         };
 
+<<<<<<< HEAD
     })
 
     // .controller('GlovesCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $rootScope, cfpLoadingBar) {
@@ -4729,6 +4960,37 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //             scope: $scope
     //         })
     //     };
+=======
+        $scope.gloves = {
+            'direction': 'left',
+            'quantity': ''
+        };
+        $scope.glovesArr = [{
+            'direction': 'right',
+            'quantity': ''
+        }];
+
+         $scope.glovesArry = [{
+            'direction': 'left',
+            'quantity': ''
+        }];
+
+   
+
+        $scope.glovesArrCount = 1;
+
+        $scope.addGlovesValues = function () {
+            $scope.glovesArr.push(_.clone($scope.gloves));
+            $scope.glovesArrCount = $scope.glovesArrCount + 1;
+        }
+        $scope.removeGlovesValue = function (index) {
+            $scope.glovesArr.splice(index, 1);
+            $scope.glovesArrCount = $scope.glovesArrCount - 1;
+        }
+        // $scope.text1="sweep 101";
+        //  $scope.text2="sweeps 101";
+        //   $scope.text3="sweep 101";
+>>>>>>> master
 
     //     $scope.qtyValidation = false;
     //     $scope.checkloginGloves = function (qty) {
@@ -9578,10 +9840,28 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //                 $scope.glovesArr = $scope.tshirtdata.glovesArr;
     //                 $scope.totalQuan = $scope.tshirtdata.totalQuan;
 
+<<<<<<< HEAD
     //                 $scope.nameLeft = [];
     //                 $scope.nameRight = [];
     //                 $scope.quantityLeft = 0;
     //                 $scope.quantityRight = 0;
+=======
+                    for (var i = 0; i < $scope.glovesArr.length; i++) {
+                        if($scope.glovesArr[i].direction === 'left') {
+                            $scope.quantityLeft += $scope.glovesArr[i].quantity;
+                    }
+                    }
+                
+                 for (var i = 0; i < $scope.glovesArry.length; i++) {
+                        if($scope.glovesArry[i].direction === 'right') {
+                             $scope.quantityRight += $scope.glovesArry[i].quantity;
+                    }
+                    }
+
+                    // } else if ($scope.glovesArr[i].direction === 'right') {
+                    //         $scope.quantityRight += $scope.glovesArr[i].quantity;
+                    //     }
+>>>>>>> master
 
     //                 for (var i = 0; i < $scope.glovesArr.length; i++) {
     //                     if ($scope.glovesArr[i].direction === 'left') {
@@ -10934,7 +11214,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             link: 'pads'
         }, {
             image: 'img/landing/items/Apparels.jpg',
-            name: 'Apparels',
+            name: 'Apparel',
             // subname:'Coming Soon',
             link: 'apparels'
         }, {
@@ -10961,6 +11241,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         ];
 
         $scope.showcaseSlides = [{
+<<<<<<< HEAD
                 image: 'img/showcase/1.jpg',
                 link: 'trousers',
                 text: 'apparels'
@@ -11011,6 +11292,60 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 text: 'logos'
             }
         ];
+=======
+            image: 'img/showcase/1.jpg',
+            link: 'trousers',
+            text:'apparel'
+        }, {
+            image: 'img/showcase/2.jpg',
+            link: 'pads',
+            text:'caps'
+        }, {
+            image: 'img/showcase/3.jpg',
+            link: 'odi-shirt',
+            text:'caps'
+        }, {
+            image: 'img/showcase/4.jpg',
+            link: 'pads',
+            text:'pads'
+        }, {
+            image: 'img/showcase/5.jpg',
+            link: 'pads',
+            text:'pads'
+        },
+        {
+            image: 'img/showcase/6.jpg',
+            link: 'shorts',
+            text:'kitbags'
+        }, {
+            image: 'img/showcase/7.jpg',
+            link: 'shorts',
+            text:'kitbags'
+        }, {
+            image: 'img/showcase/8.jpg',
+            link: 'shorts',
+            text:'logos'
+        }, {
+            image: 'img/showcase/9.jpg',
+            link: 'shorts',
+            text:'logos'
+        }
+        , {
+            image: 'img/showcase/10.jpg',
+            link: 'shorts',
+            text:'logos'
+        }
+        , {
+            image: 'img/showcase/11.jpg',
+            link: 'shorts',
+            text:'logos'
+        }
+        , {
+            image: 'img/showcase/12.jpg',
+            link: 'shorts',
+            text:'logos'
+        }];
+>>>>>>> master
 
 
     })
