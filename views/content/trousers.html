@@ -104,7 +104,6 @@
                     </div>
                 </div>
                 <div class="col-md-7">
-<<<<<<< HEAD
                     <div class="scroll-image" id="style-1">
                         <div class="det-name">
                             <h4>{{trouserJson.design.name}}</h4>
@@ -119,23 +118,6 @@
                                 + images.page2.length}})</p>
                             <div class="mb20 flex-around odi-design-buttons">
                                 <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-prev" ng-disabled="page==1" ng-click="page=1">
-=======
-                    <div class="scroll-image" id="style-1">                    
-                    <div class="det-name">
-                        <h4>LONG LEG</h4>
-                        <h3><i class="fa fa-inr"></i>{{singleAmount}}</h3>
-                        <span><i>Minimum Order Quantity (MOQ) = 20 Trousers / Shorts</i></span>
-                        
-                    </div>
-                    
-                    <!--    // design tab-->
-                    <div class="choos m20-l" ng-show="tab=='design'">
-                        <!--<p>Choose Your Type Of Design</p>-->
-                         <p ng-if="page==1">Choose Your Type Of Design ({{images.page1.length}}/{{images.page1.length + images.page2.length}})</p>
-               <p ng-if="page==2">Choose Your Type Of Design ({{images.page1.length + images.page2.length}}/{{images.page1.length + images.page2.length}})</p>
-                           <div class="mb20 flex-around odi-design-buttons">
-                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-prev" ng-disabled="page==1" ng-click="page=1">
->>>>>>> master
                   <img src="img/design_arrow_previous.png" alt="Prev Button" class="img-responsive">
                 </button>
                                 <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-next" ng-disabled="page==2" ng-click="page=2">
@@ -169,17 +151,10 @@
                       <img ng-src="{{img}}" class="img-responsive">
                     </div>
                   </div>-->
-<<<<<<< HEAD
                                 </div>
                             </div>
                             <!--<div class="row">
-=======
-                </div>
-              </div>
-               <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing mleft20" ng-click="tabchange('trim',2); switchFrontBack(true); switchTrimHighlightBase(true, trimTrouser.highlightBase.tcolor); switchTrimHighlightOne(true, trimTrouser.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTrouser.highlightTwo.tcolor); openTab('b');">NEXT</button>
-                       
-                        <!--<div class="row">
->>>>>>> master
+
                             <div class="col-md-10">
                                 <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images track by $index">                                    
                                         <div class="cat-img pointer" ng-click="openDesign($index,1,img)" title="Design {{$index + 1}}">
@@ -188,20 +163,15 @@
                                 </div>
                             </div>
                         </div>-->
-<<<<<<< HEAD
+
                             <div class="mb20 flex-end odi-design-buttons">
                                 <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-prev" ng-disabled="page==1" ng-click="page=1">
-=======
-                         <div class="mb20 flex-end odi-design-buttons">
-                             
-                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-prev" ng-disabled="page==1" ng-click="page=1">
->>>>>>> master
+
                   <img src="img/design_arrow_previous.png" alt="Prev Button" class="img-responsive">
                 </button>
                                 <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-next" ng-disabled="page==2" ng-click="page=2">
                   <img src="img/design_arrow_next.png" alt="Next Button" class="img-responsive">
                 </button>
-<<<<<<< HEAD
                                 <!--<button class="{{designButton.design1.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=2; changeDesignButton(1);">Whites</button>
                 <button class="{{designButton.design2.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(2);">Sublimation</button>
                 <button class="{{designButton.design3.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(3);">Cut &amp; Sew</button>
@@ -209,16 +179,7 @@
                             </div>
                             <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="tabchange('trim',2); switchFrontBack(true,trouserJson.type); switchTrimHighlightBase(trouserJson.color.base); switchTrimHighlightOne(trouserJson.color.trim1); switchTrimHighlightTwo(trouserJson.color.trim2); openTab('b');">NEXT</button>
                             <!--<div class="edit-btn inline-block">
-=======
-                
-                <!--<button class="{{designButton.design1.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=2; changeDesignButton(1);">Whites</button>
-                <button class="{{designButton.design2.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(2);">Sublimation</button>
-                <button class="{{designButton.design3.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(3);">Cut &amp; Sew</button>
-                <button class="{{designButton.design4.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(4);">Polo</button>-->
-              </div>
-              <!--<button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="tabchange('trim',2); switchFrontBack(true); switchTrimHighlightBase(true, trimTrouser.highlightBase.tcolor); switchTrimHighlightOne(true, trimTrouser.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTrouser.highlightTwo.tcolor); openTab('b');">NEXT</button>-->
-                        <!--<div class="edit-btn inline-block">
->>>>>>> master
+
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('trim', 2); openTab('b');">NEXT</button>
                         </div>-->
                             <div class="customize-design">
@@ -323,7 +284,7 @@
                                         </div>
                                     </div>
                                 </div>
-<<<<<<< HEAD
+
                                 <div class="inline-block h300 mgl-20 static-top">
                                     <div class="logo-text mt10 inline-box">
                                         <button class="btn inline-block btn-dark padding-btn letter-spacing mright15">LEFT LOGO</button>
@@ -348,42 +309,7 @@
                                                     ng-if="trouserJson.leftLogo">change</button>
                                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('leftLogo')"
                                                     ng-if="trouserJson.leftLogo">remove</button>
-=======
-                            </div>
 
-<!--//added-->
- <div class="print-typ printing inline-box logo-printtype mgl-20">
-                  <p class="bold">Select The Printing Type For Your Team Logo</p>
-                  <form action="" class="radio">
-                    <input type="radio" id="radio1" name="radio" value="embroidered" ng-model="customizedShirt.printType" />
-                    <label for="radio1">
-                      <span></span> Embroidered <a href="" class="link mleft10">VIEW EXAMPLES</a></label>
-                    <br>
-                    <input type="radio" id="radio2" name="radio" value="sublimated" ng-model="customizedShirt.printType" />
-                    <label for="radio2">
-                      <span></span> Sublimated <a href="" class="link mleft20">VIEW EXAMPLES</a></label>
-                  </form>
-                </div>
-
-
-
-
-
-
-                            <div class="inline-block h300  static-top mt20">
-                                <div class="logo-text mt10 inline-box">
-                                    <button class="btn inline-block btn-dark padding-btn letter-spacing mright15">LEFT LOGO</button>
-                                </div>
-                                <div class="block-box">
-                                    <div class="teamlogo-box">
-                                        <div class="inline-box box-custom">
-                                            <img ng-src="{{customizedTrouser.leftlogo.image | serverimage}}" alt="" ng-if="customizedTrouser.leftlogo.image">
-                                        </div>
-                                        <div class="size-box" ng-if="customizedTrouser.leftlogo">
-                                            Size:
-                                            <div class="range">
-                                            <div range-slider on-handle-down="changeLogo('leftlogo')" on-handle-up="resetLogoStyle('leftlogo')" ng-model="customizedTrouser.leftlogo.attributes.width" min="0" max="200" model-max="customizedTrouser.leftlogo.attributes.width" model-min="rslider.min" pin-handle="min"></div>
->>>>>>> master
                                             </div>
                                         </div>
                                     </div>
@@ -396,7 +322,6 @@
                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="checkTeamLogo();">NEXT</button>
                             </div>
                         </div>
-<<<<<<< HEAD
                         <div class="choos m20-l next-level" ng-show="tab=='teamlogo'">
                             <p>Upload Your Logo</p>
                             <div class="logo-text">
@@ -419,62 +344,7 @@
                                                 <input type="checkbox" class="form-control" id="login">
                                                 <label for="login"><span></span>Remove Image From Background</label>
                                             </div>
-=======
-<!--//added-->
- <div class="print-typ printing">
-                <div class="pbotom">
-                  <span class="block">Notes :</span>
-                  
 
-
-                  <span class="block">1. Logos will be embroidered or sublimated based upon your selection. </span>
-                  <span class="block">2. The CCC logo colour will be black or white depending your choice of base colour of the product.</span>
-                  <!--<span class="block">3. The CCC logo will be sublimated or embroidered based on your selection of ‘printing type’ for your Team Logo.</span>
-                  <span class="block">4. The CCC logo colour will be black or white depending on your choice of the base colour chosen.</span>
-                  <span class="block">5. If you remove the CCC logo from Right Chest area the CCC logo will automatically move to the back of your tee under the collar.</span>-->
-                  <ul class="pad-17">
-                    <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span> to know more about customization tools.</li>
-                 <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves & pads attract a nominal one-time customization fees).</li>
-                 </ul>
-                  <!--<span><a href="" ng-click="outplace();">Click here</a> to find out how?</span>-->
-                </div>
-              </div>
-
-
-
-
-
-                        <div class="edit-btn inline-block">
-                            <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginTrousers();">SAVE DESIGN &amp; EDIT LATER</button>
-                        </div>
-                        <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="checkTeamLogo();" >NEXT</button>
-                        </div>
-
-                    </div>
-                    <div class="choos m20-l next-level" ng-show="tab=='teamlogo'">
-                        <p>Upload Your Logo</p>
-
-                        <div class="logo-text">
-                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15">TEAM LOGO</button>
-                            <span class="uppercase inline-block mright15">or</span>
-                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor();">TEAM TEXT</button>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="up-img">
-                                    <div class="mod-img ">
-                                        <div class="noti-imgs" ng-style="{'background-image':'url(img/custom/c4.jpg)'}">
-                                        </div>
-                                        <div class="edit-btn">
-                                            <button href="" class="btn btn-outline btn-dark">CHANGE</button>
-                                            <br>
-                                            <button href="" class="btn btn-outline btn-dark">REMOVE</button>
-                                        </div>
-                                        <div class="check">
-                                            <input type="checkbox" class="form-control" id="login">
-                                            <label for="login"><span></span>Remove Image From Background</label>
->>>>>>> master
                                         </div>
                                     </div>
                                 </div>
