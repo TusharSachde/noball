@@ -656,6 +656,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             min: -130,
             max: 200
         };
+
+        // set available range
+$scope.minPrice = 100;
+$scope.maxPrice = 999;
+
+// default the user's values to the available range
+$scope.userMinPrice = $scope.minPrice;
+$scope.userMaxPrice = $scope.maxPrice;
         $scope.outplace = function () {
             $uibModal.open({
                 templateUrl: "views/modal/outofplace.html",
@@ -772,7 +780,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         };
 
-
         $scope.trimTrouser = {};
         $scope.trimTrouser.highlightOne = {};
         $scope.trimTrouser.highlightTwo = {};
@@ -787,6 +794,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.trouserJson.rightLogo.image = "img/logo_black.png";
         // $scope.rightlogo.attributes = {};
         $scope.trouserJson.rightLogo.size = 25;
+         
         $scope.trouserJson.color = {};
         $scope.trouserJson.color.base = "white";
         $scope.trouserJson.color.trim1 = "white";
@@ -812,16 +820,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.switchFrontBack(true, $scope.trouserJson.type);
         $scope.tempImage = "";
         $scope.trouserJson.leftLogo = {};
+        $scope.trouserJson.leftLogo.size = 25;
+        
         $scope.changeLogo = function (key) {
-            $scope.trouserJson.key = {};
+            // $scope.trouserJson.key = {};
             // $scope.customizedTrouser[key].divattributes = {};
             // console.log(key);
-            // $scope.customizedTrouser[key].divattributes.border = "1px solid #ccc";
+            $scope.trouserJson[key].border = "1px solid #ccc";
         };
         $scope.resetLogoStyle = function (key) {
-            $scope.trouserJson.key = {};
+            // $scope.trouserJson.key = {};
             // $scope.customizedTrouser[key].divattributes = {};
-            // $scope.customizedTrouser[key].divattributes.border = "none";
+            $scope.trouserJson[key].border = "none";
             $scope.$apply();
         };
 
