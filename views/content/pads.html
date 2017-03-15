@@ -311,51 +311,23 @@
                                 </div>
                                 <div class="sizes size inline-block mleft10">
                                     <span class="inline-block uppercase pad-5">quantity</span>
-                                    <input type="number" class="form-control inline-block" name="name" ng-change="addQuantity(pad.quantity)" ng-model="pad.quantity"
+                                    <input type="number" class="form-control inline-block" name="name" ng-change="addQuantity(pad.quantity)" ng-model="designJson.quantity[0].quantity"
                                         placeholder="12" maxlength="3">
                                     <!--<p class="error-td error-quantity f13" ng-if="totalQuan<12 && totalQuan!=0">Please enter valid quantity.The MOQ is 12</p>-->
                                 </div>
-                                <!--<div class="sizes size inline-block">
-                                    <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">preview</button>
-                                </div>-->
-                                <!-- <div class="sizes size inline-block">
-                            <span class="uppercase">sleeve</span>
-                          <select>
-                            <option value="XL">XL</option>
-                            <option value="20">20</option>
-                            <option value="30">30</option>
-                            <option value="40">40</option>
-                        </select></div> -->
-                                <!--<a href="" class="bin"><img src="img/rubbishbin.png" class="img-responsive" alt="" ng-click="removePadsValue($index); addQuantity()"></a>-->
                             </div>
 
                             <!--//added-->
                             <div class="option-shirt relative gloves" ng-repeat="pad in padsArr track by $index">
                                 <div class="sizes size inline-block mleft10">
                                     <span class="uppercase pad-5 hand-side">Righty</span>
-                                    <!--<select ng-model="pad.direction">
-                                        <option value="left">Left</option>
-                                        <option value="right">Right</option>
-                                    </select>-->
                                 </div>
                                 <div class="sizes size inline-block">
                                     <span class="inline-block uppercase pad-5">quantity</span>
-                                    <input type="number" class="form-control inline-block" name="name" ng-change="addQuantity(pad.quantity)" ng-model="pad.quantity"
+                                    <input type="number" class="form-control inline-block" name="name" ng-change="addQuantity(pad.quantity)" ng-model="designJson.quantity[1].quantity"
                                         placeholder="12" maxlength="3">
                                     <p class="error-td error-quantity f13" ng-if="totalQuan<12 && totalQuan!=0">Please enter valid quantity.The MOQ is 12</p>
                                 </div>
-                                <!--<div class="sizes size inline-block">
-                                    <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">preview</button>
-                                </div>-->
-                                <!-- <div class="sizes size inline-block">
-                            <span class="uppercase">sleeve</span>
-                          <select>
-                            <option value="XL">XL</option>
-                            <option value="20">20</option>
-                            <option value="30">30</option>
-                            <option value="40">40</option>
-                        </select></div> -->
-                                <!--<a href="" class="bin"><img src="img/rubbishbin.png" class="img-responsive" alt="" ng-click="removePadsValue($index); addQuantity()"></a>-->
                             </div>
                             <!--<div class="add-button">
                                 <p class="pointer" ng-click="addPadsValues(); addQuantity(pad.quantity);"><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</p>

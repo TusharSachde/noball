@@ -658,12 +658,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
 
         // set available range
-$scope.minPrice = 100;
-$scope.maxPrice = 999;
+        $scope.minPrice = 100;
+        $scope.maxPrice = 999;
 
-// default the user's values to the available range
-$scope.userMinPrice = $scope.minPrice;
-$scope.userMaxPrice = $scope.maxPrice;
+        // default the user's values to the available range
+        $scope.userMinPrice = $scope.minPrice;
+        $scope.userMaxPrice = $scope.maxPrice;
         $scope.outplace = function () {
             $uibModal.open({
                 templateUrl: "views/modal/outofplace.html",
@@ -794,7 +794,7 @@ $scope.userMaxPrice = $scope.maxPrice;
         $scope.trouserJson.rightLogo.image = "img/logo_black.png";
         // $scope.rightlogo.attributes = {};
         $scope.trouserJson.rightLogo.size = 25;
-         
+
         $scope.trouserJson.color = {};
         $scope.trouserJson.color.base = "white";
         $scope.trouserJson.color.trim1 = "white";
@@ -821,7 +821,7 @@ $scope.userMaxPrice = $scope.maxPrice;
         $scope.tempImage = "";
         $scope.trouserJson.leftLogo = {};
         $scope.trouserJson.leftLogo.size = 25;
-        
+
         $scope.changeLogo = function (key) {
             // $scope.trouserJson.key = {};
             // $scope.customizedTrouser[key].divattributes = {};
@@ -1511,7 +1511,7 @@ $scope.userMaxPrice = $scope.maxPrice;
         //         $scope.trousersLogo.image = null;
         //     }
         $scope.emptyImage = function (key) {
-            console.log('ddddddddddd',key,$scope.trouserJson[key]);
+            console.log('ddddddddddd', key, $scope.trouserJson[key]);
             // $scope.customizedTrouser[key] = null;
             $scope.trouserJson[key] = {};
         }
@@ -2656,20 +2656,35 @@ $scope.userMaxPrice = $scope.maxPrice;
             },
             quantity: [{
                     quantity: null,
+                    size: "Left"
                 },
                 {
-                    quantity: null
+                    quantity: null,
+                    size: "Right"
                 }
-            ]
+            ],
+            type: "pads"
         };
         $scope.colorObj = $scope.padImages1;
 
         $scope.openDesign = function (img) {
             $scope.designJson.design.base = img.img[0];
             $scope.designJson.design.name = img.name;
-            $scope.designJson.color.base = img.color;
+            $scope.designJson.color.base = getColor(img.color);
             $scope.colorObj = img.colorObj;
         };
+
+        function getColor(color) {
+            if (color == "dblue") {
+                return "#48d2dc";
+            } else if (color == "dgreen") {
+                return "#82e716";
+            } else {
+                return _.filter($scope.padscolor, {
+                    name: color
+                })[0].colr;
+            }
+        }
 
         $scope.padscolor = [{
             colr: "#000000",
@@ -2746,6 +2761,7 @@ $scope.userMaxPrice = $scope.maxPrice;
             color: "dgreen",
             colorObj: $scope.padImages2
         }];
+        $scope.openDesign($scope.myArr[0]);
 
         $scope.rslider = {
             min: 10,
@@ -2794,11 +2810,10 @@ $scope.userMaxPrice = $scope.maxPrice;
         $scope.addQuantity = function (q) {
             $scope.totalQuan = 0;
             $scope.totalAmount = 0;
-            for (var i = 0; i < $scope.padsArrCount; i++) {
-                $scope.totalQuan += $scope.padsArr[i].quantity;
-            }
+            $scope.totalQuan = $scope.designJson.quantity[0].quantity + $scope.designJson.quantity[1].quantity;
             if ($scope.totalQuan) {
-                $scope.totalAmount = $scope.singleAmount * $scope.totalQuan + 5000;
+                $scope.totalAmount = $scope.totalQuan + $scope.singleAmount;
+                $scope.designJson.totalAmount = $scope.totalAmount;
             }
         };
 
@@ -2841,7 +2856,7 @@ $scope.userMaxPrice = $scope.maxPrice;
             var val = _.pick($scope.colorObj, color);
             console.log(val);
             $scope.designJson.design.base = val[color][0];
-            $scope.designJson.color.base = color;
+            $scope.designJson.color.base = getColor(color);
 
         }
         $scope.selectPadsDesign($scope.myArr[0]);
@@ -2884,9 +2899,6 @@ $scope.userMaxPrice = $scope.maxPrice;
                 scope: $scope
             });
         };
-
-
-
 
         $scope.openLogin = function () {
             $uibModal.open({
@@ -3013,10 +3025,6 @@ $scope.userMaxPrice = $scope.maxPrice;
         $scope.teamloging = function () {
             $scope.tab = "teamlogo";
         }
-
-
-
-
         $scope.rslider = {
             min: 10,
             max: 100

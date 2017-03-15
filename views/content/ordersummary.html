@@ -28,14 +28,14 @@
                 </div>
               </p>
             </div>
-            <div class="mgb20" ng-if="design.description.teamLogo && design.description.teamLogo != ''">
+            <div class="mgb20" ng-if="design.description.teamLogo && design.description.teamLogo.image">
               <p class="inline-block mgb20 wd88">Team Logo:</p>
               <div class="team-logo inline-block mgl-20 va-mid">
-                <img ng-src="{{design.description.teamLogo.image | serverimage}}" alt="" class="img-responsive logo-img">
+                <img ng-src="{{design.description.teamLogo.image|serverimage}}" alt="" class="img-responsive logo-img">
               </div>
               <span class="capitalize mgl-20">{{printType}}</span>
             </div>
-            <div class="mgb20">
+            <div class="mgb20" ng-if="design.description.rightLogo.image ||  design.description.leftLogo.image || design.description.mainlogo.image || design.description.rightsleeve.image || design.description.backlogo.image">
               <p class="inline-block">Sponsor Logos:</p>
               <div class="new-scrolldiv block-box">
                 <div class="spon-logo">
