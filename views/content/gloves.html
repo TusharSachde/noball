@@ -63,8 +63,9 @@
                         </div> -->
                         <!-- disabled on trim -->
                         <!-- <div ng-if="classa"> -->
-
-                        <div class="gully-shirt" ng-if="Arrayname=='$scope.glovesImages1'">
+ <custom design="glovesJson" ng-if="glovesJson">
+                            </custom>
+                        <!--<div class="gully-shirt" ng-if="Arrayname=='$scope.glovesImages1'">
                             <img src="{{design.base}}" class="img-responsive" alt="">
                         </div>
                         <div class="gully-shirt" ng-if="Arrayname=='$scope.glovesImages2'">
@@ -72,7 +73,7 @@
                         </div>
                         <div class="gully-shirt" ng-if="Arrayname=='$scope.glovesImages3'">
                             <img src="{{design.base}}" class="img-responsive" alt="">
-                        </div>
+                        </div>-->
                         <!-- <div class="gully-shirt">
                                 <img src="{{myChoice}}" class="img-responsive" alt="">
                             </div> -->
@@ -129,8 +130,8 @@
                                 <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in myArr track by $index">
                                     <!--<div class="cat-img" ng-click="selectDesign(img)">-->
                                         <div class="cat-img" ng-click="openDesign($index, 1,img)">
-
                                         <img ng-src="{{img.img[0]}}" class="img-responsive">
+                                       
                                     </div>
                                 </div>
 
@@ -224,7 +225,7 @@
                     <div class="choos m20-l" ng-show="tab=='team'">
                         <!--<p>Upload Your Logo</p>-->
                         <div class="checkboxing">
-                            <input type="checkbox" class="form-control" id="later" ng-model="glovesLogo.isTeamLogo">
+                            <input type="checkbox" class="form-control" id="later" ng-model="glovesJson.sendTeamLogoLater">
                             <label for="later"><span></span>SEND TEAM LOGO LATER</label>
                         </div>
                         <div class="logo-text mt10 inline-box">
@@ -233,9 +234,9 @@
                         <div class="block-box">
                             <div class="teamlogo-box">
                             <div class="inline-box box-custom">
-                                <img ng-src="{{glovesLogo.image | serverimage}}" alt="" ng-if="glovesLogo.image">
+                                <img ng-src="{{glovesJson.teamLogo.image | serverimage}}" alt="" ng-if="glovesJson.teamLogo.image">
                             </div>
-                            <div class="size-box" ng-if="glovesLogo.image">
+                            <div class="size-box" ng-if="glovesJson.teamLogo.image">
                                 Size:
                                 <div class="range">
                                 <div range-slider on-handle-down="changeLogo('gloveslogo')" on-handle-up="resetLogoStyle('gloveslogo')" ng-model="glovesLogo.attributes.width" min="0" max="200" model-max="glovesLogo.attributes.width" model-min="rslider.min" pin-handle="min"></div>
@@ -611,7 +612,7 @@
                                 </div>
                                 <div class="sizes size inline-block mleft10">
                                     <span class="inline-block uppercase pad-5">quantity</span>
-                                    <input type="number" class="form-control inline-block" name="name" value="" ng-change="addQuantity(glove.quantity)" ng-model="glove.quantity" placeholder="12" maxlength="3">
+                                    <input type="number" class="form-control inline-block" name="name" value="" ng-change="addQuantity(glovesJson.quantity[0].quantity)" ng-model="glovesJson.quantity[0].quantity" placeholder="12" maxlength="3">
                                     <!--<p class="error-td error-quantity f13" ng-if="totalQuan<12 && totalQuan!=0">Please enter valid quantity.The MOQ is 12</p>-->
                                 </div>
                                 <!--<div class="sizes size inline-block">
@@ -638,7 +639,7 @@
                                 </div>
                                 <div class="sizes size inline-block">
                                     <span class="inline-block uppercase pad-5">quantity</span>
-                                    <input type="number" class="form-control inline-block" name="name" value="" ng-change="addQuantity(glove.quantity)" ng-model="glove.quantity" placeholder="12" maxlength="3">
+                                    <input type="number" class="form-control inline-block" name="name" value="" ng-change="addQuantity(glovesJson.quantity[0].quantity)" ng-model="glovesJson.quantity[0].quantity" placeholder="12" maxlength="3">
                                     <!--<p class="error-td error-quantity f13" ng-if="totalQuan<12 && totalQuan!=0">Please enter valid quantity.The MOQ is 12</p>-->
                                 </div>
                                 <!--<div class="sizes size inline-block">

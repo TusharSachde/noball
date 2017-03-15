@@ -658,12 +658,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
 
         // set available range
-$scope.minPrice = 100;
-$scope.maxPrice = 999;
+        $scope.minPrice = 100;
+        $scope.maxPrice = 999;
 
-// default the user's values to the available range
-$scope.userMinPrice = $scope.minPrice;
-$scope.userMaxPrice = $scope.maxPrice;
+        // default the user's values to the available range
+        $scope.userMinPrice = $scope.minPrice;
+        $scope.userMaxPrice = $scope.maxPrice;
         $scope.outplace = function () {
             $uibModal.open({
                 templateUrl: "views/modal/outofplace.html",
@@ -794,7 +794,7 @@ $scope.userMaxPrice = $scope.maxPrice;
         $scope.trouserJson.rightLogo.image = "img/logo_black.png";
         // $scope.rightlogo.attributes = {};
         $scope.trouserJson.rightLogo.size = 25;
-         
+
         $scope.trouserJson.color = {};
         $scope.trouserJson.color.base = "white";
         $scope.trouserJson.color.trim1 = "white";
@@ -821,7 +821,7 @@ $scope.userMaxPrice = $scope.maxPrice;
         $scope.tempImage = "";
         $scope.trouserJson.leftLogo = {};
         $scope.trouserJson.leftLogo.size = 25;
-        
+
         $scope.changeLogo = function (key) {
             // $scope.trouserJson.key = {};
             // $scope.customizedTrouser[key].divattributes = {};
@@ -1511,7 +1511,7 @@ $scope.userMaxPrice = $scope.maxPrice;
         //         $scope.trousersLogo.image = null;
         //     }
         $scope.emptyImage = function (key) {
-            console.log('ddddddddddd',key,$scope.trouserJson[key]);
+            console.log('ddddddddddd', key, $scope.trouserJson[key]);
             // $scope.customizedTrouser[key] = null;
             $scope.trouserJson[key] = {};
         }
@@ -4004,6 +4004,11 @@ $scope.userMaxPrice = $scope.maxPrice;
         };
         $scope.type = 'gloves';
         $scope.design = {};
+        $scope.glovesJson = {};
+        $scope.glovesJson.design = {};
+        $scope.glovesJson.color = {};
+        $scope.glovesJson.teamLogo = {};
+        $scope.glovesJson.teamLogo.size = 25;
         // $scope.design.base = ''
         $scope.color = {};
         $scope.LogosTab = false;
@@ -4012,7 +4017,7 @@ $scope.userMaxPrice = $scope.maxPrice;
             $scope.LogosTab = val;
         }
         $scope.openDesign = function (index, tab, img) {
-            console.log('//////////');
+            console.log('//////////gloves');
             if ($scope.LogosTab) {
                 console.log('//////////11111');
                 $scope.designIndex = index;
@@ -4173,17 +4178,18 @@ $scope.userMaxPrice = $scope.maxPrice;
             "gold": ["img/glovescolor/gold/3.png"]
 
         };
-
-        // $scope.myArr=[$scope.glovesImages1.yellow,$scope.glovesImages2.yellow,$scope.glovesImages3.yellow];
         $scope.myArr = [{
             name: "$scope.glovesImages1",
-            img: $scope.glovesImages1.yellow
+            img: $scope.glovesImages1.dblue,
+            color: 'dblue'
         }, {
             name: "$scope.glovesImages2",
-            img: $scope.glovesImages2.yellow
+            img: $scope.glovesImages2.dgreen,
+            color: 'dgreen'
         }, {
             name: "$scope.glovesImages3",
-            img: $scope.glovesImages3.yellow
+            img: $scope.glovesImages3.red,
+            color: 'red'
         }];
 
         $scope.rslider = {
@@ -4192,7 +4198,8 @@ $scope.userMaxPrice = $scope.maxPrice;
         };
 
         $scope.glovesLogo = {};
-        $scope.glovesLogo.isTeamLogo = false;
+        // $scope.glovesLogo.isTeamLogo = false;
+        $scope.glovesJson.sendTeamLogoLater = false;
         $scope.glovesLogo.divattributes = {
             top: '200px',
             left: '355px'
@@ -4242,7 +4249,10 @@ $scope.userMaxPrice = $scope.maxPrice;
         $scope.glovesDesign = {};
 
         $scope.selectDesign = function (item) {
-            console.log(item);
+            console.log(item.color);
+            $scope.glovesJson.design.base = item.img[0];
+            $scope.glovesJson.color.base = item.color;
+            console.log('$scope.glovesJson', $scope.glovesJson);
             $scope.glovesDesign.name = item.name;
             $scope.glovesDesign.image = item.img[0];
             $scope.Arrayname = item.name;
@@ -4278,23 +4288,27 @@ $scope.userMaxPrice = $scope.maxPrice;
 
             $scope.changeGlovesImages = function (color) {
                 console.log(color);
-                $scope.color.base = color;
-                $scope.glovesColors = color;
-                $scope.glovesDesign.color = $scope.glovesColors;
+                $scope.glovesJson.color.base = color;
+                // $scope.color.base = color;
+                // $scope.glovesColors = color;
+                // $scope.glovesDesign.color = $scope.glovesColors;
                 if ($scope.Arrayname == '$scope.glovesImages1') {
                     console.log('here');
-                    $scope.design.base = $scope.glovesImages1[color][0];
+                    $scope.glovesJson.design.base = $scope.glovesImages1[color][0];
+                    // $scope.design.base = $scope.glovesImages1[color][0];
                     $scope.glovesDesign.image = $scope.glovesImages1[color][0];
                 }
                 if ($scope.Arrayname == '$scope.glovesImages2') {
-                    $scope.design.base = $scope.glovesImages2[color][0];
+                    $scope.glovesJson.design.base = $scope.glovesImages2[color][0];
+                    // $scope.design.base = $scope.glovesImages2[color][0];
                     $scope.glovesDesign.image = $scope.glovesImages2[color][0];
                 }
                 if ($scope.Arrayname == '$scope.glovesImages3') {
-                    $scope.design.base = $scope.glovesImages3[color][0];
+                    $scope.glovesJson.design.base = $scope.glovesImages3[color][0];
+                    // $scope.design.base = $scope.glovesImages3[color][0];
                     $scope.glovesDesign.image = $scope.glovesImages3[color][0];
                 }
-
+                console.log('change design color json', $scope.glovesJson);
                 $rootScope.$broadcast('changeImage', {});
 
             }
@@ -4303,7 +4317,7 @@ $scope.userMaxPrice = $scope.maxPrice;
 
 
         $scope.selectDesign($scope.myArr[0]);
-        console.log($scope.myArr[0]);
+        console.log($scope.myArr[0], '$scope.myArr[0]$scope.myArr[0]$scope.myArr[0]');
         // $scope.changeGlovesImages = function(color) {
         //     console.log(color);
         //     $scope.padColors = color;
@@ -4389,8 +4403,18 @@ $scope.userMaxPrice = $scope.maxPrice;
                 $scope.toolarge = true;
             }
         }
+        $scope.glovesJson.quantity = [
+            {
+                quantity: null
+            },
+            {
+                quantity: null
+            }
+        ]
         $scope.confirmUpload = function (variable, name) {
-            $scope.glovesLogo.image = $scope.tempImage;
+            $scope.glovesJson.teamLogo.image = $scope.tempImage;
+            console.log('confirmUpload', $scope.glovesJson);
+            // $scope.glovesLogo.image = $scope.tempImage;
             $scope.tempImage = "";
         }
         $scope.doneUploading = function () {
@@ -4408,8 +4432,9 @@ $scope.userMaxPrice = $scope.maxPrice;
         }
 
         $scope.checkTeamLogo = function () {
-            console.log('troooo', $scope.glovesLogo.image);
-            if ($scope.glovesLogo.isTeamLogo || $scope.glovesLogo.image) {
+            console.log('troooo', $scope.glovesJson.teamLogo.image);
+            if ($scope.glovesJson.sendTeamLogoLater || $scope.glovesJson.teamLogo.image) {
+                // if ($scope.glovesLogo.isTeamLogo || $scope.glovesLogo.image) {
                 $scope.tabchange('quantity', 5);
                 $scope.openTab('d');
             } else {
@@ -4700,34 +4725,33 @@ $scope.userMaxPrice = $scope.maxPrice;
                 controller: "GlovesCtrl",
                 scope: $scope
             })
-        }; {
-            if (formValidate.$valid) {
-                NavigationService.login(input, function (data) {
-                    if (data.value === false) {
-                        $scope.validatelogin = true;
-                    } else {
-                        NavigationService.setUser(data);
-                        // window.location.reload();
-                        $scope.openLogin.close();
-                    }
-                }, function (err) {})
-            } else {
-                $scope.inputall = true;
-            }
-        }
-        //glovesImages path
-        $scope.glovesImages1 = {
-            "dblue": ["img/glovescolor/dblue/1.png"],
-
-            "red": ["img/glovescolor/red/1.png"],
-            "lblue": ["img/glovescolor/lblue/1.png"],
-            "yellow": ["img/glovescolor/yellow/1.png"],
-            "lgreen": ["img/glovescolor/lgreen/1.png"],
-            "dgreen": ["img/glovescolor/dgreen/1.png"],
-            "lorange": ["img/glovescolor/lorange/1.png"],
-            "dorange": ["img/glovescolor/dorange/1.png"],
-            "gold": ["img/glovescolor/gold/1.png"]
         };
+        // if (formValidate.$valid) {
+        //     NavigationService.login(input, function (data) {
+        //         if (data.value === false) {
+        //             $scope.validatelogin = true;
+        //         } else {
+        //             NavigationService.setUser(data);
+        //             // window.location.reload();
+        //             $scope.openLogin.close();
+        //         }
+        //     }, function (err) {})
+        // } else {
+        //     $scope.inputall = true;
+        // }
+
+        //glovesImages path
+        // $scope.glovesImages1 = {
+        //     "dblue": ["img/glovescolor/dblue/1.png"],
+        //     "red": ["img/glovescolor/red/1.png"],
+        //     "lblue": ["img/glovescolor/lblue/1.png"],
+        //     "yellow": ["img/glovescolor/yellow/1.png"],
+        //     "lgreen": ["img/glovescolor/lgreen/1.png"],
+        //     "dgreen": ["img/glovescolor/dgreen/1.png"],
+        //     "lorange": ["img/glovescolor/lorange/1.png"],
+        //     "dorange": ["img/glovescolor/dorange/1.png"],
+        //     "gold": ["img/glovescolor/gold/1.png"]
+        // };
 
         $scope.continue = function () {
             $uibModal.open({
@@ -4782,16 +4806,7 @@ $scope.userMaxPrice = $scope.maxPrice;
         };
 
         // $scope.myArr=[$scope.glovesImages1.yellow,$scope.glovesImages2.yellow,$scope.glovesImages3.yellow];
-        $scope.myArr = [{
-            name: "$scope.glovesImages1",
-            img: $scope.glovesImages1.dblue
-        }, {
-            name: "$scope.glovesImages2",
-            img: $scope.glovesImages2.dgreen
-        }, {
-            name: "$scope.glovesImages3",
-            img: $scope.glovesImages3.red
-        }];
+
 
         $scope.tshirtUpload = function () {
             $uibModal.open({
