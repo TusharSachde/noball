@@ -1407,7 +1407,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
             }
-        }
+        };
 
         $scope.tabchanges = function (tabs, b) {
             $scope.tabs = tabs;
@@ -1548,7 +1548,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.lastJSON = JSON.stringify($scope.combineJSON);
             console.log($scope.combineJSON);
             console.log($scope.lastJSON);
-        }
+        };
 
         console.log($scope.type)
         $scope.openUpload = function () {
@@ -2623,6 +2623,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.toggleTab = function (val) {
             $scope.activeButton = val;
         };
+
         $scope.outplace = function () {
             $uibModal.open({
                 templateUrl: "views/modal/outofplace.html",
@@ -2631,83 +2632,34 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 scope: $scope
             })
         };
-        // $scope.padscolor = [{
-        //     colr: "#ffd700",
-        //     name: "yellow"
-        // }, {
-        //     colr: "#cd3700",
-        //     name: "red"
-        // }, {
-        //     colr: "#63b8ff",
-        //     name: "lblue"
-        // }, {
-        //     colr: "#00008b",
-        //     name: "dblue"
-        // }, {
-        //     colr: "#bcee68",
-        //     name: "lgreen"
-        // }, {
-        //     colr: "#66cd00",
-        //     name: "dgreen"
-        // }, {
-        //     colr: "#ff8247",
-        //     name: "lorange"
-        // }, {
-        //     colr: "#ff3030",
-        //     name: "dorange"
-        // }, {
-        //     colr: "#d2b48c",
-        //     name: "gold"
-        // }];
-        // $scope.padImages1 = {
-        //     "yellow": ["img/padscolor/yellow/1.png"],
-        //     "red": ["img/padscolor/red/1.png"],
-        //     "lblue": ["img/padscolor/lblue/1.png"],
-        //     "dblue": ["img/padscolor/dblue/1.png"],
-        //     "lgreen": ["img/padscolor/lgreen/1.png"],
-        //     "dgreen": ["img/padscolor/dgreen/1.png"],
-        //     "lorange": ["img/padscolor/lorange/1.png"],
-        //     "dorange": ["img/padscolor/dorange/1.png"],
-        //     "gold": ["img/padscolor/gold/1.png"]
 
-        // };
-        // $scope.padImages2 = {
-        //     "yellow": ["img/padscolor/yellow/2.png"],
-        //     "red": ["img/padscolor/red/2.png"],
-        //     "lblue": ["img/padscolor/lblue/2.png"],
-        //     "dblue": ["img/padscolor/dblue/2.png"],
-        //     "lgreen": ["img/padscolor/lgreen/2.png"],
-        //     "dgreen": ["img/padscolor/dgreen/2.png"],
-        //     "lorange": ["img/padscolor/lorange/2.png"],
-        //     "dorange": ["img/padscolor/dorange/2.png"],
-        //     "gold": ["img/padscolor/gold/2.png"]
+        $scope.designJson = {
+            design: {
+                base: "img/padscolor/dblue/dblue.png"
+            },
+            color: {
+                base: "dblue"
+            },
+            teamLogo: {
+                image: null,
+                size: ""
+            },
+            quantity: [{
+                    quantity: null,
+                },
+                {
+                    quantity: null
+                }
+            ]
+        };
+        $scope.colorObj = $scope.padImages1;
 
-        // };
-        // $scope.padImages3 = {
-        //     "yellow": ["img/padscolor/yellow/3.png"],
-        //     "red": ["img/padscolor/red/3.png"],
-        //     "lblue": ["img/padscolor/lblue/3.png"],
-        //     "dblue": ["img/padscolor/dblue/3.png"],
-        //     "lgreen": ["img/padscolor/lgreen/3.png"],
-        //     "dgreen": ["img/padscolor/dgreen/3.png"],
-        //     "lorange": ["img/padscolor/lorange/3.png"],
-        //     "dorange": ["img/padscolor/dorange/3.png"],
-        //     "gold": ["img/padscolor/gold/3.png"]
-
-        // };
-        $scope.openDesign = function (index, tab, img) {
-            if ($scope.LogosTab) {
-                $scope.designIndex = index;
-                $scope.designTab = tab;
-                $scope.designImage = img;
-                $uibModal.open({
-                    templateUrl: "views/modal/tshirtdesign.html",
-                    scope: $scope
-                });
-            } else {
-                $scope.changeDesign(index, tab);
-            }
-        }
+        $scope.openDesign = function (img) {
+            $scope.designJson.design.base = img.img[0];
+            $scope.designJson.design.name = img.name;
+            $scope.designJson.color.base = img.color;
+            $scope.colorObj = img.colorObj;
+        };
 
         $scope.padscolor = [{
             colr: "#000000",
@@ -2731,7 +2683,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             colr: "#ffd700",
             name: "yellow"
         }];
+
+        $scope.color = [{
+            colr: "#f5b122"
+        }, {
+            colr: "#c80d28"
+        }, {
+            colr: "#318db2"
+        }, {
+            colr: "#2c8b47"
+        }, {
+            colr: "#0036ff"
+        }, {
+            colr: "#491f61"
+        }, {
+            colr: "#ffd700",
+            name: "yellow"
+        }];
+
         $scope.padImages1 = {
+            "dblue": ["img/padscolor/dblue/dblue.png"],
             "black": ["img/padscolor/updated/black/1.png"],
             "grey": ["img/padscolor/updated/grey/1.png"],
             "nblue": ["img/padscolor/updated/nblue/1.png"],
@@ -2740,7 +2711,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "white": ["img/padscolor/updated/white/1.png"],
             "yellow": ["img/padscolor/updated/yellow/1.png"]
         };
+
         $scope.padImages2 = {
+            "dgreen": ["img/padscolor/dblue/dgreen.png"],
             "black": ["img/padscolor/updated/black/2.png"],
             "grey": ["img/padscolor/updated/grey/2.png"],
             "nblue": ["img/padscolor/updated/nblue/2.png"],
@@ -2750,28 +2723,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "yellow": ["img/padscolor/updated/yellow/2.png"]
 
         };
-        $scope.padImages3 = {
-            "yellow": ["img/padscolor/yellow/3.png"],
-            "red": ["img/padscolor/red/3.png"],
-            "lblue": ["img/padscolor/lblue/3.png"],
-            "dblue": ["img/padscolor/dblue/3.png"],
-            "lgreen": ["img/padscolor/lgreen/3.png"],
-            "dgreen": ["img/padscolor/dgreen/3.png"],
-            "lorange": ["img/padscolor/lorange/3.png"],
-            "dorange": ["img/padscolor/dorange/3.png"],
-            "gold": ["img/padscolor/gold/3.png"]
 
-        };
 
         $scope.myArr = [{
-            name: "$scope.padImages1",
-            img: $scope.padImages1.yellow
+            name: "pad Images1",
+            img: $scope.padImages1.dblue,
+            color: "dblue",
+            colorObj: $scope.padImages1
         }, {
-            name: "$scope.padImages2",
-            img: $scope.padImages2.yellow
-            // }, {
-            //     name: "$scope.padImages3",
-            //     img: $scope.padImages3.yellow
+            name: "pad Images2",
+            img: $scope.padImages2.dgreen,
+            color: "dgreen",
+            colorObj: $scope.padImages2
         }];
 
         $scope.rslider = {
@@ -2860,26 +2823,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     height: '52px'
                 };
             }
-            $scope.changePadsImages = function (color) {
-                console.log(color);
-                $scope.padColors = color;
-                $scope.padsDesign.color = $scope.padColors;
-                if ($scope.Arrayname == '$scope.padImages1') {
-                    console.log('here');
-                    $scope.selectedImage = $scope.padImages1[color][0];
-                    $scope.padsDesign.image = $scope.padImages1[color][0];
-                }
-                if ($scope.Arrayname == '$scope.padImages2') {
-                    $scope.selectedImage = $scope.padImages2[color][0];
-                    $scope.padsDesign.image = $scope.padImages2[color][0];
-                }
-                // if ($scope.Arrayname == '$scope.padImages3') {
-                //     $scope.selectedImage = $scope.padImages3[color][0];
-                // }
 
-                // $rootScope.$broadcast('changeImage', {});
-            }
-            // $scope.myChoice=item;
+        }
+
+        $scope.changePadsImages = function (color) {
+            console.log(color);
+            var val = _.pick($scope.colorObj, color);
+            console.log(val);
+            $scope.designJson.design.base = val[color][0];
+            $scope.designJson.color.base = color;
+
         }
         $scope.selectPadsDesign($scope.myArr[0]);
         console.log($scope.myArr[0]);
@@ -2895,13 +2848,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.padLogo.image = null;
         }
 
-        $scope.changePadImages = function (padscolor) {
-            console.log(padscolor);
-            $scope.padColors = padscolor;
-            $scope.selectedImage.image = $scope.padImages[padscolor][0];
-            $rootScope.$broadcast('changeImage', {});
-
-        }
         $scope.selectPadImage = function (image) {
             console.log(image);
             $scope.selectedImage = {
@@ -2941,7 +2887,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             })
         };
         $scope.checkloginPads = function () {
-            console.log('ppppppppppp////////////');
+            // if (qty == 0) {
+            //     $scope.qtyValidation = true;
+            // }
             if (NavigationService.getUser()) {
                 $scope.isLogin = true;
             } else {
@@ -2949,21 +2897,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
             if ($scope.isLogin) {
                 console.log('////////////');
-                //   $scope.openSaveDesignPopup = function () {
-                $uibModal.open({
-                    templateUrl: 'views/modal/savedesign.html',
-                    scope: $scope
-                });
-                // };
+                NavigationService.saveDesign(user.email, $scope.designJson, 'pads',
+                    function (data) {
+                        console.log('Save Design data: ', data);
+                        $state.go('savedesign');
+                    },
+                    function (err) {
+                        console.log(err);
+                    });
             } else {
                 console.log('////////////1111111');
                 $scope.openLogin();
-                // $uibModal.open({
-                //     templateUrl: 'views/modal/login.html',
-                //     scope: $scope
-                // });
-
-
             }
         }
         var check = 1;
@@ -3018,7 +2962,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         }
         $scope.confirmUpload = function (variable, name) {
-            $scope.padLogo.image = $scope.tempImage;
+            $scope.designJson.teamLogo.image = $scope.tempImage;
             $scope.tempImage = "";
         }
         $scope.doneUploading = function () {
@@ -3042,18 +2986,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 scope: $scope
             })
         }
-        // $scope.copyrighting = function(){
-        //   $uibModal.open({
-        //     templateUrl: "views/modal/copyrighting.html",
-        //     scope: $scope
-        //   })
-        // }
-        // $scope.openColor = function(){
-        //   $uibModal.open({
-        //     templateUrl: "views/modal/continue.html",
-        //     scope: $scope
-        //   })
-        // }
         $scope.showColorTab = function () {
             $scope.tab = "teamcolor";
         }
@@ -3072,68 +3004,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.tab = "teamlogo";
         }
 
-        $scope.color = [{
-            colr: "#f5b122"
-        }, {
-            colr: "#c80d28"
-        }, {
-            colr: "#318db2"
-        }, {
-            colr: "#2c8b47"
-        }, {
-            colr: "#0036ff"
-        }, {
-            colr: "#491f61"
-        }, {
-            colr: "#ffd700",
-            name: "yellow"
-        }];
-        $scope.padImages1 = {
-            "dblue": ["img/padscolor/dblue/dblue.png"],
-            "black": ["img/padscolor/updated/black/1.png"],
-            "grey": ["img/padscolor/updated/grey/1.png"],
-            "nblue": ["img/padscolor/updated/nblue/1.png"],
-            "ngreen": ["img/padscolor/updated/ngreen/1.png"],
-            "pink": ["img/padscolor/updated/pink/1.png"],
-            "white": ["img/padscolor/updated/white/1.png"],
-            "yellow": ["img/padscolor/updated/yellow/1.png"]
-        };
-        $scope.padImages2 = {
-            "dgreen": ["img/padscolor/dblue/dgreen.png"],
-            "black": ["img/padscolor/updated/black/2.png"],
-            "grey": ["img/padscolor/updated/grey/2.png"],
-            "nblue": ["img/padscolor/updated/nblue/2.png"],
-            "ngreen": ["img/padscolor/updated/ngreen/2.png"],
-            "pink": ["img/padscolor/updated/pink/2.png"],
-            "white": ["img/padscolor/updated/white/2.png"],
-            "yellow": ["img/padscolor/updated/yellow/2.png"]
-
-        };
-        // $scope.padImages3 = {
-
-
-        //     "red": ["img/padscolor/red/3.png"],
-        //     "lblue": ["img/padscolor/lblue/3.png"],
-        //      "yellow": ["img/padscolor/yellow/3.png"],
-        //     "lgreen": ["img/padscolor/lgreen/3.png"],
-        //     "dgreen": ["img/padscolor/dgreen/3.png"],
-        //     "lorange": ["img/padscolor/lorange/3.png"],
-        //     "dorange": ["img/padscolor/dorange/3.png"],
-        //     "gold": ["img/padscolor/gold/3.png"]
-
-        // };
-
-
-        $scope.myArr = [{
-            name: "$scope.padImages1",
-            img: $scope.padImages1.dblue
-        }, {
-            name: "$scope.padImages2",
-            img: $scope.padImages2.dgreen
-            // }, {
-            //     name: "$scope.padImages3",
-            //     img: $scope.padImages3.yellow
-        }];
 
 
 
@@ -3168,38 +3038,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //tab changes
 
         $scope.toOrderSummary = function () {
-            $scope.tl = "";
-            $scope.user = $.jStorage.get("user");
-            if (user) {
-                if ($scope.padLogo.image) {
-                    $scope.tl = $scope.padLogo.image;
-                }
-                $scope.combineJSON = {
-                    "padLogo": $scope.padLogo,
-                    "padsArr": $scope.padsArr,
-                    "padsDesign": $scope.padsDesign,
-                    "teamlogo": $scope.tl,
-                    "totalAmount": $scope.totalAmount,
-                    "totalQuan": $scope.totalQuan,
-                    "name": 'Inside Edge 202',
-                    "designType": 'pads'
-                };
-                $scope.lastJSON = JSON.stringify($scope.combineJSON);
-                console.log($scope.combineJSON);
-                console.log($scope.lastJSON);
-                NavigationService.orderSummaryPads(user.email, $scope.combineJSON, $scope.tl, 'pads',
-                    function (data) {
-                        console.log('Order Summary pads data: ', data);
-                        $state.go('ordersummary', {
-                            id: data.id
-                        });
-                    },
-                    function (err) {
-                        console.log(err);
+            NavigationService.orderSummaryTrouser(user.email, $scope.designJson, 'pads',
+                function (data) {
+                    console.log('Order Summary odi data: ', data);
+                    $state.go('ordersummary', {
+                        id: data.id
                     });
-            } else {
-                $scope.openLogin();
-            }
+                },
+                function (err) {
+                    console.log(err);
+                });
+
+            $scope.lastJSON = JSON.stringify($scope.combineJSON);
+            console.log($scope.combineJSON);
+            console.log($scope.lastJSON);
         }
 
 
@@ -3291,22 +3143,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.LogosTab = val;
         }
 
-        $scope.openDesign = function (index, tab, img) {
-            console.log('//////////');
-            if ($scope.LogosTab) {
-                console.log('//////////11111');
-                $scope.designIndex = index;
-                $scope.designTab = tab;
-                $scope.designImage = img;
-                $uibModal.open({
-                    templateUrl: "views/modal/tshirtdesign.html",
-                    scope: $scope
-                });
-            } else {
-                console.log('//////////33333');
-                $scope.selectPadsDesign(img);
-            }
-        }
 
         $scope.switchNavigation = function (tab) {
             if (tab === 'a') {
@@ -3329,23 +3165,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         };
 
-
-        //    end
-        // $scope.toOrderSummary = function() {
-        //     $scope.allLogos = {};
-        //     $scope.combineJSON = {
-        //         "pads": {
-        //             "pads": $scope.padsArr,
-        //             "allLogos": $scope.padLogo,
-        //             "totalAmount": $scope.totalAmount,
-        //             "totalQuan": $scope.totalQuan
-        //         },
-        //         "type": "pads"
-        //     };
-        //     $scope.lastJSON = JSON.stringify($scope.combineJSON);
-        //     console.log($scope.combineJSON);
-        //     console.log($scope.lastJSON);
-        // }
 
         $scope.openUpload = function () {
             $uibModal.open({
