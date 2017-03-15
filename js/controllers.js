@@ -656,6 +656,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             min: -130,
             max: 200
         };
+
+        // set available range
+$scope.minPrice = 100;
+$scope.maxPrice = 999;
+
+// default the user's values to the available range
+$scope.userMinPrice = $scope.minPrice;
+$scope.userMaxPrice = $scope.maxPrice;
         $scope.outplace = function () {
             $uibModal.open({
                 templateUrl: "views/modal/outofplace.html",
@@ -772,7 +780,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         };
 
-
         $scope.trimTrouser = {};
         $scope.trimTrouser.highlightOne = {};
         $scope.trimTrouser.highlightTwo = {};
@@ -787,6 +794,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.trouserJson.rightLogo.image = "img/logo_black.png";
         // $scope.rightlogo.attributes = {};
         $scope.trouserJson.rightLogo.size = 25;
+         
         $scope.trouserJson.color = {};
         $scope.trouserJson.color.base = "white";
         $scope.trouserJson.color.trim1 = "white";
@@ -812,16 +820,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.switchFrontBack(true, $scope.trouserJson.type);
         $scope.tempImage = "";
         $scope.trouserJson.leftLogo = {};
+        $scope.trouserJson.leftLogo.size = 25;
+        
         $scope.changeLogo = function (key) {
-            $scope.trouserJson.key = {};
+            // $scope.trouserJson.key = {};
             // $scope.customizedTrouser[key].divattributes = {};
             // console.log(key);
-            // $scope.customizedTrouser[key].divattributes.border = "1px solid #ccc";
+            $scope.trouserJson[key].border = "1px solid #ccc";
         };
         $scope.resetLogoStyle = function (key) {
-            $scope.trouserJson.key = {};
+            // $scope.trouserJson.key = {};
             // $scope.customizedTrouser[key].divattributes = {};
-            // $scope.customizedTrouser[key].divattributes.border = "none";
+            $scope.trouserJson[key].border = "none";
             $scope.$apply();
         };
 
@@ -884,13 +894,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.switchTrimHighlightOne = function (color) {
             console.log('colorrr', color);
             $scope.trouserJson.color.trim1 = color;
-            $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim1/" + color + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
+            $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.designName + "/front/trim1/" + color + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
 
         };
         $scope.switchTrimHighlightTwo = function (color) {
             //  console.log('colorswitchTrimHighlighttwo', color);
             $scope.trouserJson.color.trim2 = color;
-            $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.name + "/front/trim2/" + color + ".png";
+            $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.designName + "/front/trim2/" + color + ".png";
 
         };
         $scope.switchTrimHighlightBase = function (color) {
@@ -1183,7 +1193,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trimTrouser.highlightTwo.disable = "noable";
                 $scope.trouserJson.design.name = "Square Leg";
                 $scope.trouserJson.type = "trousers";
-                $scope.designName = "design1";
+                $scope.designName = "design4";
                 $scope.singleAmount = 850;
                 $scope.trouserJson.color.base = "white";
                 $scope.trouserJson.color.trim1 = "lemon_yellow";
@@ -1232,15 +1242,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trimTrouser.highlightTwo.disable = "noable";
                 $scope.trouserJson.design.name = "Long Leg";
                 $scope.trouserJson.type = "trousers";
-                $scope.designName = "design4";
+                $scope.designName = "design1";
                 $scope.singleAmount = 850;
                 $scope.trimTabs.light3.active = "activeme";
                 $scope.trimTabs.light3.show = "active-tab";
-                $scope.trouserJson.color.base = "red";
-                $scope.trouserJson.color.trim1 = "white";
+                $scope.trouserJson.color.base = "black";
+                $scope.trouserJson.color.trim1 = "red";
                 $scope.trouserJson.color.trim2 = "";
-                $scope.trouserJson.design.base = "img/" + $scope.trouserJson.type + "/base/front/" + 'red' + ".png";
-                $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.designName + "/front/trim1/" + 'white' + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
+                $scope.trouserJson.design.base = "img/" + $scope.trouserJson.type + "/base/front/" + 'black' + ".png";
+                $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.designName + "/front/trim1/" + 'red' + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
                 $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.designName + "/front/trim2/" + '' + ".png";
 
             } else if (index === 4) {
@@ -1501,9 +1511,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //         $scope.trousersLogo.image = null;
         //     }
         $scope.emptyImage = function (key) {
-            console.log('ddddddddddd');
-            $scope.customizedTrouser[key] = null;
-            $scope.trouserJson.leftLogo.image = null;
+            console.log('ddddddddddd',key,$scope.trouserJson[key]);
+            // $scope.customizedTrouser[key] = null;
+            $scope.trouserJson[key] = {};
         }
         // console.log('trouserJson',trouserJson);
         $scope.checkTeamLogo = function () {
