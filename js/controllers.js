@@ -2810,9 +2810,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.addQuantity = function (q) {
             $scope.totalQuan = 0;
             $scope.totalAmount = 0;
-            $scope.totalQuan = $scope.designJson.quantity[0].quantity + $scope.designJson.quantity[1].quantity;
+            $scope.totalQuan = parseInt($scope.designJson.quantity[0].quantity + $scope.designJson.quantity[1].quantity);
             if ($scope.totalQuan) {
-                $scope.totalAmount = $scope.totalQuan + $scope.singleAmount;
+                $scope.totalAmount = ($scope.totalQuan * $scope.singleAmount) + 5000;
                 $scope.designJson.totalAmount = $scope.totalAmount;
             }
         };
