@@ -304,11 +304,11 @@
                                             </div>
                                             <div class="edit-btn">
                                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('leftLogo', 'Left Logo')"
-                                                    ng-if="!trouserJson.leftLogo">upload</button>
+                                                    ng-if="!trouserJson.leftLogo.image">upload</button>
                                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('leftLogo', 'Left Logo')"
-                                                    ng-if="trouserJson.leftLogo">change</button>
+                                                    ng-if="trouserJson.leftLogo.image">change</button>
                                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('leftLogo')"
-                                                    ng-if="trouserJson.leftLogo">remove</button>
+                                                    ng-if="trouserJson.leftLogo.image">remove</button>
 
                                             </div>
                                         </div>
