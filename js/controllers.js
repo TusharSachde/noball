@@ -1731,7 +1731,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.customizedCaps[variable].name = name;
             console.log($scope.customizedCaps);
             $scope.tempImage = "";
-        }
+        };
 
         $scope.trimCaps.highlightBase.flag = true;
         $scope.trimCaps.highlightBase.tcolor = "white";
@@ -4230,8 +4230,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.toolarge = true;
             }
         }
-        $scope.glovesJson.quantity = [
-            {
+        $scope.glovesJson.quantity = [{
                 quantity: null
             },
             {
@@ -9215,6 +9214,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // $scope.tshirtdata = {};
 
         console.log('id: ', $state.params.id);
+        $scope.customId = $state.params.id;
 
         NavigationService.getOrderSummary($state.params.id,
             function (data) {
@@ -9654,6 +9654,51 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //     };
 
     // })
+
+    .controller('CustomCheckoutCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $interval, cfpLoadingBar, $uibModal, $window) {
+
+        $scope.template = TemplateService.changecontent("checkoutcustom");
+        $scope.menutitle = NavigationService.makeactive("Checkout");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+        $scope.tabs = [{
+            active: true,
+            disabled: false
+        }, {
+            active: false,
+            disabled: false
+        }, {
+            active: false,
+            disabled: false
+        }];
+
+
+        $interval(function () {
+            console.log($scope.tabs);
+        }, 1000)
+
+        NavigationService.getOrderSummary($state.params.id,
+            function (data) {
+                $scope.design = data.data;
+                $scope.design.description = JSON.parse(data.data.description);
+                console.log($scope.design.description);
+            },
+            function (err) {
+                console.log(err);
+            }
+        );
+
+        $scope.proceedToDeliveryDetails = function () {
+            console.log("Deon");
+            $scope.tabs[1].active = true;
+        };
+        $scope.placeOrder = function () {
+            console.log("Deon");
+            $scope.tabs[2].active = true;
+        };
+    })
+
     .controller('CheckoutCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $interval, cfpLoadingBar, $uibModal, $window) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("checkout");

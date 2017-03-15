@@ -311,22 +311,28 @@
                     <div class="login-form ">
                       <h4 class="login">BILLING ADDRESS</h4>
                       <div class="form-group">
-                        <input type="text" name="billingline1" required ng-change="sameShipping(checkout)" ng-model="checkout.billingline1" class="form-control" placeholder="Flat Number, Building Number *">
+                        <input type="text" name="billingline1" required ng-change="sameShipping(checkout)" ng-model="checkout.billingline1" class="form-control"
+                          placeholder="Flat Number, Building Number *">
                       </div>
                       <div class="form-group">
-                        <input type="text" name="billingline2" required ng-change="sameShipping(checkout)" ng-model="checkout.billingline2" class="form-control" placeholder="Street Address *">
+                        <input type="text" name="billingline2" required ng-change="sameShipping(checkout)" ng-model="checkout.billingline2" class="form-control"
+                          placeholder="Street Address *">
                       </div>
                       <div class="form-group">
-                        <input type="text" name="billingline3" required ng-change="sameShipping(checkout)" ng-model="checkout.billingline3" class="form-control" placeholder="Nearest Landmark">
+                        <input type="text" name="billingline3" required ng-change="sameShipping(checkout)" ng-model="checkout.billingline3" class="form-control"
+                          placeholder="Nearest Landmark">
                       </div>
                       <div class="form-group">
-                        <input type="text" name="billingcity" required ng-change="sameShipping(checkout)" ng-model="checkout.billingcity" class="form-control" placeholder="City">
+                        <input type="text" name="billingcity" required ng-change="sameShipping(checkout)" ng-model="checkout.billingcity" class="form-control"
+                          placeholder="City">
                       </div>
                       <div class="form-group">
-                        <input type="tel" name="billingpincode" required ng-change="sameShipping(checkout)" ng-model="checkout.billingpincode" class="form-control" placeholder="Pin Code">
+                        <input type="tel" name="billingpincode" required ng-change="sameShipping(checkout)" ng-model="checkout.billingpincode" class="form-control"
+                          placeholder="Pin Code">
                       </div>
                       <div class="form-group">
-                        <input type="text" name="billingstate" required ng-change="sameShipping(checkout)" ng-model="checkout.billingstate" class="form-control" placeholder="State">
+                        <input type="text" name="billingstate" required ng-change="sameShipping(checkout)" ng-model="checkout.billingstate" class="form-control"
+                          placeholder="State">
                       </div>
                       <div class="form-group">
 
@@ -362,7 +368,8 @@
                         <input type="text" name="shippingcity" required ng-model="checkout.shippingcity" class="form-control" placeholder="City">
                       </div>
                       <div class="form-group">
-                        <input type="tel" name="shippingpincode" required ng-change="shippingChangeKarKeBataAb()" ng-model="checkout.shippingpincode" class="form-control" placeholder="Pin Code">
+                        <input type="tel" name="shippingpincode" required ng-change="shippingChangeKarKeBataAb()" ng-model="checkout.shippingpincode"
+                          class="form-control" placeholder="Pin Code">
                       </div>
                       <div class="form-group">
                         <input type="text" name="shippingstate" required ng-model="checkout.shippingstate" class="form-control" placeholder="State">
@@ -461,7 +468,8 @@
                   <div class="col-md-12">
                     <!-- <h4>Payment Gateway under testing.</h4> -->
                     <div class="order-table checkout-detail">
-                      <form method="post" action="http://customcricketcompany.com/admin/paymentgateway/PayUMoney_form.php" name="customerData"> <!--  -->
+                      <form method="post" action="http://customcricketcompany.com/admin/paymentgateway/PayUMoney_form.php" name="customerData">
+                        <!--  -->
                         <div class="">
                           <div class="row">
                             <div class="col-md-6">
@@ -645,7 +653,8 @@
                           </div>
                         </div>
                         <div class="text-center paypal">
-                          <img ng-if="country !== 'INR'" src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" class="pointer" align="left" style="margin-right:7px;" ng-click="payWithPaypal()"/>
+                          <img ng-if="country !== 'INR'" src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" class="pointer" align="left"
+                            style="margin-right:7px;" ng-click="payWithPaypal()" />
 
                           <button ng-if="country == 'INR'" class="btn btn-outline btn-dark letter-spacing" type="submit">Place order</button>
                         </div>

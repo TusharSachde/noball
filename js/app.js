@@ -268,6 +268,11 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, cfp
       templateUrl: "views/template.html",
       controller: 'CheckoutCtrl'
     })
+    .state('customCheckout', {
+      url: "/checkout/:id",
+      templateUrl: "views/template.html",
+      controller: 'CustomCheckoutCtrl'
+    })
     .state('ordersummary', {
       url: "/ordersummary/:id",
       templateUrl: "views/template.html",
