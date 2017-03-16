@@ -98,7 +98,7 @@
                             <div class="row">
                                 <div class="col-md-10">
                                     <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images.page1 track by $index" ng-if="page==1">
-                                        <div class="cat-img pointer" ng-class="{'border-line':$index + 1 = true}" ng-click="openDesign($index, 1);designTabJson(img,'trousers')"
+                                        <div class="cat-img pointer" ng-class="{'border-line':$index + 1 = true}" ng-click="openDesign($index, 1,img);designTabJson(img,'trousers')"
                                             title="Design {{$index + 1}}">
                                             <img ng-src="{{img.src}}" class="img-responsive">
                                         </div>
@@ -144,7 +144,7 @@
                 <button class="{{designButton.design3.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(3);">Cut &amp; Sew</button>
                 <button class="{{designButton.design4.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(4);">Polo</button>-->
                             </div>
-                            <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="tabchange('trim',2); switchFrontBack(true,trouserJson.type); switchTrimHighlightBase(trouserJson.color.base); switchTrimHighlightOne(trouserJson.color.trim1); switchTrimHighlightTwo(trouserJson.color.trim2); openTab('b');">NEXT</button>
+                            <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="tabchange('trim',2); switchFrontBack(true,trouserJson.type); switchTrimHighlightBase(trouserJson.color.base,trouserJson.color.baseColorName); switchTrimHighlightOne(trouserJson.color.trim1,trouserJson.color.trim1ColorName); switchTrimHighlightTwo(trouserJson.color.trim2,trouserJson.color.trim2ColorName); openTab('b');">NEXT</button>
                             <!--<div class="edit-btn inline-block">
 
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('trim', 2); openTab('b');">NEXT</button>
@@ -174,7 +174,7 @@
                                         <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in colorr track by $index">
                                             <div class="colo-pallet text-center">
                                                 <div class="noti-img notihov" ng-class="{'coloracive':colorr.highlightOne == col.name, 'borergrey':col.name == 'white'};"
-                                                    ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightOne(col.name); trimHexColors('highlightOne', col.colr);"
+                                                    ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightOne(col.colr,col.name); trimHexColors('highlightOne', col.colr);"
                                                     title="{{col.name | capitalize}}"></div>
                                             </div>
                                         </div>
@@ -188,7 +188,7 @@
                                         <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in colorr track by $index">
                                             <div class="colo-pallet text-center">
                                                 <div class="noti-img notihov" ng-class="{'coloracive':color.trim2 == col.name, 'borergrey':col.name == 'white'};" ng-style="{'background-color':'{{col.colr}}'}"
-                                                    ng-click="switchTrimHighlightTwo(col.name); trimHexColors('highlightTwo', col.colr);"
+                                                    ng-click="switchTrimHighlightTwo(col.colr,col.name); trimHexColors('highlightTwo', col.colr);"
                                                     title="{{col.name | capitalize}}"></div>
                                             </div>
                                         </div>
@@ -202,7 +202,7 @@
                                         <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in colorr track by $index">
                                             <div class="colo-pallet text-center">
                                                 <div class="noti-img notihov" ng-class="{'coloracive':color.base == col.name, 'borergrey':col.name == 'white'};" ng-style="{'background-color':'{{col.colr}}'}"
-                                                    ng-click="switchTrimHighlightBase(col.name); trimHexColors('highlightBase', col.colr);"
+                                                    ng-click="switchTrimHighlightBase(col.colr,col.name); trimHexColors('highlightBase', col.colr);"
                                                     title="{{col.name | capitalize}}"></div>
                                             </div>
                                         </div>
@@ -598,7 +598,7 @@
                                         <p class="pointer" ng-click="addTrouserValues(trouser.quantity,trouser.size); addQuantity(trouser.quantity);"><i class="fa mr7 fa-plus" aria-hidden="true"></i> ADD</p>
                                     </div>
                                     <div class="total-amount">
-                                        <p class="more-price">One time customization fee for Trouser is <i class="fa fa-inr"></i> 5000</p>
+                                        <!--<p class="more-price">One time customization fee for Trouser is <i class="fa fa-inr"></i> 5000</p>-->
                                         <span class="pull-right tamount uppercase Raleway-Medium mar20">Total Amount: {{trouserJson.totalAmount}}</span>
                                         <span class="pull-right tquantity uppercase Raleway-Medium mar20">Total Quantity: {{trouserJson.totalQuan}}</span>
                                     </div>

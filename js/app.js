@@ -84,6 +84,12 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, cfp
       controller: 'TrousersCtrl'
     })
 
+     .state('trousersEdit', {
+      url: "/trousers/:status",
+      templateUrl: "views/template.html",
+      controller: 'TrousersCtrl'
+    })
+
     .state('trouser-review', {
       url: "/trouser-review",
       templateUrl: "views/template.html",
