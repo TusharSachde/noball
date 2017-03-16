@@ -2752,12 +2752,12 @@ console.log('$scope.trouserJson',$scope.trouserJson);
 
 
         $scope.myArr = [{
-            name: "pad Images1",
+            name: "HOWZAT 101",
             img: $scope.padImages1.dblue,
             color: "dblue",
             colorObj: $scope.padImages1
         }, {
-            name: "pad Images2",
+            name: "NOT OUT 303",
             img: $scope.padImages2.dgreen,
             color: "dgreen",
             colorObj: $scope.padImages2
