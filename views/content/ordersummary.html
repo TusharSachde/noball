@@ -80,10 +80,10 @@
                   <thead>
                     <tr>
                       <th class="uppercase">size</th>
-                      <th class="uppercase">sleeve</th>
+                      <th class="uppercase" ng-if="design.description.type=='odi-shirt'">sleeve</th>
                       <th class="uppercase">qty.</th>
-                      <th class="uppercase">name</th>
-                      <th class="uppercase">no.</th>
+                      <th class="uppercase" ng-if="design.description.type=='odi-shirt'">name</th>
+                      <th class="uppercase" ng-if="design.description.type=='odi-shirt'">no.</th>
                     </tr>
                   </thead>
                 </table>
@@ -92,17 +92,18 @@
                     <tr ng-repeat="jersey in design.description.quantity track by $index">
                       <td class="text-center size">
                         <span class="capitalize">{{jersey.size}}</span>
+
                       </td>
-                      <td class="text-center sleeve">
+                      <td class="text-center sleeve" ng-if="design.description.type=='odi-shirt'">
                         <span class="capitalize">{{jersey.sleeve}}</span>
                       </td>
                       <td class="text-center qty">
-                        <span class="capitalize">{{jersey.quantity}}</span>
+                        <span class="capitalize">{{jersey.quantity||0}}</span>
                       </td>
-                      <td class="text-center name">
+                      <td class="text-center name" ng-if="design.description.type=='odi-shirt'">
                         <span class="capitalize">{{jersey.name}}</span>
                       </td>
-                      <td class="text-center no">
+                      <td class="text-center no" ng-if="design.description.type=='odi-shirt'">
                         <span class="capitalize">{{jersey.no}}</span>
                       </td>
                     </tr>
