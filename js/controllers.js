@@ -1345,7 +1345,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trouserJson.design.designName = "design2";
                 $scope.trouserJson.type = "shorts";
                 $scope.singleAmount = 650;
-                  $scope.trouserJson.color.baseColorName= "black";
+                  $scope.trouserJson.color.baseColorName= "black1";
                 $scope.trouserJson.color.trim1ColorName = "australian_green";
                 $scope.trouserJson.color.trim2ColorName = "";
  $scope.trouserJson.color.base = img.baseColor;
@@ -1353,7 +1353,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trouserJson.color.trim2 = img.trim2Color;
                 $scope.trimTabs.light3.active = "activeme";
                 $scope.trimTabs.light3.show = "active-tab";
-                $scope.trouserJson.design.base = "img/" + $scope.trouserJson.type + "/base/front/" + 'black' + ".png";
+                $scope.trouserJson.design.base = "img/" + $scope.trouserJson.type + "/base/front/" + 'black1' + ".png";
                 $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.designName + "/front/trim1/" + 'australian_green' + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
                 $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.designName + "/front/trim2/" + '' + ".png";
             } else if (index === 7) {
