@@ -2652,7 +2652,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             },
             teamLogo: {
                 image: null,
-                size: ""
+                size: 10
             },
             quantity: [{
                     quantity: null,
@@ -2871,7 +2871,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log($scope.myArr[0]);
 
         $scope.changeLogo = function (key) {
-            $scope.padLogo.divattributes.border = "1px solid #ccc";
+            $scope.designJson.teamLogo.size = $scope.rslider.max;
         };
         $scope.resetLogoStyle = function (key) {
             $scope.padLogo.divattributes.border = "none";
