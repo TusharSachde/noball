@@ -243,9 +243,9 @@
                                 </div>
                             </div>
                             <div class="edit-btn">
-                                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('gloveslogo', 'Team Logo')" ng-if="!glovesLogo.image">upload</button>
-                                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('gloveslogo', 'Team Logo')" ng-if="glovesLogo.image">change</button>
-                                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('gloveslogo')" ng-if="glovesLogo.image">remove</button>
+                                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('gloveslogo', 'Team Logo')" ng-if="!glovesJson.teamLogo.image">upload</button>
+                                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('gloveslogo', 'Team Logo')" ng-if="glovesJson.teamLogo.image">change</button>
+                                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('teamLogo')" ng-if="glovesJson.teamLogo.image">remove</button>
                             </div>
                             </div>
 
@@ -668,7 +668,7 @@
                             <div class="edit-btn">
                                 <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="checkloginGloves(glove.quantity);">save design</button>
                                 <p ng-if="qtyValidation">Please enter valid Quantity.</p>
-                                <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" ng-click="toOrderSummary(glove.quantity)" ng-disabled="totalQuan<12">next</button>
+                                <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" ng-click="toOrderSummary(glove.quantity)" ng-disabled="">next</button>
                                 <p ng-if="qtyVal">Please enter valid Quantity.</p>
                                 <br>
                             </div>

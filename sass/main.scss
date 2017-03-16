@@ -2627,6 +2627,9 @@ footer {
         position: absolute;
         z-index: 99;
         @extend .div-flex;
+        // img{
+        //     width: 100%;
+        // }
     }
     .div-main-logo {
         max-width: 150px;

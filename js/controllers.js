@@ -3841,9 +3841,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.design = {};
         $scope.glovesJson = {};
         $scope.glovesJson.design = {};
+        $scope.glovesJson.type = 'gloves';
         $scope.glovesJson.color = {};
         $scope.glovesJson.teamLogo = {};
-        $scope.glovesJson.teamLogo.size = 25;
+        // $scope.glovesJson.teamLogo.size = 25;
         // $scope.design.base = ''
         $scope.color = {};
         $scope.LogosTab = false;
@@ -3928,33 +3929,47 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.qtyValidation = false;
         $scope.checkloginGloves = function (qty) {
-            if (qty == 0) {
-                $scope.qtyValidation = true;
-            }
-            console.log('qqqqqqq////////////');
             if (NavigationService.getUser()) {
                 $scope.isLogin = true;
             } else {
                 $scope.isLogin = false;
             }
             if ($scope.isLogin) {
-                console.log('////////////');
-                //   $scope.openSaveDesignPopup = function () {
-                $uibModal.open({
-                    templateUrl: 'views/modal/savedesign.html',
-                    scope: $scope
-                });
-                // };
-            } else {
-                console.log('////////////1111111');
-                $scope.openLogin();
-                // $uibModal.open({
-                //     templateUrl: 'views/modal/login.html',
-                //     scope: $scope
-                // });
-
-
+                // console.log('////////////');
+                NavigationService.saveDesign(user.email, $scope.glovesJson, 'gloves',
+                    function (data) {
+                        console.log('Save Design data:checkloginGloves ', data);
+                        $state.go('savedesign');
+                    },
+                    function (err) {
+                        console.log(err);
+                    });
             }
+            // if (qty == 0) {
+            //     $scope.qtyValidation = true;
+            // }
+            // console.log('qqqqqqq////////////');
+            // if (NavigationService.getUser()) {
+            //     $scope.isLogin = true;
+            // } else {
+            //     $scope.isLogin = false;
+            // }
+            // if ($scope.isLogin) {
+            //     console.log('////////////');
+            //     $uibModal.open({
+            //         templateUrl: 'views/modal/savedesign.html',
+            //         scope: $scope
+            //     });
+            // } else {
+            //     console.log('////////////1111111');
+            //     $scope.openLogin();
+            //     // $uibModal.open({
+            //     //     templateUrl: 'views/modal/login.html',
+            //     //     scope: $scope
+            //     // });
+
+
+            // }
         }
         $scope.doLogin = function (input, formValidate) {
             $scope.validatelogin = false;
@@ -4084,7 +4099,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.glovesDesign = {};
 
         $scope.selectDesign = function (item) {
-            console.log(item.color);
+            console.log(item);
             $scope.glovesJson.design.base = item.img[0];
             $scope.glovesJson.color.base = item.color;
             console.log('$scope.glovesJson', $scope.glovesJson);
@@ -4169,7 +4184,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.$apply();
         };
         $scope.emptyImage = function (key) {
-            $scope.glovesLogo.image = null;
+            // $scope.glovesLogo.image = null;
+            // $scope.glovesJson.teamLogo.image = '';
+            $scope.glovesJson[key] = {};
         }
 
 
@@ -4350,45 +4367,59 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.qtyVal = false;
         $scope.toOrderSummary = function (qty) {
-            console.log('drfghjrftghbsssssssssss', qty);
-            if (qty == '0') {
-                console.log('drfghjrftghb');
-                $scope.qtyVal = true;
-            } else {
-                console.log('drfghjrftghbsssssssssss');
-                $scope.tl = "";
-                $scope.user = $.jStorage.get("user");
-                if (user) {
-                    if ($scope.glovesLogo.image) {
-                        $scope.tl = $scope.glovesLogo.image;
-                    }
-                    $scope.combineJSON = {
-                        "glovesLogo": $scope.glovesLogo,
-                        "glovesArr": $scope.glovesArr,
-                        "glovesDesign": $scope.glovesDesign,
-                        "teamlogo": $scope.tl,
-                        "totalAmount": $scope.totalAmount,
-                        "totalQuan": $scope.totalQuan,
-                        "name": 'Switch',
-                        "designType": 'gloves'
-                    };
-                    $scope.lastJSON = JSON.stringify($scope.combineJSON);
-                    console.log($scope.combineJSON);
-                    console.log($scope.lastJSON);
-                    NavigationService.orderSummaryGloves(user.email, $scope.combineJSON, $scope.tl, 'gloves',
-                        function (data) {
-                            console.log('Order Summary gloves data: ', data);
-                            $state.go('ordersummary', {
-                                id: data.id
-                            });
-                        },
-                        function (err) {
-                            console.log(err);
-                        });
-                } else {
-                    $scope.openLogin();
-                }
-            }
+            NavigationService.orderSummaryTrouser(user.email, $scope.glovesJson, 'gloves',
+                function (data) {
+                    console.log('Order Summary odi data glovesJson: ', data);
+                    $state.go('ordersummary', {
+                        id: data.id
+                    });
+                },
+                function (err) {
+                    console.log(err);
+                });
+
+            // $scope.lastJSON = JSON.stringify($scope.combineJSON);
+            // console.log($scope.combineJSON);
+            // console.log($scope.lastJSON);
+            // console.log('drfghjrftghbsssssssssss', qty);
+            // if (qty == '0') {
+            //     console.log('drfghjrftghb');
+            //     $scope.qtyVal = true;
+            // } else {
+            //     console.log('drfghjrftghbsssssssssss');
+            //     $scope.tl = "";
+            //     $scope.user = $.jStorage.get("user");
+            //     if (user) {
+            //         if ($scope.glovesLogo.image) {
+            //             $scope.tl = $scope.glovesLogo.image;
+            //         }
+            //         $scope.combineJSON = {
+            //             "glovesLogo": $scope.glovesLogo,
+            //             "glovesArr": $scope.glovesArr,
+            //             "glovesDesign": $scope.glovesDesign,
+            //             "teamlogo": $scope.tl,
+            //             "totalAmount": $scope.totalAmount,
+            //             "totalQuan": $scope.totalQuan,
+            //             "name": 'Switch',
+            //             "designType": 'gloves'
+            //         };
+            //         $scope.lastJSON = JSON.stringify($scope.combineJSON);
+            //         console.log($scope.combineJSON);
+            //         console.log($scope.lastJSON);
+            //         NavigationService.orderSummaryGloves(user.email, $scope.combineJSON, $scope.tl, 'gloves',
+            //             function (data) {
+            //                 console.log('Order Summary gloves data: ', data);
+            //                 $state.go('ordersummary', {
+            //                     id: data.id
+            //                 });
+            //             },
+            //             function (err) {
+            //                 console.log(err);
+            //             });
+            //     } else {
+            //         $scope.openLogin();
+            //     }
+            // }
         }
 
 
@@ -10025,9 +10056,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Save Design");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-
-        $scope.user = $.jStorage.get('user');
-        if ($scope.user) {
+ $scope.user = $.jStorage.get('user');
+        $scope.getDesigns = function () {
             NavigationService.getDesigns($scope.user.email,
                 function (data) {
                     $scope.savedDesigns = data.data;
@@ -10035,8 +10065,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         n.description = JSON.parse(n.description);
                         return n;
                     });
-                    console.log(data);
+                    console.log('getDesigns',data);
                 });
+        }
+// $scope.getDesigns();
+       
+        if ($scope.user) {
+            $scope.getDesigns();
         } else {}
 
         $scope.editDesign = function (design) {
@@ -10051,6 +10086,30 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     }
             }
         };
+
+        $scope.deletePopup = function (index, id) {
+            $scope.designIndex = index;
+            $scope.designId = id;
+            $scope.deletePopup1 = $uibModal.open({
+                templateUrl: "views/modal/odi-summery-delete.html",
+                // controller: "SaveDesignCtrl",
+                scope: $scope
+            })
+        };
+        $scope.removeSavedDesign = function (index) {
+            $scope.deletePopup1.close();
+            // console.log('hhhhhhhhhhh', $scope.savedDesigns, index);
+            // $scope.savedDesigns.splice(index, 1);
+            // $.jStorage.set('savedDesigns', $scope.savedDesigns);
+            // $scope.savedDesigns = $.jStorage.get('savedDesigns');
+            NavigationService.deleteSaveDesign($scope.designId, function () {
+                console.log('deleted', $scope.designId);
+                $state.reload();
+                
+                //  $scope.getDesigns();
+                
+            })
+        }
 
     })
     .controller('WishlistCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {

@@ -8,7 +8,7 @@
               design: "=design"
           },
           link: function ($scope, element, attrs) {
-              console.log('design type:', $scope.design.type);
+            //   console.log('design type:', $scope.design.type);
               var design = $scope.design;
               $scope.backgroundImages = function () {
                   var obj = _.compact(_.map(design.design, function (n, key) {
@@ -16,7 +16,7 @@
                           return n;
                       }
                   }));
-                  console.log(obj);
+                //   console.log(obj);
                   return obj;
               };
 
@@ -52,14 +52,21 @@
                           left: 130
                       },
                   },
-                  "gloves": [],
-                  "pads": {
+                  "gloves": { 
                       teamLogo: {
-                          width: 30,
-                          height: 30,
-                          bottom: 85,
-                          right: 130
+                          width: 60,
+                          height: 60,
+                          top: 208,
+                          right: 69
                       }
+                    },
+                  "pads": {
+                     teamLogo: {
+                             width: 55,
+                             height: 55,
+                             bottom: 59,
+                             right: 155
+                     }
                   }
               };
               $scope.imagesPositions = function () {
