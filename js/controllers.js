@@ -1201,7 +1201,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trouserJson.design.base = "img/" + $scope.trouserJson.type + "/base/front/" + 'white' + ".png";
                 $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.designName + "/front/trim1/" + 'lemon_yellow' + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
                 $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.designName + "/front/trim2/" + '' + ".png";
-
+console.log('$scope.trouserJson',$scope.trouserJson);
             } else if (index === 1) {
                 $scope.trimTrouser.highlightBase.disable = "unnoable";
                 $scope.trimTrouser.highlightOne.disable = "unnoable";
@@ -3844,7 +3844,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.glovesJson.type = 'gloves';
         $scope.glovesJson.color = {};
         $scope.glovesJson.teamLogo = {};
-        // $scope.glovesJson.teamLogo.size = 25;
+        $scope.glovesJson.teamLogo.size = 25;
         // $scope.design.base = ''
         $scope.color = {};
         $scope.LogosTab = false;
@@ -4177,10 +4177,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // }
 
         $scope.changeLogo = function (key) {
-            $scope.glovesLogo.divattributes.border = "1px solid #ccc";
+            // $scope.glovesLogo.divattributes.border = "1px solid #ccc";
+            $scope.glovesJson[key].border = "1px solid #ccc";
         };
         $scope.resetLogoStyle = function (key) {
-            $scope.glovesLogo.divattributes.border = "none";
+            // $scope.glovesLogo.divattributes.border = "none";
+              $scope.glovesJson[key].border = "none";
             $scope.$apply();
         };
         $scope.emptyImage = function (key) {
