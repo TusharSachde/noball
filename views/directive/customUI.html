@@ -5,7 +5,7 @@
 
         <div class="div-internal-image" ng-hide="isBack" ng-repeat="(key,imagePos) in imagesPositions()" ng-style="imagePos">
             <img ng-src="{{design[key].image | serverimage}}" ng-if="design[key].image && design[key].image != ''" ng-style="{width:design[key].size}"
-                noloading="true" class="div-internal-image" alt="">
+                noloading="true">
         </div>
 
     </div>
