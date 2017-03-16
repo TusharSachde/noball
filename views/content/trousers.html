@@ -36,40 +36,7 @@
                         <div class="text-center">
                             <custom design="trouserJson" ng-if="trouserJson">
                             </custom>
-                            <!--<div class="gully-shirt">                        
-                            <img ng-src="{{trouserJson.design.highlightOne}}"  class="trimshirt img-responsive" alt="">
-                            <img ng-src="{{trouserJson.design.highlightTwo}}" class="trimshirt img-responsive" alt="">
-                            <img ng-src="{{trouserJson.design.base}}" class="trimshirtbase img-responsive" alt="">-->
-                            <!---if pants-->
-                            <!--<div class="div-trouser-left-logo" ng-if="pantType=='trousers' && trouserJson.leftLogo.image" ng-style="customizedTrouser.leftlogo.divattributes">
-                                <img id="trouserleftlogo" ng-src="{{trouserJson.leftLogo.image | serverimage}}" class="trouser-left-logo" alt="" ng-style="customizedTrouser.leftlogo.attributes">
-                            </div>
-                            <div class="div-trouser-right-logo" ng-if="pantType=='trousers' && trouserJson.rightLogo.image" ng-style="trouserJson.rightlogo.divattributes">
-                                <img id="trouserrightlogo" ng-src="{{trouserJson.rightLogo.image | serverimage}}" class="trouser-right-logo" alt="" ng-style="customizedTrouser.rightlogo.attributes">
-                            </div> -->
-                            <!---close of if pants-->
-                            <!--if shorts-->
-                            <!--<div class="div-short-left-logo" ng-if="pantType=='shorts' && customizedTrouser.front && customizedTrouser.leftlogo.image" ng-style="customizedTrouser.leftlogo.divattributes">
-                                <img id="trouserleftlogo" ng-src="{{customizedTrouser.leftlogo.image | serverimage}}" class="trouser-left-logo" alt="" ng-style="customizedTrouser.leftlogo.attributes">
-                            </div>
-                            <div class="div-short-right-logo" ng-if="pantType=='shorts' && customizedTrouser.front && customizedTrouser.rightlogo.image" ng-style="customizedTrouser.rightlogo.divattributes">
-                                <img id="trouserrightlogo" ng-src="{{customizedTrouser.rightlogo.image | serverimage}}" class="trouser-right-logo" alt="" ng-style="customizedTrouser.rightlogo.attributes">
-                            </div>-->
-                            <!--close of if shorts -->
-                            <!--shorts logo upload section -->
-                            <!--<div class="div-left-short" ng-if="customizedShort.front && mainlogo.image" ng-style="mainlogo.divattributes">
-                                <img class="left-chest" ng-src="{{mainlogo.image | serverimage}}" alt="" ng-style="mainlogo.attributes">
-                            </div>
-                            <div class="div-right-short" ng-if="customizedShort.front && customizedShort.teamlogo.image" ng-style="customizedShort.teamlogo.divattributes">
-                                <img class="left-chest" ng-src="{{customizedShort.teamlogo.image | serverimage}}" alt="" ng-style="customizedShort.teamlogo.attributes">
-                            </div>
-                        </div>  -->
-                            <div class="prev inline-block">
-                                <p class="uppercase" ng-click="switchFrontBack(true,trouserJson.type); switchTrimHighlightBase(color.base); switchTrimHighlightOne(color.trim1); switchTrimHighlightTwo(color.trim2);"><img src="img/back.png" class="img-responsive" alt="">front</p>
-                            </div>
-                            <div class="next inline-block">
-                                <p class="uppercase" ng-click="switchFrontBack(false,trouserJson.type); switchTrimHighlightBase(color.base); switchTrimHighlightOne(color.trim1); switchTrimHighlightTwo(color.trim2);"><img src="img/back.png" class="img-responsive" alt="">back</p>
-                            </div>
+
                             <div class="feature-buttons">
                                 <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 1}"
                                     ng-click="toggleTab(1)">FORM + FUNCTION</button>
@@ -268,7 +235,7 @@
                                             <div class="size-box" ng-if="trouserJson.rightLogo.image">
                                                 Size:
                                                 <div class="range">
-                                                     <!--<div range-slider min="minPrice" max="maxPrice" on-handle-down="changeLogo('leftLogo')" on-handle-up="resetLogoStyle('leftLogo')" ng-model="trouserJson.leftLogo.size" model-min="userMinPrice" model-max="userMaxPrice" pin-handle="min"></div>-->
+                                                    <!--<div range-slider min="minPrice" max="maxPrice" on-handle-down="changeLogo('leftLogo')" on-handle-up="resetLogoStyle('leftLogo')" ng-model="trouserJson.leftLogo.size" model-min="userMinPrice" model-max="userMaxPrice" pin-handle="min"></div>-->
                                                     <div range-slider on-handle-down="changeLogo('rightLogo')" on-handle-up="resetLogoStyle('rightLogo')" ng-model="trouserJson.rightLogo.size"
                                                         min="-150" max="200" model-max="trouserJson.rightLogo.size" model-min="rslider.min"
                                                         pin-handle="min"></div>
@@ -298,11 +265,11 @@
                                             <div class="size-box" ng-if="trouserJson.leftLogo">
                                                 Size:
                                                 <div class="range">
-                                                   <!--<div range-slider min="minPrice" max="maxPrice" on-handle-down="changeLogo('leftLogo')" on-handle-up="resetLogoStyle('leftLogo')" ng-model="trouserJson.leftLogo.size" model-min="userMinPrice" model-max="userMaxPrice" pin-handle="min"></div>-->
+                                                    <!--<div range-slider min="minPrice" max="maxPrice" on-handle-down="changeLogo('leftLogo')" on-handle-up="resetLogoStyle('leftLogo')" ng-model="trouserJson.leftLogo.size" model-min="userMinPrice" model-max="userMaxPrice" pin-handle="min"></div>-->
                                                     <!--<div range-slider on-handle-down="changeLogo('leftLogo')" on-handle-up="resetLogoStyle('leftLogo')" ng-model="trouserJson.leftLogo.size"
                                                         min="0" max="200" model-max="trouserJson.leftLogo.size" model-min="rslider.min"
                                                         pin-handle="min"></div>-->
-                                                        <div range-slider on-handle-down="changeLogo('leftLogo')" on-handle-up="resetLogoStyle('leftLogo')" ng-model="trouserJson.leftLogo.size"
+                                                    <div range-slider on-handle-down="changeLogo('leftLogo')" on-handle-up="resetLogoStyle('leftLogo')" ng-model="trouserJson.leftLogo.size"
                                                         min="-150" max="200" model-max="trouserJson.leftLogo.size" model-min="rslider.min"
                                                         pin-handle="min"></div>
                                                 </div>

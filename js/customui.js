@@ -8,15 +8,22 @@
               design: "=design"
           },
           link: function ($scope, element, attrs) {
-              console.log('design type:', $scope.design.type);
               var design = $scope.design;
               $scope.backgroundImages = function () {
-                  var obj = _.compact(_.map(design.design, function (n, key) {
-                      if (key != "name") {
-                          return n;
-                      }
-                  }));
-                  console.log(obj);
+                  if ($scope.isBack) {
+                      var obj = _.compact(_.map(design.design, function (n, key) {
+                          if (key != "name" && !_.endsWith(n, '/.png')) {
+                              n = n.replace("/front/", "/back/");
+                              return n;
+                          }
+                      }));
+                  } else {
+                      var obj = _.compact(_.map(design.design, function (n, key) {
+                          if (key != "name" && !_.endsWith(n, '/.png')) {
+                              return n;
+                          }
+                      }));
+                  }
                   return obj;
               };
 
@@ -64,6 +71,13 @@
               };
               $scope.imagesPositions = function () {
                   return allOtherImages[$scope.design.type];
+              };
+              $scope.showFront = function () {
+                  $scope.isBack = false;
+              };
+
+              $scope.showBack = function () {
+                  $scope.isBack = true;
               };
 
 
