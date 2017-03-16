@@ -175,7 +175,7 @@
                     <div class="choos m20-l" ng-show="tab=='team'">
                         <!--<p>Upload Your Logo</p>-->
                         <div class="checkboxing">
-                            <input type="checkbox" class="form-control" id="later" ng-model="padLogo.isTeamLogo">
+                            <input type="checkbox" class="form-control" id="later" ng-model="designJson.sendTeamLogoLater">
                             <label for="later"><span></span>SEND TEAM LOGO LATER</label>
                         </div>
                         <!--<div class="logo-text">
@@ -205,11 +205,11 @@
                                 </div>
                                 <div class="edit-btn">
                                     <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('padlogo', 'Team Logo')"
-                                        ng-if="!padLogo.image">upload</button>
+                                        ng-if="!designJson.teamLogo.image">upload</button>
                                     <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('padlogo', 'Team Logo')"
-                                        ng-if="padLogo.image">change</button>
-                                    <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('padlogo')"
-                                        ng-if="padLogo.image">remove</button>
+                                        ng-if="designJson.teamLogo.image">change</button>
+                                    <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('teamLogo')"
+                                        ng-if="designJson.teamLogo.image">remove</button>
                                 </div>
                             </div>
 

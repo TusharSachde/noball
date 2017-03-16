@@ -2740,7 +2740,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     size: "Right"
                 }
             ],
-            type: "pads"
+            type: "pads",
+            sendTeamLogoLater: false
         };
 
         $scope.colorObj = $scope.padImages1;
@@ -2854,7 +2855,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
 
         $scope.padLogo = {};
-        $scope.padLogo.isTeamLogo = false;
+        // $scope.padLogo.isTeamLogo = false;
         $scope.padLogo.divattributes = {
             top: '342px',
             left: '278px'
@@ -2952,7 +2953,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.$apply();
         };
         $scope.emptyImage = function (key) {
-            $scope.padLogo.image = null;
+            // $scope.padLogo.image = null;
+             $scope.designJson[key] = {};
         }
 
         $scope.selectPadImage = function (image) {
@@ -2965,7 +2967,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
 
         $scope.checkTeamLogo = function () {
-            if ($scope.padLogo.isTeamLogo || $scope.padLogo.image) {
+            if ($scope.designJson.sendTeamLogoLater || $scope.designJson.teamLogo.image) {
                 $scope.tabchange('quantity', 5);
                 $scope.openTab('d');
             } else {
@@ -10159,12 +10161,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         $state.go("padsEdit", {
                             status: "edit"
                         });
+                        break;
                     }
                      case "trouser":
                     {
+
                         $state.go("trousersEdit", {
                             status: "edit"
                         });
+                        break;
                     }
             }
         };
