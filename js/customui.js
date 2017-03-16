@@ -8,17 +8,7 @@
               design: "=design"
           },
           link: function ($scope, element, attrs) {
-<<<<<<< HEAD
-            //   console.log('design type:', $scope.design.type);
-              var design = $scope.design;
-              $scope.backgroundImages = function () {
-                  var obj = _.compact(_.map(design.design, function (n, key) {
-                      if (key != "name") {
-                          return n;
-                      }
-                  }));
-                //   console.log(obj);
-=======
+
               var design = $scope.design;
               $scope.backgroundImages = function () {
                   if ($scope.isBack) {
@@ -35,7 +25,7 @@
                           }
                       }));
                   }
->>>>>>> fe5469a5565545959656f41129d8d655f99df89c
+
                   return obj;
               };
 
