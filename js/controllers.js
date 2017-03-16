@@ -2652,7 +2652,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             },
             teamLogo: {
                 image: null,
-                size: 10
+                size: 100
             },
             quantity: [{
                     quantity: null,
