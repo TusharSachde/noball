@@ -2870,9 +2870,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.selectPadsDesign($scope.myArr[0]);
         console.log($scope.myArr[0]);
 
-        $scope.changeLogo = function (key) {
-            $scope.designJson.teamLogo.size = $scope.rslider.max;
-        };
         $scope.resetLogoStyle = function (key) {
             $scope.padLogo.divattributes.border = "none";
             $scope.$apply();
@@ -10056,7 +10053,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Save Design");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
- $scope.user = $.jStorage.get('user');
+        $scope.user = $.jStorage.get('user');
         $scope.getDesigns = function () {
             NavigationService.getDesigns($scope.user.email,
                 function (data) {
@@ -10065,11 +10062,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         n.description = JSON.parse(n.description);
                         return n;
                     });
-                    console.log('getDesigns',data);
+                    console.log('getDesigns', data);
                 });
         }
-// $scope.getDesigns();
-       
+        // $scope.getDesigns();
+
         if ($scope.user) {
             $scope.getDesigns();
         } else {}
@@ -10105,9 +10102,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.deleteSaveDesign($scope.designId, function () {
                 console.log('deleted', $scope.designId);
                 $state.reload();
-                
+
                 //  $scope.getDesigns();
-                
+
             })
         }
 
