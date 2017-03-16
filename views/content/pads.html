@@ -178,7 +178,7 @@
                                 <div class="size-box" ng-if="designJson.teamLogo.image">
                                     Size:
                                     <div class="range">
-                                        <div range-slider on-handle-down="changeLogo(teamLogo.size)" on-handle-up="resetLogoStyle('teamLogo')" ng-model="teamLogo.size"
+                                        <div range-slider on-handle-down="changeLogo(teamLogo.size)" on-handle-up="changeLogo(teamLogo.size)" ng-model="teamLogo.size"
                                             min="10" max="100" model-max="rslider.max" model-min="rslider.min" pin-handle="min"></div>
                                     </div>
                                 </div>
