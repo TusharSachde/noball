@@ -1,15 +1,9 @@
 <div class="text-center" style="height:507px;">
     <div class="gully-shirt">
         <img ng-repeat="background in backgroundImages()" noloading="true" ng-src="{{background}}" class="trimshirt img-responsive">
-<<<<<<< HEAD
-        <div class="div-internal-image" ng-repeat="(key,imagePos) in imagesPositions()" ng-style="imagePos">
-           <!--<img ng-src="{{design[key].image | serverimage}}" ng-if="design[key].image && design[key].image != ''"
-                noloading="true" class="div-internal-image" alt="">-->
-                  <img ng-src="{{design[key].image | serverimage}}" ng-if="design[key].image && design[key].image != ''" ng-style="{width:design[key].size}"
-=======
+
         <div class="div-internal-image" ng-hide="isBack" ng-repeat="(key,imagePos) in imagesPositions()" ng-style="imagePos">
             <img ng-src="{{design[key].image | serverimage}}" ng-if="design[key].image && design[key].image != ''" ng-style="{width:design[key].size}"
->>>>>>> fe5469a5565545959656f41129d8d655f99df89c
                 noloading="true" class="div-internal-image" alt="">
         </div>
 
