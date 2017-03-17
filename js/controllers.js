@@ -11226,6 +11226,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         }
                         if ($.jStorage.get("onCustom")) {
                             window.location.href = window.location.href + "/edit";
+                            window.location.reload();
                         } else {
                             window.location.reload();
                         }
