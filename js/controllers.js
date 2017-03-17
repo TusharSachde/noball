@@ -891,23 +891,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.trimTrouser.highlightOne.disable = "noable";
         $scope.trimTrouser.highlightTwo.disable = "noable";
 
-        $scope.switchTrimHighlightOne = function (color,name) {
-            console.log('colorrr', color,name);
+        $scope.switchTrimHighlightOne = function (color, name) {
+            console.log('colorrr', color, name);
             $scope.trouserJson.color.trim1 = color;
             $scope.trouserJson.color.trim1ColorName = name;
             $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.designName + "/front/trim1/" + name + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
 
         };
-        $scope.switchTrimHighlightTwo = function (color,name) {
-             console.log('colorrr', color,name);
+        $scope.switchTrimHighlightTwo = function (color, name) {
+            console.log('colorrr', color, name);
             //  console.log('colorswitchTrimHighlighttwo', color);
             $scope.trouserJson.color.trim2 = color;
             $scope.trouserJson.color.trim2ColorName = name;
             $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.designName + "/front/trim2/" + name + ".png";
 
         };
-        $scope.switchTrimHighlightBase = function (color,name) {
- console.log('colorrr', color,name);
+        $scope.switchTrimHighlightBase = function (color, name) {
+            console.log('colorrr', color, name);
             $scope.trouserJson.color.base = color;
             $scope.trouserJson.color.baseColorName = name;
             $scope.trouserJson.design.base = "img/" + $scope.trouserJson.type + "/base/front/" + name + ".png";
@@ -1229,7 +1229,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trouserJson.type = "trousers";
                 $scope.trouserJson.design.designName = "design4";
                 $scope.singleAmount = 850;
-                  $scope.trouserJson.color.baseColorName = "white";
+                $scope.trouserJson.color.baseColorName = "white";
                 $scope.trouserJson.color.trim1ColorName = "lemon_yellow";
                 $scope.trouserJson.color.trim2ColorName = "";
                 $scope.trouserJson.color.base = img.baseColor;
@@ -1249,10 +1249,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.singleAmount = 850;
                 $scope.trimTabs.light3.active = "activeme";
                 $scope.trimTabs.light3.show = "active-tab";
-                $scope.trouserJson.color.baseColorName= "white";
+                $scope.trouserJson.color.baseColorName = "white";
                 $scope.trouserJson.color.trim1ColorName = "lemon_yellow";
                 $scope.trouserJson.color.trim2ColorName = "";
-                 $scope.trouserJson.color.base = img.baseColor;
+                $scope.trouserJson.color.base = img.baseColor;
                 $scope.trouserJson.color.trim1 = img.trim1Color;
                 $scope.trouserJson.color.trim2 = img.trim2Color;
                 $scope.trouserJson.design.base = "img/" + $scope.trouserJson.type + "/base/front/" + 'white' + ".png";
@@ -1268,10 +1268,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.singleAmount = 850;
                 $scope.trimTabs.light3.active = "activeme";
                 $scope.trimTabs.light3.show = "active-tab";
-                    $scope.trouserJson.color.baseColorName= "white";
+                $scope.trouserJson.color.baseColorName = "white";
                 $scope.trouserJson.color.trim1ColorName = "orange";
                 $scope.trouserJson.color.trim2ColorName = "";
-               $scope.trouserJson.color.base = img.baseColor;
+                $scope.trouserJson.color.base = img.baseColor;
                 $scope.trouserJson.color.trim1 = img.trim1Color;
                 $scope.trouserJson.color.trim2 = img.trim2Color;
                 $scope.trouserJson.design.base = "img/" + $scope.trouserJson.type + "/base/front/" + 'white' + ".png";
@@ -1289,10 +1289,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.singleAmount = 850;
                 $scope.trimTabs.light3.active = "activeme";
                 $scope.trimTabs.light3.show = "active-tab";
-                 $scope.trouserJson.color.baseColorName= "black";
+                $scope.trouserJson.color.baseColorName = "black";
                 $scope.trouserJson.color.trim1ColorName = "red";
                 $scope.trouserJson.color.trim2ColorName = "";
-               $scope.trouserJson.color.base = img.baseColor;
+                $scope.trouserJson.color.base = img.baseColor;
                 $scope.trouserJson.color.trim1 = img.trim1Color;
                 $scope.trouserJson.color.trim2 = img.trim2Color;
                 $scope.trouserJson.design.base = "img/" + $scope.trouserJson.type + "/base/front/" + 'black' + ".png";
@@ -1309,10 +1309,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.singleAmount = 850;
                 $scope.trimTabs.light3.active = "activeme";
                 $scope.trimTabs.light3.show = "active-tab";
-                $scope.trouserJson.color.baseColorName= "lemon_yellow";
+                $scope.trouserJson.color.baseColorName = "lemon_yellow";
                 $scope.trouserJson.color.trim1ColorName = "australian_green";
                 $scope.trouserJson.color.trim2ColorName = "";
-             $scope.trouserJson.color.base = img.baseColor;
+                $scope.trouserJson.color.base = img.baseColor;
                 $scope.trouserJson.color.trim1 = img.trim1Color;
                 $scope.trouserJson.color.trim2 = img.trim2Color;
                 $scope.trouserJson.design.base = "img/" + $scope.trouserJson.type + "/base/front/" + 'lemon_yellow' + ".png";
@@ -1327,7 +1327,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trouserJson.design.designName = "design1";
                 $scope.trouserJson.type = "shorts";
                 $scope.singleAmount = 650;
-                 $scope.trouserJson.color.baseColorName= "australian_green";
+                $scope.trouserJson.color.baseColorName = "australian_green";
                 $scope.trouserJson.color.trim1ColorName = "black";
                 $scope.trouserJson.color.trim2ColorName = "";
                 $scope.trouserJson.color.base = img.baseColor;
@@ -1345,10 +1345,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trouserJson.design.designName = "design2";
                 $scope.trouserJson.type = "shorts";
                 $scope.singleAmount = 650;
-                  $scope.trouserJson.color.baseColorName= "black1";
+                $scope.trouserJson.color.baseColorName = "black1";
                 $scope.trouserJson.color.trim1ColorName = "australian_green";
                 $scope.trouserJson.color.trim2ColorName = "";
- $scope.trouserJson.color.base = img.baseColor;
+                $scope.trouserJson.color.base = img.baseColor;
                 $scope.trouserJson.color.trim1 = img.trim1Color;
                 $scope.trouserJson.color.trim2 = img.trim2Color;
                 $scope.trimTabs.light3.active = "activeme";
@@ -1364,7 +1364,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trouserJson.design.designName = "design3";
                 $scope.trouserJson.type = "shorts";
                 $scope.singleAmount = 650;
-                  $scope.trouserJson.color.baseColorName= "grey";
+                $scope.trouserJson.color.baseColorName = "grey";
                 $scope.trouserJson.color.trim1ColorName = "lemon_yellow";
                 $scope.trouserJson.color.trim2ColorName = "";
                 $scope.trouserJson.color.base = img.baseColor;
@@ -1384,7 +1384,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trouserJson.design.designName = "design4";
                 $scope.trouserJson.type = "shorts";
                 $scope.singleAmount = 650;
-                  $scope.trouserJson.color.baseColorName= "orange";
+                $scope.trouserJson.color.baseColorName = "orange";
                 $scope.trouserJson.color.trim1ColorName = "white";
                 $scope.trouserJson.color.trim2ColorName = "";
                 $scope.trouserJson.color.base = img.baseColor;
@@ -1404,7 +1404,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trouserJson.design.designName = "design5";
                 $scope.trouserJson.type = "shorts";
                 $scope.singleAmount = 650;
-                  $scope.trouserJson.color.baseColorName= "royal_blue";
+                $scope.trouserJson.color.baseColorName = "royal_blue";
                 $scope.trouserJson.color.trim1ColorName = "lemon_yellow";
                 $scope.trouserJson.color.trim2ColorName = "";
                 $scope.trouserJson.color.base = img.baseColor;
@@ -1443,14 +1443,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             trim2Color: ""
         }
 
- if ($stateParams.status == "edit" && $.jStorage.get("custom")) {
+        if ($stateParams.status == "edit" && $.jStorage.get("custom")) {
             $scope.trouserJson = $.jStorage.get("custom");
-            console.log('$scope.trouserJson ',$scope.trouserJson );
+            console.log('$scope.trouserJson ', $scope.trouserJson);
         } else {
-            $scope.changeDesign(0,designImg);
+            $scope.changeDesign(0, designImg);
         }
 
-       
+
         $scope.openLogin = function () {
             $uibModal.open({
                 animation: true,
@@ -2766,27 +2766,31 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
         $scope.padscolor = [{
-            colr: "#000000",
-            name: "black"
-        }, {
-            colr: "#c0c2ce",
-            name: "grey"
-        }, {
-            colr: "#48d2dc",
-            name: "nblue"
-        }, {
-            colr: "#82e716",
-            name: "ngreen"
-        }, {
-            colr: "#ff5588",
-            name: "pink"
-        }, {
-            colr: "#fff",
-            name: "white"
-        }, {
-            colr: "#ffd700",
-            name: "yellow"
-        }];
+                colr: "#000000",
+                name: "black"
+            }, {
+                colr: "#c0c2ce",
+                name: "grey"
+            }, {
+                colr: "#48d2dc",
+                name: "nblue"
+            }, {
+                colr: "#82e716",
+                name: "ngreen"
+            }, {
+                colr: "#ff5588",
+                name: "pink"
+            }, {
+                colr: "#fff",
+                name: "white"
+            }, {
+                colr: "#ffd700",
+                name: "yellow"
+            },
+            {
+                colr: "#00008b",
+            name: "dblue"
+            }];
 
         $scope.color = [{
             colr: "#f5b122"
@@ -2954,7 +2958,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
         $scope.emptyImage = function (key) {
             // $scope.padLogo.image = null;
-             $scope.designJson[key] = {};
+            $scope.designJson[key] = {};
         }
 
         $scope.selectPadImage = function (image) {
@@ -10163,7 +10167,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         });
                         break;
                     }
-                     case "trouser":
+                case "trouser":
                     {
 
                         $state.go("trousersEdit", {

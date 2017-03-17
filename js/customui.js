@@ -10,17 +10,17 @@
           link: function ($scope, element, attrs) {
 
               var design = $scope.design;
-              $scope.backgroundImages = function () {
+             $scope.backgroundImages = function () {
                   if ($scope.isBack) {
                       var obj = _.compact(_.map(design.design, function (n, key) {
-                          if (key != "name" && !_.endsWith(n, '/.png')) {
+                          if (key != "name" && key != "designName" && !_.endsWith(n, '/.png')) {
                               n = n.replace("/front/", "/back/");
                               return n;
                           }
                       }));
                   } else {
                       var obj = _.compact(_.map(design.design, function (n, key) {
-                          if (key != "name" && !_.endsWith(n, '/.png')) {
+                          if (key != "name" &&  key != "designName" && !_.endsWith(n, '/.png')) {
                               return n;
                           }
                       }));
