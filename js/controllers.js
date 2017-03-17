@@ -934,18 +934,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.addTrouserValues = function (qty, size) {
             console.log('trouser', qty, size);
             var tempObj = {
-                'size': size,
+                'size': "S",
                 'quantity': qty
-            }
+            };
             // $scope.trouserJson.quantity.push(_.clone($scope.trouserQuan));
             $scope.trouserJson.quantity.push(tempObj);
             console.log('$scope.trouserJson.quantity', $scope.trouserJson.quantity);
             $scope.trouserQuanArrCount = $scope.trouserQuanArrCount + 1;
-        }
+        };
         $scope.removeTrouserValue = function (index) {
             $scope.trouserJson.quantity.splice(index, 1);
             $scope.trouserQuanArrCount = $scope.trouserQuanArrCount - 1;
-        }
+        };
         $scope.singleAmount = 850;
         $scope.trouserJson.totalAmount = 850;
         $scope.trouserJson.totalQuan = 1;

@@ -39,19 +39,19 @@
               <p class="inline-block">Sponsor Logos:</p>
               <div class="new-scrolldiv block-box">
                 <div class="spon-logo">
-                  <div class="team-logo inline-block mgl-20 va-mid" ng-if="design.description.rightLogo">
+                  <div class="team-logo inline-block mgl-20 va-mid" ng-if="design.description.rightLogo && design.description.rightLogo != ''">
                     <img ng-src="{{design.description.rightLogo.image | serverimage}}" alt="" class="img-responsive logo-img">
                   </div>
-                  <div class="team-logo inline-block mgl-20 va-mid" ng-if="design.description.mainlogo">
+                  <div class="team-logo inline-block mgl-20 va-mid" ng-if="design.description.mainlogo && design.description.mainlogo != ''">
                     <img ng-src="{{design.description.mainlogo.image | serverimage}}" alt="" class="img-responsive logo-img">
                   </div>
-                  <div class="team-logo inline-block mgl-20 va-mid" ng-if="design.description.leftLogo">
+                  <div class="team-logo inline-block mgl-20 va-mid" ng-if="design.description.leftLogo && design.description.leftLogo!= ''">
                     <img ng-src="{{design.description.leftLogo.image | serverimage}}" alt="" class="img-responsive logo-img">
                   </div>
-                  <div class="team-logo inline-block mgl-20 va-mid" ng-if="design.description.rightsleeve">
+                  <div class="team-logo inline-block mgl-20 va-mid" ng-if="design.description.rightsleeve && design.description.rightsleeve!= ''">
                     <img ng-src="{{design.description.rightsleeve.image | serverimage}}" alt="" class="img-responsive logo-img">
                   </div>
-                  <div class="team-logo inline-block mgl-20 va-mid" ng-if="design.description.backlogo">
+                  <div class="team-logo inline-block mgl-20 va-mid" ng-if="design.description.backlogo && design.description.backlogo!= ''">
                     <img ng-src="{{design.description.backlogo.image | serverimage}}" alt="" class="img-responsive logo-img">
                   </div>
                 </div>
