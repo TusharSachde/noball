@@ -3255,7 +3255,7 @@ footer {
 }
 
 .logo-text {
-    width: 130px;
+    width: 135px;
     margin-top: 0 !important;
     .padding-btn {
         width: 100%;
@@ -3264,6 +3264,10 @@ footer {
     .mright15 {
         margin-right: 5px;
     }
+}
+
+.block-box{
+    margin-left: 5px;
 }
 
 .vertical-icon {
@@ -6973,6 +6977,14 @@ h2 {
     display: inline-block;
     vertical-align: top;
     // margin-left: 20px;
+}
+
+.notihov{
+&:active{
+   
+            border: 2px solid red;
+  
+}
 }
 
 @import "mobile/mobile";

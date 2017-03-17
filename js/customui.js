@@ -72,9 +72,9 @@
                   "pads": {
                      teamLogo: {
                              width: 50,
-    height: 50,
-    bottom: 49,
-    right: 140,
+                             height: 50,
+                             bottom: 48,
+                             right: 139,
                      }
                   }
               };
