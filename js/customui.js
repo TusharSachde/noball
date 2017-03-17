@@ -71,10 +71,10 @@
                     },
                   "pads": {
                      teamLogo: {
-                             width: 55,
-                             height: 55,
-                             bottom: 59,
-                             right: 155
+                             width: 50,
+    height: 50,
+    bottom: 49,
+    right: 140,
                      }
                   }
               };
