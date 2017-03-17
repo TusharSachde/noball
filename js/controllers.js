@@ -2829,8 +2829,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "ngreen": ["img/padscolor/updated/ngreen/2.png"],
             "pink": ["img/padscolor/updated/pink/2.png"],
             "white": ["img/padscolor/updated/white/2.png"],
-            "yellow": ["img/padscolor/updated/yellow/2.png"]
-
+            "yellow": ["img/padscolor/updated/yellow/2.png"],
+            "dblue": ["img/padscolor/updated/dblue/1.png"]
         };
 
 
