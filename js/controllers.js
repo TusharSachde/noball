@@ -4132,7 +4132,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             color: 'dgreen',
             colr: "#66cd00"
         }, {
-            designName: "SCOOPE 303",
+            designName: "SCOOP 303",
             name: "$scope.glovesImages3",
             img: $scope.glovesImages3.red,
             color: 'red',
