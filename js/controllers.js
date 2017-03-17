@@ -687,6 +687,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.tabchange = function (tab, a) {
             $scope.axd = a;
             $scope.tab = tab;
+            $scope.trouserJson.tab = tab;
+            $scope.trouserJson.tabNo = a;
             if (a == 1) {
                 $scope.classa = 'active';
                 $scope.classb = '';
@@ -1445,6 +1447,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         if ($stateParams.status == "edit" && $.jStorage.get("custom")) {
             $scope.trouserJson = $.jStorage.get("custom");
+            $timeout(function () {
+                $scope.tabchange($scope.trouserJson.tab, $scope.trouserJson.tabNo);
+            }, 100)
+            $timeout(function () {
+                $scope.tabchange($scope.trouserJson.tab, $scope.trouserJson.tabNo);
+            }, 100)
             console.log('$scope.trouserJson ', $scope.trouserJson);
         } else {
             $scope.changeDesign(0, designImg);
@@ -1452,6 +1460,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
         $scope.openLogin = function () {
+            $.jStorage.set("onCustom", true);
+            $.jStorage.set("custom", $scope.trouserJson);
             $uibModal.open({
                 animation: true,
                 templateUrl: 'views/modal/login.html',
@@ -1498,6 +1508,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.tabchanges = function (tabs, b) {
             $scope.tabs = tabs;
+            $scope.trouserJson.tab = tab;
+            $scope.trouserJson.tabNo = a;
             if (b == 1) {
                 $scope.trimTabs.light1.active = "activeme";
                 $scope.trimTabs.light1.show = "active-tab";
@@ -1533,6 +1545,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.tabchange = function (tab, a) {
             $scope.tab = tab;
+            $scope.trouserJson.tab = tab;
+            $scope.trouserJson.tabNo = a;
             if (a == 1) {
                 $scope.classa = 'active';
                 $scope.classb = '';
@@ -1608,33 +1622,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
         //    end
         $scope.toOrderSummary = function () {
-
-            // $scope.combineJSON = {
-            //     "trousers": {
-            //         "trim": $scope.trimTrouser,
-            //         "customizedTrouser": $scope.customizedTrouser,
-            //         "trouserQuan": $scope.trouserQuanArr,
-            //         "allLogos": $scope.allLogos,
-            //         "totalAmount": $scope.totalAmount,
-            //         "totalQuan": $scope.totalQuan
-            //     },
-            //     "type": "trousers"
-            // };
-
-            NavigationService.orderSummaryTrouser(user.email, $scope.trouserJson, 'trousers',
-                function (data) {
-                    console.log('Order Summary odi data: ', data);
-                    $state.go('ordersummary', {
-                        id: data.id
+            if (user && user.email) {
+                NavigationService.orderSummaryTrouser(user.email, $scope.trouserJson, 'trousers',
+                    function (data) {
+                        console.log('Order Summary odi data: ', data);
+                        $state.go('ordersummary', {
+                            id: data.id
+                        });
+                    },
+                    function (err) {
+                        console.log(err);
                     });
-                },
-                function (err) {
-                    console.log(err);
-                });
 
-            $scope.lastJSON = JSON.stringify($scope.combineJSON);
-            console.log($scope.combineJSON);
-            console.log($scope.lastJSON);
+                $scope.lastJSON = JSON.stringify($scope.combineJSON);
+                console.log($scope.combineJSON);
+                console.log($scope.lastJSON);
+            } else {
+                $scope.openLogin();
+            }
         };
 
         console.log($scope.type)
@@ -2853,7 +2858,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $timeout(function () {
                 $scope.tabchange($scope.designJson.tab, $scope.designJson.tabNo);
             }, 100)
-
+            console.log('$scope.designJson', $scope.designJson);
         } else {
             $scope.openDesign($scope.myArr[0]);
 
@@ -3961,6 +3966,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
         $scope.openDesign = function (index, tab, img) {
             console.log('//////////gloves');
+            $.jStorage.set("onCustom", true);
+            $.jStorage.set("custom", $scope.glovesJson);
             if ($scope.LogosTab) {
                 console.log('//////////11111');
                 $scope.designIndex = index;
@@ -4026,10 +4033,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             name: "gold"
         }];
         $scope.openLogin = function () {
+            $.jStorage.set("onCustom", true);
+            $.jStorage.set("custom", $scope.glovesJson);
             $uibModal.open({
                 animation: true,
                 templateUrl: 'views/modal/login.html',
-                // controller: 'headerctrl',
+                controller: 'headerctrl',
                 scope: $scope
             })
         };
@@ -4051,6 +4060,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     function (err) {
                         console.log(err);
                     });
+            } else {
+                $scope.openLogin();
             }
             // if (qty == 0) {
             //     $scope.qtyValidation = true;
@@ -4088,8 +4099,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         $scope.validatelogin = true;
                     } else {
                         NavigationService.setUser(data);
-                        // window.location.reload();
-                        $scope.openLogin.close();
+                        window.location.reload();
+                        // $scope.openLogin.close();
                     }
                 }, function (err) {})
             } else {
@@ -4280,6 +4291,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         if ($stateParams.status == "edit" && $.jStorage.get("custom")) {
             $scope.glovesJson = $.jStorage.get("custom");
+            $.jStorage.set("onCustom", true);
+            $.jStorage.set("custom", $scope.glovesJson);
+            $timeout(function () {
+                $scope.tabchange($scope.glovesJson.tab, $scope.glovesJson.tabNo);
+            }, 100)
             console.log('$scope.glovesJson ', $scope.glovesJson);
         } else {
             $scope.selectDesign($scope.myArr[0]);
@@ -4490,17 +4506,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.qtyVal = false;
         $scope.toOrderSummary = function (qty) {
-            NavigationService.orderSummaryTrouser(user.email, $scope.glovesJson, 'gloves',
-                function (data) {
-                    console.log('Order Summary odi data glovesJson: ', data);
-                    $state.go('ordersummary', {
-                        id: data.id
+            if (user && user.email) {
+                NavigationService.orderSummaryTrouser(user.email, $scope.glovesJson, 'gloves',
+                    function (data) {
+                        console.log('Order Summary odi data glovesJson: ', data);
+                        $state.go('ordersummary', {
+                            id: data.id
+                        });
+                    },
+                    function (err) {
+                        console.log(err);
                     });
-                },
-                function (err) {
-                    console.log(err);
-                });
-
+            } else {
+                $scope.openLogin();
+            }
             // $scope.lastJSON = JSON.stringify($scope.combineJSON);
             // console.log($scope.combineJSON);
             // console.log($scope.lastJSON);
@@ -4556,6 +4575,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.tabchange = function (tab, a) {
             $scope.axd = a;
             $scope.tab = tab;
+            $scope.glovesJson.tab = tab;
+            $scope.glovesJson.tabNo = a;
             if (a == 1) {
                 $scope.classa = 'active';
                 $scope.classb = '';
@@ -4678,10 +4699,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             name: "gold"
         }];
         $scope.openLogin = function () {
+            $.jStorage.set("onCustom", true);
+            $.jStorage.set("custom", $scope.glovesJson);
             $uibModal.open({
                 animation: true,
                 templateUrl: 'views/modal/login.html',
-                // controller: 'headerctrl',
+                controller: 'headerctrl',
                 scope: $scope
             })
 
