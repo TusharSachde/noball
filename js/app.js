@@ -181,6 +181,12 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, cfp
       templateUrl: "views/template.html",
       controller: 'GlovesCtrl'
     })
+    .state('glovesEdit', {
+      url: "/gloves/:status",
+      templateUrl: "views/template.html",
+      controller: 'GlovesCtrl'
+    })
+    
 
     .state('review-glove', {
       url: "/review-glove",

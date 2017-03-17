@@ -2789,8 +2789,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             },
             {
                 colr: "#00008b",
-            name: "dblue"
-            }];
+                name: "dblue"
+            }
+        ];
 
         $scope.color = [{
             colr: "#f5b122"
@@ -3919,7 +3920,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
         $scope.type = 'gloves';
         $scope.design = {};
-        $scope.glovesJson = {};
+        $scope.glovesJson = {
+            quantity: [{
+                    quantity: null,
+                    size: "Left"
+                },
+                {
+                    quantity: null,
+                    size: "Right"
+                }
+            ]
+        };
         $scope.glovesJson.design = {};
         $scope.glovesJson.type = 'gloves';
         $scope.glovesJson.color = {};
@@ -4109,17 +4120,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         };
         $scope.myArr = [{
+            designName: "SWEEP 101",
             name: "$scope.glovesImages1",
             img: $scope.glovesImages1.dblue,
-            color: 'dblue'
+            color: 'dblue',
+            colr: "#00008b"
         }, {
+            designName: "SWITCH 202",
             name: "$scope.glovesImages2",
             img: $scope.glovesImages2.dgreen,
-            color: 'dgreen'
+            color: 'dgreen',
+            colr: "#66cd00"
         }, {
+            designName: "SCOOPE 303",
             name: "$scope.glovesImages3",
             img: $scope.glovesImages3.red,
-            color: 'red'
+            color: 'red',
+            colr: "#FF0000"
         }];
 
         $scope.rslider = {
@@ -4166,11 +4183,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.addQuantity = function (q) {
             $scope.totalQuan = 0;
             $scope.totalAmount = 0;
-            for (var i = 0; i < $scope.glovesArrCount; i++) {
-                $scope.totalQuan += $scope.glovesArr[i].quantity;
-            }
+
+            $scope.totalQuan = parseInt($scope.glovesJson.quantity[0].quantity + $scope.glovesJson.quantity[1].quantity);
             if ($scope.totalQuan) {
-                $scope.totalAmount = $scope.singleAmount * $scope.totalQuan + 5000;
+                $scope.totalAmount = ($scope.totalQuan * $scope.singleAmount) + 5000;
+                $scope.glovesJson.totalAmount = $scope.totalAmount;
             }
         };
 
@@ -4180,8 +4197,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.selectDesign = function (item) {
             console.log(item);
+            $scope.glovesJson.design.designName = item.designName;
             $scope.glovesJson.design.base = item.img[0];
-            $scope.glovesJson.color.base = item.color;
+            $scope.glovesJson.color.base = item.colr;
             console.log('$scope.glovesJson', $scope.glovesJson);
             $scope.glovesDesign.name = item.name;
             $scope.glovesDesign.image = item.img[0];
@@ -4215,38 +4233,42 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 };
             }
             $scope.color = {};
-
-            $scope.changeGlovesImages = function (color) {
-                console.log(color);
-                $scope.glovesJson.color.base = color;
-                // $scope.color.base = color;
-                // $scope.glovesColors = color;
-                // $scope.glovesDesign.color = $scope.glovesColors;
-                if ($scope.Arrayname == '$scope.glovesImages1') {
-                    console.log('here');
-                    $scope.glovesJson.design.base = $scope.glovesImages1[color][0];
-                    // $scope.design.base = $scope.glovesImages1[color][0];
-                    $scope.glovesDesign.image = $scope.glovesImages1[color][0];
-                }
-                if ($scope.Arrayname == '$scope.glovesImages2') {
-                    $scope.glovesJson.design.base = $scope.glovesImages2[color][0];
-                    // $scope.design.base = $scope.glovesImages2[color][0];
-                    $scope.glovesDesign.image = $scope.glovesImages2[color][0];
-                }
-                if ($scope.Arrayname == '$scope.glovesImages3') {
-                    $scope.glovesJson.design.base = $scope.glovesImages3[color][0];
-                    // $scope.design.base = $scope.glovesImages3[color][0];
-                    $scope.glovesDesign.image = $scope.glovesImages3[color][0];
-                }
-                console.log('change design color json', $scope.glovesJson);
-                $rootScope.$broadcast('changeImage', {});
-
+            // $scope.changeGlovesImages();
+        }
+        $scope.changeGlovesImages = function (color, colr) {
+            console.log(color, colr);
+            $scope.glovesJson.color.base = colr;
+            // $scope.color.base = color;
+            // $scope.glovesColors = color;
+            // $scope.glovesDesign.color = $scope.glovesColors;
+            if ($scope.Arrayname == '$scope.glovesImages1') {
+                console.log('here');
+                $scope.glovesJson.design.base = $scope.glovesImages1[color][0];
+                // $scope.design.base = $scope.glovesImages1[color][0];
+                $scope.glovesDesign.image = $scope.glovesImages1[color][0];
             }
-            // $scope.myChoice=item;
+            if ($scope.Arrayname == '$scope.glovesImages2') {
+                $scope.glovesJson.design.base = $scope.glovesImages2[color][0];
+                // $scope.design.base = $scope.glovesImages2[color][0];
+                $scope.glovesDesign.image = $scope.glovesImages2[color][0];
+            }
+            if ($scope.Arrayname == '$scope.glovesImages3') {
+                $scope.glovesJson.design.base = $scope.glovesImages3[color][0];
+                // $scope.design.base = $scope.glovesImages3[color][0];
+                $scope.glovesDesign.image = $scope.glovesImages3[color][0];
+            }
+            console.log('change design color json', $scope.glovesJson);
+            $rootScope.$broadcast('changeImage', {});
+
         }
 
+        if ($stateParams.status == "edit" && $.jStorage.get("custom")) {
+            $scope.glovesJson = $.jStorage.get("custom");
+            console.log('$scope.glovesJson ', $scope.glovesJson);
+        } else {
+            $scope.selectDesign($scope.myArr[0]);
+        }
 
-        $scope.selectDesign($scope.myArr[0]);
         console.log($scope.myArr[0], '$scope.myArr[0]$scope.myArr[0]$scope.myArr[0]');
         // $scope.changeGlovesImages = function(color) {
         //     console.log(color);
@@ -4337,13 +4359,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.toolarge = true;
             }
         }
-        $scope.glovesJson.quantity = [{
-                quantity: null
-            },
-            {
-                quantity: null
-            }
-        ]
+        // $scope.glovesJson.quantity = [{
+        //             quantity: null,
+        //             size: "Left"
+        //         },
+        //         {
+        //             quantity: null,
+        //             size: "Right"
+        //         }
+        //     ]
+        // ]
         $scope.confirmUpload = function (variable, name) {
             $scope.glovesJson.teamLogo.image = $scope.tempImage;
             console.log('confirmUpload', $scope.glovesJson);
@@ -9369,7 +9394,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
         $interval(function () {
-            console.log($scope.tabs);
+            // console.log($scope.tabs);
         }, 1000)
 
         NavigationService.getOrderSummary($state.params.id,
@@ -10171,6 +10196,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     {
 
                         $state.go("trousersEdit", {
+                            status: "edit"
+                        });
+                        break;
+                    }
+                case "gloves":
+                    {
+
+                        $state.go("glovesEdit", {
                             status: "edit"
                         });
                         break;
