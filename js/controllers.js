@@ -2850,8 +2850,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         if ($stateParams.status == "edit" && $.jStorage.get("custom")) {
             $scope.designJson = $.jStorage.get("custom");
+            $timeout(function () {
+                $scope.tabchange($scope.designJson.tab, $scope.designJson.tabNo);
+            }, 100)
+
         } else {
             $scope.openDesign($scope.myArr[0]);
+
         }
 
         $scope.rslider = {
@@ -2898,7 +2903,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.totalAmount = 2750;
         $scope.totalQuan = 0;
 
-        $scope.addQuantity = function (q) {
+        $scope.addQuantity = function () {
             $scope.totalQuan = 0;
             $scope.totalAmount = 0;
             $scope.totalQuan = parseInt($scope.designJson.quantity[0].quantity + $scope.designJson.quantity[1].quantity);
@@ -2906,6 +2911,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.totalAmount = ($scope.totalQuan * $scope.singleAmount) + 5000;
                 $scope.designJson.totalAmount = $scope.totalAmount;
             }
+            return $scope.totalQuan;
         };
 
         // $scope.addQuantity();
@@ -2990,6 +2996,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
 
         $scope.openLogin = function () {
+            $.jStorage.set("onCustom", true);
+            $.jStorage.set("custom", $scope.designJson);
             $uibModal.open({
                 animation: true,
                 templateUrl: 'views/modal/login.html',
@@ -3145,20 +3153,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //tab changes
 
         $scope.toOrderSummary = function () {
-            NavigationService.orderSummaryTrouser(user.email, $scope.designJson, 'pads',
-                function (data) {
-                    console.log('Order Summary odi data: ', data);
-                    $state.go('ordersummary', {
-                        id: data.id
+            if (user && user.email) {
+                NavigationService.orderSummaryTrouser(user.email, $scope.designJson, 'pads',
+                    function (data) {
+                        console.log('Order Summary odi data: ', data);
+                        $state.go('ordersummary', {
+                            id: data.id
+                        });
+                    },
+                    function (err) {
+                        console.log(err);
                     });
-                },
-                function (err) {
-                    console.log(err);
-                });
 
-            $scope.lastJSON = JSON.stringify($scope.combineJSON);
-            console.log($scope.combineJSON);
-            console.log($scope.lastJSON);
+                $scope.lastJSON = JSON.stringify($scope.combineJSON);
+                console.log($scope.combineJSON);
+                console.log($scope.lastJSON);
+            } else {
+                $scope.openLogin();
+            }
+
         }
 
 
@@ -3171,6 +3184,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.tabchange = function (tab, a) {
             $scope.tab = tab;
+            $scope.designJson.tab = tab;
+            $scope.designJson.tabNo = a;
             if (a == 1) {
                 $scope.classa = 'active';
                 $scope.classb = '';
@@ -3252,6 +3267,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
         $scope.switchNavigation = function (tab) {
+
             if (tab === 'a') {
                 if (!$scope.tabAllowToa) {
                     $scope.tabchange('design', 1);
@@ -11207,6 +11223,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         if ($rootScope.afterSessionSave) {
                             console.log('$rootScope.afterSessionSave', $rootScope.afterSessionSave);
                             $scope.openConfirm();
+                        }
+                        if ($.jStorage.get("onCustom")) {
+                            window.location.href = window.location.href + "/edit";
                         } else {
                             window.location.reload();
                         }
