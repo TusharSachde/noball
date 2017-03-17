@@ -6979,12 +6979,12 @@ h2 {
     // margin-left: 20px;
 }
 
-.notihov{
-&:active{
-   
-            border: 2px solid red;
-  
+.active-border {
+    .div-internal-image {
+        border: 1px solid #000;
 }
 }
+
+
 
 @import "mobile/mobile";

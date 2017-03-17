@@ -4,6 +4,7 @@
         <img ng-repeat="background in backgroundImages()" noloading="true" ng-src="{{background}}" class="trimshirt img-responsive">
 
         <div class="div-internal-image" ng-hide="isBack" ng-repeat="(key,imagePos) in imagesPositions()" ng-style="imagePos">
+           
             <img ng-src="{{design[key].image | serverimage}}" ng-if="design[key].image && design[key].image != ''" ng-style="{width:design[key].size}"
                 noloading="true">
         </div>

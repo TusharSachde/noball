@@ -63,7 +63,7 @@
                         </div> -->
                         <!-- disabled on trim -->
                         <!-- <div ng-if="classa"> -->
- <custom design="glovesJson" ng-if="glovesJson">
+ <custom design="glovesJson" class="{{borderClass}}" ng-if="glovesJson">
                             </custom>
                         <!--<div class="gully-shirt" ng-if="Arrayname=='$scope.glovesImages1'">
                             <img src="{{design.base}}" class="img-responsive" alt="">
@@ -239,7 +239,7 @@
                             <div class="size-box" ng-if="glovesJson.teamLogo.image">
                                 Size:
                                 <div class="range">
-                                <div range-slider on-handle-down="changeLogo('teamLogo')" on-handle-up="resetLogoStyle('teamLogo')" ng-model="glovesJson.teamLogo.size" min="0" max="200" model-max="glovesJson.teamLogo.size" model-min="rslider.min" pin-handle="min"></div>
+                                <div range-slider on-handle-down="changeLogo()" on-handle-up="resetLogoStyle()" ng-model="glovesJson.teamLogo.size" min="-150" max="200" model-max="glovesJson.teamLogo.size" model-min="rslider.min" pin-handle="min"></div>
                                 </div>
                             </div>
                             <div class="edit-btn">

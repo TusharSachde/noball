@@ -37,7 +37,7 @@
         <div class="product-detail">
             <div class="row">
                 <div class="col-md-5">
-                    <custom design="designJson"></custom>
+                    <custom design="designJson" class="{{borderClass}}"></custom>
                        <div class="feature-buttons">
                                 <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 1}"
                                     ng-click="toggleTab(1)">FORM + FUNCTION</button>
@@ -200,7 +200,7 @@
                                 <div class="size-box" ng-if="designJson.teamLogo.image">
                                     Size:
                                     <div class="range">
-                                        <div range-slider min="0" max="200" model-max="designJson.teamLogo.size" model-min="rslider.min" pin-handle="min"></div>
+                                        <div range-slider on-handle-down="changeLogo()" on-handle-up="resetLogoStyle()" min="0" max="200" model-max="designJson.teamLogo.size" model-min="rslider.min" pin-handle="min"></div>
                                     </div>
                                 </div>
                                 <div class="edit-btn">
