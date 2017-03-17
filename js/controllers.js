@@ -3965,11 +3965,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.LogosTab = val;
         }
         $scope.openDesign = function (index, tab, img) {
-            console.log('//////////gloves');
-            $.jStorage.set("onCustom", true);
-            $.jStorage.set("custom", $scope.glovesJson);
+
             if ($scope.LogosTab) {
-                console.log('//////////11111');
                 $scope.designIndex = index;
                 $scope.designTab = tab;
                 $scope.designImage = img;
@@ -3978,10 +3975,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     scope: $scope
                 });
             } else {
-                console.log('//////////33333');
                 $scope.selectDesign(img);
             }
-        }
+        };
         $scope.switchNavigation = function (tab) {
             console.log('aaaaaaaaaaaaaaaaaaaaaa');
             if (tab === 'a') {
@@ -4207,7 +4203,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.totalAmount = 1800;
         $scope.totalQuan = 0;
 
-        $scope.addQuantity = function (q) {
+        $scope.addQuantity = function () {
             $scope.totalQuan = 0;
             $scope.totalAmount = 0;
 
@@ -4216,6 +4212,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.totalAmount = ($scope.totalQuan * $scope.singleAmount) + 5000;
                 $scope.glovesJson.totalAmount = $scope.totalAmount;
             }
+            return $scope.totalQuan;
         };
 
         // $scope.addQuantity();
@@ -4224,11 +4221,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.selectDesign = function (item) {
             console.log(item);
-            $scope.glovesJson.design.designName = item.designName;
+            $scope.glovesJson.design.name = item.designName;
             $scope.glovesJson.design.base = item.img[0];
             $scope.glovesJson.color.base = item.colr;
             console.log('$scope.glovesJson', $scope.glovesJson);
-            $scope.glovesDesign.name = item.name;
+            // $scope.glovesDesign.name = item.name;
             $scope.glovesDesign.image = item.img[0];
             $scope.Arrayname = item.name;
             $scope.design.base = item.img[0];
