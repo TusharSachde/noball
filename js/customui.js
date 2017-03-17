@@ -66,7 +66,8 @@
                           width: 60,
                           height: 60,
                           top: 208,
-                          right: 69
+                          right: 69,
+                          transform:'rotate(180deg)'
                       }
                     },
                   "pads": {
