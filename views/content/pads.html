@@ -37,32 +37,7 @@
         <div class="product-detail">
             <div class="row">
                 <div class="col-md-5">
-<<<<<<< HEAD
                     <custom design="designJson" class="{{borderClass}}"></custom>
-                       <div class="feature-buttons">
-                                <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 1}"
-                                    ng-click="toggleTab(1)">FORM + FUNCTION</button>
-                                <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 2}"
-                                    ng-click="toggleTab(2)">DELIVERY</button>
-                                <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 3}"
-                                    ng-click="toggleTab(3)">CARE</button>
-                            </div>
-                            <ul class="tshirt-features" ng-if="activeButton == 1">
-                                   <li>Light weight PU facing front</li>
-                            <li>3D flexi fitting knee construction with a high impact plastic shield for greater protection</li>
-                            <li>HDF & CANE - Our high density foam construction offers the ultimate protection from injury by instantly dissipating impacts</li>
-                            <li>Shin bolster forms perfectly around the lower leg providing immense comfort and protection</li>
-                            <li>Calf & ankle straps come with cushioned lining</li>
-                            <li>Low rebound foam panels and monolithic side wings for the contemporary look</li>
-                            </ul>
-                            <ul class="tshirt-features" ng-if="activeButton == 2">
-                                <li>In-stock batting pads are available for immediate shipment. Customisation takes 4 weeks for worldwide delivery from date of order.</li>
-                            </ul>
-                            <ul class="tshirt-features" ng-if="activeButton == 3" style="padding:0;">
-                                                           <li style="list-style-type:none;">To prolong the life and effectiveness of your batting leg guards try to leave your pads in a shady area to dry with the straps open after a batting session. Never in the sun and never in your bag because the sun will cause the padding and foam to dry out and harden and in your bag it will keep the padded area moist which leads to wear and odour. Also, When you first buy your pads, leave them in your bag with the straps firmly tightened as if you were wearing them. This will get the pads shaped to fit your leg better. Happy batting!</li>
-                            </ul>
-=======
-                    <custom design="designJson"></custom>
                     <div class="feature-buttons">
                         <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 1}"
                             ng-click="toggleTab(1)">FORM + FUNCTION</button>
@@ -92,7 +67,7 @@
                             pads, leave them in your bag with the straps firmly tightened as if you were wearing them. This
                             will get the pads shaped to fit your leg better. Happy batting!</li>
                     </ul>
->>>>>>> b6ff2378e3aff28f65445760140172cff8fa3cde
+
                 </div>
                 <div class="col-md-7">
                     <div class="det-name">
@@ -233,7 +208,8 @@
                                 <div class="size-box" ng-if="designJson.teamLogo.image">
                                     Size:
                                     <div class="range">
-                                        <div range-slider on-handle-down="changeLogo()" on-handle-up="resetLogoStyle()" min="0" max="200" model-max="designJson.teamLogo.size" model-min="rslider.min" pin-handle="min"></div>
+                                        <div range-slider on-handle-down="changeLogo()" on-handle-up="resetLogoStyle()" min="0" max="200" model-max="designJson.teamLogo.size"
+                                            model-min="rslider.min" pin-handle="min"></div>
                                     </div>
                                 </div>
                                 <div class="edit-btn">
