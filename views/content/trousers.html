@@ -104,7 +104,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images.page2 track by $index" ng-if="page==2">
-                                        <div class="cat-img pointer" ng-click="openDesign(9, 2);designTabJson(img,'shorts')" title="Design {{$index + 1}}">
+                                        <div class="cat-img pointer" ng-click="openDesign(9, 2,img);designTabJson(img,'shorts')" title="Design {{$index + 1}}">
                                             <img ng-src="{{img.src}}" class="img-responsive">
                                         </div>
                                     </div>
