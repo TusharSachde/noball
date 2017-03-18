@@ -3,32 +3,7 @@
         <h3 class="high-light main-head">CUSTOMISE YOUR TROUSER</h3>
     </div>
     <div class="container">
-        <div class="row">
-            <div class="step">
-                <ul>
-                    <li class="tab-item breadcrums {{classa}} {{tabAllowa}}" ng-disabled="tabAllowToa" ng-click="switchNavigation('a');">
-                        <span class="bread-frnt"></span>
-                        <p>1. DESIGN</p>
-                        <span class="bread-back"></span>
-                    </li>
-                    <li class="tab-item breadcrums {{classb}}  {{tabAllowb}}" ng-disabled="tabAllowTob" ng-click="switchNavigation('b');">
-                        <span class="bread-frnt"></span>
-                        <p>2. TRIM</p>
-                        <span class="bread-back"></span>
-                    </li>
-                    <li class="tab-item breadcrums {{classc}} {{tabAllowc}}" ng-disabled="tabAllowTob" ng-click="switchNavigation('c');">
-                        <span class="bread-frnt"></span>
-                        <p>3. LOGOS</p>
-                        <span class="bread-back"></span>
-                    </li>
-                    <li class="tab-item breadcrums {{classe}} {{tabAllowd}}" ng-disabled="tabAllowTob" ng-click="switchNavigation('d');">
-                        <span class="bread-frnt"></span>
-                        <p>4. QUANTITY</p>
-                        <span class="bread-back"></span>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <div ng-include="'views/directive/customHeader.html'"></div>
         <div class="product-detail">
             <div class="row">
                 <div class="col-md-5">
@@ -235,7 +210,7 @@
                                                 <div class="range">
                                                     <!--<div range-slider min="minPrice" max="maxPrice" on-handle-down="changeLogo('leftLogo')" on-handle-up="resetLogoStyle('leftLogo')" ng-model="trouserJson.leftLogo.size" model-min="userMinPrice" model-max="userMaxPrice" pin-handle="min"></div>-->
                                                     <div range-slider on-handle-down="changeLogo('rightLogo')" on-handle-up="resetLogoStyle('rightLogo')" ng-model="trouserJson.rightLogo.size"
-                                                        min="-150" max="200" model-max="trouserJson.rightLogo.size" model-min="rslider.min"
+                                                        min="5" max="45" model-max="trouserJson.rightLogo.size" model-min="rslider.min"
                                                         pin-handle="min"></div>
                                                 </div>
                                             </div>
@@ -268,7 +243,7 @@
                                                         min="0" max="200" model-max="trouserJson.leftLogo.size" model-min="rslider.min"
                                                         pin-handle="min"></div>-->
                                                     <div range-slider on-handle-down="changeLogo('leftLogo')" on-handle-up="resetLogoStyle('leftLogo')" ng-model="trouserJson.leftLogo.size"
-                                                        min="-150" max="200" model-max="trouserJson.leftLogo.size" model-min="rslider.min"
+                                                        min="5" max="45" model-max="trouserJson.leftLogo.size" model-min="rslider.min"
                                                         pin-handle="min"></div>
                                                 </div>
                                             </div>

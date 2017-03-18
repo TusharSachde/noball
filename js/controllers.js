@@ -670,7 +670,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 // controller: "OdiCtrl",
                 windowClass: "modal-dialogintro",
                 scope: $scope
-            })
+            });
         };
         $scope.activeButton = 1;
         $scope.toggleTab = function (val) {
@@ -772,7 +772,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.quantityTab = false;
         $scope.turnOnLogos = function (val) {
             $scope.LogosTab = val;
-        }
+        };
 
         $scope.switchNavigation = function (tab) {
             if (tab === 'a') {
@@ -883,11 +883,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $files = [];
                 $scope.toolarge = true;
             }
-        }
+        };
 
         $scope.getTrouserJson = function (data) {
             console.log('getTrouserJson', data);
-        }
+        };
 
         $scope.confirmUpload = function (variable, name) {
             console.log('llllllllllllllllll', variable, name);
@@ -1103,55 +1103,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             name: "navy_blue"
         }];
 
-        // $scope.page = 1;
-
-        // $scope.images = {
-        //     "page1": [{
-
-        //     src: "img/trousers/design1/front.png"
-        // }, {
-        //     src: "img/trousers/design2/front.png"
-        // }, {
-        //     src: "img/trousers/design3/front.png"
-        // }, {
-        //     src: "img/trousers/design4/front.png"
-        // }, {
-        //     src: "img/trousers/design5/front.png"
-        // }],
-        // "page2": [{ 
-        //     src: "img/shorts/design1/front.png"
-        // }, {
-        //     src: "img/shorts/design2/front.png"
-        // }, {
-        //     src: "img/shorts/design3/front.png"
-        // }, {
-        //     src: "img/shorts/design4/front.png"
-        // }, {
-        //     src: "img/shorts/design5/front.png"
-        // }]
-        // };
-        // $scope.images = [{
-        //     src: "img/trousers/design1/front.png"
-        // }, {
-        //     src: "img/trousers/design2/front.png"
-        // }, {
-        //     src: "img/trousers/design3/front.png"
-        // }, {
-        //     src: "img/trousers/design4/front.png"
-        // }, {
-        //     src: "img/trousers/design5/front.png"
-        // }, {
-        //     src: "img/shorts/design1/front.png"
-        // }, {
-        //     src: "img/shorts/design2/front.png"
-        // }, {
-        //     src: "img/shorts/design3/front.png"
-        // }, {
-        //     src: "img/shorts/design4/front.png"
-        // }, {
-        //     src: "img/shorts/design5/front.png"
-        // }];
-        //tab changes
         $scope.page = 1;
 
         $scope.images = {
@@ -1459,21 +1410,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 console.log('//////////33333', index);
                 $scope.changeDesign(index, img);
             }
-        }
+        };
         var designImg = {
             baseColor: "#ffffff",
             trim1Color: "#ffff00",
             trim2Color: ""
-        }
+        };
 
         if ($stateParams.status == "edit" && $.jStorage.get("custom")) {
             $scope.trouserJson = $.jStorage.get("custom");
             $timeout(function () {
                 $scope.tabchange($scope.trouserJson.tab, $scope.trouserJson.tabNo);
-            }, 100)
-            $timeout(function () {
-                $scope.tabchange($scope.trouserJson.tab, $scope.trouserJson.tabNo);
-            }, 100)
+            }, 100);
             console.log('$scope.trouserJson ', $scope.trouserJson);
         } else {
             $scope.changeDesign(0, designImg);
@@ -1488,7 +1436,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 templateUrl: 'views/modal/login.html',
                 controller: 'headerctrl',
                 scope: $scope
-            })
+            });
         };
         $scope.qtyValidation = false;
         $scope.checkloginTrousers = function (qty) {
@@ -1529,8 +1477,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.tabchanges = function (tabs, b) {
             $scope.tabs = tabs;
-            $scope.trouserJson.tab = tabs;
-            $scope.trouserJson.tabNo = b;
+            // $scope.trouserJson.tab = tabs;
+            // $scope.trouserJson.tabNo = b;
             if (b == 1) {
                 $scope.trimTabs.light1.active = "activeme";
                 $scope.trimTabs.light1.show = "active-tab";
