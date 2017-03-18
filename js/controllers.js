@@ -824,16 +824,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.trouserJson.leftLogo = {};
         $scope.trouserJson.leftLogo.size = 25;
 
-        $scope.changeLogo = function (key) {
-            // $scope.trouserJson.key = {};
-            // $scope.customizedTrouser[key].divattributes = {};
-            // console.log(key);
-            $scope.trouserJson[key].border = "1px solid #ccc";
+        $scope.changeLogo = function (data) {
+            if (data == 'rightLogo') {
+                $scope.trouserJson.rightLogo.border = true;
+            } else if (data == 'leftLogo') {
+                $scope.trouserJson.leftLogo.border = true;
+            }
         };
-        $scope.resetLogoStyle = function (key) {
-            // $scope.trouserJson.key = {};
-            // $scope.customizedTrouser[key].divattributes = {};
-            $scope.trouserJson[key].border = "none";
+        $scope.resetLogoStyle = function (data) {
+            if (data == 'rightLogo') {
+                $scope.trouserJson.rightLogo.border = false;
+            } else if (data == 'leftLogo') {
+                $scope.trouserJson.leftLogo.border = false;
+            }
+
             $scope.$apply();
         };
 
@@ -892,9 +896,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.trimTrouser.highlightBase.disable = "noable";
         $scope.trimTrouser.highlightOne.disable = "noable";
         $scope.trimTrouser.highlightTwo.disable = "noable";
-
+        $scope.color = {};
         $scope.switchTrimHighlightOne = function (color, name) {
             console.log('colorrr', color, name);
+            $scope.color.base = name;
             $scope.trouserJson.color.trim1 = color;
             $scope.trouserJson.color.trim1ColorName = name;
             $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.designName + "/front/trim1/" + name + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";
@@ -903,6 +908,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.switchTrimHighlightTwo = function (color, name) {
             console.log('colorrr', color, name);
             //  console.log('colorswitchTrimHighlighttwo', color);
+            $scope.color.base = name;
             $scope.trouserJson.color.trim2 = color;
             $scope.trouserJson.color.trim2ColorName = name;
             $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.designName + "/front/trim2/" + name + ".png";
@@ -910,6 +916,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
         $scope.switchTrimHighlightBase = function (color, name) {
             console.log('colorrr', color, name);
+            $scope.color.base = name;
             $scope.trouserJson.color.base = color;
             $scope.trouserJson.color.baseColorName = name;
             $scope.trouserJson.design.base = "img/" + $scope.trouserJson.type + "/base/front/" + name + ".png";
@@ -2869,12 +2876,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             max: 100
         };
 
-             $scope.changeLogo = function () {
+        $scope.changeLogo = function () {
             $scope.borderClass = "active-border";
         };
         $scope.resetLogoStyle = function () {
-             $scope.borderClass = "";
-             $scope.$apply();
+            $scope.borderClass = "";
+            $scope.$apply();
         };
 
         $scope.padLogo = {};
@@ -2965,6 +2972,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log(color);
             var val = _.pick($scope.colorObj, color);
             console.log(val);
+            $scope.padColors = color;
             $scope.designJson.design.base = val[color][0];
             $scope.designJson.color.base = getColor(color);
 
@@ -4171,12 +4179,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             min: -130,
             max: 100
         };
-     $scope.changeLogo = function () {
+        $scope.changeLogo = function () {
             $scope.borderClass = "active-border";
         };
         $scope.resetLogoStyle = function () {
-             $scope.borderClass = "";
-             $scope.$apply();
+            $scope.borderClass = "";
+            $scope.$apply();
         };
 
         $scope.glovesLogo = {};
@@ -4273,9 +4281,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
         $scope.changeGlovesImages = function (color, colr) {
             console.log(color, colr);
+            console.log(color, colr);
             $scope.glovesJson.color.base = colr;
             // $scope.color.base = color;
-            // $scope.glovesColors = color;
+            $scope.glovesColors = color;
             // $scope.glovesDesign.color = $scope.glovesColors;
             if ($scope.Arrayname == '$scope.glovesImages1') {
                 console.log('here');
@@ -8422,7 +8431,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
 
-   .controller('OdiTrouserCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
+    .controller('OdiTrouserCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("odi-trouser");
         $scope.menutitle = NavigationService.makeactive("Odi-trouser");

@@ -34,8 +34,7 @@
                 <div class="col-md-5">
                     <div class="scroll-image" id="style-2">
                         <div class="text-center">
-                            <custom design="trouserJson" class="{{borderClass}}" ng-if="trouserJson">
-                            </custom>
+                            <custom design="trouserJson" ng-if="trouserJson"></custom>
 
                             <div class="feature-buttons">
                                 <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 1}"
@@ -98,8 +97,7 @@
                             <div class="row">
                                 <div class="col-md-10">
                                     <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images.page1 track by $index" ng-if="page==1">
-                                        <div class="cat-img pointer" ng-class="{'border-line':$index + 1 = true}" ng-click="openDesign($index, 1,img);designTabJson(img,'trousers')"
-                                            title="Design {{$index + 1}}">
+                                        <div class="cat-img pointer" ng-click="openDesign($index, 1,img);designTabJson(img,'trousers')" title="Design {{$index + 1}}">
                                             <img ng-src="{{img.src}}" class="img-responsive">
                                         </div>
                                     </div>
@@ -201,7 +199,7 @@
                                         <h4>Choose Your Color</h4>
                                         <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in colorr track by $index">
                                             <div class="colo-pallet text-center">
-                                                <div class="noti-img notihov" ng-class="{'coloracive':color.base == col.name, 'borergrey':col.name == 'white'};" ng-style="{'background-color':'{{col.colr}}'}"
+                                                <div class="noti-img notihov" ng-class="{'coloracive':color.base == col.name};" ng-style="{'background-color':'{{col.colr}}'}"
                                                     ng-click="switchTrimHighlightBase(col.colr,col.name); trimHexColors('highlightBase', col.colr);"
                                                     title="{{col.name | capitalize}}"></div>
                                             </div>
