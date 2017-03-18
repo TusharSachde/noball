@@ -696,37 +696,51 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.classd = '';
                 $scope.classe = '';
 
+                $scope.tabAllowToa = false;
+
+
             }
             if (a == 2) {
-                // $scope.a =a;
                 $scope.classb = 'active';
                 $scope.classa = '';
                 $scope.classc = '';
                 $scope.classd = '';
                 $scope.classe = '';
+                $scope.tabAllowToa = false;
+                $scope.tabAllowTob = false;
 
             }
             if (a == 3) {
-                // $scope.a =a;
                 $scope.classc = 'active';
                 $scope.classb = '';
                 $scope.classa = '';
                 $scope.classd = '';
                 $scope.classe = '';
-
-            } else if (a == 4) {
-                // $scope.a =a;
-                $scope.classe = 'active';
+                $scope.tabAllowToa = false;
+                $scope.tabAllowTob = false;
+                $scope.tabAllowToc = false;
+            }
+            if (a == 4) {
+                $scope.classd = 'active';
                 $scope.classb = '';
                 $scope.classc = '';
-                $scope.classd = '';
                 $scope.classa = '';
+                $scope.classe = '';
+                $scope.tabAllowToa = false;
+                $scope.tabAllowTob = false;
+                $scope.tabAllowToc = false;
+                $scope.tabAllowTod = false;
             } else if (a == 5) {
                 $scope.classe = 'active';
                 $scope.classb = '';
                 $scope.classc = '';
                 $scope.classd = '';
                 $scope.classa = '';
+                $scope.tabAllowToa = false;
+                $scope.tabAllowTob = false;
+                $scope.tabAllowToc = false;
+                $scope.tabAllowTod = false;
+                $scope.tabAllowToe = false;
 
             }
         };
@@ -777,7 +791,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             } else if (tab === 'd') {
                 if (!$scope.tabAllowTod) {
-                    $scope.tabchange('quantity', 5);
+                    $scope.tabchange('quantity', 4);
                 }
             }
         };
@@ -1561,6 +1575,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.classd = '';
                 $scope.classe = '';
 
+                $scope.tabAllowToa = false;
+
+
             }
             if (a == 2) {
                 $scope.classb = 'active';
@@ -1568,6 +1585,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.classc = '';
                 $scope.classd = '';
                 $scope.classe = '';
+                $scope.tabAllowToa = false;
+                $scope.tabAllowTob = false;
 
             }
             if (a == 3) {
@@ -1576,7 +1595,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.classa = '';
                 $scope.classd = '';
                 $scope.classe = '';
-
+                $scope.tabAllowToa = false;
+                $scope.tabAllowTob = false;
+                $scope.tabAllowToc = false;
             }
             if (a == 4) {
                 $scope.classd = 'active';
@@ -1584,13 +1605,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.classc = '';
                 $scope.classa = '';
                 $scope.classe = '';
-
+                $scope.tabAllowToa = false;
+                $scope.tabAllowTob = false;
+                $scope.tabAllowToc = false;
+                $scope.tabAllowTod = false;
             } else if (a == 5) {
                 $scope.classe = 'active';
                 $scope.classb = '';
                 $scope.classc = '';
                 $scope.classd = '';
                 $scope.classa = '';
+                $scope.tabAllowToa = false;
+                $scope.tabAllowTob = false;
+                $scope.tabAllowToc = false;
+                $scope.tabAllowTod = false;
+                $scope.tabAllowToe = false;
 
             }
         };
@@ -1618,7 +1647,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log('troooo', $scope.trouserJson.leftLogo.image, $scope.trouserJson.sendTeamLogoLater);
             if ($scope.trouserJson.sendTeamLogoLater || $scope.trouserJson.leftLogo.image) {
                 $scope.switchNavigation('d');
-                $scope.tabchange('quantity', 5);
+                $scope.tabchange('quantity', 4);
                 $scope.openTab('d');
             } else {
                 $uibModal.open({
@@ -1756,7 +1785,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.checkTeamLogo = function () {
             console.log('troooo', $scope.capsLogo.image);
             if ($scope.capsLogo.isTeamLogo || $scope.capsLogo.image) {
-                $scope.tabchange('quantity', 5);
+                $scope.tabchange('quantity', 4);
                 $scope.openTab('d');
             } else {
                 $uibModal.open({
@@ -2285,7 +2314,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.turnOnLogos(true);
             } else if (tab === 'd') {
                 if (!$scope.tabAllowTod) {
-                    $scope.tabchange('quantity', 5);
+                    $scope.tabchange('quantity', 4);
                 }
             }
         };
@@ -2997,7 +3026,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.checkTeamLogo = function () {
             if ($scope.designJson.sendTeamLogoLater || $scope.designJson.teamLogo.image) {
-                $scope.tabchange('quantity', 5);
+                $scope.tabchange('quantity', 4);
                 $scope.openTab('d');
             } else {
                 $uibModal.open({
@@ -3201,6 +3230,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.classe = '';
 
         $scope.tabchange = function (tab, a) {
+            console.log(tab, a);
             $scope.tab = tab;
             $scope.designJson.tab = tab;
             $scope.designJson.tabNo = a;
@@ -3211,6 +3241,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.classd = '';
                 $scope.classe = '';
 
+                $scope.tabAllowToa = false;
+
+
             }
             if (a == 2) {
                 $scope.classb = 'active';
@@ -3218,6 +3251,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.classc = '';
                 $scope.classd = '';
                 $scope.classe = '';
+                $scope.tabAllowToa = false;
+                $scope.tabAllowTob = false;
 
             }
             if (a == 3) {
@@ -3226,7 +3261,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.classa = '';
                 $scope.classd = '';
                 $scope.classe = '';
-
+                $scope.tabAllowToa = false;
+                $scope.tabAllowTob = false;
+                $scope.tabAllowToc = false;
             }
             if (a == 4) {
                 $scope.classd = 'active';
@@ -3234,16 +3271,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.classc = '';
                 $scope.classa = '';
                 $scope.classe = '';
-
+                $scope.tabAllowToa = false;
+                $scope.tabAllowTob = false;
+                $scope.tabAllowToc = false;
+                $scope.tabAllowTod = false;
             } else if (a == 5) {
                 $scope.classe = 'active';
                 $scope.classb = '';
                 $scope.classc = '';
                 $scope.classd = '';
                 $scope.classa = '';
+                $scope.tabAllowToa = false;
+                $scope.tabAllowTob = false;
+                $scope.tabAllowToc = false;
+                $scope.tabAllowTod = false;
+                $scope.tabAllowToe = false;
 
             }
         };
+
         $scope.demo2 = {
             range: {
                 min: 0,
@@ -3255,7 +3301,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.tabAllowa = '';
         $scope.tabAllowb = 'noAllow';
-        $scope.tabAllowc = 'noAllow';
+        $scope.tabAllowc = '';
         $scope.tabAllowd = 'noAllow';
         $scope.tabAllowToa = false;
         $scope.tabAllowTob = true;
@@ -3301,7 +3347,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             } else if (tab === 'd') {
                 if (!$scope.tabAllowTod) {
-                    $scope.tabchange('quantity', 5);
+                    $scope.tabchange('quantity', 4);
                 }
             }
         };
@@ -3803,6 +3849,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.classc = '';
                 $scope.classd = '';
                 $scope.classe = '';
+
+                $scope.tabAllowToa = false;
+
+
             }
             if (a == 2) {
                 $scope.classb = 'active';
@@ -3810,6 +3860,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.classc = '';
                 $scope.classd = '';
                 $scope.classe = '';
+                $scope.tabAllowToa = false;
+                $scope.tabAllowTob = false;
+
             }
             if (a == 3) {
                 $scope.classc = 'active';
@@ -3817,6 +3870,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.classa = '';
                 $scope.classd = '';
                 $scope.classe = '';
+                $scope.tabAllowToa = false;
+                $scope.tabAllowTob = false;
+                $scope.tabAllowToc = false;
             }
             if (a == 4) {
                 $scope.classd = 'active';
@@ -3824,12 +3880,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.classc = '';
                 $scope.classa = '';
                 $scope.classe = '';
+                $scope.tabAllowToa = false;
+                $scope.tabAllowTob = false;
+                $scope.tabAllowToc = false;
+                $scope.tabAllowTod = false;
             } else if (a == 5) {
                 $scope.classe = 'active';
                 $scope.classb = '';
                 $scope.classc = '';
                 $scope.classd = '';
                 $scope.classa = '';
+                $scope.tabAllowToa = false;
+                $scope.tabAllowTob = false;
+                $scope.tabAllowToc = false;
+                $scope.tabAllowTod = false;
+                $scope.tabAllowToe = false;
+
             }
         };
 
@@ -4009,7 +4075,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.turnOnLogos(true);
             } else if (tab === 'd') {
                 if (!$scope.tabAllowTod) {
-                    $scope.tabchange('quantity', 5);
+                    $scope.tabchange('quantity', 4);
                 }
             }
         };
@@ -4410,7 +4476,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log('troooo', $scope.glovesJson.teamLogo.image);
             if ($scope.glovesJson.sendTeamLogoLater || $scope.glovesJson.teamLogo.image) {
                 // if ($scope.glovesLogo.isTeamLogo || $scope.glovesLogo.image) {
-                $scope.tabchange('quantity', 5);
+                $scope.tabchange('quantity', 4);
                 $scope.openTab('d');
             } else {
                 $uibModal.open({
@@ -4569,37 +4635,51 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.classd = '';
                 $scope.classe = '';
 
+                $scope.tabAllowToa = false;
+
+
             }
             if (a == 2) {
-                // $scope.a =a;
                 $scope.classb = 'active';
                 $scope.classa = '';
                 $scope.classc = '';
                 $scope.classd = '';
                 $scope.classe = '';
+                $scope.tabAllowToa = false;
+                $scope.tabAllowTob = false;
 
             }
             if (a == 3) {
-                // $scope.a =a;
                 $scope.classc = 'active';
                 $scope.classb = '';
                 $scope.classa = '';
                 $scope.classd = '';
                 $scope.classe = '';
-
-            } else if (a == 4) {
-                // $scope.a =a;
-                $scope.classe = 'active';
+                $scope.tabAllowToa = false;
+                $scope.tabAllowTob = false;
+                $scope.tabAllowToc = false;
+            }
+            if (a == 4) {
+                $scope.classd = 'active';
                 $scope.classb = '';
                 $scope.classc = '';
-                $scope.classd = '';
                 $scope.classa = '';
+                $scope.classe = '';
+                $scope.tabAllowToa = false;
+                $scope.tabAllowTob = false;
+                $scope.tabAllowToc = false;
+                $scope.tabAllowTod = false;
             } else if (a == 5) {
                 $scope.classe = 'active';
                 $scope.classb = '';
                 $scope.classc = '';
                 $scope.classd = '';
                 $scope.classa = '';
+                $scope.tabAllowToa = false;
+                $scope.tabAllowTob = false;
+                $scope.tabAllowToc = false;
+                $scope.tabAllowTod = false;
+                $scope.tabAllowToe = false;
 
             }
         };
@@ -4651,7 +4731,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.turnOnLogos(true);
             } else if (tab === 'd') {
                 if (!$scope.tabAllowTod) {
-                    $scope.tabchange('quantity', 5);
+                    $scope.tabchange('quantity', 4);
                 }
             }
         };
@@ -5272,7 +5352,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.checkTeamLogo = function (state) {
             if ($scope.customizedShirt.isTeamLogo || $scope.customizedShirt.teamlogo) {
-                $scope.tabchange('quantity', 5);
+                $scope.tabchange('quantity', 4);
                 $scope.switchFrontBackQuantity(false);
                 $scope.turnOnQuantity(true);
                 $scope.openTab('d');
@@ -7456,7 +7536,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.checkTeamLogo = function () {
             if ($scope.kitbag.isTeamLogo || $scope.kitbag.image) {
-                $scope.tabchange('quantity', 5);
+                $scope.tabchange('quantity', 4);
                 $scope.openTab('d');
             } else {
                 $uibModal.open({
@@ -7632,7 +7712,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.turnOnLogos(true);
             } else if (tab === 'd') {
                 if (!$scope.tabAllowTod) {
-                    $scope.tabchange('quantity', 5);
+                    $scope.tabchange('quantity', 4);
                 }
             }
         };
