@@ -10,7 +10,7 @@
           link: function ($scope, element, attrs) {
 
               var design = $scope.design;
-             $scope.backgroundImages = function () {
+              $scope.backgroundImages = function () {
                   if ($scope.isBack) {
                       var obj = _.compact(_.map(design.design, function (n, key) {
                           if (key != "name" && key != "designName" && !_.endsWith(n, '/.png')) {
@@ -20,7 +20,7 @@
                       }));
                   } else {
                       var obj = _.compact(_.map(design.design, function (n, key) {
-                          if (key != "name" &&  key != "designName" && !_.endsWith(n, '/.png')) {
+                          if (key != "name" && key != "designName" && !_.endsWith(n, '/.png')) {
                               return n;
                           }
                       }));
@@ -61,26 +61,51 @@
                           left: 130
                       },
                   },
-                  "gloves": { 
-                      teamLogo: {
-                          width: 60,
-                          height: 60,
-                          top: 208,
-                          right: 69,
-                          transform:'rotate(180deg)'
+                  "gloves": {
+                      "SWEEP 101": {
+                          teamLogo: {
+                              width: 60,
+                              height: 60,
+                              top: 208,
+                              right: 69,
+                              transform: 'rotate(180deg)'
+                          }
+                      },
+                      "SWITCH 202": {
+                          teamLogo: {
+                              width: 60,
+                              height: 60,
+                              top: 262,
+                              right: 114,
+                              transform: 'rotate(180deg)'
+                          }
+                      },
+                      "SCOOP 303": {
+                          teamLogo: {
+                              width: 60,
+                              height: 60,
+                              top: 262,
+                              right: 114,
+                              transform: 'rotate(180deg)'
+                          }
                       }
-                    },
+                  },
                   "pads": {
-                     teamLogo: {
-                             width: 50,
-                             height: 50,
-                             bottom: 48,
-                             right: 139,
-                     }
+                      teamLogo: {
+                          width: 50,
+                          height: 50,
+                          bottom: 48,
+                          right: 139,
+                      }
                   }
               };
               $scope.imagesPositions = function () {
-                  return allOtherImages[$scope.design.type];
+                  if ($scope.design.type == "gloves") {
+                      return allOtherImages[$scope.design.type][$scope.design.design.name];
+                  } else {
+                      return allOtherImages[$scope.design.type];
+                  }
+
               };
               $scope.showFront = function () {
                   $scope.isBack = false;
