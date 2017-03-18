@@ -2865,8 +2865,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
         $scope.rslider = {
-            min: 10,
+            min: -130,
             max: 100
+        };
+
+             $scope.changeLogo = function () {
+            $scope.borderClass = "active-border";
+        };
+        $scope.resetLogoStyle = function () {
+             $scope.borderClass = "";
+             $scope.$apply();
         };
 
         $scope.padLogo = {};
@@ -2964,10 +2972,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.selectPadsDesign($scope.myArr[0]);
         console.log($scope.myArr[0]);
 
-        $scope.resetLogoStyle = function (key) {
-            $scope.padLogo.divattributes.border = "none";
-            $scope.$apply();
-        };
+
         $scope.emptyImage = function (key) {
             // $scope.padLogo.image = null;
             $scope.designJson[key] = {};
@@ -4163,8 +4168,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }];
 
         $scope.rslider = {
-            min: 10,
+            min: -130,
             max: 100
+        };
+     $scope.changeLogo = function () {
+            $scope.borderClass = "active-border";
+        };
+        $scope.resetLogoStyle = function () {
+             $scope.borderClass = "";
+             $scope.$apply();
         };
 
         $scope.glovesLogo = {};
@@ -4307,15 +4319,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //
         // }
 
-        $scope.changeLogo = function (key) {
-            // $scope.glovesLogo.divattributes.border = "1px solid #ccc";
-            $scope.glovesJson[key].border = "1px solid #ccc";
-        };
-        $scope.resetLogoStyle = function (key) {
-            // $scope.glovesLogo.divattributes.border = "none";
-            $scope.glovesJson[key].border = "none";
-            $scope.$apply();
-        };
         $scope.emptyImage = function (key) {
             // $scope.glovesLogo.image = null;
             // $scope.glovesJson.teamLogo.image = '';
@@ -8419,7 +8422,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
 
-    .controller('OdiTrouserCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
+   .controller('OdiTrouserCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("odi-trouser");
         $scope.menutitle = NavigationService.makeactive("Odi-trouser");
