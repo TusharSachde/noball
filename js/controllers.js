@@ -1508,8 +1508,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.tabchanges = function (tabs, b) {
             $scope.tabs = tabs;
-            $scope.trouserJson.tab = tab;
-            $scope.trouserJson.tabNo = a;
+            $scope.trouserJson.tab = tabs;
+            $scope.trouserJson.tabNo = b;
             if (b == 1) {
                 $scope.trimTabs.light1.active = "activeme";
                 $scope.trimTabs.light1.show = "active-tab";
