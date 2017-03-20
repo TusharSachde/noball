@@ -661,6 +661,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.minPrice = 100;
         $scope.maxPrice = 999;
 
+        $scope.openSizeChart = function () {
+            $uibModal.open({
+                templateUrl: 'views/modal/trousers-sizechart.html',
+                scope: $scope
+            });
+        };
+
         // default the user's values to the available range
         $scope.userMinPrice = $scope.minPrice;
         $scope.userMaxPrice = $scope.maxPrice;
