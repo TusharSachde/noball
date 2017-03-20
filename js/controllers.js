@@ -651,6 +651,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.trouserJson = {};
         $scope.trouserJson.pantType = "trousers";
 
+
+   $scope.$on('$stateChangeStart', function (event, toState, fromState) {
+            if (toState.name == 'trousersEdit' || toState.name == 'ordersummary' || toState.name == 'savedesign') {
+                window.location.reload();
+            } else {
+                var answer = confirm("Are you sure you want to leave this page? Your changes will not be saved.");
+                if (answer) {
+                    console.log('yes ans');
+                } else {
+                    console.log('no ans');
+                    event.preventDefault();
+                }
+            }
+        });
+
         // slider
         $scope.rslider = {
             min: -130,
@@ -2707,6 +2722,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.activeButton = val;
         };
 
+        $scope.$on('$stateChangeStart', function (event, toState, fromState) {
+            if (toState.name == 'padsEdit' || toState.name == 'ordersummary' || toState.name == 'savedesign') {
+                window.location.reload();
+            } else {
+                var answer = confirm("Are you sure you want to leave this page? Your changes will not be saved.");
+                if (answer) {
+                    console.log('yes ans');
+                } else {
+                    console.log('no ans');
+                    event.preventDefault();
+                }
+            }
+        });
+
         $scope.outplace = function () {
             $uibModal.open({
                 templateUrl: "views/modal/outofplace.html",
@@ -3973,6 +4002,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.toggleTab = function (val) {
             $scope.activeButton = val;
         };
+
+        $scope.$on('$stateChangeStart', function (event, toState, fromState) {
+            if (toState.name == 'glovesEdit' || toState.name == 'ordersummary' || toState.name == 'savedesign') {
+                window.location.reload();
+            } else {
+                var answer = confirm("Are you sure you want to leave this page? Your changes will not be saved.");
+                if (answer) {
+                    console.log('yes ans');
+                } else {
+                    console.log('no ans');
+                    event.preventDefault();
+                }
+            }
+        });
+
+
         $scope.type = 'gloves';
         $scope.design = {};
         $scope.glovesJson = {
@@ -10522,11 +10567,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.goToReload = function () {
             console.log('goToReload');
-            // $scope.savedDesigns();
-            $scope.checkloginTrousers();
-            // $state.go('savedesign');
-            // window.location.reload();
-            // $scope.changeTab(3);
+            window.location.href = window.location.href + "/edit";
+            window.location.reload();
         }
         //login
         $scope.doLogin = function (input, formValidate) {
@@ -10540,97 +10582,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         $scope.validatelogin = true;
                     } else {
                         NavigationService.setUser(data);
-                        // if (id == 'savedesignThree') {
-                        //     console.log('from tab 3');
-                        //     $scope.openConfirm();
-                        //     $scope.openLoginModal.close();
-                        // } else if (id == 'savedesignFour') {
-                        //     console.log('from tab 4')
-                        // $scope.ml = "";
-                        // $scope.bl = "";
-                        // $scope.rc = "";
-                        // $scope.ls = "";
-                        // $scope.rs = "";
-                        // $scope.tl = "";
-                        // $scope.user = $.jStorage.get("user");
-                        // $scope.allLogos = {};
-                        // if ($scope.customizedShirt.mainlogo) {
-                        //     $scope.allLogos.mainlogo = $scope.customizedShirt.mainlogo.image;
-                        // }
-                        // if ($scope.customizedShirt.rightchest) {
-                        //     $scope.allLogos.rightchest = $scope.customizedShirt.rightchest.image;
-                        // }
-                        // if ($scope.customizedShirt.leftsleeve) {
-                        //     $scope.allLogos.leftsleeve = $scope.customizedShirt.leftsleeve.image;
-                        // }
-                        // if ($scope.customizedShirt.rightsleeve) {
-                        //     $scope.allLogos.rightsleeve = $scope.customizedShirt.rightsleeve.image;
-                        // }
-                        // if ($scope.customizedShirt.teamlogo) {
-                        //     $scope.allLogos.teamlogo = $scope.customizedShirt.teamlogo.image;
-                        // }
-                        // if ($scope.customizedShirt.backlogo) {
-                        //     $scope.allLogos.backlogo = $scope.customizedShirt.backlogo.image;
-                        // }
-
-
-                        // if ($scope.customizedShirt.mainlogo) {
-                        //     $scope.ml = $scope.customizedShirt.mainlogo.image;
-                        // }
-                        // if ($scope.customizedShirt.backlogo) {
-                        //     $scope.bl = $scope.customizedShirt.backlogo.image;
-                        // }
-                        // if ($scope.customizedShirt.rightchest) {
-                        //     $scope.rc = $scope.customizedShirt.rightchest.image;
-                        // }
-                        // if ($scope.customizedShirt.leftsleeve) {
-                        //     $scope.ls = $scope.customizedShirt.leftsleeve.image;
-                        // }
-                        // if ($scope.customizedShirt.rightsleeve) {
-                        //     $scope.rs = $scope.customizedShirt.rightsleeve.image;
-                        // }
-                        // if ($scope.customizedShirt.teamlogo) {
-                        //     $scope.tl = $scope.customizedShirt.teamlogo.image;
-                        // }
-                        // $scope.combineJSON = {
-                        //     "trim": $scope.trimTshirt,
-                        //     "customizedShirt": $scope.customizedShirt,
-                        //     "jerseyBack": $scope.jerseyBackArr,
-                        //     "allLogos": $scope.allLogos,
-                        //     "designName": $scope.designName,
-                        //     "designType": $scope.designType,
-                        //     "totalAmount": $scope.totalAmount,
-                        //     "totalQuan": $scope.totalQuan,
-                        //     "name": $scope.shirtName
-                        // };
-                        // $scope.lastJSON = JSON.stringify($scope.combineJSON);
-                        // console.log($scope.combineJSON);
-                        // console.log($scope.lastJSON);
-                        // NavigationService.orderSummaryOdi($scope.user.email, $scope.combineJSON, $scope.ml, $scope.bl, $scope.rc, $scope.ls, $scope.rs, $scope.tl, 'odishirt',
-                        //     function (data) {
-                        //         console.log('Order Summary odi data: ', data);
-                        //         $state.go('ordersummary', {
-                        //             id: data.id
-                        //         });
-                        //     },
-                        //     function (err) {
-                        //         console.log(err);
-                        //     });
-                        //         $state.go('savedesign');
-                        // } else {
-                        //     window.location.reload();
-                        // }
-
-
-                        // window.location.reload();
-                        // $state.go('savedesign');
                         if ($rootScope.afterSessionSave) {
+                            console.log('openconfirmmmmmaterseeesss');
                             console.log('$rootScope.afterSessionSave', $rootScope.afterSessionSave);
                             $scope.openConfirm();
                         }
                         if ($.jStorage.get("onCustom")) {
-                            window.location.href = window.location.href + "/edit";
-                            window.location.reload();
+                            console.log('openconfirmmmmmOncustooommmm');
+                            $scope.openConfirm();
                         } else {
                             window.location.reload();
                         }
