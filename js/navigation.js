@@ -799,6 +799,18 @@ var navigationservice = angular.module('navigationservice', [])
         data: myData
       }).success(callback).error(err);
     },
+       saveAllOrder: function(user, jsonData, callback, err) {
+      var myData = {
+        "email": user,
+        "description": jsonData
+      };
+      console.log(JSON.stringify(jsonData));
+      return $http({
+        url: adminurl  + "addCustomOrder",
+        method: "POST",
+        data: myData
+      }).success(callback).error(err);
+    },
     saveOrderGloves: function(user, jsonData, tl, type, callback, err) {
       var myData = {
         "email": user,
@@ -1014,7 +1026,7 @@ var navigationservice = angular.module('navigationservice', [])
       }).success(callback);
     },
     setCheckout: function(checkout, callback) {
-      console.log(checkout);
+      console.log('checkoutNAvi',checkout);
       return $http({
         url: adminurl + "setCheckout",
         method: "POST",

@@ -8845,7 +8845,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Checkout");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-
+        // old code//
         $scope.tabs = [{
             active: true,
             disabled: false
@@ -8858,20 +8858,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }];
 
 
-        $interval(function () {
-            // console.log($scope.tabs);
-        }, 1000)
+        // $interval(function () {
+        //     // console.log($scope.tabs);
+        // }, 1000)
 
-        NavigationService.getOrderSummary($state.params.id,
-            function (data) {
-                $scope.design = data.data;
-                $scope.design.description = JSON.parse(data.data.description);
-                console.log($scope.design.description);
-            },
-            function (err) {
-                console.log(err);
-            }
-        );
+      
 
         $scope.proceedToDeliveryDetails = function () {
             console.log("Deon");
@@ -8881,6 +8872,576 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log("Deon");
             $scope.tabs[2].active = true;
         };
+        //end old code//
+
+
+
+        //new code//
+
+ $scope.alerts = [];
+        $scope.invalidData = false;
+        $scope.shipAtSame = false;
+        $scope.countries = countries;
+        $scope.msg = 'Loading...';
+        $scope.guest = "notguest";
+        $scope.guestshow = true;
+        $scope.backendurl = backendurl;
+        $scope.billingfulladdress = "";
+        $scope.shippingfulladdress = "";
+        $scope.shippingcharges = 0;
+        $scope.discount = 0;
+        $scope.totalAmount = 0;
+        $scope.country = $.jStorage.get("myCurrency");
+        $scope.acceptIt = function (flag) {
+            if (flag === true) {
+                $scope.acceptValidate = false;
+            } else {
+                $scope.acceptValidate = true;
+            }
+        };
+
+        $scope.allNewCart = [];
+        $scope.user = $.jStorage.get('user');
+        // console.log('user:', user);
+
+        if ($scope.user) {
+              NavigationService.getOrderSummary($state.params.id,
+            function (data) {
+                $scope.design = data.data;
+                $scope.design.description = JSON.parse(data.data.description);
+                console.log($scope.design);
+                console.log('$scope.design.description',$scope.design.description);
+            $scope.currentCart = {
+                design: $scope.design.description.design.name,
+                image: '',
+                id: $scope.design.id,
+                maxQuantity: 100,
+                options: {
+                    colorid: '',
+                    colorname: $scope.design.description.color.base,
+                    realname: $scope.design.description.design.name,
+                    sizeid: '',
+                    sizename: ''
+                },
+                price: $scope.design.description.design.totalAmount,
+                subtotal: $scope.design.description.design.totalAmount,
+                user: $scope.user.id
+            };
+
+            console.log('$scope.currentCart: ', $scope.currentCart);
+
+            $scope.allNewCart.push($scope.currentCart);
+            },
+            function (err) {
+                console.log(err);
+            }
+        );
+        }
+
+
+        $scope.openForgot = function () {
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/forgotpop.html',
+                controller: 'headerctrl',
+                scope: $scope
+            })
+        };
+        $scope.selectGuest = function (input) {
+            $scope.guestshow = true;
+            if (input == "notguest") {
+                $scope.guestshow = true;
+            } else {
+                $scope.guestshow = false;
+            }
+        };
+        // $scope.tabs = [{
+        //     active: true,
+        //     disabled: false
+        // }, {
+        //     active: false,
+        //     disabled: true
+        // }, {
+        //     active: false,
+        //     disabled: true
+        // }, {
+        //     active: false,
+        //     disabled: true
+        // }];
+
+        // if ($scope.user) {
+        //     $scope.tabs[1].active = true;
+        //     $scope.tabs[0].disabled = true;
+        // }
+
+        var checktwitter = function (data, status) {
+            if (data != "false") {
+                $interval.cancel(stopinterval);
+                ref.close();
+                NavigationService.authenticate(authenticatesuccess);
+            } else {
+
+            }
+        };
+
+        var callAtIntervaltwitter = function () {
+            NavigationService.authenticate(checktwitter);
+        };
+        var authenticatesuccess = function (data, status) {
+            if (data != "false") {
+                $.jStorage.set("user", data);
+                user = data;
+                $state.go('checkout');
+                window.location.reload();
+            }
+        };
+
+        $scope.facebooklogin = function () {
+            ref = window.open(mainurl + 'hauth/login/Facebook?returnurl=' + websiteurl, '_blank', 'location=yes');
+            stopinterval = $interval(callAtIntervaltwitter, 2000);
+            ref.addEventListener('exit', function (event) {
+                NavigationService.authenticate(authenticatesuccess);
+                $interval.cancel(stopinterval);
+            });
+        }
+        $scope.googlelogin = function () {
+            ref = window.open(mainurl + 'hauth/login/Google?returnurl=' + websiteurl, '_blank', 'location=yes');
+            stopinterval = $interval(callAtIntervaltwitter, 2000);
+            ref.addEventListener('exit', function (event) {
+                NavigationService.authenticate(authenticatesuccess);
+                $interval.cancel(stopinterval);
+            });
+        }
+
+        $scope.twitterlogin = function () {
+            ref = window.open(mainurl + 'hauth/login/Twitter?returnurl=' + websiteurl, '_blank', 'location=yes');
+            stopinterval = $interval(callAtIntervaltwitter, 2000);
+            ref.addEventListener('exit', function (event) {
+                NavigationService.authenticate(authenticatesuccess);
+                $interval.cancel(stopinterval);
+            });
+        }
+        $scope.allvalidation = [];
+        $scope.login = {};
+        $scope.userid = null;
+        $scope.checkout = {};
+        $scope.totalcart = 0;
+        $scope.getCart = function () {
+
+            cfpLoadingBar.start();
+            $scope.totalcart = 0;
+            NavigationService.showCart(function (data) {
+                cfpLoadingBar.complete();
+                $scope.msg = "";
+                if (data == "") {
+                    $scope.allcart = [];
+                    // $scope.msg = "No items in cart.";
+                    $scope.msg = "";
+                } else {
+                    $scope.allcart = data;
+                    _.each($scope.allcart, function (key) {
+                        $scope.totalcart = $scope.totalcart + parseInt(key.subtotal);
+                        key.qty = parseInt(key.qty);
+                        if (!$scope.validateQuantity(key)) {
+                            key.exceed = true;
+                        } else {
+                            key.exceed = false;
+                        }
+                    })
+                }
+                NavigationService.getCurrency(function (data) {
+                    if (data) {
+                        // var temp= _.find(data,{'name':$scope.country});
+                        var temp;
+                        _.each(data, function (key) {
+                            if (key.name == $.jStorage.get("myCurrency")) {
+                                temp = key;
+                            }
+                        });
+                        if (temp.name == $.jStorage.get("myCurrency")); {
+                            if (parseInt(temp.minorder) > $scope.totalcart) {
+                                $scope.shippingcharges = parseInt(temp.shipping);
+
+                            } else {
+                                $scope.shippingcharges = 0;
+                            }
+                        }
+                    }
+                }, function (err) {
+                    console.log(err);
+                });
+            }, function (err) {
+                console.log(err);
+            })
+        };
+        if ($.jStorage.get("user")) {
+            $scope.tabs[0].active = true;
+            $scope.getCart();
+        }
+        $scope.proceedToCart = function (checkoutGuest) {
+            if (checkoutGuest) {
+                $timeout(function () {
+                    $scope.getCart();
+                    $scope.tabs[1].active = true;
+                    window.scrollTo(0, 0);
+                }, 1000);
+            }
+        };
+        $scope.doLogin = function (input, formValidate) {
+            $scope.validatelogin = false;
+            $scope.inputall = false;
+
+            if (formValidate.$valid) {
+                NavigationService.login(input, function (data) {
+                    if (data.value === false) {
+                        $scope.alerts = [];
+                        $scope.alerts.push({
+                            type: 'danger',
+                            msg: 'Invalid email or password.'
+                        });
+                    } else {
+                        NavigationService.setUser(data);
+                        window.location.reload();
+                    }
+                }, function (err) {
+                    console.log(err);
+                })
+            } else {
+                $scope.inputall = true;
+            }
+        }
+        $scope.signup = {};
+        $scope.accept = false;
+        $scope.acceptValidate = false;
+        $scope.validateForm = false;
+        $scope.alreadyReg = false;
+        $scope.noMatch = false;
+        $scope.doSignUp = function (accept, input, formValidate) {
+            $scope.acceptValidate = false;
+            $scope.validateForm = false;
+            $scope.alreadyReg = false;
+            $scope.noMatch = false;
+            if (formValidate.$valid) {
+                if (input.password != input.cfpassword) {
+                    $scope.noMatch = true;
+                } else {
+                    if (accept == true) {
+                        NavigationService.signup(input, function (data) {
+                            if (data.value == false) {
+                                $scope.alerts = [];
+                                $scope.alerts.push({
+
+                                    type: 'danger',
+                                    msg: 'Email already exists'
+
+                                });
+                            } else {
+                                NavigationService.setUser(data);
+                                window.location.reload();
+                            }
+                        }, function (err) {
+                            console.log(err);
+                        })
+                    } else {
+                        $scope.acceptValidate = true;
+                    }
+                }
+            } else {
+                $scope.alerts = [];
+                $scope.alerts.push({
+
+                    type: 'danger',
+                    msg: 'Please enter all details'
+
+                });
+            }
+
+
+        }
+
+        //START COUPON CODE
+        $scope.couponamount = 0;
+        $scope.showcoupontext = false;
+        $scope.checkCoupon = function (coupon) {
+            $scope.couponamount = 0;
+            $scope.checkout.coupon = 0;
+            if (NavigationService.getUser()) {
+                if (coupon && coupon != "") {
+                    NavigationService.checkCoupon(coupon, function (data) {
+                        if (data.value == false) {
+                            // $scope.amount  cart amount
+                            $scope.alerts.push({
+                                type: "danger",
+                                msg: data.comment
+                            });
+                            // $scope.totalcart = $scope.totalcart;
+                        } else {
+                            if (parseInt($scope.totalcart) >= parseInt(data.min)) {
+                                $scope.couponamount = (data.discount / 100) * $scope.totalcart;
+
+                                if ($scope.couponamount <= data.max) {
+                                    $scope.checkout.coupon = data.id;
+                                    // $scope.totalamount = $scope.amount - $scope.couponamount;
+                                    $scope.showcoupontext = true;
+                                    $timeout(function () {
+                                        $scope.showcoupontext = false;
+                                    }, 4000);
+                                } else {
+                                    $scope.checkout.coupon = data.id;
+                                    // $scope.totalamount = $scope.amount - data.max;
+                                    $scope.couponamount = data.max;
+                                }
+                            } else {
+                                // $scope.totalcart = $scope.totalcart;
+                            }
+                        }
+                    });
+                } else {
+                    $scope.alerts.push({
+                        type: "danger",
+                        msg: "Please enter Coupon Code."
+                    });
+                    $scope.totalamount = $scope.amount;
+                }
+            } else {
+                $scope.alerts.push({
+                    type: "danger",
+                    msg: "To Apply coupon login first."
+                });
+                $scope.totalamount = $scope.amount;
+            }
+
+        }
+        var setPlaceOrder = function (data) {
+            $scope.checkout = data;
+        };
+        $scope.allcart = [];
+        $scope.isCartValid = function () {
+            var isValid = true;
+            _.each($scope.allcart, function (key) {
+                if (key.exceed == true) {
+                    isValid = false;
+                }
+            });
+            return isValid;
+        };
+
+        // $scope.proceedToDeliveryDetails = function () {
+        //     $scope.tabs[1].active = true;
+        //     if ($scope.allcart.length == 0 || $scope.allcart == null) {
+        //         $scope.alerts = [];
+        //         $scope.alerts.push({
+        //             type: 'danger',
+        //             msg: 'No items in cart'
+        //         });
+        //     } else if (!$scope.isCartValid()) {
+        //         $scope.alerts = [];
+        //         $scope.alerts.push({
+        //             type: 'danger',
+        //             msg: 'Remove exceeding quantities'
+        //         });
+
+        //     } else {
+        //         NavigationService.checkoutCheck(function(data) {
+        //             if (data.value) {
+        //                 $scope.tabs[2].active = true;
+        //                 if ($.jStorage.get("user")) {
+        //                     $scope.userid = $.jStorage.get("user").id;
+        //                     NavigationService.getUserDetail($scope.userid, setPlaceOrder, function(err) {
+        //                         console.log(err);
+        //                     });
+        //                     window.scrollTo(0, 0);
+        //                 }
+        //             } else {
+        //                 $scope.getCart();
+        //                 $scope.alerts = [];
+        //                 $scope.alerts.push({
+        //                     type: 'danger',
+        //                     msg: 'Some items went out of stock. Remove them'
+        //                 });
+        //             }
+        //         }, function(err) {
+        //             console.log(err);
+        //         })
+
+        //     }
+
+        //     // $scope.tabs[2].active = true;
+        // };
+        //pay with paypal starts
+        $scope.payWithPaypal = function () {
+            console.log('$scope.allcart11',$scope.allcart);
+            var data_paypal = {};
+            var cartify = [];
+            _.each($scope.allcart, function (n) {
+                cartify.push({
+                    "name": n.options.realname,
+                    "amount": n.price,
+                    "number": n.id,
+                    "quantity": n.qty
+                });
+            });
+            data_paypal.products = cartify;
+            // $scope.tabs[3].active = true; // comment this later
+            data_paypal.shipping_amount = $scope.shippingcharges;
+            data_paypal.currency = $scope.checkout.currency;
+            data_paypal.type = "Order";
+            data_paypal.return_URL = adminurl + "catchReturnData";
+            data_paypal.cancel_URL = websiteurl + "#/checkout";
+            data_paypal.get_shipping = false;
+            data_paypal.tax_amount = 0;
+            data_paypal.handling_amount = 0;
+            data_paypal.dis_amount = parseInt($scope.couponamount);
+            data_paypal.order_id = $scope.order;
+              
+            data_paypal.checkout = $scope.checkout;
+            $scope.checkout.finalamount = $scope.design.description.totalAmount;
+            $scope.checkout.discountamount = parseInt($scope.couponamount);
+            console.log('$scope.allcart1100000000000000',$scope.checkout);
+            NavigationService.setCheckout(data_paypal, function (data) {
+                //  console.log('$scope.allcart1100000000000000',JSON.parse(data));
+                if (data.ec_status) {
+                    $window.open(data.paypal_url + data.TOKEN);
+                } else {
+                    NavigationService.setPaypal(data);
+                    $state.go("customerror", {
+                        "orderid": 0
+                    });
+                }
+            });
+        }
+        //pay with paypal ends
+        $scope.placeOrder = function (formValidate) {
+            // $scope.invalidData = false;
+            // if (formValidate.$valid) {
+            console.log("in placeorder",$scope.design.description.totalAmount);
+            $scope.checkout.cart = $scope.allNewCart;
+            $scope.tabs[2].active = true; // comment this later
+            $scope.billingfulladdress = $scope.checkout.billingline1 + $scope.checkout.billingline2 + $scope.checkout.billingline3;
+            $scope.shippingfulladdress = $scope.checkout.shippingline1 + $scope.checkout.shippingline2 + $scope.checkout.shippingline3;
+            $scope.checkout.shippingamount = ''; // $scope.shippingcharges;
+            $scope.checkout.discountamount = parseInt($scope.couponamount);
+            $scope.checkout.totalamount = '' + $scope.design.description.design.totalAmount;
+            // $scope.checkout.finalamount = $scope.checkout.totalamount + $scope.shippingamount - $scope.discountamount;
+            $scope.checkout.finalamount = $scope.design.description.design.totalAmount;
+            // console.log("in placeorderrrrrrrrr",$scope.checkout.finalamount,$scope.checkout.totalamount);
+            NavigationService.placeOrder($scope.checkout, function (data) {
+                if (data != "") {
+                    $scope.txnid = Date.now();
+                    $scope.order = data
+                    // $scope.tabs[3].active = true;
+                } else {
+                    $scope.alerts = [];
+                    $scope.alerts.push({
+                        type: 'danger',
+                        msg: 'Unable to place order. Try again.'
+                    });
+                }
+            }, function (err) {});
+            // } else {
+            //     // $scope.invalidData = true;
+            //     // $scope.alerts = [];
+            //     // $scope.alerts.push({
+            //     //   type: 'danger',
+            //     //   msg: 'Input all information'
+            //     // });
+            // }
+
+        };
+
+        $scope.validateQuantity = function (item) {
+            if ((item.qty > item.maxQuantity) || item.qty < 1) {
+                return false;
+            } else {
+                return true;
+            }
+        };
+        $scope.removeItem = function (cart) {
+            NavigationService.removeFromCart(cart, function (data) {
+                if (data.value) {
+                    $scope.alerts = [];
+                    $scope.alerts.push({
+                        type: 'success',
+                        msg: 'Removed successfully'
+                    });
+                    $scope.getCart();
+                    myfunction();
+                } else {
+                    $scope.alerts = [];
+                    $scope.alerts.push({
+                        type: 'danger',
+                        msg: 'Unable to remove item.'
+                    });
+                }
+            })
+        };
+        $scope.updateCartQuantity = function (item) {
+
+
+            if (item.qty < 1) {
+                item.qty = 1;
+            } else {
+                if (!$scope.validateQuantity(item)) {
+                    item.exceed = true;
+                    //$scope.totalcart = null;
+
+                } else if ($scope.validateQuantity(item)) {
+                    item.exceed = false;
+                    item.status = "2";
+                    NavigationService.addToCart(item, function (data) {
+                        if (data.value) {
+                            $scope.getCart();
+                        }
+                    }, function (err) {})
+                }
+            }
+
+        };
+        $scope.addQuantity = function (item) {
+            item.qty++;
+            $scope.updateCartQuantity(item);
+        };
+        $scope.subtractQuantity = function (item) {
+            item.qty--;
+            $scope.updateCartQuantity(item);
+        };
+        $scope.closeAlert = function (index) {
+            $scope.alerts.splice(index, 1);
+        };
+        $scope.sameShipping = function (data) {
+            if ($scope.shipAtSame) {
+                $scope.checkout.shippingline1 = data.billingline1;
+                $scope.checkout.shippingline2 = data.billingline2;
+                $scope.checkout.shippingline3 = data.billingline3;
+                $scope.checkout.shippingcity = data.billingcity;
+                $scope.checkout.shippingpincode = data.billingpincode;
+                $scope.checkout.shippingstate = data.billingstate;
+                $scope.checkout.shippingcountry = data.billingcountry;
+            }
+        };
+        $scope.shippingChangeKarKeBataAb = function () {
+            if ($scope.shipAtSame) {
+                $scope.checkout.shippingpincode = $scope.checkout.billingpincode;
+            }
+        }
+        $scope.shippingCheck = function (check) {
+            if (check) {
+                $scope.shipAtSame = true;
+                $scope.sameShipping($scope.checkout);
+            } else {
+                $scope.shipAtSame = false;
+                $scope.checkout.shippingline1 = "";
+                $scope.checkout.shippingline2 = "";
+                $scope.checkout.shippingline3 = "";
+                $scope.checkout.shippingcity = "";
+                $scope.checkout.shippingpincode = "";
+                $scope.checkout.shippingstate = "";
+                $scope.checkout.shippingcountry = "";
+            }
+        };
+
+
+      //end of new code//
     })
 
     .controller('CheckoutCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $interval, cfpLoadingBar, $uibModal, $window) {
@@ -8921,32 +9482,32 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             $scope.designColorName = '';
 
-            // if ($scope.latestOrder.description.designType === 'odi' || $scope.latestOrder.description.designType === 'training' || $scope.latestOrder.description.designType === 'whites') {
-            //     $scope.designColorName = $scope.latestOrder.description.trim.highlightBase.tcolor;
-            // } else if ($scope.latestOrder.description.designType === 'gloves') {
-            //     $scope.designColorName = $scope.latestOrder.description.glovesDesign.color;
-            // } else if ($scope.latestOrder.description.designType === 'pads') {
-            //     $scope.designColorName = $scope.latestOrder.description.padsDesign.color;
-            //     console.log($scope.designColorName);
-            // }
+            if ($scope.latestOrder.description.designType === 'odi' || $scope.latestOrder.description.designType === 'training' || $scope.latestOrder.description.designType === 'whites') {
+                $scope.designColorName = $scope.latestOrder.description.trim.highlightBase.tcolor;
+            } else if ($scope.latestOrder.description.designType === 'gloves') {
+                $scope.designColorName = $scope.latestOrder.description.glovesDesign.color;
+            } else if ($scope.latestOrder.description.designType === 'pads') {
+                $scope.designColorName = $scope.latestOrder.description.padsDesign.color;
+                console.log($scope.designColorName);
+            }
 
-            // $scope.currentCart = {
-            //     design: $scope.latestOrder.description.name,
-            //     image: '',
-            //     id: $scope.latestOrder.data.id,
-            //     maxQuantity: 100,
-            //     options: {
-            //         colorid: '',
-            //         colorname: $scope.designColorName,
-            //         realname: $scope.latestOrder.description.name,
-            //         sizeid: '',
-            //         sizename: ''
-            //     },
-            //     price: $scope.latestOrder.description.totalAmount,
-            //     qty: $scope.latestOrder.description.totalQuan,
-            //     subtotal: $scope.latestOrder.description.totalAmount,
-            //     user: $scope.user.id
-            // };
+            $scope.currentCart = {
+                design: $scope.latestOrder.description.name,
+                image: '',
+                id: $scope.latestOrder.data.id,
+                maxQuantity: 100,
+                options: {
+                    colorid: '',
+                    colorname: $scope.designColorName,
+                    realname: $scope.latestOrder.description.name,
+                    sizeid: '',
+                    sizename: ''
+                },
+                price: $scope.latestOrder.description.totalAmount,
+                qty: $scope.latestOrder.description.totalQuan,
+                subtotal: $scope.latestOrder.description.totalAmount,
+                user: $scope.user.id
+            };
 
             console.log('$scope.currentCart: ', $scope.currentCart);
 
