@@ -1,7 +1,7 @@
 <!--<pre class="text-left">{{design|json}}</pre>-->
 <div class="text-center" style="height:507px;">
     <div class="gully-shirt">
-        <img ng-repeat="background in backgroundImages()" noloading="true" ng-src="{{background}}" class="trimshirt img-responsive">
+        <img ng-repeat="background in backgroundImages() track by $index" noloading="true" ng-src="{{background}}" class="trimshirt img-responsive">
 
         <div class="div-internal-image" ng-class="{'borergrey':design[key].border}" ng-hide="isBack" ng-repeat="(key,imagePos) in imagesPositions()"
             ng-style="imagePos">

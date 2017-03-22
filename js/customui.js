@@ -13,7 +13,7 @@
               $scope.backgroundImages = function () {
                   if ($scope.isBack) {
                       var obj = _.compact(_.map(design.design, function (n, key) {
-                          if (key != "name" && key != "designName" && !_.endsWith(n, '/.png')) {
+                          if (key != "name" && key != "designName" && key != "designType" && !_.endsWith(n, '/.png')) {
                               n = n.replace("/front/", "/back/");
                               return n;
                           }

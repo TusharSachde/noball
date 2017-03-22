@@ -38,67 +38,12 @@
         <div class="col-md-5">
           <div class="scroll-image" id="style-2">
             <div class="text-center">
-              <div class="gully-shirt" id="gully-shirt">
-                <img ng-src="{{customizedShirt.backdrop}}" class="backdrop img-responsive" alt="">
-                <img ng-src="{{trimTshirt.highlightOne.image}}" ng-if="trimTshirt.highlightOne.image" class="trimshirt top10 img-responsive"
-                  alt="">
-                <img ng-src="{{trimTshirt.highlightTwo.image}}" ng-if="trimTshirt.highlightTwo.image" class="trimshirt  top10 img-responsive"
-                  alt="">
-                <img ng-src="{{trimTshirt.highlightBase.image}}" ng-if="trimTshirt.highlightBase.image" class="trimshirtbase img-responsive"
-                  alt="">
-                <div class="div-main-logo" ng-if="customizedShirt.front && customizedShirt.mainlogo.image" ng-style="customizedShirt.mainlogo.divattributes">
-                  <img id="mainlogo" class="main-logo" ng-src="{{customizedShirt.mainlogo.image | serverimage}}" alt="" ng-style="customizedShirt.mainlogo.attributes">
-                </div>
-                <div class="div-back-sponsor1" ng-if="customizedShirt.back && customizedShirt.backsponsor1.image" ng-style="customizedShirt.backsponsor1.divattributes">
-                  <img class="back-sponsor1" ng-src="{{customizedShirt.backsponsor1.image | serverimage}}" alt="" ng-style="customizedShirt.backsponsor1.attributes">
-                </div>
-                <div class="div-back-sponsor2" ng-if="customizedShirt.back && customizedShirt.backsponsor2.image" ng-style="customizedShirt.backsponsor2.divattributes">
-                  <img class="back-sponsor2" ng-src="{{customizedShirt.backsponsor2.image | serverimage}}" alt="" ng-style="customizedShirt.backsponsor2.attributes">
-                </div>
-                <div class="div-left-chest" ng-if="customizedShirt.front && customizedShirt.teamlogo.image" ng-style="customizedShirt.teamlogo.divattributes">
-                  <img id="teamlogo" class="left-chest" ng-src="{{customizedShirt.teamlogo.image | serverimage}}" alt="" ng-style="customizedShirt.teamlogo.attributes">
-                </div>
-                {{customizedShirt.back}}
-                <div class="div-left-sleeve" ng-if="customizedShirt.leftsleeve.image" ng-style="customizedShirt.leftsleeve.divattributes"
-                  ng-class="{'div-left-sleeve':customizedShirt.front,'div-right-sleeve-back':customizedShirt.back}">
-                  <div class="rel">
-                    <img id="leftsleeve" ng-class="{'left-sleeve':customizedShirt.front,'right-sleeve':customizedShirt.back}" ng-src="{{customizedShirt.leftsleeve.image | serverimage}}"
-                      alt="" ng-style="customizedShirt.leftsleeve.attributes">
-                  </div>
-                </div>
-                <div class="div-right-chest" ng-if="customizedShirt.front && customizedShirt.rightchest.image" ng-style="customizedShirt.rightchest.divattributes">
-                  <img id="rightchest" class="right-chest" ng-src="{{customizedShirt.rightchest.image | serverimage}}" alt="" ng-style="customizedShirt.rightchest.attributes">
-                </div>
-                <div class="div-right-chest disblock" ng-if="customizedShirt.front && myhide" ng-style="customizedShirt.rightchest.divattributes">
-                  <div style="color:{{myClolr}};transform: rotate({{myArc}}deg);font-size:{{mySize}}px;transform: rotate({{myRotate}}deg);letter-spacing: {{myWordSpace}}px;mymodel.name">{{mymodel.name}}</div>
-                  <div style="color:{{myClolr}};transform: rotate({{myArc1}}deg);font-size:{{mySize1}}px;transform: rotate({{myRotate1}}deg);letter-spacing: {{myWordSpace1}}px;">
-                  {{addtxt10}}</div>
-                </div>
-                <div class="div-right-sleeve" ng-if="customizedShirt.rightsleeve.image" ng-style="customizedShirt.rightsleeve.divattributes"
-                  ng-class="{'div-right-sleeve':customizedShirt.front,'div-left-sleeve-back':customizedShirt.back}">
-                  <div class="rel">
-                    <img ng-class="{'right-sleeve':customizedShirt.front,'left-sleeve':customizedShirt.back}" ng-src="{{customizedShirt.rightsleeve.image | serverimage}}"
-                      alt="" ng-style="customizedShirt.rightsleeve.attributes">
-                  </div>
-                </div>
-                <div class="div-back" ng-if="customizedShirt.back && customizedShirt.backlogo.image" ng-style="customizedShirt.backlogo.divattributes">
-                  <img ng-src="{{customizedShirt.backlogo.image | serverimage}}" alt="" ng-style="customizedShirt.backlogo.attributes">
-                </div>
-                <div class="div-backccc" ng-if="customizedShirt.back && customizedShirt.rightchest.image != 'img/logo_black.png'">
-                  <img src="img/logo_green.png" alt="" class="img-responsive">
-                </div>
-                <div ng-if="customizedShirt.back && quantityTab && tabFive" class="{{jerseyBack.font+'-font'}}" ng-style="{'color': jerseyBack.color}">
-                  <div class="odi-t jersey-name uppercase text-center">
-                    <p ng-style="jerseyBackArr[0].attributes.name">{{jerseyBackArr[0].name}} </p>
-                  </div>
-                  <div class="odi-t jersey-no text-center" ng-style="jerseyBackArr[0].attributes.number">{{jerseyBackArr[0].no}}</div>
-                </div>
-              </div>
+                <custom design="odiJson" ng-if="odiJson"></custom>
               <div class="prev inline-block">
-                <p class="uppercase" ng-click="switchFrontBack(true); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor)"><img src="img/back.png" class="img-responsive" alt="">front</p>
+                <p class="uppercase" ng-click="switchFrontBack(true); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor,odiJson.color.base); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor,odiJson.color.trim1); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor,odiJson.color.trim2)"><img src="img/back.png" class="img-responsive" alt="">front</p>
               </div>
               <div class="next inline-block">
-                <p class="uppercase" ng-click="switchFrontBack(false); switchTrimHighlightBase(false, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(false, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(false, trimTshirt.highlightTwo.tcolor)"><img src="img/back.png" class="img-responsive" alt="">back</p>
+                <p class="uppercase" ng-click="switchFrontBack(false); switchTrimHighlightBase(false, trimTshirt.highlightBase.tcolor,odiJson.color.base); switchTrimHighlightOne(false, trimTshirt.highlightOne.tcolor,odiJson.color.trim1); switchTrimHighlightTwo(false, trimTshirt.highlightTwo.tcolor,odiJson.color.trim2)"><img src="img/back.png" class="img-responsive" alt="">back</p>
               </div>
               <div class="feature-buttons">
                 <button class="btn  btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 1}"
@@ -131,7 +76,7 @@
         <div class="col-md-7">
           <div class="scroll-image" id="style-1">
             <div class="det-name">
-              <h4>{{shirtName}}</h4>
+              <h4>{{odiJson.design.name}}</h4>
               <!-- MATT B&amp;Y -->
               <!--<p>The Custom Cricket company cricket shirt is made from wicking fabric that lifts moisture from your
                             body. Tested and built to perform in warm and cold climate conditions. It features the Custom
@@ -197,7 +142,7 @@
                 <button class="{{designButton.design3.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(3);">Cut &amp; Sew</button>
                 <button class="{{designButton.design4.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(4);">Polo</button>-->
               </div>
-              <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="tabchange('trim',2); switchFrontBack(true); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor); openTab('b');">NEXT</button>
+              <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="tabchange('trim',2); switchFrontBack(true); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor,odiJson.color.base); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor,odiJson.color.trim1); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor,odiJson.color.trim2); openTab('b');">NEXT</button>
               <!-- <div class="edit-btn inline-block">
                                 <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                             </div>
@@ -233,7 +178,7 @@
                     <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in odicolor track by $index">
                       <div class="colo-pallet text-center ">
                         <div class="noti-img notihov" ng-class="{'coloracive':trimTshirt.highlightOne.tcolor == col.name, 'borergrey':col.name == 'white'};"
-                          ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightOne(trimTshirt.highlightOne.flag, col.name); trimHexColors('highlightOne', col.colr);"
+                          ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightOne(trimTshirt.highlightOne.flag, col.name,col.colr); trimHexColors('highlightOne', col.colr);"
                           title="{{col.name | capitalize}}"></div>
                         <!-- switchTrimHighlightOne(trimTshirt.highlightOne.flag, col.name) -->
                       </div>
@@ -249,7 +194,7 @@
                       <div class="colo-pallet text-center">
                         <!--<div class="noti-img notihov" ng-class="{{'coloracive':trimTshirt.highlightTwo.tcolor == col.name, 'borergrey':col.name == 'white'};" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightTwo(trimTshirt.highlightTwo.flag, col.name); trimHexColors('highlightTwo', col.colr);" title="{{col.name | capitalize}}"></div>-->
                         <div class="noti-img notihov" ng-class="{'coloracive':trimTshirt.highlightTwo.tcolor == col.name, 'borergrey':col.name == 'white'};"
-                          ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightTwo(trimTshirt.highlightTwo.flag, col.name); trimHexColors('highlightTwo', col.colr);"
+                          ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightTwo(trimTshirt.highlightTwo.flag, col.name,col.colr); trimHexColors('highlightTwo', col.colr);"
                           title="{{col.name | capitalize}}"></div>
                       </div>
                     </div>
@@ -263,7 +208,7 @@
                     <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in odibasecolor track by $index">
                       <div class="colo-pallet text-center">
                         <div class="noti-img notihov" ng-class="{'coloracive':trimTshirt.highlightBase.tcolor == col.name, 'borergrey':col.name == 'white'};"
-                          ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightBase(trimTshirt.highlightBase.flag, col.name); trimHexColors('highlightBase', col.colr);"
+                          ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightBase(trimTshirt.highlightBase.flag, col.name,col.colr); trimHexColors('highlightBase', col.colr);"
                           title="{{col.name | capitalize}}"></div>
                       </div>
                     </div>
@@ -279,14 +224,14 @@
                             <div class="edit-btn inline-block">
                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('team',3)">NEXT</button>
                             </div> -->
-              <button class="classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block mt-20" ng-click="tabchange('design',1); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor);">BACK</button>
+              <button class="classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block mt-20" ng-click="tabchange('design',1); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor,odiJson.color.base); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor,odiJson.color.trim1); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor,odiJson.color.trim2);">BACK</button>
               <button class="classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block mt-20" ng-click="openTab('c'); switchNavigation('c')">NEXT</button>
             </div>
             <!--  team logo-->
             <!-- sagar -->
             <div class="choos m20-l" ng-show="tab=='team'">
               <div class="checkboxing">
-                <input type="checkbox" class="form-control" id="later" ng-model="customizedShirt.isTeamLogo">
+                <input type="checkbox" class="form-control" id="later" ng-model="odiJson.sendTeamLogoLater">
                 <label for="later"><span></span>SEND TEAM LOGO LATER</label>
               </div>
               <div class="logo-text mt10 inline-box">

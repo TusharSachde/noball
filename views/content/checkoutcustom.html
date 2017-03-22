@@ -128,25 +128,30 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
 
-                                            <input type="text" name="firstname" required ng-model="checkout.firstname" class="form-control" placeholder="First Name">
+                                            <input type="text" name="firstname" required ng-model="checkout.firstname" class="form-control" placeholder="First Name" required>
+                                            <div class="error-msg" ng-if="detailForm.firstname.$error.required && detailForm.firstname.$touched">Please Enter Your First Name.</div>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
 
-                                            <input type="text" name="lastname" required ng-model="checkout.lastname" class="form-control" placeholder="Last Name">
+                                            <input type="text" name="lastname" required ng-model="checkout.lastname" class="form-control" placeholder="Last Name" required>
+                                            <div class="error-msg" ng-if="detailForm.lastname.$error.required && detailForm.lastname.$touched">Please Enter Your Last Name.</div>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
 
-                                            <input type="number" name="phone" required ng-model="checkout.phone" class="form-control" placeholder="Mobile Number">
+                                            <input type="number" name="phone" required ng-model="checkout.phone" class="form-control" placeholder="Mobile Number" required>
+                                            <div class="error-msg" ng-if="detailForm.phone.$error.required && detailForm.phone.$touched">Please Enter Your Mobile Number.</div>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
 
-                                            <input type="email" name="email" required ng-model="checkout.email" class="form-control" placeholder="Email">
+                                            <input type="email" name="email" required ng-model="checkout.email" class="form-control" placeholder="Email" required>
+                                            <div class="error-msg" ng-if="detailForm.email.$error.required && detailForm.email.$touched">Please Enter Your Email.</div>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -156,27 +161,39 @@
                                             <h4 class="login">BILLING ADDRESS</h4>
                                             <div class="form-group">
                                                 <input type="text" name="billingline1" required ng-change="sameShipping(checkout)" ng-model="checkout.billingline1" class="form-control"
-                                                    placeholder="Flat Number, Building Number *">
+                                                    placeholder="Flat Number, Building Number *" required>
+                                            <div class="error-msg" ng-if="detailForm.billingline1.$error.required && detailForm.billingline1.$touched">Please Enter Your Flat Number, Building Number.</div>
+                                                    
                                             </div>
                                             <div class="form-group">
                                                 <input type="text" name="billingline2" required ng-change="sameShipping(checkout)" ng-model="checkout.billingline2" class="form-control"
-                                                    placeholder="Street Address *">
+                                                    placeholder="Street Address *" required>
+                                            <div class="error-msg" ng-if="detailForm.billingline2.$error.required && detailForm.billingline2.$touched">Please Enter Your Street Address.</div>
+                                                    
                                             </div>
                                             <div class="form-group">
                                                 <input type="text" name="billingline3" required ng-change="sameShipping(checkout)" ng-model="checkout.billingline3" class="form-control"
                                                     placeholder="Nearest Landmark">
+                                            <div class="error-msg" ng-if="detailForm.billingline3.$error.required && detailForm.billingline3.$touched">Please Enter Your Nearest Landmark.</div>
+                                                    
                                             </div>
                                             <div class="form-group">
                                                 <input type="text" name="billingcity" required ng-change="sameShipping(checkout)" ng-model="checkout.billingcity" class="form-control"
                                                     placeholder="City">
+                                            <div class="error-msg" ng-if="detailForm.billingcity.$error.required && detailForm.billingcity.$touched">Please Enter Your City.</div>
+                                                    
                                             </div>
                                             <div class="form-group">
                                                 <input type="tel" name="billingpincode" required ng-change="sameShipping(checkout)" ng-model="checkout.billingpincode" class="form-control"
                                                     placeholder="Pin Code">
+                                            <div class="error-msg" ng-if="detailForm.billingpincode.$error.required && detailForm.billingpincode.$touched">Please Enter Your Pin Code.</div>
+                                                    
                                             </div>
                                             <div class="form-group">
                                                 <input type="text" name="billingstate" required ng-change="sameShipping(checkout)" ng-model="checkout.billingstate" class="form-control"
                                                     placeholder="State">
+                                            <div class="error-msg" ng-if="detailForm.billingstate.$error.required && detailForm.billingstate.$touched">Please Enter Your State.</div>
+                                                    
                                             </div>
                                             <div class="form-group">
 
@@ -184,6 +201,8 @@
                                                     <select class="form-control" name="billingcountry" required ng-change="sameShipping(checkout)" ng-model="checkout.billingcountry">
                             <option value="{{country.value}}" ng-repeat="country in countries">{{country.value}}</option>
                           </select>
+                                            <div class="error-msg" ng-if="detailForm.billingcountry.$error.required && detailForm.billingcountry.$touched">Please Enter Your Country.</div>
+                          
                                                     <span></span>
                                                 </div>
                                             </div>
@@ -201,29 +220,44 @@
                                             </div>
                                             <div class="form-group">
                                                 <input type="text" name="shippingline1" required ng-model="checkout.shippingline1" class="form-control" placeholder="Flat Number, Building Number *">
+                                            <div class="error-msg" ng-if="detailForm.shippingline1.$error.required && detailForm.shippingline1.$touched">Please Enter Your Flat Number, Building Number.</div>
+                                                
                                             </div>
                                             <div class="form-group">
                                                 <input type="text" name="shippingline2" required ng-model="checkout.shippingline2" class="form-control" placeholder="Street Address *">
+                                            <div class="error-msg" ng-if="detailForm.shippingline2.$error.required && detailForm.shippingline2.$touched">Please Enter Your Street Address.</div>
+                                                
                                             </div>
                                             <div class="form-group">
                                                 <input type="text" name="shippingline3" required ng-model="checkout.shippingline3" class="form-control" placeholder="Nearest Landmark *">
+                                            <div class="error-msg" ng-if="detailForm.shippingline3.$error.required && detailForm.shippingline3.$touched">Please Enter Your Nearest Landmark.</div>
+                                                
                                             </div>
                                             <div class="form-group">
                                                 <input type="text" name="shippingcity" required ng-model="checkout.shippingcity" class="form-control" placeholder="City">
+                                            <div class="error-msg" ng-if="detailForm.shippingcity.$error.required && detailForm.shippingcity.$touched">Please Enter Your City.</div>
+                                                
                                             </div>
                                             <div class="form-group">
                                                 <input type="tel" name="shippingpincode" required ng-change="shippingChangeKarKeBataAb()" ng-model="checkout.shippingpincode"
                                                     class="form-control" placeholder="Pin Code">
+                                            <div class="error-msg" ng-if="detailForm.shippingpincode.$error.required && detailForm.shippingpincode.$touched">Please Enter Your Pin Code.</div>
+                                                    
                                             </div>
                                             <div class="form-group">
                                                 <input type="text" name="shippingstate" required ng-model="checkout.shippingstate" class="form-control" placeholder="State">
+                                            <div class="error-msg" ng-if="detailForm.shippingstate.$error.required && detailForm.shippingstate.$touched">Please Enter Your State.</div>
+                                                
                                             </div>
                                             <div class="form-group">
 
                                                 <div class="ccc-select">
                                                     <select class="form-control" name="shippingcountry" required ng-model="checkout.shippingcountry">
                             <option value="{{country.value}}" ng-repeat="country in countries">{{country.value}}</option>
+                            
                           </select>
+                                            <div class="error-msg" ng-if="detailForm.shippingcountry.$error.required && detailForm.shippingcountry.$touched">Please Enter Your Country.</div>
+                          
                                                     <span></span>
                                                 </div>
                                             </div>
@@ -233,7 +267,7 @@
 
                                 <div class="back-2 no-bg">
                                     <div class="text-center mg30">
-                                        <button class="btn btn-outline btn-dark more-pd text-uppercase" ng-click="placeOrder(detailForm)">Continue</button>
+                                        <button class="btn btn-outline btn-dark more-pd text-uppercase" ng-click="placeOrder(detailForm)" ng-disabled="detailForm.$invalid">Continue</button>
                                     </div>
                                     <div class="payment list text-center">
                                         <p>We Accept:</p>
