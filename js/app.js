@@ -48,6 +48,11 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, cfp
       templateUrl: "views/template.html",
       controller: 'OdiCtrl'
     })
+     .state('odiEdit', {
+      url: "/odi-shirt/:status",
+      templateUrl: "views/template.html",
+      controller: 'OdiCtrl'
+    })
 
     .state('capsandhats', {
       url: "/capsandhats",

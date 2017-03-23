@@ -20,7 +20,7 @@
                       }));
                   } else {
                       var obj = _.compact(_.map(design.design, function (n, key) {
-                          if (key != "name" && key != "designName" && !_.endsWith(n, '/.png')) {
+                          if (key != "name" && key != "designName" && key != "designType" && !_.endsWith(n, '/.png')) {
                               return n;
                           }
                       }));
@@ -30,9 +30,44 @@
               };
 
               var allOtherImages = {
-                  "odishirt": [
-
-                  ],
+                  "odi": {
+                      rightChestLogo: {
+                          width: 30,
+                          height: 30,
+                          top: 125,
+                          left: 162
+                      },
+                      teamLogo: {
+                          width: 30,
+                          height: 30,
+                          top: 125,
+                          right: 162
+                      },
+                       mainSponsorLogo: {
+                          width: 30,
+                          height: 30,
+                          top: 125,
+                          left: 130
+                      },
+                       leftSleeveLogo: {
+                          width: 30,
+                          height: 30,
+                          top: 140,
+                          right: 152
+                      },
+                       rightSleeveLogo: {
+                            width: 30,
+                          height: 30,
+                          top: 140,
+                          left: 152
+                      },
+                       backSponsorLogo: {
+                         width: 30,
+                          height: 30,
+                          top: 125,
+                          left: 80
+                      },
+                  },
                   "trousers": {
                       leftLogo: {
                           width: 30,

@@ -40,10 +40,10 @@
             <div class="text-center">
                 <custom design="odiJson" ng-if="odiJson"></custom>
               <div class="prev inline-block">
-                <p class="uppercase" ng-click="switchFrontBack(true); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor,odiJson.color.base); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor,odiJson.color.trim1); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor,odiJson.color.trim2)"><img src="img/back.png" class="img-responsive" alt="">front</p>
+                <p class="uppercase" ng-click="switchFrontBack(true); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor,odiJson.design.designType,odiJson.color.base); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor,odiJson.color.trim1); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor,odiJson.color.trim2)"><img src="img/back.png" class="img-responsive" alt="">front</p>
               </div>
               <div class="next inline-block">
-                <p class="uppercase" ng-click="switchFrontBack(false); switchTrimHighlightBase(false, trimTshirt.highlightBase.tcolor,odiJson.color.base); switchTrimHighlightOne(false, trimTshirt.highlightOne.tcolor,odiJson.color.trim1); switchTrimHighlightTwo(false, trimTshirt.highlightTwo.tcolor,odiJson.color.trim2)"><img src="img/back.png" class="img-responsive" alt="">back</p>
+                <p class="uppercase" ng-click="switchFrontBack(false); switchTrimHighlightBase(false, trimTshirt.highlightBase.tcolor,odiJson.design.designType,odiJson.color.base); switchTrimHighlightOne(false, trimTshirt.highlightOne.tcolor,odiJson.color.trim1); switchTrimHighlightTwo(false, trimTshirt.highlightTwo.tcolor,odiJson.color.trim2)"><img src="img/back.png" class="img-responsive" alt="">back</p>
               </div>
               <div class="feature-buttons">
                 <button class="btn  btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 1}"
@@ -142,7 +142,7 @@
                 <button class="{{designButton.design3.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(3);">Cut &amp; Sew</button>
                 <button class="{{designButton.design4.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(4);">Polo</button>-->
               </div>
-              <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="tabchange('trim',2); switchFrontBack(true); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor,odiJson.color.base); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor,odiJson.color.trim1); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor,odiJson.color.trim2); openTab('b');">NEXT</button>
+              <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="tabchange('trim',2); switchFrontBack(true); switchTrimHighlightBase(true,odiJson.color.baseColorName,odiJson.design.designType,odiJson.color.base); switchTrimHighlightOne(true,odiJson.color.trim1ColorName,odiJson.design.designType,odiJson.color.trim1); switchTrimHighlightTwo(true,odiJson.color.trim2ColorName,odiJson.design.designType,odiJson.color.trim2); openTab('b');">NEXT</button>
               <!-- <div class="edit-btn inline-block">
                                 <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                             </div>
@@ -178,7 +178,7 @@
                     <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in odicolor track by $index">
                       <div class="colo-pallet text-center ">
                         <div class="noti-img notihov" ng-class="{'coloracive':trimTshirt.highlightOne.tcolor == col.name, 'borergrey':col.name == 'white'};"
-                          ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightOne(trimTshirt.highlightOne.flag, col.name,col.colr); trimHexColors('highlightOne', col.colr);"
+                          ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightOne(trimTshirt.highlightOne.flag, col.name,odiJson.design.designType,col.colr); trimHexColors('highlightOne', col.colr);"
                           title="{{col.name | capitalize}}"></div>
                         <!-- switchTrimHighlightOne(trimTshirt.highlightOne.flag, col.name) -->
                       </div>
@@ -194,7 +194,7 @@
                       <div class="colo-pallet text-center">
                         <!--<div class="noti-img notihov" ng-class="{{'coloracive':trimTshirt.highlightTwo.tcolor == col.name, 'borergrey':col.name == 'white'};" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightTwo(trimTshirt.highlightTwo.flag, col.name); trimHexColors('highlightTwo', col.colr);" title="{{col.name | capitalize}}"></div>-->
                         <div class="noti-img notihov" ng-class="{'coloracive':trimTshirt.highlightTwo.tcolor == col.name, 'borergrey':col.name == 'white'};"
-                          ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightTwo(trimTshirt.highlightTwo.flag, col.name,col.colr); trimHexColors('highlightTwo', col.colr);"
+                          ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightTwo(trimTshirt.highlightTwo.flag, col.name,odiJson.design.designType,col.colr); trimHexColors('highlightTwo', col.colr);"
                           title="{{col.name | capitalize}}"></div>
                       </div>
                     </div>
@@ -208,7 +208,7 @@
                     <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in odibasecolor track by $index">
                       <div class="colo-pallet text-center">
                         <div class="noti-img notihov" ng-class="{'coloracive':trimTshirt.highlightBase.tcolor == col.name, 'borergrey':col.name == 'white'};"
-                          ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightBase(trimTshirt.highlightBase.flag, col.name,col.colr); trimHexColors('highlightBase', col.colr);"
+                          ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightBase(trimTshirt.highlightBase.flag, col.name,odiJson.design.designType,col.colr); trimHexColors('highlightBase', col.colr);"
                           title="{{col.name | capitalize}}"></div>
                       </div>
                     </div>
@@ -224,7 +224,7 @@
                             <div class="edit-btn inline-block">
                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('team',3)">NEXT</button>
                             </div> -->
-              <button class="classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block mt-20" ng-click="tabchange('design',1); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor,odiJson.color.base); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor,odiJson.color.trim1); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor,odiJson.color.trim2);">BACK</button>
+              <button class="classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block mt-20" ng-click="tabchange('design',1); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor,odiJson.design.designType,odiJson.color.base); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor,odiJson.color.trim1); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor,odiJson.color.trim2);">BACK</button>
               <button class="classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block mt-20" ng-click="openTab('c'); switchNavigation('c')">NEXT</button>
             </div>
             <!--  team logo-->
@@ -248,23 +248,23 @@
               <div class="block-box">
                 <div class="teamlogo-box">
                   <div class="inline-box box-custom">
-                    <img ng-src="{{customizedShirt.teamlogo.image | serverimage}}" alt="" ng-if="customizedShirt.teamlogo">
+                    <img ng-src="{{odiJson.teamLogo.image | serverimage}}" alt="" ng-if="odiJson.teamLogo.image">
                   </div>
-                  <div class="size-box" ng-if="customizedShirt.teamlogo">
+                  <div class="size-box" ng-if="odiJson.teamLogo.image">
                     Size:
                     <div class="range">
-                      <div range-slider on-handle-down="changeLogo('teamlogo')" on-handle-up="resetLogoStyle('teamlogo')" ng-model="customizedShirt['teamlogo'].attributes.width"
+                      <div range-slider on-handle-down="changeLogo('teamLogo')" on-handle-up="resetLogoStyle('teamLogo')" ng-model="odiJson.teamLogo.size"
                         min="-150" max="200" model-max="customizedShirt['teamlogo'].attributes.width" model-min="rslider.min"
                         pin-handle="min"></div>
                     </div>
                   </div>
                   <div class="edit-btn">
-                    <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('teamlogo', 'Team Logo')"
-                      ng-if="!customizedShirt.teamlogo">upload</button>
-                    <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('teamlogo', 'Team Logo')"
-                      ng-if="customizedShirt.teamlogo">change</button>
-                    <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('teamlogo')"
-                      ng-if="customizedShirt.teamlogo">remove</button>
+                    <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('teamLogo', 'Team Logo')"
+                      ng-if="!odiJson.teamLogo.image">upload</button>
+                    <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('teamLogo', 'Team Logo')"
+                      ng-if="odiJson.teamLogo.image">change</button>
+                    <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('teamLogo')"
+                      ng-if="odiJson.teamLogo.image">remove</button>
                     <!-- <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="UploadTeamLogo()" ng-if="customizedShirt.teamlogo">change</button> -->
                     <!-- <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="UploadTeamLogo()" ng-if="customizedShirt.teamlogo">remove</button> -->
                   </div>
@@ -311,19 +311,19 @@
                       </div>
                       <div class="box-custom pointer">
                         <!-- <img src="img/logo_black.png" alt="" ng-if="customizedShirt.rightchest"> -->
-                        <img ng-src="{{customizedShirt.rightchest.image | serverimage}}" alt="" ng-if="customizedShirt.rightchest">
-                        <p class="uppercase" ng-click="openUploads('rightchest', 'Right Chest')" ng-if="!customizedShirt.rightchest">Upload</p>
+                        <img ng-src="{{odiJson.rightChestLogo.image | serverimage}}" alt="" ng-if="odiJson.rightChestLogo.image">
+                        <p class="uppercase" ng-click="openUploads('rightChestLogo', 'Right Chest')" ng-if="!odiJson.rightChestLogo.image">Upload</p>
                       </div>
-                      <div class="tex-cont range-custom" ng-if="customizedShirt.rightchest">
+                      <div class="tex-cont range-custom" ng-if="odiJson.rightChestLogo.image">
                         Size:
                         <div class="range">
-                          <div range-slider on-handle-down="changeLogo('rightchest')" on-handle-up="resetLogoStyle('rightchest')" ng-model="customizedShirt['rightchest'].attributes.width"
-                            min="-150" max="200" model-max="customizedShirt['rightchest'].attributes.width" model-min="rslider.min"
+                          <div range-slider on-handle-down="changeLogo('rightChestLogo')" on-handle-up="resetLogoStyle('rightChestLogo')" ng-model="odiJson.rightLogo.size"
+                            min="-150" max="200" model-max="odiJson.rightChestLogo.size" model-min="rslider.min"
                             pin-handle="min"></div>
                         </div>
                         <!-- <div range-slider min="-150" max="100" model-max="max" pin-handle="min"></div> -->
-                        <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="openUploads('rightchest', 'Right Chest')">CHANGE</button>
-                        <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="emptyImage('rightchest')">REMOVE</button>
+                        <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="openUploads('rightChestLogo', 'Right Chest')">CHANGE</button>
+                        <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="emptyImage('rightChestLogo')">REMOVE</button>
                       </div>
                     </div>
                   </div>
@@ -333,18 +333,18 @@
                         MAIN SPONSOR
                       </div>
                       <div class="box-custom pointer">
-                        <p class="uppercase" ng-click="openUploads('mainlogo', 'Main Sponsor')" ng-if="!customizedShirt.mainlogo">Upload</p>
-                        <img ng-src="{{customizedShirt.mainlogo.image | serverimage}}" alt="" ng-if="customizedShirt.mainlogo">
+                        <p class="uppercase" ng-click="openUploads('mainSponsorLogo', 'Main Sponsor')" ng-if="!odiJson.mainSponsorLogo.image">Upload</p>
+                        <img ng-src="{{odiJson.mainSponsorLogo.image | serverimage}}" alt="" ng-if="odiJson.mainSponsorLogo.image">
                       </div>
-                      <div class="tex-cont range-custom" ng-if="customizedShirt.mainlogo">
+                      <div class="tex-cont range-custom" ng-if="odiJson.mainSponsorLogo.image">
                         Size:
                         <div class="range">
-                          <div range-slider on-handle-down="changeLogo('mainlogo')" on-handle-up="resetLogoStyle('mainlogo')" ng-model="customizedShirt['mainlogo'].attributes.width"
+                          <div range-slider on-handle-down="changeLogo('mainSponsorLogo')" on-handle-up="resetLogoStyle('mainSponsorLogo')" ng-model="customizedShirt['mainlogo'].attributes.width"
                             min="-150" max="200" model-max="customizedShirt['mainlogo'].attributes.width" model-min="rslider.min"
                             pin-handle="min"></div>
                         </div>
-                        <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="openUploads('mainlogo', 'Main Sponsor')">CHANGE</button>
-                        <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="emptyImage('mainlogo')">REMOVE</button>
+                        <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="openUploads('mainSponsorLogo', 'Main Sponsor')">CHANGE</button>
+                        <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="emptyImage('mainSponsorLogo')">REMOVE</button>
                       </div>
                     </div>
                   </div>
@@ -354,18 +354,18 @@
                         LEFT SLEEVE
                       </div>
                       <div class="box-custom pointer">
-                        <p class="uppercase" ng-click="openUploads('leftsleeve', 'Left Sleeve')" ng-if="!customizedShirt.leftsleeve">Upload</p>
-                        <img ng-src="{{customizedShirt.leftsleeve.image | serverimage}}" alt="" ng-if="customizedShirt.leftsleeve">
+                        <p class="uppercase" ng-click="openUploads('leftSleeveLogo', 'Left Sleeve')" ng-if="!odiJson.leftSleeveLogo.image">Upload</p>
+                        <img ng-src="{{odiJson.leftSleeveLogo.image | serverimage}}" alt="" ng-if="odiJson.leftSleeveLogo.image">
                       </div>
-                      <div class="tex-cont range-custom" ng-if="customizedShirt.leftsleeve">
+                      <div class="tex-cont range-custom" ng-if="odiJson.leftSleeveLogo.image">
                         Size:
                         <div class="range">
-                          <div range-slider on-handle-down="changeLogo('leftsleeve')" on-handle-up="resetLogoStyle('leftsleeve')" ng-model="customizedShirt['leftsleeve'].attributes.width"
+                          <div range-slider on-handle-down="changeLogo('leftSleeveLogo')" on-handle-up="resetLogoStyle('leftSleeveLogo')" ng-model="customizedShirt['leftsleeve'].attributes.width"
                             min="-150" max="200" model-max="customizedShirt['leftsleeve'].attributes.width" model-min="rslider.min"
                             pin-handle="min"></div>
                         </div>
-                        <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="openUploads('leftsleeve', 'Left Sleeve')">CHANGE</button>
-                        <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="emptyImage('leftsleeve')">REMOVE</button>
+                        <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="openUploads('leftSleeveLogo', 'Left Sleeve')">CHANGE</button>
+                        <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="emptyImage('leftSleeveLogo')">REMOVE</button>
                       </div>
                     </div>
                   </div>
@@ -375,18 +375,18 @@
                         RIGHT SLEEVE
                       </div>
                       <div class="box-custom pointer">
-                        <p class="uppercase" ng-click="openUploads('rightsleeve', 'Right Sleeve')" ng-if="!customizedShirt.rightsleeve">Upload</p>
-                        <img ng-src="{{customizedShirt.rightsleeve.image | serverimage}}" alt="" ng-if="customizedShirt.rightsleeve">
+                        <p class="uppercase" ng-click="openUploads('rightSleeveLogo', 'Right Sleeve')" ng-if="!odiJson.rightSleeveLogo.image">Upload</p>
+                        <img ng-src="{{odiJson.rightSleeveLogo.image | serverimage}}" alt="" ng-if="odiJson.rightSleeveLogo.image">
                       </div>
-                      <div class="tex-cont range-custom" ng-if="customizedShirt.rightsleeve">
+                      <div class="tex-cont range-custom" ng-if="odiJson.rightSleeveLogo.image">
                         Size:
                         <div class="range">
-                          <div range-slider on-handle-down="changeLogo('rightsleeve')" on-handle-up="resetLogoStyle('rightsleeve')" ng-model="customizedShirt['rightsleeve'].attributes.width"
+                          <div range-slider on-handle-down="changeLogo('rightSleeveLogo')" on-handle-up="resetLogoStyle('rightSleeveLogo')" ng-model="customizedShirt['rightsleeve'].attributes.width"
                             min="-150" max="200" model-max="customizedShirt['rightsleeve'].attributes.width" model-min="rslider.min"
                             pin-handle="min"></div>
                         </div>
-                        <button href="" class="btn btn-outline btn-dark block full-width" ng-click="openUploads('rightsleeve', 'Right Sleeve')">CHANGE</button>
-                        <button href="" class="btn btn-outline btn-dark block full-width" ng-click="emptyImage('rightsleeve')">REMOVE</button>
+                        <button href="" class="btn btn-outline btn-dark block full-width" ng-click="openUploads('rightSleeveLogo', 'Right Sleeve')">CHANGE</button>
+                        <button href="" class="btn btn-outline btn-dark block full-width" ng-click="emptyImage('rightSleeveLogo')">REMOVE</button>
                       </div>
                     </div>
                   </div>
@@ -396,18 +396,18 @@
                         BACK SPONSOR
                       </div>
                       <div class="box-custom pointer">
-                        <p class="uppercase" ng-click="openUploads('backlogo', 'Back Logo')" ng-if="!customizedShirt.backlogo">Upload</p>
-                        <img ng-src="{{customizedShirt.backlogo.image | serverimage}}" alt="" ng-if="customizedShirt.backlogo">
+                        <p class="uppercase" ng-click="openUploads('backSponsorLogo', 'Back Logo')" ng-if="!odiJson.backSponsorLogo.image">Upload</p>
+                        <img ng-src="{{odiJson.backSponsorLogo.image | serverimage}}" alt="" ng-if="odiJson.backSponsorLogo.image">
                       </div>
-                      <div class="tex-cont range-custom" ng-if="customizedShirt.backlogo">
+                      <div class="tex-cont range-custom" ng-if="odiJson.backSponsorLogo.image">
                         Size:
                         <div class="range">
-                          <div range-slider on-handle-down="changeLogo('backlogo')" on-handle-up="resetLogoStyle('backlogo')" ng-model="customizedShirt['backlogo'].attributes.width"
+                          <div range-slider on-handle-down="changeLogo('backSponsorLogo')" on-handle-up="resetLogoStyle('backSponsorLogo')" ng-model="customizedShirt['backlogo'].attributes.width"
                             min="-150" max="200" model-max="customizedShirt['backlogo'].attributes.width" model-min="rslider.min"
                             pin-handle="min"></div>
                         </div>
-                        <button href="" class="btn btn-outline btn-dark block full-width" ng-click="openUploads('backlogo', 'Back Logo')">CHANGE</button>
-                        <button href="" class="btn btn-outline btn-dark block full-width" ng-click="emptyImage('backlogo')">REMOVE</button>
+                        <button href="" class="btn btn-outline btn-dark block full-width" ng-click="openUploads('backSponsorLogo', 'Back Logo')">CHANGE</button>
+                        <button href="" class="btn btn-outline btn-dark block full-width" ng-click="emptyImage('backSponsorLogo')">REMOVE</button>
                       </div>
                     </div>
                   </div>
@@ -574,7 +574,7 @@
                           <!-- <tr class="nothing">
                                                         <td></td>
                                                     </tr> -->
-                          <tr ng-repeat="jersey in jerseyBackArr track by $index">
+                          <tr ng-repeat="jersey in odiJson.quantity track by $index">
                             <td>
                               <select ng-model="jersey.size">
                                 <option value="S">S</option>
@@ -594,7 +594,7 @@
                             <td>
                               <input type="number" name="quantity" placeholder="20" ng-change="addQuantity(jersey.quantity)" ng-model="jersey.quantity"
                                 maxlength="3">
-                              <p class="error-td f13" ng-if="totalQuan<20 && totalQuan!=1">Please enter valid quantity.The MOQ is 20</p>
+                              <p class="error-td f13" ng-if="odiJson.totalQuan<20 && odiJson.totalQuan!=1">Please enter valid quantity.The MOQ is 20</p>
                             </td>
                             <!--<td>
                               <p ng-if="jersey.quantity == null">Please enter correct quantity </p>
@@ -711,15 +711,15 @@
                         </div>
                       </div>
                       <!--<p>One time customization fee for Tee is <i class="fa fa-inr"></i> 5000</p>-->
-                      <span class="pull-right tamount uppercase Raleway-Medium">Total Amount: {{totalAmount}}</span>
-                      <span class="pull-right tquantity uppercase Raleway-Medium">Total Quantity: {{totalQuan}}</span>
+                      <span class="pull-right tamount uppercase Raleway-Medium">Total Amount: {{odiJson.totalAmount}}</span>
+                      <span class="pull-right tquantity uppercase Raleway-Medium">Total Quantity: {{odiJson.totalQuan}}</span>
                     </div>
                   </uib-accordion-group>
                 </uib-accordion>
                 <div class="edit-btn">
                   <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="savedDesigns()">save design</button>
                   <!--<button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" ng-click="toOrderSummary()" ng-disabled="jersey.quantity == null">next</button>-->
-                  <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" ng-click="toOrderSummary()" ng-disabled="totalQuan<20">next </button>
+                  <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" ng-click="toOrderSummary()" ng-disabled="odiJson.totalQuan<20">next </button>
                   <br>
                 </div>
               </div>
