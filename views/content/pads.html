@@ -332,12 +332,20 @@
                             <!--<div class="add-button">
                                 <p class="pointer" ng-click="addPadsValues(); addQuantity(pad.quantity);"><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</p>
                             </div>-->
-                            <div class="total-amount">
-                                <!--<p class="more-price">One time customization fee for Pads is <i class="fa fa-inr"></i> 5000</p>-->
+                              <div class="total-amount clearfix">
+                                <!--<p class="more-price">One time customization fee for Glove is <i class="fa fa-inr"></i> 5000</p>-->
+                                <p class="more-price">A one-time customization fees of INR 5000/- or equivalent (in your currency) will be incurred
+                                    for your logo customization.</p>
+                                       <span class="pull-right tamount totalAmount uppercase Raleway-Medium mar20">Total Amount: {{designJson.totalAmount}}<i class="fa fa-inr" aria-hidden="true"></i></span>
+                                        <span class="pull-right tquantity totalAmount uppercase Raleway-Medium mar20">Total Quantity: {{designJson.totalQuan}} <i class="fa fa-inr" aria-hidden="true"></i></span>
+                                <!--<span class="pull-right uppercase totalAmount Raleway-Medium">Total: {{totalAmount}}</span>-->
+                            </div>
+                            <!--<div class="total-amount">
+                                <p class="more-price">One time customization fee for Pads is <i class="fa fa-inr"></i> 5000</p>
                                 <p class="more-price">A one-time customization fees of INR 5000/- or equivalent (in your currency) will be incurred
                                     for your logo customization.</p>
                                 <span class="pull-right uppercase totalAmount Raleway-Medium">Total: {{totalAmount}}</span>
-                            </div>
+                            </div>-->
 
                             <div class="edit-btn">
                                 <button class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="checkloginPads();">save design</button>
