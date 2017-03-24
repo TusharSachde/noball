@@ -39,12 +39,6 @@
           <div class="scroll-image" id="style-2">
             <div class="text-center">
                 <custom design="odiJson" ng-if="odiJson"></custom>
-              <div class="prev inline-block">
-                <p class="uppercase" ng-click="switchFrontBack(true); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor,odiJson.design.designType,odiJson.color.base); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor,odiJson.color.trim1); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor,odiJson.color.trim2)"><img src="img/back.png" class="img-responsive" alt="">front</p>
-              </div>
-              <div class="next inline-block">
-                <p class="uppercase" ng-click="switchFrontBack(false); switchTrimHighlightBase(false, trimTshirt.highlightBase.tcolor,odiJson.design.designType,odiJson.color.base); switchTrimHighlightOne(false, trimTshirt.highlightOne.tcolor,odiJson.color.trim1); switchTrimHighlightTwo(false, trimTshirt.highlightTwo.tcolor,odiJson.color.trim2)"><img src="img/back.png" class="img-responsive" alt="">back</p>
-              </div>
               <div class="feature-buttons">
                 <button class="btn  btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 1}"
                   ng-click="toggleTab(1)">FORM + FUNCTION</button>
@@ -224,8 +218,8 @@
                             <div class="edit-btn inline-block">
                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('team',3)">NEXT</button>
                             </div> -->
-              <button class="classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block mt-20" ng-click="tabchange('design',1); switchTrimHighlightBase(true, trimTshirt.highlightBase.tcolor,odiJson.design.designType,odiJson.color.base); switchTrimHighlightOne(true, trimTshirt.highlightOne.tcolor,odiJson.color.trim1); switchTrimHighlightTwo(true, trimTshirt.highlightTwo.tcolor,odiJson.color.trim2);">BACK</button>
-              <button class="classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block mt-20" ng-click="openTab('c'); switchNavigation('c')">NEXT</button>
+              <button class="classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block mt-20" ng-click="tabchange('design',1); switchTrimHighlightBase(true,odiJson.color.baseColorName,odiJson.design.designType,odiJson.color.base); switchTrimHighlightOne(true, odiJson.color.trim1ColorName,odiJson.design.designType,odiJson.color.trim1); switchTrimHighlightTwo(true,odiJson.color.trim2ColorName,odiJson.design.designType,odiJson.color.trim2);">BACK</button>
+              <button class="classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block mt-20" ng-click="openTab('c'); switchNavigation('c');">NEXT</button>
             </div>
             <!--  team logo-->
             <!-- sagar -->
@@ -509,18 +503,18 @@
                     <div class="radio-options">
                       <form action="" class="radio">
                         <div class="form-group">
-                          <input type="radio" id="jerseyradio1" ng-model="jerseyBack.font" value="arial" name="jerseyradio" />
+                          <input type="radio" id="jerseyradio1" ng-model="odiJson.font.fontStyle" value="arial" name="jerseyradio" />
                           <label for="jerseyradio1" class="arial-font">
                             <span></span> Arial
                           </label>
                         </div>
                         <div class="form-group">
-                          <input type="radio" id="jerseyradio2" ng-model="jerseyBack.font" value="times" name="jerseyradio" />
+                          <input type="radio" id="jerseyradio2" ng-model="odiJson.font.fontStyle" value="times" name="jerseyradio" />
                           <label for="jerseyradio2" class="times-font">
                             <span></span> Times New Roman</label>
                         </div>
                         <div class="form-group">
-                          <input type="radio" id="jerseyradio3" ng-model="jerseyBack.font" value="helvetica" name="jerseyradio" />
+                          <input type="radio" id="jerseyradio3" ng-model="odiJson.font.fontStyle" value="helvetica" name="jerseyradio" />
                           <label for="jerseyradio3" class="helvetica-font">
                             <span></span> Helvetica
                           </label>
@@ -532,9 +526,10 @@
                         <h2>Choose Your Colour</h2>
                         <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
                           <div class="colo-pallet text-center ">
-                            <!-- <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightOne(trimTshirt.highlightOne.flag, col.name)"></div> -->
-                            <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-class="{'activated': jerseyBack.color == col.colr, 'borergrey':col.name == 'white'}"
-                              ng-click="jerseyBack.color=col.colr"></div>
+                            <!--<div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-class="{'activated': jerseyBack.color == col.colr, 'borergrey':col.name == 'white'}"
+                              ng-click="jerseyBack.color=col.colr"></div>-->
+                               <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-class="{'activated': jerseyBack.color == col.colr, 'borergrey':col.name == 'white'}"
+                              ng-click="odiJson.font.fontColor=col.colr;jerseyBack.color=col.colr"></div>
                           </div>
                         </div>
                       </div>
@@ -626,52 +621,27 @@
                               <span>size</span>
                             </div>
                             <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                              <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBackArr[0].attributes.name.fontSize"
+                              <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="odiJson.font.nameSize"
                                 min="-150" max="100" model-max="jerseyBackArr[0].attributes.name.fontSize" model-min="-150"
                                 pin-handle="min">
                               </div>
                               <!-- <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBack.attributes.fontSize" min="-150" max="100" model-max="jerseyBack.attributes.fontSize" model-min="rslider.min" pin-handle="min"></div> -->
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-3">
-                              <input class="inputtext" type="number" name="mySize" ng-model="jerseyBackArr[0].attributes.name.fontSize">
+                              <input class="inputtext" type="number" name="mySize" ng-model="odiJson.font.nameSize">
                             </div>
                           </div>
-                          <!-- <div class="row pad5">
-                            <div class="col-md-1 col-sm-1 col-xs-1">
-                              <span>arc</span>
-                            </div>
-                            //ng-value="{{jerseyBack}}deg"
-                            <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                              <div range-slider on-handle-down="changeLogo(key)" on-handle-up="resetLogoStyle(key)" ng-model="customizedShirt[key].attributes.width" min="25" max="60" model-max="customizedShirt[key].attributes.width" model-min="rslider.min" pin-handle="min">
-                              </div>
-                            </div>
-                            <div class="col-md-3 col-sm-3 col-xs-3">
-                              <input class="inputtext" type="number" ng-model="myArc" name="size">
-                            </div>
-                          </div> -->
-                          <!--<div class="row pad5">
-                            <div class="col-md-1 col-sm-1 col-xs-1">
-                              <span>rotation</span>
-                            </div>
-                            <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                              <div range-slider  on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-bind-html-unsafe="{{jerseyBack.attributes.rotate | translateRotate:this}}" ng-model="jerseyBack.attributes.rotate" min="-150" max="360" model-max="jerseyBack.attributes.rotate" model-min="-150" pin-handle="min">
-                              </div>
-                            </div>
-                            <div class="col-md-3 col-sm-3 col-xs-3">
-                              <input class="inputtext" type="number" name="myRotate" ng-model="jerseyBack.attributes.rotate">
-                            </div>
-                          </div>-->
                           <div class="row pad5">
                             <div class="col-md-1 col-sm-1 col-xs-1">
                               <span>spacing</span>
                             </div>
                             <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                              <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBackArr[0].attributes.name.letterSpacing"
+                              <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="odiJson.font.nameSpacing"
                                 min="1" max="20" model-max="jerseyBackArr[0].attributes.name.letterSpacing" model-min="1" pin-handle="min">
                               </div>
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-3">
-                              <input class="inputtext" type="number" name="myWordSpace" ng-model="jerseyBackArr[0].attributes.name.letterSpacing">
+                              <input class="inputtext" type="number" name="myWordSpace" ng-model="odiJson.font.nameSpacing">
                             </div>
                           </div>
                         </div>
@@ -684,14 +654,14 @@
                               <span>size</span>
                             </div>
                             <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                              <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBackArr[0].attributes.number.fontSize"
+                              <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="odiJson.font.numberSize"
                                 min="-150" max="100" model-max="jerseyBackArr[0].attributes.number.fontSize" model-min="-150"
                                 pin-handle="min">
                               </div>
                               <!-- <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBack.attributes.fontSize" min="-150" max="100" model-max="jerseyBack.attributes.fontSize" model-min="rslider.min" pin-handle="min"></div> -->
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-3">
-                              <input class="inputtext" type="number" name="mySize" ng-model="jerseyBackArr[0].attributes.number.fontSize">
+                              <input class="inputtext" type="number" name="mySize" ng-model="odiJson.font.numberSize">
                             </div>
                           </div>
                           <div class="row pad5">
@@ -705,7 +675,7 @@
                               </div>
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-3">
-                              <input class="inputtext" type="number" name="myWordSpace" ng-model="jerseyBackArr[0].attributes.number.letterSpacing">
+                              <input class="inputtext" type="number" name="myWordSpace" ng-model="odiJson.font.numberSpacing">
                             </div>
                           </div>
                         </div>

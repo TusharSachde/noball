@@ -5,13 +5,19 @@
 
         <div class="div-internal-image" ng-class="{'borergrey':design[key].border}" ng-hide="isBack" ng-repeat="(key,imagePos) in imagesPositions()"
             ng-style="imagePos">
-
-            <img ng-src="{{design[key].image | serverimage}}" ng-if="design[key].image && design[key].image != ''" ng-style="{width:design[key].size}"
+            <img ng-src="{{design[key].image | serverimage}}" ng-if="key != 'backSponsorLogo' && design[key].image && design[key].image != ''" ng-style="{width:design[key].size}"
                 noloading="true">
         </div>
+          <div ng-repeat="(key,imagePos) in imagesPositions()" ng-show="isBack"
+            ng-style="imagePos">
+            <img ng-src="{{design[key].image | serverimage}}" ng-if="design[key].image && design[key].image != '' && key == 'backSponsorLogo'" ng-style="{width:design[key].size}"
+                noloading="true">
+        </div>
+         <div ng-show="isBack" class="odi-t jersey-name uppercase text-center"><p ng-style="{'fontSize':design.font.nameSize,'letterSpacing':design.font.nameSpacing,border:'none,rotate:0}">{{design.quantity[0].name}} </p></div>
+                  <div ng-show="isBack" class="odi-t jersey-no text-center" ng-style="{'fontSize':design.font.numberSize,'letterSpacing':design.font.numberSpacing,border:'none,rotate:0}">{{design.quantity[0].no}}</div>
 
     </div>
-    <div ng-if="design.type=='trousers' || design.type == 'odi-shirts' || design.type == 'shorts'">
+    <div ng-if="design.type=='trousers' || design.type == 'odi' || design.type == 'shorts'">
         <div class="prev inline-block">
             <p class="uppercase" ng-click="showFront()"><img src="img/back.png" class="img-responsive" alt="">front</p>
         </div>

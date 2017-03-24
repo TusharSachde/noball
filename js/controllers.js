@@ -1376,7 +1376,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trimTrouser.highlightBase.disable = "unnoable";
                 $scope.trimTrouser.highlightOne.disable = "unnoable";
                 $scope.trimTrouser.highlightTwo.disable = "noable";
-                $scope.trouserJson.design.name = "Stirde";
+                $scope.trouserJson.design.name = "Stride";
                 $scope.trouserJson.design.designName = "design4";
                 $scope.trouserJson.type = "shorts";
                 $scope.singleAmount = 650;
@@ -4937,7 +4937,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
 
 
-    .controller('OdiCtrl', function ($scope, $rootScope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar, $filter, $interval, $rootScope) {
+    .controller('OdiCtrl', function ($scope, $rootScope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar, $filter, $interval, $rootScope) {    
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("odi-shirt");
         $scope.menutitle = NavigationService.makeactive("Odi T-shirt");
@@ -4988,6 +4988,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 image: null,
                 size: 100
             },
+            font: {
+            'fontStyle': 'arial',
+            'fontColor': 'white',
+            'nameSize': 18,
+            'nameSpacing': 1,
+            'numberSize': 60,
+            'numberSpacing': 1
+        },
             type: "odi",
             sendTeamLogoLater: false
         };
@@ -4995,19 +5003,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             'size': 'L',
             'quantity': '',
             'name': '',
-            'number': '',
+            'no': '',
             'sleeve': ''
         }];
-        if ($stateParams.status == "edit" && $.jStorage.get("custom")) {
-            $scope.odiJson = $.jStorage.get("custom");
-            $timeout(function () {
-                $scope.tabchange($scope.odiJson.tab, $scope.odiJson.tabNo);
-            }, 100)
-            console.log('$scope.odiJson', $scope.odiJson);
-        } else {
-            $scope.changeDesign(0, 1);
-
-        }
+       
 
         $scope.$on('$stateChangeStart', function (event, toState, fromState) {
             if (toState.name == 'odiEdit' || toState.name == 'ordersummary' || toState.name == 'savedesign') {
@@ -5138,18 +5137,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.odiJson.totalAmount = 1000;
         $scope.odiJson.totalQuan = 1;
 
-   $scope.addQuantity = function (q) {
+     $scope.addQuantity = function (q) {
             $scope.odiJson.totalAmount = 0;
             $scope.odiJson.totalQuan = 0;
              for (var i = 0; i < $scope.jerseyBackArrCount; i++) {
+                 console.log($scope.odiJson.quantity);
                 // $scope.totalQuan += $scope.quantity[i].quantity;
                 if ($scope.odiJson.quantity[i].quantity !== undefined) {
+                     
                     $scope.odiJson.totalQuan += $scope.odiJson.quantity[i].quantity;
                 }
-            }
-            if ($scope.odiJson.totalQuan) {
+                 if ($scope.odiJson.totalQuan) {
                 $scope.odiJson.totalAmount = $scope.singleAmount * $scope.odiJson.totalQuan;
             }
+            }
+           
         };
 
         // $scope.addQuantity(1);
@@ -5322,8 +5324,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.switchTrimHighlightOne = function (flag, color, type, colrName) {
             $scope.odiJson.color.trim1ColorName = color;
             $scope.odiJson.color.trim1 = colrName;
-            console.log(flag);
-            console.log(color, colrName);
+            // console.log(flag);
+            // console.log(color, colrName);
             $scope.trimTshirt.highlightOne.flag = flag;
             $scope.trimTshirt.highlightOne.tcolor = color;
             if ($scope.trimTshirt.highlightOne.tcolor != "") {
@@ -5343,20 +5345,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.switchTrimHighlightTwo = function (flag, color, type, colrName) {
             $scope.odiJson.color.trim2ColorName = color;
             $scope.odiJson.color.trim2 = colrName;
-            console.log('two');
-            console.log(color);
-            console.log(flag);
+            // console.log('two');
+            // console.log(color);
+            // console.log(flag);
             $scope.trimTshirt.highlightTwo.flag = flag;
             $scope.trimTshirt.highlightTwo.tcolor = color;
-            if ($scope.trimTshirt.highlightTwo.tcolor != "") {
+            // if ($scope.trimTshirt.highlightTwo.tcolor != "") {
                 if (flag) {
                     $scope.odiJson.design.highlightTwo = "img/odi-tshirts/trims/" + $scope.odiJson.design.designType + "/" + $scope.odiJson.design.designName + "/front/trim2/" + color + ".png"; // "img/odi-tshirts/trims/highlight2/front/trim_" + color + ".png";
                 } else {
                     $scope.odiJson.design.highlightTwo = "img/odi-tshirts/trims/" + $scope.odiJson.design.designType + "/" + $scope.odiJson.design.designName + "/back/trim2/" + color + ".png"; // "img/odi-tshirts/trims/highlight2/back/trim_" + color + ".png";
                 }
-            } else {
-                $scope.odiJson.design.highlightTwo = "";
-            }
+            // } else {
+            //     $scope.odiJson.design.highlightTwo = "";
+            // }
             console.log('$scope.odiJson.design.highlightTwo', $scope.odiJson);
             //  $scope.saveBeforeLogin.push($scope.trimTshirt);
             //  console.log('$scope.saveBeforeLogin -switchTrimHighlightTwo-',$scope.saveBeforeLogin);
@@ -5364,11 +5366,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.switchTrimHighlightBase = function (flag, color, type, colrName) {
             $scope.odiJson.color.baseColorName = color;
             $scope.odiJson.color.base = colrName;
-            console.log('base00000000000000', colrName);
-            console.log(color);
-            console.log(flag);
-            console.log(type);
-            console.log($scope.odiJson.design.designType);
+            // console.log('base00000000000000', colrName);
+            // console.log(color);
+            // console.log(flag);
+            // console.log(type);
+            // console.log($scope.odiJson.design.designType);
             $scope.trimTshirt.highlightBase.flag = flag;
             $scope.trimTshirt.highlightBase.tcolor = color;
             if (flag) {
@@ -5421,14 +5423,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.checkTeamLogo = function (state) {
             if ($scope.odiJson.sendTeamLogoLater || $scope.odiJson.teamLogo.image) {
+                console.log('///////////////');
                 $scope.tabchange('quantity', 4);
-                $scope.switchFrontBackQuantity(false);
+                // $scope.switchFrontBackQuantity(false);
                 $scope.turnOnQuantity(true);
                 $scope.openTab('d');
                 if (!state) {
-                    $scope.switchTrimHighlightBase(false, $scope.odiJson.color.baseColorName, $scope.odiJson.design.designType, $scope.odiJson.color.base);
-                    $scope.switchTrimHighlightOne(false, $scope.odiJson.color.trim1ColorName, $scope.odiJson.design.designType, $scope.odiJson.color.trim1);
-                    $scope.switchTrimHighlightTwo(false, $scope.odiJson.color.trim2ColorName, $scope.odiJson.design.designType, $scope.odiJson.color.trim2);
+                    // $scope.switchTrimHighlightBase(false, $scope.odiJson.color.baseColorName, $scope.odiJson.design.designType, $scope.odiJson.color.base);
+                    // $scope.switchTrimHighlightOne(false, $scope.odiJson.color.trim1ColorName, $scope.odiJson.design.designType, $scope.odiJson.color.trim1);
+                    // $scope.switchTrimHighlightTwo(false, $scope.odiJson.color.trim2ColorName, $scope.odiJson.design.designType, $scope.odiJson.color.trim2);
                 }
             } else {
                 $uibModal.open({
@@ -5484,7 +5487,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.odiJson.design.designType = 'odi';
                     $scope.singleAmount = 1000;
                     $scope.odiJson.color.base = "#2175d9";
-                    console.log('$scope.odiJson.color.base00000000000000', $scope.odiJson.color.base);
+                    $scope.odiJson.color.trim1 = "#666666";
+                    $scope.odiJson.color.trim2 = "#666666";
+                    // console.log('$scope.odiJson.color.base00000000000000', $scope.odiJson.color.base);
                     $scope.switchTrimHighlightOne(true, 'grey', $scope.odiJson.design.designType, $scope.odiJson.color.trim1);
                     $scope.switchTrimHighlightTwo(true, 'grey', $scope.odiJson.design.designType, $scope.odiJson.color.trim2);
                     $scope.switchTrimHighlightBase(true, 'india_blue', $scope.odiJson.design.designType, $scope.odiJson.color.base);
@@ -5508,6 +5513,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.odiJson.design.name = "Grubber (SUB)";
                     $scope.odiJson.design.designName = "design3";
                     $scope.odiJson.design.designType = 'odi';
+                      $scope.odiJson.color.base = "#bf0000";
+                    $scope.odiJson.color.trim1 = "#00308f";
+                    $scope.odiJson.color.trim2 = "#fff";
                     $scope.trimTabs.light3.active = "activeme";
                     $scope.trimTabs.light3.show = "active-tab";
                     $scope.switchTrimHighlightOne(true, 'royal_blue', $scope.odiJson.design.designType, $scope.odiJson.color.trim1);
@@ -5523,6 +5531,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.odiJson.design.name = "Plumb (SUB)";
                     $scope.odiJson.design.designName = "design4";
                     $scope.odiJson.design.designType = 'odi';
+                     $scope.odiJson.color.base = "#ccff00";
+                    $scope.odiJson.color.trim1 = "#fff";
+                    $scope.odiJson.color.trim2 = "#1a472a";
                     $scope.singleAmount = 1000;
                     $scope.trimTabs.light3.active = "activeme";
                     $scope.trimTabs.light3.show = "active-tab";
@@ -5539,6 +5550,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.odiJson.design.name = "Floater (SUB)";
                     $scope.odiJson.design.designName = "design5";
                     $scope.odiJson.design.designType = 'odi';
+                     $scope.odiJson.color.base = "#008000";
+                    $scope.odiJson.color.trim1 = "#00308f";
+                    $scope.odiJson.color.trim2 = "#ffff00";
                     $scope.singleAmount = 1000;
                     $scope.trimTabs.light3.active = "activeme";
                     $scope.trimTabs.light3.show = "active-tab";
@@ -5555,6 +5569,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.odiJson.design.name = "Pace (C&S)";
                     $scope.odiJson.design.designName = "design1";
                     $scope.odiJson.design.designType = 'training';
+                               $scope.odiJson.color.base = "#ffff00";
+                    $scope.odiJson.color.trim1 = "#008000";
+                    $scope.odiJson.color.trim2 = "#000000";
                     $scope.singleAmount = 850;
                     $scope.trimTabs.light3.active = "activeme";
                     $scope.trimTabs.light3.show = "active-tab";
@@ -5571,6 +5588,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.odiJson.design.name = "Seam (C&S)";
                     $scope.odiJson.design.designName = "design2";
                     $scope.odiJson.design.designType = 'training';
+                     $scope.odiJson.color.base = "#bf0000";
+                    $scope.odiJson.color.trim1 = "#2175d9";
+                    $scope.odiJson.color.trim2 = "#ffffff";
                     $scope.singleAmount = 850;
                     $scope.trimTabs.light3.active = "activeme";
                     $scope.trimTabs.light3.show = "active-tab";
@@ -5587,6 +5607,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.odiJson.design.name = "Dipper (C&S)";
                     $scope.odiJson.design.designName = "design3";
                     $scope.odiJson.design.designType = 'training';
+                       $scope.odiJson.color.base = "#2175d9";
+                    $scope.odiJson.color.trim1 = "#032149";
+                    $scope.odiJson.color.trim2 = "#ffffff";
                     $scope.singleAmount = 850;
                     $scope.trimTabs.light3.active = "activeme";
                     $scope.trimTabs.light3.show = "active-tab";
@@ -5603,6 +5626,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.odiJson.design.name = "Flipper (C&S)";
                     $scope.odiJson.design.designName = "design4";
                     $scope.odiJson.design.designType = 'training';
+                    $scope.odiJson.color.base = "#ffd700";
+                    $scope.odiJson.color.trim1 = "#ffa500";
+                    $scope.odiJson.color.trim2 = "#ffffff";
                     $scope.singleAmount = 850;
                     $scope.trimTabs.light3.active = "activeme";
                     $scope.trimTabs.light3.show = "active-tab";
@@ -5619,6 +5645,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.odiJson.design.name = "Drift (C&S)";
                     $scope.odiJson.design.designName = "design5";
                     $scope.odiJson.design.designType = 'training';
+                     $scope.odiJson.color.base = "#800000";
+                    $scope.odiJson.color.trim1 = "#ffffff";
+                    $scope.odiJson.color.trim2 = "#ffffff";
                     $scope.singleAmount = 850;
                     $scope.trimTabs.light3.active = "activeme";
                     $scope.trimTabs.light3.show = "active-tab";
@@ -5647,6 +5676,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.odiJson.design.name = "Whites";
                     $scope.odiJson.design.designName = "design1";
                     $scope.odiJson.design.designType = 'whites';
+                       $scope.odiJson.color.base = "#ffffff";
+                    $scope.odiJson.color.trim1 = "#ffffff";
+                    $scope.odiJson.color.trim2 = "#ffffff";
                     $scope.singleAmount = 1000;
                     $scope.trimTabs.light3.active = "";
                     $scope.trimTabs.light3.show = "";
@@ -5663,6 +5695,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.odiJson.design.name = "Whites";
                     $scope.odiJson.design.designName = "design2";
                     $scope.odiJson.design.designType = 'whites';
+                      $scope.odiJson.color.base = "#ffffff";
+                    $scope.odiJson.color.trim1 = "#bf0000";
+                    $scope.odiJson.color.trim2 = "#ffffff";
                     $scope.singleAmount = 1000;
                     $scope.trimTabs.light1.active = "activeme";
                     $scope.trimTabs.light1.show = "active-tab";
@@ -5680,6 +5715,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.odiJson.design.name = "Whites";
                     $scope.odiJson.design.designName = "design3";
                     $scope.odiJson.design.designType = 'whites';
+                     $scope.odiJson.color.base = "#ffffff";
+                    $scope.odiJson.color.trim1 = "#bf0000";
+                    $scope.odiJson.color.trim2 = "#ffffff";
                     $scope.singleAmount = 1000;
                     $scope.trimTabs.light1.active = "activeme";
                     $scope.trimTabs.light1.show = "active-tab";
@@ -5697,6 +5735,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.odiJson.design.name = "Whites";
                     $scope.odiJson.design.designName = "design4";
                     $scope.odiJson.design.designType = 'whites';
+                     $scope.odiJson.color.base = "#000";
+                    $scope.odiJson.color.trim1 = "#bf0000";
+                    $scope.odiJson.color.trim2 = "#ffffff";
                     $scope.singleAmount = 1000;
                     $scope.trimTabs.light1.active = "activeme";
                     $scope.trimTabs.light1.show = "active-tab";
@@ -5714,6 +5755,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.odiJson.design.name = "Whites";
                     $scope.odiJson.design.designName = "design5";
                     $scope.odiJson.design.designType = 'whites';
+                      $scope.odiJson.color.base = "#ffffff";
+                    $scope.odiJson.color.trim1 = "#1a472a";
+                    $scope.odiJson.color.trim2 = "#ffffff";
                     $scope.singleAmount = 1000;
                     $scope.trimTabs.light1.active = "activeme";
                     $scope.trimTabs.light1.show = "active-tab";
@@ -5728,7 +5772,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         }
 
+        if ($stateParams.status == "edit" && $.jStorage.get("custom")) {
+            $scope.odiJson = $.jStorage.get("custom");
+            $timeout(function () {
+                $scope.tabchange($scope.odiJson.tab, $scope.odiJson.tabNo);
+            }, 100)
+            console.log('$scope.odiJson', $scope.odiJson);
+        } else {
+            $scope.changeDesign(0, 1);
 
+        }
 
 
         // $scope.changeDesign(0, 1);
@@ -6015,6 +6068,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
 
      $scope.toOrderSummary = function () {
+         console.log('sssssssssss',$scope.odiJson);
             if (user && user.email) {
                 NavigationService.orderSummaryTrouser(user.email, $scope.odiJson, 'odi',
                     function (data) {
@@ -6421,31 +6475,31 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 if (!$scope.tabAllowToa) {
                     $scope.tabchange('design', 1);
                     $scope.switchFrontBack(true);
-                    $scope.switchTrimHighlightBase(true, $scope.trimTshirt.highlightBase.tcolor, $scope.odiJson.color.base);
-                    $scope.switchTrimHighlightOne(true, $scope.trimTshirt.highlightOne.tcolor, $scope.odiJson.color.trim1);
-                    $scope.switchTrimHighlightTwo(true, $scope.trimTshirt.highlightTwo.tcolor, $scope.odiJson.color.trim2);
+                    // $scope.switchTrimHighlightBase(true, $scope.trimTshirt.highlightBase.tcolor, $scope.odiJson.color.base);
+                    // $scope.switchTrimHighlightOne(true, $scope.trimTshirt.highlightOne.tcolor, $scope.odiJson.color.trim1);
+                    // $scope.switchTrimHighlightTwo(true, $scope.trimTshirt.highlightTwo.tcolor, $scope.odiJson.color.trim2);
                 }
             } else if (tab === 'b') {
                 if (!$scope.tabAllowTob) {
                     $scope.tabchanges('light3', 3);
                     $scope.tabchange('trim', 2);
                     $scope.switchFrontBack(true);
-                    $scope.switchTrimHighlightBase(true, $scope.trimTshirt.highlightBase.tcolor, $scope.odiJson.color.base);
-                    $scope.switchTrimHighlightOne(true, $scope.trimTshirt.highlightOne.tcolor, $scope.odiJson.color.trim1);
-                    $scope.switchTrimHighlightTwo(true, $scope.trimTshirt.highlightTwo.tcolor, $scope.odiJson.color.trim2);
+                    // $scope.switchTrimHighlightBase(true, $scope.trimTshirt.highlightBase.tcolor, $scope.odiJson.color.base);
+                    // $scope.switchTrimHighlightOne(true, $scope.trimTshirt.highlightOne.tcolor, $scope.odiJson.color.trim1);
+                    // $scope.switchTrimHighlightTwo(true, $scope.trimTshirt.highlightTwo.tcolor, $scope.odiJson.color.trim2);
                 }
             } else if (tab === 'c') {
                 if (!$scope.tabAllowToc) {
                     $scope.tabchange('team', 3);
                     $scope.switchFrontBack(true);
-                    $scope.switchTrimHighlightBase(true, $scope.trimTshirt.highlightBase.tcolor, $scope.odiJson.color.base);
-                    $scope.switchTrimHighlightOne(true, $scope.trimTshirt.highlightOne.tcolor, $scope.odiJson.color.trim1);
-                    $scope.switchTrimHighlightTwo(true, $scope.trimTshirt.highlightTwo.tcolor, $scope.odiJson.color.trim2);
+                    // $scope.switchTrimHighlightBase(true, $scope.trimTshirt.highlightBase.tcolor, $scope.odiJson.color.base);
+                    // $scope.switchTrimHighlightOne(true, $scope.trimTshirt.highlightOne.tcolor, $scope.odiJson.color.trim1);
+                    // $scope.switchTrimHighlightTwo(true, $scope.trimTshirt.highlightTwo.tcolor, $scope.odiJson.color.trim2);
                     $scope.turnOnLogos(true);
                 }
             } else if (tab === 'd') {
                 if (!$scope.tabAllowTod) {
-                    $scope.checkTeamLogo(true);
+                    // $scope.checkTeamLogo(true);
                 }
             }
         };
@@ -6482,8 +6536,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
         $scope.tabchanges = function (tabs, b) {
+            console.log('////////////////////////////')
             $scope.tabs = tabs;
-            $scope.odiJson.tab = tab;
+            $scope.odiJson.tab = tabs;
             $scope.odiJson.tabNo = b;
             if (b == 1) {
                 // $scope.classp = "active-tab";

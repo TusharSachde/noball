@@ -80,10 +80,10 @@
                   <thead>
                     <tr>
                       <th class="uppercase">size</th>
-                      <th class="uppercase" ng-if="design.description.type=='odi-shirt'">sleeve</th>
+                      <th class="uppercase" ng-if="design.description.type=='odi'">sleeve</th>
                       <th class="uppercase">qty.</th>
-                      <th class="uppercase" ng-if="design.description.type=='odi-shirt'">name</th>
-                      <th class="uppercase" ng-if="design.description.type=='odi-shirt'">no.</th>
+                      <th class="uppercase" ng-if="design.description.type=='odi'">name</th>
+                      <th class="uppercase" ng-if="design.description.type=='odi'">no.</th>
                     </tr>
                   </thead>
                 </table>
@@ -94,16 +94,16 @@
                         <span class="capitalize">{{jersey.size}}</span>
 
                       </td>
-                      <td class="text-center sleeve" ng-if="design.description.type=='odi-shirt'">
+                      <td class="text-center sleeve" ng-if="design.description.type=='odi'">
                         <span class="capitalize">{{jersey.sleeve}}</span>
                       </td>
                       <td class="text-center qty">
                         <span class="capitalize">{{jersey.quantity||0}}</span>
                       </td>
-                      <td class="text-center name" ng-if="design.description.type=='odi-shirt'">
+                      <td class="text-center name" ng-if="design.description.type=='odi'">
                         <span class="capitalize">{{jersey.name}}</span>
                       </td>
-                      <td class="text-center no" ng-if="design.description.type=='odi-shirt'">
+                      <td class="text-center no" ng-if="design.description.type=='odi'">
                         <span class="capitalize">{{jersey.no}}</span>
                       </td>
                     </tr>
