@@ -2783,6 +2783,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 return "#48d2dc";
             } else if (color == "dgreen") {
                 return "#82e716";
+            }
+             else if (color == "dorange") {
+                return "#ee3301";
             } else {
                 return _.filter($scope.padscolor, {
                     name: color
@@ -2815,7 +2818,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             {
                 colr: "#00008b",
                 name: "dblue"
+            },
+            {
+                colr: "#ed8b32",
+                name: "dorange"
+            },  {
+                colr: "#db2123",
+                name: "dred"
             }
+            ,  {
+                colr: "#08ad21",
+                name: "green"
+            }
+            
         ];
 
         $scope.color = [{
@@ -2843,7 +2858,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "ngreen": ["img/padscolor/updated/ngreen/1.png"],
             "pink": ["img/padscolor/updated/pink/1.png"],
             "white": ["img/padscolor/updated/white/1.png"],
-            "yellow": ["img/padscolor/updated/yellow/1.png"]
+            "yellow": ["img/padscolor/updated/yellow/1.png"],
+            "dorange": ["img/padscolor/updated/orange/1.png"],
+            "dred": ["img/padscolor/updated/red/1.png"],
+             "green": ["img/padscolor/updated/green/1.png"]
         };
 
         $scope.padImages2 = {
@@ -2855,8 +2873,35 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "pink": ["img/padscolor/updated/pink/2.png"],
             "white": ["img/padscolor/updated/white/2.png"],
             "yellow": ["img/padscolor/updated/yellow/2.png"],
-            "dblue": ["img/padscolor/updated/dblue/1.png"]
+            "dblue": ["img/padscolor/updated/dblue/2.png"],
+            "dorange": ["img/padscolor/updated/orange/2.png"],
+            "dred": ["img/padscolor/updated/red/2.png"],
+            "green": ["img/padscolor/updated/green/2.png"]
         };
+             $scope.padImages3 = {
+            "dorange": ["img/padscolor/dblue/dorange.png"],
+            "black": ["img/padscolor/updated/black/3.png"],
+            "grey": ["img/padscolor/updated/grey/3.png"],
+            "nblue": ["img/padscolor/updated/nblue/3.png"],
+            "ngreen": ["img/padscolor/updated/ngreen/3.png"],
+            "pink": ["img/padscolor/updated/pink/3.png"],
+            "white": ["img/padscolor/updated/white/3.png"],
+            "yellow": ["img/padscolor/updated/yellow/3.png"],
+            "dblue": ["img/padscolor/updated/dblue/3.png"],
+            "dred": ["img/padscolor/updated/red/3.png"],
+            "green": ["img/padscolor/updated/green/3.png"]
+        };
+        //     $scope.padImages4 = {
+        //     "dred": ["img/padscolor/dblue/dred.png"],
+        //     "black": ["img/padscolor/updated/black/2.png"],
+        //     "grey": ["img/padscolor/updated/grey/2.png"],
+        //     "nblue": ["img/padscolor/updated/nblue/2.png"],
+        //     "ngreen": ["img/padscolor/updated/ngreen/2.png"],
+        //     "pink": ["img/padscolor/updated/pink/2.png"],
+        //     "white": ["img/padscolor/updated/white/2.png"],
+        //     "yellow": ["img/padscolor/updated/yellow/2.png"],
+        //     "dblue": ["img/padscolor/updated/dblue/1.png"]
+        // };
 
 
         $scope.myArr = [{
@@ -2869,6 +2914,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             img: $scope.padImages2.dgreen,
             color: "dgreen",
             colorObj: $scope.padImages2
+        }, {
+            name: "INSIDE EDGE 202",
+            img: $scope.padImages3.dorange,
+            color: "dorange",
+            colorObj: $scope.padImages3
         }];
 
 
@@ -4106,6 +4156,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }, {
             colr: "#d2b48c",
             name: "gold"
+        },
+         {
+            colr: "#fff",
+            name: "white"
+        }, {
+            colr: "#000",
+            name: "black"
         }];
         $scope.openLogin = function () {
             $.jStorage.set("onCustom", true);
@@ -4168,7 +4225,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "dgreen": ["img/glovescolor/dgreen/1.png"],
             "lorange": ["img/glovescolor/lorange/1.png"],
             "dorange": ["img/glovescolor/dorange/1.png"],
-            "gold": ["img/glovescolor/gold/1.png"]
+            "gold": ["img/glovescolor/gold/1.png"],
+             "white": ["img/glovescolor/white/1.png"],
+               "black": ["img/glovescolor/black/1.png"]
 
         };
         //glovesImages path
@@ -4181,7 +4240,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "dgreen": ["img/glovescolor/dgreen/2.png"],
             "lorange": ["img/glovescolor/lorange/2.png"],
             "dorange": ["img/glovescolor/dorange/2.png"],
-            "gold": ["img/glovescolor/gold/2.png"]
+            "gold": ["img/glovescolor/gold/2.png"],
+              "white": ["img/glovescolor/white/2.png"],
+               "black": ["img/glovescolor/black/2.png"]
 
         };
         //glovesImages path
@@ -4194,7 +4255,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "dgreen": ["img/glovescolor/dgreen/3.png"],
             "lorange": ["img/glovescolor/lorange/3.png"],
             "dorange": ["img/glovescolor/dorange/3.png"],
-            "gold": ["img/glovescolor/gold/3.png"]
+            "gold": ["img/glovescolor/gold/3.png"],
+            "white": ["img/glovescolor/white/3.png"],
+               "black": ["img/glovescolor/black/3.png"]
 
         };
         $scope.myArr = [{
@@ -4544,6 +4607,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             colr: "#e87024"
         }, {
             colr: "#501e1f"
+        }, {
+            colr: "#fff"
+        }, {
+            colr: "#000"
         }];
 
         $scope.images = [{
@@ -4762,6 +4829,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }, {
             colr: "#d2b48c",
             name: "gold"
+        },
+         {
+            colr: "#fff",
+            name: "white"
+        }, {
+            colr: "#000",
+            name: "black"
         }];
         $scope.openLogin = function () {
             $.jStorage.set("onCustom", true);
@@ -4847,7 +4921,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             "lorange": ["img/glovescolor/lorange/2.png"],
             "dorange": ["img/glovescolor/dorange/2.png"],
-            "gold": ["img/glovescolor/gold/2.png"]
+            "gold": ["img/glovescolor/gold/2.png"],
+            "white": ["img/glovescolor/white/2.png"],
+            "black": ["img/glovescolor/black/2.png"],
+
         };
 
 
@@ -4869,7 +4946,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "dgreen": ["img/glovescolor/dgreen/3.png"],
             "lorange": ["img/glovescolor/lorange/3.png"],
             "dorange": ["img/glovescolor/dorange/3.png"],
-            "gold": ["img/glovescolor/gold/3.png"]
+            "gold": ["img/glovescolor/gold/3.png"],
+            "white": ["img/glovescolor/white/3.png"],
+            "black": ["img/glovescolor/black/3.png"]
         };
 
 
