@@ -621,14 +621,14 @@
                               <span>size</span>
                             </div>
                             <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                              <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="odiJson.font.nameSize"
+                              <div range-slider on-handle-down="changeText(odiJson.font.nameSize)" on-handle-up="resetTextStyle()" ng-model="odiJson.font.nameSize"
                                 min="-150" max="100" model-max="jerseyBackArr[0].attributes.name.fontSize" model-min="-150"
                                 pin-handle="min">
                               </div>
                               <!-- <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBack.attributes.fontSize" min="-150" max="100" model-max="jerseyBack.attributes.fontSize" model-min="rslider.min" pin-handle="min"></div> -->
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-3">
-                              <input class="inputtext" type="number" name="mySize" ng-model="odiJson.font.nameSize">
+                              <input class="inputtext" type="number" name="mySize" ng-change="changeNameSize(odiJson.font.nameSize)" ng-model="odiJson.font.nameSize">
                             </div>
                           </div>
                           <div class="row pad5">

@@ -8,12 +8,15 @@
             <img ng-src="{{design[key].image | serverimage}}" ng-if="key != 'backSponsorLogo' && design[key].image && design[key].image != ''" ng-style="{width:design[key].size}"
                 noloading="true">
         </div>
-          <div ng-repeat="(key,imagePos) in imagesPositions()" ng-show="isBack"
+          <div class="div-internal-image" ng-repeat="(key,imagePos) in imagesPositions()" ng-show="isBack"
             ng-style="imagePos">
             <img ng-src="{{design[key].image | serverimage}}" ng-if="design[key].image && design[key].image != '' && key == 'backSponsorLogo'" ng-style="{width:design[key].size}"
                 noloading="true">
         </div>
-         <div ng-show="isBack" class="odi-t jersey-name uppercase text-center"><p ng-style="{'fontSize':design.font.nameSize,'letterSpacing':design.font.nameSpacing,border:'none,rotate:0}">{{design.quantity[0].name}} </p></div>
+         <div ng-show="isBack" class="odi-t jersey-name uppercase text-center">
+             <!--<p ng-style="{'font-size':'{{design.font.nameSize}}+'px'','letterSpacing':design.font.nameSpacing,border:'none,rotate:0}">{{design.quantity[0].name}} </p>-->
+             <p ng-style="{'font-size':'{{design.font.nameSize+'px'}}'}">{{design.quantity[0].name}} </p>
+             </div>
                   <div ng-show="isBack" class="odi-t jersey-no text-center" ng-style="{'fontSize':design.font.numberSize,'letterSpacing':design.font.numberSpacing,border:'none,rotate:0}">{{design.quantity[0].no}}</div>
 
     </div>
