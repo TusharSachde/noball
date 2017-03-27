@@ -46,26 +46,28 @@
                        mainSponsorLogo: {
                           width: 30,
                           height: 30,
-                          top: 125,
-                          left: 130
+                        top: 250,
+    left: 216
                       },
                        leftSleeveLogo: {
                           width: 30,
                           height: 30,
-                          top: 140,
-                          right: 152
+                         top: 140,
+    left: 75,
+     transform: 'rotate(10deg)'
                       },
                        rightSleeveLogo: {
                             width: 30,
                           height: 30,
                           top: 140,
-                          left: 152
+                         right: 75,
+    transform: 'rotate(-10deg)'
                       },
                        backSponsorLogo: {
                          width: 30,
                           height: 30,
-                          top: 125,
-                          left: 80
+                          top: 180,
+                          left: 215
                       },
                   },
                   "trousers": {
