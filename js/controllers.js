@@ -6185,20 +6185,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             } else {
                 $scope.openLogin();
             }
-
-            // if ($.jStorage.get('savedDesigns')) {
-            //     $scope.allSavedDesigns = $.jStorage.get('savedDesigns');
-            //     $scope.allSavedDesigns.push($scope.combineJSON);
-            //     $.jStorage.set('savedDesigns', $scope.allSavedDesigns);
-            //     console.log("123");
-            //     $state.go('savedesign');
-            // } else {
-            //     $scope.allSavedDesigns = [];
-            //     $scope.allSavedDesigns.push($scope.combineJSON);
-            //     $.jStorage.set('savedDesigns', $scope.allSavedDesigns);
-            //     console.log("abc");
-            //     $state.go('savedesign');
-            // }
         }
 
 
@@ -8832,6 +8818,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 console.log(err);
             }
         );
+
+          $scope.savedDesigns = function () {
+                NavigationService.saveDesign($scope.user.email, $scope.design.description, $scope.design.description.type,
+                    function (data) {
+                        console.log('Save Design data: ', data);
+                        $state.go('savedesign');
+                    },
+                    function (err) {
+                        console.log(err);
+                    })
+        }
+       
     })
 
     .controller('CustomCheckoutCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $interval, cfpLoadingBar, $uibModal, $window) {
@@ -10872,7 +10870,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
 
     })
-    .controller('headerctrl', function ($scope, $rootScope, $state, TemplateService, $uibModal, NavigationService, $interval, $upload, $timeout) {
+    .controller('headerctrl', function ($scope,$http, $rootScope, $state, TemplateService, $uibModal, NavigationService, $interval, $upload, $timeout) {
         $scope.template = TemplateService;
         $scope.logintab = {};
         $scope.login = {};
@@ -10885,6 +10883,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 keyboard: false
             });
         };
+
         $scope.logintab.tab = 1;
         $scope.hovermenu = false;
         $scope.validation = false;

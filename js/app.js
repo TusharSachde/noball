@@ -7,6 +7,12 @@ var firstapp = angular.module('firstapp', [
   "customUI"
 ]);
 
+
+$.get("http://ipinfo.io/json", function (response) {
+  $.jStorage.set('getCountry', response.country);
+});
+
+
 firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, cfpLoadingBarProvider) {
 
   // for http request with session
@@ -48,7 +54,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, cfp
       templateUrl: "views/template.html",
       controller: 'OdiCtrl'
     })
-     .state('odiEdit', {
+    .state('odiEdit', {
       url: "/odi-shirt/:status",
       templateUrl: "views/template.html",
       controller: 'OdiCtrl'
@@ -89,7 +95,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, cfp
       controller: 'TrousersCtrl'
     })
 
-     .state('trousersEdit', {
+    .state('trousersEdit', {
       url: "/trousers/:status",
       templateUrl: "views/template.html",
       controller: 'TrousersCtrl'
@@ -191,7 +197,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, cfp
       templateUrl: "views/template.html",
       controller: 'GlovesCtrl'
     })
-    
+
 
     .state('review-glove', {
       url: "/review-glove",
@@ -369,6 +375,19 @@ firstapp.filter('translateRotate', function () {
   return function (input, scope) {
     if (input) {
       scope.jerseyBack.attributes.transform = "rotate(" + input + "deg)";
+    }
+  };
+});
+
+firstapp.filter('currencyFilter', function () {
+  return function (input) {
+    if (input) {
+      var myCountry = $.jStorage.get('getCountry');
+      if (myCountry == 'IN') {
+        return '₹' + input;
+      } else {
+        return '$' + input;
+      }
     }
   };
 });

@@ -681,7 +681,7 @@
                         </div>
                       </div>
                       <!--<p>One time customization fee for Tee is <i class="fa fa-inr"></i> 5000</p>-->
-                      <span class="pull-right tamount uppercase Raleway-Medium">Total Amount: {{odiJson.totalAmount}}</span>
+                      <span class="pull-right tamount uppercase Raleway-Medium">Total Amount: {{odiJson.totalAmount | currencyFilter}}</span>
                       <span class="pull-right tquantity uppercase Raleway-Medium">Total Quantity: {{odiJson.totalQuan}}</span>
                     </div>
                   </uib-accordion-group>

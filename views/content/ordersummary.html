@@ -35,12 +35,15 @@
               </div>
               <span class="capitalize mgl-20">{{printType}}</span>
             </div>
-            <div class="mgb20" ng-if="design.description.rightLogo.image ||  design.description.leftLogo.image || design.description.mainlogo.image || design.description.rightsleeve.image || design.description.backlogo.image">
+            <div class="mgb20" ng-if="design.description.rightLogo.image || design.description.rightChestLogo.image ||  design.description.leftLogo.image || design.description.mainlogo.image || design.description.rightsleeve.image || design.description.backSponsorLogo.image">
               <p class="inline-block">Sponsor Logos:</p>
               <div class="new-scrolldiv block-box">
                 <div class="spon-logo">
                   <div class="team-logo inline-block mgl-20 va-mid" ng-if="design.description.rightLogo && design.description.rightLogo.image">
                     <img ng-src="{{design.description.rightLogo.image | serverimage}}" alt="" class="img-responsive logo-img">
+                  </div>
+                  <div class="team-logo inline-block mgl-20 va-mid" ng-if="design.description.rightChestLogo && design.description.rightChestLogo.image">
+                    <img ng-src="{{design.description.rightChestLogo.image | serverimage}}" alt="" class="img-responsive logo-img">
                   </div>
                   <div class="team-logo inline-block mgl-20 va-mid" ng-if="design.description.mainlogo && design.description.mainlogo.image">
                     <img ng-src="{{design.description.mainlogo.image | serverimage}}" alt="" class="img-responsive logo-img">
@@ -51,8 +54,8 @@
                   <div class="team-logo inline-block mgl-20 va-mid" ng-if="design.description.rightsleeve && design.description.rightsleeve.image">
                     <img ng-src="{{design.description.rightsleeve.image | serverimage}}" alt="" class="img-responsive logo-img">
                   </div>
-                  <div class="team-logo inline-block mgl-20 va-mid" ng-if="design.description.backlogo && design.description.backlogo.image">
-                    <img ng-src="{{design.description.backlogo.image | serverimage}}" alt="" class="img-responsive logo-img">
+                  <div class="team-logo inline-block mgl-20 va-mid" ng-if="design.description.backSponsorLogo && design.description.backSponsorLogo.image">
+                    <img ng-src="{{design.description.backSponsorLogo.image | serverimage}}" alt="" class="img-responsive logo-img">
                   </div>
                 </div>
               </div>
@@ -112,7 +115,7 @@
               </div>
             </div>
             <h3 class="mgb20 inline-block">Price:</h3>
-            <div class="inline-block mgb20 mgl-10 fs-24"><i class="fa fa-inr va-sub"></i> {{design.description.totalAmount}}</div>
+            <div class="inline-block mgb20 mgl-10 fs-24">{{design.description.totalAmount | currencyFilter}}</div>
             <textarea rows="5" placeholder="Ex: Please match colour of the font of name and number to the Trim 2, please change location of back sponsor to below the number, please call before shipping the goods etc."
               class="wd100"></textarea>
           </div>
