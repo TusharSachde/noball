@@ -5220,7 +5220,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.odiJson.totalAmount = 0;
             $scope.odiJson.totalQuan = 0;
              for (var i = 0; i < $scope.jerseyBackArrCount; i++) {
-                 console.log($scope.odiJson.quantity);
+                 console.log('$scope.odiJson.quantity',$scope.odiJson.quantity);
                 // $scope.totalQuan += $scope.quantity[i].quantity;
                 if ($scope.odiJson.quantity[i].quantity !== undefined) {
                      
@@ -5262,17 +5262,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.odiJson[key].border = "none";
             $scope.$apply();
         };
-        $scope.changeText = function () {
-            console.log();
+        $scope.changeText = function (val) {
+            console.log($scope.odiJson.font.nameSize);
             //$scope.customizedShirt[key].attributes.width = "calc(50px + " + $scope.customizedShirt[key].attributes.width + "px)"
             //$scope.customizedShirt[key].attributes.position = "relative"
             //$scope.customizedShirt[key].attributes.top = "calc(25px - " + $scope.customizedShirt[key].attributes.width / 2 + "px)"
             //$scope.customizedShirt[key].attributes.left = "calc(25px - " + $scope.customizedShirt[key].attributes.width / 2 + "px)"
-            //$scope.jerseyBack.attributes.fontSize = $scope.jerseyBack.attributes.fontSize;
+            $scope.odiJson.font.nameSize = val;
             $scope.jerseyBack.attributes.border = "1px solid #ccc";
             $scope.$apply();
         };
-
+$scope.changeNameSize = function(val){
+    $scope.odiJson.font.nameSize = val;
+    console.log($scope.odiJson.font.nameSize);
+}
         $scope.resetTextStyle = function () {
             $scope.jerseyBack.attributes.border = "none";
             $scope.$apply();
