@@ -312,7 +312,7 @@
                         Size:
                         <div class="range">
                           <div range-slider on-handle-down="changeLogo('rightChestLogo')" on-handle-up="resetLogoStyle('rightChestLogo')" ng-model="odiJson.rightLogo.size"
-                            min="-150" max="200" model-max="odiJson.rightChestLogo.size" model-min="rslider.min"
+                            min="0" max="200" model-max="odiJson.rightChestLogo.size" model-min="rslider.min"
                             pin-handle="min"></div>
                         </div>
                         <!-- <div range-slider min="-150" max="100" model-max="max" pin-handle="min"></div> -->
@@ -334,7 +334,7 @@
                         Size:
                         <div class="range">
                           <div range-slider on-handle-down="changeLogo('mainSponsorLogo')" on-handle-up="resetLogoStyle('mainSponsorLogo')" ng-model="customizedShirt['mainlogo'].attributes.width"
-                            min="-150" max="200" model-max="customizedShirt['mainlogo'].attributes.width" model-min="rslider.min"
+                            min="0" max="200" model-max="customizedShirt['mainlogo'].attributes.width" model-min="rslider.min"
                             pin-handle="min"></div>
                         </div>
                         <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="openUploads('mainSponsorLogo', 'Main Sponsor')">CHANGE</button>

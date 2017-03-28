@@ -5116,7 +5116,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // slider
         $scope.rslider = {
             min: -130,
-            max: 200
+            max: 100
         };
         // $scope.statuses.copyright = false;
         $scope.trimTshirt = {};
