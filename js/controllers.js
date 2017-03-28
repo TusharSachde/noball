@@ -5045,7 +5045,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             },
             teamLogo: {
                 image: null,
-                size: 100
+                size: 25
             },
             rightChestLogo: {
                 image: "img/logo_black.png",
@@ -5053,19 +5053,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             },
             mainSponsorLogo: {
                 image: null,
-                size: 100
+                size: 25
             },
             leftSleeveLogo: {
                 image: null,
-                size: 100
+                size: 25
             },
             rightSleeveLogo: {
                 image: null,
-                size: 100
+                size: 25
             },
             backSponsorLogo: {
                 image: null,
-                size: 100
+                size: 25
             },
             font: {
             'fontStyle': 'arial',
@@ -11133,7 +11133,8 @@ $scope.changeNameSize = function(val){
         $scope.goToReload = function () {
             console.log('goToReload');
             window.location.href = window.location.href + "/edit";
-            window.location.reload();
+            // window.location.reload();
+            $state.go('savedesign');
         }
         //login
         $scope.doLogin = function (input, formValidate) {

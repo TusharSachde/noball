@@ -57,7 +57,7 @@
                         <!--<h4>SWITCH</h4>-->
                         <h3 class="text-uppercase">{{glovesJson.design.name}}</h3>
                         <!--<p>The Custom Cricket company cricket gloves is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest.</p>-->
-                        <h3>{{singleAmount | currencyFilter}}</h3>
+                        <h3>{{glovesJson.design | currencyFilter}}</h3>
                         <span class="Raleway-Medium"><em>Minimum Order Quantity (MOQ) = 12 pairs of each design</em></span>
                     </div>
                     <!-- // design tab-->
@@ -589,7 +589,7 @@
                                 <!--<p class="more-price">One time customization fee for Glove is <i class="fa fa-inr"></i> 5000</p>-->
                                 <p class="more-price">A one-time customization fees of INR 5000/- or equivalent (in your currency) will be incurred
                                     for your logo customization.</p>
-                                       <span class="pull-right tamount totalAmount uppercase Raleway-Medium mar20">Total Amount: {{glovesJson.totalAmount | currencyFilter}}</i></span>
+                                       <span class="pull-right tamount totalAmount uppercase Raleway-Medium mar20">Total Amount: {{glovesJson.design | currencyFilter}}</i></span>
                                         <span class="pull-right tquantity totalAmount uppercase Raleway-Medium mar20">Total Quantity: {{glovesJson.totalQuan}} </span>
                                 <!--<span class="pull-right uppercase totalAmount Raleway-Medium">Total: {{totalAmount}}</span>-->
                             </div>

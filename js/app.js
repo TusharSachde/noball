@@ -379,14 +379,30 @@ firstapp.filter('translateRotate', function () {
   };
 });
 
+
+
 firstapp.filter('currencyFilter', function () {
   return function (input) {
     if (input) {
+      console.log(input);
       var myCountry = $.jStorage.get('getCountry');
+      var arr = _.filter(currencyObj, function (n) {
+        return n.name == input.name;
+      })
+      var priceObj;
+      if (arr.length > 0) {
+        priceObj = arr[0];
+      }
       if (myCountry == 'IN') {
-        return '₹' + input;
-      } else {
-        return '$' + input;
+        return '₹ ' + priceObj.inr;
+      } else if (myCountry == "AUS") {
+        return '$ ' + priceObj.aud;
+      } else if (myCountry == 'GBR') {
+        return '£ ' + priceObj.gbp;
+      } else if (myCountry == 'USA') {
+        return '$ ' + priceObj.usd;
+      }else{
+        return '$ ' + priceObj.usd;
       }
     }
   };
