@@ -2711,7 +2711,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
 
-    .controller('PadsCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
+    .controller('PadsCtrl', function ($scope, $filter, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("pads");
         $scope.menutitle = NavigationService.makeactive("Pads");
@@ -2783,8 +2783,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 return "#48d2dc";
             } else if (color == "dgreen") {
                 return "#82e716";
-            }
-             else if (color == "dorange") {
+            } else if (color == "dorange") {
                 return "#ee3301";
             } else {
                 return _.filter($scope.padscolor, {
@@ -2822,15 +2821,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             {
                 colr: "#ed8b32",
                 name: "dorange"
-            },  {
+            }, {
                 colr: "#db2123",
                 name: "dred"
-            }
-            ,  {
+            }, {
                 colr: "#08ad21",
                 name: "green"
             }
-            
+
         ];
 
         $scope.color = [{
@@ -2861,7 +2859,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "yellow": ["img/padscolor/updated/yellow/1.png"],
             "dorange": ["img/padscolor/updated/orange/1.png"],
             "dred": ["img/padscolor/updated/red/1.png"],
-             "green": ["img/padscolor/updated/green/1.png"]
+            "green": ["img/padscolor/updated/green/1.png"]
         };
 
         $scope.padImages2 = {
@@ -2878,7 +2876,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "dred": ["img/padscolor/updated/red/2.png"],
             "green": ["img/padscolor/updated/green/2.png"]
         };
-             $scope.padImages3 = {
+        $scope.padImages3 = {
             "dorange": ["img/padscolor/dblue/dorange.png"],
             "black": ["img/padscolor/updated/black/3.png"],
             "grey": ["img/padscolor/updated/grey/3.png"],
@@ -2982,8 +2980,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.padsArrCount = $scope.padsArrCount - 1;
         }
 
-        $scope.singleAmount = 2750;
-        $scope.totalAmount = 2750;
+        // $scope.singleAmount = 2750;
+        // $scope.totalAmount = 2750;
+
+        $scope.singleAmount = $filter('currencyFilter')($scope.designJson.design);
+        $scope.totalAmount = $filter('currencyFilter')($scope.designJson.design);
         $scope.totalQuan = 0;
 
         $scope.addQuantity = function () {
@@ -2991,7 +2992,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.totalAmount = 0;
             $scope.totalQuan = parseInt($scope.designJson.quantity[0].quantity + $scope.designJson.quantity[1].quantity);
             if ($scope.totalQuan) {
-                $scope.totalAmount = ($scope.totalQuan * $scope.singleAmount) + 5000;
+                console.log($scope.designJson.design);
+                console.log($filter('currencyFilter')($scope.designJson.design));
+                $scope.totalAmount = $scope.totalQuan*$filter('currencyFilter')($scope.designJson.design,"OnlyNumber") + 5000;
                 $scope.designJson.totalAmount = $scope.totalAmount;
             }
             return $scope.totalQuan;
@@ -4130,40 +4133,41 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         };
         $scope.glovescolor = [{
-            colr: "#ffd700",
-            name: "yellow"
-        }, {
-            colr: "#cd3700",
-            name: "red"
-        }, {
-            colr: "#63b8ff",
-            name: "lblue"
-        }, {
-            colr: "#00008b",
-            name: "dblue"
-        }, {
-            colr: "#bcee68",
-            name: "lgreen"
-        }, {
-            colr: "#66cd00",
-            name: "dgreen"
-        }, {
-            colr: "#ff8247",
-            name: "lorange"
-        }, {
-            colr: "#ff3030",
-            name: "dorange"
-        }, {
-            colr: "#d2b48c",
-            name: "gold"
-        },
-         {
-            colr: "#fff",
-            name: "white"
-        }, {
-            colr: "#000",
-            name: "black"
-        }];
+                colr: "#ffd700",
+                name: "yellow"
+            }, {
+                colr: "#cd3700",
+                name: "red"
+            }, {
+                colr: "#63b8ff",
+                name: "lblue"
+            }, {
+                colr: "#00008b",
+                name: "dblue"
+            }, {
+                colr: "#bcee68",
+                name: "lgreen"
+            }, {
+                colr: "#66cd00",
+                name: "dgreen"
+            }, {
+                colr: "#ff8247",
+                name: "lorange"
+            }, {
+                colr: "#ff3030",
+                name: "dorange"
+            }, {
+                colr: "#d2b48c",
+                name: "gold"
+            },
+            {
+                colr: "#fff",
+                name: "white"
+            }, {
+                colr: "#000",
+                name: "black"
+            }
+        ];
         $scope.openLogin = function () {
             $.jStorage.set("onCustom", true);
             $.jStorage.set("custom", $scope.glovesJson);
@@ -4226,8 +4230,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "lorange": ["img/glovescolor/lorange/1.png"],
             "dorange": ["img/glovescolor/dorange/1.png"],
             "gold": ["img/glovescolor/gold/1.png"],
-             "white": ["img/glovescolor/white/1.png"],
-               "black": ["img/glovescolor/black/1.png"]
+            "white": ["img/glovescolor/white/1.png"],
+            "black": ["img/glovescolor/black/1.png"]
 
         };
         //glovesImages path
@@ -4241,8 +4245,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "lorange": ["img/glovescolor/lorange/2.png"],
             "dorange": ["img/glovescolor/dorange/2.png"],
             "gold": ["img/glovescolor/gold/2.png"],
-              "white": ["img/glovescolor/white/2.png"],
-               "black": ["img/glovescolor/black/2.png"]
+            "white": ["img/glovescolor/white/2.png"],
+            "black": ["img/glovescolor/black/2.png"]
 
         };
         //glovesImages path
@@ -4257,7 +4261,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "dorange": ["img/glovescolor/dorange/3.png"],
             "gold": ["img/glovescolor/gold/3.png"],
             "white": ["img/glovescolor/white/3.png"],
-               "black": ["img/glovescolor/black/3.png"]
+            "black": ["img/glovescolor/black/3.png"]
 
         };
         $scope.myArr = [{
@@ -4803,40 +4807,41 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         };
         $scope.glovescolor = [{
-            colr: "#ffd700",
-            name: "yellow"
-        }, {
-            colr: "#db2123",
-            name: "red"
-        }, {
-            colr: "#63b8ff",
-            name: "lblue"
-        }, {
-            colr: "#00008b",
-            name: "dblue"
-        }, {
-            colr: "#bcee68",
-            name: "lgreen"
-        }, {
-            colr: "#66cd00",
-            name: "dgreen"
-        }, {
-            colr: "#ff8247",
-            name: "lorange"
-        }, {
-            colr: "#ee3301",
-            name: "dorange"
-        }, {
-            colr: "#d2b48c",
-            name: "gold"
-        },
-         {
-            colr: "#fff",
-            name: "white"
-        }, {
-            colr: "#000",
-            name: "black"
-        }];
+                colr: "#ffd700",
+                name: "yellow"
+            }, {
+                colr: "#db2123",
+                name: "red"
+            }, {
+                colr: "#63b8ff",
+                name: "lblue"
+            }, {
+                colr: "#00008b",
+                name: "dblue"
+            }, {
+                colr: "#bcee68",
+                name: "lgreen"
+            }, {
+                colr: "#66cd00",
+                name: "dgreen"
+            }, {
+                colr: "#ff8247",
+                name: "lorange"
+            }, {
+                colr: "#ee3301",
+                name: "dorange"
+            }, {
+                colr: "#d2b48c",
+                name: "gold"
+            },
+            {
+                colr: "#fff",
+                name: "white"
+            }, {
+                colr: "#000",
+                name: "black"
+            }
+        ];
         $scope.openLogin = function () {
             $.jStorage.set("onCustom", true);
             $.jStorage.set("custom", $scope.glovesJson);
@@ -5016,7 +5021,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
 
 
-    .controller('OdiCtrl', function ($scope, $rootScope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar, $filter, $interval, $rootScope) {    
+    .controller('OdiCtrl', function ($scope, $rootScope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar, $filter, $interval, $rootScope) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("odi-shirt");
         $scope.menutitle = NavigationService.makeactive("Odi T-shirt");
@@ -5068,24 +5073,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 size: 25
             },
             font: {
-            'fontStyle': 'arial',
-            'fontColor': 'white',
-            'nameSize': 18,
-            'nameSpacing': 1,
-            'numberSize': 60,
-            'numberSpacing': 1
-        },
+                'fontStyle': 'arial',
+                'fontColor': 'white',
+                'nameSize': 18,
+                'nameSpacing': 1,
+                'numberSize': 60,
+                'numberSpacing': 1
+            },
             type: "odi",
             sendTeamLogoLater: false
         };
-         $scope.odiJson.quantity = [{
+        $scope.odiJson.quantity = [{
             'size': 'L',
             'quantity': '',
             'name': '',
             'no': '',
             'sleeve': ''
         }];
-       
+
 
         $scope.$on('$stateChangeStart', function (event, toState, fromState) {
             if (toState.name == 'odiEdit' || toState.name == 'ordersummary' || toState.name == 'savedesign') {
@@ -5194,20 +5199,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.jerseyBackArrCount = 2;
 
-         $scope.addJerseyValues = function () {
-           var tempObj = {
+        $scope.addJerseyValues = function () {
+            var tempObj = {
                 'size': "S",
                 'quantity': '',
-                 'name': '',
-            'no': '',
-            'sleeve': ''
+                'name': '',
+                'no': '',
+                'sleeve': ''
             };
             // $scope.jerseyBackArr.push(_.clone($scope.jerseyBack));
-             $scope.odiJson.quantity.push(tempObj);
+            $scope.odiJson.quantity.push(tempObj);
             $scope.jerseyBackArrCount = $scope.jerseyBackArrCount + 1;
         }
         $scope.removeJerseyValue = function (index) {
-          $scope.odiJson.quantity.splice(index, 1);
+            $scope.odiJson.quantity.splice(index, 1);
             $scope.jerseyBackArr.splice(index, 1);
             $scope.jerseyBackArrCount = $scope.jerseyBackArrCount - 1;
         }
@@ -5216,21 +5221,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.odiJson.totalAmount = 1000;
         $scope.odiJson.totalQuan = 1;
 
-     $scope.addQuantity = function (q) {
+        $scope.addQuantity = function (q) {
             $scope.odiJson.totalAmount = 0;
             $scope.odiJson.totalQuan = 0;
-             for (var i = 0; i < $scope.jerseyBackArrCount; i++) {
-                 console.log('$scope.odiJson.quantity',$scope.odiJson.quantity);
+            for (var i = 0; i < $scope.jerseyBackArrCount; i++) {
+                console.log('$scope.odiJson.quantity', $scope.odiJson.quantity);
                 // $scope.totalQuan += $scope.quantity[i].quantity;
                 if ($scope.odiJson.quantity[i].quantity !== undefined) {
-                     
+
                     $scope.odiJson.totalQuan += $scope.odiJson.quantity[i].quantity;
                 }
-                 if ($scope.odiJson.totalQuan) {
-                $scope.odiJson.totalAmount = $scope.singleAmount * $scope.odiJson.totalQuan;
+                if ($scope.odiJson.totalQuan) {
+                    $scope.odiJson.totalAmount = $scope.singleAmount * $scope.odiJson.totalQuan;
+                }
             }
-            }
-           
+
         };
 
         // $scope.addQuantity(1);
@@ -5272,10 +5277,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.jerseyBack.attributes.border = "1px solid #ccc";
             $scope.$apply();
         };
-$scope.changeNameSize = function(val){
-    $scope.odiJson.font.nameSize = val;
-    console.log($scope.odiJson.font.nameSize);
-}
+        $scope.changeNameSize = function (val) {
+            $scope.odiJson.font.nameSize = val;
+            console.log($scope.odiJson.font.nameSize);
+        }
         $scope.resetTextStyle = function () {
             $scope.jerseyBack.attributes.border = "none";
             $scope.$apply();
@@ -5433,11 +5438,11 @@ $scope.changeNameSize = function(val){
             $scope.trimTshirt.highlightTwo.flag = flag;
             $scope.trimTshirt.highlightTwo.tcolor = color;
             // if ($scope.trimTshirt.highlightTwo.tcolor != "") {
-                if (flag) {
-                    $scope.odiJson.design.highlightTwo = "img/odi-tshirts/trims/" + $scope.odiJson.design.designType + "/" + $scope.odiJson.design.designName + "/front/trim2/" + color + ".png"; // "img/odi-tshirts/trims/highlight2/front/trim_" + color + ".png";
-                } else {
-                    $scope.odiJson.design.highlightTwo = "img/odi-tshirts/trims/" + $scope.odiJson.design.designType + "/" + $scope.odiJson.design.designName + "/back/trim2/" + color + ".png"; // "img/odi-tshirts/trims/highlight2/back/trim_" + color + ".png";
-                }
+            if (flag) {
+                $scope.odiJson.design.highlightTwo = "img/odi-tshirts/trims/" + $scope.odiJson.design.designType + "/" + $scope.odiJson.design.designName + "/front/trim2/" + color + ".png"; // "img/odi-tshirts/trims/highlight2/front/trim_" + color + ".png";
+            } else {
+                $scope.odiJson.design.highlightTwo = "img/odi-tshirts/trims/" + $scope.odiJson.design.designType + "/" + $scope.odiJson.design.designName + "/back/trim2/" + color + ".png"; // "img/odi-tshirts/trims/highlight2/back/trim_" + color + ".png";
+            }
             // } else {
             //     $scope.odiJson.design.highlightTwo = "";
             // }
@@ -5595,7 +5600,7 @@ $scope.changeNameSize = function(val){
                     $scope.odiJson.design.name = "Grubber (SUB)";
                     $scope.odiJson.design.designName = "design3";
                     $scope.odiJson.design.designType = 'odi';
-                      $scope.odiJson.color.base = "#bf0000";
+                    $scope.odiJson.color.base = "#bf0000";
                     $scope.odiJson.color.trim1 = "#00308f";
                     $scope.odiJson.color.trim2 = "#fff";
                     $scope.trimTabs.light3.active = "activeme";
@@ -5613,7 +5618,7 @@ $scope.changeNameSize = function(val){
                     $scope.odiJson.design.name = "Plumb (SUB)";
                     $scope.odiJson.design.designName = "design4";
                     $scope.odiJson.design.designType = 'odi';
-                     $scope.odiJson.color.base = "#ccff00";
+                    $scope.odiJson.color.base = "#ccff00";
                     $scope.odiJson.color.trim1 = "#fff";
                     $scope.odiJson.color.trim2 = "#1a472a";
                     $scope.singleAmount = 1000;
@@ -5632,7 +5637,7 @@ $scope.changeNameSize = function(val){
                     $scope.odiJson.design.name = "Floater (SUB)";
                     $scope.odiJson.design.designName = "design5";
                     $scope.odiJson.design.designType = 'odi';
-                     $scope.odiJson.color.base = "#008000";
+                    $scope.odiJson.color.base = "#008000";
                     $scope.odiJson.color.trim1 = "#00308f";
                     $scope.odiJson.color.trim2 = "#ffff00";
                     $scope.singleAmount = 1000;
@@ -5651,7 +5656,7 @@ $scope.changeNameSize = function(val){
                     $scope.odiJson.design.name = "Pace (C&S)";
                     $scope.odiJson.design.designName = "design1";
                     $scope.odiJson.design.designType = 'training';
-                               $scope.odiJson.color.base = "#ffff00";
+                    $scope.odiJson.color.base = "#ffff00";
                     $scope.odiJson.color.trim1 = "#008000";
                     $scope.odiJson.color.trim2 = "#000000";
                     $scope.singleAmount = 850;
@@ -5670,7 +5675,7 @@ $scope.changeNameSize = function(val){
                     $scope.odiJson.design.name = "Seam (C&S)";
                     $scope.odiJson.design.designName = "design2";
                     $scope.odiJson.design.designType = 'training';
-                     $scope.odiJson.color.base = "#bf0000";
+                    $scope.odiJson.color.base = "#bf0000";
                     $scope.odiJson.color.trim1 = "#2175d9";
                     $scope.odiJson.color.trim2 = "#ffffff";
                     $scope.singleAmount = 850;
@@ -5689,7 +5694,7 @@ $scope.changeNameSize = function(val){
                     $scope.odiJson.design.name = "Dipper (C&S)";
                     $scope.odiJson.design.designName = "design3";
                     $scope.odiJson.design.designType = 'training';
-                       $scope.odiJson.color.base = "#2175d9";
+                    $scope.odiJson.color.base = "#2175d9";
                     $scope.odiJson.color.trim1 = "#032149";
                     $scope.odiJson.color.trim2 = "#ffffff";
                     $scope.singleAmount = 850;
@@ -5727,7 +5732,7 @@ $scope.changeNameSize = function(val){
                     $scope.odiJson.design.name = "Drift (C&S)";
                     $scope.odiJson.design.designName = "design5";
                     $scope.odiJson.design.designType = 'training';
-                     $scope.odiJson.color.base = "#800000";
+                    $scope.odiJson.color.base = "#800000";
                     $scope.odiJson.color.trim1 = "#ffffff";
                     $scope.odiJson.color.trim2 = "#ffffff";
                     $scope.singleAmount = 850;
@@ -5758,7 +5763,7 @@ $scope.changeNameSize = function(val){
                     $scope.odiJson.design.name = "Whites";
                     $scope.odiJson.design.designName = "design1";
                     $scope.odiJson.design.designType = 'whites';
-                       $scope.odiJson.color.base = "#ffffff";
+                    $scope.odiJson.color.base = "#ffffff";
                     $scope.odiJson.color.trim1 = "#ffffff";
                     $scope.odiJson.color.trim2 = "#ffffff";
                     $scope.singleAmount = 1000;
@@ -5777,7 +5782,7 @@ $scope.changeNameSize = function(val){
                     $scope.odiJson.design.name = "Whites";
                     $scope.odiJson.design.designName = "design2";
                     $scope.odiJson.design.designType = 'whites';
-                      $scope.odiJson.color.base = "#ffffff";
+                    $scope.odiJson.color.base = "#ffffff";
                     $scope.odiJson.color.trim1 = "#bf0000";
                     $scope.odiJson.color.trim2 = "#ffffff";
                     $scope.singleAmount = 1000;
@@ -5797,7 +5802,7 @@ $scope.changeNameSize = function(val){
                     $scope.odiJson.design.name = "Whites";
                     $scope.odiJson.design.designName = "design3";
                     $scope.odiJson.design.designType = 'whites';
-                     $scope.odiJson.color.base = "#ffffff";
+                    $scope.odiJson.color.base = "#ffffff";
                     $scope.odiJson.color.trim1 = "#bf0000";
                     $scope.odiJson.color.trim2 = "#ffffff";
                     $scope.singleAmount = 1000;
@@ -5817,7 +5822,7 @@ $scope.changeNameSize = function(val){
                     $scope.odiJson.design.name = "Whites";
                     $scope.odiJson.design.designName = "design4";
                     $scope.odiJson.design.designType = 'whites';
-                     $scope.odiJson.color.base = "#000";
+                    $scope.odiJson.color.base = "#000";
                     $scope.odiJson.color.trim1 = "#bf0000";
                     $scope.odiJson.color.trim2 = "#ffffff";
                     $scope.singleAmount = 1000;
@@ -5837,7 +5842,7 @@ $scope.changeNameSize = function(val){
                     $scope.odiJson.design.name = "Whites";
                     $scope.odiJson.design.designName = "design5";
                     $scope.odiJson.design.designType = 'whites';
-                      $scope.odiJson.color.base = "#ffffff";
+                    $scope.odiJson.color.base = "#ffffff";
                     $scope.odiJson.color.trim1 = "#1a472a";
                     $scope.odiJson.color.trim2 = "#ffffff";
                     $scope.singleAmount = 1000;
@@ -6149,8 +6154,8 @@ $scope.changeNameSize = function(val){
             });
         };
 
-     $scope.toOrderSummary = function () {
-         console.log('sssssssssss',$scope.odiJson);
+        $scope.toOrderSummary = function () {
+            console.log('sssssssssss', $scope.odiJson);
             if (user && user.email) {
                 NavigationService.orderSummaryTrouser(user.email, $scope.odiJson, 'odi',
                     function (data) {
@@ -8822,17 +8827,17 @@ $scope.changeNameSize = function(val){
             }
         );
 
-          $scope.savedDesigns = function () {
-                NavigationService.saveDesign($scope.user.email, $scope.design.description, $scope.design.description.type,
-                    function (data) {
-                        console.log('Save Design data: ', data);
-                        $state.go('savedesign');
-                    },
-                    function (err) {
-                        console.log(err);
-                    })
+        $scope.savedDesigns = function () {
+            NavigationService.saveDesign($scope.user.email, $scope.design.description, $scope.design.description.type,
+                function (data) {
+                    console.log('Save Design data: ', data);
+                    $state.go('savedesign');
+                },
+                function (err) {
+                    console.log(err);
+                })
         }
-       
+
     })
 
     .controller('CustomCheckoutCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $interval, cfpLoadingBar, $uibModal, $window) {
@@ -10873,7 +10878,7 @@ $scope.changeNameSize = function(val){
         });
 
     })
-    .controller('headerctrl', function ($scope,$http, $rootScope, $state, TemplateService, $uibModal, NavigationService, $interval, $upload, $timeout) {
+    .controller('headerctrl', function ($scope, $http, $rootScope, $state, TemplateService, $uibModal, NavigationService, $interval, $upload, $timeout) {
         $scope.template = TemplateService;
         $scope.logintab = {};
         $scope.login = {};

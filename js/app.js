@@ -381,30 +381,51 @@ firstapp.filter('translateRotate', function () {
 
 
 
-firstapp.filter('currencyFilter', function () {
-  return function (input) {
-    if (input) {
-      console.log(input);
-      var myCountry = $.jStorage.get('getCountry');
-      var arr = _.filter(currencyObj, function (n) {
-        return n.name == input.name;
-      })
-      var priceObj;
-      if (arr.length > 0) {
-        priceObj = arr[0];
-      }
-      if (myCountry == 'IN') {
-        return '₹ ' + priceObj.inr;
-      } else if (myCountry == "AUS") {
-        return '$ ' + priceObj.aud;
-      } else if (myCountry == 'GBR') {
-        return '£ ' + priceObj.gbp;
-      } else if (myCountry == 'USA') {
-        return '$ ' + priceObj.usd;
-      }else{
-        return '$ ' + priceObj.usd;
-      }
+firstapp.filter('currencyFilter', function ($filter) {
+  return function (input,isWithSymbol) {
+    var myCountry = $.jStorage.get('getCountry');
+    retVal = "";
+    var arr = _.filter(currencyObj, function (n) {
+      return n.name == input.name;
+    })
+    var priceObj;
+    if (arr.length > 0) {
+      priceObj = arr[0];
     }
+    if (myCountry == 'IN') {
+      retVal = priceObj.inr;
+    } else if (myCountry == "AUS") {
+      retVal = priceObj.aud;
+    } else if (myCountry == 'GBR') {
+      retVal = priceObj.gbp;
+    } else if (myCountry == 'USA') {
+      retVal = priceObj.usd;
+    } else {
+      retVal = priceObj.usd;
+    }
+    if(!isWithSymbol) {
+      return $filter("currencySymbol")(retVal);
+    } else {
+      return parseInt(retVal);
+    }
+    
+  }
+
+
+});
+
+firstapp.filter('currencySymbol', function () {
+  return function (input) {
+    var retVal = "$ ";
+    var myCountry = $.jStorage.get('getCountry');
+    if (myCountry == 'IN') {
+      retVal = "₹ ";
+    } else if (myCountry == "AUS") {
+      retVal = "$ ";
+    } else if (myCountry == 'GBR') {
+      retVal = "£ ";
+    }
+    return retVal + input;
   };
 });
 
