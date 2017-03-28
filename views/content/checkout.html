@@ -234,13 +234,14 @@
                       </div>
                       <div class="col-xs-6">
                         <div class="list text-right">
-                          <p><i class="fa fa-inr" ng-if="country == 'INR'"></i>
+                          <!--<p><i class="fa fa-inr" ng-if="country == 'INR'"></i>
                             <i class="fa fa-gbp" ng-if="country == 'GBP'"></i>
                             <i class="fa fa-usd" ng-if="country == 'NZD'"></i>
                             <i class="fa fa-eur" ng-if="country == 'EUR'"></i>
                             <i class="fa fa-usd" ng-if="country == 'USD'"></i>
                             <i ng-if="country == 'ZAF'">R</i>
-                            <i class="fa fa-usd" ng-if="country == 'AUD'"></i> {{latestOrder.description.totalAmount || 0}}</p>
+                            <i class="fa fa-usd" ng-if="country == 'AUD'"></i> {{latestOrder.description.totalAmount || 0}}</p>-->
+                            <p>{{latestOrder.description.totalAmount || 0 | | currencyFilter}}</p>
                           <p><i class="fa fa-inr" ng-if="country == 'INR'"></i>
                             <i class="fa fa-gbp" ng-if="country == 'GBP'"></i>
                             <i class="fa fa-usd" ng-if="country == 'NZD'"></i>
@@ -255,13 +256,14 @@
                             <i class="fa fa-usd" ng-if="country == 'USD'"></i>
                             <i ng-if="country == 'ZAF'">R</i>
                             <i class="fa fa-usd" ng-if="country == 'AUD'"></i> {{shippingcharges}}</p>-->
-                          <p><i class="fa fa-inr" ng-if="country == 'INR'"></i>
+                          <!--<p><i class="fa fa-inr" ng-if="country == 'INR'"></i>
                             <i class="fa fa-gbp" ng-if="country == 'GBP'"></i>
                             <i class="fa fa-usd" ng-if="country == 'NZD'"></i>
                             <i class="fa fa-eur" ng-if="country == 'EUR'"></i>
                             <i class="fa fa-usd" ng-if="country == 'USD'"></i>
                             <i ng-if="country == 'ZAF'">R</i>
-                            <i class="fa fa-usd" ng-if="country == 'AUD'"></i> {{latestOrder.description.totalAmount - couponamount}}</p>
+                            <i class="fa fa-usd" ng-if="country == 'AUD'"></i> {{latestOrder.description.totalAmount - couponamount}}</p>-->
+                            <p> {{latestOrder.description.totalAmount - couponamount | currencyFilter}}</p>
                         </div>
                       </div>
                     </div>

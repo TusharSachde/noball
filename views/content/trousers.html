@@ -48,7 +48,7 @@
                     <div class="scroll-image" id="style-1">
                         <div class="det-name">
                             <h4>{{trouserJson.design.name}}</h4>
-                            <h3><i class="fa fa-inr"></i>{{singleAmount}}</h3>
+                            <h3>{{singleAmount | currencyFilter}}</h3>
                             <span><i>Minimum Order Quantity (MOQ) = 20 Trousers / Shorts</i></span>
                         </div>
                         <!--    // design tab-->
@@ -579,7 +579,7 @@
                                     </div>
                                     <div class="total-amount">
                                         <!--<p class="more-price">One time customization fee for Trouser is <i class="fa fa-inr"></i> 5000</p>-->
-                                        <span class="pull-right tamount uppercase Raleway-Medium mar20">Total Amount: {{trouserJson.totalAmount}}</span>
+                                        <span class="pull-right tamount uppercase Raleway-Medium mar20">Total Amount: {{trouserJson.totalAmount | currencyFilter}}</span>
                                         <span class="pull-right tquantity uppercase Raleway-Medium mar20">Total Quantity: {{trouserJson.totalQuan}}</span>
                                     </div>
                                 </div>
