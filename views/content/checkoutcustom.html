@@ -142,7 +142,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
 
-                                            <input type="number" name="phone" required ng-model="checkout.phone" class="form-control" placeholder="Mobile Number" required>
+                                            <input type="text" name="phone" required ng-model="checkout.phone" class="form-control" placeholder="Mobile Number" maxlength= "10" only-Digits required>
                                             <div class="error-msg" ng-if="detailForm.phone.$error.required && detailForm.phone.$touched">Please Enter Your Mobile Number.</div>
                                         </div>
                                     </div>
@@ -298,7 +298,8 @@
                                 </div>
                             </form>
                         </tab>
-                        <tab active="tabs[2].active" disable="tabs[2].disabled" heading="Step 3">
+                        <tab heading="Step 3" >
+                            <!--ng-if="checkout==''"-->
                             <div class="min-height">
                                 <div class="row">
                                     <div class="col-md-12">
