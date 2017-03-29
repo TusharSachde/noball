@@ -640,11 +640,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     })
 
-<<<<<<< HEAD
-    .controller('TrousersCtrl', function ($scope,$filter, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
-=======
+
     .controller('TrousersCtrl', function ($scope, $rootScope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
->>>>>>> 618cbc477e01a5c917a9a09a81000472ff993118
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("trousers");
         $scope.menutitle = NavigationService.makeactive("Trousers");
