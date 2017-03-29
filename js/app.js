@@ -382,9 +382,11 @@ firstapp.filter('translateRotate', function () {
 
 
 firstapp.filter('currencyFilter', function ($filter) {
-  return function (input,isWithSymbol) {
+  return function (input,isWithSymbol,addition) {
     var myCountry = $.jStorage.get('getCountry');
     retVal = "";
+     var addAmount = 0;
+
     var arr = _.filter(currencyObj, function (n) {
       return n.name == input.name;
     })
@@ -392,7 +394,7 @@ firstapp.filter('currencyFilter', function ($filter) {
     if (arr.length > 0) {
       priceObj = arr[0];
     }
-    if (myCountry == 'IN') {
+      if (myCountry == 'IN') {
       retVal = priceObj.inr;
     } else if (myCountry == "AUS") {
       retVal = priceObj.aud;
@@ -403,10 +405,28 @@ firstapp.filter('currencyFilter', function ($filter) {
     } else {
       retVal = priceObj.usd;
     }
+    if(addition == 5000){
+    if (myCountry == 'IN') {
+       addAmount = 5000;
+    } else if (myCountry == "AUS") {
+       addAmount = 90;
+    } else if (myCountry == 'GBR') {
+      addAmount = 60;
+    } else if (myCountry == 'USA') {
+      addAmount = 90;
+    } else {
+       addAmount = 90;
+    }
+    }
     if(!isWithSymbol) {
       return $filter("currencySymbol")(retVal);
     } else {
-      return parseInt(retVal);
+      if(addition){
+ return parseInt(retVal) + parseInt(addAmount);
+      }else{
+ return parseInt(retVal);
+      }
+     
     }
     
   }

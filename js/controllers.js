@@ -2986,15 +2986,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.singleAmount = $filter('currencyFilter')($scope.designJson.design);
         $scope.totalAmount = $filter('currencyFilter')($scope.designJson.design);
         $scope.totalQuan = 0;
-
+ $scope.designJson.totalAmount = 0;
         $scope.addQuantity = function () {
             $scope.totalQuan = 0;
             $scope.totalAmount = 0;
+            $scope.designJson.totalAmount = 0;
             $scope.totalQuan = parseInt($scope.designJson.quantity[0].quantity + $scope.designJson.quantity[1].quantity);
             if ($scope.totalQuan) {
                 console.log($scope.designJson.design);
                 console.log($filter('currencyFilter')($scope.designJson.design));
-                $scope.totalAmount = $scope.totalQuan*$filter('currencyFilter')($scope.designJson.design,"OnlyNumber") + 5000;
+                $scope.totalAmount = $scope.totalQuan*$filter('currencyFilter')($scope.designJson.design,"OnlyNumber",5000);
                 $scope.designJson.totalAmount = $scope.totalAmount;
             }
             return $scope.totalQuan;
