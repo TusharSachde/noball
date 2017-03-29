@@ -640,7 +640,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     })
 
-    .controller('TrousersCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
+    .controller('TrousersCtrl', function ($scope,$filter, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("trousers");
         $scope.menutitle = NavigationService.makeactive("Trousers");
@@ -989,23 +989,44 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.trouserJson.quantity.splice(index, 1);
             $scope.trouserQuanArrCount = $scope.trouserQuanArrCount - 1;
         };
-        $scope.singleAmount = 850;
-        $scope.trouserJson.totalAmount = 850;
-        $scope.trouserJson.totalQuan = 1;
+        // $scope.singleAmount = 850;
+        // $scope.trouserJson.totalAmount = 850;
+        // $scope.trouserJson.totalQuan = 1;
 
-        $scope.addQuantity = function (q) {
+//    $scope.singleAmount = $filter('currencyFilter')($scope.trouserJson.design);
+//         $scope.totalAmount = $filter('currencyFilter')($scope.trouserJson.design);
+        $scope.totalQuan = 0;
+        $scope.trouserJson.totalAmount = 0;
+        $scope.addQuantity = function () {
+            $scope.totalQuan = 0;
+            $scope.totalAmount = 0;
             $scope.trouserJson.totalAmount = 0;
-            $scope.trouserJson.totalQuan = 0;
-            for (var i = 0; i < $scope.trouserQuanArrCount; i++) {
+                        for (var i = 0; i < $scope.trouserQuanArrCount; i++) {
                 // $scope.totalQuan += $scope.quantity[i].quantity;
                 if ($scope.trouserJson.quantity[i].quantity !== undefined) {
-                    $scope.trouserJson.totalQuan += $scope.trouserJson.quantity[i].quantity;
+                    $scope.totalQuan += parseInt($scope.trouserJson.quantity[i].quantity);
                 }
             }
-            if ($scope.trouserJson.totalQuan) {
-                $scope.trouserJson.totalAmount = $scope.singleAmount * $scope.trouserJson.totalQuan;
+            // $scope.totalQuan = parseInt($scope.trouserJson.quantity[0].quantity + $scope.trouserJson.quantity[1].quantity);
+            if ($scope.totalQuan) {
+                $scope.totalAmount = $scope.totalQuan * $filter('currencyFilter')($scope.trouserJson.design, "OnlyNumber");
+                $scope.trouserJson.totalAmount = $scope.totalAmount;
             }
+            return $scope.totalQuan;
         };
+        // $scope.addQuantity = function (q) {
+        //     $scope.trouserJson.totalAmount = 0;
+        //     $scope.trouserJson.totalQuan = 0;
+        //     for (var i = 0; i < $scope.trouserQuanArrCount; i++) {
+        //         // $scope.totalQuan += $scope.quantity[i].quantity;
+        //         if ($scope.trouserJson.quantity[i].quantity !== undefined) {
+        //             $scope.trouserJson.totalQuan += $scope.trouserJson.quantity[i].quantity;
+        //         }
+        //     }
+        //     if ($scope.trouserJson.totalQuan) {
+        //         $scope.trouserJson.totalAmount = $scope.singleAmount * $scope.trouserJson.totalQuan;
+        //     }
+        // };
 
         // $scope.addQuantity(1);
 
@@ -2736,6 +2757,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         });
 
+        $scope.odiDeleteModal = function () {
+            $scope.odiDel = $uibModal.open({
+                templateUrl: "views/modal/odi-delete.html",
+                scope: $scope
+            });
+        }
+        $scope.confirmEmptyImage = function (key) {
+            console.log('key', key);
+            $scope.designJson[key] = {};
+            $scope.odiDel.close();
+        }
+        $scope.emptyImage = function (key) {
+            console.log('ftyghftg', key);
+            $scope.saveKey = key;
+            $scope.odiDeleteModal();
+        }
         $scope.outplace = function () {
             $uibModal.open({
                 templateUrl: "views/modal/outofplace.html",
@@ -2986,7 +3023,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.singleAmount = $filter('currencyFilter')($scope.designJson.design);
         $scope.totalAmount = $filter('currencyFilter')($scope.designJson.design);
         $scope.totalQuan = 0;
- $scope.designJson.totalAmount = 0;
+        $scope.designJson.totalAmount = 0;
         $scope.addQuantity = function () {
             $scope.totalQuan = 0;
             $scope.totalAmount = 0;
@@ -2994,8 +3031,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.totalQuan = parseInt($scope.designJson.quantity[0].quantity + $scope.designJson.quantity[1].quantity);
             if ($scope.totalQuan) {
                 console.log($scope.designJson.design);
-                console.log($filter('currencyFilter')($scope.designJson.design));
-                $scope.totalAmount = $scope.totalQuan*$filter('currencyFilter')($scope.designJson.design,"OnlyNumber",5000);
+                console.log($filter('currencyFilter')($scope.designJson.design, "OnlyNumber"));
+                $scope.totalAmount = $scope.totalQuan * $filter('currencyFilter')($scope.designJson.design, "OnlyNumber");
                 $scope.designJson.totalAmount = $scope.totalAmount;
             }
             return $scope.totalQuan;
@@ -3048,10 +3085,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log($scope.myArr[0]);
 
 
-        $scope.emptyImage = function (key) {
-            // $scope.padLogo.image = null;
-            $scope.designJson[key] = {};
-        }
+        // $scope.emptyImage = function (key) {
+        //     $scope.designJson[key] = {};
+        // }
 
         $scope.selectPadImage = function (image) {
             console.log(image);
@@ -4046,7 +4082,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
     })
 
-    .controller('GlovesCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $rootScope, cfpLoadingBar) {
+    .controller('GlovesCtrl', function ($scope,$filter , $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $rootScope, cfpLoadingBar) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("gloves");
         $scope.menutitle = NavigationService.makeactive("Gloves");
@@ -4075,6 +4111,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.type = 'gloves';
         $scope.design = {};
         $scope.glovesJson = {
+            design: {
+                base: ""
+            },
+            type: "gloves",
             quantity: [{
                     quantity: null,
                     size: "Left"
@@ -4085,7 +4125,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             ]
         };
-        $scope.glovesJson.design = {};
+        // $scope.glovesJson.design = {};
         $scope.glovesJson.type = 'gloves';
         $scope.glovesJson.color = {};
         $scope.glovesJson.teamLogo = {};
@@ -4329,17 +4369,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.glovesArrCount = $scope.glovesArrCount - 1;
         }
 
-        $scope.singleAmount = 1800;
-        $scope.totalAmount = 1800;
+        // $scope.singleAmount = $filter('currencyFilter')($scope.glovesJson.design);
+        // $scope.totalAmount = $filter('currencyFilter')($scope.glovesJson.design);
         $scope.totalQuan = 0;
-
+        $scope.glovesJson.totalAmount = 0;
         $scope.addQuantity = function () {
             $scope.totalQuan = 0;
             $scope.totalAmount = 0;
-
+            $scope.glovesJson.totalAmount = 0;
             $scope.totalQuan = parseInt($scope.glovesJson.quantity[0].quantity + $scope.glovesJson.quantity[1].quantity);
             if ($scope.totalQuan) {
-                $scope.totalAmount = ($scope.totalQuan * $scope.singleAmount) + 5000;
+                $scope.totalAmount = $scope.totalQuan * $filter('currencyFilter')($scope.glovesJson.design, "OnlyNumber");
                 $scope.glovesJson.totalAmount = $scope.totalAmount;
             }
             return $scope.totalQuan;
@@ -4351,6 +4391,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.selectDesign = function (item) {
             console.log(item);
+            // $scope.glovesJson.design = {};
             $scope.glovesJson.design.name = item.designName;
             $scope.glovesJson.design.base = item.img[0];
             $scope.glovesJson.color.base = item.colr;
@@ -5230,7 +5271,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 // $scope.totalQuan += $scope.quantity[i].quantity;
                 if ($scope.odiJson.quantity[i].quantity !== undefined) {
 
-                    $scope.odiJson.totalQuan += $scope.odiJson.quantity[i].quantity;
+                    $scope.odiJson.totalQuan += parseInt($scope.odiJson.quantity[i].quantity);
                 }
                 if ($scope.odiJson.totalQuan) {
                     $scope.odiJson.totalAmount = $scope.singleAmount * $scope.odiJson.totalQuan;
