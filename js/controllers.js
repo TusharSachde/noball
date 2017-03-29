@@ -640,7 +640,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     })
 
+<<<<<<< HEAD
     .controller('TrousersCtrl', function ($scope,$filter, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
+=======
+    .controller('TrousersCtrl', function ($scope, $rootScope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
+>>>>>>> 618cbc477e01a5c917a9a09a81000472ff993118
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("trousers");
         $scope.menutitle = NavigationService.makeactive("Trousers");
@@ -1743,6 +1747,34 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // }
 
         //end of Json //
+
+
+
+                $scope.odiDeleteModal = function () {
+            $scope.odiDel = $uibModal.open({
+                templateUrl: "views/modal/odi-delete.html",
+                scope: $scope
+            });
+        }
+
+
+               $scope.emptyImage = function (key) {
+            console.log('ftyghftg', key);
+            $scope.saveKey = key;
+            if (key === 'rightLogo' && $scope.trouserJson.rightLogo.image === "img/logo_black.png") {
+                $scope.statuses.modal = $uibModal.open({
+                    templateUrl: "views/modal/proceed.html",
+                    scope: $scope,
+                    controller: function ($scope) {
+                        $scope.type = 'remove';
+                    }
+                });
+            } else {
+                $scope.odiDeleteModal();
+            }
+        }
+
+
 
     })
 
@@ -5063,7 +5095,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
 
 
-    .controller('OdiCtrl', function ($scope, $rootScope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar, $filter, $interval, $rootScope) {
+    .controller('OdiCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar, $filter, $interval, $rootScope) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("odi-shirt");
         $scope.menutitle = NavigationService.makeactive("Odi T-shirt");
