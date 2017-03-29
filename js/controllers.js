@@ -641,7 +641,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
 
 
-    .controller('TrousersCtrl', function ($scope, $rootScope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
+    .controller('TrousersCtrl', function ($scope,$filter, $rootScope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("trousers");
         $scope.menutitle = NavigationService.makeactive("Trousers");
@@ -1005,7 +1005,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         for (var i = 0; i < $scope.trouserQuanArrCount; i++) {
                 // $scope.totalQuan += $scope.quantity[i].quantity;
                 if ($scope.trouserJson.quantity[i].quantity !== undefined) {
-                    $scope.totalQuan += parseInt($scope.trouserJson.quantity[i].quantity);
+                  $scope.totalQuan =  parseInt($scope.totalQuan) + parseInt($scope.trouserJson.quantity[i].quantity);
                 }
             }
             // $scope.totalQuan = parseInt($scope.trouserJson.quantity[0].quantity + $scope.trouserJson.quantity[1].quantity);
@@ -2837,11 +2837,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.colorObj = $scope.padImages1;
 
-        $scope.openDesign = function (img) {
+        $scope.openDesign1 = function (img) {
             $scope.designJson.design.base = img.img[0];
             $scope.designJson.design.name = img.name;
             $scope.designJson.color.base = getColor(img.color);
             $scope.colorObj = img.colorObj;
+        };
+        $scope.openDesign = function (index, tab, img) {
+            if ($scope.LogosTab) {
+                $scope.designIndex = index;
+                $scope.designTab = tab;
+                $scope.designImage = img;
+                $uibModal.open({
+                    templateUrl: "views/modal/tshirtdesign.html",
+                    scope: $scope
+                });
+            } else {
+                $scope.openDesign1(img);
+            }
         };
 
         function getColor(color) {
@@ -2994,7 +3007,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }, 100)
             console.log('$scope.designJson', $scope.designJson);
         } else {
-            $scope.openDesign($scope.myArr[0]);
+            $scope.openDesign1($scope.myArr[0]);
 
         }
 
@@ -3169,7 +3182,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 NavigationService.saveDesign(user.email, $scope.designJson, 'pads',
                     function (data) {
                         console.log('Save Design data: ', data);
-                        $state.go('savedesign');
+                        // $state.go('savedesign');
+                          $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/onlogin.html',
+                controller: 'headerctrl',
+                scope: $scope
+            })
                     },
                     function (err) {
                         console.log(err);
@@ -5288,9 +5307,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.jerseyBackArrCount = $scope.jerseyBackArrCount - 1;
         }
 
-        $scope.singleAmount = 1000;
-        $scope.odiJson.totalAmount = 1000;
-        $scope.odiJson.totalQuan = 1;
+        // $scope.singleAmount = 1000;
+        // $scope.odiJson.totalAmount = 1000;
+          $scope.odiJson.totalAmount = 0;
+           $scope.singleAmount = $filter('currencyFilter')($scope.odiJson.design);
+        $scope.totalAmount = $filter('currencyFilter')($scope.odiJson.design);
+        $scope.odiJson.totalQuan = 0;
 
         $scope.addQuantity = function (q) {
             $scope.odiJson.totalAmount = 0;
@@ -5300,7 +5322,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 // $scope.totalQuan += $scope.quantity[i].quantity;
                 if ($scope.odiJson.quantity[i].quantity !== undefined) {
 
-                    $scope.odiJson.totalQuan += parseInt($scope.odiJson.quantity[i].quantity);
+    $scope.odiJson.totalQuan = parseInt($scope.odiJson.totalQuan) + parseInt($scope.odiJson.quantity[i].quantity);
                 }
                 if ($scope.odiJson.totalQuan) {
                     $scope.odiJson.totalAmount = $scope.singleAmount * $scope.odiJson.totalQuan;
@@ -8909,6 +8931,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 })
         }
 
+        $scope.nocheck=function(){
+            $uibModal.open({
+                  animation: true,
+                templateUrl: 'views/modal/nocheck.html',
+                controller: 'OrderSummaryCtrl',
+                scope: $scope
+            })
+        }
+
     })
 
     .controller('CustomCheckoutCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $interval, cfpLoadingBar, $uibModal, $window) {
@@ -11208,7 +11239,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.goToReload = function () {
             console.log('goToReload');
-            window.location.href = window.location.href + "/edit";
+            // window.location.href = window.location.href + "/edit";
             // window.location.reload();
             $state.go('savedesign');
         }

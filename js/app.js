@@ -463,15 +463,15 @@ firstapp.filter('PriceFilter', function () {
     return parseInt(input.totalAmount+addAmount);
      }else{
     if (myCountry == 'IN') {
-       addAmount = 5000;
+       addAmount = 0;
     } else if (myCountry == "AUS") {
-       addAmount = 90;
+       addAmount = 0;
     } else if (myCountry == 'GBR') {
-      addAmount = 60;
+      addAmount = 0;
     } else if (myCountry == 'USA') {
-      addAmount = 75;
+      addAmount = 0;
     } else {
-       addAmount = 75;
+       addAmount = 0;
     }
     return parseInt(input.totalAmount+addAmount);
      }
