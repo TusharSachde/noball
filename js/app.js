@@ -396,11 +396,11 @@ firstapp.filter('currencyFilter', function ($filter) {
     }
     if (myCountry == 'IN') {
       retVal = priceObj.inr;
-    } else if (myCountry == "AUS") {
+    } else if (myCountry == "AU") {
       retVal = priceObj.aud;
-    } else if (myCountry == 'GBR') {
+    } else if (myCountry == 'GB') {
       retVal = priceObj.gbp;
-    } else if (myCountry == 'USA') {
+    } else if (myCountry == 'US') {
       retVal = priceObj.usd;
     } else {
       retVal = priceObj.usd;
@@ -422,9 +422,9 @@ firstapp.filter('currencySymbol', function () {
     var myCountry = $.jStorage.get('getCountry');
     if (myCountry == 'IN') {
       retVal = "₹ ";
-    } else if (myCountry == "AUS") {
+    } else if (myCountry == "AU") {
       retVal = "$ ";
-    } else if (myCountry == 'GBR') {
+    } else if (myCountry == 'GB') {
       retVal = "£ ";
     }
     return retVal + input;
