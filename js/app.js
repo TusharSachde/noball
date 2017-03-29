@@ -473,8 +473,10 @@ firstapp.filter('PriceFilter', function () {
     } else {
        addAmount = 0;
     }
-    return parseInt(input.totalAmount+addAmount);
+    
      }
+     console.log(input.totalAmount);
+     return parseInt(parseInt(input.totalAmount)+addAmount);
   }
 });
 
