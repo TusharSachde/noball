@@ -438,11 +438,11 @@ firstapp.filter('PriceFilter', function () {
      if(input.type == 'pads'){
     if (myCountry == 'IN') {
        addAmount = 5000;
-    } else if (myCountry == "AUS") {
+    } else if (myCountry == "AU") {
        addAmount = 90;
-    } else if (myCountry == 'GBR') {
+    } else if (myCountry == 'GB') {
       addAmount = 60;
-    } else if (myCountry == 'USA') {
+    } else if (myCountry == 'US') {
       addAmount = 75;
     } else {
        addAmount = 75;
