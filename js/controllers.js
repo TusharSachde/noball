@@ -5310,8 +5310,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // $scope.singleAmount = 1000;
         // $scope.odiJson.totalAmount = 1000;
           $scope.odiJson.totalAmount = 0;
-           $scope.singleAmount = $filter('currencyFilter')($scope.odiJson.design);
-        $scope.totalAmount = $filter('currencyFilter')($scope.odiJson.design);
+           $scope.singleAmount = $filter('currencyFilter')($scope.odiJson.design,"OnlyNumber");
+        $scope.totalAmount = $filter('currencyFilter')($scope.odiJson.design,"OnlyNumber");
         $scope.odiJson.totalQuan = 0;
 
         $scope.addQuantity = function (q) {
