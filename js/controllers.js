@@ -5309,14 +5309,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         // $scope.singleAmount = 1000;
         // $scope.odiJson.totalAmount = 1000;
-          $scope.odiJson.totalAmount = 0;
-           $scope.singleAmount = $filter('currencyFilter')($scope.odiJson.design,"OnlyNumber");
+        $scope.odiJson.totalAmount = 0;
+        $scope.singleAmount = $filter('currencyFilter')($scope.odiJson.design,"OnlyNumber");
         $scope.totalAmount = $filter('currencyFilter')($scope.odiJson.design,"OnlyNumber");
         $scope.odiJson.totalQuan = 0;
 
         $scope.addQuantity = function (q) {
             $scope.odiJson.totalAmount = 0;
             $scope.odiJson.totalQuan = 0;
+            $scope.singleAmount = $filter('currencyFilter')($scope.odiJson.design,"OnlyNumber");
             for (var i = 0; i < $scope.jerseyBackArrCount; i++) {
                 console.log('$scope.odiJson.quantity', $scope.odiJson.quantity);
                 // $scope.totalQuan += $scope.quantity[i].quantity;

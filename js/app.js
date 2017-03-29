@@ -389,7 +389,7 @@ firstapp.filter('currencyFilter', function ($filter) {
     var arr = _.filter(currencyObj, function (n) {
       return n.name == input.name;
     })
-    console.log('arrrrrrrrrrr',arr);
+    
     var priceObj;
     if (arr.length > 0) {
       priceObj = arr[0];
@@ -475,7 +475,6 @@ firstapp.filter('PriceFilter', function () {
     }
     
      }
-     console.log(input.totalAmount);
      return parseInt(parseInt(input.totalAmount)+addAmount);
   }
 });
