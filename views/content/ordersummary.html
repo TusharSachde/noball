@@ -21,8 +21,10 @@
             <div>
               <p class="inline-block mgb20">Colour: <span class="colour-selection"></span>
                 <div class="options color-selr inline-block mgb20">
-                  <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-if="design.description.color.base && design.description.color.base != ''">Base</button>                  <span ng-style="{'background-color': '{{design.description.color.base}}'}" ng-if="design.description.color.base"></span>
-                    <!--<button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-if="design.description.color.base && design.description.color.base != ''">Trim</button>                  <span ng-style="{'background-color': '{{design.description.color.base}}'}" ng-if="design.description.color.base"></span>-->
+                  <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-if="design.description.color.base && design.description.color.base != '' && (design.description.type == 'odi' || design.description.type == 'trousers' || design.description.type == 'shorts')">Base</button> 
+                   <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-if="design.description.color.base && design.description.color.base != '' && !(design.description.type == 'odi' || design.description.type == 'trousers' || design.description.type == 'shorts')">Trim</button> 
+                                    <span ng-style="{'background-color': '{{design.description.color.base}}'}" ng-if="design.description.color.base"></span>
+
                   <button class="{{classhide}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-if="design.description.color.trim1 && design.description.color.trim1 != ''">Trim 1</button>                  <span ng-style="{'background-color': '{{design.description.color.trim1}}'}" ng-if="design.description.color.trim1"></span>
                   <button class="{{classhide}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-if="design.description.color.trim2 && design.description.color.trim2 != ''">Trim 2</button>                  <span ng-style="{'background-color': '{{design.description.color.trim2}}'}" ng-if="design.description.color.trim2"></span>
                   <button class="{{classhide}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-if="design.description.color.collar && design.description.color.collar != ''">Collar</button>                  <span ng-style="{'background-color': '{{design.description.color.collar}}'}" ng-if="design.description.color.collar"></span>
@@ -122,7 +124,7 @@
           </div>
           <div class="edit-btn text-left">
             <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="savedDesigns(); openSaveDesignPopup();">SAVE DESIGN</button>
-            <button ui-sref="customCheckout({id:customId})" class="btn btn-outline btn-dark letter-spacing">CHECKOUT</button>
+            <button ui-sref="customCheckout({id:customId})" class="btn btn-outline btn-dark letter-spacing">CONTINUE</button>
           </div>
         </div>
       </div>
