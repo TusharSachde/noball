@@ -6266,17 +6266,18 @@ h2 {
     &.jersey-no {
         font-size: 60px;
         line-height: 1;
-        width: 140px;
-        height: 140px;
+        width: 100px;
+        height: 100px;
         display: -webkit-flex;
         display: -ms-flex;
         display: flex;
         justify-content: center;
         align-items: center;
         z-index: 100;
+        top:230px;
     }
     &.jersey-name {
-        top: 235px;
+        top: 190px;
         width: 161px;
         height: 50px;
         display: -webkit-flex;

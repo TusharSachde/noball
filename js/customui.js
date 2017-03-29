@@ -44,10 +44,10 @@
                           right: 165
                       },
                       mainSponsorLogo: {
-                          width: 30,
-                          height: 30,
-                          top: 250,
-                          left: 216
+                          width: 161,
+                          height: 120,
+                          top: 210,
+                          left: 153
                       },
                       leftSleeveLogo: {
                           width: 30,
@@ -64,10 +64,10 @@
                           transform: 'rotate(-10deg)'
                       },
                       backSponsorLogo: {
-                          width: 30,
-                          height: 30,
-                          top: 180,
-                          left: 215
+                          width: 161,
+                          height: 80,
+                          top: 100,
+                          left: 150
                       },
                   },
                   "trousers": {
