@@ -451,11 +451,11 @@ firstapp.filter('PriceFilter', function () {
      }else if(input.type == 'gloves'){
     if (myCountry == 'IN') {
        addAmount = 5000;
-    } else if (myCountry == "AUS") {
+    } else if (myCountry == "AU") {
        addAmount = 90;
-    } else if (myCountry == 'GBR') {
+    } else if (myCountry == 'GB') {
       addAmount = 60;
-    } else if (myCountry == 'USA') {
+    } else if (myCountry == 'US') {
       addAmount = 75;
     } else {
        addAmount = 75;
@@ -464,11 +464,11 @@ firstapp.filter('PriceFilter', function () {
      }else{
     if (myCountry == 'IN') {
        addAmount = 0;
-    } else if (myCountry == "AUS") {
+    } else if (myCountry == "AU") {
        addAmount = 0;
-    } else if (myCountry == 'GBR') {
+    } else if (myCountry == 'GB') {
       addAmount = 0;
-    } else if (myCountry == 'USA') {
+    } else if (myCountry == 'US') {
       addAmount = 0;
     } else {
        addAmount = 0;
