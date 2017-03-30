@@ -5983,7 +5983,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
         if ($stateParams.status == "edit" && $.jStorage.get("custom")) {
-              $scope.turnOnLogos(true);
+            $scope.turnOnLogos(true);
             $scope.odiJson = $.jStorage.get("custom");
             $timeout(function () {
                 $scope.tabchange($scope.odiJson.tab, $scope.odiJson.tabNo);
@@ -6310,12 +6310,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     function (data) {
                         console.log('Save Design data: ', data);
                         // $state.go('savedesign');
-                             $uibModal.open({
-                animation: true,
-                templateUrl: 'views/modal/onlogin.html',
-                controller: 'headerctrl',
-                scope: $scope
-            })
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/onlogin.html',
+                            controller: 'headerctrl',
+                            scope: $scope
+                        })
                     },
                     function (err) {
                         console.log(err);
@@ -8976,6 +8976,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 scope: $scope
             })
         }
+        $scope.checkoutObj = {
+            customorderid : $state.params.id
+        };
+         $scope.isEnq = false; 
+        $scope.checkoutContinue = function (data) {
+             console.log('getDesigns///////////***********',  $scope.checkoutObj);
+            NavigationService.checkoutForm($scope.checkoutObj,
+                function (data) {
+                    if(data.value == true){
+                        $scope.isEnq = true; 
+                    }else{
+                         $scope.isEnq = false; 
+                    }
+                });
+        }
+
 
     })
 

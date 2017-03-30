@@ -1,5 +1,6 @@
 <div class="continue checkout">
   <a href="" ng-click="$dismiss();" class="text-up pull-right mr10"><i class="fa fa-times" aria-hidden="true"></i></a>
+  <div ng-show="!isEnq">
   <div class="headers">
       <div class="logo-img text-center">
           <img src="img/logo_black.png" alt="logo">
@@ -10,27 +11,29 @@
 
       </div>
   </div>
-  <form name="nocheckout login-form" class="checks">
+  <form name="nocheckout" ng-submit="checkoutContinue(checkoutObj)" class="checks">
 <div class="form-group">
     <label>First Name:</label>
-    <input type="text" class="form-control" aplha-only> 
+    <input type="text" ng-model="checkoutObj.fname" class="form-control" aplha-only required> 
     </div>
    
     <div class="form-group">
     <label>Last Name:</label>
-    <input type="text" class="form-control" aplha-only> 
+    <input type="text" class="form-control" ng-model="checkoutObj.lname" aplha-only required> 
     </div>
     <div class="form-group">
     <label>Email Id:</label>
-    <input type="text" class="form-control" ng-pattern = '/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i'> 
+    <input type="text" class="form-control" ng-model="checkoutObj.email" ng-pattern = '/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i' required> 
     </div>
      <div class="form-group">
     <label>Mobile No :</label>
-    <input type="text" class="form-control" maxlength="10" only-digits> 
+    <input type="text" class="form-control" ng-model="checkoutObj.mobile" maxlength="10" only-digits required> 
     </div>
-  </form>
-  <div class="continue-buttons text-center">
+    <div class="continue-buttons text-center">
      
-      <button href="" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase" >submit</button>
+      <button type="submit" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase" ng-disabled="nocheckout.$invalid">submit</button>
   </div>
+  </form>
+  </div>
+  <p ng-show="isEnq">Thank You For Submitting</p>
 </div>

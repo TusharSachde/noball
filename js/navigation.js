@@ -767,6 +767,14 @@ var navigationservice = angular.module('navigationservice', [])
         data: myData
       }).success(callback);
     },
+        checkoutForm: function(data, callback, err) {
+      
+      return $http({
+        url: adminurl + "saveCustomOrderEnquiry",
+        method: "POST",
+        data: data
+      }).success(callback);
+    },
     saveOrderOdi: function(user, jsonData, ml, rc, ls, rs, bl, tl, type, callback, err) {
       var myData = {
         "email": user,
