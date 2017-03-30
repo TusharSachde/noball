@@ -8979,9 +8979,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.checkoutObj = {
             customorderid : $state.params.id
         };
-         $scope.isEnq = false; 
+         $scope.isEnq = true; 
         $scope.checkoutContinue = function (data) {
-             console.log('getDesigns///////////***********',  $scope.checkoutObj);
             NavigationService.checkoutForm($scope.checkoutObj,
                 function (data) {
                     if(data.value == true){
