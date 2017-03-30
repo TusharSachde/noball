@@ -1239,8 +1239,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.designTab = 1;
 
         $scope.changeDesign = function (index, img) {
-             console.log('img0000000000000,', img);
-           $scope.switchTrimHighlightBase($scope.trouserJson.color.baseColorName,$scope.trouserJson.color.baseColorName);
+            $scope.switchTrimHighlightBase($scope.trouserJson.color.baseColorName, $scope.trouserJson.color.baseColorName);
             if (index === 0) {
                 console.log('img,', img);
                 $scope.trimTrouser.highlightBase.disable = "unnoable";
@@ -1444,7 +1443,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.openDesign = function (index, tab, img) {
             // $scope.switchTrimHighlightBase()
-            console.log('//////////',img);
+            console.log('//////////', img);
             if ($scope.LogosTab) {
                 console.log('//////////11111');
                 $scope.designIndex = index;
@@ -1466,7 +1465,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
 
         if ($stateParams.status == "edit" && $.jStorage.get("custom")) {
-             $scope.turnOnLogos(true);
+            $scope.turnOnLogos(true);
             $scope.trouserJson = $.jStorage.get("custom");
             $timeout(function () {
                 $scope.tabchange($scope.trouserJson.tab, $scope.trouserJson.tabNo);
@@ -5658,7 +5657,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.trimTshirt.highlightOne.tcolor = 'black';
         $scope.openDesign = function (index, tab, img) {
             console.log('fghjfgvbhnj');
-
+            $scope.switchTrimHighlightBase(true, $scope.odiJson.color.baseColorName, $scope.odiJson.design.designType, $scope.odiJson.color.base);
+            $scope.switchTrimHighlightOne(true, $scope.odiJson.color.trim1ColorName, $scope.odiJson.design.designType, $scope.odiJson.color.trim1);
+            $scope.switchTrimHighlightTwo(true, $scope.odiJson.color.trim2ColorName, $scope.odiJson.design.designType, $scope.odiJson.color.trim2);
             $scope.switchFrontBack(true)
 
             if ($scope.LogosTab) {
@@ -5982,6 +5983,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
         if ($stateParams.status == "edit" && $.jStorage.get("custom")) {
+              $scope.turnOnLogos(true);
             $scope.odiJson = $.jStorage.get("custom");
             $timeout(function () {
                 $scope.tabchange($scope.odiJson.tab, $scope.odiJson.tabNo);
@@ -6307,7 +6309,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 NavigationService.saveDesign($scope.user.email, $scope.odiJson, 'odi',
                     function (data) {
                         console.log('Save Design data: ', data);
-                        $state.go('savedesign');
+                        // $state.go('savedesign');
+                             $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/onlogin.html',
+                controller: 'headerctrl',
+                scope: $scope
+            })
                     },
                     function (err) {
                         console.log(err);
