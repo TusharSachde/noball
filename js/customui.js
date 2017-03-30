@@ -41,13 +41,15 @@
                           width: 30,
                           height: 30,
                           top: 135,
-                          right: 165
+                          right: 165,
+                          "z+'-'+index":9
                       },
                       mainSponsorLogo: {
                           width: 161,
                           height: 120,
                           top: 210,
-                          left: 153
+                          left: 153,
+                          
                       },
                       leftSleeveLogo: {
                           width: 30,
@@ -68,6 +70,7 @@
                           height: 80,
                           top: 100,
                           left: 150
+                          
                       },
                   },
                   "trousers": {

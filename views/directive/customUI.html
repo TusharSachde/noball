@@ -8,7 +8,7 @@
             <img ng-src="{{design[key].image | serverimage}}" ng-if="key != 'backSponsorLogo' && design[key].image && design[key].image != ''" ng-style="{width:design[key].size}"
                 noloading="true">
         </div>
-          <div class="div-internal-image" ng-repeat="(key,imagePos) in imagesPositions()" ng-show="isBack"
+          <div class="div-internal-image" ng-class="{'borergrey':design[key].border}" ng-repeat="(key,imagePos) in imagesPositions()" ng-show="isBack"
             ng-style="imagePos">
             <img ng-src="{{design[key].image | serverimage}}" ng-if="design[key].image && design[key].image != '' && key == 'backSponsorLogo'" ng-style="{width:design[key].size}"
                 noloading="true">

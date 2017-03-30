@@ -244,7 +244,7 @@
                                             </div>
                                             <div class="size-box" ng-if="trouserJson.leftLogo.image">
                                                 Size:
-                                                <div class="range">
+                                                <div class="range rangeslides">
                                                     <!--<div range-slider min="minPrice" max="maxPrice" on-handle-down="changeLogo('leftLogo')" on-handle-up="resetLogoStyle('leftLogo')" ng-model="trouserJson.leftLogo.size" model-min="userMinPrice" model-max="userMaxPrice" pin-handle="min"></div>-->
                                                     <!--<div range-slider on-handle-down="changeLogo('leftLogo')" on-handle-up="resetLogoStyle('leftLogo')" ng-model="trouserJson.leftLogo.size"
                                                         min="0" max="200" model-max="trouserJson.leftLogo.size" model-min="rslider.min"
@@ -560,8 +560,8 @@
                                                 <td>
                                                     <span class="inline-block uppercase pad-5">quantity</span>
                                                     <input type="number" name="quantity" class="wid20p" placeholder="20" ng-change="addQuantity(trouser.quantity)" ng-model="trouser.quantity"
-                                                        maxlength="3">
-                                                    <p class="error-td f13" ng-if="trouserJson.totalQuan<20 && trouserJson.totalQuan!=1">Please enter valid quantity.The MOQ is 20</p>
+                                                      min="1"  maxlength="3">
+                                                    <p class="error-td error-quantity f13" ng-if="totalQuan<20 && totalQuan!=0">Please enter valid quantity.The MOQ is 20</p>
                                                 </td>
                                                 <td></td>
                                                 <td></td>
