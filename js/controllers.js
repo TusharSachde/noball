@@ -2922,7 +2922,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 name: "dred"
             }, {
                 colr: "#08ad21",
-                name: "green"
+                name: "dgreen"
             }
 
         ];
@@ -2955,7 +2955,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "yellow": ["img/padscolor/updated/yellow/1.png"],
             "dorange": ["img/padscolor/updated/orange/1.png"],
             "dred": ["img/padscolor/updated/red/1.png"],
-            "green": ["img/padscolor/updated/green/1.png"]
+            "dgreen": ["img/padscolor/updated/dgreen/1.png"]
         };
 
         $scope.padImages2 = {
@@ -2970,7 +2970,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "dblue": ["img/padscolor/updated/dblue/2.png"],
             "dorange": ["img/padscolor/updated/orange/2.png"],
             "dred": ["img/padscolor/updated/red/2.png"],
-            "green": ["img/padscolor/updated/green/2.png"]
+            "dgreen": ["img/padscolor/updated/dgreen/2.png"]
         };
         $scope.padImages3 = {
             "dorange": ["img/padscolor/dblue/dorange.png"],
@@ -2983,7 +2983,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "yellow": ["img/padscolor/updated/yellow/3.png"],
             "dblue": ["img/padscolor/updated/dblue/3.png"],
             "dred": ["img/padscolor/updated/red/3.png"],
-            "green": ["img/padscolor/updated/green/3.png"]
+            "dgreen": ["img/padscolor/updated/dgreen/3.png"]
         };
         //     $scope.padImages4 = {
         //     "dred": ["img/padscolor/dblue/dred.png"],
@@ -8979,7 +8979,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.checkoutObj = {
             customorderid : $state.params.id
         };
-         $scope.isEnq = true; 
+         $scope.isEnq = false; 
         $scope.checkoutContinue = function (data) {
             NavigationService.checkoutForm($scope.checkoutObj,
                 function (data) {
