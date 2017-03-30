@@ -970,7 +970,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             'quantity': ''
         }];
         $scope.trouserJson.quantity = [{
-            'size': 'L',
+            'size': 'S',
             'quantity': ''
         }];
 
