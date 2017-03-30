@@ -2836,14 +2836,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
 
         $scope.colorObj = $scope.padImages1;
+ $scope.changePadsImages = function (color) {
+            console.log(color);
+            var val = _.pick($scope.colorObj, color);
+            console.log(val);
+            $scope.padColors = color;
+            $scope.designJson.design.base = val[color][0];
+            $scope.designJson.color.base = getColor(color);
 
+        }
         $scope.openDesign1 = function (img) {
             $scope.designJson.design.base = img.img[0];
             $scope.designJson.design.name = img.name;
             $scope.designJson.color.base = getColor(img.color);
             $scope.colorObj = img.colorObj;
+            $scope.changePadsImages(img.color);
         };
         $scope.openDesign = function (index, tab, img) {
+            console.log('*********************');
             if ($scope.LogosTab) {
                 $scope.designIndex = index;
                 $scope.designTab = tab;
@@ -2998,9 +3008,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             colorObj: $scope.padImages3
         }];
 
-
+  $scope.LogosTab = false;
+        $scope.quantityTab = false;
+        $scope.turnOnLogos = function (val) {
+            $scope.LogosTab = val;
+        }
 
         if ($stateParams.status == "edit" && $.jStorage.get("custom")) {
+            $scope.turnOnLogos(true);
             $scope.designJson = $.jStorage.get("custom");
             $timeout(function () {
                 $scope.tabchange($scope.designJson.tab, $scope.designJson.tabNo);
@@ -3114,15 +3129,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         }
 
-        $scope.changePadsImages = function (color) {
-            console.log(color);
-            var val = _.pick($scope.colorObj, color);
-            console.log(val);
-            $scope.padColors = color;
-            $scope.designJson.design.base = val[color][0];
-            $scope.designJson.color.base = getColor(color);
-
-        }
+       
         $scope.selectPadsDesign($scope.myArr[0]);
         console.log($scope.myArr[0]);
 
@@ -3445,11 +3452,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.tabAllowTod = false;
             }
         };
-        $scope.LogosTab = false;
-        $scope.quantityTab = false;
-        $scope.turnOnLogos = function (val) {
-            $scope.LogosTab = val;
-        }
+      
 
 
         $scope.switchNavigation = function (tab) {
@@ -4436,9 +4439,36 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // $scope.addQuantity();
 
         $scope.glovesDesign = {};
+        $scope.changeGlovesImages = function (color, colr) {
+            console.log(color, colr);
+            console.log(color, colr);
+            $scope.glovesJson.color.base = colr;
+            // $scope.color.base = color;
+            $scope.glovesColors = color;
+            // $scope.glovesDesign.color = $scope.glovesColors;
+            if ($scope.Arrayname == '$scope.glovesImages1') {
+                console.log('here');
+                $scope.glovesJson.design.base = $scope.glovesImages1[color][0];
+                // $scope.design.base = $scope.glovesImages1[color][0];
+                $scope.glovesDesign.image = $scope.glovesImages1[color][0];
+            }
+            if ($scope.Arrayname == '$scope.glovesImages2') {
+                $scope.glovesJson.design.base = $scope.glovesImages2[color][0];
+                // $scope.design.base = $scope.glovesImages2[color][0];
+                $scope.glovesDesign.image = $scope.glovesImages2[color][0];
+            }
+            if ($scope.Arrayname == '$scope.glovesImages3') {
+                $scope.glovesJson.design.base = $scope.glovesImages3[color][0];
+                // $scope.design.base = $scope.glovesImages3[color][0];
+                $scope.glovesDesign.image = $scope.glovesImages3[color][0];
+            }
+            console.log('change design color json', $scope.glovesJson);
+            $rootScope.$broadcast('changeImage', {});
 
+        }
         $scope.selectDesign = function (item) {
             console.log(item);
+            $scope.changeGlovesImages(item.color,item.colr);
             // $scope.glovesJson.design = {};
             $scope.glovesJson.design.name = item.designName;
             $scope.glovesJson.design.base = item.img[0];
@@ -4478,33 +4508,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.color = {};
             // $scope.changeGlovesImages();
         }
-        $scope.changeGlovesImages = function (color, colr) {
-            console.log(color, colr);
-            console.log(color, colr);
-            $scope.glovesJson.color.base = colr;
-            // $scope.color.base = color;
-            $scope.glovesColors = color;
-            // $scope.glovesDesign.color = $scope.glovesColors;
-            if ($scope.Arrayname == '$scope.glovesImages1') {
-                console.log('here');
-                $scope.glovesJson.design.base = $scope.glovesImages1[color][0];
-                // $scope.design.base = $scope.glovesImages1[color][0];
-                $scope.glovesDesign.image = $scope.glovesImages1[color][0];
-            }
-            if ($scope.Arrayname == '$scope.glovesImages2') {
-                $scope.glovesJson.design.base = $scope.glovesImages2[color][0];
-                // $scope.design.base = $scope.glovesImages2[color][0];
-                $scope.glovesDesign.image = $scope.glovesImages2[color][0];
-            }
-            if ($scope.Arrayname == '$scope.glovesImages3') {
-                $scope.glovesJson.design.base = $scope.glovesImages3[color][0];
-                // $scope.design.base = $scope.glovesImages3[color][0];
-                $scope.glovesDesign.image = $scope.glovesImages3[color][0];
-            }
-            console.log('change design color json', $scope.glovesJson);
-            $rootScope.$broadcast('changeImage', {});
 
-        }
 
         if ($stateParams.status == "edit" && $.jStorage.get("custom")) {
             $scope.glovesJson = $.jStorage.get("custom");
