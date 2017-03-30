@@ -641,7 +641,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
 
 
-    .controller('TrousersCtrl', function ($scope,$filter, $rootScope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
+    .controller('TrousersCtrl', function ($scope, $filter, $rootScope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("trousers");
         $scope.menutitle = NavigationService.makeactive("Trousers");
@@ -836,6 +836,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.trouserJson.color = {};
         $scope.trouserJson.color.base = "white";
+        $scope.trouserJson.color.baseColorName = "white";
         $scope.trouserJson.color.trim1 = "white";
         $scope.trouserJson.color.trim2 = "white";
         // $scope.color.base = "white";
@@ -952,7 +953,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         };
         $scope.switchTrimHighlightBase = function (color, name) {
-            console.log('colorrr', color, name);
+            console.log('colorrr11111', color, name);
             $scope.color.base = name;
             $scope.trouserJson.color.base = color;
             $scope.trouserJson.color.baseColorName = name;
@@ -994,18 +995,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // $scope.trouserJson.totalAmount = 850;
         // $scope.trouserJson.totalQuan = 1;
 
-//    $scope.singleAmount = $filter('currencyFilter')($scope.trouserJson.design);
-//         $scope.totalAmount = $filter('currencyFilter')($scope.trouserJson.design);
+        //    $scope.singleAmount = $filter('currencyFilter')($scope.trouserJson.design);
+        //         $scope.totalAmount = $filter('currencyFilter')($scope.trouserJson.design);
         $scope.totalQuan = 0;
         $scope.trouserJson.totalAmount = 0;
         $scope.addQuantity = function () {
             $scope.totalQuan = 0;
             $scope.totalAmount = 0;
             $scope.trouserJson.totalAmount = 0;
-                        for (var i = 0; i < $scope.trouserQuanArrCount; i++) {
+            for (var i = 0; i < $scope.trouserQuanArrCount; i++) {
                 // $scope.totalQuan += $scope.quantity[i].quantity;
                 if ($scope.trouserJson.quantity[i].quantity !== undefined) {
-                  $scope.totalQuan =  parseInt($scope.totalQuan) + parseInt($scope.trouserJson.quantity[i].quantity);
+                    $scope.totalQuan = parseInt($scope.totalQuan) + parseInt($scope.trouserJson.quantity[i].quantity);
                 }
             }
             // $scope.totalQuan = parseInt($scope.trouserJson.quantity[0].quantity + $scope.trouserJson.quantity[1].quantity);
@@ -1238,6 +1239,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.designTab = 1;
 
         $scope.changeDesign = function (index, img) {
+             console.log('img0000000000000,', img);
+           $scope.switchTrimHighlightBase($scope.trouserJson.color.baseColorName,$scope.trouserJson.color.baseColorName);
             if (index === 0) {
                 console.log('img,', img);
                 $scope.trimTrouser.highlightBase.disable = "unnoable";
@@ -1440,7 +1443,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         ///chaita
 
         $scope.openDesign = function (index, tab, img) {
-            console.log('//////////');
+            // $scope.switchTrimHighlightBase()
+            console.log('//////////',img);
             if ($scope.LogosTab) {
                 console.log('//////////11111');
                 $scope.designIndex = index;
@@ -1462,6 +1466,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
 
         if ($stateParams.status == "edit" && $.jStorage.get("custom")) {
+             $scope.turnOnLogos(true);
             $scope.trouserJson = $.jStorage.get("custom");
             $timeout(function () {
                 $scope.tabchange($scope.trouserJson.tab, $scope.trouserJson.tabNo);
@@ -1493,11 +1498,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.isLogin = false;
             }
             if ($scope.isLogin) {
-                console.log('////////////');
                 NavigationService.saveDesign(user.email, $scope.trouserJson, 'trouser',
                     function (data) {
                         console.log('Save Design data: ', data);
-                        $state.go('savedesign');
+                        // $state.go('savedesign');
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/onlogin.html',
+                            controller: 'headerctrl',
+                            scope: $scope
+                        })
                     },
                     function (err) {
                         console.log(err);
@@ -1629,11 +1639,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // $scope.emptyImage = function(key) {
         //         $scope.trousersLogo.image = null;
         //     }
-        $scope.emptyImage = function (key) {
-            console.log('ddddddddddd', key, $scope.trouserJson[key]);
-            // $scope.customizedTrouser[key] = null;
-            $scope.trouserJson[key] = {};
-        }
+
         // console.log('trouserJson',trouserJson);
         $scope.checkTeamLogo = function () {
             console.log('troooo', $scope.trouserJson.leftLogo.image, $scope.trouserJson.sendTeamLogoLater);
@@ -1747,16 +1753,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
-                $scope.odiDeleteModal = function () {
+        $scope.odiDeleteModal = function () {
             $scope.odiDel = $uibModal.open({
                 templateUrl: "views/modal/odi-delete.html",
                 scope: $scope
             });
         }
+        $scope.confirmEmptyImage = function (key) {
+            $scope.trouserJson[key] = {};
+            $scope.odiDel.close();
+        }
 
-
-               $scope.emptyImage = function (key) {
-            console.log('ftyghftg', key);
+        $scope.emptyImage = function (key) {
             $scope.saveKey = key;
             if (key === 'rightLogo' && $scope.trouserJson.rightLogo.image === "img/logo_black.png") {
                 $scope.statuses.modal = $uibModal.open({
@@ -2836,7 +2844,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
 
         $scope.colorObj = $scope.padImages1;
- $scope.changePadsImages = function (color) {
+        $scope.changePadsImages = function (color) {
             console.log(color);
             var val = _.pick($scope.colorObj, color);
             console.log(val);
@@ -3008,7 +3016,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             colorObj: $scope.padImages3
         }];
 
-  $scope.LogosTab = false;
+        $scope.LogosTab = false;
         $scope.quantityTab = false;
         $scope.turnOnLogos = function (val) {
             $scope.LogosTab = val;
@@ -3129,7 +3137,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         }
 
-       
+
         $scope.selectPadsDesign($scope.myArr[0]);
         console.log($scope.myArr[0]);
 
@@ -3190,12 +3198,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     function (data) {
                         console.log('Save Design data: ', data);
                         // $state.go('savedesign');
-                          $uibModal.open({
-                animation: true,
-                templateUrl: 'views/modal/onlogin.html',
-                controller: 'headerctrl',
-                scope: $scope
-            })
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/onlogin.html',
+                            controller: 'headerctrl',
+                            scope: $scope
+                        })
                     },
                     function (err) {
                         console.log(err);
@@ -3452,7 +3460,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.tabAllowTod = false;
             }
         };
-      
+
 
 
         $scope.switchNavigation = function (tab) {
@@ -4133,7 +4141,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
     })
 
-    .controller('GlovesCtrl', function ($scope,$filter , $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $rootScope, cfpLoadingBar) {
+    .controller('GlovesCtrl', function ($scope, $filter, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, $rootScope, cfpLoadingBar) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("gloves");
         $scope.menutitle = NavigationService.makeactive("Gloves");
@@ -4283,7 +4291,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 NavigationService.saveDesign(user.email, $scope.glovesJson, 'gloves',
                     function (data) {
                         console.log('Save Design data:checkloginGloves ', data);
-                        $state.go('savedesign');
+                        // $state.go('savedesign');
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/onlogin.html',
+                            controller: 'headerctrl',
+                            scope: $scope
+                        })
                     },
                     function (err) {
                         console.log(err);
@@ -4468,7 +4482,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
         $scope.selectDesign = function (item) {
             console.log(item);
-            $scope.changeGlovesImages(item.color,item.colr);
+            $scope.changeGlovesImages(item.color, item.colr);
             // $scope.glovesJson.design = {};
             $scope.glovesJson.design.name = item.designName;
             $scope.glovesJson.design.base = item.img[0];
@@ -4508,9 +4522,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.color = {};
             // $scope.changeGlovesImages();
         }
-
+        $scope.LogosTab = false;
+        $scope.quantityTab = false;
+        $scope.turnOnLogos = function (val) {
+            $scope.LogosTab = val;
+        }
 
         if ($stateParams.status == "edit" && $.jStorage.get("custom")) {
+            $scope.turnOnLogos(true);
             $scope.glovesJson = $.jStorage.get("custom");
             $.jStorage.set("onCustom", true);
             $.jStorage.set("custom", $scope.glovesJson);
@@ -4531,12 +4550,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //
         // }
 
-        $scope.emptyImage = function (key) {
-            // $scope.glovesLogo.image = null;
-            // $scope.glovesJson.teamLogo.image = '';
-            $scope.glovesJson[key] = {};
-        }
 
+        $scope.odiDeleteModal = function () {
+            $scope.odiDel = $uibModal.open({
+                templateUrl: "views/modal/odi-delete.html",
+                scope: $scope
+            });
+        }
+        $scope.confirmEmptyImage = function (key) {
+            $scope.glovesJson[key] = {};
+            $scope.odiDel.close();
+        }
+        $scope.emptyImage = function (key) {
+            $scope.saveKey = key;
+            $scope.odiDeleteModal();
+        }
 
 
         $scope.selectGlovesImage = function (image) {
@@ -4873,11 +4901,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.tabAllowTod = false;
             }
         };
-        $scope.LogosTab = false;
-        $scope.quantityTab = false;
-        $scope.turnOnLogos = function (val) {
-            $scope.LogosTab = val;
-        }
+
 
         $scope.switchNavigation = function (tab) {
             if (tab === 'a') {
@@ -5314,20 +5338,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // $scope.singleAmount = 1000;
         // $scope.odiJson.totalAmount = 1000;
         $scope.odiJson.totalAmount = 0;
-        $scope.singleAmount = $filter('currencyFilter')($scope.odiJson.design,"OnlyNumber");
-        $scope.totalAmount = $filter('currencyFilter')($scope.odiJson.design,"OnlyNumber");
+        $scope.singleAmount = $filter('currencyFilter')($scope.odiJson.design, "OnlyNumber");
+        $scope.totalAmount = $filter('currencyFilter')($scope.odiJson.design, "OnlyNumber");
         $scope.odiJson.totalQuan = 0;
 
         $scope.addQuantity = function (q) {
             $scope.odiJson.totalAmount = 0;
             $scope.odiJson.totalQuan = 0;
-            $scope.singleAmount = $filter('currencyFilter')($scope.odiJson.design,"OnlyNumber");
+            $scope.singleAmount = $filter('currencyFilter')($scope.odiJson.design, "OnlyNumber");
             for (var i = 0; i < $scope.jerseyBackArrCount; i++) {
                 console.log('$scope.odiJson.quantity', $scope.odiJson.quantity);
                 // $scope.totalQuan += $scope.quantity[i].quantity;
                 if ($scope.odiJson.quantity[i].quantity !== undefined) {
 
-    $scope.odiJson.totalQuan = parseInt($scope.odiJson.totalQuan) + parseInt($scope.odiJson.quantity[i].quantity);
+                    $scope.odiJson.totalQuan = parseInt($scope.odiJson.totalQuan) + parseInt($scope.odiJson.quantity[i].quantity);
                 }
                 if ($scope.odiJson.totalQuan) {
                     $scope.odiJson.totalAmount = $scope.singleAmount * $scope.odiJson.totalQuan;
@@ -8936,9 +8960,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 })
         }
 
-        $scope.nocheck=function(){
+        $scope.nocheck = function () {
             $uibModal.open({
-                  animation: true,
+                animation: true,
                 templateUrl: 'views/modal/nocheck.html',
                 controller: 'OrderSummaryCtrl',
                 scope: $scope
