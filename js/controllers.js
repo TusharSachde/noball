@@ -653,6 +653,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.trouserJson.pantType = "trousers";
 
 
+$scope.myDesignID = 0;
+        $scope.designTabJson = function(id){
+            $scope.myDesignID = id;
+        }
+
+
+
+
         $scope.$on('$stateChangeStart', function (event, toState, fromState) {
             if (toState.name == 'trousersEdit' || toState.name == 'ordersummary' || toState.name == 'savedesign') {
                 window.location.reload();
@@ -1150,12 +1158,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.page = 1;
 
-        $scope.images = {
+       $scope.images = {
             "page1": [{
                 src: "img/trousers/design4/front.png",
                 baseColor: "#ffffff",
                 trim1Color: "#ffff00",
-                trim2Color: ""
+                trim2Color: "",
+                id:0
                 // type: "odi"
                 // }, {
                 //     src: "img/odi-tshirts/trims/odi/design2/front.png",
@@ -1164,56 +1173,65 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 src: "img/trousers/design2/front.png",
                 baseColor: "#ffffff",
                 trim1Color: "#ffff00",
-                trim2Color: ""
+                trim2Color: "",
+                id:1
                 // type: "odi"
             }, {
                 src: "img/trousers/design3/front.png",
                 baseColor: "#ffffff",
                 trim1Color: "#ffa500",
-                trim2Color: ""
+                trim2Color: "",
+                id:2
                 // type: "odi"
             }, {
                 src: "img/trousers/design1/front.png",
                 baseColor: "#000000",
                 trim1Color: "#bf0000",
-                trim2Color: ""
+                trim2Color: "",
+                id:3
                 // type: "odi"
             }, {
                 src: "img/trousers/design5/front.png",
                 baseColor: "#ffff00",
                 trim1Color: "#008000",
-                trim2Color: ""
+                trim2Color: "",
+                id:4
                 // type: "training"
             }, {
                 src: "img/shorts/design1/front.png",
                 baseColor: "#008000",
                 trim1Color: "#000000",
-                trim2Color: ""
+                trim2Color: "",
+                id:5
                 // type: "training"
             }, {
                 src: "img/shorts/design2/front.png",
                 baseColor: "#000000",
                 trim1Color: "#008000",
-                trim2Color: ""
+                trim2Color: "",
+                id:6
                 // type: "training"
             }, {
                 src: "img/shorts/design3/front.png",
                 baseColor: "#666666",
                 trim1Color: "#ffff00",
-                trim2Color: ""
+                trim2Color: "",
+                id:7
                 // type: "training"
             }, {
                 src: "img/shorts/design4/front.png",
                 baseColor: "#ffa500",
                 trim1Color: "#ffffff",
-                trim2Color: ""
+                trim2Color: "",
+                id:8
                 // type: "training"
             }],
             "page2": [{
                 src: "img/shorts/design5/front.png",
                 baseColor: "#00308f",
                 trim1Color: "#ffff00",
-                trim2Color: ""
+                trim2Color: "",
+                id:0
                 // type: "whites"
             }]
         };
