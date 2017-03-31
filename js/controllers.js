@@ -8997,7 +8997,9 @@ console.log('$scope.trouserJson', $scope.trouserJson);
         NavigationService.getOrderSummary($state.params.id,
             function (data) {
                 $scope.design = data.data;
+                
                 $scope.design.description = JSON.parse(data.data.description);
+                design.description.totalAmount = parseInt($filter('currencyFilter')(design.description.totalAmount));
                 console.log($scope.design.description);
             },
             function (err) {
