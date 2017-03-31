@@ -2883,6 +2883,7 @@ console.log('$scope.trouserJson', $scope.trouserJson);
 
         }
         $scope.openDesign1 = function (img) {
+            console.log('1111111',img.img[0]);
             $scope.designJson.design.base = img.img[0];
             $scope.designJson.design.name = img.name;
             $scope.designJson.color.base = getColor(img.color);
@@ -2906,7 +2907,7 @@ console.log('$scope.trouserJson', $scope.trouserJson);
 
         function getColor(color) {
             if (color == "dblue") {
-                return "#48d2dc";
+                return "#00008b";
             } else if (color == "dgreen") {
                 return "#82e716";
             } else if (color == "dorange") {
@@ -8999,7 +9000,7 @@ console.log('$scope.trouserJson', $scope.trouserJson);
                 $scope.design = data.data;
                 
                 $scope.design.description = JSON.parse(data.data.description);
-                design.description.totalAmount = parseInt($filter('currencyFilter')(design.description.totalAmount));
+                // design.description.totalAmount = parseInt($filter('currencyFilter','Number')(design.description.totalAmount));
                 console.log($scope.design.description);
             },
             function (err) {
