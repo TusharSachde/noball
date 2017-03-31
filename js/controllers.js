@@ -4218,7 +4218,7 @@ console.log('$scope.trouserJson', $scope.trouserJson);
         $scope.glovesJson.type = 'gloves';
         $scope.glovesJson.color = {};
         $scope.glovesJson.teamLogo = {};
-        $scope.glovesJson.teamLogo.size = 95;
+        $scope.glovesJson.teamLogo.size = 25;
         // $scope.design.base = ''
         $scope.color = {};
         $scope.LogosTab = false;
