@@ -333,7 +333,7 @@
                                     <span class="inline-block uppercase pad-5">quantity</span>
                                     <input type="number" class="form-control inline-block" name="name" ng-change="addQuantity(pad.quantity)" ng-model="designJson.quantity[1].quantity"
                                         placeholder="12" maxlength="3">
-                                    <p class="error-td error-quantity f13" ng-if="totalQuan<12 && totalQuan!=0">Please enter valid quantity.The MOQ is 12</p>
+                                    <p class="error-td error-quantity f13 errors-pad" ng-if="totalQuan<12 && totalQuan!=0">Please enter valid quantity.The MOQ is 12</p>
                                 </div>
                             </div>
                             <!--<div class="add-button">
