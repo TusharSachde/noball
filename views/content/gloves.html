@@ -193,9 +193,9 @@
                                 </div>
                                 <div class="size-box" ng-if="glovesJson.teamLogo.image">
                                     Size:
-                                    <div class="range">
-                                        <div range-slider on-handle-down="changeLogo()" on-handle-up="resetLogoStyle()" ng-model="glovesJson.teamLogo.size" min="-150"
-                                            max="200" model-max="glovesJson.teamLogo.size" model-min="rslider.min" pin-handle="min"></div>
+                                    <div class="range rangeslides">
+                                        <div range-slider on-handle-down="changeLogo()" on-handle-up="resetLogoStyle()" ng-model="glovesJson.teamLogo.size" 
+                                            min="5" max="55" model-max="glovesJson.teamLogo.size" model-min="rslider.min" pin-handle="min"></div>
                                     </div>
                                 </div>
                                 <div class="edit-btn">
@@ -566,7 +566,7 @@
                                     <input type="number" class="form-control inline-block" name="name" value="" ng-change="addQuantity(glovesJson.quantity[1].quantity)"
                                         ng-model="glovesJson.quantity[1].quantity" placeholder="12" maxlength="3">
                                     <!--<p class="error-td error-quantity f13" ng-if="totalQuan<12 && totalQuan!=0">Please enter valid quantity.The MOQ is 12</p>-->
-                                    <p class="error-td error-quantity f13" ng-if="totalQuan<12 && totalQuan!=0">Please enter valid quantity.The MOQ is 12</p>
+                                    <p class="error-td error-quantity errors-pad f13" ng-if="totalQuan<12 && totalQuan!=0">Please enter valid quantity.The MOQ is 12</p>
                                 </div>
                                 <!--<div class="sizes size inline-block">
                                     <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">preview</button>

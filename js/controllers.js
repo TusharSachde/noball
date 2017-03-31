@@ -3595,7 +3595,7 @@ console.log('$scope.trouserJson', $scope.trouserJson);
 
         // slider
         $scope.rslider = {
-            min: 10,
+            min: 0,
             max: 100
         };
         // $scope.statuses.copyright = false;
