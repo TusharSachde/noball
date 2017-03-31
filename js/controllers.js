@@ -3065,7 +3065,7 @@ console.log('$scope.trouserJson', $scope.trouserJson);
         }
 
         $scope.rslider = {
-            min: -130,
+            min: 0,
             max: 100
         };
 
@@ -4218,7 +4218,7 @@ console.log('$scope.trouserJson', $scope.trouserJson);
         $scope.glovesJson.type = 'gloves';
         $scope.glovesJson.color = {};
         $scope.glovesJson.teamLogo = {};
-        $scope.glovesJson.teamLogo.size = 25;
+        $scope.glovesJson.teamLogo.size = 95;
         // $scope.design.base = ''
         $scope.color = {};
         $scope.LogosTab = false;
@@ -4420,9 +4420,9 @@ console.log('$scope.trouserJson', $scope.trouserJson);
             colr: "#FF0000"
         }];
 
-        $scope.rslider = {
-            min: -130,
-            max: 100
+       $scope.rslider = {
+            min: 0,
+            max: 200
         };
         $scope.changeLogo = function () {
             $scope.borderClass = "active-border";

@@ -193,9 +193,9 @@
                                 </div>
                                 <div class="size-box" ng-if="glovesJson.teamLogo.image">
                                     Size:
-                                    <div class="range rangeslides">
+                                    <div class="range ">
                                         <div range-slider on-handle-down="changeLogo()" on-handle-up="resetLogoStyle()" ng-model="glovesJson.teamLogo.size" 
-                                            min="5" max="55" model-max="glovesJson.teamLogo.size" model-min="rslider.min" pin-handle="min"></div>
+                                            min="-10" max="200" model-max="glovesJson.teamLogo.size" model-min="rslider.min" pin-handle="min"></div>
                                     </div>
                                 </div>
                                 <div class="edit-btn">
