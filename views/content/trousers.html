@@ -146,7 +146,7 @@
                                     <div class="col-md-12">
                                         <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in colorr track by $index">
                                             <div class="colo-pallet text-center">
-                                                <div class="noti-img notihov" ng-class="{'coloracive':colorr.highlightOne == col.name, 'borergrey':col.name == 'white'};"
+                                                <div class="noti-img notihov" ng-class="{'coloracive':trouserJson.color.trim1ColorName == col.name, 'borergrey':col.name == 'white'};"
                                                     ng-style="{'background-color':'{{col.colr}}'}" ng-click="switchTrimHighlightOne(col.colr,col.name); trimHexColors('highlightOne', col.colr);"
                                                     title="{{col.name | capitalize}}"></div>
                                             </div>
@@ -160,7 +160,7 @@
                                         <h4>Choose Your Color</h4>
                                         <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in colorr track by $index">
                                             <div class="colo-pallet text-center">
-                                                <div class="noti-img notihov" ng-class="{'coloracive':color.trim2 == col.name, 'borergrey':col.name == 'white'};" ng-style="{'background-color':'{{col.colr}}'}"
+                                                <div class="noti-img notihov" ng-class="{'coloracive':trouserJson.color.trim2ColorName == col.name};" ng-style="{'background-color':'{{col.colr}}'}"
                                                     ng-click="switchTrimHighlightTwo(col.colr,col.name)"
                                                     title="{{col.name | capitalize}}"></div>
                                             </div>
