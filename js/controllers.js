@@ -1016,7 +1016,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             for (var i = 0; i < $scope.trouserQuanArrCount; i++) {
                 // $scope.totalQuan += $scope.quantity[i].quantity;
                 if ($scope.trouserJson.quantity[i].quantity !== undefined) {
-                    $scope.totalQuan = parseInt($scope.totalQuan) + parseInt($scope.trouserJson.quantity[i].quantity);
+                    // $scope.totalQuan = parseInt($scope.totalQuan) + parseInt($scope.trouserJson.quantity[i].quantity);
+                    $scope.totalQuan = parseInt($scope.totalQuan + $scope.trouserJson.quantity[i].quantity);
                 }
             }
             // $scope.totalQuan = parseInt($scope.trouserJson.quantity[0].quantity + $scope.trouserJson.quantity[1].quantity);
@@ -5391,7 +5392,24 @@ console.log('$scope.trouserJson', $scope.trouserJson);
                     $scope.odiJson.totalAmount = $scope.singleAmount * $scope.odiJson.totalQuan;
                 }
             }
+            
 
+        };
+         $scope.addQuantity = function (q) {
+            $scope.odiJson.totalAmount = 0;
+            $scope.odiJson.totalQuan = 0;
+            $scope.singleAmount = $filter('currencyFilter')($scope.odiJson.design, "OnlyNumber");
+            for (var i = 0; i < $scope.jerseyBackArrCount; i++) {
+                console.log('$scope.odiJson.quantity', $scope.odiJson.quantity);
+                // $scope.totalQuan += $scope.quantity[i].quantity;
+                if ($scope.odiJson.quantity[i].quantity !== undefined) {
+$scope.odiJson.totalQuan = parseInt($scope.odiJson.totalQuan + $scope.odiJson.quantity[i].quantity);
+                    // $scope.odiJson.totalQuan = parseInt($scope.odiJson.totalQuan) + parseInt($scope.odiJson.quantity[i].quantity);
+                }
+                if ($scope.odiJson.totalQuan) {
+                    $scope.odiJson.totalAmount = $scope.singleAmount * $scope.odiJson.totalQuan;
+                }
+            }
         };
 
         // $scope.addQuantity(1);
@@ -11366,7 +11384,7 @@ console.log('$scope.trouserJson', $scope.trouserJson);
                         if ($.jStorage.get("onCustom") && $scope.getTab.tabNo != 4) {
                             console.log('openconfirmmmmmOncustooommmm');
                             $scope.openConfirm();
-                        } else {
+                        } else if($.jStorage.get("onCustom") && $scope.getTab.tabNo == 4){
                             NavigationService.orderSummaryTrouser(input, $scope.getTab, $scope.getTab.type,
                                 function (data) {
                                     console.log('Order Summary odi data: ', data);
@@ -11378,6 +11396,8 @@ console.log('$scope.trouserJson', $scope.trouserJson);
                                     console.log(err);
                                 });
                             // window.location.reload();
+                        }else{
+window.location.reload();
                         }
 
 
@@ -11407,9 +11427,12 @@ console.log('$scope.trouserJson', $scope.trouserJson);
                 } else {
                     if (accept == true) {
                         NavigationService.signup(input, function (data) {
+                            console.log('signup insidddeeeeeeee',data);
                             if (data.value == false) {
                                 $scope.alreadyReg = true;
                             } else {
+                                
+                                console.log('signup yessss',data);
                                 NavigationService.setUser(data);
                                 window.location.reload();
                             }
