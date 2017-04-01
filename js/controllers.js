@@ -11365,6 +11365,7 @@ $scope.odiJson.totalQuan = parseInt($scope.odiJson.totalQuan + $scope.odiJson.qu
             $state.go('savedesign');
         }
         //login
+        var user1 = {};
         $scope.doLogin = function (input, formValidate) {
             $scope.validatelogin = false;
             $scope.inputall = false;
@@ -11375,16 +11376,17 @@ $scope.odiJson.totalQuan = parseInt($scope.odiJson.totalQuan + $scope.odiJson.qu
                     if (data.value === false) {
                         $scope.validatelogin = true;
                     } else {
-                        var user = NavigationService.setUser(data);
+                        var user1 = NavigationService.setUser(data);
+                          console.log('111111111',data);
                         if ($rootScope.afterSessionSave) {
-                            console.log('openconfirmmmmmaterseeesss',user);
+                            console.log('openconfirmmmmmaterseeesss',data);
                             console.log('$rootScope.afterSessionSave', $rootScope.afterSessionSave);
                             $scope.openConfirm();
                         }
                         if ($.jStorage.get("onCustom") && $scope.getTab.tabNo != 4) {
-                            console.log('openconfirmmmmmOncustooommmm');
+                            console.log('openconfirmmmmmOncustooommmm',user);
                             $scope.openConfirm();
-                              NavigationService.saveDesign(user.email, $scope.getTab, $scope.getTab.type,
+                              NavigationService.saveDesign(data.email, $scope.getTab, $scope.getTab.type,
                     function (data) {
                         console.log('Save Design data: ', data);
                         // $state.go('savedesign');
@@ -11451,7 +11453,7 @@ window.location.reload();
                                   if ($.jStorage.get("onCustom") && $scope.getTab.tabNo != 4) {
                             console.log('openconfirmmmmmOncustooommmm');
                             $scope.openConfirm();
-                                NavigationService.saveDesign(user.email, $scope.getTab, $scope.getTab.type,
+                                NavigationService.saveDesign(data.email, $scope.getTab, $scope.getTab.type,
                     function (data) {
                         console.log('Save Design data: ', data);
                         // $state.go('savedesign');
