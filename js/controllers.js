@@ -11375,15 +11375,29 @@ $scope.odiJson.totalQuan = parseInt($scope.odiJson.totalQuan + $scope.odiJson.qu
                     if (data.value === false) {
                         $scope.validatelogin = true;
                     } else {
-                        NavigationService.setUser(data);
+                        var user = NavigationService.setUser(data);
                         if ($rootScope.afterSessionSave) {
-                            console.log('openconfirmmmmmaterseeesss');
+                            console.log('openconfirmmmmmaterseeesss',user);
                             console.log('$rootScope.afterSessionSave', $rootScope.afterSessionSave);
                             $scope.openConfirm();
                         }
                         if ($.jStorage.get("onCustom") && $scope.getTab.tabNo != 4) {
                             console.log('openconfirmmmmmOncustooommmm');
                             $scope.openConfirm();
+                              NavigationService.saveDesign(user.email, $scope.getTab, $scope.getTab.type,
+                    function (data) {
+                        console.log('Save Design data: ', data);
+                        // $state.go('savedesign');
+                        // $uibModal.open({
+                        //     animation: true,
+                        //     templateUrl: 'views/modal/onlogin.html',
+                        //     controller: 'headerctrl',
+                        //     scope: $scope
+                        // })
+                    },
+                    function (err) {
+                        console.log(err);
+                    });
                         } else if($.jStorage.get("onCustom") && $scope.getTab.tabNo == 4){
                             NavigationService.orderSummaryTrouser(input, $scope.getTab, $scope.getTab.type,
                                 function (data) {
@@ -11417,6 +11431,7 @@ window.location.reload();
         $scope.noMatch = false;
 
         $scope.doSignup = function (accept, input, formValidate) {
+            $scope.getTab = $.jStorage.get('custom');
             $scope.acceptValidate = false;
             $scope.validateForm = false;
             $scope.alreadyReg = false;
@@ -11431,10 +11446,40 @@ window.location.reload();
                             if (data.value == false) {
                                 $scope.alreadyReg = true;
                             } else {
-                                
                                 console.log('signup yessss',data);
-                                NavigationService.setUser(data);
-                                window.location.reload();
+                              var user =  NavigationService.setUser(data);
+                                  if ($.jStorage.get("onCustom") && $scope.getTab.tabNo != 4) {
+                            console.log('openconfirmmmmmOncustooommmm');
+                            $scope.openConfirm();
+                                NavigationService.saveDesign(user.email, $scope.getTab, $scope.getTab.type,
+                    function (data) {
+                        console.log('Save Design data: ', data);
+                        // $state.go('savedesign');
+                        // $uibModal.open({
+                        //     animation: true,
+                        //     templateUrl: 'views/modal/onlogin.html',
+                        //     controller: 'headerctrl',
+                        //     scope: $scope
+                        // })
+                    },
+                    function (err) {
+                        console.log(err);
+                    });
+                        } else if($.jStorage.get("onCustom") && $scope.getTab.tabNo == 4){
+                            NavigationService.orderSummaryTrouser(input, $scope.getTab, $scope.getTab.type,
+                                function (data) {
+                                    console.log('Order Summary odi data: ', data);
+                                    $state.go('ordersummary', {
+                                        id: data.id
+                                    });
+                                },
+                                function (err) {
+                                    console.log(err);
+                                });
+                            // window.location.reload();
+                        }else{
+window.location.reload();
+                        }
                             }
                         }, function (err) {})
                     } else {
