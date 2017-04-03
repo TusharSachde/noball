@@ -755,7 +755,7 @@ var navigationservice = angular.module('navigationservice', [])
           str = "saveDesign";
         }
         return $http({
-          url: adminurl + "saveDesign",
+          url: adminurl + str,
           method: "POST",
           data: myData
         }).success(callback).error(err);
