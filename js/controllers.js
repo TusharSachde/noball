@@ -1401,7 +1401,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trouserJson.design.base = "img/" + $scope.trouserJson.type + "/base/front/" + 'black1' + ".png";
                 $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.designName + "/front/trim1/" + 'australian_green' + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
                 $scope.trouserJson.des
-                console.log('$scope.trouserJson', $scope.trouserJson);ign.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.designName + "/front/trim2/" + '' + ".png";
+                console.log('$scope.trouserJson', $scope.trouserJson);
+                ign.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.designName + "/front/trim2/" + '' + ".png";
             } else if (index === 7) {
                 $scope.trimTrouser.highlightBase.disable = "unnoable";
                 $scope.trimTrouser.highlightOne.disable = "unnoable";
@@ -1421,7 +1422,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.trouserJson.design.base = "img/" + $scope.trouserJson.type + "/base/front/" + 'grey' + ".png";
                 $scope.trouserJson.design.highlightOne = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.designName + "/front/trim1/" + 'lemon_yellow' + ".png"; // "img/odi-tshirts/trims/highlight1/front/trim_" + color + ".png";;
                 $scope.trouserJson.design.highlightTwo = "img/" + $scope.trouserJson.type + "/" + $scope.trouserJson.design.designName + "/front/trim2/" + '' + ".png";
-console.log('$scope.trouserJson', $scope.trouserJson);
+                console.log('$scope.trouserJson', $scope.trouserJson);
             } else if (index === 8) {
                 $scope.trimTrouser.highlightBase.disable = "unnoable";
                 $scope.trimTrouser.highlightOne.disable = "unnoable";
@@ -2884,7 +2885,7 @@ console.log('$scope.trouserJson', $scope.trouserJson);
 
         }
         $scope.openDesign1 = function (img) {
-            console.log('1111111',img.img[0]);
+            console.log('1111111', img.img[0]);
             $scope.designJson.design.base = img.img[0];
             $scope.designJson.design.name = img.name;
             $scope.designJson.color.base = getColor(img.color);
@@ -4421,7 +4422,7 @@ console.log('$scope.trouserJson', $scope.trouserJson);
             colr: "#FF0000"
         }];
 
-       $scope.rslider = {
+        $scope.rslider = {
             min: 0,
             max: 200
         };
@@ -5392,10 +5393,10 @@ console.log('$scope.trouserJson', $scope.trouserJson);
                     $scope.odiJson.totalAmount = $scope.singleAmount * $scope.odiJson.totalQuan;
                 }
             }
-            
+
 
         };
-         $scope.addQuantity = function (q) {
+        $scope.addQuantity = function (q) {
             $scope.odiJson.totalAmount = 0;
             $scope.odiJson.totalQuan = 0;
             $scope.singleAmount = $filter('currencyFilter')($scope.odiJson.design, "OnlyNumber");
@@ -5403,7 +5404,7 @@ console.log('$scope.trouserJson', $scope.trouserJson);
                 console.log('$scope.odiJson.quantity', $scope.odiJson.quantity);
                 // $scope.totalQuan += $scope.quantity[i].quantity;
                 if ($scope.odiJson.quantity[i].quantity !== undefined) {
-$scope.odiJson.totalQuan = parseInt($scope.odiJson.totalQuan + $scope.odiJson.quantity[i].quantity);
+                    $scope.odiJson.totalQuan = parseInt($scope.odiJson.totalQuan + $scope.odiJson.quantity[i].quantity);
                     // $scope.odiJson.totalQuan = parseInt($scope.odiJson.totalQuan) + parseInt($scope.odiJson.quantity[i].quantity);
                 }
                 if ($scope.odiJson.totalQuan) {
@@ -9016,7 +9017,7 @@ $scope.odiJson.totalQuan = parseInt($scope.odiJson.totalQuan + $scope.odiJson.qu
         NavigationService.getOrderSummary($state.params.id,
             function (data) {
                 $scope.design = data.data;
-                
+
                 $scope.design.description = JSON.parse(data.data.description);
                 // design.description.totalAmount = parseInt($filter('currencyFilter','Number')(design.description.totalAmount));
                 console.log($scope.design.description);
@@ -10433,6 +10434,7 @@ $scope.odiJson.totalQuan = parseInt($scope.odiJson.totalQuan + $scope.odiJson.qu
 
         $scope.editDesign = function (design) {
             console.log(design);
+            $.jStorage.set("customId", design.id);
             $.jStorage.set("custom", design.description);
             switch (design.type) {
                 case "pads":
@@ -11377,30 +11379,30 @@ $scope.odiJson.totalQuan = parseInt($scope.odiJson.totalQuan + $scope.odiJson.qu
                         $scope.validatelogin = true;
                     } else {
                         var user1 = NavigationService.setUser(data);
-                          console.log('111111111',data);
+                        console.log('111111111', data);
                         if ($rootScope.afterSessionSave) {
-                            console.log('openconfirmmmmmaterseeesss',data);
+                            console.log('openconfirmmmmmaterseeesss', data);
                             console.log('$rootScope.afterSessionSave', $rootScope.afterSessionSave);
                             $scope.openConfirm();
                         }
                         if ($.jStorage.get("onCustom") && $scope.getTab.tabNo != 4) {
-                            console.log('openconfirmmmmmOncustooommmm',user);
+                            console.log('openconfirmmmmmOncustooommmm', user);
                             $scope.openConfirm();
-                              NavigationService.saveDesign(data.email, $scope.getTab, $scope.getTab.type,
-                    function (data) {
-                        console.log('Save Design data: ', data);
-                        // $state.go('savedesign');
-                        // $uibModal.open({
-                        //     animation: true,
-                        //     templateUrl: 'views/modal/onlogin.html',
-                        //     controller: 'headerctrl',
-                        //     scope: $scope
-                        // })
-                    },
-                    function (err) {
-                        console.log(err);
-                    });
-                        } else if($.jStorage.get("onCustom") && $scope.getTab.tabNo == 4){
+                            NavigationService.saveDesign(data.email, $scope.getTab, $scope.getTab.type,
+                                function (data) {
+                                    console.log('Save Design data: ', data);
+                                    // $state.go('savedesign');
+                                    // $uibModal.open({
+                                    //     animation: true,
+                                    //     templateUrl: 'views/modal/onlogin.html',
+                                    //     controller: 'headerctrl',
+                                    //     scope: $scope
+                                    // })
+                                },
+                                function (err) {
+                                    console.log(err);
+                                });
+                        } else if ($.jStorage.get("onCustom") && $scope.getTab.tabNo == 4) {
                             NavigationService.orderSummaryTrouser(input, $scope.getTab, $scope.getTab.type,
                                 function (data) {
                                     console.log('Order Summary odi data: ', data);
@@ -11412,8 +11414,8 @@ $scope.odiJson.totalQuan = parseInt($scope.odiJson.totalQuan + $scope.odiJson.qu
                                     console.log(err);
                                 });
                             // window.location.reload();
-                        }else{
-window.location.reload();
+                        } else {
+                            window.location.reload();
                         }
 
 
@@ -11444,44 +11446,44 @@ window.location.reload();
                 } else {
                     if (accept == true) {
                         NavigationService.signup(input, function (data) {
-                            console.log('signup insidddeeeeeeee',data);
+                            console.log('signup insidddeeeeeeee', data);
                             if (data.value == false) {
                                 $scope.alreadyReg = true;
                             } else {
-                                console.log('signup yessss',data);
-                              var user =  NavigationService.setUser(data);
-                                  if ($.jStorage.get("onCustom") && $scope.getTab.tabNo != 4) {
-                            console.log('openconfirmmmmmOncustooommmm');
-                            $scope.openConfirm();
-                                NavigationService.saveDesign(data.email, $scope.getTab, $scope.getTab.type,
-                    function (data) {
-                        console.log('Save Design data: ', data);
-                        // $state.go('savedesign');
-                        // $uibModal.open({
-                        //     animation: true,
-                        //     templateUrl: 'views/modal/onlogin.html',
-                        //     controller: 'headerctrl',
-                        //     scope: $scope
-                        // })
-                    },
-                    function (err) {
-                        console.log(err);
-                    });
-                        } else if($.jStorage.get("onCustom") && $scope.getTab.tabNo == 4){
-                            NavigationService.orderSummaryTrouser(input, $scope.getTab, $scope.getTab.type,
-                                function (data) {
-                                    console.log('Order Summary odi data: ', data);
-                                    $state.go('ordersummary', {
-                                        id: data.id
-                                    });
-                                },
-                                function (err) {
-                                    console.log(err);
-                                });
-                            // window.location.reload();
-                        }else{
-window.location.reload();
-                        }
+                                console.log('signup yessss', data);
+                                var user = NavigationService.setUser(data);
+                                if ($.jStorage.get("onCustom") && $scope.getTab.tabNo != 4) {
+                                    console.log('openconfirmmmmmOncustooommmm');
+                                    $scope.openConfirm();
+                                    NavigationService.saveDesign(data.email, $scope.getTab, $scope.getTab.type,
+                                        function (data) {
+                                            console.log('Save Design data: ', data);
+                                            // $state.go('savedesign');
+                                            // $uibModal.open({
+                                            //     animation: true,
+                                            //     templateUrl: 'views/modal/onlogin.html',
+                                            //     controller: 'headerctrl',
+                                            //     scope: $scope
+                                            // })
+                                        },
+                                        function (err) {
+                                            console.log(err);
+                                        });
+                                } else if ($.jStorage.get("onCustom") && $scope.getTab.tabNo == 4) {
+                                    NavigationService.orderSummaryTrouser(input, $scope.getTab, $scope.getTab.type,
+                                        function (data) {
+                                            console.log('Order Summary odi data: ', data);
+                                            $state.go('ordersummary', {
+                                                id: data.id
+                                            });
+                                        },
+                                        function (err) {
+                                            console.log(err);
+                                        });
+                                    // window.location.reload();
+                                } else {
+                                    window.location.reload();
+                                }
                             }
                         }, function (err) {})
                     } else {

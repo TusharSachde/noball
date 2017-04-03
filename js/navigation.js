@@ -517,7 +517,7 @@ var countries = [{
 }];
 var navigationservice = angular.module('navigationservice', [])
 
-  .factory('NavigationService', function ($http, $state) {
+  .factory('NavigationService', function ($http, $state, $rootScope, $state) {
     var navigation = [{
       name: "Products",
       classis: ""
@@ -731,17 +731,30 @@ var navigationservice = angular.module('navigationservice', [])
         }).success(callback).error(err);
       },
       saveDesign: function (user, jsonData, type, callback, err) {
-        var myData = {
-          "user": user,
-          "description": jsonData,
-          "type": type
-        };
-        console.log(JSON.stringify(jsonData));
+
+        var myData;
+        if ($state.params.status == "edit") {
+          myData = {
+            "user": user,
+            "description": jsonData,
+            "type": type
+          };
+          console.log(JSON.stringify(jsonData));
+
+        } else {
+          myData = {
+            "user": user,
+            "description": jsonData,
+            "type": type,
+            "id": $.jStorage.get("customId")
+          };
+        }
         return $http({
           url: adminurl + "saveDesign",
           method: "POST",
           data: myData
         }).success(callback).error(err);
+
       },
       editSaveDesign: function (user, jsonData, type, id, callback, err) {
         var myData = {
