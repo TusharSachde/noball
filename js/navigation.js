@@ -733,12 +733,16 @@ var navigationservice = angular.module('navigationservice', [])
       saveDesign: function (user, jsonData, type, callback, err) {
 
         var myData;
+        var str = "";
         if ($state.params.status == "edit") {
           myData = {
             "user": user,
             "description": jsonData,
-            "type": type
+            "type": type,
+            "id": $.jStorage.get("customId")
+
           };
+          str = "saveDesign";
           console.log(JSON.stringify(jsonData));
 
         } else {
@@ -746,8 +750,9 @@ var navigationservice = angular.module('navigationservice', [])
             "user": user,
             "description": jsonData,
             "type": type,
-            "id": $.jStorage.get("customId")
+
           };
+          str = "saveDesign";
         }
         return $http({
           url: adminurl + "saveDesign",
