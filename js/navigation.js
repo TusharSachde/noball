@@ -742,7 +742,7 @@ var navigationservice = angular.module('navigationservice', [])
             "id": $.jStorage.get("customId")
 
           };
-          str = "saveDesign";
+          str = "editSaveDesign";
           console.log(JSON.stringify(jsonData));
 
         } else {
