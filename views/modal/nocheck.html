@@ -1,41 +1,43 @@
 <div class="continue checkout">
-  <a href="" ng-click="$dismiss();" class="text-up pull-right mr10"><i class="fa fa-times" aria-hidden="true"></i></a>
-  
-       <div class="logo-img text-center">
-          <img src="img/logo_black.png" alt="logo">
-      </div>
-      <div ng-show="!isEnq">
-  <div class="headers">
-     
-      <div class="nocheck-text text-center">
-  <p class="margin0">Thank you for customising with Custom Cricket Company. </p>
-  <p class="margin0">Please enter your details below and <br>we'll get back to you within 24 hours. </p>
+    <a href="" ng-click="$dismiss();" class="text-up pull-right mr10"><i class="fa fa-times" aria-hidden="true"></i></a>
 
-      </div>
-  </div>
-  <form name="nocheckout" ng-submit="checkoutContinue(checkoutObj)" class="checks">
-<div class="form-group">
-    <label>First Name:</label>
-    <input type="text" ng-model="checkoutObj.fname" class="form-control" aplha-only required> 
+    <!--<pre>{{checkoutObj|json}}</pre>-->
+    <div class="logo-img text-center">
+        <img src="img/logo_black.png" alt="logo">
     </div>
-   
-    <div class="form-group">
-    <label>Last Name:</label>
-    <input type="text" class="form-control" ng-model="checkoutObj.lname" aplha-only required> 
+    <div ng-show="!isEnq">
+        <div class="headers">
+
+            <div class="nocheck-text text-center">
+                <p class="margin0">Thank you for customising with Custom Cricket Company. </p>
+                <p class="margin0">Please enter your details below and <br>we'll get back to you within 24 hours. </p>
+
+            </div>
+        </div>
+        <form name="nocheckout" ng-submit="checkoutContinue(checkoutObj)" class="checks">
+            <div class="form-group">
+                <label>First Name:</label>
+                <input type="text" ng-model="checkoutObj.fname" class="form-control" aplha-only required>
+            </div>
+
+            <div class="form-group">
+                <label>Last Name:</label>
+                <input type="text" class="form-control" ng-model="checkoutObj.lname" aplha-only required>
+            </div>
+            <div class="form-group">
+                <label>Email Id:</label>
+                <input type="text" class="form-control" ng-model="checkoutObj.email" ng-pattern='/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i'
+                    required>
+            </div>
+            <div class="form-group">
+                <label>Mobile No :</label>
+                <input type="text" class="form-control" ng-model="checkoutObj.mobile" maxlength="10" only-digits required>
+            </div>
+            <div class="continue-buttons text-center">
+
+                <button type="submit" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase" ng-disabled="nocheckout.$invalid">submit</button>
+            </div>
+        </form>
     </div>
-    <div class="form-group">
-    <label>Email Id:</label>
-    <input type="text" class="form-control" ng-model="checkoutObj.email" ng-pattern = '/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i' required> 
-    </div>
-     <div class="form-group">
-    <label>Mobile No :</label>
-    <input type="text" class="form-control" ng-model="checkoutObj.mobile" maxlength="10" only-digits required> 
-    </div>
-    <div class="continue-buttons text-center">
-     
-      <button type="submit" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase" ng-disabled="nocheckout.$invalid">submit</button>
-  </div>
-  </form>
-  </div>
-  <p class="pads-tops text-center" ng-show="isEnq">Thank You For Submitting</p>
+    <p class="pads-tops text-center" ng-show="isEnq">Thank You For Submitting</p>
 </div>

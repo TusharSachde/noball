@@ -8984,7 +8984,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $uibModal.open({
                 animation: true,
                 templateUrl: 'views/modal/nocheck.html',
-                controller: 'OrderSummaryCtrl',
+                // controller: 'OrderSummaryCtrl',
                 scope: $scope
             })
         }
