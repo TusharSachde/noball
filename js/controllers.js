@@ -1707,6 +1707,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 console.log($scope.combineJSON);
                 console.log($scope.lastJSON);
             } else {
+                $.jStorage.set("nextOne", true);
                 $scope.openLogin();
             }
         };
@@ -3446,6 +3447,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     });
                 $scope.lastJSON = JSON.stringify($scope.combineJSON);
             } else {
+                $.jStorage.set("nextOne", true);
                 $scope.openLogin();
             }
         };
@@ -4795,6 +4797,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         console.log(err);
                     });
             } else {
+                $.jStorage.set("nextOne", true);
                 $scope.openLogin();
             }
             // $scope.lastJSON = JSON.stringify($scope.combineJSON);
@@ -6297,6 +6300,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 console.log($scope.combineJSON);
                 console.log($scope.lastJSON);
             } else {
+                $.jStorage.set("nextOne", true);
                 $scope.openLogin();
             }
         };
@@ -8953,6 +8957,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
 
     .controller('OrderSummaryCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $window, cfpLoadingBar, $uibModal) {
+
+        $.jStorage.set("nextOne", false);
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("ordersummary");
         $scope.menutitle = NavigationService.makeactive("OrderSummary");
@@ -11330,28 +11336,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         var user1 = NavigationService.setUser(data);
                         console.log('111111111', data);
                         if ($rootScope.afterSessionSave) {
-                            console.log('openconfirmmmmmaterseeesss', data);
-                            console.log('$rootScope.afterSessionSave', $rootScope.afterSessionSave);
                             $scope.openConfirm();
                         }
-                        if ($.jStorage.get("onCustom") && $scope.getTab.tabNo != 4) {
-                            console.log('openconfirmmmmmOncustooommmm', user);
+                        if ($.jStorage.get("onCustom") && !$.jStorage.get("nextOne")) {
                             $scope.openConfirm();
                             NavigationService.saveDesign(data.email, $scope.getTab, $scope.getTab.type,
                                 function (data) {
                                     console.log('Save Design data: ', data);
-                                    // $state.go('savedesign');
-                                    // $uibModal.open({
-                                    //     animation: true,
-                                    //     templateUrl: 'views/modal/onlogin.html',
-                                    //     controller: 'headerctrl',
-                                    //     scope: $scope
-                                    // })
+
                                 },
                                 function (err) {
                                     console.log(err);
                                 });
-                        } else if ($.jStorage.get("onCustom") && $scope.getTab.tabNo == 4) {
+                        } else if ($.jStorage.get("onCustom") && $.jStorage.get("nextOne")) {
                             NavigationService.orderSummaryTrouser(input, $scope.getTab, $scope.getTab.type,
                                 function (data) {
                                     console.log('Order Summary odi data: ', data);
