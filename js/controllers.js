@@ -1490,6 +1490,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.changeDesign(index, img);
             }
         };
+
+
+
+
         var designImg = {
             baseColor: "#ffffff",
             trim1Color: "#ffff00",
@@ -5424,9 +5428,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.customizedShirt.cloth = 'img/odi-tshirts/trims/' + $scope.odiJson.design.designType + 'base/back/' + $scope.trimTshirt.highlightBase.tcolor + '.png'; //'img/tinytshirt 1 back.png';
                 $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/' + $scope.odiJson.design.designType + '/back.png'; //'img/tinytshirt 1 back back.png';
             }
-            // _.each($scope.customizedShirt,function(value,property){
-            //   console.log(angular.isObject($scope.customizedShirt[property]));
-            // });
         }
         // $scope.switchFrontBack(true);
         $scope.statuses.uploadStatus = false;
@@ -5727,6 +5728,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 //  $scope.selectPadsDesign(img);
             }
         }
+
+        $scope.openDesign1 = function (img) {
+
+            $scope.changeDesign($scope.designIndex, $scope.designTab, $scope.designImage);
+        };
+
         $scope.changeDesign = function (index, tab) {
 
             if (tab === 1) {
