@@ -2877,6 +2877,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.colorObj = $scope.padImages1;
         $scope.changePadsImages = function (color) {
             console.log(color);
+            console.log($scope.colorObj);
             var val = _.pick($scope.colorObj, color);
             console.log(val);
             $scope.padColors = color;
@@ -2977,6 +2978,67 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             name: "yellow"
         }];
 
+        $scope.tabchange = function (tab, a) {
+            console.log(tab, a);
+            $scope.tab = tab;
+            $scope.designJson.tab = tab;
+            $scope.designJson.tabNo = a;
+            if (a == 1) {
+                $scope.classa = 'active';
+                $scope.classb = '';
+                $scope.classc = '';
+                $scope.classd = '';
+                $scope.classe = '';
+
+                $scope.tabAllowToa = false;
+
+
+            }
+            if (a == 2) {
+                $scope.classb = 'active';
+                $scope.classa = '';
+                $scope.classc = '';
+                $scope.classd = '';
+                $scope.classe = '';
+                $scope.tabAllowToa = false;
+                $scope.tabAllowTob = false;
+
+            }
+            if (a == 3) {
+                $scope.classc = 'active';
+                $scope.classb = '';
+                $scope.classa = '';
+                $scope.classd = '';
+                $scope.classe = '';
+                $scope.tabAllowToa = false;
+                $scope.tabAllowTob = false;
+                $scope.tabAllowToc = false;
+            }
+            if (a == 4) {
+                $scope.classd = 'active';
+                $scope.classb = '';
+                $scope.classc = '';
+                $scope.classa = '';
+                $scope.classe = '';
+                $scope.tabAllowToa = false;
+                $scope.tabAllowTob = false;
+                $scope.tabAllowToc = false;
+                $scope.tabAllowTod = false;
+            } else if (a == 5) {
+                $scope.classe = 'active';
+                $scope.classb = '';
+                $scope.classc = '';
+                $scope.classd = '';
+                $scope.classa = '';
+                $scope.tabAllowToa = false;
+                $scope.tabAllowTob = false;
+                $scope.tabAllowToc = false;
+                $scope.tabAllowTod = false;
+                $scope.tabAllowToe = false;
+
+            }
+        };
+
         $scope.padImages1 = {
             "dblue": ["img/padscolor/dblue/dblue.png"],
             "black": ["img/padscolor/updated/black/1.png"],
@@ -3018,18 +3080,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "dred": ["img/padscolor/updated/red/3.png"],
             "dgreen": ["img/padscolor/updated/dgreen/3.png"]
         };
-        //     $scope.padImages4 = {
-        //     "dred": ["img/padscolor/dblue/dred.png"],
-        //     "black": ["img/padscolor/updated/black/2.png"],
-        //     "grey": ["img/padscolor/updated/grey/2.png"],
-        //     "nblue": ["img/padscolor/updated/nblue/2.png"],
-        //     "ngreen": ["img/padscolor/updated/ngreen/2.png"],
-        //     "pink": ["img/padscolor/updated/pink/2.png"],
-        //     "white": ["img/padscolor/updated/white/2.png"],
-        //     "yellow": ["img/padscolor/updated/yellow/2.png"],
-        //     "dblue": ["img/padscolor/updated/dblue/1.png"]
-        // };
-
 
         $scope.myArr = [{
             name: "HOWZAT 101",
@@ -3048,6 +3098,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             colorObj: $scope.padImages3
         }];
 
+        function getColorObjByName(name) {
+            _.each($scope.myArr, function (obj) {
+                if (obj.name == name) {
+                    $scope.colorObj = obj.colorObj;
+                }
+            });
+        }
+
         $scope.LogosTab = false;
         $scope.quantityTab = false;
         $scope.turnOnLogos = function (val) {
@@ -3060,7 +3118,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $timeout(function () {
                 $scope.tabchange($scope.designJson.tab, $scope.designJson.tabNo);
             }, 100)
+            getColorObjByName($scope.designJson.design.name);
             console.log('$scope.designJson', $scope.designJson);
+
         } else {
             $scope.openDesign1($scope.myArr[0]);
 
@@ -3380,15 +3440,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     function (err) {
                         console.log(err);
                     });
-
                 $scope.lastJSON = JSON.stringify($scope.combineJSON);
-                console.log($scope.combineJSON);
-                console.log($scope.lastJSON);
             } else {
                 $scope.openLogin();
             }
-
-        }
+        };
 
 
         $scope.tab = "design";
@@ -3398,66 +3454,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.classd = '';
         $scope.classe = '';
 
-        $scope.tabchange = function (tab, a) {
-            console.log(tab, a);
-            $scope.tab = tab;
-            $scope.designJson.tab = tab;
-            $scope.designJson.tabNo = a;
-            if (a == 1) {
-                $scope.classa = 'active';
-                $scope.classb = '';
-                $scope.classc = '';
-                $scope.classd = '';
-                $scope.classe = '';
 
-                $scope.tabAllowToa = false;
-
-
-            }
-            if (a == 2) {
-                $scope.classb = 'active';
-                $scope.classa = '';
-                $scope.classc = '';
-                $scope.classd = '';
-                $scope.classe = '';
-                $scope.tabAllowToa = false;
-                $scope.tabAllowTob = false;
-
-            }
-            if (a == 3) {
-                $scope.classc = 'active';
-                $scope.classb = '';
-                $scope.classa = '';
-                $scope.classd = '';
-                $scope.classe = '';
-                $scope.tabAllowToa = false;
-                $scope.tabAllowTob = false;
-                $scope.tabAllowToc = false;
-            }
-            if (a == 4) {
-                $scope.classd = 'active';
-                $scope.classb = '';
-                $scope.classc = '';
-                $scope.classa = '';
-                $scope.classe = '';
-                $scope.tabAllowToa = false;
-                $scope.tabAllowTob = false;
-                $scope.tabAllowToc = false;
-                $scope.tabAllowTod = false;
-            } else if (a == 5) {
-                $scope.classe = 'active';
-                $scope.classb = '';
-                $scope.classc = '';
-                $scope.classd = '';
-                $scope.classa = '';
-                $scope.tabAllowToa = false;
-                $scope.tabAllowTob = false;
-                $scope.tabAllowToc = false;
-                $scope.tabAllowTod = false;
-                $scope.tabAllowToe = false;
-
-            }
-        };
 
         $scope.demo2 = {
             range: {

@@ -7,6 +7,7 @@
         <div class="product-detail">
             <div class="row">
                 <div class="col-md-5">
+                    <!--<pre>{{designJson|json}}</pre>-->
                     <custom design="designJson" class="{{borderClass}}"></custom>
                     <div class="feature-buttons">
                         <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 1}"
@@ -146,7 +147,7 @@
                         <div class="edit-btn inline-block">
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('team',3); openTab('c');switchNavigation('c');">NEXT</button>
                         </div>
- <div class="customize-design">
+                        <div class="customize-design">
                             <ul>
                                 <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span>                                    to know more about customization tools.</li>
                                 <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves & pads attract
@@ -339,13 +340,13 @@
                             <!--<div class="add-button">
                                 <p class="pointer" ng-click="addPadsValues(); addQuantity(pad.quantity);"><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</p>
                             </div>-->
-                              <div class="total-amount clearfix">
+                            <div class="total-amount clearfix">
                                 <!--<p class="more-price">One time customization fee for Glove is <i class="fa fa-inr"></i> 5000</p>-->
                                 <p class="more-price">A one-time customization fees of INR 5000/- or equivalent (in your currency) will be incurred
                                     for your logo customization.</p>
-                                       <span class="pull-right tamount totalAmount uppercase Raleway-Medium mar20" ng-if="totalQuan==0">Total Amount: {{designJson.totalAmount | currencySymbol}}</span>
-                                       <span class="pull-right tamount totalAmount uppercase Raleway-Medium mar20" ng-if="totalQuan>0">Total Amount: {{designJson | PriceFilter | currencySymbol}}</span>                                       
-                                        <span class="pull-right tquantity totalAmount uppercase Raleway-Medium mar20">Total Quantity: {{totalQuan}}</span>
+                                <span class="pull-right tamount totalAmount uppercase Raleway-Medium mar20" ng-if="totalQuan==0">Total Amount: {{designJson.totalAmount | currencySymbol}}</span>
+                                <span class="pull-right tamount totalAmount uppercase Raleway-Medium mar20" ng-if="totalQuan>0">Total Amount: {{designJson | PriceFilter | currencySymbol}}</span>
+                                <span class="pull-right tquantity totalAmount uppercase Raleway-Medium mar20">Total Quantity: {{totalQuan}}</span>
                                 <!--<span class="pull-right uppercase totalAmount Raleway-Medium">Total: {{totalAmount}}</span>-->
                             </div>
                             <!--<div class="total-amount">
