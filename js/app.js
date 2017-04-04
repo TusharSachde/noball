@@ -383,13 +383,13 @@ firstapp.filter('translateRotate', function () {
 
 
 firstapp.filter('currencyFilter', function ($filter) {
-  return function (input,isWithSymbol) {
+  return function (input, isWithSymbol) {
     var myCountry = $.jStorage.get('getCountry');
     retVal = "";
     var arr = _.filter(currencyObj, function (n) {
       return n.name == input.name;
     })
-    
+
     var priceObj;
     if (arr.length > 0) {
       priceObj = arr[0];
@@ -403,14 +403,14 @@ firstapp.filter('currencyFilter', function ($filter) {
     } else if (myCountry == 'US') {
       retVal = priceObj.usd;
     } else {
-      retVal = priceObj.usd;
+      retVal = priceObj.gbp;
     }
-    if(!isWithSymbol) {
+    if (!isWithSymbol) {
       return $filter("currencySymbol")(retVal);
     } else {
       return parseInt(retVal);
     }
-    
+
   }
 
 
@@ -426,6 +426,10 @@ firstapp.filter('currencySymbol', function () {
       retVal = "$ ";
     } else if (myCountry == 'GB') {
       retVal = "£ ";
+    } else if (myCountry == 'US') {
+      retVal = "$ ";
+    } else {
+      retVal = "£ ";
     }
     return retVal + input;
   };
@@ -434,48 +438,48 @@ firstapp.filter('currencySymbol', function () {
 firstapp.filter('PriceFilter', function () {
   return function (input) {
     var myCountry = $.jStorage.get('getCountry');
-     var addAmount = 0;
-     if(input.type == 'pads'){
-    if (myCountry == 'IN') {
-       addAmount = 5000;
-    } else if (myCountry == "AU") {
-       addAmount = 90;
-    } else if (myCountry == 'GB') {
-      addAmount = 60;
-    } else if (myCountry == 'US') {
-      addAmount = 75;
+    var addAmount = 0;
+    if (input.type == 'pads') {
+      if (myCountry == 'IN') {
+        addAmount = 5000;
+      } else if (myCountry == "AU") {
+        addAmount = 90;
+      } else if (myCountry == 'GB') {
+        addAmount = 60;
+      } else if (myCountry == 'US') {
+        addAmount = 75;
+      } else {
+        addAmount = 75;
+      }
+      return parseInt(input.totalAmount + addAmount);
+    } else if (input.type == 'gloves') {
+      if (myCountry == 'IN') {
+        addAmount = 5000;
+      } else if (myCountry == "AU") {
+        addAmount = 90;
+      } else if (myCountry == 'GB') {
+        addAmount = 60;
+      } else if (myCountry == 'US') {
+        addAmount = 75;
+      } else {
+        addAmount = 75;
+      }
+      return parseInt(input.totalAmount + addAmount);
     } else {
-       addAmount = 75;
+      if (myCountry == 'IN') {
+        addAmount = 0;
+      } else if (myCountry == "AU") {
+        addAmount = 0;
+      } else if (myCountry == 'GB') {
+        addAmount = 0;
+      } else if (myCountry == 'US') {
+        addAmount = 0;
+      } else {
+        addAmount = 0;
+      }
+
     }
-    return parseInt(input.totalAmount+addAmount);
-     }else if(input.type == 'gloves'){
-    if (myCountry == 'IN') {
-       addAmount = 5000;
-    } else if (myCountry == "AU") {
-       addAmount = 90;
-    } else if (myCountry == 'GB') {
-      addAmount = 60;
-    } else if (myCountry == 'US') {
-      addAmount = 75;
-    } else {
-       addAmount = 75;
-    }
-    return parseInt(input.totalAmount+addAmount);
-     }else{
-    if (myCountry == 'IN') {
-       addAmount = 0;
-    } else if (myCountry == "AU") {
-       addAmount = 0;
-    } else if (myCountry == 'GB') {
-      addAmount = 0;
-    } else if (myCountry == 'US') {
-      addAmount = 0;
-    } else {
-       addAmount = 0;
-    }
-    
-     }
-     return parseInt(parseInt(input.totalAmount)+addAmount);
+    return parseInt(parseInt(input.totalAmount) + addAmount);
   }
 });
 
