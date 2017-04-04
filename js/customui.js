@@ -5,7 +5,7 @@
           restrict: 'EA',
           templateUrl: 'views/directive/customUI.html',
           scope: {
-              design: "=design"
+              design: "=design",
           },
           link: function ($scope, element, attrs) {
 
@@ -42,14 +42,14 @@
                           height: 30,
                           top: 135,
                           right: 165,
-                          "z+'-'+index":9
+                          "z+'-'+index": 9
                       },
                       mainSponsorLogo: {
                           width: 161,
                           height: 120,
                           top: 210,
                           left: 153,
-                          
+
                       },
                       leftSleeveLogo: {
                           width: 30,
@@ -70,7 +70,7 @@
                           height: 80,
                           top: 100,
                           left: 150
-                          
+
                       },
                   },
                   "trousers": {
@@ -154,6 +154,7 @@
               $scope.showBack = function () {
                   $scope.isBack = true;
               };
+              $scope.design.showBack = $scope.showBack;
 
 
           }
@@ -194,7 +195,7 @@
           gbp: "39",
           aud: "68",
           euro: "53",
-      },{
+      }, {
           name: "INSIDE EDGE 202",
           inr: "3000",
           usd: "69",

@@ -22,7 +22,7 @@
               <p class="{{backwhite3}}">3. LOGOS</p>
               <span class="bread-back"></span>
             </li>
-            <li class="tab-item breadcrums {{classe}} {{tabAllowd}}" ng-disabled="tabAllowTod" ng-click="switchNavigation('d');">
+            <li class="tab-item breadcrums {{classd}} {{tabAllowd}}" ng-disabled="tabAllowTod" ng-click="switchNavigation('d');">
               <span class="bread-frnt"></span>
               <p class="{{backwhite5}}">4. QUANTITY</p>
               <span class="bread-back"></span>
@@ -258,7 +258,7 @@
                     Size:
                     <div class="range">
                       <div range-slider on-handle-down="changeLogo('teamLogo')" on-handle-up="resetLogoStyle('teamLogo')" ng-model="odiJson.teamLogo.size"
-                        min="0" max="200" model-max="odiJson.teamLogo.size" model-min="rslider.min" pin-handle="min"></div>
+                        min="0" max="50" model-max="odiJson.teamLogo.size" model-min="rslider.min" pin-handle="min"></div>
                     </div>
                   </div>
                   <div class="edit-btn">
@@ -300,7 +300,7 @@
                       <div class="tex-cont range-custom" ng-if="customizedShirt.teamlogo">
                         Size:
                         <div class="range">
-                          <div range-slider on-handle-down="changeLogo('teamlogo')" on-handle-up="resetLogoStyle('teamlogo')" ng-model="customizedShirt['teamlogo'].attributes.width" min="-150" max="200" model-max="customizedShirt['teamlogo'].attributes.width" model-min="rslider.min" pin-handle="min"></div>
+                          <div range-slider on-handle-down="changeLogo('teamlogo')" on-handle-up="resetLogoStyle('teamlogo')" ng-model="customizedShirt['teamlogo'].attributes.width" min="-150" max="50" model-max="customizedShirt['teamlogo'].attributes.width" model-min="rslider.min" pin-handle="min"></div>
                         </div>
                         <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="openUploads('teamlogo', 'Left Chest')">CHANGE</button>
                         <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="emptyImage('teamlogo')">REMOVE</button>
@@ -321,7 +321,7 @@
                         Size:
                         <div class="range">
                           <div range-slider on-handle-down="changeLogo('rightChestLogo')" on-handle-up="resetLogoStyle('rightChestLogo')" ng-model="odiJson.rightLogo.size"
-                            min="0" max="200" model-max="odiJson.rightChestLogo.size" model-min="rslider.min" pin-handle="min"></div>
+                            min="0" max="50" model-max="odiJson.rightChestLogo.size" model-min="rslider.min" pin-handle="min"></div>
                         </div>
                         <!-- <div range-slider min="-150" max="100" model-max="max" pin-handle="min"></div> -->
                         <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="openUploads('rightChestLogo', 'Right Chest')">CHANGE</button>
@@ -342,7 +342,7 @@
                         Size:
                         <div class="range">
                           <div range-slider on-handle-down="changeLogo('mainSponsorLogo')" on-handle-up="resetLogoStyle('mainSponsorLogo')" ng-model="odiJson.mainSponsorLogo.size"
-                            min="0" max="200" model-max="odiJson.mainSponsorLogo.size" model-min="rslider.min" pin-handle="min"></div>
+                            min="0" max="50" model-max="odiJson.mainSponsorLogo.size" model-min="rslider.min" pin-handle="min"></div>
                         </div>
                         <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="openUploads('mainSponsorLogo', 'Main Sponsor')">CHANGE</button>
                         <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="emptyImage('mainSponsorLogo')">REMOVE</button>
@@ -362,7 +362,7 @@
                         Size:
                         <div class="range">
                           <div range-slider on-handle-down="changeLogo('leftSleeveLogo')" on-handle-up="resetLogoStyle('leftSleeveLogo')" ng-model="odiJson.leftSleeveLogo.size"
-                            min="0" max="200" model-max="odiJson.leftSleeveLogo.size" model-min="rslider.min" pin-handle="min"></div>
+                            min="0" max="50" model-max="odiJson.leftSleeveLogo.size" model-min="rslider.min" pin-handle="min"></div>
                         </div>
                         <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="openUploads('leftSleeveLogo', 'Left Sleeve')">CHANGE</button>
                         <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="emptyImage('leftSleeveLogo')">REMOVE</button>
@@ -382,7 +382,7 @@
                         Size:
                         <div class="range">
                           <div range-slider on-handle-down="changeLogo('rightSleeveLogo')" on-handle-up="resetLogoStyle('rightSleeveLogo')" ng-model="odiJson.rightSleeveLogo.size"
-                            min="0" max="200" model-max="odiJson.rightSleeveLogo.size" model-min="rslider.min" pin-handle="min"></div>
+                            min="0" max="50" model-max="odiJson.rightSleeveLogo.size" model-min="rslider.min" pin-handle="min"></div>
                         </div>
                         <button href="" class="btn btn-outline btn-dark block full-width" ng-click="openUploads('rightSleeveLogo', 'Right Sleeve')">CHANGE</button>
                         <button href="" class="btn btn-outline btn-dark block full-width" ng-click="emptyImage('rightSleeveLogo')">REMOVE</button>
@@ -402,7 +402,7 @@
                         Size:
                         <div class="range">
                           <div range-slider on-handle-down="changeLogo('backSponsorLogo')" on-handle-up="resetLogoStyle('backSponsorLogo')" ng-model="odiJson.backSponsorLogo.size"
-                            min="0" max="200" model-max="odiJson.backSponsorLogo.size" model-min="rslider.min" pin-handle="min"></div>
+                            min="0" max="50" model-max="odiJson.backSponsorLogo.size" model-min="rslider.min" pin-handle="min"></div>
                         </div>
                         <button href="" class="btn btn-outline btn-dark block full-width" ng-click="openUploads('backSponsorLogo', 'Back Logo')">CHANGE</button>
                         <button href="" class="btn btn-outline btn-dark block full-width" ng-click="emptyImage('backSponsorLogo')">REMOVE</button>
@@ -609,8 +609,8 @@
                               <span>size</span>
                             </div>
                             <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                              <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="odiJson.font.nameSize" min="-150"
-                                max="200" model-max="odiJson.font.nameSize" model-min="rslider.min" pin-handle="min">
+                              <div range-slider ng-model="odiJson.font.nameSize" min="5" max="50" model-max="odiJson.font.nameSize" model-min="rslider.min"
+                                pin-handle="min">
                               </div>
                               <!-- <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBack.attributes.fontSize" min="-150" max="100" model-max="jerseyBack.attributes.fontSize" model-min="rslider.min" pin-handle="min"></div> -->
                             </div>
@@ -623,8 +623,8 @@
                               <span>spacing</span>
                             </div>
                             <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                              <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="odiJson.font.nameSpacing" min="-150"
-                                max="200" model-max="odiJson.font.nameSpacing" model-min="rslider.min" pin-handle="min">
+                              <div range-slider ng-model="odiJson.font.nameSpacing" min="5" max="50" model-max="odiJson.font.nameSpacing" model-min="rslider.min"
+                                pin-handle="min">
                               </div>
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-3">
@@ -641,10 +641,9 @@
                               <span>size</span>
                             </div>
                             <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                              <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="odiJson.font.numberSize" min="-150"
-                                max="200" model-max="odiJson.font.numberSize" model-min="rslider.min" pin-handle="min">
+                              <div range-slider ng-model="odiJson.font.numberSize" min="5" max="50" model-max="odiJson.font.numberSize" model-min="rslider.min"
+                                pin-handle="min">
                               </div>
-                              <!-- <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBack.attributes.fontSize" min="-150" max="100" model-max="jerseyBack.attributes.fontSize" model-min="rslider.min" pin-handle="min"></div> -->
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-3">
                               <input class="inputtext" type="number" name="mySize" ng-model="odiJson.font.numberSize">
@@ -655,8 +654,8 @@
                               <span>spacing</span>
                             </div>
                             <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                              <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="odiJson.font.numberSpacing" min="-150"
-                                max="200" model-max="odiJson.font.numberSpacing" model-min="rslider.min" pin-handle="min">
+                              <div range-slider ng-model="odiJson.font.numberSpacing" min="5" max="50" model-max="odiJson.font.numberSpacing" model-min="rslider.min"
+                                pin-handle="min">
                               </div>
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-3">

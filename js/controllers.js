@@ -3734,7 +3734,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.mymodel.name.border = "1px solid #ccc";
         };
         $scope.resetTextStyle = function () {
-            $scope.mymodel.name.border = "none";
+            // $scope.mymodel.name.border = "none";
             $scope.$apply();
         };
         $scope.emptyImage = function (key) {
@@ -5201,7 +5201,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             },
             teamLogo: {
                 image: null,
-                size: 100
+                size: 25
             },
             rightChestLogo: {
                 image: "img/logo_black.png",
@@ -5209,19 +5209,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             },
             mainSponsorLogo: {
                 image: null,
-                size: 100
+                size: 25
             },
             leftSleeveLogo: {
                 image: null,
-                size: 100
+                size: 25
             },
             rightSleeveLogo: {
                 image: null,
-                size: 100
+                size: 25
             },
             backSponsorLogo: {
                 image: null,
-                size: 100
+                size: 25
             },
             font: {
                 'fontStyle': 'arial',
@@ -5445,10 +5445,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
         $scope.changeText = function (val) {
             console.log($scope.odiJson.font.nameSize);
-            //$scope.customizedShirt[key].attributes.width = "calc(50px + " + $scope.customizedShirt[key].attributes.width + "px)"
-            //$scope.customizedShirt[key].attributes.position = "relative"
-            //$scope.customizedShirt[key].attributes.top = "calc(25px - " + $scope.customizedShirt[key].attributes.width / 2 + "px)"
-            //$scope.customizedShirt[key].attributes.left = "calc(25px - " + $scope.customizedShirt[key].attributes.width / 2 + "px)"
             $scope.odiJson.font.nameSize = val;
             $scope.jerseyBack.attributes.border = "1px solid #ccc";
             $scope.$apply();
@@ -5732,16 +5728,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         }
         $scope.changeDesign = function (index, tab) {
-            // $scope.odiJson.design.designName = "design" + (index + 1);
-            // console.log($scope.odiJson.design.designName);
-            // $scope.switchFrontBack($scope.trimTshirt.highlightOne.flag, type);
-            // $scope.switchTrimHighlightOne($scope.trimTshirt.highlightOne.flag,  $scope.odiJson.color.trim1ColorName,$scope.odiJson.design.designType,$scope.odiJson.color.trim1);
-            // $scope.switchTrimHighlightTwo($scope.trimTshirt.highlightTwo.flag,  $scope.odiJson.color.trim2ColorName,$scope.odiJson.design.designType,$scope.odiJson.color.trim2);
-            // if ($scope.odiJson.design.designName === "design1" || $scope.odiJson.design.designName === "design2" || $scope.odiJson.design.designName === "design3") {
-            //   $scope.trimTwoDisable = "btn-disabled";
-            // } else {
-            //   $scope.trimTwoDisable = "btn-disabled"; // remove btn-disabled later
-            // }
+
             if (tab === 1) {
                 if (index === 0) {
                     $scope.trimTshirt.highlightBase.disable = "unnoable";
@@ -5761,16 +5748,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.trimHexColors('highlightOne', '#666');
                     $scope.trimHexColors('highlightTwo', '#666');
                     $scope.trimHexColors('highlightBase', '#2175d9');
-                    // } else if (index === 1) {
-                    //     $scope.trimTshirt.highlightBase.disable = "unnoable";
-                    //     $scope.trimTshirt.highlightOne.disable = "unnoable";
-                    //     $scope.trimTshirt.highlightTwo.disable = "unnoable";
-                    //     $scope.odiJson.design.designName = "design2";
-                    //     $scope.odiJson.design.designType = 'odi';
-                    //     $scope.trimTabs.light3.active = "activeme";
-                    //     $scope.switchTrimHighlightOne(true, 'black', $scope.odiJson.design.designType,$scope.odiJson.color.trim1);
-                    //     $scope.switchTrimHighlightTwo(true, 'white', $scope.odiJson.design.designType,$scope.odiJson.color.trim2);
-                    //     $scope.switchTrimHighlightBase(true, 'white', $scope.odiJson.design.designType,$scope.odiJson.color.base);
+
                 } else if (index === 1) {
                     $scope.trimTshirt.highlightBase.disable = "unnoable";
                     $scope.trimTshirt.highlightOne.disable = "unnoable";
@@ -5925,16 +5903,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             } else if (tab === 2) {
                 if (index === 0) {
-                    //     $scope.trimTshirt.highlightBase.disable = "unnoable";
-                    //     $scope.trimTshirt.highlightOne.disable = "unnoable";
-                    //     $scope.trimTshirt.highlightTwo.disable = "noable";
-                    //     $scope.odiJson.design.designName = "design5";
-                    //     $scope.odiJson.design.designType = 'training';
-                    //     $scope.trimTabs.light3.active = "activeme";
-                    //     $scope.switchTrimHighlightOne(true, 'royal_blue', 'training',$scope.odiJson.color.trim1);
-                    //     $scope.switchTrimHighlightTwo(true, 'white', 'training',$scope.odiJson.color.trim2);
-                    //     $scope.switchTrimHighlightBase(true, 'lemon_yellow', 'training',$scope.odiJson.color.base);
-                    // } else if (index === 1) {
+
                     $scope.trimTshirt.highlightBase.disable = "noable";
                     $scope.trimTshirt.highlightOne.disable = "noable";
                     $scope.trimTshirt.highlightTwo.disable = "noable";
@@ -6087,13 +6056,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.changeDesignButton(1);
 
-
-        // $scope.showCheck = true;
-        // $scope.showVid = function () {
-        //   $scope.showCheck = false;
-
-        // }
-        // $scope.showVideo = true;
         $scope.showVid = function () {
             $scope.showVideo = false;
         }
@@ -6190,10 +6152,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log('inside fun');
             // $scope.mymodel = "";
             $scope.addedTxt = true;
-            //  var addtxt = $scope.TextBoxDetails.length + 1;
-            //  $scope.TextBoxDetails.splice(0, 0, {
-            //      'id': '' + addtxt
-            //  });
         };
         // $scope.mymodel = "";
         $scope.mymodel = {};
@@ -6236,26 +6194,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         var loadGully = $interval(function () {
             if (document.getElementById('gully-shirt')) {
                 $scope.showGully = function () {
-                    // var data = "data:image/svg+xml," +
-                    //     "<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'>" +
-                    //     "<foreignObject width='100%' height='100%'>" +
-                    //     "<div xmlns='http://www.w3.org/1999/xhtml' style='font-size:12px'>" +
-                    //     document.getElementById('gully-shirt').innerHTML +
-                    //     "</div>" +
-                    //     "</foreignObject>" +
-                    //     "</svg>";
                     html2canvas(document.getElementById('gully-shirt')).then(function (canvas) {
-                        // console.log(document.getElementById('gully-shirt'));
-                        // var c = canvas.getContext('2d');
-                        // var image = new Image();
-                        // var currentTag = $scope.customizedShirt.rightchest;
-                        // image.src = "http://192.168.0.111/cccbackend/uploads/" + currentTag.image;
-                        // if (currentTag.image != undefined && currentTag.image != null) {
-                        //     image.onload = function() {
-                        //         c.drawImage(image, 128, 160, 50, 50);
-                        //     };
-                        //     console.log(image.src);
-                        // }
+
                         document.getElementById('gully-shirt').appendChild(canvas);
                         console.log(canvas.toDataURL('image/png'));
                     });
@@ -6323,7 +6263,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.orderSummary($scope.lastJSON, $scope.ml, $scope.rc, $scope.ls, $scope.rs, $scope.tl, function (data) {
                 console.log(data);
                 if (data.value) {
-                    // $state.go('ordersummary', { json: data });
                     console.log("yes data");
                 } else {
                     console.log("no data");
@@ -6692,6 +6631,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
             if (a == 4) {
                 if ($scope.tabThree) {
+                    console.log("BAck shouwld be called");
                     $scope.classd = 'active';
                     $scope.classb = '';
                     $scope.classc = '';
@@ -6700,6 +6640,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.tabFour = true;
                     $scope.tab = tab;
                     $scope.backwhite5 = "";
+                    $scope.odiJson.showBack();
                 }
             } else if (a == 5) {
                 if ($scope.tabThree) {
