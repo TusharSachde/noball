@@ -5201,7 +5201,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             },
             teamLogo: {
                 image: null,
-                size: 25
+                size: 100
             },
             rightChestLogo: {
                 image: "img/logo_black.png",
@@ -5209,19 +5209,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             },
             mainSponsorLogo: {
                 image: null,
-                size: 25
+                size: 100
             },
             leftSleeveLogo: {
                 image: null,
-                size: 25
+                size: 100
             },
             rightSleeveLogo: {
                 image: null,
-                size: 25
+                size: 100
             },
             backSponsorLogo: {
                 image: null,
-                size: 25
+                size: 100
             },
             font: {
                 'fontStyle': 'arial',
@@ -5271,7 +5271,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         // slider
         $scope.rslider = {
-            min: -130,
+            min: 10,
             max: 100
         };
         // $scope.statuses.copyright = false;
@@ -5432,11 +5432,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.statuses.uploadStatus = false;
         $scope.tempImage = "";
         $scope.changeLogo = function (key) {
-            console.log(key);
+            console.log("Change it now");
             $scope.odiJson[key].border = "1px solid #ccc";
         };
         $scope.resetLogoStyle = function (key) {
-            $scope.odiJson[key].border = "none";
+            console.log(key);
+            console.log($scope.odiJson);
+            console.log($scope.odiJson[key].border);
+            $scope.odiJson[key].border = null;
+            console.log($scope.odiJson[key].border);
             $scope.$apply();
         };
         $scope.changeText = function (val) {
