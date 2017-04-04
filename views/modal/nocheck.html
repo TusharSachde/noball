@@ -33,6 +33,14 @@
                 <label>Mobile No :</label>
                 <input type="text" class="form-control" ng-model="checkoutObj.mobile" maxlength="10" only-digits required>
             </div>
+            <div class="form-group">
+                <label>Country</label>
+                <input type="text" class="form-control" ng-model="checkoutObj.country">
+            </div>
+            <div class="form-group">
+                <label>City:</label>
+                <input type="text" class="form-control" ng-model="checkoutObj.city">
+            </div>
             <div class="continue-buttons text-center">
 
                 <button type="submit" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase" ng-disabled="nocheckout.$invalid">submit</button>
