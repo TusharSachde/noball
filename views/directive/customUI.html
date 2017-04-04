@@ -3,21 +3,21 @@
     <div class="gully-shirt">
         <img ng-repeat="background in backgroundImages() track by $index" noloading="true" ng-src="{{background}}" class="trimshirt img-responsive">
 
-        <div class="div-internal-image" ng-class="{'borergrey':design[key].border}" ng-hide="isBack" ng-repeat="(key,imagePos) in imagesPositions()"
+        <div class="div-internal-image" ng-class="{'borergrey':design[key].border && !isBack}" ng-hide="isBack" ng-repeat="(key,imagePos) in imagesPositions()"
             ng-style="imagePos">
-            <img ng-src="{{design[key].image | serverimage}}" ng-if="key != 'backSponsorLogo' && design[key].image && design[key].image != ''" ng-style="{width:design[key].size}"
-                noloading="true">
+            <img ng-src="{{design[key].image | serverimage}}" ng-if="key != 'backSponsorLogo' && design[key].image && design[key].image != ''"
+                ng-style="{width:design[key].size}" noloading="true">
         </div>
-          <div class="div-internal-image" ng-class="{'borergrey':design[key].border}" ng-repeat="(key,imagePos) in imagesPositions()" ng-show="isBack"
-            ng-style="imagePos">
-            <img ng-src="{{design[key].image | serverimage}}" ng-if="design[key].image && design[key].image != '' && key == 'backSponsorLogo'" ng-style="{width:design[key].size}"
-                noloading="true">
+        <div class="div-internal-image" ng-class="{'borergrey':design[key].border && !isBack}" ng-repeat="(key,imagePos) in imagesPositions()"
+            ng-show="isBack" ng-style="imagePos">
+            <img ng-src="{{design[key].image | serverimage}}" ng-if="design[key].image && design[key].image != '' && key == 'backSponsorLogo'"
+                ng-style="{width:design[key].size}" noloading="true">
         </div>
-         <div ng-show="isBack" class="odi-t jersey-name uppercase text-center">
-             <!--<p ng-style="{'font-size':'{{design.font.nameSize}}+'px'','letterSpacing':design.font.nameSpacing,border:'none,rotate:0}">{{design.quantity[0].name}} </p>-->
-             <p ng-style="{'font-size':'{{design.font.nameSize+'px'}}'}">{{design.quantity[0].name}} </p>
-             </div>
-                  <div ng-show="isBack" class="odi-t jersey-no text-center" ng-style="{'fontSize':design.font.numberSize,'letterSpacing':design.font.numberSpacing,border:'none,rotate:0}">{{design.quantity[0].no}}</div>
+        <div ng-show="isBack" class="odi-t jersey-name uppercase text-center">
+            <!--<p ng-style="{'font-size':'{{design.font.nameSize}}+'px'','letterSpacing':design.font.nameSpacing,border:'none,rotate:0}">{{design.quantity[0].name}} </p>-->
+            <p ng-style="{'font-size':'{{design.font.nameSize+'px'}}'}">{{design.quantity[0].name}} </p>
+        </div>
+        <div ng-show="isBack" class="odi-t jersey-no text-center" ng-style="{'fontSize':design.font.numberSize,'letterSpacing':design.font.numberSpacing,border:'none,rotate:0}">{{design.quantity[0].no}}</div>
 
     </div>
     <div ng-if="design.type=='trousers' || design.type == 'odi' || design.type == 'shorts'">
