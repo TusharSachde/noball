@@ -263,7 +263,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, cfp
     })
 
     .state('savedesign', {
-      url: "/save-design",
+      url: "/savedesign",
       templateUrl: "views/template.html",
       controller: 'SaveDesignCtrl'
     })

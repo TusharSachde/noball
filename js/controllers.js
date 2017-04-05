@@ -5246,7 +5246,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             'quantity': '',
             'name': '',
             'no': '',
-            'sleeve': ''
+            'sleeve': 'short'
         }];
 
 
@@ -5359,11 +5359,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.addJerseyValues = function () {
             var tempObj = {
-                'size': "S",
+                'size': "L",
                 'quantity': '',
                 'name': '',
                 'no': '',
-                'sleeve': ''
+                'sleeve': 'short'
             };
             // $scope.jerseyBackArr.push(_.clone($scope.jerseyBack));
             $scope.odiJson.quantity.push(tempObj);
@@ -10365,7 +10365,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
     .controller('SaveDesignCtrl', function ($rootScope, $scope, $uibModal, $state, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
-        $scope.template = TemplateService.changecontent("save-design");
+        $scope.template = TemplateService.changecontent("savedesign");
         $scope.menutitle = NavigationService.makeactive("Save Design");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
