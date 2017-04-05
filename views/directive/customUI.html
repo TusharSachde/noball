@@ -9,11 +9,13 @@
             <img ng-src="{{design[key].image | serverimage}}" ng-if="key != 'backSponsorLogo' && design[key].image && design[key].image != ''"
                 ng-style="{width:design[key].size}" noloading="true">
         </div>
+
         <div class="div-internal-image" ng-class="{'borergrey':design[key].border}" ng-repeat="(key,imagePos) in imagesPositions()"
             ng-show="isBack" ng-style="imagePos">
             <img ng-src="{{design[key].image | serverimage}}" ng-if="design[key].image && design[key].image != '' && key == 'backSponsorLogo'"
                 ng-style="{width:design[key].size}" noloading="true">
         </div>
+
         <div ng-show="isBack" class="odi-t jersey-name uppercase text-center">
             <p ng-style="{'font-size':design.font.nameSize+'px','color':design.font.fontColor,'letter-spacing':design.font.nameSpacing, 'text-indent':design.font.nameSpacing,'font-family':design.font.fontStyle}">{{design.quantity[0].name}}</p>
         </div>

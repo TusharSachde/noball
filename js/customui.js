@@ -31,7 +31,7 @@
 
               var allOtherImages = {
                   "odi": {
-                      "name": {
+                      "Googly (SUB)": {
                           rightChestLogo: {
                               width: 30,
                               height: 30,
@@ -73,7 +73,394 @@
                               left: 150
                           },
                           isColar: true
-                      }
+                      },
+                           "Grubber (SUB)": {
+                          rightChestLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 135,
+                              left: 165
+                          },
+                          teamLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 135,
+                              right: 165,
+                              "z+'-'+index": 9
+                          },
+                          mainSponsorLogo: {
+                              width: 161,
+                              height: 120,
+                              top: 210,
+                              left: 153,
+
+                          },
+                          leftSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              left: 75,
+                              transform: 'rotate(10deg)'
+                          },
+                          rightSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              right: 75,
+                              transform: 'rotate(-10deg)'
+                          },
+                          backSponsorLogo: {
+                              width: 161,
+                              height: 80,
+                              top: 100,
+                              left: 150
+                          },
+                          isColar: true
+                      },
+                          "Plumb (SUB)": {
+                          rightChestLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 135,
+                              left: 165
+                          },
+                          teamLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 135,
+                              right: 165,
+                              "z+'-'+index": 9
+                          },
+                          mainSponsorLogo: {
+                              width: 161,
+                              height: 120,
+                              top: 210,
+                              left: 153,
+
+                          },
+                          leftSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              left: 75,
+                              transform: 'rotate(10deg)'
+                          },
+                          rightSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              right: 75,
+                              transform: 'rotate(-10deg)'
+                          },
+                          backSponsorLogo: {
+                              width: 161,
+                              height: 80,
+                              top: 100,
+                              left: 150
+                          },
+                          isColar: true
+                      },
+                      "Floater (SUB)": {
+                          rightChestLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 135,
+                              left: 165
+                          },
+                          teamLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 135,
+                              right: 165,
+                              "z+'-'+index": 9
+                          },
+                          mainSponsorLogo: {
+                              width: 161,
+                              height: 120,
+                              top: 210,
+                              left: 153,
+
+                          },
+                          leftSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              left: 75,
+                              transform: 'rotate(10deg)'
+                          },
+                          rightSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              right: 75,
+                              transform: 'rotate(-10deg)'
+                          },
+                          backSponsorLogo: {
+                              width: 161,
+                              height: 80,
+                              top: 100,
+                              left: 150
+                          },
+                          isColar: true
+                      },
+                              "Pace (C&S)": {
+                          rightChestLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 135,
+                              left: 165
+                          },
+                          teamLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 135,
+                              right: 165,
+                              "z+'-'+index": 9
+                          },
+                          mainSponsorLogo: {
+                              width: 161,
+                              height: 120,
+                              top: 210,
+                              left: 153,
+
+                          },
+                          leftSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              left: 75,
+                              transform: 'rotate(10deg)'
+                          },
+                          rightSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              right: 75,
+                              transform: 'rotate(-10deg)'
+                          },
+                          backSponsorLogo: {
+                              width: 161,
+                              height: 80,
+                              top: 100,
+                              left: 150
+                          },
+                          isColar: false
+                      },
+                         "Seam (C&S)": {
+                          rightChestLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 135,
+                              left: 165
+                          },
+                          teamLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 135,
+                              right: 165,
+                              "z+'-'+index": 9
+                          },
+                          mainSponsorLogo: {
+                              width: 161,
+                              height: 120,
+                              top: 210,
+                              left: 153,
+
+                          },
+                          leftSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              left: 75,
+                              transform: 'rotate(10deg)'
+                          },
+                          rightSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              right: 75,
+                              transform: 'rotate(-10deg)'
+                          },
+                          backSponsorLogo: {
+                              width: 161,
+                              height: 80,
+                              top: 100,
+                              left: 150
+                          },
+                          isColar: false
+                      },
+                       "Dipper (C&S)": {
+                          rightChestLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 135,
+                              left: 165
+                          },
+                          teamLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 135,
+                              right: 165,
+                              "z+'-'+index": 9
+                          },
+                          mainSponsorLogo: {
+                              width: 161,
+                              height: 120,
+                              top: 210,
+                              left: 153,
+
+                          },
+                          leftSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              left: 75,
+                              transform: 'rotate(10deg)'
+                          },
+                          rightSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              right: 75,
+                              transform: 'rotate(-10deg)'
+                          },
+                          backSponsorLogo: {
+                              width: 161,
+                              height: 80,
+                              top: 100,
+                              left: 150
+                          },
+                          isColar: false
+                      },
+                         "Flipper (C&S)": {
+                          rightChestLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 135,
+                              left: 165
+                          },
+                          teamLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 135,
+                              right: 165,
+                              "z+'-'+index": 9
+                          },
+                          mainSponsorLogo: {
+                              width: 161,
+                              height: 120,
+                              top: 210,
+                              left: 153,
+
+                          },
+                          leftSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              left: 75,
+                              transform: 'rotate(10deg)'
+                          },
+                          rightSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              right: 75,
+                              transform: 'rotate(-10deg)'
+                          },
+                          backSponsorLogo: {
+                              width: 161,
+                              height: 80,
+                              top: 100,
+                              left: 150
+                          },
+                          isColar: false
+                      },
+                      "Drift (C&S)": {
+                          rightChestLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 135,
+                              left: 165
+                          },
+                          teamLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 135,
+                              right: 165,
+                              "z+'-'+index": 9
+                          },
+                          mainSponsorLogo: {
+                              width: 161,
+                              height: 120,
+                              top: 210,
+                              left: 153,
+
+                          },
+                          leftSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              left: 75,
+                              transform: 'rotate(10deg)'
+                          },
+                          rightSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              right: 75,
+                              transform: 'rotate(-10deg)'
+                          },
+                          backSponsorLogo: {
+                              width: 161,
+                              height: 80,
+                              top: 100,
+                              left: 150
+                          },
+                          isColar: false
+                      },
+                           "Whites": {
+                          rightChestLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 135,
+                              left: 165
+                          },
+                          teamLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 135,
+                              right: 165,
+                              "z+'-'+index": 9
+                          },
+                          mainSponsorLogo: {
+                              width: 161,
+                              height: 120,
+                              top: 210,
+                              left: 153,
+
+                          },
+                          leftSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              left: 75,
+                              transform: 'rotate(10deg)'
+                          },
+                          rightSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              right: 75,
+                              transform: 'rotate(-10deg)'
+                          },
+                          backSponsorLogo: {
+                              width: 161,
+                              height: 80,
+                              top: 100,
+                              left: 150
+                          },
+                          isColar: true
+                      },
 
                   },
                   "trousers": {
