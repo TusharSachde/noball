@@ -31,47 +31,50 @@
 
               var allOtherImages = {
                   "odi": {
-                      rightChestLogo: {
-                          width: 30,
-                          height: 30,
-                          top: 135,
-                          left: 165
-                      },
-                      teamLogo: {
-                          width: 30,
-                          height: 30,
-                          top: 135,
-                          right: 165,
-                          "z+'-'+index": 9
-                      },
-                      mainSponsorLogo: {
-                          width: 161,
-                          height: 120,
-                          top: 210,
-                          left: 153,
+                      "name": {
+                          rightChestLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 135,
+                              left: 165
+                          },
+                          teamLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 135,
+                              right: 165,
+                              "z+'-'+index": 9
+                          },
+                          mainSponsorLogo: {
+                              width: 161,
+                              height: 120,
+                              top: 210,
+                              left: 153,
 
-                      },
-                      leftSleeveLogo: {
-                          width: 30,
-                          height: 30,
-                          top: 140,
-                          left: 75,
-                          transform: 'rotate(10deg)'
-                      },
-                      rightSleeveLogo: {
-                          width: 30,
-                          height: 30,
-                          top: 140,
-                          right: 75,
-                          transform: 'rotate(-10deg)'
-                      },
-                      backSponsorLogo: {
-                          width: 161,
-                          height: 80,
-                          top: 100,
-                          left: 150
+                          },
+                          leftSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              left: 75,
+                              transform: 'rotate(10deg)'
+                          },
+                          rightSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              right: 75,
+                              transform: 'rotate(-10deg)'
+                          },
+                          backSponsorLogo: {
+                              width: 161,
+                              height: 80,
+                              top: 100,
+                              left: 150
+                          },
+                          isColar: true
+                      }
 
-                      },
                   },
                   "trousers": {
                       leftLogo: {
@@ -140,7 +143,7 @@
                   }
               };
               $scope.imagesPositions = function () {
-                  if ($scope.design.type == "gloves") {
+                  if ($scope.design.type == "gloves" || $scope.design.type == "odi") {
                       return allOtherImages[$scope.design.type][$scope.design.design.name];
                   } else {
                       return allOtherImages[$scope.design.type];

@@ -411,7 +411,7 @@ firstapp.filter('currencyFilter', function ($filter) {
       return parseInt(retVal);
     }
 
-  }
+  };
 
 
 });

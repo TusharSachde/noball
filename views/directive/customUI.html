@@ -1,8 +1,7 @@
 <!--<pre class="text-left">{{design|json}}</pre>-->
 <div class="text-center" style="height:507px;">
     <div class="gully-shirt">
-        <!--<img src="img/odi-tshirts/backdrop/front_old.png" ng-if="design.type == 'odi' && !isBack">-->
-        <!--<img src="img/odi-tshirts/backdrop/back_old.png" ng-if="design.type == 'odi' && isBack">-->
+
         <img ng-repeat="background in backgroundImages() track by $index" noloading="true" ng-src="{{background}}" class="trimshirt img-responsive">
 
         <div class="div-internal-image" ng-class="{'borergrey':design[key].border}" ng-hide="isBack" ng-repeat="(key,imagePos) in imagesPositions()"
@@ -19,6 +18,12 @@
             <p ng-style="{'font-size':design.font.nameSize+'px','color':design.font.fontColor,'letter-spacing':design.font.nameSpacing, 'text-indent':design.font.nameSpacing,'font-family':design.font.fontStyle}">{{design.quantity[0].name}}</p>
         </div>
         <div ng-show="isBack" class="odi-t jersey-no text-center" ng-style="{'font-size':design.font.numberSize+'px','color':design.font.fontColor,'letter-spacing':design.font.numberSpacing,'text-indent':design.font.numberSpacing,'font-family':design.font.fontStyle}">{{design.quantity[0].no}}</div>
+
+        <img src="img/odi-tshirts/backdrop/odi/front1.png" ng-show="!isBack" class="backdrop">
+        <img src="img/odi-tshirts/backdrop/odi/back1.png" ng-show="isBack" class="backdrop">
+
+
+
 
     </div>
     <div ng-if="design.type=='trousers' || design.type == 'odi' || design.type == 'shorts'">
