@@ -58,30 +58,30 @@
                               height: 30,
                               top: 130,
                               right: 70,
-                              transform: 'rotate(10deg)'
+                             
                           },
                           leftSleeveLogoBack: {
                               onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 130,
-                              right: 65,
-                              transform: 'rotate(10deg)'
+                              left: 65,
+                             
                           },
                           rightSleeveLogo: {
                               width: 30,
                               height: 30,
                               top: 130,
                               left: 70,
-                              transform: 'rotate(-10deg)'
+                             
                           },
                           rightSleeveLogoBack: {
                               onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 130,
-                              left: 65,
-                              transform: 'rotate(-10deg)'
+                              right: 65,
+                            
                           },
                           backSponsorLogo: {
                               onlyOnBack: true,
@@ -290,8 +290,7 @@
                               width: 161,
                               height: 120,
                               top: 210,
-                              left: 153,
-
+                              left: 153
                           },
                           leftSleeveLogo: {
                               width: 30,
@@ -328,7 +327,8 @@
                               width: 161,
                               height: 80,
                               top: 100,
-                              left: 150
+                              left: 150,
+                        
                           },
                           isColar: false
                       },
