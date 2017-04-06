@@ -10,16 +10,17 @@
           link: function ($scope, element, attrs) {
 
               var design = $scope.design;
+              var obj = {};
               $scope.backgroundImages = function () {
                   if ($scope.isBack) {
-                      var obj = _.compact(_.map(design.design, function (n, key) {
+                      obj = _.compact(_.map(design.design, function (n, key) {
                           if (key != "name" && key != "designName" && key != "designType" && !_.endsWith(n, '/.png')) {
                               n = n.replace("/front/", "/back/");
                               return n;
                           }
                       }));
                   } else {
-                      var obj = _.compact(_.map(design.design, function (n, key) {
+                      obj = _.compact(_.map(design.design, function (n, key) {
                           if (key != "name" && key != "designName" && key != "designType" && !_.endsWith(n, '/.png')) {
                               return n;
                           }
@@ -58,7 +59,9 @@
                               top: 140,
                               left: 75,
                               transform: 'rotate(10deg)'
-                          },  leftSleeveLogoBack: {
+                          },
+                          leftSleeveLogoBack: {
+                              onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 140,
@@ -72,7 +75,8 @@
                               right: 75,
                               transform: 'rotate(-10deg)'
                           },
-                            rightSleeveLogoBack: {
+                          rightSleeveLogoBack: {
+                              onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 140,
@@ -116,7 +120,8 @@
                               left: 75,
                               transform: 'rotate(10deg)'
                           },
-                             leftSleeveLogoBack: {
+                          leftSleeveLogoBack: {
+                              onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 140,
@@ -130,7 +135,8 @@
                               right: 75,
                               transform: 'rotate(-10deg)'
                           },
-                            rightSleeveLogoBack: {
+                          rightSleeveLogoBack: {
+                              onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 140,
@@ -174,7 +180,8 @@
                               left: 75,
                               transform: 'rotate(10deg)'
                           },
-                            leftSleeveLogoBack: {
+                          leftSleeveLogoBack: {
+                              onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 140,
@@ -188,7 +195,8 @@
                               right: 75,
                               transform: 'rotate(-10deg)'
                           },
-                              rightSleeveLogoBack: {
+                          rightSleeveLogoBack: {
+                              onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 140,
@@ -232,7 +240,8 @@
                               left: 75,
                               transform: 'rotate(10deg)'
                           },
-                              leftSleeveLogoBack: {
+                          leftSleeveLogoBack: {
+                              onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 140,
@@ -246,7 +255,8 @@
                               right: 75,
                               transform: 'rotate(-10deg)'
                           },
-                            rightSleeveLogoBack: {
+                          rightSleeveLogoBack: {
+                              onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 140,
@@ -290,7 +300,8 @@
                               left: 75,
                               transform: 'rotate(10deg)'
                           },
-                             leftSleeveLogoBack: {
+                          leftSleeveLogoBack: {
+                              onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 140,
@@ -304,7 +315,8 @@
                               right: 75,
                               transform: 'rotate(-10deg)'
                           },
-                             rightSleeveLogoBack: {
+                          rightSleeveLogoBack: {
+                              onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 140,
@@ -348,7 +360,8 @@
                               left: 75,
                               transform: 'rotate(10deg)'
                           },
-                            leftSleeveLogoBack: {
+                          leftSleeveLogoBack: {
+                              onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 140,
@@ -361,7 +374,9 @@
                               top: 140,
                               right: 75,
                               transform: 'rotate(-10deg)'
-                          },  rightSleeveLogoBack: {
+                          },
+                          rightSleeveLogoBack: {
+                              onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 140,
@@ -405,7 +420,8 @@
                               left: 75,
                               transform: 'rotate(10deg)'
                           },
-                              leftSleeveLogoBack: {
+                          leftSleeveLogoBack: {
+                              onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 140,
@@ -418,7 +434,9 @@
                               top: 140,
                               right: 75,
                               transform: 'rotate(-10deg)'
-                          }, rightSleeveLogoBack: {
+                          },
+                          rightSleeveLogoBack: {
+                              onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 140,
@@ -462,7 +480,8 @@
                               left: 75,
                               transform: 'rotate(10deg)'
                           },
-                             leftSleeveLogoBack: {
+                          leftSleeveLogoBack: {
+                              onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 140,
@@ -476,7 +495,8 @@
                               right: 75,
                               transform: 'rotate(-10deg)'
                           },
-                              rightSleeveLogoBack: {
+                          rightSleeveLogoBack: {
+                              onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 140,
@@ -520,7 +540,8 @@
                               left: 75,
                               transform: 'rotate(10deg)'
                           },
-                            leftSleeveLogoBack: {
+                          leftSleeveLogoBack: {
+                              onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 140,
@@ -534,7 +555,8 @@
                               right: 75,
                               transform: 'rotate(-10deg)'
                           },
-                             rightSleeveLogoBack: {
+                          rightSleeveLogoBack: {
+                              onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 140,
@@ -578,7 +600,8 @@
                               left: 75,
                               transform: 'rotate(10deg)'
                           },
-                               leftSleeveLogoBack: {
+                          leftSleeveLogoBack: {
+                              onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 140,
@@ -592,7 +615,8 @@
                               right: 75,
                               transform: 'rotate(-10deg)'
                           },
-                               rightSleeveLogoBack: {
+                          rightSleeveLogoBack: {
+                              onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 140,
@@ -677,6 +701,11 @@
                   }
               };
               $scope.imagesPositions = function () {
+                  if ($scope.design.type == "odi") {
+                      console.log($scope.design.leftSleeveLogo);
+                      $scope.design.leftSleeveLogoBack = _.cloneDeep($scope.design.leftSleeveLogo);
+                      $scope.design.rightSleeveLogoBack = _.cloneDeep($scope.design.rightSleeveLogo);
+                  }
                   if ($scope.design.type == "gloves" || $scope.design.type == "odi") {
                       return allOtherImages[$scope.design.type][$scope.design.design.name];
                   } else {
