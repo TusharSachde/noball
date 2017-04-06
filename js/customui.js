@@ -67,6 +67,7 @@
                               transform: 'rotate(-10deg)'
                           },
                           backSponsorLogo: {
+                              onlyOnBack: true,
                               width: 161,
                               height: 80,
                               top: 100,
@@ -74,7 +75,7 @@
                           },
                           isColar: true
                       },
-                           "Grubber (SUB)": {
+                      "Grubber (SUB)": {
                           rightChestLogo: {
                               width: 30,
                               height: 30,
@@ -110,6 +111,7 @@
                               transform: 'rotate(-10deg)'
                           },
                           backSponsorLogo: {
+                              onlyOnBack: true,
                               width: 161,
                               height: 80,
                               top: 100,
@@ -117,7 +119,7 @@
                           },
                           isColar: true
                       },
-                          "Plumb (SUB)": {
+                      "Plumb (SUB)": {
                           rightChestLogo: {
                               width: 30,
                               height: 30,
@@ -153,6 +155,7 @@
                               transform: 'rotate(-10deg)'
                           },
                           backSponsorLogo: {
+                              onlyOnBack: true,
                               width: 161,
                               height: 80,
                               top: 100,
@@ -196,6 +199,7 @@
                               transform: 'rotate(-10deg)'
                           },
                           backSponsorLogo: {
+                              onlyOnBack: true,
                               width: 161,
                               height: 80,
                               top: 100,
@@ -203,7 +207,7 @@
                           },
                           isColar: true
                       },
-                              "Pace (C&S)": {
+                      "Pace (C&S)": {
                           rightChestLogo: {
                               width: 30,
                               height: 30,
@@ -239,6 +243,7 @@
                               transform: 'rotate(-10deg)'
                           },
                           backSponsorLogo: {
+                              onlyOnBack: true,
                               width: 161,
                               height: 80,
                               top: 100,
@@ -246,7 +251,7 @@
                           },
                           isColar: false
                       },
-                         "Seam (C&S)": {
+                      "Seam (C&S)": {
                           rightChestLogo: {
                               width: 30,
                               height: 30,
@@ -282,6 +287,7 @@
                               transform: 'rotate(-10deg)'
                           },
                           backSponsorLogo: {
+                              onlyOnBack: true,
                               width: 161,
                               height: 80,
                               top: 100,
@@ -289,7 +295,7 @@
                           },
                           isColar: false
                       },
-                       "Dipper (C&S)": {
+                      "Dipper (C&S)": {
                           rightChestLogo: {
                               width: 30,
                               height: 30,
@@ -325,6 +331,7 @@
                               transform: 'rotate(-10deg)'
                           },
                           backSponsorLogo: {
+                              onlyOnBack: true,
                               width: 161,
                               height: 80,
                               top: 100,
@@ -332,7 +339,7 @@
                           },
                           isColar: false
                       },
-                         "Flipper (C&S)": {
+                      "Flipper (C&S)": {
                           rightChestLogo: {
                               width: 30,
                               height: 30,
@@ -368,6 +375,7 @@
                               transform: 'rotate(-10deg)'
                           },
                           backSponsorLogo: {
+                              onlyOnBack: true,
                               width: 161,
                               height: 80,
                               top: 100,
@@ -411,6 +419,7 @@
                               transform: 'rotate(-10deg)'
                           },
                           backSponsorLogo: {
+                              onlyOnBack: true,
                               width: 161,
                               height: 80,
                               top: 100,
@@ -418,7 +427,7 @@
                           },
                           isColar: false
                       },
-                           "Whites": {
+                      "Whites": {
                           rightChestLogo: {
                               width: 30,
                               height: 30,
@@ -454,6 +463,7 @@
                               transform: 'rotate(-10deg)'
                           },
                           backSponsorLogo: {
+                              onlyOnBack: true,
                               width: 161,
                               height: 80,
                               top: 100,
