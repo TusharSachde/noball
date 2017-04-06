@@ -702,7 +702,6 @@
               };
               $scope.imagesPositions = function () {
                   if ($scope.design.type == "odi") {
-                      console.log($scope.design.leftSleeveLogo);
                       $scope.design.leftSleeveLogoBack = _.cloneDeep($scope.design.leftSleeveLogo);
                       $scope.design.rightSleeveLogoBack = _.cloneDeep($scope.design.rightSleeveLogo);
                   }
