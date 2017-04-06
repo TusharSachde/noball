@@ -58,8 +58,21 @@
                               top: 140,
                               left: 75,
                               transform: 'rotate(10deg)'
+                          },  leftSleeveLogoBack: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              left: 75,
+                              transform: 'rotate(10deg)'
                           },
                           rightSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              right: 75,
+                              transform: 'rotate(-10deg)'
+                          },
+                            rightSleeveLogoBack: {
                               width: 30,
                               height: 30,
                               top: 140,
@@ -103,7 +116,21 @@
                               left: 75,
                               transform: 'rotate(10deg)'
                           },
+                             leftSleeveLogoBack: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              left: 75,
+                              transform: 'rotate(10deg)'
+                          },
                           rightSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              right: 75,
+                              transform: 'rotate(-10deg)'
+                          },
+                            rightSleeveLogoBack: {
                               width: 30,
                               height: 30,
                               top: 140,
@@ -147,7 +174,21 @@
                               left: 75,
                               transform: 'rotate(10deg)'
                           },
+                            leftSleeveLogoBack: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              left: 75,
+                              transform: 'rotate(10deg)'
+                          },
                           rightSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              right: 75,
+                              transform: 'rotate(-10deg)'
+                          },
+                              rightSleeveLogoBack: {
                               width: 30,
                               height: 30,
                               top: 140,
@@ -191,7 +232,21 @@
                               left: 75,
                               transform: 'rotate(10deg)'
                           },
+                              leftSleeveLogoBack: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              left: 75,
+                              transform: 'rotate(10deg)'
+                          },
                           rightSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              right: 75,
+                              transform: 'rotate(-10deg)'
+                          },
+                            rightSleeveLogoBack: {
                               width: 30,
                               height: 30,
                               top: 140,
@@ -235,7 +290,21 @@
                               left: 75,
                               transform: 'rotate(10deg)'
                           },
+                             leftSleeveLogoBack: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              left: 75,
+                              transform: 'rotate(10deg)'
+                          },
                           rightSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              right: 75,
+                              transform: 'rotate(-10deg)'
+                          },
+                             rightSleeveLogoBack: {
                               width: 30,
                               height: 30,
                               top: 140,
@@ -279,7 +348,20 @@
                               left: 75,
                               transform: 'rotate(10deg)'
                           },
+                            leftSleeveLogoBack: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              left: 75,
+                              transform: 'rotate(10deg)'
+                          },
                           rightSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              right: 75,
+                              transform: 'rotate(-10deg)'
+                          },  rightSleeveLogoBack: {
                               width: 30,
                               height: 30,
                               top: 140,
@@ -323,7 +405,20 @@
                               left: 75,
                               transform: 'rotate(10deg)'
                           },
+                              leftSleeveLogoBack: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              left: 75,
+                              transform: 'rotate(10deg)'
+                          },
                           rightSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              right: 75,
+                              transform: 'rotate(-10deg)'
+                          }, rightSleeveLogoBack: {
                               width: 30,
                               height: 30,
                               top: 140,
@@ -367,7 +462,21 @@
                               left: 75,
                               transform: 'rotate(10deg)'
                           },
+                             leftSleeveLogoBack: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              left: 75,
+                              transform: 'rotate(10deg)'
+                          },
                           rightSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              right: 75,
+                              transform: 'rotate(-10deg)'
+                          },
+                              rightSleeveLogoBack: {
                               width: 30,
                               height: 30,
                               top: 140,
@@ -411,7 +520,21 @@
                               left: 75,
                               transform: 'rotate(10deg)'
                           },
+                            leftSleeveLogoBack: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              left: 75,
+                              transform: 'rotate(10deg)'
+                          },
                           rightSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              right: 75,
+                              transform: 'rotate(-10deg)'
+                          },
+                             rightSleeveLogoBack: {
                               width: 30,
                               height: 30,
                               top: 140,
@@ -455,7 +578,21 @@
                               left: 75,
                               transform: 'rotate(10deg)'
                           },
+                               leftSleeveLogoBack: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              left: 75,
+                              transform: 'rotate(10deg)'
+                          },
                           rightSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 140,
+                              right: 75,
+                              transform: 'rotate(-10deg)'
+                          },
+                               rightSleeveLogoBack: {
                               width: 30,
                               height: 30,
                               top: 140,
