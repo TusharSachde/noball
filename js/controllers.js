@@ -1803,15 +1803,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.emptyImage = function (key) {
             $scope.saveKey = key;
             if (key === 'rightLogo' && $scope.trouserJson.rightLogo.image === "img/logo_black.png") {
-                $scope.statuses.modal = $uibModal.open({
-                    templateUrl: "views/modal/proceed.html",
-                    scope: $scope,
-                    controller: function ($scope) {
-                        $scope.type = 'remove';
-                    }
-                });
+                 $scope.odiDeleteModal();
             } else {
-                $scope.odiDeleteModal();
+             
+                  $scope.statuses.modal = $uibModal.open({
+                    templateUrl: "views/modal/odi-delete.html",
+                    scope: $scope
+                });
             }
         }
 
