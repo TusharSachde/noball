@@ -6935,6 +6935,13 @@
  .errors-pad {
      bottom: -40px!important;
  }
+ .backdrop-directive{
+   position: absolute;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    left: 0;
+ }
 
  .backdrop-grey {
     figure:after{
