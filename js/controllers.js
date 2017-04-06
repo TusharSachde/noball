@@ -5636,7 +5636,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.trimTshirt.highlightBase.tcolor = color;
             if (flag) {
                 if ($scope.odiJson.design.designType === 'whites') {
-                    $scope.odiJson.design.base = "img/odi-tshirts/trims/" + $scope.odiJson.design.designType + "/" + $scope.odiJson.design.designName + "/front.png";
+                    $scope.odiJson.design.base = "img/odi-tshirts/trims/" + $scope.odiJson.design.designType + "/" + $scope.odiJson.design.designName + "/front/front.png";
                 } else {
                     $scope.odiJson.design.base = "img/odi-tshirts/trims/" + $scope.odiJson.design.designType + "/base/front/" + color + ".png"; //"img/odi-tshirts/trims/base/front/" + color + ".png";
                 }
@@ -5644,7 +5644,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.customizedShirt.front = flag;
             } else {
                 if ($scope.odiJson.design.designType === 'whites') {
-                    $scope.odiJson.design.base = "img/odi-tshirts/trims/" + $scope.odiJson.design.designType + "/" + $scope.odiJson.design.designName + "/back.png";
+                    $scope.odiJson.design.base = "img/odi-tshirts/trims/" + $scope.odiJson.design.designType + "/" + $scope.odiJson.design.designName + "/back/back.png";
                 } else {
                     $scope.odiJson.design.base = "img/odi-tshirts/trims/" + $scope.odiJson.design.designType + "/base/back/" + color + ".png"; //"img/odi-tshirts/trims/base/back/" + color + ".png";
                 }
@@ -6517,42 +6517,42 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.images = {
             "page1": [{
-                src: "img/odi-tshirts/trims/odi/design1/front.png",
+                src: "img/odi-tshirts/trims/odi/design1/front/front.png",
                 type: "odi",
                 id: 0
                 // }, {
                 //     src: "img/odi-tshirts/trims/odi/design2/front.png",
                 //     type: "odi"
             }, {
-                src: "img/odi-tshirts/trims/odi/design3/front.png",
+                src: "img/odi-tshirts/trims/odi/design3/front/front.png",
                 type: "odi",
                 id: 1
             }, {
-                src: "img/odi-tshirts/trims/odi/design4/front.png",
+                src: "img/odi-tshirts/trims/odi/design4/front/front.png",
                 type: "odi",
                 id: 2
             }, {
-                src: "img/odi-tshirts/trims/odi/design5/front.png",
+                src: "img/odi-tshirts/trims/odi/design5/front/front.png",
                 type: "odi",
                 id: 3
             }, {
-                src: "img/odi-tshirts/trims/training/design1/front.png",
+                src: "img/odi-tshirts/trims/training/design1/front/front.png",
                 type: "training",
                 id: 4
             }, {
-                src: "img/odi-tshirts/trims/training/design2/front.png",
+                src: "img/odi-tshirts/trims/training/design2/front/front.png",
                 type: "training",
                 id: 5
             }, {
-                src: "img/odi-tshirts/trims/training/design3/front.png",
+                src: "img/odi-tshirts/trims/training/design3/front/front.png",
                 type: "training",
                 id: 6
             }, {
-                src: "img/odi-tshirts/trims/training/design4/front.png",
+                src: "img/odi-tshirts/trims/training/design4/front/front.png",
                 type: "training",
                 id: 7
             }, {
-                src: "img/odi-tshirts/trims/training/design5/front.png",
+                src: "img/odi-tshirts/trims/training/design5/front/front.png",
                 type: "training",
                 id: 8
             }],
@@ -6560,23 +6560,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 //     src: "img/odi-tshirts/trims/training/design5/front.png",
                 //     type: "training"
                 // }, {
-                src: "img/odi-tshirts/trims/whites/design1/front.png",
+                src: "img/odi-tshirts/trims/whites/design1/front/front.png",
                 type: "whites",
                 id: 0
             }, {
-                src: "img/odi-tshirts/trims/whites/design2/front.png",
+                src: "img/odi-tshirts/trims/whites/design2/front/front.png",
                 type: "whites",
                 id: 1
             }, {
-                src: "img/odi-tshirts/trims/whites/design3/front.png",
+                src: "img/odi-tshirts/trims/whites/design3/front/front.png",
                 type: "whites",
                 id: 2
             }, {
-                src: "img/odi-tshirts/trims/whites/design4/front.png",
+                src: "img/odi-tshirts/trims/whites/design4/front/front.png",
                 type: "whites",
                 id: 3
             }, {
-                src: "img/odi-tshirts/trims/whites/design5/front.png",
+                src: "img/odi-tshirts/trims/whites/design5/front/front.png",
                 type: "whites",
                 id: 4
             }]
