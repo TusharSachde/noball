@@ -28,7 +28,7 @@
   </div>
   <button type="button" class="btn pad4 btn-outline btn-dark block" aria-label="File" ng-if="!statuses.uploadStatus">
     <label class="no-margin" for="selector5">Upload Image</label>
-    <input style="display:none;" ng-file-select="onFileSelect($files, 1, 'single', 'teamlogo');" onclick='this.value=null' type="file" id="selector5"/>
+    <input style="display:none;" accept="image/x-png,image/jpeg,image/jpg" ng-file-select="onFileSelect($files, 1, 'single', 'teamlogo');" onclick='this.value=null' type="file" id="selector5"/>
   </button>
   <button class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase" ng-click="$dismiss()">cancel</button>
   <button class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase" ng-if="tempImage" ng-click="confirmUpload('teamlogo', 'Team Logo'); $dismiss();">ok</button>

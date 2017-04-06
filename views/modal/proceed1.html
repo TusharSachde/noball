@@ -1,0 +1,12 @@
+<div class="proceed">
+  <a href="" ng-click="$dismiss();" class="text-up pull-right mr10"><i class="fa fa-times" aria-hidden="true"></i></a>
+  <div class="cat-img">
+      <img src="img/logo_black.png" class="img-responsive">
+  </div>
+  <p class="text-center">If you proceed to  , <br>the ccc logo will be moved to the back of your t-shirt under the collar</p>
+  <div class="continue-buttons text-center mr">
+      <button ng-if="type=='upload'" ng-click="doUpload('rightchest', 'Right Chest'); $dismiss();" class="btn btn-outline btn-dark mar15 mr10 padding-btn letter-spacing uppercase">yes,continue</button>
+      <button ng-if="type=='remove'" ng-click="$dismiss(); confirmEmptyImage(saveKey);" class="btn btn-outline btn-dark mar15 mr10 padding-btn letter-spacing uppercase">yes,continue</button>
+      <button href="" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase" ng-click="$dismiss();">no</button>
+  </div>
+</div>

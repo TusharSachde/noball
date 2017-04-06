@@ -47,7 +47,7 @@
         </div>
         <button type="button" class="btn pad4 btn-outline btn-dark block" aria-label="File" ng-if="!statuses.uploadStatus">
           <label class="no-margin" for="selector5">Upload Image</label>
-          <input type="file" accept=".gif,.jpg,.jpeg,.png" style="display:none;" ng-file-select="onFileSelect($files, 1, 'single', variable)" onclick='this.value=null' id="selector5"/>
+          <input type="file" accept="image/x-png,image/jpeg,image/jpg" style="display:none;" ng-file-select="onFileSelect($files, 1, 'single', variable)" onclick='this.value=null' id="selector5"/>
         </button>
         <!-- <button class="btn btn-outline btn-dark  padding-btn letter-spacing" ng-click="doneUploading()">SUBMIT</button> -->
       </div>
