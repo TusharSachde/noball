@@ -71,11 +71,6 @@
           <div class="scroll-image" id="style-1">
             <div class="det-name">
               <h4>{{odiJson.design.name}}</h4>
-              <!-- MATT B&amp;Y -->
-              <!--<p>The Custom Cricket company cricket shirt is made from wicking fabric that lifts moisture from your
-                            body. Tested and built to perform in warm and cold climate conditions. It features the Custom
-                            Cricket company on the right chest .
-                        </p>-->
               <h3>{{odiJson.design | currencyFilter}}</h3>
               <span class="Raleway-Medium"><em>Minimum Order Quantity (MOQ) =  20 Tees</em></span>
             </div>
@@ -157,15 +152,9 @@
             <!--   //trim tab-->
             <div class="choos m20-l" ng-show="tab=='trim'">
               <div class="options">
-                <button class="{{trimTabs.light3.active}} {{trimTshirt.highlightBase.disable}} classshow btn btn-outline btn-dark padding-btn letter-spacing inline-block"
-                  ng-click="tabchanges('light3',3)">BASE</button>
-                <button class="{{trimTabs.light1.active}} {{trimTshirt.highlightOne.disable}} classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block"
-                  ng-click="tabchanges('light1',1)">TRIM 1</button>
-                <button class="{{trimTabs.light2.active}} {{trimTshirt.highlightTwo.disable}} classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block"
-                  ng-click="tabchanges('light2',2)">TRIM 2</button>
-                <!-- {{trimTwoDisable}} -->
-                <!-- <button class="{{classhide1} btn btn-outline btn-dark padding-btn letter-spacing  inline-block" ng-click="tabchanges('light3',3)">PALETTE</button>
-                                <button class="{{classhide2} btn btn-outline btn-dark padding-btn letter-spacing  inline-block" ng-click="tabchanges('light4',4)">COLLAR</button> -->
+                <button class="{{trimTabs.light3.active}}  classshow btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-click="tabchanges('light3',3)">BASE</button>
+                <button class="{{trimTabs.light1.active}} classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-click="tabchanges('light1',1)">TRIM 1</button>
+                <button class="{{trimTabs.light2.active}} classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-click="tabchanges('light2',2)">TRIM 2</button>
               </div>
               <div class="{{trimTshirt.highlightOne.disable}} {{trimTabs.light1.show}} classp outline disnon" ng-if="tabs=='light1'">
                 <div class="row">
@@ -681,17 +670,8 @@
               </div>
             </div>
           </div>
-          <!-- <div class="edit-btn inline-block">
-            <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
-          </div>
-          <div class="edit-btn inline-block">
-            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('team',3)">NEXT</button>
-          </div> -->
         </div>
       </div>
     </div>
   </div>
 </section>
-<!--<div class="scrollbar" id="style-2">
-    <div class="force-overflow"></div>
-</div>
