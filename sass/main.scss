@@ -6936,13 +6936,22 @@
      bottom: -40px!important;
  }
 
- .backdrop {
-     position: absolute;
-     top: 0;
-     left: 0;
-     z-index: 1000;
-     width: 100%;
-     height: auto;
+ .backdrop-grey {
+    figure:after{
+    content: "";
+    background-color: rgba(0, 0, 0, 0.23);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    }
+    &:hover{
+         figure:after{
+    opacity: 1;
+    }
+    }
  }
 
  @import "mobile/mobile";
