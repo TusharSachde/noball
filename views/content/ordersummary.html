@@ -95,7 +95,7 @@
                 </table>
                 <table class="table table-ordersummary no-margin">
                   <tbody>
-                    <tr ng-repeat="jersey in design.description.quantity track by $index">
+                    <tr ng-repeat="jersey in design.description.quantity track by $index" ng-if="jersey.quantity && jersey.quantity != 0">
                       <td class="text-center size">
                         <span class="capitalize">{{jersey.size}}</span>
 
