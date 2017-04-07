@@ -6024,6 +6024,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.odiJson = $.jStorage.get("custom");
             $timeout(function () {
                 $scope.tabchange($scope.odiJson.tab, $scope.odiJson.tabNo);
+
             }, 100)
             console.log('$scope.odiJson', $scope.odiJson);
         } else {

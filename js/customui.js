@@ -58,7 +58,7 @@
                               height: 30,
                               top: 130,
                               right: 70,
-                             
+
                           },
                           leftSleeveLogoBack: {
                               onlyOnBack: true,
@@ -66,14 +66,14 @@
                               height: 30,
                               top: 130,
                               left: 65,
-                             
+
                           },
                           rightSleeveLogo: {
                               width: 30,
                               height: 30,
                               top: 130,
                               left: 70,
-                             
+
                           },
                           rightSleeveLogoBack: {
                               onlyOnBack: true,
@@ -81,7 +81,7 @@
                               height: 30,
                               top: 130,
                               right: 65,
-                            
+
                           },
                           backSponsorLogo: {
                               onlyOnBack: true,
@@ -328,7 +328,7 @@
                               height: 80,
                               top: 100,
                               left: 150,
-                        
+
                           },
                           isColar: false
                       },
@@ -700,6 +700,17 @@
                       }
                   }
               };
+
+              var odiForBase = ["", ""];
+              var odiForTrim1 = ["", ""];
+              var odiForTrim2 = ["", ""];
+
+
+
+              var troForBase = ["", ""];
+              var troForTrim1 = ["", ""];
+              var troForTrim2 = ["", ""];
+
               $scope.imagesPositions = function () {
                   if ($scope.design.type == "odi") {
                       $scope.design.leftSleeveLogoBack = _.cloneDeep($scope.design.leftSleeveLogo);
@@ -710,7 +721,16 @@
                   } else {
                       return allOtherImages[$scope.design.type];
                   }
-
+                  if ($scope.design.type == "odi") {
+                      $scope.design.isBase = _.findIndex(odiForBase, $scope.design.design.name);
+                      $scope.design.isTrim1 = _.findIndex(odiForTrim1, $scope.design.design.name);
+                      $scope.design.isTrim2 = _.findIndex(odiForTrim2, $scope.design.design.name);
+                  }
+                  if ($scope.design.type == "trousers") {
+                      $scope.design.isBase = _.findIndex(troForBase, $scope.design.design.name);
+                      $scope.design.isTrim1 = _.findIndex(troForTrim1, $scope.design.design.name);
+                      $scope.design.isTrim2 = _.findIndex(troForTrim2, $scope.design.design.name);
+                  }
               };
               $scope.showFront = function () {
                   $scope.isBack = false;
