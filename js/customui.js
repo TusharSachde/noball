@@ -709,6 +709,14 @@
 
               var troForTrim2 = ["Scamper"];
 
+              function checkIndex(index) {
+                  if (index >= 0) {
+                      return true;
+                  } else {
+                      return false;
+                  }
+              }
+
               $scope.imagesPositions = function () {
                   if ($scope.design.type == "odi") {
                       $scope.design.leftSleeveLogoBack = _.cloneDeep($scope.design.leftSleeveLogo);
@@ -716,13 +724,14 @@
                   }
 
                   if ($scope.design.type == "odi") {
-                      $scope.design.isBase = _.findIndex(odiForBase, $scope.design.design.name);
-                      $scope.design.isTrim1 = _.findIndex(odiForTrim1, $scope.design.design.name);
-                      $scope.design.isTrim2 = _.findIndex(odiForTrim2, $scope.design.design.name);
-                  } else if ($scope.design.type == "trousers") {
+
+                      $scope.design.isBase = checkIndex(_.indexOf(odiForBase, $scope.design.design.name));
+                      $scope.design.isTrim1 = checkIndex(_.indexOf(odiForTrim1, $scope.design.design.name));
+                      $scope.design.isTrim2 = checkIndex(_.indexOf(odiForTrim2, $scope.design.design.name));
+                  } else if ($scope.design.type == "trousers" || $scope.design.type == "shorts") {
                       $scope.design.isBase = true;
                       $scope.design.isTrim1 = true;
-                      $scope.design.isTrim2 = _.findIndex(troForTrim2, $scope.design.design.name);
+                      $scope.design.isTrim2 = checkIndex(_.indexOf(troForTrim2, $scope.design.design.name));
                   } else {
                       $scope.design.isBase = false;
                       $scope.design.isTrim1 = true;

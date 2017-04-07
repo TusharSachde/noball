@@ -150,10 +150,10 @@
             <div class="choos m20-l" ng-show="tab=='trim'">
               <div class="options">
                 <button class="{{trimTabs.light3.active}} classshow btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-click="tabchanges('light3',3)"
-                  ng-if="design.isBase">BASE</button>
+                  ng-if="odiJson.isBase">BASE</button>
                 <button class="{{trimTabs.light1.active}}  classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-click="tabchanges('light1',1)"
-                  ng-if="design.isTrim1">TRIM 1</button>
-                <button class="{{trimTabs.light2.active}} classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-if="design.isTrim2"
+                  ng-if="odiJson.isTrim1">TRIM 1</button>
+                <button class="{{trimTabs.light2.active}} classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-if="odiJson.isTrim2"
                   ng-click="tabchanges('light2',2)">TRIM 2</button>
               </div>
               <div class="{{trimTshirt.highlightOne.disable}} {{trimTabs.light1.show}} classp outline disnon" ng-if="tabs=='light1'">
