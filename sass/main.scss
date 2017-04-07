@@ -6198,10 +6198,10 @@
          justify-content: center;
          align-items: center;
          z-index: 100;
-         top: 230px;
+         top: 190px;
      }
      &.jersey-name {
-         top: 190px;
+         top: 180px;
          width: 161px;
          height: 50px;
          display: -webkit-flex;
@@ -6960,5 +6960,12 @@
     }
     }
  }
+
+ .mainSponsorLogo,.backSponsorLogo  {
+     img{
+ zoom: 4;
+     }
+   
+}
 
  @import "mobile/mobile";

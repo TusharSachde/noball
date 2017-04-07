@@ -4,11 +4,11 @@
 
         <img ng-repeat="background in backgroundImages() track by $index" noloading="true" ng-src="{{background}}" class="trimshirt img-responsive">
 
-        <div class="div-internal-image" ng-class="{'borergrey':design[key].border}" ng-if="!isBack && design[key].image && design[key].image != '' && !imagePos.onlyOnBack"
+        <div class="div-internal-image {{key}}" ng-class="{'borergrey':design[key].border}" ng-if="!isBack && design[key].image && design[key].image != '' && !imagePos.onlyOnBack"
             ng-repeat="(key,imagePos) in imagesPositions()" ng-style="imagePos">
             <img ng-src="{{design[key].image | serverimage}}" ng-style="{width:design[key].size}" noloading="true">
         </div>
-        <div class="div-internal-image" ng-class="{'borergrey':design[key].border}" ng-repeat="(key,imagePos) in imagesPositions()"
+        <div class="div-internal-image {{key}}" ng-class="{'borergrey':design[key].border}" ng-repeat="(key,imagePos) in imagesPositions()"
             ng-if="isBack && design[key].image && design[key].image != '' && imagePos.onlyOnBack" ng-style="imagePos">
             <img ng-src="{{design[key].image | serverimage}}" ng-style="{width:design[key].size}" noloading="true">
         </div>
