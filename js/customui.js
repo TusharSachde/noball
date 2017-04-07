@@ -701,9 +701,9 @@
                   }
               };
 
-              var odiForBase = ["Googly (SUB)", "Grubber (SUB)","Plumb (SUB)","Floater (SUB)","Pace (C&S)","Seam (C&S)","Dipper (C&S)","Flipper (C&S)","Drift (C&S)"];
-              var odiForTrim1 = ["Googly (SUB)", "Grubber (SUB)","Plumb (SUB)","Floater (SUB)","Pace (C&S)","Seam (C&S)","Dipper (C&S)","Flipper (C&S)","Drift (C&S)","Whites"];
-              var odiForTrim2 = ["Googly (SUB)", "Grubber (SUB)","Plumb (SUB)","Floater (SUB)"];
+              var odiForBase = ["Googly (SUB)", "Grubber (SUB)", "Plumb (SUB)", "Floater (SUB)", "Pace (C&S)", "Seam (C&S)", "Dipper (C&S)", "Flipper (C&S)", "Drift (C&S)"];
+              var odiForTrim1 = ["Googly (SUB)", "Grubber (SUB)", "Plumb (SUB)", "Floater (SUB)", "Pace (C&S)", "Seam (C&S)", "Dipper (C&S)", "Flipper (C&S)", "Drift (C&S)", "Whites"];
+              var odiForTrim2 = ["Googly (SUB)", "Grubber (SUB)", "Plumb (SUB)", "Floater (SUB)"];
 
 
 
@@ -714,18 +714,21 @@
                       $scope.design.leftSleeveLogoBack = _.cloneDeep($scope.design.leftSleeveLogo);
                       $scope.design.rightSleeveLogoBack = _.cloneDeep($scope.design.rightSleeveLogo);
                   }
-                 
+
                   if ($scope.design.type == "odi") {
                       $scope.design.isBase = _.findIndex(odiForBase, $scope.design.design.name);
                       $scope.design.isTrim1 = _.findIndex(odiForTrim1, $scope.design.design.name);
                       $scope.design.isTrim2 = _.findIndex(odiForTrim2, $scope.design.design.name);
+                  } else if ($scope.design.type == "trousers") {
+                      $scope.design.isBase = true;
+                      $scope.design.isTrim1 = true;
+                      $scope.design.isTrim2 = _.findIndex(troForTrim2, $scope.design.design.name);
+                  } else {
+                      $scope.design.isBase = false;
+                      $scope.design.isTrim1 = true;
+                      $scope.design.isTrim2 = false;
                   }
-                  if ($scope.design.type == "trousers") {
-                      $scope.design.isBase = true
-                      $scope.design.isTrim1 = true
-                      $scope.design.isTrim2 = true
-                  }
-                   if ($scope.design.type == "gloves" || $scope.design.type == "odi") {
+                  if ($scope.design.type == "gloves" || $scope.design.type == "odi") {
                       return allOtherImages[$scope.design.type][$scope.design.design.name];
                   } else {
                       return allOtherImages[$scope.design.type];
