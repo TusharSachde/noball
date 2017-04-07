@@ -10910,12 +10910,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             image: 'img/landing/items/Bats.jpg',
             name: 'Bats',
             subname: '(Coming Soon)',
-            link: 'bat'
+            link: ''
         }, {
             image: 'img/landing/items/Ball.jpg',
             name: 'Balls',
             subname: '(Coming Soon)',
-            link: 'balls'
+            link: ''
         }, {
             image: 'img/landing/items/Gloves.jpg',
             name: 'Gloves',
@@ -10934,7 +10934,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             image: 'img/landing/items/Kit-Bag.jpg',
             name: 'Kit Bags',
             subname: '(Coming Soon)',
-            link: 'kit-bag'
+            link: ''
         }];
 
         $scope.topSlides = [{
@@ -11014,17 +11014,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
         $scope.showcaseSlides = [{
             image: 'img/landing/apparels-switch/bats.jpg',
-            link: 'bat',
+            link: '',
             text: 'bats',
             subtext: 'coming soon'
         }, {
             image: 'img/landing/apparels-switch/ball.jpg',
-            link: 'balls',
+            link: '',
             text: 'balls',
             subtext: 'coming soon'
         }, {
             image: 'img/landing/apparels-switch/kit-bags.jpg',
-            link: 'kit-bag',
+            link: '',
             text: 'kit-bags',
             subtext: 'coming soon'
         }, {
