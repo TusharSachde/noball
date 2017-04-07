@@ -620,7 +620,7 @@
                               width: 30,
                               height: 30,
                               top: 130,
-                              right: 65,
+                              right: 65
                              
                           },
                           backSponsorLogo: {
