@@ -32,19 +32,10 @@
     <h2 class="uppercase text-center">Our Showcase</h2>
     <!--flexslider-->
     <div class="showcase-slider">
-      <flex-slider flex-slide="banner in showcaseSlides track by $index" prev-text="" next-text="" class="" item-width="240" item-margin="40" animation="slide" >
+      <flex-slider flex-slide="banner in showcaseSlides track by $index" prev-text="" next-text="" class="" item-width="240" item-margin="40" animation="slide" slideshow="true" slideshowSpeed="500">
           <li class="backdrop-grey">
-           <a  rel="gallery1"  fancybox-box>
-           
- <figure class=" relative">
-                 
-  <img ng-src="{{banner.image}}" class="img-responsive iconBlue">
-  
-                  
-                   
-                </figure>
-             
-               
+           <a fancybox-box ng-href="{{banner.image}}" rel="fancy"> 
+             <figure class="relative"><img ng-src="{{banner.image}}" class="img-responsive iconBlue"></figure>
             </a>
           </li>
       </flex-slider>
