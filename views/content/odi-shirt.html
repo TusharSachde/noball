@@ -152,9 +152,12 @@
             <!--   //trim tab-->
             <div class="choos m20-l" ng-show="tab=='trim'">
               <div class="options">
-                <button class="{{trimTabs.light3.active}}  classshow btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-click="tabchanges('light3',3)">BASE</button>
-                <button class="{{trimTabs.light1.active}} classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-click="tabchanges('light1',1)">TRIM 1</button>
-                <button class="{{trimTabs.light2.active}} classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-click="tabchanges('light2',2)">TRIM 2</button>
+                <button class="{{trimTabs.light3.active}} {{trimTshirt.highlightBase.disable}} classshow btn btn-outline btn-dark padding-btn letter-spacing inline-block"
+                  ng-click="tabchanges('light3',3)">BASE</button>
+                <button class="{{trimTabs.light1.active}} {{trimTshirt.highlightOne.disable}} classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block"
+                  ng-click="tabchanges('light1',1)">TRIM 1</button>
+                <button class="{{trimTabs.light2.active}} {{trimTshirt.highlightTwo.disable}} classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block"
+                  ng-click="tabchanges('light2',2)">TRIM 2</button>
               </div>
               <div class="{{trimTshirt.highlightOne.disable}} {{trimTabs.light1.show}} classp outline disnon" ng-if="tabs=='light1'">
                 <div class="row">
