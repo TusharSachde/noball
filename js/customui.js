@@ -58,6 +58,7 @@
                               height: 30,
                               top: 130,
                               right: 70,
+                              transform: 'rotate 10deg'
 
                           },
                           leftSleeveLogoBack: {
@@ -73,6 +74,7 @@
                               height: 30,
                               top: 130,
                               left: 70,
+                              transform: 'rotate 10deg'
 
                           },
                           rightSleeveLogoBack: {
