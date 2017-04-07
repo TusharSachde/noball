@@ -733,8 +733,8 @@
                       $scope.design.isTrim1 = true;
                       $scope.design.isTrim2 = checkIndex(_.indexOf(troForTrim2, $scope.design.design.name));
                   } else {
-                      $scope.design.isBase = false;
-                      $scope.design.isTrim1 = true;
+                      $scope.design.isBase = true;
+                      $scope.design.isTrim1 = false;
                       $scope.design.isTrim2 = false;
                   }
                   if ($scope.design.type == "gloves" || $scope.design.type == "odi") {
