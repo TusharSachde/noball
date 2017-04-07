@@ -656,7 +656,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.myDesignID = 0;
         $scope.designTabJson = function (id) {
             $scope.myDesignID = id;
-        }
+        };
 
 
 
@@ -1803,10 +1803,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.emptyImage = function (key) {
             $scope.saveKey = key;
             if (key === 'rightLogo' && $scope.trouserJson.rightLogo.image === "img/logo_black.png") {
-                 $scope.odiDeleteModal();
+                $scope.odiDeleteModal();
             } else {
-             
-                  $scope.statuses.modal = $uibModal.open({
+
+                $scope.statuses.modal = $uibModal.open({
                     templateUrl: "views/modal/odi-delete.html",
                     scope: $scope
                 });
@@ -5736,6 +5736,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
 
         $scope.changeDesign = function (index, tab) {
+
+            $scope.switchTrimHighlightBase(true, $scope.odiJson.color.baseColorName, $scope.odiJson.design.designType, $scope.odiJson.color.base);
+            $scope.switchTrimHighlightOne(true, $scope.odiJson.color.trim1ColorName, $scope.odiJson.design.designType, $scope.odiJson.color.trim1);
+            $scope.switchTrimHighlightTwo(true, $scope.odiJson.color.trim2ColorName, $scope.odiJson.design.designType, $scope.odiJson.color.trim2);
+            $scope.switchFrontBack(true)
 
             if (tab === 1) {
                 if (index === 0) {
