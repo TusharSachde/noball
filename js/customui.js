@@ -58,7 +58,7 @@
                               height: 30,
                               top: 130,
                               right: 70,
-                              transform: 'rotate 10deg'
+                              transform: 'rotate (10deg)'
 
                           },
                           leftSleeveLogoBack: {
@@ -74,7 +74,7 @@
                               height: 30,
                               top: 130,
                               left: 70,
-                              transform: 'rotate 10deg'
+                              transform: 'rotate (10deg)'
 
                           },
                           rightSleeveLogoBack: {
@@ -127,23 +127,21 @@
                               width: 30,
                               height: 30,
                               top: 130,
-                              right: 65,
-                              transform: 'rotate(10deg)'
+                              left: 65,
                           },
                           rightSleeveLogo: {
                               width: 30,
                               height: 30,
                               top: 140,
                               left: 70,
-                              transform: 'rotate(-10deg)'
+                            transform: 'rotate (10deg)'
                           },
                           rightSleeveLogoBack: {
                               onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 140,
-                              left: 65,
-                              transform: 'rotate(-10deg)'
+                              right: 65,
                           },
                           backSponsorLogo: {
                               onlyOnBack: true,
@@ -187,23 +185,23 @@
                               width: 30,
                               height: 30,
                               top: 130,
-                              right: 65,
-                              transform: 'rotate(10deg)'
+                              left: 65,
+                            
                           },
                           rightSleeveLogo: {
                               width: 30,
                               height: 30,
                               top: 130,
                               left: 70,
-                              transform: 'rotate(-10deg)'
+                             transform: 'rotate(10deg)'
                           },
                           rightSleeveLogoBack: {
                               onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 130,
-                              left: 65,
-                              transform: 'rotate(-10deg)'
+                              right: 65,
+                             
                           },
                           backSponsorLogo: {
                               onlyOnBack: true,
@@ -247,23 +245,23 @@
                               width: 30,
                               height: 30,
                               top: 130,
-                              right: 65,
-                              transform: 'rotate(10deg)'
+                              left: 65,
+                            
                           },
                           rightSleeveLogo: {
                               width: 30,
                               height: 30,
                               top: 130,
                               left: 70,
-                              transform: 'rotate(-10deg)'
+                              transform: 'rotate(10deg)'
                           },
                           rightSleeveLogoBack: {
                               onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 130,
-                              left: 65,
-                              transform: 'rotate(-10deg)'
+                              right: 65,
+                             
                           },
                           backSponsorLogo: {
                               onlyOnBack: true,
@@ -306,23 +304,23 @@
                               width: 30,
                               height: 30,
                               top: 130,
-                              right: 65,
-                              transform: 'rotate(10deg)'
+                              left: 65,
+                            
                           },
                           rightSleeveLogo: {
                               width: 30,
                               height: 30,
                               top: 130,
                               left: 70,
-                              transform: 'rotate(-10deg)'
+                               transform: 'rotate(10deg)'
                           },
                           rightSleeveLogoBack: {
                               onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 130,
-                              left: 65,
-                              transform: 'rotate(-10deg)'
+                              right: 65,
+                            
                           },
                           backSponsorLogo: {
                               onlyOnBack: true,
@@ -367,23 +365,23 @@
                               width: 30,
                               height: 30,
                               top: 130,
-                              right: 65,
-                              transform: 'rotate(10deg)'
+                              left: 65,
+                            
                           },
                           rightSleeveLogo: {
                               width: 30,
                               height: 30,
                               top: 130,
                               left: 70,
-                              transform: 'rotate(-10deg)'
+                               transform: 'rotate(10deg)'
                           },
                           rightSleeveLogoBack: {
                               onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 130,
-                              left: 65,
-                              transform: 'rotate(-10deg)'
+                              right: 65,
+                            
                           },
                           backSponsorLogo: {
                               onlyOnBack: true,
@@ -427,23 +425,23 @@
                               width: 30,
                               height: 30,
                               top: 130,
-                              right: 65,
-                              transform: 'rotate(10deg)'
+                              left: 65,
+                             
                           },
                           rightSleeveLogo: {
                               width: 30,
                               height: 30,
                               top: 130,
                               left: 70,
-                              transform: 'rotate(-10deg)'
+                               transform: 'rotate(10deg)'
                           },
                           rightSleeveLogoBack: {
                               onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 130,
-                              left: 65,
-                              transform: 'rotate(-10deg)'
+                              right: 65,
+                             
                           },
                           backSponsorLogo: {
                               onlyOnBack: true,
@@ -487,23 +485,23 @@
                               width: 30,
                               height: 30,
                               top: 130,
-                              right: 65,
-                              transform: 'rotate(10deg)'
+                              left: 65,
+                            
                           },
                           rightSleeveLogo: {
                               width: 30,
                               height: 30,
                               top: 130,
                               left: 70,
-                              transform: 'rotate(-10deg)'
+                              transform: 'rotate(10deg)'
                           },
                           rightSleeveLogoBack: {
                               onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 130,
-                              left: 65,
-                              transform: 'rotate(-10deg)'
+                              right: 65,
+                             
                           },
                           backSponsorLogo: {
                               onlyOnBack: true,
@@ -547,23 +545,23 @@
                               width: 30,
                               height: 30,
                               top: 130,
-                              right: 65,
-                              transform: 'rotate(10deg)'
+                              left: 65,
+                             
                           },
                           rightSleeveLogo: {
                               width: 30,
                               height: 30,
                               top: 130,
                               left: 70,
-                              transform: 'rotate(-10deg)'
+                               transform: 'rotate(10deg)'
                           },
                           rightSleeveLogoBack: {
                               onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 130,
-                              left: 65,
-                              transform: 'rotate(-10deg)'
+                              right: 65,
+                             
                           },
                           backSponsorLogo: {
                               onlyOnBack: true,
@@ -607,23 +605,23 @@
                               width: 30,
                               height: 30,
                               top: 130,
-                              right: 65,
-                              transform: 'rotate(10deg)'
+                              left: 65,
+                              
                           },
                           rightSleeveLogo: {
                               width: 30,
                               height: 30,
                               top: 130,
                               left: 70,
-                              transform: 'rotate(-10deg)'
+                               transform: 'rotate(10deg)'
                           },
                           rightSleeveLogoBack: {
                               onlyOnBack: true,
                               width: 30,
                               height: 30,
                               top: 130,
-                              left: 65,
-                              transform: 'rotate(-10deg)'
+                              right: 65,
+                             
                           },
                           backSponsorLogo: {
                               onlyOnBack: true,
