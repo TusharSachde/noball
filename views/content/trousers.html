@@ -114,10 +114,7 @@
                                 <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-next" ng-disabled="page==2" ng-click="page=2">
                   <img src="img/design_arrow_next.png" alt="Next Button" class="img-responsive">
                 </button>
-                                <!--<button class="{{designButton.design1.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=2; changeDesignButton(1);">Whites</button>
-                <button class="{{designButton.design2.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(2);">Sublimation</button>
-                <button class="{{designButton.design3.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(3);">Cut &amp; Sew</button>
-                <button class="{{designButton.design4.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(4);">Polo</button>-->
+
                             </div>
                             <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="tabchange('trim',2); switchFrontBack(true,trouserJson.type); switchTrimHighlightBase(trouserJson.color.base,trouserJson.color.baseColorName); switchTrimHighlightOne(trouserJson.color.trim1,trouserJson.color.trim1ColorName); switchTrimHighlightTwo(trouserJson.color.trim2,trouserJson.color.trim2ColorName); openTab('b');">NEXT</button>
                             <!--<div class="edit-btn inline-block">
@@ -135,9 +132,12 @@
                         <!--       //trim tab-->
                         <div class="choos m20-l " ng-show="tab=='trim'">
                             <div class="options">
-                                <button class="{{trimTabs.light3.active}} classshow btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-click="tabchanges('light3',3)">BASE</button>
-                                <button class="{{trimTabs.light1.active}} classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-click="tabchanges('light1',1)">TRIM 1</button>
-                                <button class="{{trimTabs.light2.active}} classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block" ng-click="tabchanges('light2',2)">TRIM 2</button>
+                                <button class="{{trimTabs.light3.active}} {{trimTrouser.highlightBase.disable}}classshow btn btn-outline btn-dark padding-btn letter-spacing inline-block"
+                                    ng-click="tabchanges('light3',3)">BASE</button>
+                                <button class="{{trimTabs.light1.active}} {{trimTrouser.highlightOne.disable}}classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block"
+                                    ng-click="tabchanges('light1',1)">TRIM 1</button>
+                                <button class="{{trimTabs.light2.active}} {{trimTrouser.highlightTwo.disable}}classhide btn btn-outline btn-dark padding-btn letter-spacing inline-block"
+                                    ng-click="tabchanges('light2',2)">TRIM 2</button>
                             </div>
                             <div class="{{trimTrouser.highlightOne.disable}} {{trimTabs.light1.show}} classp outline disnon" ng-if="tabs=='light1'">
                                 <h4>Choose Your Color</h4>
