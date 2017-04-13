@@ -24,7 +24,7 @@
 
                   <div ng-if="design.description.isBase">
                     <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-if="!(design.description.type == 'pads' || design.description.type == 'gloves')">Base</button>
-                    <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-if="(design.description.type == 'pads' || design.description.type == 'gloves')">TRIM</button>
+                    <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-if="(design.description.type == 'pads' || design.description.type == 'gloves')" style="cursor:inherit;">TRIM</button>
                     <span ng-style="{'background-color': '{{design.description.color.base}}'}" ng-if="design.description.color.base"></span>
                   </div>
 

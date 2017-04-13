@@ -1,13 +1,16 @@
 <ul class="nav navbar-nav on-mobile">
     <li ng-repeat="menu in navigation">
         <a ng-href="{{menu.link}}" class="{{menu.classis}}" ng-if="menu.name != 'Customise'">{{menu.name}}</a>
-        <a  class="{{menu.classis}}" ng-if="menu.name == 'Customise'">{{menu.name}}</a>
-<!--ng-click="customize();"-->
+        <a  class="{{menu.classis}}" ng-click="customizeIt()" ng-if="menu.name == 'Customise'">{{menu.name}}</a>
+<!--ng-click="customize();"ui-sref="categories({name:submenu.name})"-->
         <ul class="dropdown-menu custom-sub service-head-menu {{menu.name}}" ng-if="menu.subnav!=[];" ng-if="menu.name != 'Customise'">
-            <li ng-repeat="submenu in menu.subnav" ng-if="menu.name != 'Services' && ( submenu.name == 'Apparel' || submenu.name == 'Bats')">
-                <a ui-sref="categories({name:submenu.name})" class="{{submenu.classis}}">{{submenu.name}}</a>
+            <li ng-repeat="submenu in menu.subnav" ng-if="menu.name != 'Services' && ( submenu.name == 'Apparel')">
+                <a ui-sref="categories({name:submenu.name})" class="{{submenu.classis}}" style="cursor:inherit;">{{submenu.name}}</a>
             </li>
-            <li ng-repeat="submenu in menu.subnav" ng-if="menu.name != 'Services' && submenu.name != 'Apparel' && submenu.name != 'Bats'">
+             <!--<li ng-repeat="submenu in menu.subnav" ng-if="menu.name != 'Services' && (  submenu.name == 'Bats')">
+                <a  class="{{submenu.classis}}" style="cursor:inherit;">{{submenu.name}}</a>
+            </li>-->
+            <li ng-repeat="submenu in menu.subnav" ng-if="menu.name != 'Services' && submenu.name != 'Apparel' && submenu.name != 'Bats'&& submenu.name != 'Balls'&& submenu.name != 'Kit Bags'">
                 <a ui-sref="categories-inside({category:submenu.name,name:submenu.name})" class="{{submenu.classis}}">{{submenu.name}}</a>
             </li>
             <li class="blue-service" ng-repeat="submenu in services" ng-if="menu.name == 'Services'">
