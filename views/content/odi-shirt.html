@@ -312,8 +312,9 @@
                           <div range-slider on-handle-down="changeLogo('rightChestLogo')" on-handle-up="resetLogoStyle('rightChestLogo')" ng-model="odiJson.rightLogo.size"
                             min="0" max="50" model-max="odiJson.rightChestLogo.size" model-min="rslider.min" pin-handle="min"></div>
                         </div>
-                        <!-- <div range-slider min="-150" max="100" model-max="max" pin-handle="min"></div> -->
-                        <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="openUploads('rightChestLogo', 'Right Chest')">CHANGE</button>
+                        <!-- <div range-slider min="-150" max="100" model-max="max" pin-handle="min"></div> 
+                        ng-click="openUploads('rightChestLogo', 'Right Chest')"-->
+                        <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="emptyImage('rightChestLogo')" >CHANGE</button>
                         <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="emptyImage('rightChestLogo')">REMOVE</button>
                       </div>
                     </div>
