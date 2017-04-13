@@ -34,14 +34,14 @@
                   "odi": {
                       "Googly (SUB)": {
                           rightChestLogo: {
-                              width: 30,
-                              height: 30,
+                              width: 40,
+                              height: 40,
                               top: 135,
                               left: 165
                           },
                           teamLogo: {
-                              width: 30,
-                              height: 30,
+                              width: 40,
+                              height: 40,
                               top: 135,
                               right: 165,
                               "z+'-'+index": 9
@@ -49,7 +49,7 @@
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                              top: 210,
+                              top: 190,
                               left: 153,
 
                           },
@@ -96,14 +96,14 @@
                       },
                       "Grubber (SUB)": {
                           rightChestLogo: {
-                              width: 30,
-                              height: 30,
+                                width: 40,
+                              height: 40,
                               top: 135,
                               left: 165
                           },
                           teamLogo: {
-                              width: 30,
-                              height: 30,
+                                width: 40,
+                              height: 40,
                               top: 135,
                               right: 165,
                               "z+'-'+index": 9
@@ -111,7 +111,7 @@
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                              top: 210,
+                              top: 190,
                               left: 153,
 
                           },
@@ -154,14 +154,14 @@
                       },
                       "Plumb (SUB)": {
                           rightChestLogo: {
-                              width: 30,
-                              height: 30,
+                               width: 40,
+                              height: 40,
                               top: 135,
                               left: 165
                           },
                           teamLogo: {
-                              width: 30,
-                              height: 30,
+                               width: 40,
+                              height: 40,
                               top: 135,
                               right: 165,
                               "z+'-'+index": 9
@@ -169,7 +169,7 @@
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                              top: 210,
+                              top: 190,
                               left: 153,
 
                           },
@@ -214,14 +214,14 @@
                       },
                       "Floater (SUB)": {
                           rightChestLogo: {
-                              width: 30,
-                              height: 30,
+                               width: 40,
+                              height: 40,
                               top: 135,
                               left: 165
                           },
                           teamLogo: {
-                              width: 30,
-                              height: 30,
+                               width: 40,
+                              height: 40,
                               top: 135,
                               right: 165,
                               "z+'-'+index": 9
@@ -229,7 +229,7 @@
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                              top: 210,
+                              top: 190,
                               left: 153,
 
                           },
@@ -274,14 +274,14 @@
                       },
                       "Pace (C&S)": {
                           rightChestLogo: {
-                              width: 30,
-                              height: 30,
+                              width: 40,
+                              height: 40,
                               top: 135,
                               left: 165
                           },
                           teamLogo: {
-                              width: 30,
-                              height: 30,
+                              width: 40,
+                              height: 40,
                               top: 135,
                               right: 165,
                               "z+'-'+index": 9
@@ -289,7 +289,7 @@
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                              top: 210,
+                             top: 190,
                               left: 153
                           },
                           leftSleeveLogo: {
@@ -334,14 +334,14 @@
                       },
                       "Seam (C&S)": {
                           rightChestLogo: {
-                              width: 30,
-                              height: 30,
+                               width: 40,
+                              height: 40,
                               top: 135,
                               left: 165
                           },
                           teamLogo: {
-                              width: 30,
-                              height: 30,
+                              width: 40,
+                              height: 40,
                               top: 135,
                               right: 165,
                               "z+'-'+index": 9
@@ -349,7 +349,7 @@
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                              top: 210,
+                              top: 190,
                               left: 153,
 
                           },
@@ -394,14 +394,14 @@
                       },
                       "Dipper (C&S)": {
                           rightChestLogo: {
-                              width: 30,
-                              height: 30,
+                                width: 40,
+                              height: 40,
                               top: 135,
                               left: 165
                           },
                           teamLogo: {
-                              width: 30,
-                              height: 30,
+                               width: 40,
+                              height: 40,
                               top: 135,
                               right: 165,
                               "z+'-'+index": 9
@@ -409,7 +409,7 @@
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                              top: 210,
+                               top: 190,
                               left: 153,
 
                           },
@@ -454,14 +454,14 @@
                       },
                       "Flipper (C&S)": {
                           rightChestLogo: {
-                              width: 30,
-                              height: 30,
+                               width: 40,
+                              height: 40,
                               top: 135,
                               left: 165
                           },
                           teamLogo: {
-                              width: 30,
-                              height: 30,
+                               width: 40,
+                              height: 40,
                               top: 135,
                               right: 165,
                               "z+'-'+index": 9
@@ -469,7 +469,7 @@
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                              top: 210,
+                              top: 190,
                               left: 153,
 
                           },
@@ -514,14 +514,14 @@
                       },
                       "Drift (C&S)": {
                           rightChestLogo: {
-                              width: 30,
-                              height: 30,
+                               width: 40,
+                              height: 40,
                               top: 135,
                               left: 165
                           },
                           teamLogo: {
-                              width: 30,
-                              height: 30,
+                               width: 40,
+                              height: 40,
                               top: 135,
                               right: 165,
                               "z+'-'+index": 9
@@ -529,7 +529,7 @@
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                              top: 210,
+                              top: 190,
                               left: 153,
 
                           },
@@ -574,14 +574,14 @@
                       },
                       "Whites": {
                           rightChestLogo: {
-                              width: 30,
-                              height: 30,
+                               width: 40,
+                              height: 40,
                               top: 135,
                               left: 165
                           },
                           teamLogo: {
-                              width: 30,
-                              height: 30,
+                               width: 40,
+                              height: 40,
                               top: 135,
                               right: 165,
                               "z+'-'+index": 9
@@ -589,7 +589,7 @@
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                              top: 210,
+                            top: 190,
                               left: 153,
 
                           },
@@ -663,7 +663,7 @@
                       },
                   },
                   "gloves": {
-                      "SWEEP 101": {
+                      "Sweep 101": {
                           teamLogo: {
                               width: 60,
                               height: 60,
@@ -672,7 +672,7 @@
                               transform: 'rotate(180deg)'
                           }
                       },
-                      "SWITCH 202": {
+                      "Switch 202": {
                           teamLogo: {
                               width: 60,
                               height: 60,
@@ -681,7 +681,7 @@
                               transform: 'rotate(180deg)'
                           }
                       },
-                      "SCOOP 303": {
+                      "Scoop 303": {
                           teamLogo: {
                               width: 60,
                               height: 60,
@@ -761,7 +761,7 @@
 
   //gloves:3,pads:2,trouser:5,shorts:5,whiteTee:1,odi-Tee:4,odi-Training:5
   var currencyObj = [{
-          name: "SWEEP 101",
+          name: "Sweep 101",
           inr: "1800",
           usd: "49",
           gbp: "32",
@@ -769,15 +769,15 @@
           euro: "42",
       },
       {
-          name: "SWITCH 202",
-          inr: "1950",
+          name: "Switch 202",
+          inr: "1900",
           usd: "55",
           gbp: "37",
           aud: "67",
           euro: "49",
       },
       {
-          name: "SCOOP 303",
+          name: "Scoop 303",
           inr: "2400",
           usd: "60",
           gbp: "42",
@@ -785,14 +785,14 @@
           euro: "54",
       },
       {
-          name: "HOWZAT 101",
+          name: "howzat 101",
           inr: "2750",
           usd: "60",
           gbp: "39",
           aud: "68",
           euro: "53",
       }, {
-          name: "INSIDE EDGE 202",
+          name: "inside edge  202",
           inr: "3000",
           usd: "69",
           gbp: "49",
@@ -800,7 +800,7 @@
           euro: "59",
       },
       {
-          name: "NOT OUT 303",
+          name: "not out 303",
           inr: "3250",
           usd: "75",
           gbp: "59",

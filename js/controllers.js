@@ -3085,20 +3085,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
 
         $scope.myArr = [{
-            name: "HOWZAT 101",
+            name: "howzat 101",
             img: $scope.padImages1.dblue,
             color: "dblue",
             colorObj: $scope.padImages1
         }, {
-            name: "NOT OUT 303",
-            img: $scope.padImages2.dgreen,
-            color: "dgreen",
-            colorObj: $scope.padImages2
-        }, {
-            name: "INSIDE EDGE 202",
+            name: "inside edge 202",
             img: $scope.padImages3.dorange,
             color: "dorange",
             colorObj: $scope.padImages3
+        },{
+            name: "not out 303",
+            img: $scope.padImages2.dgreen,
+            color: "dgreen",
+            colorObj: $scope.padImages2
         }];
 
         function getColorObjByName(name) {
@@ -4404,19 +4404,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         };
         $scope.myArr = [{
-            designName: "SWEEP 101",
+            designName: "Sweep 101",
             name: "$scope.glovesImages1",
             img: $scope.glovesImages1.dblue,
             color: 'dblue',
             colr: "#00008b"
         }, {
-            designName: "SWITCH 202",
+            designName: "Switch 202",
             name: "$scope.glovesImages2",
             img: $scope.glovesImages2.dgreen,
             color: 'dgreen',
             colr: "#66cd00"
         }, {
-            designName: "SCOOP 303",
+            designName: "Scoop 303",
             name: "$scope.glovesImages3",
             img: $scope.glovesImages3.red,
             color: 'red',
