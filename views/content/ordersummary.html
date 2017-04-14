@@ -24,7 +24,8 @@
 
                   <div ng-if="design.description.isBase">
                     <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-if="!(design.description.type == 'pads' || design.description.type == 'gloves')">Base</button>
-                    <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-if="(design.description.type == 'pads' || design.description.type == 'gloves')" style="cursor:inherit;">TRIM</button>
+                    <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-if="(design.description.type == 'pads' || design.description.type == 'gloves')"
+                      style="cursor:inherit;">TRIM</button>
                     <span ng-style="{'background-color': '{{design.description.color.base}}'}" ng-if="design.description.color.base"></span>
                   </div>
 
@@ -66,9 +67,23 @@
                   <div class="team-logo inline-block mgl-20 va-mid" ng-if="design.description.rightsleeve && design.description.rightsleeve.image">
                     <img ng-src="{{design.description.rightsleeve.image | serverimage}}" alt="" class="img-responsive logo-img">
                   </div>
+
+                  <div class="team-logo inline-block mgl-20 va-mid" ng-if="design.description.mainSponsorLogo && design.description.mainSponsorLogo.image">
+                    <img ng-src="{{design.description.mainSponsorLogo.image | serverimage}}" alt="" class="img-responsive logo-img">
+                  </div>
+
+                  <div class="team-logo inline-block mgl-20 va-mid" ng-if="design.description.leftSleeveLogo && design.description.leftSleeveLogo.image">
+                    <img ng-src="{{design.description.leftSleeveLogo.image | serverimage}}" alt="" class="img-responsive logo-img">
+                  </div>
+
+                  <div class="team-logo inline-block mgl-20 va-mid" ng-if="design.description.rightSleeveLogo && design.description.rightSleeveLogo.image">
+                    <img ng-src="{{design.description.rightSleeveLogo.image | serverimage}}" alt="" class="img-responsive logo-img">
+                  </div>
+
                   <div class="team-logo inline-block mgl-20 va-mid" ng-if="design.description.backSponsorLogo && design.description.backSponsorLogo.image">
                     <img ng-src="{{design.description.backSponsorLogo.image | serverimage}}" alt="" class="img-responsive logo-img">
                   </div>
+
                 </div>
               </div>
             </div>
