@@ -5534,6 +5534,28 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.odiDeleteModal();
             }
         }
+
+          $scope.remove = function (key) {
+            console.log('ftyghftg', key);
+            $scope.saveKey = key;
+            if (key === 'rightChestLogo' && $scope.odiJson.rightChestLogo.image === "img/logo_black.png") {
+                $scope.statuses.modal = $uibModal.open({
+                    templateUrl: "views/modal/proceed1.html",
+                    scope: $scope,
+                    controller: function ($scope) {
+                        $scope.type = 'remove';
+                    }
+                });
+            } else {
+                 $scope.odiDeleteModal();
+            }
+        }
+
+
+    
+    
+  
+
         // $scope.deleteOdi = function () {
         //     console.log('sssssssssss');
         //     $scope.odiDeleteModal.close();
