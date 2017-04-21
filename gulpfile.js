@@ -43,7 +43,7 @@ var replacehostFrom = "http://localhost/demo/";
 var replacehostTo = "http://wohlig.co.in/demo2/";
 
 
-var ftpString = "U2FsdGVkX1+biVN325A4sdlYzcJ15z1hRSBMMttkkPsfPkLX/t40MH3sWTtmmGKdM71c1ELu9TAUvrpyzOxcg7+fBreC6vNh5hIlRvkN5JGjHBYsku6fKnz4O52y2nPkm1QzO3sD+jG7HAUtYO/SVg==";
+var ftpString = "U2FsdGVkX18maaFkmg7ylXCzLwCz2mi3sLFyP0bbOhHo6PCrDXvj7Kvo3DKQdkGuZHl/K/inGGgZ7pVrIxQG/oiSPabZaV4VcS2pkYR74tLs3bm1uQ8yIl1bZyFb+SbZpjIGCTFFsviFfCycnNL5NA==";
 
 var uploadingFolder = "ccctest";
 var password = "";
