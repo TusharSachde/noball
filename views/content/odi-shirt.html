@@ -73,7 +73,9 @@
               <h4>{{odiJson.design.name}}</h4>
               <h3>{{odiJson.design | currencyFilter}}</h3>
               <span class="Raleway-Medium"><em>Minimum Order Quantity (MOQ) =  20 Tees</em></span>
+               <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing btnpos-change" ng-hide="tab=='trim'|| tab=='team' || tab=='quantity'" ng-click="tabchange('trim',2); switchFrontBack(true); switchTrimHighlightBase(true,odiJson.color.baseColorName,odiJson.design.designType,odiJson.color.base); switchTrimHighlightOne(true,odiJson.color.trim1ColorName,odiJson.design.designType,odiJson.color.trim1); switchTrimHighlightTwo(true,odiJson.color.trim2ColorName,odiJson.design.designType,odiJson.color.trim2); openTab('b');">NEXT</button>
             </div>
+            
             <!--                    // design tab-->
             <div class="choos m20-l" ng-show="tab=='design'">
               <p ng-if="page==1">Choose Your Type Of Design ({{images.page1.length}}/{{images.page1.length + images.page2.length}})</p>
@@ -130,7 +132,7 @@
                 <button class="{{designButton.design3.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(3);">Cut &amp; Sew</button>
                 <button class="{{designButton.design4.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(4);">Polo</button>-->
               </div>
-              <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="tabchange('trim',2); switchFrontBack(true); switchTrimHighlightBase(true,odiJson.color.baseColorName,odiJson.design.designType,odiJson.color.base); switchTrimHighlightOne(true,odiJson.color.trim1ColorName,odiJson.design.designType,odiJson.color.trim1); switchTrimHighlightTwo(true,odiJson.color.trim2ColorName,odiJson.design.designType,odiJson.color.trim2); openTab('b');">NEXT</button>
+             
               <!-- <div class="edit-btn inline-block">
                                 <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                             </div>

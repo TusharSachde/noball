@@ -2,44 +2,53 @@
     <a href="" ng-click="$dismiss();" class="text-up pull-right mr10"><i class="fa fa-times" aria-hidden="true"></i></a>
 
     <!--<pre>{{checkoutObj|json}}</pre>-->
+    <div ng-show="!isEnq">
     <div class="logo-img text-center">
         <img src="img/logo_black.png" alt="logo">
     </div>
-    <div ng-show="!isEnq">
+
         <div class="headers">
 
             <div class="nocheck-text text-center">
-                <p class="margin0">Thank you for customising with Custom Cricket Company. </p>
-                <p class="margin0">Please enter your details below and <br>we'll get back to you within 24 hours. </p>
-
+                <p class="margin0"> Thank you for submitting your design.  </p>
+                <p class="margin0">Our production team will reply to you within 24 hours.  </p>
+                <p>You may work with our design team until you're happy with your creation.</p>
+                <p>You will not be charged until you confirm  your order and choose your preferred billing method.</p>
             </div>
         </div>
         <form name="nocheckout" ng-submit="checkoutContinue(checkoutObj)" class="checks">
             <div class="form-group">
                 <label>First Name:</label>
-                <input type="text" ng-model="checkoutObj.fname" class="form-control" aplha-only required>
+                <input type="text" ng-model="checkoutObj.fname" name="fname" class="form-control" aplha-only required>
+                 <div class="error text-center text-capitalize" ng-if="nocheckout.fname.$invalid && nocheckout.fname.$touched">Please enter your first name</div>
             </div>
 
             <div class="form-group">
                 <label>Last Name:</label>
-                <input type="text" class="form-control" ng-model="checkoutObj.lname" aplha-only required>
+                <input type="text" class="form-control" ng-model="checkoutObj.lname" name="lname" aplha-only required>
+            <div class="error text-center text-capitalize" ng-if="nocheckout.lname.$invalid && nocheckout.lname.$touched">Please enter your last name</div>
             </div>
             <div class="form-group">
                 <label>Email Id:</label>
-                <input type="text" class="form-control" ng-model="checkoutObj.email" ng-pattern='/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i'
+                <input type="text" class="form-control" name="email" ng-model="checkoutObj.email" ng-pattern='/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i'
                     required>
+                    <div class="error text-center text-capitalize" ng-if="nocheckout.email.$invalid && nocheckout.email.$touched">Please enter your email id</div>
             </div>
             <div class="form-group">
                 <label>Mobile No :</label>
-                <input type="text" class="form-control" ng-model="checkoutObj.mobile" maxlength="10" only-digits required>
+                <input type="text" class="form-control" ng-model="checkoutObj.mobile" name="mobile"  >
+                <!--minlength="9" maxlength="10" only-digits ng-pattern="/^[0-9]{10,10}$/;"-->
+             <div class="error text-center text-capitalize" ng-if="nocheckout.mobile.$invalid && nocheckout.mobile.$touched">Please enter your mobile no.</div>
             </div>
             <div class="form-group">
                 <label>Country</label>
-                <input type="text" class="form-control" ng-model="checkoutObj.country">
+                <input type="text" class="form-control" ng-model="checkoutObj.country" name="country" required>
+                   <div class="error text-center text-capitalize" ng-if="nocheckout.country.$invalid && nocheckout.country.$touched">Please enter your country</div>
             </div>
             <div class="form-group">
                 <label>City:</label>
-                <input type="text" class="form-control" ng-model="checkoutObj.city">
+                <input type="text" class="form-control" ng-model="checkoutObj.city" name="city" required>
+                                <div class="error text-center text-capitalize" ng-if="nocheckout.city.$invalid && nocheckout.city.$touched">Please enter your city</div>
             </div>
             <div class="continue-buttons text-center">
 
@@ -47,5 +56,5 @@
             </div>
         </form>
     </div>
-    <p class="pads-tops text-center" ng-show="isEnq">Thank You For Submitting</p>
+    <p class="pads-tops padd20 text-center" ng-show="isEnq">Thank you for submitting your creation !</p>
 </div>

@@ -229,6 +229,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, cfp
       templateUrl: "views/template.html",
       controller: 'CartCtrl'
     })
+    
     .state('profile', {
       url: "/profile",
       templateUrl: "views/template.html",

@@ -49,7 +49,7 @@
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                              top: 190,
+                              top: 171,
                               left: 153,
 
                           },
@@ -111,7 +111,7 @@
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                              top: 190,
+                               top: 171,
                               left: 153,
 
                           },
@@ -169,7 +169,7 @@
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                              top: 190,
+                              top: 171,
                               left: 153,
 
                           },
@@ -229,7 +229,7 @@
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                              top: 190,
+                            top: 171,
                               left: 153,
 
                           },
@@ -289,7 +289,7 @@
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                             top: 190,
+                             top: 171,
                               left: 153
                           },
                           leftSleeveLogo: {
@@ -349,7 +349,7 @@
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                              top: 190,
+                              top: 171,
                               left: 153,
 
                           },
@@ -409,7 +409,7 @@
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                               top: 190,
+                               top: 171,
                               left: 153,
 
                           },
@@ -469,7 +469,7 @@
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                              top: 190,
+                              top: 171,
                               left: 153,
 
                           },
@@ -529,7 +529,7 @@
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                              top: 190,
+                              top: 171,
                               left: 153,
 
                           },
@@ -572,7 +572,7 @@
                           },
                           isColar: false
                       },
-                      "Whites": {
+                      "First Slip": {
                           rightChestLogo: {
                                width: 40,
                               height: 40,
@@ -589,7 +589,7 @@
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                            top: 190,
+                          top: 171,
                               left: 153,
 
                           },
@@ -632,9 +632,248 @@
                           },
                           isColar: true
                       },
+     "Point": {
+                          rightChestLogo: {
+                               width: 40,
+                              height: 40,
+                              top: 135,
+                              left: 165
+                          },
+                          teamLogo: {
+                               width: 40,
+                              height: 40,
+                              top: 135,
+                              right: 165,
+                              "z+'-'+index": 9
+                          },
+                          mainSponsorLogo: {
+                              width: 161,
+                              height: 120,
+                          top: 171,
+                              left: 153,
 
+                          },
+                          leftSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 130,
+                              right: 70,
+                            //   transform: 'rotate(10deg)'
+                          },
+                          leftSleeveLogoBack: {
+                              onlyOnBack: true,
+                              width: 30,
+                              height: 30,
+                              top: 130,
+                              left: 65,
+                              
+                          },
+                          rightSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 130,
+                              left: 70,
+                               transform: 'rotate(10deg)'
+                          },
+                          rightSleeveLogoBack: {
+                              onlyOnBack: true,
+                              width: 30,
+                              height: 30,
+                              top: 130,
+                              right: 65
+                             
+                          },
+                          backSponsorLogo: {
+                              onlyOnBack: true,
+                              width: 161,
+                              height: 80,
+                              top: 100,
+                              left: 150
+                          },
+                          isColar: true
+                      },
+                "Cover": {
+                          rightChestLogo: {
+                               width: 40,
+                              height: 40,
+                              top: 135,
+                              left: 165
+                          },
+                          teamLogo: {
+                               width: 40,
+                              height: 40,
+                              top: 135,
+                              right: 165,
+                              "z+'-'+index": 9
+                          },
+                          mainSponsorLogo: {
+                              width: 161,
+                              height: 120,
+                          top: 171,
+                              left: 153,
+
+                          },
+                          leftSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 130,
+                              right: 70,
+                            //   transform: 'rotate(10deg)'
+                          },
+                          leftSleeveLogoBack: {
+                              onlyOnBack: true,
+                              width: 30,
+                              height: 30,
+                              top: 130,
+                              left: 65,
+                              
+                          },
+                          rightSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 130,
+                              left: 70,
+                               transform: 'rotate(10deg)'
+                          },
+                          rightSleeveLogoBack: {
+                              onlyOnBack: true,
+                              width: 30,
+                              height: 30,
+                              top: 130,
+                              right: 65
+                             
+                          },
+                          backSponsorLogo: {
+                              onlyOnBack: true,
+                              width: 161,
+                              height: 80,
+                              top: 100,
+                              left: 150
+                          },
+                          isColar: true
+                      },
+                        "Gully": {
+                          rightChestLogo: {
+                               width: 40,
+                              height: 40,
+                              top: 135,
+                              left: 165
+                          },
+                          teamLogo: {
+                               width: 40,
+                              height: 40,
+                              top: 135,
+                              right: 165,
+                              "z+'-'+index": 9
+                          },
+                          mainSponsorLogo: {
+                              width: 161,
+                              height: 120,
+                          top: 171,
+                              left: 153,
+
+                          },
+                          leftSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 130,
+                              right: 70,
+                            //   transform: 'rotate(10deg)'
+                          },
+                          leftSleeveLogoBack: {
+                              onlyOnBack: true,
+                              width: 30,
+                              height: 30,
+                              top: 130,
+                              left: 65,
+                              
+                          },
+                          rightSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 130,
+                              left: 70,
+                               transform: 'rotate(10deg)'
+                          },
+                          rightSleeveLogoBack: {
+                              onlyOnBack: true,
+                              width: 30,
+                              height: 30,
+                              top: 130,
+                              right: 65
+                             
+                          },
+                          backSponsorLogo: {
+                              onlyOnBack: true,
+                              width: 161,
+                              height: 80,
+                              top: 100,
+                              left: 150
+                          },
+                          isColar: true
+                      },
+                           "Second Slip": {
+                          rightChestLogo: {
+                               width: 40,
+                              height: 40,
+                              top: 135,
+                              left: 165
+                          },
+                          teamLogo: {
+                               width: 40,
+                              height: 40,
+                              top: 135,
+                              right: 165,
+                              "z+'-'+index": 9
+                          },
+                          mainSponsorLogo: {
+                              width: 161,
+                              height: 120,
+                          top: 171,
+                              left: 153,
+
+                          },
+                          leftSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 130,
+                              right: 70,
+                            //   transform: 'rotate(10deg)'
+                          },
+                          leftSleeveLogoBack: {
+                              onlyOnBack: true,
+                              width: 30,
+                              height: 30,
+                              top: 130,
+                              left: 65,
+                              
+                          },
+                          rightSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 130,
+                              left: 70,
+                               transform: 'rotate(10deg)'
+                          },
+                          rightSleeveLogoBack: {
+                              onlyOnBack: true,
+                              width: 30,
+                              height: 30,
+                              top: 130,
+                              right: 65
+                             
+                          },
+                          backSponsorLogo: {
+                              onlyOnBack: true,
+                              width: 161,
+                              height: 80,
+                              top: 100,
+                              left: 150
+                          },
+                          isColar: true
+                      },
                   },
-                  "trousers": {
+                  "troussers": {
                       leftLogo: {
                           width: 30,
                           height: 30,
@@ -702,7 +941,7 @@
               };
 
               var odiForBase = ["Googly (SUB)", "Grubber (SUB)", "Plumb (SUB)", "Floater (SUB)", "Pace (C&S)", "Seam (C&S)", "Dipper (C&S)", "Flipper (C&S)", "Drift (C&S)"];
-              var odiForTrim1 = ["Googly (SUB)", "Grubber (SUB)", "Plumb (SUB)", "Floater (SUB)", "Pace (C&S)", "Seam (C&S)", "Dipper (C&S)", "Flipper (C&S)", "Drift (C&S)", "Whites"];
+              var odiForTrim1 = ["Googly (SUB)", "Grubber (SUB)", "Plumb (SUB)", "Floater (SUB)", "Pace (C&S)", "Seam (C&S)", "Dipper (C&S)", "Flipper (C&S)", "Drift (C&S)", "First Slip","Point","Cover","Gully","Second Slip"];
               var odiForTrim2 = ["Googly (SUB)", "Grubber (SUB)", "Plumb (SUB)", "Floater (SUB)"];
 
 
@@ -877,9 +1116,37 @@
           usd: "15",
           gbp: "15",
           aud: "20",
-          euro: "18",
+          euro: "18",    
+      },{
+          name: "First Slip",
+          inr: "1000",
+          usd: "17",
+          gbp: "22",
+          aud: "29",
+          euro: "24.5",
+      },{
+          name: "Point",
+          inr: "1000",
+          usd: "17",
+          gbp: "22",
+          aud: "29",
+          euro: "24.5",
+      },{
+          name: "Cover",
+          inr: "1000",
+          usd: "17",
+          gbp: "22",
+          aud: "29",
+          euro: "24.5",
+      },{
+          name: "Gully",
+          inr: "1000",
+          usd: "17",
+          gbp: "22",
+          aud: "29",
+          euro: "24.5",
       }, {
-          name: "Whites",
+          name: "Second Slip",
           inr: "1000",
           usd: "17",
           gbp: "22",

@@ -5149,7 +5149,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 animation: true,
                 // controller: "GlovesCtrl",
                 windowClass: "modal-dialogintro",
-                backdrop: 'static',
+                // backdrop: 'static',
                 scope: $scope
             })
         };
@@ -5957,7 +5957,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.trimTshirt.highlightBase.disable = "noable";
                     $scope.trimTshirt.highlightOne.disable = "noable";
                     $scope.trimTshirt.highlightTwo.disable = "noable";
-                    $scope.odiJson.design.name = "Whites";
+                    $scope.odiJson.design.name = "First Slip";
                     $scope.odiJson.design.designName = "design1";
                     $scope.odiJson.design.designType = 'whites';
                     $scope.odiJson.color.base = "#ffffff";
@@ -5976,7 +5976,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.trimTshirt.highlightBase.disable = "noable";
                     $scope.trimTshirt.highlightOne.disable = "unnoable";
                     $scope.trimTshirt.highlightTwo.disable = "noable";
-                    $scope.odiJson.design.name = "Whites";
+                    $scope.odiJson.design.name = "Point";
                     $scope.odiJson.design.designName = "design2";
                     $scope.odiJson.design.designType = 'whites';
                     $scope.odiJson.color.base = "#ffffff";
@@ -5996,7 +5996,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.trimTshirt.highlightBase.disable = "noable";
                     $scope.trimTshirt.highlightOne.disable = "unnoable";
                     $scope.trimTshirt.highlightTwo.disable = "noable";
-                    $scope.odiJson.design.name = "Whites";
+                    $scope.odiJson.design.name = "Cover";
                     $scope.odiJson.design.designName = "design3";
                     $scope.odiJson.design.designType = 'whites';
                     $scope.odiJson.color.base = "#ffffff";
@@ -6016,7 +6016,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.trimTshirt.highlightBase.disable = "noable";
                     $scope.trimTshirt.highlightOne.disable = "unnoable";
                     $scope.trimTshirt.highlightTwo.disable = "noable";
-                    $scope.odiJson.design.name = "Whites";
+                    $scope.odiJson.design.name = "Gully";
                     $scope.odiJson.design.designName = "design4";
                     $scope.odiJson.design.designType = 'whites';
                     $scope.odiJson.color.base = "#000";
@@ -6036,7 +6036,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.trimTshirt.highlightBase.disable = "noable";
                     $scope.trimTshirt.highlightOne.disable = "unnoable";
                     $scope.trimTshirt.highlightTwo.disable = "noable";
-                    $scope.odiJson.design.name = "Whites";
+                    $scope.odiJson.design.name = "Second Slip";
                     $scope.odiJson.design.designName = "design5";
                     $scope.odiJson.design.designType = 'whites';
                     $scope.odiJson.color.base = "#ffffff";
@@ -8614,9 +8614,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $uibModal.open({
                 animation: true,
                 templateUrl: "views/modal/customizepop.html",
-                controller: 'CustomiseInfoCtrl',
-                backdrop: 'static',
-                keyboard: false
+                controller: 'CustomiseInfoCtrl'
+                // backdrop: 'static',
+                // keyboard: false
             });
         };
         $scope.submitCustomEnquiry = function () {
@@ -10510,9 +10510,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $uibModal.open({
                 animation: true,
                 templateUrl: "views/modal/customizepop.html",
-                controller: 'CustomiseInfoCtrl',
-                backdrop: 'static',
-                keyboard: false
+                controller: 'CustomiseInfoCtrl'
+                // backdrop: 'static',
+                // keyboard: false
             });
         };
 
@@ -11107,9 +11107,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $uibModal.open({
                 animation: true,
                 templateUrl: "views/modal/customizepop.html",
-                controller: 'headerctrl',
+                controller: 'headerctrl'
                 // backdrop: 'static',
-                keyboard: false
+                // keyboard: false
             });
         };
 
