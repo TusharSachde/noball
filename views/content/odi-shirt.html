@@ -72,7 +72,7 @@
             <div class="det-name">
               <h4>{{odiJson.design.name}}</h4>
               <h3>{{odiJson.design | currencyFilter}}</h3>
-              <span class="Raleway-Medium"><em>Minimum Order Quantity (MOQ) =  20 Tees</em></span>
+              <span class="Raleway-Medium"><em>Minimum Total Quantity (MTQ) =  20 Tees</em></span>
                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing  pull-right padding-btn" ng-hide="tab=='trim'|| tab=='team' || tab=='quantity'" ng-click="tabchange('trim',2); switchFrontBack(true); switchTrimHighlightBase(true,odiJson.color.baseColorName,odiJson.design.designType,odiJson.color.base); switchTrimHighlightOne(true,odiJson.color.trim1ColorName,odiJson.design.designType,odiJson.color.trim1); switchTrimHighlightTwo(true,odiJson.color.trim2ColorName,odiJson.design.designType,odiJson.color.trim2); openTab('b');">NEXT</button>
             </div>
             
@@ -518,7 +518,7 @@
                             <td>
                               <input type="number" name="quantity" placeholder="20" ng-change="addQuantity(jersey.quantity)" ng-model="jersey.quantity"
                                 maxlength="3">
-                              <p class="error-td f13" ng-if="odiJson.totalQuan<20 && odiJson.totalQuan!=0">Please enter valid quantity.The MOQ is 20</p>
+                              <p class="error-td f13" ng-if="odiJson.totalQuan<20 && odiJson.totalQuan!=0">Please enter valid quantity.The MTQ is 20</p>
                             </td>
                             <!--<td>
                               <p ng-if="jersey.quantity == null">Please enter correct quantity </p>
