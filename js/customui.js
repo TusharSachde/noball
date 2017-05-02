@@ -940,9 +940,9 @@
                   }
               };
 
-              var odiForBase = ["Googly (SUB)", "Grubber (SUB)", "Plumb (SUB)", "Floater (SUB)", "Pace (C&S)", "Seam (C&S)", "Dipper (C&S)", "Flipper (C&S)", "Drift (C&S)"];
-              var odiForTrim1 = ["Googly (SUB)", "Grubber (SUB)", "Plumb (SUB)", "Floater (SUB)", "Pace (C&S)", "Seam (C&S)", "Dipper (C&S)", "Flipper (C&S)", "Drift (C&S)", "First Slip","Point","Cover","Gully","Second Slip"];
-              var odiForTrim2 = ["Googly (SUB)", "Grubber (SUB)", "Plumb (SUB)", "Floater (SUB)"];
+              var odiForBase = ["Plumb (SUB)", "Grubber (SUB)", "Googly (SUB)", "Floater (SUB)", "Pace (C&S)", "Seam (C&S)", "Dipper (C&S)", "Flipper (C&S)", "Drift (C&S)"];
+              var odiForTrim1 = ["Plumb (SUB)","Googly (SUB)", "Grubber (SUB)", "Floater (SUB)", "Pace (C&S)", "Seam (C&S)", "Dipper (C&S)", "Flipper (C&S)", "Drift (C&S)", "First Slip","Point","Cover","Gully","Second Slip"];
+              var odiForTrim2 = [ "Plumb (SUB)","Googly (SUB)", "Grubber (SUB)", "Floater (SUB)"];
 
 
 

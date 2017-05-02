@@ -47,7 +47,7 @@
                             .
                         </p>-->
                         <h3>{{designJson.design | currencyFilter}} </h3>
-                        <span class="Raleway-Medium"><em>Minimum Order Quantity (MOQ) = 12 pairs of each design</em></span>
+                        <span class="Raleway-Medium"><em>Minimum Total Quantity (MTQ) = 12 pairs of each design</em></span>
                     </div>
                     <!--                    // design tab-->
 
@@ -75,7 +75,7 @@
                                 <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span>                                    to know more about customization tools.</li>
                                 <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves & pads attract
                                     a nominal one-time customization fees).</li>
-
+                                <li>Colours are Subject to availabiltiy .</li>
                             </ul>
                         </div>
                     </div>
@@ -335,7 +335,7 @@
                                     <span class="inline-block uppercase pad-5">quantity</span>
                                     <input type="number" class="form-control inline-block" name="name" ng-change="addQuantity(pad.quantity)" ng-model="designJson.quantity[1].quantity"
                                         placeholder="12" maxlength="3">
-                                    <p class="error-td error-quantity f13 errors-pad" ng-if="totalQuan<12 && totalQuan!=0">Please enter valid quantity.The MOQ is 12</p>
+                                    <p class="error-td error-quantity f13 errors-pad" ng-if="totalQuan<12 && totalQuan!=0">Please enter valid quantity.The MTQ is 12</p>
                                 </div>
                             </div>
                             <!--<div class="add-button">

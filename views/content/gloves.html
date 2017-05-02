@@ -57,7 +57,7 @@
                         <h4 class="text-capitalize">{{glovesJson.design.name}}</h4>
                         <!--<p>The Custom Cricket company cricket gloves is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest.</p>-->
                         <h3>{{glovesJson.design | currencyFilter}}</h3>
-                        <span class="Raleway-Medium"><em>Minimum Order Quantity (MOQ) = 12 pairs of each design</em></span>
+                        <span class="Raleway-Medium"><em>Minimum Total Quantity (MTQ) = 12 pairs of each design</em></span>
                     </div>
                     <!-- // design tab-->
 
@@ -90,7 +90,7 @@
                                 <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span>                                    to know more about customization tools.</li>
                                 <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves & pads attract
                                     a nominal one-time customization fees).</li>
-
+                                <li>Colours are Subject to availabiltiy.</li>
                             </ul>
                         </div>
                     </div>
@@ -565,7 +565,7 @@
                                     <input type="number" class="form-control inline-block" name="name" value="" ng-change="addQuantity(glovesJson.quantity[1].quantity)"
                                         ng-model="glovesJson.quantity[1].quantity" placeholder="12" maxlength="3">
                                     <!--<p class="error-td error-quantity f13" ng-if="totalQuan<12 && totalQuan!=0">Please enter valid quantity.The MOQ is 12</p>-->
-                                    <p class="error-td error-quantity errors-pad f13" ng-if="totalQuan<12 && totalQuan!=0">Please enter valid quantity.The MOQ is 12</p>
+                                    <p class="error-td error-quantity errors-pad f13" ng-if="totalQuan<12 && totalQuan!=0">Please enter valid quantity.The MTQ is 12</p>
                                 </div>
                                 <!--<div class="sizes size inline-block">
                                     <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">preview</button>

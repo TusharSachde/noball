@@ -3105,7 +3105,7 @@
  }
 
  .feature-buttons {
-     margin: 30px 0 20px;
+     margin: 0px 0 20px;
      .padding-btn {
          padding: 6px 10px 4px !important;
      }
@@ -6987,4 +6987,9 @@
      color:red;
  }
 
+.prints{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 50px;
+}
  @import "mobile/mobile";

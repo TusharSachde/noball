@@ -5772,6 +5772,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.changeDesign($scope.designIndex, $scope.designTab, $scope.designImage);
         };
 
+         $scope.tabs = 'light3';
+        $scope.classp = 'active-tab';
+        $scope.classv = '';
+        $scope.classshow = 'activeme';
+        $scope.classhide = '';
+        $scope.trimTabs = {};
+        $scope.trimTabs.light1 = {};
+        $scope.trimTabs.light2 = {};
+        $scope.trimTabs.light3 = {};
+        $scope.trimTabs.light1.active = "";
+        $scope.trimTabs.light1.show = "";
+        $scope.trimTabs.light2.active = "";
+        $scope.trimTabs.light2.show = "";
+        $scope.trimTabs.light3.active = "activeme";
+        $scope.trimTabs.light3.show = "active-tab";
+        //chaita
+
         $scope.changeDesign = function (index, tab) {
 
             $scope.switchTrimHighlightBase(true, $scope.odiJson.color.baseColorName, $scope.odiJson.design.designType, $scope.odiJson.color.base);
@@ -5780,7 +5797,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.switchFrontBack(true)
 
             if (tab === 1) {
-                if (index === 0) {
+                if (index === 2) {
                     $scope.trimTshirt.highlightBase.disable = "unnoable";
                     $scope.trimTshirt.highlightOne.disable = "unnoable";
                     $scope.trimTshirt.highlightTwo.disable = "unnoable";
@@ -5817,7 +5834,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.trimHexColors('highlightOne', '#00308f');
                     $scope.trimHexColors('highlightTwo', '#fff');
                     $scope.trimHexColors('highlightBase', '#bf0000');
-                } else if (index === 2) {
+                } else if (index === 0) {
                     $scope.trimTshirt.highlightBase.disable = "unnoable";
                     $scope.trimTshirt.highlightOne.disable = "unnoable";
                     $scope.trimTshirt.highlightTwo.disable = "unnoable";
@@ -6559,22 +6576,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.page = 1;
 
         $scope.images = {
-            "page1": [{
-                src: "img/odi-tshirts/trims/odi/design1/front/front.png",
+            "page1": [  {
+                src: "img/odi-tshirts/trims/odi/design4/front/front.png",
                 type: "odi",
                 id: 0
-                // }, {
-                //     src: "img/odi-tshirts/trims/odi/design2/front.png",
-                //     type: "odi"
             }, {
                 src: "img/odi-tshirts/trims/odi/design3/front/front.png",
                 type: "odi",
                 id: 1
-            }, {
-                src: "img/odi-tshirts/trims/odi/design4/front/front.png",
+            },
+            {
+                src: "img/odi-tshirts/trims/odi/design1/front/front.png",
                 type: "odi",
                 id: 2
-            }, {
+            },{
                 src: "img/odi-tshirts/trims/odi/design5/front/front.png",
                 type: "odi",
                 id: 3
