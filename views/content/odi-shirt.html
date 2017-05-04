@@ -72,8 +72,10 @@
             <div class="det-name">
               <h4>{{odiJson.design.name}}</h4>
               <h3>{{odiJson.design | currencyFilter}}</h3>
-              <span class="Raleway-Medium"><em>Minimum Order Quantity (MOQ) =  20 Tees</em></span>
+              <span class="Raleway-Medium"><em>Minimum Total Quantity (MTQ) =  20 Tees</em></span>
+               <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing  pull-right padding-btn" ng-hide="tab=='trim'|| tab=='team' || tab=='quantity'" ng-click="tabchange('trim',2); switchFrontBack(true); switchTrimHighlightBase(true,odiJson.color.baseColorName,odiJson.design.designType,odiJson.color.base); switchTrimHighlightOne(true,odiJson.color.trim1ColorName,odiJson.design.designType,odiJson.color.trim1); switchTrimHighlightTwo(true,odiJson.color.trim2ColorName,odiJson.design.designType,odiJson.color.trim2); openTab('b');">NEXT</button>
             </div>
+            
             <!--                    // design tab-->
             <div class="choos m20-l" ng-show="tab=='design'">
               <p ng-if="page==1">Choose Your Type Of Design ({{images.page1.length}}/{{images.page1.length + images.page2.length}})</p>
@@ -130,7 +132,7 @@
                 <button class="{{designButton.design3.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(3);">Cut &amp; Sew</button>
                 <button class="{{designButton.design4.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(4);">Polo</button>-->
               </div>
-              <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="tabchange('trim',2); switchFrontBack(true); switchTrimHighlightBase(true,odiJson.color.baseColorName,odiJson.design.designType,odiJson.color.base); switchTrimHighlightOne(true,odiJson.color.trim1ColorName,odiJson.design.designType,odiJson.color.trim1); switchTrimHighlightTwo(true,odiJson.color.trim2ColorName,odiJson.design.designType,odiJson.color.trim2); openTab('b');">NEXT</button>
+             
               <!-- <div class="edit-btn inline-block">
                                 <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                             </div>
@@ -473,59 +475,7 @@
               </div>
               <div class="accordion">
                 <uib-accordion>
-                  <uib-accordion-group class="panel-default" is-open="status.open1">
-                    <uib-accordion-heading>
-                      <i class="pull-left fa " ng-class="{'fa fa-minus': status.open1, 'fa fa-plus': !status.open1}"></i>Choose
-                      Your Font
-                    </uib-accordion-heading>
-                    <div class="radio-options">
-                      <form action="" class="radio">
-                        <div class="form-group">
-                          <input type="radio" id="jerseyradio1" ng-model="odiJson.font.fontStyle" value="arial" name="jerseyradio" />
-                          <label for="jerseyradio1" class="arial-font">
-                            <span></span> Arial
-                          </label>
-                        </div>
-                        <div class="form-group">
-                          <input type="radio" id="jerseyradio2" ng-model="odiJson.font.fontStyle" value="times" name="jerseyradio" />
-                          <label for="jerseyradio2" class="times-font">
-                            <span></span> Times New Roman</label>
-                        </div>
-                        <div class="form-group">
-                          <input type="radio" id="jerseyradio3" ng-model="odiJson.font.fontStyle" value="helvetica" name="jerseyradio" />
-                          <label for="jerseyradio3" class="helvetica-font">
-                            <span></span> Helvetica
-                          </label>
-                        </div>
-                      </form>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <h2>Choose Your Colour</h2>
-                        <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
-                          <div class="colo-pallet text-center ">
-                            <!--<div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-class="{'activated': jerseyBack.color == col.colr, 'borergrey':col.name == 'white'}"
-                              ng-click="jerseyBack.color=col.colr"></div>-->
-                            <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-class="{'activated': jerseyBack.color == col.colr, 'borergrey':col.name == 'white'}"
-                              ng-click="odiJson.font.fontColor=col.colr;jerseyBack.color=col.colr"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </uib-accordion-group>
-                  <div class="pbotom">
-                    <span class="block">Note </span>
-                    <span class="block">1. Leave name and number fields blank if you do not wish to choose this option.</span>
-                    <span class="block">2. If you would like to reposition or tweak your back sponsor logo, please leave your comments in the remarks field in the next step and our graphic team will get back to you.</span>
-                    <span class="block">3. Name will be printed in upper case / capital letters.</span>
-                    <span class="block">4. * denotes mandatory fields.</span>
-                    <ul class="pad-17">
-                      <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span>                        to know more about customization tools.</li>
-                      <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves & pads attract a nominal
-                        one-time customization fees).</li>
-                    </ul>
-                  </div>
-                  <uib-accordion-group class="panel-default" is-open="status.open2">
+                     <uib-accordion-group class="panel-default" is-open="status.open2">
                     <uib-accordion-heading>
                       <i class="pull-left fa " ng-class="{'fa fa-minus': status.open2, 'fa fa-plus': !status.open2}"></i>Choose
                       Your Size
@@ -568,7 +518,7 @@
                             <td>
                               <input type="number" name="quantity" placeholder="20" ng-change="addQuantity(jersey.quantity)" ng-model="jersey.quantity"
                                 maxlength="3">
-                              <p class="error-td f13" ng-if="odiJson.totalQuan<20 && odiJson.totalQuan!=0">Please enter valid quantity.The MOQ is 20</p>
+                              <p class="error-td f13" ng-if="odiJson.totalQuan<20 && odiJson.totalQuan!=0">Please enter valid quantity.The MTQ is 20</p>
                             </td>
                             <!--<td>
                               <p ng-if="jersey.quantity == null">Please enter correct quantity </p>
@@ -661,6 +611,60 @@
                       <span class="pull-right tquantity uppercase Raleway-Medium">Total Quantity: {{odiJson.totalQuan}}</span>
                     </div>
                   </uib-accordion-group>
+                   <div class="pbotom">
+                    <span class="block">Note </span>
+                    <span class="block">1. Leave name and number fields blank if you do not wish to choose this option.</span>
+                    <span class="block">2. If you would like to reposition or tweak your back sponsor logo, please leave your comments in the remarks field in the next step and our graphic team will get back to you.</span>
+                    <span class="block">3. Name will be printed in upper case / capital letters.</span>
+                    <span class="block">4. * denotes mandatory fields.</span>
+                    <ul class="pad-17">
+                      <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span>                        to know more about customization tools.</li>
+                      <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves & pads attract a nominal
+                        one-time customization fees).</li>
+                    </ul>
+                  </div>
+                  <uib-accordion-group class="panel-default" is-open="status.open1">
+                    <uib-accordion-heading>
+                      <i class="pull-left fa " ng-class="{'fa fa-minus': status.open1, 'fa fa-plus': !status.open1}"></i>Choose
+                      Your Font
+                    </uib-accordion-heading>
+                    <div class="radio-options">
+                      <form action="" class="radio">
+                        <div class="form-group">
+                          <input type="radio" id="jerseyradio1" ng-model="odiJson.font.fontStyle" value="arial" name="jerseyradio" />
+                          <label for="jerseyradio1" class="arial-font">
+                            <span></span> Arial
+                          </label>
+                        </div>
+                        <div class="form-group">
+                          <input type="radio" id="jerseyradio2" ng-model="odiJson.font.fontStyle" value="times" name="jerseyradio" />
+                          <label for="jerseyradio2" class="times-font">
+                            <span></span> Times New Roman</label>
+                        </div>
+                        <div class="form-group">
+                          <input type="radio" id="jerseyradio3" ng-model="odiJson.font.fontStyle" value="helvetica" name="jerseyradio" />
+                          <label for="jerseyradio3" class="helvetica-font">
+                            <span></span> Helvetica
+                          </label>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <h2>Choose Your Colour</h2>
+                        <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
+                          <div class="colo-pallet text-center ">
+                            <!--<div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-class="{'activated': jerseyBack.color == col.colr, 'borergrey':col.name == 'white'}"
+                              ng-click="jerseyBack.color=col.colr"></div>-->
+                            <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-class="{'activated': jerseyBack.color == col.colr, 'borergrey':col.name == 'white'}"
+                              ng-click="odiJson.font.fontColor=col.colr;jerseyBack.color=col.colr"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </uib-accordion-group>
+                 
+               
                 </uib-accordion>
                 <div class="edit-btn">
                   <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="savedDesigns()">save design</button>

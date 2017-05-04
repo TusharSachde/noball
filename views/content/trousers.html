@@ -49,7 +49,9 @@
                         <div class="det-name">
                             <h4>{{trouserJson.design.name}}</h4>
                             <h3>{{trouserJson.design | currencyFilter}}</h3>
-                            <span><i>Minimum Order Quantity (MOQ) = 20 Trousers / Shorts</i></span>
+                            <span><i>Minimum Total Quantity (MTQ) = 20 Trousers / Shorts</i></span>
+                             <!--<button class="btn btn-outline btn-dark inline-block uppercase letter-spacing btnpos-change" ng-hide="tab=='trim'|| tab=='team' || tab=='quantity'" ng-click="tabchange('trim',2); switchFrontBack(true); switchTrimHighlightBase(true,odiJson.color.baseColorName,odiJson.design.designType,odiJson.color.base); switchTrimHighlightOne(true,odiJson.color.trim1ColorName,odiJson.design.designType,odiJson.color.trim1); switchTrimHighlightTwo(true,odiJson.color.trim2ColorName,odiJson.design.designType,odiJson.color.trim2); openTab('b');">NEXT</button>-->
+                              <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing pull-right padding-btn" ng-hide="tab=='trim'|| tab=='team' || tab=='quantity'" ng-click="tabchange('trim',2); switchFrontBack(true,trouserJson.type); switchTrimHighlightBase(trouserJson.color.base,trouserJson.color.baseColorName); switchTrimHighlightOne(trouserJson.color.trim1,trouserJson.color.trim1ColorName); switchTrimHighlightTwo(trouserJson.color.trim2,trouserJson.color.trim2ColorName); openTab('b');">NEXT</button>
                         </div>
                         <!--    // design tab-->
                         <div class="choos m20-l" ng-show="tab=='design'">
@@ -116,7 +118,7 @@
                 </button>
 
                             </div>
-                            <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="tabchange('trim',2); switchFrontBack(true,trouserJson.type); switchTrimHighlightBase(trouserJson.color.base,trouserJson.color.baseColorName); switchTrimHighlightOne(trouserJson.color.trim1,trouserJson.color.trim1ColorName); switchTrimHighlightTwo(trouserJson.color.trim2,trouserJson.color.trim2ColorName); openTab('b');">NEXT</button>
+                            <!--<button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="tabchange('trim',2); switchFrontBack(true,trouserJson.type); switchTrimHighlightBase(trouserJson.color.base,trouserJson.color.baseColorName); switchTrimHighlightOne(trouserJson.color.trim1,trouserJson.color.trim1ColorName); switchTrimHighlightTwo(trouserJson.color.trim2,trouserJson.color.trim2ColorName); openTab('b');">NEXT</button>-->
                             <!--<div class="edit-btn inline-block">
 
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('trim', 2); openTab('b');">NEXT</button>
@@ -559,7 +561,7 @@
                                                     <span class="inline-block uppercase pad-5">quantity</span>
                                                     <input type="number" name="quantity" class="wid20p" placeholder="20" ng-change="addQuantity(trouser.quantity)" ng-model="trouser.quantity"
                                                         min="1" maxlength="3">
-                                                    <p class="error-td error-quantity f13" ng-if="totalQuan<20 && totalQuan!=0">Please enter valid quantity.The MOQ is 20</p>
+                                                    <p class="error-td error-quantity f13" ng-if="totalQuan<20 && totalQuan!=0">Please enter valid quantity.The MTQ is 20</p>
                                                 </td>
                                                 <td></td>
                                                 <td></td>

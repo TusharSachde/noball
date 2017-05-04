@@ -103,7 +103,7 @@
               <span class="mgl-10" ng-if="design.description.font.numberSize">Number:</span>
               <span class="text-bold mgl-10" ng-if="design.description.font.numberSize">{{design.description.font.numberSize}} px</span>
             </div>
-            <div class="mgb20">
+            <div class="mgb20 margin0">
               <p class="inline-block mgr-10" style="vertical-align: top;">Order Quantity:</p>
               <div class="inline-block">
                 <table class="table table-ordersummary">
@@ -141,7 +141,7 @@
                 </table>
               </div>
             </div>
-            <h3 class="mgb20 inline-block">Price:</h3>
+            <h3 class="mgb20 margin0 inline-block">Price:</h3>
             <div class="inline-block mgb20 mgl-10 fs-24">{{design.description | PriceFilter | currencySymbol}}</div>
             <textarea rows="5" ng-model="checkoutObj.note" placeholder="Ex: Please match colour of the font of name and number to the Trim 2, please change location of back sponsor to below the number, please call before shipping the goods etc."
               class="wd100"></textarea>

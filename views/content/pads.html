@@ -31,12 +31,14 @@
                             delivery from date of order.</li>
                     </ul>
                     <ul class="tshirt-features" ng-if="activeButton == 3" style="padding:0;">
-                        <li style="list-style-type:none;">To prolong the life and effectiveness of your batting leg guards try to leave your pads in a shady
-                            area to dry with the straps open after a batting session. Never in the sun and never in your
+                        <li >To prolong the life and effectiveness of your batting leg guards try to leave your pads in a shady
+                            area to dry with the straps open after a batting session.</li> 
+                            <li>  Never in the sun and never in your
                             bag because the sun will cause the padding and foam to dry out and harden and in your bag it
-                            will keep the padded area moist which leads to wear and odour. Also, When you first buy your
-                            pads, leave them in your bag with the straps firmly tightened as if you were wearing them. This
-                            will get the pads shaped to fit your leg better. Happy batting!</li>
+                            will keep the padded area moist which leads to wear and odour.</li>
+                            <li>  Also, When you first buy your
+                            pads, leave them in your bag with the straps firmly tightened as if you were wearing them.</li>
+                            <li> This will get the pads shaped to fit your leg better. Happy batting!</li>
                     </ul>
 
                 </div>
@@ -47,7 +49,7 @@
                             .
                         </p>-->
                         <h3>{{designJson.design | currencyFilter}} </h3>
-                        <span class="Raleway-Medium"><em>Minimum Order Quantity (MOQ) = 12 pairs of each design</em></span>
+                        <span class="Raleway-Medium"><em>Minimum Total Quantity (MTQ) = 12 pairs of each design</em></span>
                     </div>
                     <!--                    // design tab-->
 
@@ -75,7 +77,7 @@
                                 <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span>                                    to know more about customization tools.</li>
                                 <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves & pads attract
                                     a nominal one-time customization fees).</li>
-
+                               
                             </ul>
                         </div>
                     </div>
@@ -152,7 +154,7 @@
                                 <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span>                                    to know more about customization tools.</li>
                                 <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves & pads attract
                                     a nominal one-time customization fees).</li>
-
+ <li>Colours are Subject to availabiltiy .</li>
                             </ul>
                         </div>
 
@@ -335,7 +337,7 @@
                                     <span class="inline-block uppercase pad-5">quantity</span>
                                     <input type="number" class="form-control inline-block" name="name" ng-change="addQuantity(pad.quantity)" ng-model="designJson.quantity[1].quantity"
                                         placeholder="12" maxlength="3">
-                                    <p class="error-td error-quantity f13 errors-pad" ng-if="totalQuan<12 && totalQuan!=0">Please enter valid quantity.The MOQ is 12</p>
+                                    <p class="error-td error-quantity f13 errors-pad" ng-if="totalQuan<12 && totalQuan!=0">Please enter valid quantity.The MTQ is 12</p>
                                 </div>
                             </div>
                             <!--<div class="add-button">
