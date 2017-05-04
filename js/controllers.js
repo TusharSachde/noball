@@ -9294,7 +9294,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                 temp = key;
                             }
                         });
-                        if (temp.name == $.jStorage.get("myCurrency")); {
+                        if (temp.name == $.jStorage.get("myCurrency")) {
                             if (parseInt(temp.minorder) > $scope.totalcart) {
                                 $scope.shippingcharges = parseInt(temp.shipping);
 
