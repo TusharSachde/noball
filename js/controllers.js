@@ -5248,7 +5248,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 'fontColor': 'white',
                 'nameSize': 18,
                 'nameSpacing': 1,
-                'numberSize': 60,
+                'numberSize': 70,
                 'numberSpacing': 1
             },
             type: "odi",

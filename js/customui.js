@@ -89,7 +89,7 @@
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                              top: 65,
+                              top: 60,
                               left: 150
                           },
                           isColar: true
@@ -147,7 +147,7 @@
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                               top: 65,
+                              top: 60,
                               left: 150
                           },
                           isColar: true
@@ -207,7 +207,7 @@
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                                top: 65,
+                                top: 60,
                               left: 150
                           },
                           isColar: true
@@ -267,7 +267,7 @@
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                               top: 65,
+                                  top: 60,
                               left: 150
                           },
                           isColar: true
@@ -326,7 +326,7 @@
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                               top: 65,
+                                top: 60,
                               left: 150,
 
                           },
@@ -387,7 +387,7 @@
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                               top: 65,
+                                top: 60,
                               left: 150
                           },
                           isColar: false
@@ -447,7 +447,7 @@
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                             top: 65,
+                               top: 60,
                               left: 150
                           },
                           isColar: false
@@ -507,7 +507,7 @@
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                               top: 65,
+                                 top: 60,
                               left: 150
                           },
                           isColar: false
@@ -567,7 +567,7 @@
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                               top: 65,
+                                  top: 60,
                               left: 150
                           },
                           isColar: false
@@ -627,7 +627,8 @@
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                               top: 65,
+                                  top: 60,
+
                               left: 150
                           },
                           isColar: true
@@ -687,7 +688,7 @@
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                                top: 65,
+                                 top: 60,
                               left: 150
                           },
                           isColar: true
@@ -747,7 +748,7 @@
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                               top: 65,
+                                 top: 60,
                               left: 150
                           },
                           isColar: true
@@ -807,7 +808,7 @@
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                               top: 65,
+                                 top: 60,
                               left: 150
                           },
                           isColar: true
@@ -867,7 +868,7 @@
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                               top: 65,
+                                 top: 60,
                               left: 150
                           },
                           isColar: true
