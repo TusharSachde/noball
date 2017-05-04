@@ -97,7 +97,6 @@ gulp.task('imagemin', function () {
     .pipe(gulp.dest('./img2/'));
 });
 
-
 gulp.task('deploy', function () {
   return gulp.src('./index.html')
     .pipe(prompt.prompt([{
@@ -123,9 +122,6 @@ gulp.task('ftp', function () {
   var globs = [
     './production/**',
   ];
-
-  // using base = '.' will transfer everything to /public_html correctly
-  // turn off buffering in gulp.src for best performance
 
   return gulp.src(globs, {
       base: './production',

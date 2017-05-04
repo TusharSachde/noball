@@ -73,18 +73,14 @@
               <h4>{{odiJson.design.name}}</h4>
               <h3>{{odiJson.design | currencyFilter}}</h3>
               <span class="Raleway-Medium"><em>Minimum Total Quantity (MTQ) =  20 Tees</em></span>
-               <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing  pull-right padding-btn" ng-hide="tab=='trim'|| tab=='team' || tab=='quantity'" ng-click="tabchange('trim',2); switchFrontBack(true); switchTrimHighlightBase(true,odiJson.color.baseColorName,odiJson.design.designType,odiJson.color.base); switchTrimHighlightOne(true,odiJson.color.trim1ColorName,odiJson.design.designType,odiJson.color.trim1); switchTrimHighlightTwo(true,odiJson.color.trim2ColorName,odiJson.design.designType,odiJson.color.trim2); openTab('b');">NEXT</button>
+              <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing  pull-right padding-btn" ng-hide="tab=='trim'|| tab=='team' || tab=='quantity'"
+                ng-click="tabchange('trim',2); switchFrontBack(true); switchTrimHighlightBase(true,odiJson.color.baseColorName,odiJson.design.designType,odiJson.color.base); switchTrimHighlightOne(true,odiJson.color.trim1ColorName,odiJson.design.designType,odiJson.color.trim1); switchTrimHighlightTwo(true,odiJson.color.trim2ColorName,odiJson.design.designType,odiJson.color.trim2); openTab('b');">NEXT</button>
             </div>
-            
+
             <!--                    // design tab-->
             <div class="choos m20-l" ng-show="tab=='design'">
               <p ng-if="page==1">Choose Your Type Of Design ({{images.page1.length}}/{{images.page1.length + images.page2.length}})</p>
               <p ng-if="page==2">Choose Your Type Of Design ({{images.page1.length + images.page2.length}}/{{images.page1.length + images.page2.length}})</p>
-              <!--<div class="mb20">
-                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="type=1">Odi</button>
-                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="type=2">Training</button>
-                <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="type=3">Whites</button>
-              </div>-->
               <div class="mb20 flex-around odi-design-buttons">
                 <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-prev" ng-disabled="page==1" ng-click="page=1">
                   <img src="img/design_arrow_previous.png" alt="Prev Button" class="img-responsive">
@@ -132,7 +128,7 @@
                 <button class="{{designButton.design3.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(3);">Cut &amp; Sew</button>
                 <button class="{{designButton.design4.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(4);">Polo</button>-->
               </div>
-             
+
               <!-- <div class="edit-btn inline-block">
                                 <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                             </div>
@@ -316,7 +312,7 @@
                         </div>
                         <!-- <div range-slider min="-150" max="100" model-max="max" pin-handle="min"></div> 
                         ng-click="openUploads('rightChestLogo', 'Right Chest')"-->
-                        <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="emptyImage('rightChestLogo')" >CHANGE</button>
+                        <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="emptyImage('rightChestLogo')">CHANGE</button>
                         <button href="" class="btn btn-outline btn-dark  block full-width" ng-click="remove('rightChestLogo')">REMOVE</button>
                       </div>
                     </div>
@@ -475,7 +471,7 @@
               </div>
               <div class="accordion">
                 <uib-accordion>
-                     <uib-accordion-group class="panel-default" is-open="status.open2">
+                  <uib-accordion-group class="panel-default" is-open="status.open2">
                     <uib-accordion-heading>
                       <i class="pull-left fa " ng-class="{'fa fa-minus': status.open2, 'fa fa-plus': !status.open2}"></i>Choose
                       Your Size
@@ -524,7 +520,7 @@
                               <p ng-if="jersey.quantity == null">Please enter correct quantity </p>
                             </td>-->
                             <td>
-                              <input type="text" ng-model="jersey.name" placeholder="Name" name="name" aplha-only>
+                              <input type="text" ng-model="jersey.name" placeholder="Name" name="name">
                               <!-- ng-model="jerseyBack.name" maxlength="10" -->
                             </td>
                             <td>
@@ -611,7 +607,7 @@
                       <span class="pull-right tquantity uppercase Raleway-Medium">Total Quantity: {{odiJson.totalQuan}}</span>
                     </div>
                   </uib-accordion-group>
-                   <div class="pbotom">
+                  <div class="pbotom">
                     <span class="block">Note </span>
                     <span class="block">1. Leave name and number fields blank if you do not wish to choose this option.</span>
                     <span class="block">2. If you would like to reposition or tweak your back sponsor logo, please leave your comments in the remarks field in the next step and our graphic team will get back to you.</span>
@@ -663,8 +659,8 @@
                       </div>
                     </div>
                   </uib-accordion-group>
-                 
-               
+
+
                 </uib-accordion>
                 <div class="edit-btn">
                   <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="savedDesigns()">save design</button>
