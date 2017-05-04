@@ -36,20 +36,20 @@
                           rightChestLogo: {
                               width: 40,
                               height: 40,
-                              top: 135,
+                              top: 123,
                               left: 165
                           },
                           teamLogo: {
                               width: 40,
                               height: 40,
-                              top: 135,
+                              top: 123,
                               right: 165,
                               "z+'-'+index": 9
                           },
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                              top: 171,
+                              top: 155,
                               left: 153,
 
                           },
@@ -89,7 +89,7 @@
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                              top: 100,
+                              top: 65,
                               left: 150
                           },
                           isColar: true
@@ -98,20 +98,20 @@
                           rightChestLogo: {
                                 width: 40,
                               height: 40,
-                              top: 135,
+                              top: 123,
                               left: 165
                           },
                           teamLogo: {
                                 width: 40,
                               height: 40,
-                              top: 135,
+                              top: 123,
                               right: 165,
                               "z+'-'+index": 9
                           },
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                               top: 171,
+                               top: 155,
                               left: 153,
 
                           },
@@ -147,7 +147,7 @@
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                              top: 100,
+                               top: 65,
                               left: 150
                           },
                           isColar: true
@@ -156,20 +156,20 @@
                           rightChestLogo: {
                                width: 40,
                               height: 40,
-                              top: 135,
+                              top: 123,
                               left: 165
                           },
                           teamLogo: {
                                width: 40,
                               height: 40,
-                              top: 135,
+                              top: 123,
                               right: 165,
                               "z+'-'+index": 9
                           },
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                              top: 171,
+                              top: 155,
                               left: 153,
 
                           },
@@ -207,7 +207,7 @@
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                              top: 100,
+                                top: 65,
                               left: 150
                           },
                           isColar: true
@@ -216,20 +216,20 @@
                           rightChestLogo: {
                                width: 40,
                               height: 40,
-                              top: 135,
+                              top: 123,
                               left: 165
                           },
                           teamLogo: {
                                width: 40,
                               height: 40,
-                              top: 135,
+                              top: 123,
                               right: 165,
                               "z+'-'+index": 9
                           },
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                            top: 171,
+                            top: 155,
                               left: 153,
 
                           },
@@ -267,7 +267,7 @@
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                              top: 100,
+                               top: 65,
                               left: 150
                           },
                           isColar: true
@@ -276,20 +276,20 @@
                           rightChestLogo: {
                               width: 40,
                               height: 40,
-                              top: 135,
+                              top: 123,
                               left: 165
                           },
                           teamLogo: {
                               width: 40,
                               height: 40,
-                              top: 135,
+                              top: 123,
                               right: 165,
                               "z+'-'+index": 9
                           },
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                             top: 171,
+                             top: 155,
                               left: 153
                           },
                           leftSleeveLogo: {
@@ -326,7 +326,7 @@
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                              top: 100,
+                               top: 65,
                               left: 150,
 
                           },
@@ -336,20 +336,20 @@
                           rightChestLogo: {
                                width: 40,
                               height: 40,
-                              top: 135,
+                              top: 123,
                               left: 165
                           },
                           teamLogo: {
                               width: 40,
                               height: 40,
-                              top: 135,
+                              top: 123,
                               right: 165,
                               "z+'-'+index": 9
                           },
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                              top: 171,
+                              top: 155,
                               left: 153,
 
                           },
@@ -387,7 +387,7 @@
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                              top: 100,
+                               top: 65,
                               left: 150
                           },
                           isColar: false
@@ -396,20 +396,20 @@
                           rightChestLogo: {
                                 width: 40,
                               height: 40,
-                              top: 135,
+                              top: 123,
                               left: 165
                           },
                           teamLogo: {
                                width: 40,
                               height: 40,
-                              top: 135,
+                              top: 123,
                               right: 165,
                               "z+'-'+index": 9
                           },
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                               top: 171,
+                               top: 155,
                               left: 153,
 
                           },
@@ -447,7 +447,7 @@
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                              top: 100,
+                             top: 65,
                               left: 150
                           },
                           isColar: false
@@ -456,20 +456,20 @@
                           rightChestLogo: {
                                width: 40,
                               height: 40,
-                              top: 135,
+                              top: 123,
                               left: 165
                           },
                           teamLogo: {
                                width: 40,
                               height: 40,
-                              top: 135,
+                              top: 123,
                               right: 165,
                               "z+'-'+index": 9
                           },
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                              top: 171,
+                              top: 155,
                               left: 153,
 
                           },
@@ -507,7 +507,7 @@
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                              top: 100,
+                               top: 65,
                               left: 150
                           },
                           isColar: false
@@ -516,20 +516,20 @@
                           rightChestLogo: {
                                width: 40,
                               height: 40,
-                              top: 135,
+                              top: 123,
                               left: 165
                           },
                           teamLogo: {
                                width: 40,
                               height: 40,
-                              top: 135,
+                              top: 123,
                               right: 165,
                               "z+'-'+index": 9
                           },
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                              top: 171,
+                              top: 155,
                               left: 153,
 
                           },
@@ -567,7 +567,7 @@
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                              top: 100,
+                               top: 65,
                               left: 150
                           },
                           isColar: false
@@ -576,20 +576,20 @@
                           rightChestLogo: {
                                width: 40,
                               height: 40,
-                              top: 135,
+                              top: 123,
                               left: 165
                           },
                           teamLogo: {
                                width: 40,
                               height: 40,
-                              top: 135,
+                              top: 123,
                               right: 165,
                               "z+'-'+index": 9
                           },
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                          top: 171,
+                          top: 155,
                               left: 153,
 
                           },
@@ -627,7 +627,7 @@
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                              top: 100,
+                               top: 65,
                               left: 150
                           },
                           isColar: true
@@ -636,20 +636,20 @@
                           rightChestLogo: {
                                width: 40,
                               height: 40,
-                              top: 135,
+                              top: 123,
                               left: 165
                           },
                           teamLogo: {
                                width: 40,
                               height: 40,
-                              top: 135,
+                              top: 123,
                               right: 165,
                               "z+'-'+index": 9
                           },
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                          top: 171,
+                          top: 155,
                               left: 153,
 
                           },
@@ -687,7 +687,7 @@
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                              top: 100,
+                                top: 65,
                               left: 150
                           },
                           isColar: true
@@ -696,20 +696,20 @@
                           rightChestLogo: {
                                width: 40,
                               height: 40,
-                              top: 135,
+                              top: 123,
                               left: 165
                           },
                           teamLogo: {
                                width: 40,
                               height: 40,
-                              top: 135,
+                              top: 123,
                               right: 165,
                               "z+'-'+index": 9
                           },
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                          top: 171,
+                          top: 155,
                               left: 153,
 
                           },
@@ -747,7 +747,7 @@
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                              top: 100,
+                               top: 65,
                               left: 150
                           },
                           isColar: true
@@ -756,20 +756,20 @@
                           rightChestLogo: {
                                width: 40,
                               height: 40,
-                              top: 135,
+                              top: 123,
                               left: 165
                           },
                           teamLogo: {
                                width: 40,
                               height: 40,
-                              top: 135,
+                              top: 123,
                               right: 165,
                               "z+'-'+index": 9
                           },
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                          top: 171,
+                          top: 155,
                               left: 153,
 
                           },
@@ -807,7 +807,7 @@
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                              top: 100,
+                               top: 65,
                               left: 150
                           },
                           isColar: true
@@ -816,20 +816,20 @@
                           rightChestLogo: {
                                width: 40,
                               height: 40,
-                              top: 135,
+                              top: 123,
                               left: 165
                           },
                           teamLogo: {
                                width: 40,
                               height: 40,
-                              top: 135,
+                              top: 123,
                               right: 165,
                               "z+'-'+index": 9
                           },
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                          top: 171,
+                          top: 155,
                               left: 153,
 
                           },
@@ -867,7 +867,7 @@
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                              top: 100,
+                               top: 65,
                               left: 150
                           },
                           isColar: true
