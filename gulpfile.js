@@ -8,7 +8,7 @@ var jsArray = [
   './bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
 
   './bower_components/angular/angular.js',
-  './bower_components/elevatezoom/jquery.elevatezoom.js',
+  // './bower_components/elevatezoom/jquery.elevatezoom.js',
   './bower_components/angular-animate/angular-animate.min.js',
   './bower_components/angular-flexslider/angular-flexslider.js',
   './bower_components/angular-sanitize/angular-sanitize.min.js',
