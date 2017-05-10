@@ -517,7 +517,7 @@ var countries = [{
 }];
 var navigationservice = angular.module('navigationservice', [])
 
-  .factory('NavigationService', function ($http, $state, $rootScope, $state) {
+  .factory('NavigationService', function ($http, $state, $rootScope) {
     var navigation = [{
       name: "Products",
       classis: ""

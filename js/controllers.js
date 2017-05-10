@@ -10989,20 +10989,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             link: ''
         }];
 
-        $scope.topSlides = [{
-                image: 'img/custombanner/gloves_banner.jpg',
-                link: 'gloves'
-            }, {
-                image: 'img/custombanner/pads_banner.jpg',
-                link: 'pads'
-            },
+        $scope.topSlides = [
             {
+                image: 'img/custombanner/tees_banner.jpg',
+                link: 'odi-shirt'
+            }, {
                 image: 'img/custombanner/pants_banner.jpg',
                 link: 'trousers'
             }, {
-                image: 'img/custombanner/tees_banner.jpg',
-                link: 'odi-shirt'
-            },
+                image: 'img/custombanner/pads_banner.jpg',
+                link: 'pads'
+            }, {
+                image: 'img/custombanner/gloves_banner.jpg',
+                link: 'gloves'
+            }
+           
         ];
 
         $scope.showcaseSlides = [{
