@@ -874,7 +874,7 @@
                           isColar: true
                       },
                   },
-                  "troussers": {
+                  "trousers": {
                       leftLogo: {
                           width: 30,
                           height: 30,
