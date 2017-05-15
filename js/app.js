@@ -418,13 +418,29 @@ firstapp.filter('currencyFilter', function ($filter) {
 });
 
 firstapp.filter('currencySymbol', function () {
+  return function (input) {
+    var retVal = "$ ";
+    var myCountry = $.jStorage.get('getCountry');
+    if (myCountry == 'IN') {
+      retVal = "₹ ";
+    } else if (myCountry == "AU") {
+      retVal = "$ ";
+    } else if (myCountry == 'GB') {
+      retVal = "£ ";
+    } else if (myCountry == 'US') {
+      retVal = "$ ";
+    } else {
+      retVal = "£ ";
+    }
+    return retVal + input;
+  };
+});
+
+
+firstapp.filter('currencySymbolOrder', function () {
   return function (input, country) {
     var retVal = "$ ";
     var myCountry = country;
-    if (!country) {
-      myCountry = $.jStorage.get('getCountry');
-    }
-
     if (myCountry == 'IN') {
       retVal = "₹ ";
     } else if (myCountry == "AU") {
