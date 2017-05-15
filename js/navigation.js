@@ -642,6 +642,7 @@ var navigationservice = angular.module('navigationservice', [])
         }).success(callback).error(err);
       },
       orderSummaryOdi: function (user, jsonData, ml, bl, rc, ls, rs, tl, type, callback, err) {
+        jsonData.currencyCountry = $.jStorage.get('getCountry');
         var myData = {
           "email": user,
           "description": jsonData,
@@ -662,6 +663,7 @@ var navigationservice = angular.module('navigationservice', [])
         }).success(callback).error(err);
       },
       orderSummaryBat: function (user, jsonData, type, callback, err) {
+        jsonData.currencyCountry = $.jStorage.get('getCountry');
         var myData = {
           "email": user,
           "description": jsonData,
@@ -676,6 +678,7 @@ var navigationservice = angular.module('navigationservice', [])
         }).success(callback).error(err);
       },
       orderSummaryTrouser: function (user, jsonData, type, callback, err) {
+        jsonData.currencyCountry = $.jStorage.get('getCountry');
         var myData = {
           "email": user,
           "description": jsonData,
@@ -690,7 +693,7 @@ var navigationservice = angular.module('navigationservice', [])
         }).success(callback).error(err);
       },
       orderSummaryGloves: function (user, jsonData, tl, type, callback, err) {
-        jsonData.currencyCountry = $.jStorage.get('getCountry');;
+        jsonData.currencyCountry = $.jStorage.get('getCountry');
         var myData = {
           "email": user,
           "description": jsonData,
@@ -706,6 +709,7 @@ var navigationservice = angular.module('navigationservice', [])
         }).success(callback).error(err);
       },
       orderSummaryPads: function (user, jsonData, tl, type, callback, err) {
+        jsonData.currencyCountry = $.jStorage.get('getCountry');
         var myData = {
           "email": user,
           "description": jsonData,
