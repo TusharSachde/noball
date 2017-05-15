@@ -229,7 +229,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, cfp
       templateUrl: "views/template.html",
       controller: 'CartCtrl'
     })
-    
+
     .state('profile', {
       url: "/profile",
       templateUrl: "views/template.html",
@@ -389,7 +389,7 @@ firstapp.filter('currencyFilter', function ($filter) {
     retVal = "";
     var arr = _.filter(currencyObj, function (n) {
       return n.name == input.name;
-    })
+    });
 
     var priceObj;
     if (arr.length > 0) {
@@ -418,9 +418,13 @@ firstapp.filter('currencyFilter', function ($filter) {
 });
 
 firstapp.filter('currencySymbol', function () {
-  return function (input) {
+  return function (input, country) {
     var retVal = "$ ";
-    var myCountry = $.jStorage.get('getCountry');
+    var myCountry = country;
+    if (!country) {
+      myCountry = $.jStorage.get('getCountry');
+    }
+
     if (myCountry == 'IN') {
       retVal = "₹ ";
     } else if (myCountry == "AU") {
@@ -435,6 +439,8 @@ firstapp.filter('currencySymbol', function () {
     return retVal + input;
   };
 });
+
+
 
 firstapp.filter('PriceFilter', function () {
   return function (input) {

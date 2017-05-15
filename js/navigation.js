@@ -690,6 +690,7 @@ var navigationservice = angular.module('navigationservice', [])
         }).success(callback).error(err);
       },
       orderSummaryGloves: function (user, jsonData, tl, type, callback, err) {
+        jsonData.currencyCountry = $.jStorage.get('getCountry');;
         var myData = {
           "email": user,
           "description": jsonData,
