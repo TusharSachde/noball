@@ -7001,7 +7001,7 @@
  }
  
  .travelling {
-      background-color: $bg-grey;
+     background: linear-gradient(to bottom right, #858487,#868588);
      .travel-img {
          margin: 50px !important;
         
@@ -7022,6 +7022,21 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+ }
+
+ .travel1{
+     padding: 25px 15px 0;
+     .travel-img{
+ margin: 0 !important;
+     }
+    
+ }
+ .padl{
+padding-left: 0;
+ }
+
+ .padr{
+padding-right: 0;
  }
  
  @import "mobile/mobile";
