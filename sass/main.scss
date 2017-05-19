@@ -180,6 +180,10 @@
  .min-height {
      min-height: 300px;
  }
+
+ .min-heights{
+         min-height: 458px;
+ }
  
  .no-pad {
      padding: 0;
@@ -7025,11 +7029,37 @@
  }
 
  .travel1{
+     position: relative;
      padding: 25px 15px 0;
      .travel-img{
  margin: 0 !important;
      }
-    
+    .overlay{
+    @include size(100%,100%);
+    @include position(absolute,0 null null 0);
+    background: rgba(0, 0, 0, 0.31);
+    opacity: 0;
+    transition: all 500ms ease;
+    z-index: 99;
+    }
+    &:hover{
+        .overlay{
+            opacity: 1;
+        }
+    }
+    .short{
+        width: 209px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    }
+
+    .pants{
+        width: 281px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    }
  }
  .padl{
 padding-left: 0;
@@ -7038,5 +7068,7 @@ padding-left: 0;
  .padr{
 padding-right: 0;
  }
- 
+ .lettering-over{
+         top: 70%;
+ }
  @import "mobile/mobile";
