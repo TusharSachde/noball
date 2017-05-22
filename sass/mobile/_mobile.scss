@@ -783,8 +783,82 @@ width: 90px;
   .next-level .noti-imgs {
     margin: 10px 0 0;
 }
+
+.travelling {
+   h2{
+             font-size: 17pt;
+         }
+}
+
+ .padl{
+padding-left: 15px !important;
+ }
+
+ .padr{
+padding-right: 15px !important;
+ }
+.custom2{
+  .min-heights{
+    min-height: auto;
+  }
+  .travel-img{
+    min-height: 225px;
+  }
+}
+
+.mgbot{
+margin-bottom: 20px;
+}
+
+ .travel1{ 
+  .short{
+    width: 114px;
+  }
+  .pants{
+width: 153px;
+  }
+ }
+
 }
 @media (max-width: $screen-mobile) {
+   //ruchi//
+
+   .padl{
+padding-left: 15px !important;
+ }
+
+ .padr{
+padding-right: 15px !important;
+ }
+
+   .min-heights{
+    min-height: auto !important;
+  }
+
+
+
+.apparels-customize{
+   .custom-two{
+   background-color: #fff !important;
+}
+.travel-img{
+    min-height: 225px !important;
+  }
+}
+.mgbot{
+margin-bottom: 20px;
+}
+ .travel1{
+  .short{
+    width: 114px;
+  }
+  .pants{
+width: 153px;
+  }
+ }
+
+ //ruchi//
+
   .desc-sec p {
       text-align: justify;
       width: inherit;
