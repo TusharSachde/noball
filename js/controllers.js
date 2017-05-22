@@ -10531,17 +10531,34 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         };
 
+        $scope.download = function(){
+            $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/download.html",
+            scope: $scope,
+            windowClass: "modal-pdf",
+            size:'lg'
+        });
+        };
+
         $scope.customize = [{
             img: "img/services/ac/front.png"
         }, {
             img: "img/services/ac/back.png"
         }];
         $scope.apparel = [
-            "img/services/custom/250x300-1.png",
-            "img/services/custom/250x300-2.png",
-            "img/services/custom/250x300-3.png",
-            "img/services/custom/250x300-4.png",
-            "img/services/custom/250x300-5.png"
+            // "img/services/custom/250x300-1.png",
+            // "img/services/custom/250x300-2.png",
+            // "img/services/custom/250x300-3.png",
+            // "img/services/custom/250x300-4.png",
+            // "img/services/custom/250x300-5.png"
+
+            "img/apparel-new/design4b.jpg",
+             "img/apparel-new/design4f.jpg",
+              "img/apparel-new/jumper.jpg",
+               "img/apparel-new/paceback.jpg",
+                "img/apparel-new/pacefront.jpg",
+
         ];
         $scope.consultancy = [
             "img/services/consultancy/1.png",

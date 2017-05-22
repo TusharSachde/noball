@@ -7071,4 +7071,20 @@ padding-right: 0;
  .lettering-over{
          top: 70%;
  }
+
+ .modal-pdf{
+     .modal-body{
+background-color: #fff;
+     }
+     
+ }
+
+ .foundation-detail,.memorable-detail{
+     a{
+         color:#fff;
+         &:hover{
+             color:#000;
+         }
+     }
+ }
  @import "mobile/mobile";
