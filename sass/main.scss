@@ -6834,13 +6834,21 @@
      top: 0;
      left: 36%;
      opacity: 0;
+     transition: all 600ms ease;
  }
- 
- .btn-classes {
-     .coming-soon:hover {
+ .travel1:hover {
+
+ .btn-classes{
+     .coming-soon {
          opacity: 1;
+         background-color: #1b1b1b;
+         color: #fff;
      }
+
  }
+ }
+
+
  
  .custom-height {
      height: auto;
@@ -7034,13 +7042,17 @@
      .travel-img{
  margin: 0 !important;
      }
+     .butons{
+             position: relative;
+    z-index: 99;
+     }
     .overlay{
     @include size(100%,100%);
     @include position(absolute,0 null null 0);
     background: rgba(0, 0, 0, 0.31);
     opacity: 0;
     transition: all 500ms ease;
-    z-index: 99;
+    // z-index: 99;
     }
     &:hover{
         .overlay{
