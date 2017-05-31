@@ -7103,4 +7103,18 @@ background-color: #fff;
  .bg-change{
      background: transparent;
  }
+
+ .navbar-nav{
+     li{
+         a{
+             &:hover{
+                  &:hover {
+                     border-color: $brand-warning;
+                     color: lighten($font-color, 50%)!important;
+                     background-color: #404040;
+                 }
+             }
+         }
+     }
+ }
  @import "mobile/mobile";
