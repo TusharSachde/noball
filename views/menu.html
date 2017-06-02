@@ -1,40 +1,37 @@
 <ul class="nav navbar-nav on-mobile">
     <li ng-repeat="menu in navigation">
         <a ng-href="{{menu.link}}" class="{{menu.classis}}" ng-if="menu.name != 'Customise'">{{menu.name}}</a>
-        <a  class="{{menu.classis}}" ng-click="customizeIt()" ng-if="menu.name == 'Customise'">{{menu.name}}</a>
-<!--ng-click="customize();"ui-sref="categories({name:submenu.name})"-->
+        <a class="{{menu.classis}}" ng-click="customizeIt()" ng-if="menu.name == 'Customise'">{{menu.name}}</a>
+        <!--ng-click="customize();"ui-sref="categories({name:submenu.name})"-->
         <ul class="dropdown-menu custom-sub service-head-menu {{menu.name}}" ng-if="menu.subnav!=[];" ng-if="menu.name != 'Customise'">
             <li ng-repeat="submenu in menu.subnav" ng-if="menu.name != 'Services' && ( submenu.name == 'Apparel'|| submenu.name == 'Bats')">
                 <a ui-sref="categories({name:submenu.name})" class="{{submenu.classis}}" style="cursor:inherit;">{{submenu.name}}</a>
             </li>
-             <!--<li ng-repeat="submenu in menu.subnav" ng-if="menu.name != 'Services' && (  submenu.name == 'Bats')">
+            <!--<li ng-repeat="submenu in menu.subnav" ng-if="menu.name != 'Services' && (  submenu.name == 'Bats')">
                 <a  class="{{submenu.classis}}" >{{submenu.name}}</a>
             </li>-->
             <li ng-repeat="submenu in menu.subnav" ng-if="menu.name != 'Services' && submenu.name != 'Apparel' && submenu.name != 'Bats'">
                 <a ui-sref="categories-inside({category:submenu.name,name:submenu.name})" class="{{submenu.classis}}">{{submenu.name}}</a>
             </li>
-            <!--<li class="blue-service" ng-repeat="submenu in services" ng-if="menu.name == 'Services'">
+            <li class="blue-service" ng-repeat="submenu in services" ng-if="menu.name == 'Services'">
                 <a ui-sref="servicesid({id:submenu.anchor})" class="{{submenu.classis}}">{{submenu.name}}</a>
-            </li>-->
+            </li>
             <li class="blue-service" ng-repeat="submenu in extras" ng-if="menu.name == 'Extras'">
                 <a ui-sref="extrasid({id:submenu.anchor})" class="{{submenu.classis}}">{{submenu.name}}</a>
             </li>
         </ul>
-
         <div class="clearfix"></div>
-
         <div class="dropdown-menu custom-sub customise service-head-menu {{menu.name}} hidden-xs" ng-if="menu.name == 'Customise'">
-            <p>All our bespoke products are fully customisable for your team / club needs. A DIY version will be launching soon. Meantime get started with</p>
+            <p>All our bespoke products are fully customisable for your team / club needs. A DIY version will be launching soon.
+                Meantime get started with</p>
             <div class="text-center">
                 <button type="button" class="btn btn-checkout btn-green" ng-click="customizeIt()">Customise Now</button>
             </div>
         </div>
     </li>
-
     <li ng-if="!isLogin">
         <a class="btn-blue" ng-click="openLogin()">Log In | Sign Up</a>
     </li>
-
     <!-- <li ng-if="isLogin">
     <a href="#" class="btn-yellow" ng-click="logout()">Logout</a>
   </li> -->
@@ -53,7 +50,7 @@
             <li class="blue-service">
                 <a href="" ui-sref="mywishlist" class="text-uppercase">my wishlist</a>
             </li>
-              <li class="blue-service">
+            <li class="blue-service">
                 <a href="" ui-sref="savedesign" class="text-uppercase">save design</a>
             </li>
             <!-- <li class="blue-service"><a href="" ui-sref="" class="text-uppercase">saved designs</a></li> -->
@@ -93,8 +90,7 @@
                                     <span class="text-medium">{{product.qty}}</span>
                                 </p>
                                 <p class="text-light">PRICE :
-                                  <span class="text-medium"><i class="fa fa-inr" ng-if="country == 'INR'"></i><i class="fa fa-gbp" ng-if="country == 'GBP'"></i><i class="fa fa-usd" ng-if="country == 'NZD'"></i><i class="fa fa-eur" ng-if="country == 'EUR'"></i><i class="fa fa-usd" ng-if="country == 'USD'"></i><i ng-if="country == 'ZAF'">R</i><i class="fa fa-usd" ng-if="country == 'AUD'"></i>{{product.subtotal}}</span>
-
+                                    <span class="text-medium"><i class="fa fa-inr" ng-if="country == 'INR'"></i><i class="fa fa-gbp" ng-if="country == 'GBP'"></i><i class="fa fa-usd" ng-if="country == 'NZD'"></i><i class="fa fa-eur" ng-if="country == 'EUR'"></i><i class="fa fa-usd" ng-if="country == 'USD'"></i><i ng-if="country == 'ZAF'">R</i><i class="fa fa-usd" ng-if="country == 'AUD'"></i>{{product.subtotal}}</span>
                                 </p>
                             </div>
                             <div class="inline-block">
@@ -111,8 +107,7 @@
                         <span>{{quantity}}</span>
                     </h4>
                     <h4 class="text-uppercase">total:
-                      <span><i class="fa fa-inr" ng-if="country == 'INR'"></i><i class="fa fa-gbp" ng-if="country == 'GBP'"></i><i class="fa fa-usd" ng-if="country == 'NZD'"></i><i class="fa fa-eur" ng-if="country == 'EUR'"></i><i class="fa fa-usd" ng-if="country == 'USD'"></i><i ng-if="country == 'ZAF'">R</i><i class="fa fa-usd" ng-if="country == 'AUD'"></i>{{totalcart}}</span>
-
+                        <span><i class="fa fa-inr" ng-if="country == 'INR'"></i><i class="fa fa-gbp" ng-if="country == 'GBP'"></i><i class="fa fa-usd" ng-if="country == 'NZD'"></i><i class="fa fa-eur" ng-if="country == 'EUR'"></i><i class="fa fa-usd" ng-if="country == 'USD'"></i><i ng-if="country == 'ZAF'">R</i><i class="fa fa-usd" ng-if="country == 'AUD'"></i>{{totalcart}}</span>
                     </h4>
                 </div>
                 <div class="text-center">
@@ -124,10 +119,10 @@
                         <i class="fa fa-eur" ng-if="country == 'EUR'"></i>
                         <i class="fa fa-usd" ng-if="country == 'USD'"></i>
                         <i ng-if="country == 'ZAF'">R</i>
-                        <i class="fa fa-usd" ng-if="country == 'AUD'"></i>
-                        {{minorder}}</i>*</p>
+                        <i class="fa fa-usd" ng-if="country == 'AUD'"></i> {{minorder}}
+                        </i>*</p>
+                </div>
             </div>
         </div>
-    </div>
-</li>
+    </li>
 </ul>
