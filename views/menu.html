@@ -1,15 +1,12 @@
 <ul class="nav navbar-nav on-mobile">
     <li ng-repeat="menu in navigation">
         <a ng-href="{{menu.link}}" class="{{menu.classis}}" ng-if="menu.name != 'Customise'">{{menu.name}}</a>
-        <a class="{{menu.classis}}" ng-click="customizeIt()" ng-if="menu.name == 'Customise'">{{menu.name}}</a>
+        <a ng-href="{{menu.link}}" class="{{menu.classis}}" ng-if="menu.name == 'Customise'">{{menu.name}}</a>
         <!--ng-click="customize();"ui-sref="categories({name:submenu.name})"-->
         <ul class="dropdown-menu custom-sub service-head-menu {{menu.name}}" ng-if="menu.subnav!=[];" ng-if="menu.name != 'Customise'">
             <li ng-repeat="submenu in menu.subnav" ng-if="menu.name != 'Services' && ( submenu.name == 'Apparel'|| submenu.name == 'Bats')">
                 <a ui-sref="categories({name:submenu.name})" class="{{submenu.classis}}" style="cursor:inherit;">{{submenu.name}}</a>
             </li>
-            <!--<li ng-repeat="submenu in menu.subnav" ng-if="menu.name != 'Services' && (  submenu.name == 'Bats')">
-                <a  class="{{submenu.classis}}" >{{submenu.name}}</a>
-            </li>-->
             <li ng-repeat="submenu in menu.subnav" ng-if="menu.name != 'Services' && submenu.name != 'Apparel' && submenu.name != 'Bats'">
                 <a ui-sref="categories-inside({category:submenu.name,name:submenu.name})" class="{{submenu.classis}}">{{submenu.name}}</a>
             </li>
@@ -21,14 +18,35 @@
             </li>
         </ul>
         <div class="clearfix"></div>
-        <div class="dropdown-menu custom-sub customise service-head-menu {{menu.name}} hidden-xs" ng-if="menu.name == 'Customise'">
+        <ul class="dropdown-menu custom-sub customise service-head-menu {{menu.name}} hidden-xs" ng-if="menu.name == 'Customise'"
+            ng-if="menu.subnav!=[];">
+            <li>
+                <a>Apparel</a>
+            </li>
+            <li>
+                <a>Bags</a>
+            </li>
+            <li>
+                <a>Kit Bags</a>
+            </li>
+            <li>
+                <a>Balls</a>
+            </li>
+            <li>
+                <a>Gloves</a>
+            </li>
+            <li>
+                <a>Pads</a>
+            </li>
+        </ul>
+        <!--<div class="dropdown-menu custom-sub customise service-head-menu {{menu.name}} hidden-xs" ng-if="menu.name == 'Customise'">
             <a class="{{menu.classis}}" ng-if="menu.name == 'Customise'">{{menu.name}}</a>
-            <!--<p>All our bespoke products are fully customisable for your team / club needs. A DIY version will be launching soon.
+            <p>All our bespoke products are fully customisable for your team / club needs. A DIY version will be launching soon.
                 Meantime get started with</p>
             <div class="text-center">
                 <button type="button" class="btn btn-checkout btn-green" ng-click="customizeIt()">Customise Now</button>
-            </div>-->
-        </div>
+            </div>
+        </div>-->
     </li>
     <li ng-if="!isLogin">
         <a class="btn-blue" ng-click="openLogin()">Log In | Sign Up</a>
