@@ -10,7 +10,6 @@
                     <div class="scroll-image" id="style-2">
                         <div class="text-center">
                             <custom design="trouserJson" ng-if="trouserJson"></custom>
-
                             <div class="feature-buttons">
                                 <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 1}"
                                     ng-click="toggleTab(1)">FORM + FUNCTION</button>
@@ -49,9 +48,10 @@
                         <div class="det-name">
                             <h4>{{trouserJson.design.name}}</h4>
                             <h3>{{trouserJson.design | currencyFilter}}</h3>
-                            <span><i>Minimum Total Quantity (MOQ) = 20 Trousers / Shorts</i></span>
-                             <!--<button class="btn btn-outline btn-dark inline-block uppercase letter-spacing btnpos-change" ng-hide="tab=='trim'|| tab=='team' || tab=='quantity'" ng-click="tabchange('trim',2); switchFrontBack(true); switchTrimHighlightBase(true,odiJson.color.baseColorName,odiJson.design.designType,odiJson.color.base); switchTrimHighlightOne(true,odiJson.color.trim1ColorName,odiJson.design.designType,odiJson.color.trim1); switchTrimHighlightTwo(true,odiJson.color.trim2ColorName,odiJson.design.designType,odiJson.color.trim2); openTab('b');">NEXT</button>-->
-                              <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing pull-right padding-btn" ng-hide="tab=='trim'|| tab=='team' || tab=='quantity'" ng-click="tabchange('trim',2); switchFrontBack(true,trouserJson.type); switchTrimHighlightBase(trouserJson.color.base,trouserJson.color.baseColorName); switchTrimHighlightOne(trouserJson.color.trim1,trouserJson.color.trim1ColorName); switchTrimHighlightTwo(trouserJson.color.trim2,trouserJson.color.trim2ColorName); openTab('b');">NEXT</button>
+                            <span><i>Minimum Order Quantity (MOQ) = 20 Trousers / Shorts</i></span>
+                            <!--<button class="btn btn-outline btn-dark inline-block uppercase letter-spacing btnpos-change" ng-hide="tab=='trim'|| tab=='team' || tab=='quantity'" ng-click="tabchange('trim',2); switchFrontBack(true); switchTrimHighlightBase(true,odiJson.color.baseColorName,odiJson.design.designType,odiJson.color.base); switchTrimHighlightOne(true,odiJson.color.trim1ColorName,odiJson.design.designType,odiJson.color.trim1); switchTrimHighlightTwo(true,odiJson.color.trim2ColorName,odiJson.design.designType,odiJson.color.trim2); openTab('b');">NEXT</button>-->
+                            <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing pull-right padding-btn" ng-hide="tab=='trim'|| tab=='team' || tab=='quantity'"
+                                ng-click="tabchange('trim',2); switchFrontBack(true,trouserJson.type); switchTrimHighlightBase(trouserJson.color.base,trouserJson.color.baseColorName); switchTrimHighlightOne(trouserJson.color.trim1,trouserJson.color.trim1ColorName); switchTrimHighlightTwo(trouserJson.color.trim2,trouserJson.color.trim2ColorName); openTab('b');">NEXT</button>
                         </div>
                         <!--    // design tab-->
                         <div class="choos m20-l" ng-show="tab=='design'">
@@ -107,7 +107,6 @@
                                 </div>
                             </div>
                         </div>-->
-
                             <div class="mb20 flex-end odi-design-buttons">
                                 <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-prev" ng-disabled="page==1" ng-click="page=1">
 
@@ -116,7 +115,6 @@
                                 <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-next" ng-disabled="page==2" ng-click="page=2">
                   <img src="img/design_arrow_next.png" alt="Next Button" class="img-responsive">
                 </button>
-
                             </div>
                             <!--<button class="btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="tabchange('trim',2); switchFrontBack(true,trouserJson.type); switchTrimHighlightBase(trouserJson.color.base,trouserJson.color.baseColorName); switchTrimHighlightOne(trouserJson.color.trim1,trouserJson.color.trim1ColorName); switchTrimHighlightTwo(trouserJson.color.trim2,trouserJson.color.trim2ColorName); openTab('b');">NEXT</button>-->
                             <!--<div class="edit-btn inline-block">
@@ -232,7 +230,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="inline-block h300 mgl-20 static-top">
                                     <div class="logo-text mt10 inline-box">
                                         <button class="btn inline-block btn-dark padding-btn letter-spacing mright15">LEFT LOGO</button>
@@ -261,7 +258,6 @@
                                                     ng-if="trouserJson.leftLogo.image">change</button>
                                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('leftLogo')"
                                                     ng-if="trouserJson.leftLogo.image">remove</button>
-
                                             </div>
                                         </div>
                                     </div>
@@ -296,7 +292,6 @@
                                                 <input type="checkbox" class="form-control" id="login">
                                                 <label for="login"><span></span>Remove Image From Background</label>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>

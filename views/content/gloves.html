@@ -8,7 +8,6 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="text-center">
-
                         <custom design="glovesJson" class="{{borderClass}}" ng-if="glovesJson">
                         </custom>
                         <div class="gloves-logo" ng-if="glovesLogo.image" ng-style="glovesLogo.divattributes">
@@ -41,7 +40,8 @@
                             <li>Perforation in palm fingers for maximum air flow</li>
                         </ul>
                         <ul class="tshirt-features" ng-if="activeButton == 2">
-                            <li>In-stock gloves are shipped immediately. Customisation delivery worldwide takes 3-4 weeks from date of order.</li>
+                            <li>In-stock gloves are shipped immediately. Customisation delivery worldwide takes 3-4 weeks from
+                                date of order.</li>
                         </ul>
                         <ul class="tshirt-features" ng-if="activeButton == 3">
                             <li>We recommend washing in cold water with powder detergent</li>
@@ -57,10 +57,9 @@
                         <h4 class="text-capitalize">{{glovesJson.design.name}}</h4>
                         <!--<p>The Custom Cricket company cricket gloves is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest.</p>-->
                         <h3>{{glovesJson.design | currencyFilter}}</h3>
-                        <span class="Raleway-Medium"><em>Minimum Total Quantity (MOQ) = 12 pairs of each design</em></span>
+                        <span class="Raleway-Medium"><em>Minimum Order Quantity (MOQ) = 12 pairs of each design</em></span>
                     </div>
                     <!-- // design tab-->
-
                     <div class="choos m20-l" ng-show="tab=='design'">
                         <p>Choose Your Type Of Design</p>
                         <div class="row">
@@ -69,10 +68,8 @@
                                     <!--<div class="cat-img" ng-click="selectDesign(img)">-->
                                     <div class="cat-img" ng-class="{'active':myDesignID == $index }" ng-click="openDesign($index, 1,img);designTabJson(img.id)">
                                         <img ng-src="{{img.img[0]}}" class="img-responsive">
-
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                         <div class="edit-btn inline-block">
@@ -85,7 +82,7 @@
                             <span>Learn How To Customise Your Design By </span>
                             <a href="" ng-click="outplace();" class="text-bold">Clicking Here</a>
                         </div>-->
-                          <div class="customize-design">
+                        <div class="customize-design">
                             <ul>
                                 <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span>                                    to know more about customization tools.</li>
                                 <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves & pads attract
@@ -93,8 +90,6 @@
                             </ul>
                         </div>
                     </div>
-
-
                     <!--  //trim tab-->
                     <div class="choos m20-l " ng-show="tab=='trim'">
                         <div class="outline choos">
@@ -108,7 +103,6 @@
                                                 ng-style="{'background-color':'{{col.colr}}'}"></div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                             <!-- <div class="edit-btn margintp">
@@ -164,15 +158,14 @@
                         <div class="edit-btn inline-block">
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('team', 3); openTab('c');switchNavigation('c');">NEXT</button>
                         </div>
-  <div class="customize-design">
+                        <div class="customize-design">
                             <ul>
                                 <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span>                                    to know more about customization tools.</li>
                                 <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves & pads attract
                                     a nominal one-time customization fees).</li>
-  <li>Colours are Subject to availabiltiy.</li>
+                                <li>Colours are Subject to availabiltiy.</li>
                             </ul>
                         </div>
-
                     </div>
                     <!--  team logo-->
                     <div class="choos m20-l" ng-show="tab=='team'">
@@ -192,8 +185,8 @@
                                 <div class="size-box" ng-if="glovesJson.teamLogo.image">
                                     Size:
                                     <div class="range rangeslides">
-                                        <div range-slider on-handle-down="changeLogo()" on-handle-up="resetLogoStyle()" ng-model="glovesJson.teamLogo.size" 
-                                           min="5" max="55" model-max="glovesJson.teamLogo.size" model-min="rslider.min" pin-handle="min"></div>
+                                        <div range-slider on-handle-down="changeLogo()" on-handle-up="resetLogoStyle()" ng-model="glovesJson.teamLogo.size" min="5"
+                                            max="55" model-max="glovesJson.teamLogo.size" model-min="rslider.min" pin-handle="min"></div>
                                     </div>
                                 </div>
                                 <div class="edit-btn">
@@ -205,16 +198,10 @@
                                         ng-if="glovesJson.teamLogo.image">remove</button>
                                 </div>
                             </div>
-
-
-
                         </div>
                         <div class="print-typ printing">
                             <div class="pbotom">
                                 <span class="block">Notes :</span>
-
-
-
                                 <span class="block">1.  A one-time customization fees of INR 5000/- or equivalent (in your currency) will be incurred for your logo customization.</span>
                                 <span class="block">2.  Your logo will be screen printed and then laminated.</span>
                                 <ul class="pad-17">
@@ -230,8 +217,6 @@
                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="checkTeamLogo();">NEXT</button>
                             </div>
                         </div>
-
-
                         <div class="modal fade custom" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -239,24 +224,19 @@
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
-
                                     </div>
                                     <div class="modal-body text-center">
                                         <div class="mod-img ">
-
                                             <div class="noti-imgs" ng-style="{'background-image':'url(img/custom/c4.jpg)'}"></div>
                                             <button href="" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing">SUBMIT</button>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <div class="choos m20-l next-level" ng-show="tab=='teamlogo'">
                         <p>Upload Your Logo</p>
-
                         <div class="logo-text">
                             <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15">TEAM LOGO</button>
                             <span class="uppercase inline-block mright15">or</span>
@@ -301,7 +281,6 @@
                                 <span class="block">3. If you feel something is not great, our design team can fix it for you.</span>
                                 <span class="block"><a href="" class="clickinfo"  ng-click="outplace();">Click here</a> to find out how?</span>
                                 <span class="block">4.CCC logo colour will match colour of the trim.</span>
-
                             </div>
                             <div class="edit-btn inline-block">
                                 <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginGloves();">SAVE DESIGN &amp; EDIT LATER</button>
@@ -319,7 +298,6 @@
                             <span class="uppercase inline-block mright15">or</span>
                             <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor();">TEAM TEXT</button>
                         </div>
-
                         <div class="radio-options">
                             <h4>Select The Font For Your Gloves</h4>
                             <form action="" class="radio">
@@ -350,7 +328,6 @@
                                         <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                         <div class="notes">
@@ -408,7 +385,6 @@
                                     <input type="text" name="size">
                                 </div>
                             </div>
-
                         </div>
                         <div class="edit-btn inline-block">
                             <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginGloves();">SAVE DESIGN &amp; EDIT LATER</button>
@@ -417,23 +393,15 @@
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
                         </div>
                     </div>
-
                     <div class="choos m20-l" ng-show="tab=='logo'">
                         <p>Upload Your Sponsor Logo (Optional)</p>
                         <div class="sp-logo">
                             <button href="" class="btn pad1 btn-outline btn-dark  block" data-toggle="modal" data-target="#myModal1">MAIN SPONSOR</button>
-
                             <button href="" class="btn pad2 btn-outline btn-dark  block " data-toggle="modal" data-target="#myModal1">BACK SPONSOR 1</button>
-
                             <button href="" class="btn pad2 btn-outline btn-dark  block " data-toggle="modal" data-target="#myModal1">BACK SPONSOR 2</button>
-
                             <button href="" class="btn pad3 btn-outline btn-dark  block" data-toggle="modal" data-target="#myModal1">LEFT SLEEVE SPONSOR</button>
-
-
                             <button href="" class="btn pad4 btn-outline btn-dark block" data-toggle="modal" data-target="#myModal1">RIGHT SLEEVE SPONSOR</button>
-
                             <button href="" class="btn pad5 btn-outline btn-dark  block" data-toggle="modal" data-target="#myModal1">LEFT CHEST SPONSOR</button>
-
                             <button href="" class="btn pad3 btn-outline btn-dark block" data-toggle="modal" data-target="#myModal1">RIGHT CHEST SPONSOR</button>
                         </div>
                         <div class="print-typ">
@@ -493,12 +461,9 @@
                         </div>
                         <div class="sp-logo">
                             <button href="" class="btn bit pad4 btn-outline btn-dark block" data-toggle="modal" data-target="#myModal1">RIGHT SLEEVE SPONSOR</button>
-
                             <button href="" class="btn bit pad2 btn-outline btn-dark  block " data-toggle="modal" data-target="#myModal1">BACK SPONSOR 1</button>
-
                             <button href="" class="btn pad2 btn-outline btn-dark  block " data-toggle="modal" data-target="#myModal1">BACK SPONSOR 2</button>
                         </div>
-
                         <div class="print-typ">
                             <div class="pbotom">
                                 <span class="block">Notes :</span>
@@ -518,8 +483,6 @@
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
                         </div>
                     </div>
-
-
                     <div class="choos quantity m20-l " ng-show="tab=='quantity'">
                         <div class="table-detail relative">
                             <p class="capitalize">Select the quantity for your gloves</p>
@@ -579,7 +542,6 @@
                         </select></div> -->
                                 <!--<a href="" class="bin"><img src="img/rubbishbin.png" class="img-responsive" alt="" ng-click="removeGlovesValue($index); addQuantity();"></a>-->
                             </div>
-
                             <!--<div class="add-button">
                                 <p class="pointer" ng-click="addGlovesValues(); addQuantity(glove.quantity);"><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</p>
                             </div>-->
@@ -587,17 +549,16 @@
                                 <!--<p class="more-price">One time customization fee for Glove is <i class="fa fa-inr"></i> 5000</p>-->
                                 <p class="more-price">A one-time customization fees of INR 5000/- or equivalent (in your currency) will be incurred
                                     for your logo customization.</p>
-                                       <span class="pull-right tamount totalAmount uppercase Raleway-Medium mar20" ng-if="totalQuan==0">Total Amount: {{glovesJson.totalAmount | currencySymbol}}</i></span>
-                                       <span class="pull-right tamount totalAmount uppercase Raleway-Medium mar20" ng-if="totalQuan>0">Total Amount: {{glovesJson| PriceFilter | currencySymbol}}</i></span>                                       
-                                        <span class="pull-right tquantity totalAmount uppercase Raleway-Medium mar20">Total Quantity: {{totalQuan}} </span>
+                                <span class="pull-right tamount totalAmount uppercase Raleway-Medium mar20" ng-if="totalQuan==0">Total Amount: {{glovesJson.totalAmount | currencySymbol}}</i></span>
+                                <span class="pull-right tamount totalAmount uppercase Raleway-Medium mar20" ng-if="totalQuan>0">Total Amount: {{glovesJson| PriceFilter | currencySymbol}}</i></span>
+                                <span class="pull-right tquantity totalAmount uppercase Raleway-Medium mar20">Total Quantity: {{totalQuan}} </span>
                                 <!--<span class="pull-right uppercase totalAmount Raleway-Medium">Total: {{totalAmount}}</span>-->
                             </div>
-                               <!--<div class="total-amount">
+                            <!--<div class="total-amount">
                                         <p class="more-price">One time customization fee for Trouser is <i class="fa fa-inr"></i> 5000</p>
                                         <span class="pull-right tamount uppercase Raleway-Medium mar20">Total Amount: {{trouserJson.totalAmount}}</span>
                                         <span class="pull-right tquantity uppercase Raleway-Medium mar20">Total Quantity: {{trouserJson.totalQuan}}</span>
                                     </div>-->
-
                             <div class="edit-btn">
                                 <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="checkloginGloves(glove.quantity);">save design</button>
                                 <p ng-if="qtyValidation">Please enter valid Quantity.</p>
@@ -607,9 +568,6 @@
                                 <br>
                             </div>
                         </div>
-
-
-
                     </div>
                 </div>
             </div>

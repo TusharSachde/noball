@@ -72,11 +72,10 @@
             <div class="det-name">
               <h4>{{odiJson.design.name}}</h4>
               <h3>{{odiJson.design | currencyFilter}}</h3>
-              <span class="Raleway-Medium"><em>Minimum Total Quantity (MOQ) =  20 Tees</em></span>
+              <span class="Raleway-Medium"><em>Minimum order Quantity (MOQ) =  20 Tees</em></span>
               <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing  pull-right padding-btn" ng-hide="tab=='trim'|| tab=='team' || tab=='quantity'"
                 ng-click="tabchange('trim',2); switchFrontBack(true); switchTrimHighlightBase(true,odiJson.color.baseColorName,odiJson.design.designType,odiJson.color.base); switchTrimHighlightOne(true,odiJson.color.trim1ColorName,odiJson.design.designType,odiJson.color.trim1); switchTrimHighlightTwo(true,odiJson.color.trim2ColorName,odiJson.design.designType,odiJson.color.trim2); openTab('b');">NEXT</button>
             </div>
-
             <!--                    // design tab-->
             <div class="choos m20-l" ng-show="tab=='design'">
               <p ng-if="page==1">Choose Your Type Of Design ({{images.page1.length}}/{{images.page1.length + images.page2.length}})</p>
@@ -88,7 +87,6 @@
                 <button class="btn btn-outline btn-dark inline-block uppercase letter-spacing design-arrow-next" ng-disabled="page==2" ng-click="page=2">
                   <img src="img/design_arrow_next.png" alt="Next Button" class="img-responsive">
                 </button>
-
               </div>
               <div class="row">
                 <div class="col-md-10">
@@ -128,7 +126,6 @@
                 <button class="{{designButton.design3.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(3);">Cut &amp; Sew</button>
                 <button class="{{designButton.design4.active}} btn btn-outline btn-dark inline-block uppercase letter-spacing" ng-click="page=1; changeDesignButton(4);">Polo</button>-->
               </div>
-
               <!-- <div class="edit-btn inline-block">
                                 <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
                             </div>
@@ -234,8 +231,6 @@
                 <!--<span class="uppercase inline-block mright15">or</span>
                                 <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor();">TEAM TEXT</button>-->
               </div>
-
-
               <div class="block-box">
                 <div class="teamlogo-box">
                   <div class="inline-box box-custom">
@@ -659,8 +654,6 @@
                       </div>
                     </div>
                   </uib-accordion-group>
-
-
                 </uib-accordion>
                 <div class="edit-btn">
                   <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="savedDesigns()">save design</button>

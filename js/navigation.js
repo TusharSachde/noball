@@ -524,7 +524,7 @@ var navigationservice = angular.module('navigationservice', [])
   }, {
     name: "Customise",
     classis: "",
-    // link: "#/home"
+    link: "#/customisation"
   }, {
     name: "Services",
     classis: "",
