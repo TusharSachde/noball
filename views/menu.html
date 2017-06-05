@@ -3,6 +3,7 @@
         <a ng-href="{{menu.link}}" class="{{menu.classis}}" ng-if="menu.name != 'Customise'">{{menu.name}}</a>
         <a target="_blank" ng-href="{{menu.link}}" class="{{menu.classis}}" ng-if="menu.name == 'Customise'">{{menu.name}}</a>
         <!--ng-click="customize();"ui-sref="categories({name:submenu.name})"-->
+        <!--Sub Menu for Products-->
         <ul class="dropdown-menu custom-sub service-head-menu {{menu.name}}" ng-if="menu.subnav!=[];" ng-if="menu.name != 'Customise'">
             <li ng-repeat="submenu in menu.subnav" ng-if="menu.name != 'Services' && ( submenu.name == 'Apparel'|| submenu.name == 'Bats')">
                 <a ui-sref="categories({name:submenu.name})" class="{{submenu.classis}}" style="cursor:inherit;">{{submenu.name}}</a>
@@ -17,13 +18,18 @@
                 <a ui-sref="extrasid({id:submenu.anchor})" class="{{submenu.classis}}">{{submenu.name}}</a>
             </li>
         </ul>
+        <!--End of Submenu for Products-->
+
+
+
         <div class="clearfix"></div>
+        <!--submenu for Customize-->
         <ul class="dropdown-menu custom-sub customise service-head-menu {{menu.name}} hidden-xs" ng-if="menu.name == 'Customise'"
             ng-if="menu.subnav!=[];">
             <li>
-                <a>Apparel</a>
+                <a ui-sref="apparels">Apparel</a>
             </li>
-            <li>
+            <!--<li>
                 <a>Bags</a>
             </li>
             <li>
@@ -31,14 +37,18 @@
             </li>
             <li>
                 <a>Balls</a>
+            </li>-->
+            <li>
+                <a ui-sref="gloves">Gloves</a>
             </li>
             <li>
-                <a>Gloves</a>
-            </li>
-            <li>
-                <a>Pads</a>
+                <a ui-sref="pads">Pads</a>
             </li>
         </ul>
+        <!--end ofsubmenu for Customize-->
+
+
+
         <!--<div class="dropdown-menu custom-sub customise service-head-menu {{menu.name}} hidden-xs" ng-if="menu.name == 'Customise'">
             <a class="{{menu.classis}}" ng-if="menu.name == 'Customise'">{{menu.name}}</a>
             <p>All our bespoke products are fully customisable for your team / club needs. A DIY version will be launching soon.
