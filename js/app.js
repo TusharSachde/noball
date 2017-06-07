@@ -8,7 +8,7 @@ var firstapp = angular.module('firstapp', [
 ]);
 
 
-$.get("http://ipinfo.io/json", function (response) {
+$.get("https://ipinfo.io/json", function (response) {
   $.jStorage.set('getCountry', response.country);
   var value = "";
 });

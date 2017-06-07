@@ -3083,7 +3083,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "dred": ["img/padscolor/updated/red/3.png"],
             "dgreen": ["img/padscolor/updated/dgreen/3.png"]
         };
-     $scope.myDesignID = 0;
+        $scope.myDesignID = 0;
         $scope.designTabJson = function (id) {
             $scope.myDesignID = id;
         };
@@ -3092,19 +3092,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             name: "howzat 101",
             img: $scope.padImages1.dblue,
             color: "dblue",
-            id:0,
+            id: 0,
             colorObj: $scope.padImages1
         }, {
             name: "inside edge 202",
             img: $scope.padImages3.dorange,
             color: "dorange",
-             id:1,
+            id: 1,
             colorObj: $scope.padImages3
-        },{
+        }, {
             name: "not out 303",
             img: $scope.padImages2.dgreen,
-            color: "dgreen",  
-            id:2,
+            color: "dgreen",
+            id: 2,
             colorObj: $scope.padImages2
         }];
 
@@ -4411,7 +4411,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         };
 
-          $scope.myDesignID = 0;
+        $scope.myDesignID = 0;
         $scope.designTabJson = function (id) {
             $scope.myDesignID = id;
         };
@@ -4421,21 +4421,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             img: $scope.glovesImages1.dblue,
             color: 'dblue',
             colr: "#00008b",
-            id:0
+            id: 0
         }, {
             designName: "Switch 202",
             name: "$scope.glovesImages2",
             img: $scope.glovesImages2.dgreen,
             color: 'dgreen',
             colr: "#66cd00",
-             id:1
+            id: 1
         }, {
             designName: "Scoop 303",
             name: "$scope.glovesImages3",
             img: $scope.glovesImages3.red,
             color: 'red',
             colr: "#FF0000",
-             id:2
+            id: 2
         }];
 
         $scope.rslider = {
@@ -5535,7 +5535,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         }
 
-          $scope.remove = function (key) {
+        $scope.remove = function (key) {
             console.log('ftyghftg', key);
             $scope.saveKey = key;
             if (key === 'rightChestLogo' && $scope.odiJson.rightChestLogo.image === "img/logo_black.png") {
@@ -5547,14 +5547,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     }
                 });
             } else {
-                 $scope.odiDeleteModal();
+                $scope.odiDeleteModal();
             }
         }
 
 
-    
-    
-  
+
+
+
 
         // $scope.deleteOdi = function () {
         //     console.log('sssssssssss');
@@ -5772,7 +5772,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.changeDesign($scope.designIndex, $scope.designTab, $scope.designImage);
         };
 
-         $scope.tabs = 'light3';
+        $scope.tabs = 'light3';
         $scope.classp = 'active-tab';
         $scope.classv = '';
         $scope.classshow = 'activeme';
@@ -6576,44 +6576,45 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.page = 1;
 
         $scope.images = {
-            "page1": [  {
-                src: "img/odi-tshirts/trims/odi/design4/front/front.png",
-                type: "odi",
-                id: 0
-            }, {
-                src: "img/odi-tshirts/trims/odi/design3/front/front.png",
-                type: "odi",
-                id: 1
-            },
-            {
-                src: "img/odi-tshirts/trims/odi/design1/front/front.png",
-                type: "odi",
-                id: 2
-            },{
-                src: "img/odi-tshirts/trims/odi/design5/front/front.png",
-                type: "odi",
-                id: 3
-            }, {
-                src: "img/odi-tshirts/trims/training/design1/front/front.png",
-                type: "training",
-                id: 4
-            }, {
-                src: "img/odi-tshirts/trims/training/design2/front/front.png",
-                type: "training",
-                id: 5
-            }, {
-                src: "img/odi-tshirts/trims/training/design3/front/front.png",
-                type: "training",
-                id: 6
-            }, {
-                src: "img/odi-tshirts/trims/training/design4/front/front.png",
-                type: "training",
-                id: 7
-            }, {
-                src: "img/odi-tshirts/trims/training/design5/front/front.png",
-                type: "training",
-                id: 8
-            }],
+            "page1": [{
+                    src: "img/odi-tshirts/trims/odi/design4/front/front.png",
+                    type: "odi",
+                    id: 0
+                }, {
+                    src: "img/odi-tshirts/trims/odi/design3/front/front.png",
+                    type: "odi",
+                    id: 1
+                },
+                {
+                    src: "img/odi-tshirts/trims/odi/design1/front/front.png",
+                    type: "odi",
+                    id: 2
+                }, {
+                    src: "img/odi-tshirts/trims/odi/design5/front/front.png",
+                    type: "odi",
+                    id: 3
+                }, {
+                    src: "img/odi-tshirts/trims/training/design1/front/front.png",
+                    type: "training",
+                    id: 4
+                }, {
+                    src: "img/odi-tshirts/trims/training/design2/front/front.png",
+                    type: "training",
+                    id: 5
+                }, {
+                    src: "img/odi-tshirts/trims/training/design3/front/front.png",
+                    type: "training",
+                    id: 6
+                }, {
+                    src: "img/odi-tshirts/trims/training/design4/front/front.png",
+                    type: "training",
+                    id: 7
+                }, {
+                    src: "img/odi-tshirts/trims/training/design5/front/front.png",
+                    type: "training",
+                    id: 8
+                }
+            ],
             "page2": [{
                 //     src: "img/odi-tshirts/trims/training/design5/front.png",
                 //     type: "training"
@@ -10531,14 +10532,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         };
 
-        $scope.download = function(){
+        $scope.download = function () {
             $uibModal.open({
-            animation: true,
-            templateUrl: "views/modal/download.html",
-            scope: $scope,
-            windowClass: "modal-pdf",
-            size:'lg'
-        });
+                animation: true,
+                templateUrl: "views/modal/download.html",
+                scope: $scope,
+                windowClass: "modal-pdf",
+                size: 'lg'
+            });
         };
 
         $scope.customize = [{
@@ -10554,10 +10555,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             // "img/services/custom/250x300-5.png"
 
             "img/apparel-new/design4b.jpg",
-             "img/apparel-new/design4f.jpg",
-              "img/apparel-new/jumper.jpg",
-               "img/apparel-new/paceback.jpg",
-                "img/apparel-new/pacefront.jpg",
+            "img/apparel-new/design4f.jpg",
+            "img/apparel-new/jumper.jpg",
+            "img/apparel-new/paceback.jpg",
+            "img/apparel-new/pacefront.jpg",
 
         ];
         $scope.consultancy = [
@@ -11006,8 +11007,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             link: ''
         }];
 
-        $scope.topSlides = [
-            {
+        $scope.topSlides = [{
                 image: 'img/custombanner/tees_banner.jpg',
                 link: 'odi-shirt'
             }, {
@@ -11020,7 +11020,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 image: 'img/custombanner/gloves_banner.jpg',
                 link: 'gloves'
             }
-           
+
         ];
 
         $scope.showcaseSlides = [{
@@ -11084,7 +11084,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
         $scope.showcaseSlides = [{
             image: 'img/landing/apparels-switch/bats.jpg',
-              link: '',
+            link: '',
             text: 'bats',
             subtext: '(coming soon)'
         }, {
@@ -11094,7 +11094,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             subtext: '(coming soon)'
         }, {
             image: 'img/landing/apparels-switch/kit-bags.jpg',
-              link: '',
+            link: '',
             text: 'kit-bags',
             subtext: '(coming soon)'
         }, {
