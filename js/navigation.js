@@ -957,7 +957,7 @@ var navigationservice = angular.module('navigationservice', [])
         }).success(callback).error(err);
       },
       localCountry: function (callback) {
-        $.getJSON("https://www.geoplugin.net/json.gp?jsoncallback=?", callback)
+        $.getJSON("https://ssl.geoplugin.net/json.gp?jsoncallback=?", callback)
       },
       updateProfile: function (profile, callback, err) {
         return $http({
