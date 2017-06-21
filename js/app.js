@@ -4,7 +4,8 @@ var firstapp = angular.module('firstapp', [
   'phonecatControllers',
   'templateservicemod',
   'navigationservice',
-  "customUI"
+  "customUI",
+  'angular-google-analytics'
 ]);
 
 
@@ -14,9 +15,10 @@ $.get("https://ipinfo.io/json", function (response) {
 });
 
 
-firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, cfpLoadingBarProvider) {
+  firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, cfpLoadingBarProvider, AnalyticsProvider) {
 
-  // for http request with session
+    // for http request with session
+  AnalyticsProvider.setAccount('UA-76718395-1');
   $httpProvider.defaults.headers.common = {};
   $httpProvider.defaults.headers.post = {};
   $httpProvider.defaults.headers.put = {};
