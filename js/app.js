@@ -3,12 +3,15 @@
     'ui.router',
     'phonecatControllers',
     'templateservicemod',
-    'navigationservice'
+    'navigationservice',
+    'angular-google-analytics'
   ]);
 
-  firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, cfpLoadingBarProvider) {
+  firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, cfpLoadingBarProvider, AnalyticsProvider) {
 
     // for http request with session
+    AnalyticsProvider.setAccount('UA-76718395-1');
+    firstapp.run(function(Analytics) {});
     $httpProvider.defaults.headers.common = {};
     $httpProvider.defaults.headers.post = {};
     $httpProvider.defaults.headers.put = {};
@@ -321,6 +324,8 @@
     $urlRouterProvider.otherwise("/home");
 
   });
+
+  firstapp.run(['Analytics', function(Analytics) { }]);
 
 
   firstapp.filter('serverimage', function () {
