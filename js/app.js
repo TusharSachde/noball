@@ -73,6 +73,21 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, cfp
       templateUrl: "views/template.html",
       controller: 'InsideBasketballCtrl'
     })
+    .state('inside-cricket', {
+      url: "/inside-cricket",
+      templateUrl: "views/template.html",
+      controller: 'InsideCricketCtrl'
+    })
+    .state('inside-hockey', {
+      url: "/inside-hockey",
+      templateUrl: "views/template.html",
+      controller: 'InsideHockeyCtrl'
+    })
+    .state('inside-football', {
+      url: "/inside-football",
+      templateUrl: "views/template.html",
+      controller: 'InsideFootballCtrl'
+    })
     .state('balls', {
       url: "/balls",
       templateUrl: "views/template.html",

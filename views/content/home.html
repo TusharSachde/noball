@@ -23,12 +23,12 @@
           <i class="fa fa-usd" ng-if="country == 'AUD'"></i> {{minorder}}</p> -->
         </div>
       </div>
-        <div class="col-flex">
-          <div class="ccc-quality  ship">
-            <img src="img/bat.png" alt="" class="m-center img-responsive">
-            <p class="text-uppercase text-center">Free customisation on all products</p>
-          </div>
+      <div class="col-flex">
+        <div class="ccc-quality  ship">
+          <img src="img/bat.png" alt="" class="m-center img-responsive">
+          <p class="text-uppercase text-center">Free customisation on all products</p>
         </div>
+      </div>
       <div class="col-flex">
         <div class="ccc-quality ">
           <img src="img/people.png" alt="" class="m-center img-responsive">
@@ -52,6 +52,9 @@
 </section>
 <section>
   <div class="strong grey-bg space-flex">
+    <div class="text-center text-uppercase">
+      <h1>customise your sports clothing</h1>
+    </div>
     <div class="row-flex" ng-repeat="category in categories">
       <div class="col-flex" ng-repeat="cat in category">
         <a class="colorful" ui-sref="categories({name:cat.name})" ng-if="cat.name == 'Apparel' || cat.name == 'Bats'">
@@ -79,20 +82,23 @@
     <div class="container">
       <h3 class="high-light">About Us</h3>
       <p class="para">
-        Our inception comes from a club cricket team in 2008 with a desire to kit themselves up in their very own brand. After exploring and servicing an established apparel market it was time to launch the world’s first full service cricket customisation platform. And so, Custom Cricket Company is the only known firm to wholly customise your cricketing gear ranging from apparel to gloves, pads, kit bags and even your own club ball.
+        Our inception comes from a club cricket team in 2008 with a desire to kit themselves up in their very own brand. After exploring
+        and servicing an established apparel market it was time to launch the world’s first full service cricket customisation
+        platform. And so, Custom Cricket Company is the only known firm to wholly customise your cricketing gear ranging
+        from apparel to gloves, pads, kit bags and even your own club ball.
       </p>
       <a class="btn btn-outline btn-dark letter-spacing" href="#/about">Know More</a>
     </div>
   </div>
 </section>
 
-<section>
+<!--<section>
   <div class="advertise text-right">
     <div class="container">
       <h4>Here, Let Us</h4>
       <h3>Sweat it out for you!</h3>
-      <!-- <a ng-click="openAppoinment();">Make an appointment now</a> -->
+       <a ng-click="openAppoinment();">Make an appointment now</a> 
       <a class="text-uppercase appoint" href="#/contact">Make an appointment now</a>
     </div>
   </div>
-</section>
+</section>-->

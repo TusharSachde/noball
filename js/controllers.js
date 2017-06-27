@@ -24,7 +24,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // $scope.country = "GBP";
         $scope.country = $.jStorage.get("myCurrency");
         NavigationService.getCategory(function (data) {
-            $scope.categories = _.chunk(data, 3);
+            $scope.categories = _.chunk(data, 2);
         }, function (err) {
             console.log(err);
         });
@@ -11117,57 +11117,280 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.basketballSlides = [{
             image: 'img/showcase/1.jpg',
-            link: 'trousers',
             text: 'apparel'
         }, {
             image: 'img/showcase/2.jpg',
-            link: 'pads',
             text: 'caps'
         }, {
             image: 'img/showcase/3.jpg',
-            link: 'odi-shirt',
             text: 'caps'
         }, {
             image: 'img/showcase/4.jpg',
-            link: 'pads',
             text: 'pads'
         }, {
             image: 'img/showcase/5.jpg',
-            link: 'pads',
             text: 'pads'
         },
         {
             image: 'img/showcase/6.jpg',
-            link: 'shorts',
             text: 'kitbags'
         }, {
             image: 'img/showcase/7.jpg',
-            link: 'shorts',
             text: 'kitbags'
         }, {
             image: 'img/showcase/8.jpg',
-            link: 'shorts',
             text: 'logos'
         }, {
             image: 'img/showcase/9.jpg',
-            link: 'shorts',
             text: 'logos'
         }
             , {
             image: 'img/showcase/10.jpg',
-            link: 'shorts',
             text: 'logos'
         }
             , {
             image: 'img/showcase/11.jpg',
-            link: 'shorts',
             text: 'logos'
         }
             , {
             image: 'img/showcase/12.jpg',
-            link: 'shorts',
             text: 'logos'
         }];
+
+        $scope.basketball = [
+            {
+                image: 'img/showcase/1.jpg',
+                text: 'apparel'
+            }, {
+                image: 'img/showcase/2.jpg',
+                text: 'caps'
+            }, {
+                image: 'img/showcase/3.jpg',
+                text: 'caps'
+            }, {
+                image: 'img/showcase/4.jpg',
+                text: 'pads'
+            }, {
+                image: 'img/showcase/5.jpg',
+                text: 'pads'
+            },
+            {
+                image: 'img/showcase/6.jpg',
+                text: 'kitbags'
+            }];
+    })
+    .controller('InsideCricketCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("inside-cricket");
+        $scope.menutitle = NavigationService.makeactive("InsideCricketball");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+        $scope.cricketSlides = [{
+            image: 'img/showcase/1.jpg',
+            text: 'apparel'
+        }, {
+            image: 'img/showcase/2.jpg',
+            text: 'caps'
+        }, {
+            image: 'img/showcase/3.jpg',
+            text: 'caps'
+        }, {
+            image: 'img/showcase/4.jpg',
+            text: 'pads'
+        }, {
+            image: 'img/showcase/5.jpg',
+            text: 'pads'
+        },
+        {
+            image: 'img/showcase/6.jpg',
+            text: 'kitbags'
+        }, {
+            image: 'img/showcase/7.jpg',
+            text: 'kitbags'
+        }, {
+            image: 'img/showcase/8.jpg',
+            text: 'logos'
+        }, {
+            image: 'img/showcase/9.jpg',
+            text: 'logos'
+        }
+            , {
+            image: 'img/showcase/10.jpg',
+            text: 'logos'
+        }
+            , {
+            image: 'img/showcase/11.jpg',
+            text: 'logos'
+        }
+            , {
+            image: 'img/showcase/12.jpg',
+            text: 'logos'
+        }];
+
+        $scope.cricket = [
+            {
+                image: 'img/showcase/1.jpg',
+                text: 'apparel'
+            }, {
+                image: 'img/showcase/2.jpg',
+                text: 'caps'
+            }, {
+                image: 'img/showcase/3.jpg',
+                text: 'caps'
+            }, {
+                image: 'img/showcase/4.jpg',
+                text: 'pads'
+            }, {
+                image: 'img/showcase/5.jpg',
+                text: 'pads'
+            },
+            {
+                image: 'img/showcase/6.jpg',
+                text: 'kitbags'
+            }];
+    })
+     .controller('InsideFootballCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("inside-football");
+        $scope.menutitle = NavigationService.makeactive("InsideFootball");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+        $scope.footballSlides = [{
+            image: 'img/showcase/1.jpg',
+            text: 'apparel'
+        }, {
+            image: 'img/showcase/2.jpg',
+            text: 'caps'
+        }, {
+            image: 'img/showcase/3.jpg',
+            text: 'caps'
+        }, {
+            image: 'img/showcase/4.jpg',
+            text: 'pads'
+        }, {
+            image: 'img/showcase/5.jpg',
+            text: 'pads'
+        },
+        {
+            image: 'img/showcase/6.jpg',
+            text: 'kitbags'
+        }, {
+            image: 'img/showcase/7.jpg',
+            text: 'kitbags'
+        }, {
+            image: 'img/showcase/8.jpg',
+            text: 'logos'
+        }, {
+            image: 'img/showcase/9.jpg',
+            text: 'logos'
+        }
+            , {
+            image: 'img/showcase/10.jpg',
+            text: 'logos'
+        }
+            , {
+            image: 'img/showcase/11.jpg',
+            text: 'logos'
+        }
+            , {
+            image: 'img/showcase/12.jpg',
+            text: 'logos'
+        }];
+
+        $scope.football = [
+            {
+                image: 'img/showcase/1.jpg',
+                text: 'apparel'
+            }, {
+                image: 'img/showcase/2.jpg',
+                text: 'caps'
+            }, {
+                image: 'img/showcase/3.jpg',
+                text: 'caps'
+            }, {
+                image: 'img/showcase/4.jpg',
+                text: 'pads'
+            }, {
+                image: 'img/showcase/5.jpg',
+                text: 'pads'
+            },
+            {
+                image: 'img/showcase/6.jpg',
+                text: 'kitbags'
+            }];
+    })
+     .controller('InsideHockeyCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("inside-hockey");
+        $scope.menutitle = NavigationService.makeactive("InsideHockey");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+        $scope.hockeySlides = [{
+            image: 'img/showcase/1.jpg',
+            text: 'apparel'
+        }, {
+            image: 'img/showcase/2.jpg',
+            text: 'caps'
+        }, {
+            image: 'img/showcase/3.jpg',
+            text: 'caps'
+        }, {
+            image: 'img/showcase/4.jpg',
+            text: 'pads'
+        }, {
+            image: 'img/showcase/5.jpg',
+            text: 'pads'
+        },
+        {
+            image: 'img/showcase/6.jpg',
+            text: 'kitbags'
+        }, {
+            image: 'img/showcase/7.jpg',
+            text: 'kitbags'
+        }, {
+            image: 'img/showcase/8.jpg',
+            text: 'logos'
+        }, {
+            image: 'img/showcase/9.jpg',
+            text: 'logos'
+        }
+            , {
+            image: 'img/showcase/10.jpg',
+            text: 'logos'
+        }
+            , {
+            image: 'img/showcase/11.jpg',
+            text: 'logos'
+        }
+            , {
+            image: 'img/showcase/12.jpg',
+            text: 'logos'
+        }];
+
+        $scope.hockey = [
+            {
+                image: 'img/showcase/1.jpg',
+                text: 'apparel'
+            }, {
+                image: 'img/showcase/2.jpg',
+                text: 'caps'
+            }, {
+                image: 'img/showcase/3.jpg',
+                text: 'caps'
+            }, {
+                image: 'img/showcase/4.jpg',
+                text: 'pads'
+            }, {
+                image: 'img/showcase/5.jpg',
+                text: 'pads'
+            },
+            {
+                image: 'img/showcase/6.jpg',
+                text: 'kitbags'
+            }];
     })
     .controller('footerctrl', function ($scope, $state, TemplateService, $uibModal, NavigationService) {
         $scope.template = TemplateService;
