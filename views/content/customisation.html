@@ -2,11 +2,12 @@
 <section>
   <!--flex-slider-->
   <div class="customize-slider custom-height">
-    <flex-slider flex-slide="s in topSlides track by $index" prev-text="" next-text="" slideshow="true" slideshow-speed="5000" class="topSlide">
-       <li>
-           <a ui-sref="{{s.link}}"><img ng-src="{{s.image}}"></a>
-       </li>
-   </flex-slider>
+    <flex-slider flex-slide="s in topSlides track by $index" prev-text="" next-text="" slideshow="true" slideshow-speed="5000"
+      class="topSlide">
+      <li>
+        <a ui-sref="{{s.link}}"><img ng-src="{{s.image}}"></a>
+      </li>
+    </flex-slider>
   </div>
   <div class="customisation-main">
     <div class="container">
@@ -17,10 +18,10 @@
             <img ng-src="{{item.image}}" alt="{{item.name}}" class="img-responisve">
             <div class="grey-fade">
               <div class="greyfade-text">
- <p class="uppercase">{{item.name}}</p>
+                <p class="uppercase">{{item.name}}</p>
                 <p class="uppercase">{{item.subname}}</p>
               </div>
-             
+
             </div>
           </div>
         </div>
@@ -32,12 +33,13 @@
     <h2 class="uppercase text-center">Our Showcase</h2>
     <!--flexslider-->
     <div class="showcase-slider">
-      <flex-slider flex-slide="banner in showcaseSlides track by $index" prev-text="" next-text="" class="" item-width="240" item-margin="40" animation="slide" slideshow="true" slideshowSpeed="500">
-          <li class="backdrop-grey">
-           <a fancybox-box ng-href="{{banner.image}}" rel="fancy"> 
-             <figure class="relative"><img ng-src="{{banner.image}}" class="img-responsive iconBlue"></figure>
-            </a>
-          </li>
+      <flex-slider flex-slide="banner in showcaseSlides track by $index" prev-text="" next-text="" class="" item-width="240" item-margin="40"
+        animation="slide" slideshow="true" slideshowSpeed="500">
+        <li class="backdrop-grey">
+          <a fancybox-box ng-href="{{banner.image}}" rel="fancy">
+            <figure class="relative"><img ng-src="{{banner.image}}" class="img-responsive iconBlue"></figure>
+          </a>
+        </li>
       </flex-slider>
       <!--<flex-slider flex-slide="banner in showcaseSlides track by $index" prev-text="" next-text="" startAt="0" item-width="240" item-margin="40" animation="slide" move="1" slideshow="true" slideshowSpeed="500" class="mt25">
         <li class="text-center">
@@ -54,6 +56,6 @@
         </li>
     </flex-slider>-->
     </div>
-    
+
   </div>
 </section>

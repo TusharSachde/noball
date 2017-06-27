@@ -1,0 +1,78 @@
+<section class="inside-basketball">
+    <div>
+        <img src="img/" alt="">
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="text-uppercase text-center">
+            <h2>customise your basketball clothing</h2>
+        </div>
+        <div>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="" alt="">
+                    <p class="text-center">jerseys</p>
+                </div>
+                <div class="col-md-4">
+                    <img src="" alt="">
+                    <p class="text-center">shorts</p>
+                </div>
+                <div class="col-md-4">
+                    <img src="" alt="">
+                    <p class="text-center">training tees</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="" alt="">
+                    <p class="text-center">polos</p>
+                </div>
+                <div class="col-md-4">
+                    <img src="" alt="">
+                    <p class="text-center">jackets</p>
+                </div>
+                <div class="col-md-4">
+                    <img src="" alt="">
+                    <p class="text-center">caps</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="text-uppercase text-center">
+            <h2>switch to</h2>
+        </div>
+        <div class="inside-basketball-slider">
+            <!--<flex-slider flex-slide="banner in basketballSlides track by $index" prev-text="" next-text="" class="" item-width="240"
+                item-margin="40" animation="slide" slideshow="true" slideshowSpeed="500">
+                <li class="backdrop-grey">
+                    <a>
+                        <figure class="relative"><img ng-src="{{banner.image}}" class="img-responsive iconBlue">
+                            <div class="grey-fade">
+                                <p>{{banner.text}}</p>
+                            </div>
+                        </figure>
+
+                    </a>
+                </li>
+            </flex-slider>-->
+
+            <flex-slider flex-slide="banner in basketballSlides track by $index" prev-text="" next-text="" startAt="0" item-width="240"
+                item-margin="40" animation="slide" move="1" slideshow="true" slideshowSpeed="500" class="mt25">
+                <li class="text-center">
+                    <a ui-sref="">
+                        <figure class=" relative">
+                            <img ng-src="{{banner.image}}" class="img-responsive iconBlue">
+                            <div class="grey-fade">
+                                <p>{{banner.text}}</p>
+                            </div>
+                        </figure>
+                    </a>
+                </li>
+            </flex-slider>
+        </div>
+    </div>
+</section>

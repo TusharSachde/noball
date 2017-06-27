@@ -15,9 +15,9 @@ $.get("https://ipinfo.io/json", function (response) {
 });
 
 
-  firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, cfpLoadingBarProvider, AnalyticsProvider) {
+firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, cfpLoadingBarProvider, AnalyticsProvider) {
 
-    // for http request with session
+  // for http request with session
   AnalyticsProvider.setAccount('UA-76718395-1');
   $httpProvider.defaults.headers.common = {};
   $httpProvider.defaults.headers.post = {};
@@ -68,7 +68,11 @@ $.get("https://ipinfo.io/json", function (response) {
       templateUrl: "views/template.html",
       controller: 'CapsCtrl'
     })
-
+    .state('inside-basketball', {
+      url: "/inside-basketball",
+      templateUrl: "views/template.html",
+      controller: 'InsideBasketballCtrl'
+    })
     .state('balls', {
       url: "/balls",
       templateUrl: "views/template.html",

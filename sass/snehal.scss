@@ -1,0 +1,49 @@
+//scss for inside-basketball
+.inside-basketball-slider{
+         width: 100%;
+         height: 370px;
+         margin-top: 40px;
+         padding: 0 70px;
+         .flexslider-container {
+             .flexslider {
+                 background: transparent;
+                 overflow: initial;
+                  padding: 0 100px;
+                // .slides {
+                //      // margin: 0 100px;
+                //  }
+                 .flex-direction-nav a {
+                     width: 30px;
+                     height: 30px;
+                     display: block;
+                 }
+                 .flex-control-nav {
+                     display: none;
+                 }
+                 .flex-direction-nav .flex-nav-prev a {
+                     left: -46px!important;
+                     display: block;
+                     &:before {
+                         content: "";
+                         width: 100%;
+                         height: 100%;
+                         background-repeat: no-repeat;
+                         background-size: contain; //   background-color: #000;
+                         background-image: url("../img/landing/arrows/left_white.png");
+                     }
+                 }
+                 .flex-direction-nav .flex-nav-next a {
+                     right: -46px !important;
+                     display: block;
+                     &:before {
+                         content: "";
+                         width: 100%;
+                         height: 100%;
+                         background-repeat: no-repeat;
+                         background-size: contain; //    background-color: #000;
+                         background-image: url("../img/landing/arrows/right_white.png");
+                     }
+                 }
+             }
+         }
+     }

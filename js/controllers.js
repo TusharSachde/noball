@@ -2150,8 +2150,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //         }
         //     }
         $scope.switchFrontBack = function (front) {
-            $scope.customizedCaps.front =  front;
-            $scope.customizedCaps.back =  !front;
+            $scope.customizedCaps.front = front;
+            $scope.customizedCaps.back = !front;
             if (front) {
                 console.log('ifffff');
                 $scope.customizedCaps.cloth = 'img/front/' + $scope.trimCaps.highlightBase.tcolor + '.png';
@@ -2865,13 +2865,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 size: 100
             },
             quantity: [{
-                    quantity: null,
-                    size: "Left"
-                },
-                {
-                    quantity: null,
-                    size: "Right"
-                }
+                quantity: null,
+                size: "Left"
+            },
+            {
+                quantity: null,
+                size: "Right"
+            }
             ],
             type: "pads",
             sendTeamLogoLater: false
@@ -2926,41 +2926,41 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
         $scope.padscolor = [{
-                colr: "#000000",
-                name: "black"
-            }, {
-                colr: "#c0c2ce",
-                name: "grey"
-            }, {
-                colr: "#48d2dc",
-                name: "nblue"
-            }, {
-                colr: "#82e716",
-                name: "ngreen"
-            }, {
-                colr: "#ff5588",
-                name: "pink"
-            }, {
-                colr: "#fff",
-                name: "white"
-            }, {
-                colr: "#ffd700",
-                name: "yellow"
-            },
-            {
-                colr: "#00008b",
-                name: "dblue"
-            },
-            {
-                colr: "#ed8b32",
-                name: "dorange"
-            }, {
-                colr: "#db2123",
-                name: "dred"
-            }, {
-                colr: "#08ad21",
-                name: "dgreen"
-            }
+            colr: "#000000",
+            name: "black"
+        }, {
+            colr: "#c0c2ce",
+            name: "grey"
+        }, {
+            colr: "#48d2dc",
+            name: "nblue"
+        }, {
+            colr: "#82e716",
+            name: "ngreen"
+        }, {
+            colr: "#ff5588",
+            name: "pink"
+        }, {
+            colr: "#fff",
+            name: "white"
+        }, {
+            colr: "#ffd700",
+            name: "yellow"
+        },
+        {
+            colr: "#00008b",
+            name: "dblue"
+        },
+        {
+            colr: "#ed8b32",
+            name: "dorange"
+        }, {
+            colr: "#db2123",
+            name: "dred"
+        }, {
+            colr: "#08ad21",
+            name: "dgreen"
+        }
 
         ];
 
@@ -3719,8 +3719,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
         $scope.switchFrontBack = function (front) {
-            $scope.customizedShort.front =  front;
-            $scope.customizedShort.back =  !front;
+            $scope.customizedShort.front = front;
+            $scope.customizedShort.back = !front;
             if (front) {
                 $scope.customizedShort.cloth = 'img/shorts/' + $scope.designName + '/front.png'; //'img/tinytshirt 7.png';
                 $scope.customizedShort.backdrop = 'img/shorts/front.png'; //'img/tinytshirt 7 back.png';
@@ -4215,13 +4215,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             },
             type: "gloves",
             quantity: [{
-                    quantity: null,
-                    size: "Left"
-                },
-                {
-                    quantity: null,
-                    size: "Right"
-                }
+                quantity: null,
+                size: "Left"
+            },
+            {
+                quantity: null,
+                size: "Right"
+            }
             ]
         };
         // $scope.glovesJson.design = {};
@@ -4273,40 +4273,40 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         };
         $scope.glovescolor = [{
-                colr: "#ffd700",
-                name: "yellow"
-            }, {
-                colr: "#cd3700",
-                name: "red"
-            }, {
-                colr: "#63b8ff",
-                name: "lblue"
-            }, {
-                colr: "#00008b",
-                name: "dblue"
-            }, {
-                colr: "#bcee68",
-                name: "lgreen"
-            }, {
-                colr: "#66cd00",
-                name: "dgreen"
-            }, {
-                colr: "#ff8247",
-                name: "lorange"
-            }, {
-                colr: "#ff3030",
-                name: "dorange"
-            }, {
-                colr: "#d2b48c",
-                name: "gold"
-            },
-            {
-                colr: "#fff",
-                name: "white"
-            }, {
-                colr: "#000",
-                name: "black"
-            }
+            colr: "#ffd700",
+            name: "yellow"
+        }, {
+            colr: "#cd3700",
+            name: "red"
+        }, {
+            colr: "#63b8ff",
+            name: "lblue"
+        }, {
+            colr: "#00008b",
+            name: "dblue"
+        }, {
+            colr: "#bcee68",
+            name: "lgreen"
+        }, {
+            colr: "#66cd00",
+            name: "dgreen"
+        }, {
+            colr: "#ff8247",
+            name: "lorange"
+        }, {
+            colr: "#ff3030",
+            name: "dorange"
+        }, {
+            colr: "#d2b48c",
+            name: "gold"
+        },
+        {
+            colr: "#fff",
+            name: "white"
+        }, {
+            colr: "#000",
+            name: "black"
+        }
         ];
         $scope.openLogin = function () {
             $.jStorage.set("onCustom", true);
@@ -4360,7 +4360,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         window.location.reload();
                         // $scope.openLogin.close();
                     }
-                }, function (err) {})
+                }, function (err) { })
             } else {
                 $scope.inputall = true;
             }
@@ -4974,40 +4974,40 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         };
         $scope.glovescolor = [{
-                colr: "#ffd700",
-                name: "yellow"
-            }, {
-                colr: "#db2123",
-                name: "red"
-            }, {
-                colr: "#63b8ff",
-                name: "lblue"
-            }, {
-                colr: "#00008b",
-                name: "dblue"
-            }, {
-                colr: "#bcee68",
-                name: "lgreen"
-            }, {
-                colr: "#66cd00",
-                name: "dgreen"
-            }, {
-                colr: "#ff8247",
-                name: "lorange"
-            }, {
-                colr: "#ee3301",
-                name: "dorange"
-            }, {
-                colr: "#d2b48c",
-                name: "gold"
-            },
-            {
-                colr: "#fff",
-                name: "white"
-            }, {
-                colr: "#000",
-                name: "black"
-            }
+            colr: "#ffd700",
+            name: "yellow"
+        }, {
+            colr: "#db2123",
+            name: "red"
+        }, {
+            colr: "#63b8ff",
+            name: "lblue"
+        }, {
+            colr: "#00008b",
+            name: "dblue"
+        }, {
+            colr: "#bcee68",
+            name: "lgreen"
+        }, {
+            colr: "#66cd00",
+            name: "dgreen"
+        }, {
+            colr: "#ff8247",
+            name: "lorange"
+        }, {
+            colr: "#ee3301",
+            name: "dorange"
+        }, {
+            colr: "#d2b48c",
+            name: "gold"
+        },
+        {
+            colr: "#fff",
+            name: "white"
+        }, {
+            colr: "#000",
+            name: "black"
+        }
         ];
         $scope.openLogin = function () {
             $.jStorage.set("onCustom", true);
@@ -5434,8 +5434,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.switchFrontBack = function (front) {
             console.log('switchFrontBack');
-            $scope.customizedShirt.front =  front;
-            $scope.customizedShirt.back =  !front;
+            $scope.customizedShirt.front = front;
+            $scope.customizedShirt.back = !front;
             console.log($scope.odiJson.design.designType);
             if (front) {
                 $scope.customizedShirt.cloth = 'img/odi-tshirts/trims/' + $scope.odiJson.design.designType + 'base/front/' + $scope.trimTshirt.highlightBase.tcolor + '.png'; //'img/tinytshirt 7.png';
@@ -6577,43 +6577,43 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.images = {
             "page1": [{
-                    src: "img/odi-tshirts/trims/odi/design4/front/front.png",
-                    type: "odi",
-                    id: 0
-                }, {
-                    src: "img/odi-tshirts/trims/odi/design3/front/front.png",
-                    type: "odi",
-                    id: 1
-                },
-                {
-                    src: "img/odi-tshirts/trims/odi/design1/front/front.png",
-                    type: "odi",
-                    id: 2
-                }, {
-                    src: "img/odi-tshirts/trims/odi/design5/front/front.png",
-                    type: "odi",
-                    id: 3
-                }, {
-                    src: "img/odi-tshirts/trims/training/design1/front/front.png",
-                    type: "training",
-                    id: 4
-                }, {
-                    src: "img/odi-tshirts/trims/training/design2/front/front.png",
-                    type: "training",
-                    id: 5
-                }, {
-                    src: "img/odi-tshirts/trims/training/design3/front/front.png",
-                    type: "training",
-                    id: 6
-                }, {
-                    src: "img/odi-tshirts/trims/training/design4/front/front.png",
-                    type: "training",
-                    id: 7
-                }, {
-                    src: "img/odi-tshirts/trims/training/design5/front/front.png",
-                    type: "training",
-                    id: 8
-                }
+                src: "img/odi-tshirts/trims/odi/design4/front/front.png",
+                type: "odi",
+                id: 0
+            }, {
+                src: "img/odi-tshirts/trims/odi/design3/front/front.png",
+                type: "odi",
+                id: 1
+            },
+            {
+                src: "img/odi-tshirts/trims/odi/design1/front/front.png",
+                type: "odi",
+                id: 2
+            }, {
+                src: "img/odi-tshirts/trims/odi/design5/front/front.png",
+                type: "odi",
+                id: 3
+            }, {
+                src: "img/odi-tshirts/trims/training/design1/front/front.png",
+                type: "training",
+                id: 4
+            }, {
+                src: "img/odi-tshirts/trims/training/design2/front/front.png",
+                type: "training",
+                id: 5
+            }, {
+                src: "img/odi-tshirts/trims/training/design3/front/front.png",
+                type: "training",
+                id: 6
+            }, {
+                src: "img/odi-tshirts/trims/training/design4/front/front.png",
+                type: "training",
+                id: 7
+            }, {
+                src: "img/odi-tshirts/trims/training/design5/front/front.png",
+                type: "training",
+                id: 8
+            }
             ],
             "page2": [{
                 //     src: "img/odi-tshirts/trims/training/design5/front.png",
@@ -6787,8 +6787,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.switchFrontBackQuantity = function (front) {
             if ($scope.tabFive) {
-                $scope.customizedShirt.front =  front;
-                $scope.customizedShirt.back =  !front;
+                $scope.customizedShirt.front = front;
+                $scope.customizedShirt.back = !front;
                 if (front) {
                     $scope.customizedShirt.cloth = 'img/odi-tshirts/trims/' + $scope.odiJson.design.designType + 'base/front/' + $scope.trimTshirt.highlightBase.tcolor + '.png'; //'img/tinytshirt 7.png';
                     $scope.customizedShirt.backdrop = 'img/odi-tshirts/backdrop/' + $scope.odiJson.design.designType + '/front.png'; //'img/tinytshirt 7 back.png';
@@ -9574,7 +9574,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         msg: 'Unable to place order. Try again.'
                     });
                 }
-            }, function (err) {});
+            }, function (err) { });
             // } else {
             //     // $scope.invalidData = true;
             //     // $scope.alerts = [];
@@ -9629,7 +9629,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         if (data.value) {
                             $scope.getCart();
                         }
-                    }, function (err) {})
+                    }, function (err) { })
                 }
             }
 
@@ -10281,7 +10281,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         msg: 'Unable to place order. Try again.'
                     });
                 }
-            }, function (err) {});
+            }, function (err) { });
             // } else {
             //     // $scope.invalidData = true;
             //     // $scope.alerts = [];
@@ -10336,7 +10336,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         if (data.value) {
                             $scope.getCart();
                         }
-                    }, function (err) {})
+                    }, function (err) { })
                 }
             }
 
@@ -10442,7 +10442,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         if ($scope.user) {
             $scope.getDesigns();
-        } else {}
+        } else { }
 
         $scope.editDesign = function (design) {
             console.log(design);
@@ -10597,8 +10597,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 id: id,
                 menu: "active"
             }, {
-                notify: false
-            });
+                    notify: false
+                });
             makeAnimation(id);
             $location.replace();
         };
@@ -10613,81 +10613,81 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav2();
 
         $scope.examples = [{
-                image: "img/extras/clientexample/1.png",
-            }, {
-                image: "img/extras/clientexample/2.png",
-            }, {
-                image: "img/extras/clientexample/3.png",
-            }, {
-                image: "img/extras/clientexample/4.png",
-            }, {
-                image: "img/extras/clientexample/5.png",
-            }, {
-                image: "img/extras/clientexample/6.png",
-            }
+            image: "img/extras/clientexample/1.png",
+        }, {
+            image: "img/extras/clientexample/2.png",
+        }, {
+            image: "img/extras/clientexample/3.png",
+        }, {
+            image: "img/extras/clientexample/4.png",
+        }, {
+            image: "img/extras/clientexample/5.png",
+        }, {
+            image: "img/extras/clientexample/6.png",
+        }
             // ,
             // {
             //   image: "img/extras/clientexample/7.png",
             // }
             , {
-                image: "img/extras/clientexample/8.png",
-            }, {
-                image: "img/extras/clientexample/9.png",
-            }, {
-                image: "img/extras/clientexample/10.png",
-            }, {
-                image: "img/extras/clientexample/11.png",
-            }, {
-                image: "img/extras/clientexample/12.png",
-            }, {
-                image: "img/extras/clientexample/13.png",
-            }, {
-                image: "img/extras/clientexample/14.png",
-            }, {
-                image: "img/extras/clientexample/15.png",
-            }, {
-                image: "img/extras/clientexample/16.png",
-            }, {
-                image: "img/extras/clientexample/17.png",
-            }, {
-                image: "img/extras/clientexample/18.png",
-            }, {
-                image: "img/extras/clientexample/19.png",
-            }, {
-                image: "img/extras/clientexample/20.png",
-            }, {
-                image: "img/extras/clientexample/21.png",
-            }, {
-                image: "img/extras/clientexample/22.png",
-            }, {
-                image: "img/extras/clientexample/23.png",
-            }, {
-                image: "img/extras/clientexample/24.png",
-            }, {
-                image: "img/extras/clientexample/25.png",
-            }, {
-                image: "img/extras/clientexample/26.png",
-            }, {
-                image: "img/extras/clientexample/27.png",
-            }, {
-                image: "img/extras/clientexample/28.png",
-            }, {
-                image: "img/extras/clientexample/29.png",
-            }, {
-                image: "img/extras/clientexample/30.png",
-            }, {
-                image: "img/extras/clientexample/31.png",
-            }, {
-                image: "img/extras/clientexample/32.png",
-            }, {
-                image: "img/extras/clientexample/33.png",
-            }, {
-                image: "img/extras/clientexample/34.png",
-            }, {
-                image: "img/extras/clientexample/35.png",
-            }, {
-                image: "img/extras/clientexample/36.png",
-            },
+            image: "img/extras/clientexample/8.png",
+        }, {
+            image: "img/extras/clientexample/9.png",
+        }, {
+            image: "img/extras/clientexample/10.png",
+        }, {
+            image: "img/extras/clientexample/11.png",
+        }, {
+            image: "img/extras/clientexample/12.png",
+        }, {
+            image: "img/extras/clientexample/13.png",
+        }, {
+            image: "img/extras/clientexample/14.png",
+        }, {
+            image: "img/extras/clientexample/15.png",
+        }, {
+            image: "img/extras/clientexample/16.png",
+        }, {
+            image: "img/extras/clientexample/17.png",
+        }, {
+            image: "img/extras/clientexample/18.png",
+        }, {
+            image: "img/extras/clientexample/19.png",
+        }, {
+            image: "img/extras/clientexample/20.png",
+        }, {
+            image: "img/extras/clientexample/21.png",
+        }, {
+            image: "img/extras/clientexample/22.png",
+        }, {
+            image: "img/extras/clientexample/23.png",
+        }, {
+            image: "img/extras/clientexample/24.png",
+        }, {
+            image: "img/extras/clientexample/25.png",
+        }, {
+            image: "img/extras/clientexample/26.png",
+        }, {
+            image: "img/extras/clientexample/27.png",
+        }, {
+            image: "img/extras/clientexample/28.png",
+        }, {
+            image: "img/extras/clientexample/29.png",
+        }, {
+            image: "img/extras/clientexample/30.png",
+        }, {
+            image: "img/extras/clientexample/31.png",
+        }, {
+            image: "img/extras/clientexample/32.png",
+        }, {
+            image: "img/extras/clientexample/33.png",
+        }, {
+            image: "img/extras/clientexample/34.png",
+        }, {
+            image: "img/extras/clientexample/35.png",
+        }, {
+            image: "img/extras/clientexample/36.png",
+        },
         ];
         $scope.examplePress = [{
             image: "img/extras/cricket.jpg",
@@ -10735,7 +10735,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             image: "img/extras/testimonials/3.png",
             content: "Every team should use the Custom Cricket Company. Not only do they allow the amateur player to feel professional, with top-quality personalised kit and bags, but they can organise epic cricket tours on the maidaans of India. Lastly, all profits go to a wonderful cause, promoting the sport in rural areas there. There couldn’t be a better place to get your kit from.",
             name: "Charlie Campbell, captain of the Authors Cricket Club, England."
-        }, ];
+        },];
 
         function makeAnimation(id) {
             if (_.isEmpty(id)) {
@@ -10755,8 +10755,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 id: id,
                 menu: "active"
             }, {
-                notify: false
-            });
+                    notify: false
+                });
             makeAnimation(id);
             $location.replace();
         };
@@ -10784,7 +10784,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
                 }
                 $scope.wishlist = data;
-            }, function (err) {});
+            }, function (err) { });
         };
         $scope.getWishlist();
         $scope.removeCart = function (id) {
@@ -10804,7 +10804,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         msg: 'Not removed from wishlist'
                     });
                 }
-            }, function (err) {})
+            }, function (err) { })
 
         }
         $scope.cartAdd = function (wish) {
@@ -10836,7 +10836,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     //     xyz.close();
                     // }, 1000)
                 }
-            }, function (err) {})
+            }, function (err) { })
         }
     })
     //
@@ -10888,7 +10888,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                             msg: 'The email ID does not exist. Please proceed to signup.'
                         });
                     }
-                }, function (err) {});
+                }, function (err) { });
             }
         };
     })
@@ -10944,7 +10944,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                 msg: 'Unable to reset password. Try again'
                             });
                         }
-                    }, function (err) {});
+                    }, function (err) { });
                 }
             } else {
                 $scope.alerts = [];
@@ -11008,71 +11008,71 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }];
 
         $scope.topSlides = [{
-                image: 'img/custombanner/tees_banner.jpg',
-                link: 'odi-shirt'
-            }, {
-                image: 'img/custombanner/pants_banner.jpg',
-                link: 'trousers'
-            }, {
-                image: 'img/custombanner/pads_banner.jpg',
-                link: 'pads'
-            }, {
-                image: 'img/custombanner/gloves_banner.jpg',
-                link: 'gloves'
-            }
+            image: 'img/custombanner/tees_banner.jpg',
+            link: 'odi-shirt'
+        }, {
+            image: 'img/custombanner/pants_banner.jpg',
+            link: 'trousers'
+        }, {
+            image: 'img/custombanner/pads_banner.jpg',
+            link: 'pads'
+        }, {
+            image: 'img/custombanner/gloves_banner.jpg',
+            link: 'gloves'
+        }
 
         ];
 
         $scope.showcaseSlides = [{
-                image: 'img/showcase/1.jpg',
-                link: 'trousers',
-                text: 'apparel'
-            }, {
-                image: 'img/showcase/2.jpg',
-                link: 'pads',
-                text: 'caps'
-            }, {
-                image: 'img/showcase/3.jpg',
-                link: 'odi-shirt',
-                text: 'caps'
-            }, {
-                image: 'img/showcase/4.jpg',
-                link: 'pads',
-                text: 'pads'
-            }, {
-                image: 'img/showcase/5.jpg',
-                link: 'pads',
-                text: 'pads'
-            },
-            {
-                image: 'img/showcase/6.jpg',
-                link: 'shorts',
-                text: 'kitbags'
-            }, {
-                image: 'img/showcase/7.jpg',
-                link: 'shorts',
-                text: 'kitbags'
-            }, {
-                image: 'img/showcase/8.jpg',
-                link: 'shorts',
-                text: 'logos'
-            }, {
-                image: 'img/showcase/9.jpg',
-                link: 'shorts',
-                text: 'logos'
-            }, {
-                image: 'img/showcase/10.jpg',
-                link: 'shorts',
-                text: 'logos'
-            }, {
-                image: 'img/showcase/11.jpg',
-                link: 'shorts',
-                text: 'logos'
-            }, {
-                image: 'img/showcase/12.jpg',
-                link: 'shorts',
-                text: 'logos'
-            }
+            image: 'img/showcase/1.jpg',
+            link: 'trousers',
+            text: 'apparel'
+        }, {
+            image: 'img/showcase/2.jpg',
+            link: 'pads',
+            text: 'caps'
+        }, {
+            image: 'img/showcase/3.jpg',
+            link: 'odi-shirt',
+            text: 'caps'
+        }, {
+            image: 'img/showcase/4.jpg',
+            link: 'pads',
+            text: 'pads'
+        }, {
+            image: 'img/showcase/5.jpg',
+            link: 'pads',
+            text: 'pads'
+        },
+        {
+            image: 'img/showcase/6.jpg',
+            link: 'shorts',
+            text: 'kitbags'
+        }, {
+            image: 'img/showcase/7.jpg',
+            link: 'shorts',
+            text: 'kitbags'
+        }, {
+            image: 'img/showcase/8.jpg',
+            link: 'shorts',
+            text: 'logos'
+        }, {
+            image: 'img/showcase/9.jpg',
+            link: 'shorts',
+            text: 'logos'
+        }, {
+            image: 'img/showcase/10.jpg',
+            link: 'shorts',
+            text: 'logos'
+        }, {
+            image: 'img/showcase/11.jpg',
+            link: 'shorts',
+            text: 'logos'
+        }, {
+            image: 'img/showcase/12.jpg',
+            link: 'shorts',
+            text: 'logos'
+        }
         ];
 
     })
@@ -11108,7 +11108,67 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }];
 
     })
+    .controller('InsideBasketballCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("inside-basketball");
+        $scope.menutitle = NavigationService.makeactive("InsideBasketball");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
 
+        $scope.basketballSlides = [{
+            image: 'img/showcase/1.jpg',
+            link: 'trousers',
+            text: 'apparel'
+        }, {
+            image: 'img/showcase/2.jpg',
+            link: 'pads',
+            text: 'caps'
+        }, {
+            image: 'img/showcase/3.jpg',
+            link: 'odi-shirt',
+            text: 'caps'
+        }, {
+            image: 'img/showcase/4.jpg',
+            link: 'pads',
+            text: 'pads'
+        }, {
+            image: 'img/showcase/5.jpg',
+            link: 'pads',
+            text: 'pads'
+        },
+        {
+            image: 'img/showcase/6.jpg',
+            link: 'shorts',
+            text: 'kitbags'
+        }, {
+            image: 'img/showcase/7.jpg',
+            link: 'shorts',
+            text: 'kitbags'
+        }, {
+            image: 'img/showcase/8.jpg',
+            link: 'shorts',
+            text: 'logos'
+        }, {
+            image: 'img/showcase/9.jpg',
+            link: 'shorts',
+            text: 'logos'
+        }
+            , {
+            image: 'img/showcase/10.jpg',
+            link: 'shorts',
+            text: 'logos'
+        }
+            , {
+            image: 'img/showcase/11.jpg',
+            link: 'shorts',
+            text: 'logos'
+        }
+            , {
+            image: 'img/showcase/12.jpg',
+            link: 'shorts',
+            text: 'logos'
+        }];
+    })
     .controller('footerctrl', function ($scope, $state, TemplateService, $uibModal, NavigationService) {
         $scope.template = TemplateService;
         $scope.wishlistshow = false;
@@ -11274,7 +11334,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         NavigationService.getCategory(function (data) {
             $scope.navigation[0].subnav = data;
             $scope.navigation[1].subnav = '';
-        }, function (err) {});
+        }, function (err) { });
         $scope.services = [{
             name: "ADVANCED CUSTOMISATION",
             anchor: "advancedcutomization",
@@ -11313,7 +11373,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.wishlistcountshow = true;
                 NavigationService.getWishlistCount(function (data) {
                     $scope.wishlistcount = data;
-                }, function (err) {});
+                }, function (err) { });
             }
             NavigationService.getCartCount(function (data) {
                 if (data.value == false) {
@@ -11326,7 +11386,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     count++;
                 }
 
-            }, function (err) {});
+            }, function (err) { });
             // NavigationService.totalcart(function(data) {
             //     $scope.amount = data;
             // });
@@ -11440,7 +11500,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
                     }
-                }, function (err) {})
+                }, function (err) { })
             } else {
                 $scope.inputall = true;
             }
@@ -11505,7 +11565,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                     window.location.reload();
                                 }
                             }
-                        }, function (err) {})
+                        }, function (err) { })
                     } else {
                         $scope.acceptValidate = true;
                     }
@@ -11526,7 +11586,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     window.location.href = window.location.origin + window.location.pathname;
 
                 }
-            }, function (err) {})
+            }, function (err) { })
         }
         var checktwitter = function (data, status) {
             if (data != "false") {
@@ -11704,7 +11764,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }, function (evt) {
                     $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
                 });
-                $scope.upload[index].xhr(function (xhr) {});
+                $scope.upload[index].xhr(function (xhr) { });
             } else {
                 console.log("hehraihdiuashdohsaiudh");
                 console.log(e.target.result);
