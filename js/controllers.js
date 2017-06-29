@@ -11116,67 +11116,67 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
         $scope.basketballSlides = [{
-            image: 'img/showcase/1.jpg',
-            text: 'apparel'
+            image: 'img/basketball/4.jpg',
+            text: 'FOOTBALL'
         }, {
-            image: 'img/showcase/2.jpg',
-            text: 'caps'
+            image: 'img/basketball/5.jpg',
+            text: 'HOCKEY'
         }, {
-            image: 'img/showcase/3.jpg',
-            text: 'caps'
+            image: 'img/basketball/6.jpg',
+            text: 'CRICKET'
         }, {
-            image: 'img/showcase/4.jpg',
-            text: 'pads'
+            image: 'img/basketball/4.jpg',
+            text: 'FOOTBALL'
         }, {
-            image: 'img/showcase/5.jpg',
-            text: 'pads'
+            image: 'img/basketball/5.jpg',
+            text: 'HOCKEY'
         },
         {
-            image: 'img/showcase/6.jpg',
-            text: 'kitbags'
+            image: 'img/basketball/6.jpg',
+            text: 'CRICKET'
         }, {
-            image: 'img/showcase/7.jpg',
-            text: 'kitbags'
+            image: 'img/basketball/4.jpg',
+            text: 'FOOTBALL'
         }, {
-            image: 'img/showcase/8.jpg',
-            text: 'logos'
+            image: 'img/basketball/5.jpg',
+            text: 'HOCKEY'
         }, {
-            image: 'img/showcase/9.jpg',
-            text: 'logos'
+            image: 'img/basketball/6.jpg',
+            text: 'CRICKET'
         }
             , {
-            image: 'img/showcase/10.jpg',
-            text: 'logos'
+            image: 'img/basketball/4.jpg',
+            text: 'FOOTBALL'
         }
             , {
-            image: 'img/showcase/11.jpg',
-            text: 'logos'
+            image: 'img/basketball/5.jpg',
+            text: 'HOCKEY'
         }
             , {
-            image: 'img/showcase/12.jpg',
-            text: 'logos'
+            image: 'img/basketball/6.jpg',
+            text: 'CRICKET'
         }];
 
         $scope.basketball = [
             {
-                image: 'img/showcase/1.jpg',
-                text: 'apparel'
+                image: 'img/basketball/1.jpg',
+                text: 'JERSEYS'
             }, {
-                image: 'img/showcase/2.jpg',
-                text: 'caps'
+                image: 'img/basketball/2.jpg',
+                text: 'SHORTS'
             }, {
-                image: 'img/showcase/3.jpg',
-                text: 'caps'
+                image: 'img/basketball/2.jpg',
+                text: 'TRAINING TEES'
             }, {
-                image: 'img/showcase/4.jpg',
-                text: 'pads'
+                image: 'img/basketball/1.jpg',
+                text: 'POLOS'
             }, {
-                image: 'img/showcase/5.jpg',
-                text: 'pads'
+                image: 'img/basketball/2.jpg',
+                text: 'JACKETS'
             },
             {
-                image: 'img/showcase/6.jpg',
-                text: 'kitbags'
+                image: 'img/basketball/2.jpg',
+                text: 'CAPS'
             }];
     })
     .controller('InsideCricketCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
@@ -11250,7 +11250,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 text: 'kitbags'
             }];
     })
-     .controller('InsideFootballCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
+    .controller('InsideFootballCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("inside-football");
         $scope.menutitle = NavigationService.makeactive("InsideFootball");
@@ -11321,7 +11321,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 text: 'kitbags'
             }];
     })
-     .controller('InsideHockeyCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
+    .controller('InsideHockeyCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("inside-hockey");
         $scope.menutitle = NavigationService.makeactive("InsideHockey");

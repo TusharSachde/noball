@@ -53,9 +53,36 @@
     font-weight: 300;
     font-size: 35px;
     letter-spacing: 5px;
+    padding: 60px 0px;
      }
      .inside-para p{
     font-size: 20px;
     letter-spacing: 3px;
     font-weight: 500;
      }
+
+
+.inside-overlay{
+        width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    -moz-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    -webkit-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+.relative:hover{
+    .inside-overlay{
+        opacity:1;
+    }
+}
+.inside-overlay h1{
+    color: yellow;
+    // letter-spacing: 8px;
+    text-align: center;
+    margin-top:20%;
+}

@@ -26,18 +26,21 @@
             <h2>switch to</h2>
         </div>
         <div class="inside-basketball-slider">
-            <flex-slider flex-slide="banner in footballSlides track by $index" prev-text="" next-text="" class="strong" item-width="260"
-                item-margin="10" animation="slide" slideshow="true" slideshowSpeed="500">
-                <li class="">
+            <flex-slider flex-slide="banner in footballSlides track by $index" prev-text="" next-text="" class="" item-width="260" item-margin="10"
+                animation="slide" slideshow="true" slideshowSpeed="500">
+                <li class="grey-fade">
                     <a>
                         <figure class="relative"><img ng-src="{{banner.image}}" class="img-responsive iconBlue">
-                            <div class="line-hover letter-spacing hover-up">
-                                <p>{{banner.text}}</p>
+                            <div class="inside-overlay">
+                                <div class="letter-spacing  greyfade-text">
+                                    <p>{{banner.text}}</p>
+                                </div>
                             </div>
                         </figure>
                     </a>
                 </li>
             </flex-slider>
+
         </div>
     </div>
 </section>
