@@ -1,7 +1,7 @@
 //scss for inside-basketball
 .inside-basketball-slider{
          width: 100%;
-         height: 370px;
+         height: 330px;
          margin-top: 40px;
          padding: 0 70px;
          .flexslider-container {
@@ -10,15 +10,16 @@
                  overflow: initial;
                   padding: 0 100px;
                  .flex-direction-nav a {
-                     width: 30px;
-                     height: 30px;
+                     width: 60px;
+                     height: 60px;
                      display: block;
                  }
                  .flex-control-nav {
                      display: none;
                  }
                  .flex-direction-nav .flex-nav-prev a {
-                     left: -46px!important;
+                     left: -100px!important;
+                     top: 125px;
                      display: block;
                      &:before {
                          content: "";
@@ -26,19 +27,20 @@
                          height: 100%;
                          background-repeat: no-repeat;
                          background-size: contain; //   background-color: #000;
-                         background-image: url("../img/landing/arrows/left_white.png");
+                         background-image: url("../img/left-arrow.png");
                      }
                  }
                  .flex-direction-nav .flex-nav-next a {
-                     right: -46px !important;
+                     right: -100px !important;
                      display: block;
+                     top: 125px;
                      &:before {
                          content: "";
                          width: 100%;
                          height: 100%;
                          background-repeat: no-repeat;
                          background-size: contain; //    background-color: #000;
-                         background-image: url("../img/landing/arrows/right_white.png");
+                         background-image: url("../img/right-arrow.png");
                      }
                  }
              }
@@ -87,8 +89,7 @@ color: #C1E603;
 .inside-overlay h1{
     color: yellow;
     letter-spacing: 8px;
-       @include position(absolute,50% null null 50%) ;
- 
+    @include position(absolute,50% null null 50%);
     @include transform(translate(-50%,-50%)) ;
 }
 .mar-t70{

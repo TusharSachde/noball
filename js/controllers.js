@@ -11187,67 +11187,62 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
         $scope.cricketSlides = [{
-            image: 'img/showcase/1.jpg',
-            text: 'apparel'
+            image: 'img/cricket/6.jpg',
+            text: 'FOOTBALL'
         }, {
-            image: 'img/showcase/2.jpg',
-            text: 'caps'
+            image: 'img/cricket/8.jpg',
+            text: 'hockey'
         }, {
-            image: 'img/showcase/3.jpg',
-            text: 'caps'
+            image: 'img/cricket/9.jpg',
+            text: 'basketball'
         }, {
-            image: 'img/showcase/4.jpg',
-            text: 'pads'
+            image: 'img/cricket/6.jpg',
+            text: 'FOOTBALL'
         }, {
-            image: 'img/showcase/5.jpg',
-            text: 'pads'
-        },
-        {
-            image: 'img/showcase/6.jpg',
-            text: 'kitbags'
+            image: 'img/cricket/8.jpg',
+            text: 'hockey'
         }, {
-            image: 'img/showcase/7.jpg',
-            text: 'kitbags'
+            image: 'img/cricket/9.jpg',
+            text: 'basketball'
         }, {
-            image: 'img/showcase/8.jpg',
-            text: 'logos'
+            image: 'img/cricket/6.jpg',
+            text: 'FOOTBALL'
         }, {
-            image: 'img/showcase/9.jpg',
-            text: 'logos'
-        }
-            , {
-            image: 'img/showcase/10.jpg',
-            text: 'logos'
-        }
-            , {
-            image: 'img/showcase/11.jpg',
-            text: 'logos'
-        }
-            , {
-            image: 'img/showcase/12.jpg',
-            text: 'logos'
+            image: 'img/cricket/8.jpg',
+            text: 'hockey'
+        }, {
+            image: 'img/cricket/9.jpg',
+            text: 'basketball'
         }];
 
         $scope.cricket = [
             {
-                image: 'img/showcase/1.jpg',
-                text: 'apparel'
+                image: 'img/cricket/2.jpg',
+                text: 'odi tees '
             }, {
-                image: 'img/showcase/2.jpg',
-                text: 'caps'
+                image: 'img/cricket/3.jpg',
+                text: 'white tees'
             }, {
-                image: 'img/showcase/3.jpg',
-                text: 'caps'
+                image: 'img/cricket/4.jpg',
+                text: 'trouser'
             }, {
-                image: 'img/showcase/4.jpg',
-                text: 'pads'
+                image: 'img/cricket/5.jpg',
+                text: 'training tees'
             }, {
-                image: 'img/showcase/5.jpg',
-                text: 'pads'
+                image: 'img/cricket/2.jpg',
+                text: 'shorts'
             },
             {
-                image: 'img/showcase/6.jpg',
-                text: 'kitbags'
+                image: 'img/cricket/3.jpg',
+                text: 'JACKETS'
+            },
+            {
+                image: 'img/cricket/5.jpg',
+                text: 'cabs'
+            },
+            {
+                image: 'img/cricket/3.jpg',
+                text: 'travel POLOS'
             }];
     })
     .controller('InsideFootballCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
@@ -11258,67 +11253,54 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
         $scope.footballSlides = [{
-            image: 'img/showcase/1.jpg',
-            text: 'apparel'
+            image: 'img/cricket/6.jpg',
+            text: 'FOOTBALL'
         }, {
-            image: 'img/showcase/2.jpg',
-            text: 'caps'
+            image: 'img/cricket/8.jpg',
+            text: 'hockey'
         }, {
-            image: 'img/showcase/3.jpg',
-            text: 'caps'
+            image: 'img/cricket/9.jpg',
+            text: 'basketball'
         }, {
-            image: 'img/showcase/4.jpg',
-            text: 'pads'
+            image: 'img/cricket/6.jpg',
+            text: 'FOOTBALL'
         }, {
-            image: 'img/showcase/5.jpg',
-            text: 'pads'
-        },
-        {
-            image: 'img/showcase/6.jpg',
-            text: 'kitbags'
+            image: 'img/cricket/8.jpg',
+            text: 'hockey'
         }, {
-            image: 'img/showcase/7.jpg',
-            text: 'kitbags'
+            image: 'img/cricket/9.jpg',
+            text: 'basketball'
         }, {
-            image: 'img/showcase/8.jpg',
-            text: 'logos'
+            image: 'img/cricket/6.jpg',
+            text: 'FOOTBALL'
         }, {
-            image: 'img/showcase/9.jpg',
-            text: 'logos'
-        }
-            , {
-            image: 'img/showcase/10.jpg',
-            text: 'logos'
-        }
-            , {
-            image: 'img/showcase/11.jpg',
-            text: 'logos'
-        }
-            , {
-            image: 'img/showcase/12.jpg',
-            text: 'logos'
+            image: 'img/cricket/8.jpg',
+            text: 'hockey'
+        }, {
+            image: 'img/cricket/9.jpg',
+            text: 'basketball'
         }];
 
         $scope.football = [
             {
-                image: 'img/showcase/1.jpg',
-                text: 'apparel'
+                image: 'img/cricket/2.jpg',
+                text: 'odi tees '
             }, {
-                image: 'img/showcase/2.jpg',
-                text: 'caps'
+                image: 'img/cricket/3.jpg',
+                text: 'training football'
             }, {
-                image: 'img/showcase/3.jpg',
-                text: 'caps'
+                image: 'img/cricket/3.jpg',
+                text: 'shorts'
             }, {
-                image: 'img/showcase/4.jpg',
-                text: 'pads'
+                image: 'img/cricket/2.jpg',
+                text: ' JACKETS'
             }, {
-                image: 'img/showcase/5.jpg',
-                text: 'pads'
+                image: 'img/cricket/3.jpg',
+                text: 'polos'
             },
             {
-                image: 'img/showcase/6.jpg',
-                text: 'kitbags'
+                image: 'img/cricket/3.jpg',
+                text: 'Caps'
             }];
     })
     .controller('InsideHockeyCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
@@ -11329,67 +11311,54 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
         $scope.hockeySlides = [{
-            image: 'img/showcase/1.jpg',
-            text: 'apparel'
+            image: 'img/cricket/6.jpg',
+            text: 'FOOTBALL'
         }, {
-            image: 'img/showcase/2.jpg',
-            text: 'caps'
+            image: 'img/cricket/8.jpg',
+            text: 'hockey'
         }, {
-            image: 'img/showcase/3.jpg',
-            text: 'caps'
+            image: 'img/cricket/9.jpg',
+            text: 'basketball'
         }, {
-            image: 'img/showcase/4.jpg',
-            text: 'pads'
+            image: 'img/cricket/6.jpg',
+            text: 'FOOTBALL'
         }, {
-            image: 'img/showcase/5.jpg',
-            text: 'pads'
-        },
-        {
-            image: 'img/showcase/6.jpg',
-            text: 'kitbags'
+            image: 'img/cricket/8.jpg',
+            text: 'hockey'
         }, {
-            image: 'img/showcase/7.jpg',
-            text: 'kitbags'
+            image: 'img/cricket/9.jpg',
+            text: 'basketball'
         }, {
-            image: 'img/showcase/8.jpg',
-            text: 'logos'
+            image: 'img/cricket/6.jpg',
+            text: 'FOOTBALL'
         }, {
-            image: 'img/showcase/9.jpg',
-            text: 'logos'
-        }
-            , {
-            image: 'img/showcase/10.jpg',
-            text: 'logos'
-        }
-            , {
-            image: 'img/showcase/11.jpg',
-            text: 'logos'
-        }
-            , {
-            image: 'img/showcase/12.jpg',
-            text: 'logos'
+            image: 'img/cricket/8.jpg',
+            text: 'hockey'
+        }, {
+            image: 'img/cricket/9.jpg',
+            text: 'basketball'
         }];
 
         $scope.hockey = [
             {
-                image: 'img/showcase/1.jpg',
-                text: 'apparel'
+                image: 'img/cricket/2.jpg',
+                text: 'JERSEYS'
             }, {
-                image: 'img/showcase/2.jpg',
-                text: 'caps'
+                image: 'img/cricket/3.jpg',
+                text: 'shorts'
             }, {
-                image: 'img/showcase/3.jpg',
-                text: 'caps'
+                image: 'img/cricket/3.jpg',
+                text: 'training football'
             }, {
-                image: 'img/showcase/4.jpg',
-                text: 'pads'
+                image: 'img/cricket/3.jpg',
+                text: 'polos'
             }, {
-                image: 'img/showcase/5.jpg',
-                text: 'pads'
+                image: 'img/cricket/2.jpg',
+                text: ' JACKETS'
             },
             {
-                image: 'img/showcase/6.jpg',
-                text: 'kitbags'
+                image: 'img/cricket/3.jpg',
+                text: 'Caps'
             }];
     })
     .controller('footerctrl', function ($scope, $state, TemplateService, $uibModal, NavigationService) {
