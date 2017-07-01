@@ -1,0 +1,152 @@
+
+<div class="container-fluid" ng-controller="footerctrl">
+  <div class="footer-margin">
+    <div class="row">
+      <div class="col-md-1 col-sm-3 col-xs-6 mobileli" style="padding-right:0;">
+        <ul class="list-unstyled">
+          <li style="padding: 0px 10px;" class="mobileli">Products</li>
+          <li ng-repeat="shop in navigation[0].subnav">
+            <a ui-sref="categories({name:shop.name})" ng-if="shop.name == 'Apparel' || shop.name == 'Bats'">{{shop.name}}</a>
+            <a ui-sref="categories-inside({category:shop.name,name:shop.name})" ng-if="shop.name != 'Apparel' && shop.name != 'Bats'">{{shop.name}}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-1 col-sm-3 col-xs-6 mobileli" style="padding-right:0;">
+        <ul class="list-unstyled">
+          <li style="padding: 0px 10px;">
+            Customise
+          </li>
+          <li ng-repeat="shop in navigation[0].subnav">
+            <a ui-sref="categories({name:shop.name})" ng-if="shop.name == 'Apparel' || shop.name == 'Bats'">{{shop.name}}</a>
+            <a ui-sref="categories-inside({category:shop.name,name:shop.name})" ng-if="shop.name != 'Apparel' && shop.name != 'Bats'">{{shop.name}}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-2 col-sm-3 col-xs-6 mobileli" style="padding-right:0;">
+        <ul class="list-unstyled">
+          <li style="padding: 0px 10px;">
+            Services
+          </li>
+          <li>
+            <a href="#/services/advancedcutomization">advanced customisation</a>
+          </li>
+          <li>
+            <a href="#/services/customapparel">custom sports apparel</a>
+          </li>
+          <li>
+            <a href="#/services/ccclounge">ccc lounge</a>
+          </li>
+          <li>
+            <a href="#/services/tours">CCC tours</a>
+          </li>
+          <li>
+            <a href="#/services/foundation">foundation</a>
+          </li>
+          <li>
+            <a href="#/services/memorabilia">memorabilia</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-2 col-sm-3 col-xs-6 mobileli">
+        <ul class="list-unstyled bold">
+          <li>
+            <a href="#/about">ABOUT US</a>
+          </li>
+          <li><a href="#/services/ccclounge">CCC LOUNGE</a></li>
+          <li>
+            <a href="#/mywishlist" ng-show="wishlistshow">Wishlist</a>
+          </li>
+          <li>
+            <a href="#/terms-conditions">TERMS &amp; CONDITIONS</a>
+          </li>
+          <li>
+            <a href="#/privacypolicy">PRIVACY POLICY</a>
+          </li>
+          <li>
+            <a href="#/contact">CONTACT US</a>
+          </li>
+        </ul>
+        <div class="follow-us">
+          <h5>FOLLOW US</h5>
+          <div class="social-icons">
+            <a href=" https://www.facebook.com/customcricketcompany/" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="https://twitter.com/CustomCricketCo" target="_blank"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.instagram.com/customcricketcompany/" target="_blank"><i class="fa fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12" style="padding-right:0;">
+        <div class="get-touch">
+          <h5> GET IN TOUCH</h5>
+          <ul class="custom-sub custom-footer">
+            <li>
+              <span class="fl-l"><i class="fa fa-phone"></i></span><a href="tel:+912223697043" class="active blue"> +91 22 2369 7043 / 45 (India)
+          </a>
+            </li>
+            <li>
+              <!--<span class="fl-l"><i class="fa fa-whatsapp"></i></span><a href="tel:+919820579300" class="active blue">+91 98205 79300 (Whatsapp/sms)-->
+              <span class="fl-l"><i class="fa fa-whatsapp"></i></span>
+              <a href="intent://send/+919820579300#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end" class="active blue ">+91 98205 79300 (Whatsapp/sms)
+          </a>
+            </li>
+            <li>
+              <span class="fl-l "><i class="fa fa-skype "></i></span><a href="skype:customcricketcompany?call " class="active
+                orange " style="text-transform: lowercase; ">
+          customcricketcompany
+          </a>
+            </li>
+            <li>
+              <span class="fl-l "><i class="fa fa-envelope-o "></i></span><a href="mailto:umpire@customcricketcompany.com "
+                target="_blank " class="active green " style="text-transform: lowercase; ">
+            umpire@customcricketcompany.com
+          </a>
+            </li>
+          </ul>
+          <div class="payment-method ">
+            <h5>PAYMENT METHODS</h5>
+            <ul class="list-unstyled foot-cards ">
+              <li>
+                <img src="img/visacard.png ">
+              </li>
+              <li>
+                <img src="img/mastero.png ">
+              </li>
+              <li>
+                <img src="img/mastercard.png ">
+              </li>
+              <li>
+                <img src="img/american.png ">
+              </li>
+              <li>
+                <img src="img/payu.jpg ">
+              </li>
+              <li>
+                <img src="img/paypal.jpg ">
+              </li>
+              <li>
+                <img src="img/netbanking.png ">
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12 ">
+        <div class="makeindia pt35 text-center ">
+          <span>Committed to</span>
+          <img src="img/makeinindia.png " class="img-responsive ">
+          <span>A Govt. of India initiative</span>
+        </div>
+        <div class="pb25 ">
+          <ul class="list-unstyled bold pt35 ">
+            <li>
+              <i class="fa fa-lock pr10 "></i> SECURE SHOPPING
+            </li>
+            <li>
+              <i class="fa fa-truck pr10 "></i>free shipping Worldwide
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
