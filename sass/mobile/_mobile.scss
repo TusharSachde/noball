@@ -126,7 +126,32 @@ $screen-desktop: 1224px !default;
   }
 }
 @media (max-width: $screen-sm-max) {
-
+  //scss for home by snehal
+  .home-overlay .inside-overlay  {
+   .your-top{
+    top: 35% !important;
+   } 
+   .customise-top {
+    top: 10% !important;
+}
+}
+.inside-basketball-slider .flexslider-container .flexslider{
+  padding: 0 20px;
+}
+.inside-basketball-slider .flexslider-container
+ .flexslider
+ .flex-direction-nav {
+.flex-nav-next a{ 
+  right: -94px !important;
+  }
+ .flex-nav-prev a {
+    left: -94px !important;
+    }
+ }
+.mar-t70 {
+   margin-top: 0px ;
+}
+//end of home
   .ccc-quality {
     p {
       padding: 0 8px;
@@ -157,7 +182,7 @@ $screen-desktop: 1224px !default;
   }
   .navbar-brand {
     padding: 12px 0 12px 15px;
-    font-size: 14px;
+    font-size: 10px;
     img {
       height: auto;
       width: 35px;
@@ -330,6 +355,57 @@ $screen-desktop: 1224px !default;
   }
 }
 @media (max-width:$screen-xs-max) {
+    //scss for home by snehal 
+.home-heading h1{
+  font-size: 15px !important;
+}
+.home-overlay .inside-overlay {
+  h1{ 
+    font-size: 20px !important;
+    
+       
+    }
+  h2{
+    font-size: 20px !important;
+  }
+  .your-top {
+    top: 23% !important;
+}
+  .customise-top{
+     top: 0% !important;
+  }
+}
+.inside-heading h2{
+      font-size: 20px;
+    padding: 20px 0;
+}
+.inside-switch h3{
+  font-size: 18px;
+}
+  //end of scss for home
+  //scss for inside pages
+.inside-basketball{
+.mar-t70 {
+ margin-top: 0px !important;
+}
+.inside-overlay h1{
+font-size: 20px;
+    margin: 0;
+}
+}
+.inside-basketball-slider .flexslider-container .flexslider {
+  padding: 0px;
+  .flex-direction-nav {
+   .flex-nav-next a { 
+     right: -80px !important;
+           }
+   .flex-nav-prev a {
+    left: -80px !important; 
+    }
+}
+}
+
+//end of scss for inside pages
 .option-shirt{
   .sizes{
     padding: 10px 4px;
@@ -406,7 +482,7 @@ width: 90px;
     min-height: auto;
   }
   .high-light {
-    font-size: 26px;
+    font-size: 26px !important;
   }
   .customise-sec {
     padding: 0;
@@ -821,6 +897,8 @@ width: 153px;
 
 }
 @media (max-width: $screen-mobile) {
+
+
    //ruchi//
 
    .padl{
@@ -834,9 +912,6 @@ padding-right: 15px !important;
    .min-heights{
     min-height: auto !important;
   }
-
-
-
 .apparels-customize{
    .custom-two{
    background-color: #fff !important;

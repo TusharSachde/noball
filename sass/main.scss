@@ -14,18 +14,33 @@
      font-weight: normal;
      font-style: normal;
  }
- 
  @font-face {
+     font-family: "Raleway-ExtraLight";
+     src: url("../fonts/Raleway-ExtraLight.ttf");
+ }
+ @font-face {
+     font-family: "Raleway-Regular";
+     src: url("../fonts/Raleway-Regular.ttf");
+ }
+  @font-face {
      font-family: "Raleway-Medium";
      src: url("../fonts/Raleway-Medium.ttf");
  }
- 
+  @font-face {
+     font-family: "Raleway-SemiBold";
+     src: url("../fonts/Raleway-SemiBold.ttf");
+ }
+  @font-face {
+     font-family: "Raleway-Bold";
+     src: url("../fonts/Raleway-Bold.ttf");
+ }
  @font-face {
      font-family: "Stencil";
      src: url("../fonts/stencil.ttf");
  }
+
+
  /* Bootstrap Variables Goes Here */
- 
  $brand-primary: #0d9dff !default;
  $brand-success: #C1E603 !default;
  $brand-warning: #E6CF07 !default;
@@ -651,7 +666,7 @@
  }
  
  .smart-content {
-     padding: 100px 0;
+       padding: 120px 0 65px;
      background-image: url("../img/logo-light.png");
      background-size: auto 103%;
      background-repeat: no-repeat;
@@ -663,7 +678,8 @@
      }
      h3 {
          margin-bottom: 20px;
-         font-size: 50px;
+         font-size: 40px;
+         font-family:"Raleway-Regular";
      }
      p {
          width: 80%;
@@ -7774,7 +7790,7 @@
  }
  
  .smart-content {
-     padding: 100px 0;
+     padding: 120px 0 65px;
      background-image: url("../img/logo-light.png");
      background-size: auto 103%;
      background-repeat: no-repeat;
@@ -7783,10 +7799,12 @@
          text-transform: uppercase;
          font-weight: 300;
          padding: 3px 15px;
+         font-family: "Raleway-Regular";
      }
      h3 {
          margin-bottom: 20px;
-         font-size: 50px;
+         font-size: 40px;
+         font-family:"Raleway-Regular";
      }
      p {
          width: 80%;
@@ -14153,6 +14171,7 @@
      left: 50%;
      transform: translate(-50%, -50%);
  }
+
  
  .travel1 {
      position: relative;
@@ -14172,7 +14191,7 @@
          background: rgba(0, 0, 0, 0.31);
          opacity: 0;
          transition: all 500ms ease;
-         // z-index: 99;
+        //  z-index: 99;
      }
      &:hover {
          .overlay {
@@ -14200,7 +14219,6 @@
  .padr {
      padding-right: 0;
  }
- 
  .lettering-over {
      top: 70%;
  }
@@ -14210,7 +14228,6 @@
          background-color: #fff;
      }
  }
- 
  .foundation-detail,
  .memorable-detail {
      a {
@@ -14220,7 +14237,6 @@
          }
      }
  }
- 
  .bg-change {
      background: transparent;
  }
@@ -14238,10 +14254,9 @@
          }
      }
  }
- 
  .customize-dropdown {
      margin-left: 120px;
  }
- 
- @import "mobile/mobile";
+
  @import "snehal";
+ @import "mobile/mobile";
