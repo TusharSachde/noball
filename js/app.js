@@ -4,7 +4,7 @@ var firstapp = angular.module('firstapp', [
   'phonecatControllers',
   'templateservicemod',
   'navigationservice',
-  "customUI",
+  'customUI',
   'angular-google-analytics'
 ]);
 
@@ -860,7 +860,6 @@ firstapp.directive('uploadImage', function ($http) {
     }
   };
 });
-
 firstapp.directive('imageonload', function () {
   return {
     restrict: 'A',
