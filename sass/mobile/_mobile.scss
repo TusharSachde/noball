@@ -404,7 +404,14 @@ font-size: 20px;
     }
 }
 }
-
+ .home-main-slider{
+  .flexslider .flex-direction-nav .flex-next{
+    right: -45px !important;
+  }
+   .flexslider .flex-direction-nav .flex-prev{
+    left: -45px !important;
+  }
+}
 //end of scss for inside pages
 .option-shirt{
   .sizes{
