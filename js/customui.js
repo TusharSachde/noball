@@ -938,6 +938,30 @@
                           bottom: 48,
                           right: 139,
                       }
+                  },
+                  "caps": {
+                      teamLogo: {
+                          width: 50,
+                          height: 50,
+                          bottom: 48,
+                          right: 139,
+                      }
+                  },
+                  "hats": {
+                      teamLogo: {
+                          width: 50,
+                          height: 50,
+                          bottom: 48,
+                          right: 139,
+                      }
+                  },
+                  "kitbags": {
+                      teamLogo: {
+                          width: 50,
+                          height: 50,
+                          bottom: 48,
+                          right: 139,
+                      }
                   }
               };
 

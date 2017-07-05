@@ -62,13 +62,26 @@ $.get("https://ipinfo.io/json", function (response) {
       templateUrl: "views/template.html",
       controller: 'OdiCtrl'
     })
-
-    .state('capsandhats', {
-      url: "/capsandhats",
+    .state('caps', {
+      url: "/caps",
       templateUrl: "views/template.html",
       controller: 'CapsCtrl'
     })
-
+    .state('capEdit', {
+      url: "/caps/:status",
+      templateUrl: "views/template.html",
+      controller: 'CapsCtrl'
+    })
+    .state('hats', {
+      url: "/hats",
+      templateUrl: "views/template.html",
+      controller: 'HatsCtrl'
+    })
+    .state('hatEdit', {
+      url: "/hats/:status",
+      templateUrl: "views/template.html",
+      controller: 'HatsCtrl'
+    })
     .state('balls', {
       url: "/balls",
       templateUrl: "views/template.html",
@@ -103,7 +116,16 @@ $.get("https://ipinfo.io/json", function (response) {
       templateUrl: "views/template.html",
       controller: 'TrousersCtrl'
     })
-
+    .state('capsnhats', {
+      url: "/capsnhats",
+      templateUrl: "views/template.html",
+      controller: 'CapsnhatsCtrl'
+    })
+    .state('capsnhatsEdit', {
+      url: "/capsnhats/:status",
+      templateUrl: "views/template.html",
+      controller: 'CapsnhatsCtrl'
+    })
     .state('trouser-review', {
       url: "/trouser-review",
       templateUrl: "views/template.html",
@@ -171,8 +193,16 @@ $.get("https://ipinfo.io/json", function (response) {
       templateUrl: "views/template.html",
       controller: 'KitBagCtrl'
     })
-
-
+    .state('kitbags', {
+      url: "/kitbags",
+      templateUrl: "views/template.html",
+      controller: 'KitbagsCtrl'
+    })
+    .state('kitbagsEdit', {
+      url: "/kitbags/:status",
+      templateUrl: "views/template.html",
+      controller: 'KitbagsCtrl'
+    })
     .state('categories-inside', {
       url: "/categories/:category/:name",
       templateUrl: "views/template.html",
@@ -477,7 +507,49 @@ firstapp.filter('PriceFilter', function () {
         addAmount = 75;
       }
       return parseInt(input.totalAmount + addAmount);
-    } else if (input.type == 'gloves') {
+    } else if (input.type == 'caps') {
+      if (myCountry == 'IN') {
+        addAmount = 5000;
+      } else if (myCountry == "AU") {
+        addAmount = 90;
+      } else if (myCountry == 'GB') {
+        addAmount = 60;
+      } else if (myCountry == 'US') {
+        addAmount = 75;
+      } else {
+        addAmount = 75;
+      }
+      return parseInt(input.totalAmount + addAmount);
+    }
+    else if (input.type == 'hats') {
+      if (myCountry == 'IN') {
+        addAmount = 5000;
+      } else if (myCountry == "AU") {
+        addAmount = 90;
+      } else if (myCountry == 'GB') {
+        addAmount = 60;
+      } else if (myCountry == 'US') {
+        addAmount = 75;
+      } else {
+        addAmount = 75;
+      }
+      return parseInt(input.totalAmount + addAmount);
+    }
+    else if (input.type == 'kitbags') {
+      if (myCountry == 'IN') {
+        addAmount = 5000;
+      } else if (myCountry == "AU") {
+        addAmount = 90;
+      } else if (myCountry == 'GB') {
+        addAmount = 60;
+      } else if (myCountry == 'US') {
+        addAmount = 75;
+      } else {
+        addAmount = 75;
+      }
+      return parseInt(input.totalAmount + addAmount);
+    }
+     else if (input.type == 'gloves') {
       if (myCountry == 'IN') {
         addAmount = 5000;
       } else if (myCountry == "AU") {
