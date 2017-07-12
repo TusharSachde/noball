@@ -47,7 +47,7 @@
                             .
                         </p>-->
                         <h3>{{designJson.design | currencyFilter}} </h3>
-                        <span class="Raleway-Medium"><em>Minimum Order Quantity (MOQ) = 12 pairs of each design</em></span>
+                        <!--<span class="Raleway-Medium"><em>Minimum Order Quantity (MOQ) = 12 pairs of each design</em></span>-->
                     </div>
                     <!--                    // design tab-->
                     <div class="choos m20-l" ng-show="tab=='design'">
@@ -290,7 +290,7 @@
                             <p class="kitbagitalize">Select the quantity for your kitbags</p>
                             <div class="option-shirt relative gloves" ng-repeat="kitbag in kitbagsArr track by $index">
                                 <div class="sizes size inline-block mleft10">
-                                    <span class="uppercase pad-5 hand-side">Lefty</span>
+                                    <span class="uppercase pad-5 hand-side"></span>
                                     <!--<select ng-model="pad.direction">
                                         <option value="left">Left</option>
                                         <option value="right">Right</option>
@@ -300,10 +300,11 @@
                                     <span class="inline-block uppercase pad-5">quantity</span>
                                     <input type="number" class="form-control inline-block" name="name" ng-change="addQuantity(kitbag.quantity)" ng-model="designJson.quantity[0].quantity"
                                         placeholder="12" maxlength="3">
-                                    <!--<p class="error-td error-quantity f13" ng-if="totalQuan<12 && totalQuan!=0">Please enter valid quantity.The MOQ is 12</p>-->
+                                    <p class="error-td error-quantity f13 singlequantityerror" ng-if="totalQuan<12" style="padding:0px 0 !important;">Please enter valid quantity.The MOQ is 12</p>
                                 </div>
                             </div>
                             <!--//added-->
+                            <!--
                             <div class="option-shirt relative gloves" ng-repeat="kitbag in kitbagsArr track by $index">
                                 <div class="sizes size inline-block mleft10">
                                     <span class="uppercase pad-5 hand-side">Righty</span>
@@ -314,7 +315,7 @@
                                         placeholder="12" maxlength="3">
                                     <p class="error-td error-quantity f13 errors-pad" ng-if="totalQuan<12 && totalQuan!=0">Please enter valid quantity.The MOQ is 12</p>
                                 </div>
-                            </div>
+                            </div>-->
                             <!--<div class="add-button">
                                 <p class="pointer" ng-click="addPadsValues(); addQuantity(pad.quantity);"><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</p>
                             </div>-->

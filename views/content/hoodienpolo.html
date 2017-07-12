@@ -1,0 +1,418 @@
+<section>
+    <div class="text-center">
+        <h3 class="high-light main-head">CUSTOMISE YOUR TRAVELWEARS</h3>
+    </div>
+    <div class="container">
+        <div ng-include="'views/directive/customHeader.html'"></div>
+        <div class="product-detail">
+            <div class="row">
+                <div class="col-md-5">
+                    
+                    <custom design="designJson" class="{{borderClass}}"></custom>
+                    <div class="feature-buttons">
+                        <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 1}"
+                            ng-click="toggleTab(1)">FORM + FUNCTION</button>
+                        <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 2}"
+                            ng-click="toggleTab(2)">DELIVERY</button>
+                        <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 3}"
+                            ng-click="toggleTab(3)">CARE</button>
+                    </div>
+                    <ul class="tshirt-features" ng-if="activeButton == 1">
+                        <!--<li>Light weight PU facing front</li>
+                        <li>3D flexi fitting knee construction with a high impact plastic shield for greater protection</li>
+                        <li>HDF & CANE - Our high density foam construction offers the ultimate protection from injury by instantly
+                            dissipating impacts</li>
+                        <li>Shin bolster forms perfectly around the lower leg providing immense comfort and protection</li>
+                        <li>Calf & ankle straps come with cushioned lining</li>
+                        <li>Low rebound foam panels and monolithic side wings for the contemporary look</li>-->
+                        <li>100% polyester</li>
+                    </ul>
+                    <ul class="tshirt-features" ng-if="activeButton == 2">
+                        <li>In-stock batting hoodie are available for immediate shipment. Customisation takes 4 weeks for worldwide
+                            delivery from date of order.</li>
+                    </ul>
+                    <ul class="tshirt-features" ng-if="activeButton == 3" style="padding:0;">
+                        <li>To prolong the life and effectiveness of your batting leg guards try to leave your pads in a shady
+                            area to dry with the straps open after a batting session.</li>
+                        <li> Never in the sun and never in your bag because the sun will cause the padding and foam to dry out
+                            and harden and in your bag it will keep the padded area moist which leads to wear and odour.</li>
+                        <li> Also, When you first buy your pads, leave them in your bag with the straps firmly tightened as if
+                            you were wearing them.</li>
+                        <li> This will get the pads shaped to fit your leg better. Happy batting!</li>
+                    </ul>
+                </div>
+                <div class="col-md-7">
+                    <div class="det-name">
+                        <h4 style="text-transform:capitalize;">{{designJson.design.name}}</h4>
+                        <!--<p>The Custom Cricket company cricket pads is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest
+                            .
+                        </p>-->
+                        <h3>{{designJson.design | currencyFilter}} </h3>
+                        <!--<span class="Raleway-Medium"><em>Minimum Order Quantity (MOQ) = 12 pairs of each design</em></span>-->
+                    </div>
+                    <!--                    // design tab-->
+                    <div class="choos m20-l" ng-show="tab=='design'">
+                        <p>Choose Your Type Of Design</p>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in myArr track by $index">
+                                    <div class="cat-img" ng-class="{'active':myDesignID == $index }" ng-click="openDesign($index, 1,img);designTabJson(img.id)">
+                                        <img ng-src="{{img.img[0]}}" class="img-responsive">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="edit-btn inline-block">
+                            <!--<button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>-->
+                        </div>
+                        <div class="edit-btn inline-block">
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('trim', 2); openTab('b');">NEXT</button>
+                        </div>
+                        <div class="customize-design">
+                            <ul>
+                                <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span>                                    to know more about customization tools.</li>
+                                <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves & pads attract
+                                    a nominal one-time customization fees).</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--                    //trim tab-->
+                    <div class="choos m20-l " ng-show="tab=='trim'">
+                        <div class="outline choos">
+                            <!--<p>Select The Gloves Colour Of Your Choice</p>-->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4>Choose Your Color</h4>
+                                    <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in hoodiecolor track by $index">
+                                        <div class="colo-pallet text-center ">
+                                            <div class="noti-img notihov" ng-class="{'coloracive':hoodieColors == col.name}" ng-click="changeHoodieImages(col.name)" ng-style="{'background-color':'{{col.colr}}'}"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="edit-btn margintp">
+                              <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
+                          </div> -->
+                        </div>
+                        <!-- <div class="outline">
+                            <span>HIGHLIGHT </span>
+                            <p>Select The Trim Colour Of Your Choice</p>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4>Select The Colour</h4>
+                                    <div class="col-md-2 col-xs-2 paddingl mr21" ng-repeat="col in color track by $index">
+                                        <div class="colo-pallet text-center ">
+                                            <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="edit-btn margintp">
+                                <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
+                            </div>
+                        </div> -->
+                        <!-- <div class="outline">
+                            <span>HIGHLIGHT 2</span>
+                            <p>Select The Trim Colour Of Your Choice</p>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4>Select The Colour</h4>
+                                    <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
+                                        <div class="colo-pallet text-center ">
+                                            <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="edit-btn margintp">
+                                <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
+
+                            </div>
+                        </div> -->
+                        <!-- <div class="options">
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">PALETTE</button>
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">COLLAR</button>
+                        </div> -->
+                        <div class="edit-btn inline-block">
+                            <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginhoodie();">SAVE DESIGN &amp; EDIT LATER</button>
+                        </div>
+                        <div class="edit-btn inline-block">
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('team',3); openTab('c');switchNavigation('c');">NEXT</button>
+                        </div>
+                        <div class="customize-design">
+                            <ul>
+                                <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span>                                    to know more about customization tools.</li>
+                                <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves & pads attract
+                                    a nominal one-time customization fees).</li>
+                                <li>Colours are Subject to availabiltiy .</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--  team logo-->
+                    <div class="choos m20-l" ng-show="tab=='team'">
+                        <!--<p>Upload Your Logo</p>-->
+                        <div class="checkboxing">
+                            <input type="checkbox" class="form-control" id="later" ng-model="designJson.sendTeamLogoLater">
+                            <label for="later"><span></span>SEND TEAM LOGO LATER</label>
+                        </div>
+                        <!--<div class="logo-text">
+                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" >TEAM LOGO</button>
+                            <span class="uppercase inline-block mright15">or</span>
+                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="showColorTab()">TEAM TEXT</button>
+                        </div>-->
+                        <div class="logo-text mt10 inline-box">
+                            <button class="btn inline-block btn-dark padding-btn letter-spacing mright15">TEAM LOGO</button>
+                            <!--<div class="checkboxing">
+                                <input type="checkbox" class="form-control" id="later">
+                                <label for="later"><span></span>Send it Later</label>
+                            </div>-->
+                            <!--<span class="uppercase inline-block mright15">or</span>
+                                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor();">TEAM TEXT</button>-->
+                        </div>
+                        <div class="block-box">
+                            <div class="teamlogo-box">
+                                <div class="inline-box box-custom">
+                                    <img ng-src="{{designJson.teamLogo.image | serverimage}}" alt="" ng-if="designJson.teamLogo.image">
+                                </div>
+                                <div class="size-box" ng-if="designJson.teamLogo.image">
+                                    Size:
+                                    <div class="range">
+                                        <div range-slider on-handle-down="changeLogo()" on-handle-up="resetLogoStyle()" min="0" max="200" model-max="designJson.teamLogo.size"
+                                            model-min="rslider.min" pin-handle="min"></div>
+                                    </div>
+                                </div>
+                                <div class="edit-btn">
+                                    <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('hoodielogo', 'Team Logo')"
+                                        ng-if="!designJson.teamLogo.image">upload</button>
+                                    <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="openUploads('hoodielogo', 'Team Logo')"
+                                        ng-if="designJson.teamLogo.image">change</button>
+                                    <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15" ng-click="emptyImage('teamLogo')"
+                                        ng-if="designJson.teamLogo.image">remove</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="print-typ printing">
+                            <div class="pbotom">
+                                <span class="block">Notes :</span>
+                                <span class="block">1.   A one-time customization fees of INR 5000/- or equivalent (in your currency) will be incurred for your logo customization.</span>
+                                <span class="block">2. Your logo will be screen printed and then laminated.</span>
+                                <ul class="pad-17">
+                                    <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span>                                        to know more about customization tools.</li>
+                                    <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves & pads
+                                        attract a nominal one-time customization fees).</li>
+                                </ul>
+                            </div>
+                            <div class="edit-btn inline-block">
+                                <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginHoodie();">SAVE DESIGN &amp; EDIT LATER</button>
+                            </div>
+                            <div class="edit-btn inline-block">
+                                <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="checkTeamLogo();">NEXT</button>
+                            </div>
+                        </div>
+                        <div class="modal fade custom" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <div class="mod-img ">
+                                            <div class="noti-imgs" ng-style="{'background-image':'url(img/custom/c4.jpg)'}"></div>
+                                            <button href="" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing">SUBMIT</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="choos m20-l next-level" ng-show="tab=='teamlogo'">
+                        <p>Upload Your Logo</p>
+                        <div class="logo-text">
+                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15">TEAM LOGO</button>
+                            <span class="uppercase inline-block mright15">or</span>
+                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor();">TEAM TEXT</button>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="up-img">
+                                    <div class="mod-img ">
+                                        <div class="noti-imgs" ng-style="{'background-image':'url(img/custom/c4.jpg)'}">
+                                        </div>
+                                        <div class="edit-btn">
+                                            <button href="" class="btn btn-outline btn-dark">CHANGE</button>
+                                            <br>
+                                            <button href="" class="btn btn-outline btn-dark">REMOVE</button>
+                                        </div>
+                                        <div class="check">
+                                            <input type="checkbox" class="form-control" id="login">
+                                            <label for="login"><span></span>Remove Image Background</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="print-typ printing">
+                            <p>Select The Printing Type For Your Team Logo</p>
+                            <form action="" class="radio">
+                                <input type="radio" id="radio1" name="radio" />
+                                <label for="radio1">
+                                    <span></span> Embroidered <a href="" class="link mleft10">VIEW EXAMPLES</a></label>
+                                <br>
+                                <input type="radio" id="radio2" name="radio" />
+                                <label for="radio2">
+                                    <span></span> Sublimated
+                                    <a href="" class="link mleft20">VIEW EXAMPLES</a></label>
+                            </form>
+                            <div class="pbotom">
+                                <span class="block">Notes :</span>
+                                <span class="block">1. The printed CCC Logo will always be embroidered on your gloves.</span>
+                                <span class="block">2. Embossing your logo will incur a one time cost of  `5000 or your
+                                    logo can be screen printed at no additional cost.</span>
+                                <span class="block">3. If you feel something is not great, our design team can fix it for you.</span>
+                                <span class="block"><a href="" class="clickinfo"  ng-click="outplace();">Click here</a> to find out how?</span>
+                                <span class="block">4.CCC logo colour will match colour of the trim.</span>
+                            </div>
+                            <div class="edit-btn inline-block">
+                                <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginHoodie();">SAVE DESIGN &amp; EDIT LATER</button>
+                            </div>
+                            <div class="edit-btn inline-block">
+                                <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('quantity',4)">NEXT</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="choos quantity m20-l" ng-show="tab=='quantity'">
+                        <div class="accordion">
+                            <uib-accordion>
+                                <uib-accordion-group class="panel-default" is-open="status.open2">
+                                    <uib-accordion-heading>
+                                    <i class="pull-left fa " ng-class="{'fa fa-minus': status.open2, 'fa fa-plus': !status.open2}"></i>Choose
+                                    Your Size
+                                    </uib-accordion-heading>
+                                    <div class="table-responsive">
+                                    <table class="table relative">
+                                        <thead>
+                                        <tr>
+                                            <th class="uppercase">size <sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></th>
+                                            <th class="uppercase">qty <sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <!-- <tr class="nothing">
+                                                                        <td></td>
+                                                                    </tr> -->
+                                        <tr ng-repeat="tshirt in designJson.quantity track by $index">
+                                            <td>
+                                            <select ng-model="tshirt.size">
+                                                <!--ng-init="jersey.size=='L'"-->
+                                                <option value="S">S</option>
+                                                <option value="M">M</option>
+                                                <option value="L">L</option>
+                                                <option value="XL">XL</option>
+                                                <option value="XXL">XXL</option>
+                                                <option value="XXXL">XXXL</option>
+                                            </select>
+                                            </td>
+                                            <td>
+                                            <input type="number" name="quantity" placeholder="12" ng-change="addQuantity(tshirt.quantity)" ng-model="tshirt.quantity"
+                                                maxlength="3">
+                                            <p class="error-td f13" ng-if="designJson.totalQuan<12 && designJson.totalQuan!=0">Please enter valid quantity.The MOQ is 12</p>
+                                            </td>
+                                            <td>
+                                            <!--<button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-if="$index == 0">PREVIEW</button>-->
+                                            </td>
+                                            <td class="binbord-rgt"><img src="img/rubbishbin.png" class="img-responsive doneLoading" alt="" ng-click="removeTshirtValue($index); addQuantity()"></td>
+                                        </tr>
+                                        <tr class="nothing">
+                                            <td></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="addtable pointer" ng-click="addTshirtValues(); addQuantity(tshirt.quantity);"><i class="fa mr7 fa-plus" aria-hidden="true"></i> ADD</p>
+                                    <!--<p>One time customization fee for Tee is <i class="fa fa-inr"></i> 5000</p>-->
+                                    <span class="pull-right tamount uppercase Raleway-Medium" ng-if="designJson.totalQuan==0">Total Amount: {{designJson.totalAmount | currencySymbol}}</span>
+                                    <span class="pull-right tamount uppercase Raleway-Medium" ng-if="designJson.totalQuan>0">Total Amount: {{designJson | PriceFilter | currencySymbol}}</span>
+                                    <span class="pull-right tquantity uppercase Raleway-Medium">Total Quantity: {{designJson.totalQuan}}</span>
+                                    </div>
+                                </uib-accordion-group>
+                            </uib-accordion>
+                            
+                        </div>
+                        <div class="table-detail relative">
+                            <!--
+                            <p class="capitalize">Select the quantity for your hoodie</p>
+                            <div class="option-shirt relative gloves" ng-repeat="hoodie in hoodieArr track by $index">
+                                <div class="sizes size inline-block mleft10">
+                                    <span class="uppercase pad-5 hand-side"></span>
+                                    
+                                </div>
+                                <div class="sizes size inline-block mleft10">
+                                    <span class="inline-block uppercase pad-5">quantity</span>
+                                    <input type="number" class="form-control inline-block" name="name" ng-change="addQuantity(hoodie.quantity)" ng-model="designJson.quantity[0].quantity"
+                                        placeholder="12" maxlength="3">
+                                    <p class="error-td error-quantity f13" ng-if="totalQuan<12" style="padding:0px 0 !important;">Please enter valid quantity.The MOQ is 12</p>
+                                </div>
+                            </div>-->
+                            <!--//added-->
+                            <!--
+                            <div class="option-shirt relative gloves" ng-repeat="cap in hoodieArr track by $index">
+                                <div class="sizes size inline-block mleft10">
+                                    <span class="uppercase pad-5 hand-side">Righty</span>
+                                </div>
+                                <div class="sizes size inline-block">
+                                    <span class="inline-block uppercase pad-5">quantity</span>
+                                    <input type="number" class="form-control inline-block" name="name" ng-change="addQuantity(cap.quantity)" ng-model="designJson.quantity[1].quantity"
+                                        placeholder="12" maxlength="3">
+                                    <p class="error-td error-quantity f13 errors-pad" ng-if="totalQuan<12 && totalQuan!=0">Please enter valid quantity.The MOQ is 12</p>
+                                </div>
+                            </div>-->
+                            <!--<div class="add-button">
+                                <p class="pointer" ng-click="addPadsValues(); addQuantity(pad.quantity);"><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</p>
+                            </div>-->
+                            <div class="total-amount clearfix">
+                                <!--<p class="more-price">One time customization fee for Glove is <i class="fa fa-inr"></i> 5000</p>-->
+                                <p class="more-price">A one-time customization fees of INR 5000/- or equivalent (in your currency) will be incurred
+                                    for your logo customization.</p>
+                                <span class="pull-right tamount totalAmount uppercase Raleway-Medium mar20" ng-if="totalQuan==0">Total Amount: {{designJson.totalAmount | currencySymbol}}</span>
+                                <span class="pull-right tamount totalAmount uppercase Raleway-Medium mar20" ng-if="totalQuan>0">Total Amount: {{designJson | PriceFilter | currencySymbol}}</span>
+                                <span class="pull-right tquantity totalAmount uppercase Raleway-Medium mar20">Total Quantity: {{totalQuan}}</span>
+                                <!--<span class="pull-right uppercase totalAmount Raleway-Medium">Total: {{totalAmount}}</span>-->
+                            </div>
+                            <!--<div class="total-amount">
+                                <p class="more-price">One time customization fee for Pads is <i class="fa fa-inr"></i> 5000</p>
+                                <p class="more-price">A one-time customization fees of INR 5000/- or equivalent (in your currency) will be incurred
+                                    for your logo customization.</p>
+                                <span class="pull-right uppercase totalAmount Raleway-Medium">Total: {{totalAmount}}</span>
+                            </div>-->
+                            <div class="edit-btn">
+                                <button class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="checkloginHoodie();">save design</button>
+                                <button class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" ng-click="toOrderSummary()" ng-disabled="addQuantity()<12">next</button>
+                                <br>
+                            </div>
+                        </div>
+                        <!-- <div class="eds inline-block">
+                                 <div class="edit-btn inline-block">
+                                     <button href="" class=" btn btn-outline btn-dark letter-spacing">SAVE DESIGN</button>
+                                 </div>
+                             </div>
+                             <div class="edit-btn inline-block">
+                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing" >NEXT</button>
+                             </div> -->
+                        <!-- <div class="continue-buttons mr">
+                                 <button ng-click="showQuantiyTab()" class="btn btn-outline btn-dark mar15 mr10 padding-btn letter-spacing uppercase">yes,continue</button>
+                                 <button href="" ng-click="showQuantyTab()" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase">no</button>
+                             </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>

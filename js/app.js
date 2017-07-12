@@ -126,6 +126,16 @@ $.get("https://ipinfo.io/json", function (response) {
       templateUrl: "views/template.html",
       controller: 'CapsnhatsCtrl'
     })
+    .state('travelwear', {
+      url: "/travelwear",
+      templateUrl: "views/template.html",
+      controller: 'TravelwearCtrl'
+    })
+    .state('travelwearEdit', {
+      url: "/travelwear/:status",
+      templateUrl: "views/template.html",
+      controller: 'TravelwearCtrl'
+    })
     .state('trouser-review', {
       url: "/trouser-review",
       templateUrl: "views/template.html",
@@ -422,7 +432,7 @@ firstapp.filter('currencyFilter', function ($filter) {
     var arr = _.filter(currencyObj, function (n) {
       return n.name == input.name;
     });
-
+    //console.log(arr,"currencyarr");
     var priceObj;
     if (arr.length > 0) {
       priceObj = arr[0];
@@ -494,6 +504,7 @@ firstapp.filter('PriceFilter', function () {
   return function (input) {
     var myCountry = $.jStorage.get('getCountry');
     var addAmount = 0;
+    //console.log(input);
     if (input.type == 'pads') {
       if (myCountry == 'IN') {
         addAmount = 5000;
@@ -535,6 +546,20 @@ firstapp.filter('PriceFilter', function () {
       }
       return parseInt(input.totalAmount + addAmount);
     }
+    else if (input.type == 'capsnhats') {
+      if (myCountry == 'IN') {
+        addAmount = 5000;
+      } else if (myCountry == "AU") {
+        addAmount = 90;
+      } else if (myCountry == 'GB') {
+        addAmount = 60;
+      } else if (myCountry == 'US') {
+        addAmount = 75;
+      } else {
+        addAmount = 75;
+      }
+      return parseInt(input.totalAmount + addAmount);
+    }
     else if (input.type == 'kitbags') {
       if (myCountry == 'IN') {
         addAmount = 5000;
@@ -562,7 +587,36 @@ firstapp.filter('PriceFilter', function () {
         addAmount = 75;
       }
       return parseInt(input.totalAmount + addAmount);
-    } else {
+    }
+    else if (input.type == 'hoodie') {
+      if (myCountry == 'IN') {
+        addAmount = 5000;
+      } else if (myCountry == "AU") {
+        addAmount = 90;
+      } else if (myCountry == 'GB') {
+        addAmount = 60;
+      } else if (myCountry == 'US') {
+        addAmount = 75;
+      } else {
+        addAmount = 75;
+      }
+      return parseInt(input.totalAmount + addAmount);
+    }
+    else if (input.type == 'polo') {
+      if (myCountry == 'IN') {
+        addAmount = 5000;
+      } else if (myCountry == "AU") {
+        addAmount = 90;
+      } else if (myCountry == 'GB') {
+        addAmount = 60;
+      } else if (myCountry == 'US') {
+        addAmount = 75;
+      } else {
+        addAmount = 75;
+      }
+      return parseInt(input.totalAmount + addAmount);
+    }
+     else {
       if (myCountry == 'IN') {
         addAmount = 0;
       } else if (myCountry == "AU") {

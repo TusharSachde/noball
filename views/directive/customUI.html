@@ -1,12 +1,14 @@
-<!--<pre class="text-left">{{design|json}}</pre>-->
+<pre class="text-left">{{design|json}}</pre>
 <div class="text-center" style="height:507px;">
     <div class="gully-shirt">
 
         <img ng-repeat="background in backgroundImages() track by $index" noloading="true" ng-src="{{background}}" class="trimshirt img-responsive">
 
-        <div class="div-internal-image {{key}}" ng-class="{'borergrey':design[key].border}" ng-if="!isBack && design[key].image && design[key].image != '' && !imagePos.onlyOnBack"
-            ng-repeat="(key,imagePos) in imagesPositions()" ng-style="imagePos">
-            <img ng-src="{{design[key].image | serverimage}}" ng-style="{width:design[key].size}" noloading="true">
+        <div class="div-internal-image {{key}}" ng-class="{'borergrey':design[key].border, skitbags:design.kitbags.allLogos.name=='skitbags','kitbag-logo':design.type=='kitbags'}" ng-if="!isBack && design[key].image && design[key].image != '' && !imagePos.onlyOnBack"
+            ng-repeat="(key,imagePos) in imagesPositions()"  ng-style="imagePos" >
+            
+                <img ng-src="{{design[key].image | serverimage}}" ng-style="{width:design[key].size}" noloading="true">
+            
         </div>
         <div class="div-internal-image {{key}}" ng-class="{'borergrey':design[key].border}" ng-repeat="(key,imagePos) in imagesPositions()"
             ng-if="isBack && design[key].image && design[key].image != '' && imagePos.onlyOnBack" ng-style="imagePos">
@@ -16,7 +18,12 @@
             <p ng-style="{'font-size':design.font.nameSize+'px','color':design.font.fontColor,'letter-spacing':design.font.nameSpacing, 'text-indent':design.font.nameSpacing,'font-family':design.font.fontStyle}">{{design.quantity[0].name}}</p>
         </div>
         <div ng-show="isBack" class="odi-t jersey-no text-center" ng-style="{'font-size':design.font.numberSize+'px','color':design.font.fontColor,'letter-spacing':design.font.numberSpacing,'text-indent':design.font.numberSpacing,'font-family':design.font.fontStyle}">{{design.quantity[0].no}}</div>
-
+        <div ng-if="design.type=='kitbags'">
+            <div class="{{design.quantity[0].font}}" ng-style="{'color': design.kitbags.bags[0].color}"  >
+                <div class="bag-name uppercase text-center" ng-style="" ng-class="design.kitbags.allLogos.name=='skitbags' ? 'skitbagsname':'kibagsname'" ><p ng-style="design.kitbags.bags[0].attributes.name" class="ng-binding" >{{design.kitbags.bags[0].name}}</p></div>
+                <div class="bag-no text-center" ng-style="" ng-class="design.kitbags.allLogos.name=='skitbags' ? 'skitbagsno':'kibagsno'"><p ng-style="design.kitbags.bags[0].attributes.number" class="ng-binding" >{{design.kitbags.bags[0].no}}</p></div>
+            </div>
+        </div>
         <img src="img/odi-tshirts/backdrop/odi/front1.png" ng-show="!isBack && design.type=='odi' && imagesPositions().isColar" class="backdrop-directive">
         <img src="img/odi-tshirts/backdrop/odi/back1.png" ng-show="isBack && design.type=='odi' && imagesPositions().isColar" class="backdrop-directive">
 
@@ -24,7 +31,7 @@
         <img src="img/odi-tshirts/backdrop/odi/back.png" ng-show="isBack && design.type=='odi' && !imagesPositions().isColar" class="backdrop-directive">
 
     </div>
-    <div ng-if="design.type=='trousers' || design.type == 'odi' || design.type == 'shorts' || design.type == 'caps'">
+    <div ng-if="design.type=='trousers' || design.type == 'odi' || design.type == 'shorts' || design.type == 'caps' || design.type == 'hoodie' || design.type == 'polo'">
         <div class="prev inline-block">
             <p class="uppercase" ng-click="showFront()"><img src="img/back.png" class="img-responsive" alt="">front</p>
         </div>

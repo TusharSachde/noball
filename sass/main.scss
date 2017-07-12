@@ -1356,7 +1356,27 @@
      overflow: hidden;
      @extend .div-flex;
  }
- 
+ .div-internal-image.teamLogo.skitbags {
+     top: 150px !important;
+    left: 150px !important;
+    transform: rotate(-2deg) !important;
+ }
+ .kitbagstext {
+    top: 330px;
+    left: 200px;
+ }
+ .bag-name.uppercase.text-center.skitbagsname
+ {
+     top: 320px;
+     left:150px;
+     transform: rotate(3deg);
+ }
+ .bag-no.text-center.skitbagsno
+ {
+     top: 255px;
+     left:160px;
+     transform: rotate(3deg);
+ }
  .bag-name {
      width: 80px;
      height: 60px;

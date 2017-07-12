@@ -941,27 +941,62 @@
                   },
                   "caps": {
                       teamLogo: {
-                          width: 50,
-                          height: 50,
-                          bottom: 48,
-                          right: 139,
+                          width: 75,
+                          height: 75,
+                          bottom: 215,
+                          right: 190,
                       }
                   },
                   "hats": {
                       teamLogo: {
-                          width: 50,
-                          height: 50,
-                          bottom: 48,
-                          right: 139,
+                          width: 75,
+                          height: 75,
+                          bottom: 190,
+                          right: 195,
                       }
                   },
                   "kitbags": {
+                      /*
                       teamLogo: {
-                          width: 50,
-                          height: 50,
-                          bottom: 48,
-                          right: 139,
+                          width: 70,
+                          height: 100,
+                          bottom: 185,
+                          right: 185,
+                      }*/
+                      teamLogo: {
+                          width: 80,
+                          top: 110,
+                          left: 203,
                       }
+                  }, "hoodie": {
+                          rightChestLogo: {
+                              width: 40,
+                              height: 40,
+                              top: 123,
+                              left: 165
+                          },
+                          teamLogo: {
+                              width: 40,
+                              height: 40,
+                              top: 125,
+                              right: 145,
+                              "z+'-'+index": 9
+                          }
+                  },
+                  "polo": {
+                          rightChestLogo: {
+                              width: 40,
+                              height: 40,
+                              top: 123,
+                              left: 165
+                          },
+                          teamLogo: {
+                              width: 40,
+                              height: 40,
+                              top: 125,
+                              right: 160,
+                              "z+'-'+index": 9
+                          }
                   }
               };
 
@@ -1240,5 +1275,47 @@
           gbp: "18",
           aud: "26",
           euro: "20.5",
+      },{
+          name: "inside edge",
+          inr: "2750",
+          usd: "60",
+          gbp: "39",
+          aud: "68",
+          euro: "53",
+      },{
+          name: "MODENA",
+          inr: "995",
+          usd: "60",
+          gbp: "39",
+          aud: "68",
+          euro: "53",
+      },{
+          name: "TRINIDAD",
+          inr: "995",
+          usd: "60",
+          gbp: "39",
+          aud: "68",
+          euro: "53",
+      },{
+          name: "Proton Club",
+          inr: "995",
+          usd: "60",
+          gbp: "39",
+          aud: "68",
+          euro: "53",
+      },{
+          name: "Hoodie",
+          inr: "995",
+          usd: "60",
+          gbp: "39",
+          aud: "68",
+          euro: "53",
+      },{
+          name: "Polo",
+          inr: "995",
+          usd: "60",
+          gbp: "39",
+          aud: "68",
+          euro: "53",
       }
   ];

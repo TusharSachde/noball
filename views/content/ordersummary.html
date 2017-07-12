@@ -24,9 +24,10 @@
 
                   <div ng-if="design.description.isBase">
                     <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-if="!(design.description.type == 'pads' || design.description.type == 'gloves')">Base</button>
-                    <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-if="(design.description.type == 'pads' || design.description.type == 'gloves')"
+                    <button class="{{classshow}} btn btn-outline btn-dark padding-btn letter-spacing block" ng-if="(design.description.type == 'pads' || design.description.type == 'gloves' )"
                       style="cursor:inherit;">TRIM</button>
-                    <span ng-style="{'background-color': '{{design.description.color.base}}'}" ng-if="design.description.color.base"></span>
+                    <span ng-style="{'background-color': '{{design.description.color.base}}'}" ng-if="design.description.color.base && design.description.type!='kitbags'"></span>
+                    <span ng-style="{'background-image':'url(/img/kitbagscolor/{{design.description.color.base}}.png)|serverimage2', 'background-size': 'cover'}" ng-if="design.description.color.base && design.description.type=='kitbags'"></span>
                   </div>
 
                   <div ng-if="design.description.isTrim1">
