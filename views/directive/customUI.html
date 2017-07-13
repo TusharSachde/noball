@@ -1,4 +1,4 @@
-<!--<pre class="text-left">{{design|json}}</pre>-->
+<pre class="text-left">{{design|json}}</pre>
 <div class="text-center" style="height:507px;">
     <div class="gully-shirt">
 
@@ -15,13 +15,13 @@
             <img ng-src="{{design[key].image | serverimage}}" ng-style="{width:design[key].size}" noloading="true">
         </div>
         <div ng-show="isBack" class="odi-t jersey-name uppercase text-center">
-            <p ng-style="{'font-size':design.font.nameSize+'px','color':design.font.fontColor,'letter-spacing':design.font.nameSpacing, 'text-indent':design.font.nameSpacing,'font-family':design.font.fontStyle}">{{design.quantity[0].name}}</p>
+            <p ng-style="{'font-size':design.font.nameSize+'px','color':design.font.fontColor,'letter-spacing':design.font.nameSpacing, 'text-indent':design.font.nameSpacing,'font-family':design.font.fontStyle}">{{design.bags[0].name}}</p>
         </div>
         <div ng-show="isBack" class="odi-t jersey-no text-center" ng-style="{'font-size':design.font.numberSize+'px','color':design.font.fontColor,'letter-spacing':design.font.numberSpacing,'text-indent':design.font.numberSpacing,'font-family':design.font.fontStyle}">{{design.quantity[0].no}}</div>
         <div ng-if="design.type=='kitbags'">
             <div class="{{design.quantity[0].font}}" ng-style="{'color': design.kitbags.bags[0].color}"  >
-                <div class="bag-name uppercase text-center" ng-style="" ng-class="design.kitbags.allLogos.name=='skitbags' ? 'skitbagsname':'kibagsname'" ><p ng-style="design.kitbags.bags[0].attributes.name" class="ng-binding" >{{design.kitbags.bags[0].name}}</p></div>
-                <div class="bag-no text-center" ng-style="" ng-class="design.kitbags.allLogos.name=='skitbags' ? 'skitbagsno':'kibagsno'"><p ng-style="design.kitbags.bags[0].attributes.number" class="ng-binding" >{{design.kitbags.bags[0].no}}</p></div>
+                <div class="bag-name uppercase text-center" ng-style="" ng-class="design.kitbags.allLogos.name=='skitbags' ? 'skitbagsname':'kibagsname'" ><p ng-style="design.quantity[0]" style="design.bags[0].name.attributes" class="ng-binding" >{{design.quantity[0].name}}</p></div>
+                <div class="bag-no text-center" ng-style="" ng-class="design.kitbags.allLogos.name=='skitbags' ? 'skitbagsno':'kibagsno'"><p ng-style="design.quantity[0]" style="{{design.bags[0].number.attributes}}"  class="ng-binding" >{{design.quantity[0].no}}</p></div>
             </div>
         </div>
         <img src="img/odi-tshirts/backdrop/odi/front1.png" ng-show="!isBack && design.type=='odi' && imagesPositions().isColar" class="backdrop-directive">

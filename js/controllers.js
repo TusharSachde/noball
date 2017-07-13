@@ -4759,7 +4759,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             //console.log($scope.colorObj);
             var val = _.pick($scope.colorObj, color);
             //console.log(val);
-            $scope.capColors = color;
+            $scope.hoodieColors = color;
             $scope.designJson.design.base = val[color][0];
             $scope.designJson.color.base = getColor(color);
 
@@ -12217,8 +12217,1065 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     })
+    .controller('Kitbags1Ctrl', function ($scope, $filter, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("kit-bags");
+        $scope.menutitle = NavigationService.makeactive("Kitbags");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        $scope.activeButton = 1;
+        $scope.toggleTab = function (val) {
+            $scope.activeButton = val;
+        };
 
-    .controller('BatCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
+        $scope.$on('$stateChangeStart', function (event, toState, fromState) {
+            if (toState.name == 'kitbagEdit' || toState.name == 'ordersummary' || toState.name == 'savedesign') {
+                window.location.reload();
+            } else {
+                var answer = confirm("Are you sure you want to leave this page? Your changes will not be saved.");
+                if (answer) {
+                    console.log('yes ans');
+                } else {
+                    console.log('no ans');
+                    event.preventDefault();
+                }
+            }
+        });
+
+        $scope.kitbagDeleteModal = function () {
+            $scope.kitbagDel = $uibModal.open({
+                templateUrl: "views/modal/odi-delete.html",
+                scope: $scope
+            });
+        }
+        $scope.confirmEmptyImage = function (key) {
+            console.log('key', key);
+            $scope.designJson[key] = {};
+            $scope.kitbagDel.close();
+        }
+        $scope.emptyImage = function (key) {
+            console.log('ftyghftg', key);
+            $scope.saveKey = key;
+            $scope.kitbagDeleteModal();
+        }
+        $scope.outplace = function () {
+            $uibModal.open({
+                templateUrl: "viewsDesign.name/modal/outofplace.html",
+                // controller: "OdiCtrl",
+                windowClass: "modal-dialogintro",
+                scope: $scope
+            })
+        };
+        $scope.dcolor = [{
+            colr: "#fff"
+        }, {
+            colr: "#000"
+        }];
+        $scope.totalAmount = 0;
+        $scope.totalQuan=0;
+        $scope.kitbag = {};
+        $scope.kitbag.isTeamLogo = false;
+        $scope.kitbag.name = "kitbags";
+        $scope.kitbag.front = "img/" + $scope.kitbag.name + "/kitbag_ry.png";
+        $scope.kitbag.divattributes = {
+            top: '110px',
+            left: '203px'
+        };
+        $scope.kitbag.attributes = {};
+        $scope.kitbag.attributes.width = 50;
+        $scope.statuses = {};
+        $scope.statuses.showcopy = false;
+        $scope.bags = {
+            'name': '',
+            'no': '',
+            'font': 'arial',
+            'color': 'white',
+            'quantity': 1,
+            'attributes': {
+                'name': {
+                    'fontSize': 18,
+                    'border': 'none',
+                    'rotate': 0,
+                    'letterSpacing': 1
+                },
+                'number': {
+                    'fontSize': 54,
+                    'border': 'none',
+                    'rotate': 0,
+                    'letterSpacing': 1
+                }
+            },
+            'divattributes': {
+                'name': {
+                    top: '330px',
+                    left: '200px'
+                },
+                'number': {
+                    top: '265px',
+                    left: '210px'
+                }
+            }
+        };
+	$scope.bagsArr = [{
+            'name': '',
+            'no': '',
+            'font': 'arial',
+            'color': 'white',
+            'quantity': 1,
+            'attributes': {
+                'name': {
+                    'fontSize': 18,
+                    'border': 'none',
+                    'rotate': 0,
+                    'letterSpacing': 1
+                },
+                'number': {
+                    'fontSize': 54,
+                    'border': 'none',
+                    'rotate': 0,
+                    'letterSpacing': 1
+                }
+            },
+            'divattributes': {
+                'name': {
+                    top: '330px',
+                    left: '200px'
+                },
+                'number': {
+                    top: '265px',
+                    left: '210px'
+                }
+            }
+        }];
+        $scope.designJson = {
+            design: {
+                name:"Proton Club",
+                base: $scope.kitbag.front,
+                designType:"kitbags",
+                designName:"Proton Club"
+            },
+            color: {
+                base: "ry"
+            },
+            teamLogo: {
+                image: null,
+                size: 50
+            },
+            type: "kitbags",
+            sendTeamLogoLater: false,
+	    "kitbags": {
+		    "bags": $scope.bags,
+		    "allLogos": $scope.kitbag,
+		    "totalAmount": $scope.totalAmount,
+		    "totalQuan": $scope.totalQuan
+		},
+		"totalAmount": $scope.totalAmount,
+		"totalQuan": $scope.totalQuan,
+		"isTrim1": false,
+		"isTrim2": false,
+        "quantity":$scope.bagsArr
+        };
+       // $scope.designJson.quantity = $scope.bagsArr;
+        $scope.bagsArrCount = 1;
+
+        $scope.addBagsValues = function () {
+            $scope.bagsArr.push(_.clone($scope.bags));
+            $scope.bagsArrCount = $scope.bagsArrCount + 1;
+        }
+        $scope.removeBagsValue = function (index) {
+            $scope.bagsArr.splice(index, 1);
+            $scope.bagsArrCount = $scope.bagsArrCount - 1;
+        }
+        
+        $scope.totalAmount = 995;
+        $scope.totalQuan = 1;
+
+        $scope.addQuantity = function (q) {
+            $scope.totalAmount = 0;
+            $scope.totalQuan = 0;
+            for (var i = 0; i < $scope.bagsArrCount; i++) {
+                $scope.totalQuan += $scope.bagsArr[i].quantity;
+            }
+            if ($scope.totalQuan) {
+                $scope.totalAmount = 995 * $scope.totalQuan;
+            }
+        };
+
+        $scope.addQuantity(1);
+         
+
+
+        $scope.colorObj = $scope.kitbagImages1;
+        $scope.changekitbagImages = function (color) {
+            //console.log(color);
+            //console.log($scope.colorObj);
+            var val = _.pick($scope.colorObj, color);
+            //console.log(val);
+            $scope.kitbagColors = color;
+            $scope.designJson.design.base = val[color][0];
+            $scope.designJson.color.base = getColor(color);
+
+        }
+        $scope.openDesign1 = function (img) {
+            //console.log('1111111', img.img[0]);
+            $scope.designJson.design.base = img.img[0];
+            $scope.designJson.design.name = img.name;
+            $scope.designJson.design.designName = img.name;
+            $scope.designJson.color.base = getColor(img.color);
+            $scope.colorObj = img.colorObj;
+            $scope.changekitbagImages(img.color);
+        };
+        $scope.openDesign = function (index, tab, img) {
+            //console.log('*********************');
+            if(index==0 || index==1 || index==2)
+            {
+                $scope.designJson.type="kitbags";
+                $scope.designJson.design.designType= "kitbags";
+            }
+            if ($scope.LogosTab) {
+                $scope.designIndex = index;
+                $scope.designTab = tab;
+                $scope.designImage = img;
+                $uibModal.open({
+                    templateUrl: "views/modal/tshirtdesign.html",
+                    scope: $scope
+                });
+            } else {
+                $scope.openDesign1(img);
+            }
+        };
+
+        function getColor(color) {
+            if (color == "black") {
+                return "#000";
+            } else if (color == "cobalt_blue") {
+                return "#1796E4";
+            } else if (color == "grey") {
+                return "#7D7A77";
+            } else if (color == "mustard_yellow") {
+                return "#F3B300";
+            }
+            else if (color == "navy_blue") {
+                return "#022653";
+            }
+            else if (color == "off_white") {
+                return "#F3EEE9";
+            }
+            else if (color == "red") {
+                return "#BD2F2F";
+            }
+	    else if(color == "sea_green") {
+		return "#17ACBE";
+	    }
+            else if (color == "white") {
+                return "#fff";
+            }
+            else if (color == "yellow") {
+                return "#ECE42D";
+            }
+             else {
+                return _.filter($scope.kitbagcolor, {
+                    name: color
+                })[0].colr;
+            }
+        }
+        $scope.color = [{
+            img: "img/kitbagscolor/bglg.png",
+            name: "bglg"
+        }, {
+            img: "img/kitbagscolor/bgy.png",
+            name: "bgy"
+        }, {
+            img: "img/kitbagscolor/blg.png",
+            name: "blg"
+        }, {
+            img: "img/kitbagscolor/dglg.png",
+            name: "dglg"
+        }, {
+            img: "img/kitbagscolor/dgy.png",
+            name: "dgy"
+        }, {
+            img: "img/kitbagscolor/mlg.png",
+            name: "mlg"
+        }, {
+            img: "img/kitbagscolor/my.png",
+            name: "my"
+        }, {
+            img: "img/kitbagscolor/rbr.png",
+            name: "rbr"
+        }, {
+            img: "img/kitbagscolor/rby.png",
+            name: "rby"
+        }, {
+            img: "img/kitbagscolor/ry.png",
+            name: "ry"
+        }];
+        $scope.kitbagcolor = [
+            {
+            img: "img/kitbagscolor/bglg.png",
+            name: "bglg"
+        }, {
+            img: "img/kitbagscolor/bgy.png",
+            name: "bgy"
+        }, {
+            img: "img/kitbagscolor/blg.png",
+            name: "blg"
+        }, {
+            img: "img/kitbagscolor/dglg.png",
+            name: "dglg"
+        }, {
+            img: "img/kitbagscolor/dgy.png",
+            name: "dgy"
+        }, {
+            img: "img/kitbagscolor/mlg.png",
+            name: "mlg"
+        }, {
+            img: "img/kitbagscolor/my.png",
+            name: "my"
+        }, {
+            img: "img/kitbagscolor/rbr.png",
+            name: "rbr"
+        }, {
+            img: "img/kitbagscolor/rby.png",
+            name: "rby"
+        }, {
+            img: "img/kitbagscolor/ry.png",
+            name: "ry"
+        }
+        ];
+
+        $scope.tabchange = function (tab, a) {
+            //console.log(tab, a);
+            console.log($scope.designJson.type,"tabchange");
+            
+            $scope.tab = tab;
+            $scope.designJson.tab = tab;
+            $scope.designJson.tabNo = a;
+            if (a == 1) {
+                $scope.classa = 'active';
+                $scope.classb = '';
+                $scope.classc = '';
+                $scope.classd = '';
+                $scope.classe = '';
+
+                $scope.tabAllowToa = false;
+
+
+            }
+            if (a == 2) {
+                $scope.classb = 'active';
+                $scope.classa = '';
+                $scope.classc = '';
+                $scope.classd = '';
+                $scope.classe = '';
+                $scope.tabAllowToa = false;
+                $scope.tabAllowTob = false;
+
+            }
+            if (a == 3) {
+                $scope.classc = 'active';
+                $scope.classb = '';
+                $scope.classa = '';
+                $scope.classd = '';
+                $scope.classe = '';
+                $scope.tabAllowToa = false;
+                $scope.tabAllowTob = false;
+                $scope.tabAllowToc = false;
+            }
+            if (a == 4) {
+                $scope.classd = 'active';
+                $scope.classb = '';
+                $scope.classc = '';
+                $scope.classa = '';
+                $scope.classe = '';
+                $scope.tabAllowToa = false;
+                $scope.tabAllowTob = false;
+                $scope.tabAllowToc = false;
+                $scope.tabAllowTod = false;
+                //$scope.designJson.showBack();
+            } else if (a == 5) {
+                $scope.classe = 'active';
+                $scope.classb = '';
+                $scope.classc = '';
+                $scope.classd = '';
+                $scope.classa = '';
+                $scope.tabAllowToa = false;
+                $scope.tabAllowTob = false;
+                $scope.tabAllowToc = false;
+                $scope.tabAllowTod = false;
+                $scope.tabAllowToe = false;
+
+            }
+        };
+
+        $scope.kitbagImages1 = {
+            "ry": ["img/kitbag/big/kitbag_ry.png"],
+            "bglg": ["img/kitbag/big/kitbag_bglg.png"],
+            "bgy": ["img/kitbag/big/kitbag_bgy.png"],
+            "blg": ["img/kitbag/big/kitbag_blg.png"],
+            "dglg": ["img/kitbag/big/kitbag_dglg.png"],
+            "dgy": ["img/kitbag/big/kitbag_dgy.png"],
+            "mlg": ["img/kitbag/big/kitbag_mlg.png"],
+	    "my": ["img/kitbag/big/kitbag_my.png"],
+            "rbr": ["img/kitbag/big/kitbag_rbr.png"],
+            "rby": ["img/kitbag/big/kitbag_rby.png"],
+        };
+
+        $scope.kitbagImages2 = {
+            "ry": ["img/kitbag/big/kitbag_ry.png"],
+            "bglg": ["img/kitbag/big/kitbag_bglg.png"],
+            "bgy": ["img/kitbag/big/kitbag_bgy.png"],
+            "blg": ["img/kitbag/big/kitbag_blg.png"],
+            "dglg": ["img/kitbag/big/kitbag_dglg.png"],
+            "dgy": ["img/kitbag/big/kitbag_dgy.png"],
+            "mlg": ["img/kitbag/big/kitbag_mlg.png"],
+	    "my": ["img/kitbag/big/kitbag_my.png"],
+            "rbr": ["img/kitbag/big/kitbag_rbr.png"],
+            "rby": ["img/kitbag/big/kitbag_rby.png"],
+        };
+        $scope.kitbagImages3 = {
+            "ry": ["img/kitbag/big/kitbag_ry.png"],
+            "bglg": ["img/kitbag/big/kitbag_bglg.png"],
+            "bgy": ["img/kitbag/big/kitbag_bgy.png"],
+            "blg": ["img/kitbag/big/kitbag_blg.png"],
+            "dglg": ["img/kitbag/big/kitbag_dglg.png"],
+            "dgy": ["img/kitbag/big/kitbag_dgy.png"],
+            "mlg": ["img/kitbag/big/kitbag_mlg.png"],
+	    "my": ["img/kitbag/big/kitbag_my.png"],
+            "rbr": ["img/kitbag/big/kitbag_rbr.png"],
+            "rby": ["img/kitbag/big/kitbag_rby.png"],
+        };
+
+        $scope.myDesignID = 0;
+        $scope.designTabJson = function (id) {
+            $scope.myDesignID = id;
+            if(id==0 )
+            {
+                $scope.designJson.type="kitbag";
+                $scope.designJson.design.designType= "kitbag";
+            }
+            
+        };
+
+        $scope.myArr = [{
+            name: "Proton Club",
+            img: $scope.kitbagImages1.ry,
+            color: "ry",
+            id: 0,
+            colorObj: $scope.kitbagImages1
+        }];
+
+        function getColorObjByName(name) {
+            _.each($scope.myArr, function (obj) {
+                if (obj.name == name) {
+                    $scope.colorObj = obj.colorObj;
+                }
+            });
+        }
+         $scope.kitbagBack = {
+            'name': '',
+            'no': '',
+            'font': 'arial',
+            'color': 'white',
+            'quantity': 1,
+            'attributes': {
+                'name': {
+                    'fontSize': 18,
+                    'border': 'none',
+                    'rotate': 0,
+                    'letterSpacing': 1
+                },
+                'number': {
+                    'fontSize': 54,
+                    'border': 'none',
+                    'rotate': 0,
+                    'letterSpacing': 1
+                }
+            },
+            'divattributes': {
+                'name': {
+                    top: '330px',
+                    left: '200px'
+                },
+                'number': {
+                    top: '265px',
+                    left: '210px'
+                }
+            }
+            
+        };
+         $scope.kitbagBackArr = [{
+            'name': '',
+            'no': '',
+            'font': 'arial',
+            'color': 'white',
+            'quantity': 1,
+            'attributes': {
+                'name': {
+                    'fontSize': 18,
+                    'border': 'none',
+                    'rotate': 0,
+                    'letterSpacing': 1
+                },
+                'number': {
+                    'fontSize': 54,
+                    'border': 'none',
+                    'rotate': 0,
+                    'letterSpacing': 1
+                }
+            },
+            'divattributes': {
+                'name': {
+                    top: '330px',
+                    left: '200px'
+                },
+                'number': {
+                    top: '265px',
+                    left: '210px'
+                }
+            }
+        }];
+             
+        $scope.kitbagBackArrCount = 2;
+        $scope.trimKitbag = {};
+       $scope.switchTrimBase = function (color) {
+            console.log(color);
+            $scope.trimKitbag.base = color;
+            $scope.kitbag.front = "img/kitbag/big/kitbag_" + color + ".png";
+            $scope.designJson.design.base = "img/kitbag/big/kitbag_" + color + ".png";
+            $scope.designJson.color.base = color;
+        }
+
+        //$scope.switchTrimBase("ry");
+        $scope.addKitbagValues = function () {
+            var tempObj = {
+                'name': '',
+		    'no': '',
+		    'font': 'arial',
+		    'color': 'white',
+		    'quantity': 1,
+		    'attributes': {
+		        'name': {
+		            'fontSize': 18,
+		            'border': 'none',
+		            'rotate': 0,
+		            'letterSpacing': 1
+		        },
+		        'number': {
+		            'fontSize': 54,
+		            'border': 'none',
+		            'rotate': 0,
+		            'letterSpacing': 1
+		        }
+		    },
+		    'divattributes': {
+		        'name': {
+		            top: '330px',
+		            left: '200px'
+		        },
+		        'number': {
+		            top: '265px',
+		            left: '210px'
+		        }
+		    }
+                
+            };
+            // $scope.jerseyBackArr.push(_.clone($scope.jerseyBack));
+            $scope.kitbagBackArrCount = $scope.kitbagBackArrCount + 1;
+            $scope.designJson.quantity.push(tempObj);
+        }
+        $scope.removeKitbagValue = function (index) {
+            $scope.designJson.quantity.splice(index, 1);
+           $scope.kitbagBackArr.splice(index, 1);
+            $scope.kitbagBackArrCount = $scope.kitbagBackArrCount - 1;
+        }
+        $scope.LogosTab = false;
+        $scope.quantityTab = false;
+        $scope.turnOnLogos = function (val) {
+            $scope.LogosTab = val;
+        }
+
+        if ($stateParams.status == "edit" && $.jStorage.get("custom")) {
+            $scope.turnOnLogos(true);
+            $scope.designJson = $.jStorage.get("custom");
+            $timeout(function () {
+                $scope.tabchange($scope.designJson.tab, $scope.designJson.tabNo);
+            }, 100)
+            getColorObjByName($scope.designJson.design.name);
+            console.log('$scope.designJson', $scope.designJson);
+
+        } else {
+            $scope.openDesign1($scope.myArr[0]);
+
+        }
+
+        $scope.rslider = {
+            min: 0,
+            max: 100
+        };
+        $scope.designJson.teamLogo.size = 25;
+        $scope.changeLogo = function () {
+            $scope.borderClass = "active-border";
+        };
+        $scope.resetLogoStyle = function () {
+            $scope.borderClass = "";
+            $scope.$apply();
+        };
+
+        $scope.kitbagLogo = {};
+        // $scope.padLogo.isTeamLogo = false;
+        $scope.kitbagLogo.divattributes = {
+            top: '342px',
+            left: '278px'
+        };
+        $scope.kitbagLogo.attributes = {};
+        $scope.kitbagLogo.attributes.width = 100;
+        $scope.kitbagLogo.printType = 'embroidered';
+        $scope.statuses = {};
+
+        $scope.kitbag = {
+            'direction': 'center',
+            'quantity': 1
+        };
+        /*$scope.kitbag = [{
+            'direction': 'left',
+            'quantity': ''
+        }];*/
+        $scope.kitbagArr = [{
+            'direction': 'center',
+            'quantity': ''
+        }];
+
+        $scope.kitbagArrCount = 1;
+
+        $scope.addkitbagValues = function () {
+            $scope.kitbagArr.push(_.clone($scope.kitbag));
+            $scope.kitbagArrCount = $scope.kitbagArrCount + 1;
+        }
+        $scope.removekitbagValue = function (index) {
+            $scope.kitbagArr.splice(index, 1);
+            $scope.kitbagArrCount = $scope.kitbagArrCount - 1;
+        }
+
+        // $scope.singleAmount = 2750;
+        // $scope.totalAmount = 2750;
+
+        $scope.singleAmount = $filter('currencyFilter')($scope.designJson.design);
+        $scope.totalAmount = $filter('currencyFilter')($scope.designJson.design);
+        $scope.totalQuan = 0;
+        $scope.designJson.totalAmount = 0;
+        $scope.addQuantity = function (q) {
+            /*
+            $scope.totalQuan = 0;
+            $scope.totalAmount = 0;
+            $scope.designJson.totalAmount = 0;
+            $scope.totalQuan = parseInt($scope.designJson.quantity[0].quantity );
+            if(!angular.isNumber($scope.designJson.quantity[0].quantity))
+                $scope.totalQuan=0;
+            if ($scope.totalQuan) {
+                console.log($scope.designJson.design);
+                console.log($filter('currencyFilter')($scope.designJson.design, "OnlyNumber"));
+                $scope.totalAmount = $scope.totalQuan * $filter('currencyFilter')($scope.designJson.design, "OnlyNumber");
+                $scope.designJson.totalAmount = $scope.totalAmount;
+            }
+            
+            return $scope.totalQuan;*/
+            $scope.designJson.totalAmount = 0;
+            $scope.designJson.totalQuan = 0;
+            $scope.singleAmount = $filter('currencyFilter')($scope.designJson.design, "OnlyNumber");
+            for (var i = 0; i < $scope.kitbagBackArrCount; i++) {
+                console.log('$scope.designJson.quantity', $scope.designJson.quantity);
+                // $scope.totalQuan += $scope.quantity[i].quantity;
+                if ($scope.designJson.quantity[i].quantity == "")
+                    $scope.designJson.quantity[i].quantity=0;
+                if ($scope.designJson.quantity[i].quantity !== undefined) {
+
+                    $scope.designJson.totalQuan = parseInt($scope.designJson.totalQuan) + parseInt($scope.designJson.quantity[i].quantity);
+                }
+                if ($scope.designJson.totalQuan) {
+                    $scope.designJson.totalAmount = $scope.singleAmount * $scope.designJson.totalQuan;
+                }
+            }
+        };
+
+        // $scope.addQuantity();
+
+        $scope.kitbagDesign = {};
+
+        $scope.selectkitbagDesign = function (item) {
+            console.log(item);
+            $scope.kitbagDesign.name = item.name;
+            $scope.designJson.design.designName= item.name;
+            $scope.kitbagDesign.image = item.img[0];
+            $scope.Arrayname = item.name;
+            $scope.selectedImage = item.img[0];
+            console.log($scope.Arrayname);
+            if ($scope.Arrayname == '$scope.kitbagImages1') {
+                $scope.kitbagLogo.divattributes = {
+                    // top: '343px',
+                    // left: '279px'
+                    top: '327px',
+                    left: '264px',
+                    width: '52px',
+                    height: '52px'
+                };
+            }
+        }
+
+
+        $scope.selectkitbagDesign($scope.myArr[0]);
+        console.log($scope.myArr[0]);
+
+
+        // $scope.emptyImage = function (key) {
+        //     $scope.designJson[key] = {};
+        // }
+
+        $scope.selectkitbagImage = function (image) {
+            console.log(image);
+            $scope.selectedImage = {
+                image: image
+            }
+            $rootScope.$broadcast('changeImage', {});
+
+        };
+
+        $scope.checkTeamLogo = function () {
+            if ($scope.designJson.sendTeamLogoLater || $scope.designJson.teamLogo.image) {
+                $scope.tabchange('quantity', 4);
+                $scope.openTab('d');
+            } else {
+                $uibModal.open({
+                    templateUrl: 'views/modal/checkTeamLogo.html',
+                    scope: $scope
+                });
+            }
+        };
+        $scope.openSaveDesignPopup = function () {
+            $uibModal.open({
+                templateUrl: 'views/modal/savedesign.html',
+                scope: $scope
+            });
+        };
+
+        $scope.openLogin = function () {
+            $.jStorage.set("onCustom", true);
+            $.jStorage.set("custom", $scope.designJson);
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/login.html',
+                controller: 'headerctrl',
+                scope: $scope
+            })
+        };
+        $scope.checkloginkitbag = function () {
+            // if (qty == 0) {
+            //     $scope.qtyValidation = true;
+            // }
+            if (NavigationService.getUser()) {
+                $scope.isLogin = true;
+            } else {
+                $scope.isLogin = false;
+            }
+            if ($scope.isLogin) {
+                console.log('////////////');
+                NavigationService.saveDesign(user.email, $scope.designJson, $scope.designJson.type,
+                    function (data) {
+                        console.log('Save Design data: ', data);
+                        // $state.go('savedesign');
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/onlogin.html',
+                            controller: 'headerctrl',
+                            scope: $scope
+                        })
+                    },
+                    function (err) {
+                        console.log(err);
+                    });
+            } else {
+                console.log('////////////1111111');
+                $scope.openLogin();
+            }
+        }
+        var check = 1;
+
+        $scope.UploadTeamLogo = function () {
+            check = 2;
+            $uibModal.open({
+                templateUrl: "views/modal/copyrights.html",
+                scope: $scope
+            })
+        }
+        $scope.UploadTeamLogo1 = function () {
+            check = 3;
+            $uibModal.open({
+                templateUrl: "views/modal/copyrights.html",
+                scope: $scope
+            })
+        }
+        $scope.openChooseFile = function () {
+            $uibModal.open({
+                templateUrl: "views/modal/choosefile.html",
+                scope: $scope
+            })
+        }
+        $scope.openUploads = function (variable, name) {
+            $scope.variable = variable;
+            $scope.name = name;
+            $scope.statuses.uploadStatus = false;
+            $uibModal.open({
+                templateUrl: "views/modal/tshirt.html",
+                scope: $scope
+            })
+        }
+        $scope.onFileSelect = function ($files, whichone, uploadtype, variable) {
+            $scope.toolarge = false;
+            console.log($files);
+            if ($files[0].size < 20000000) {
+                $scope.statuses.uploadStatus = true;
+                cfpLoadingBar.start();
+                $scope.showimage = true;
+                globalfunction.onFileSelect($files, function (image) {
+                    cfpLoadingBar.complete();
+                    if (whichone == 1) {
+                        console.log(image);
+                        $scope.tempImage = image[0];
+                        console.log($scope.tempImage);
+                    }
+                })
+            } else {
+                $files = [];
+                $scope.toolarge = true;
+            }
+        }
+        $scope.confirmUpload = function (variable, name) {
+            $scope.designJson.teamLogo.image = $scope.tempImage;
+            $scope.tempImage = "";
+        }
+        $scope.doneUploading = function () {
+            if (check == 3) {
+                $scope.tab = "sponsorlogo"
+            } else {
+                $scope.tab = "teamlogo";
+            }
+
+        }
+        $scope.openUploadNew = function () {
+            $uibModal.open({
+                templateUrl: "views/modal/tshirt-popup.html",
+                scope: $scope
+            })
+        }
+
+        $scope.proceed = function () {
+            $uibModal.open({
+                templateUrl: "views/modal/proceed.html",
+                scope: $scope
+            })
+        }
+        $scope.showColorTab = function () {
+            $scope.tab = "teamcolor";
+        }
+        $scope.showQuantiyTab = function () {
+            $scope.tab = "quantiy";
+        }
+        $scope.showQuantyTab = function () {
+            $scope.tab = "quanty";
+        }
+
+        $scope.proceedNext = function () {
+            $scope.tab = "sponsorlogo";
+        }
+
+        $scope.teamloging = function () {
+            $scope.tab = "teamlogo";
+        }
+        $scope.rslider = {
+            min: 10,
+            max: 100
+        };
+
+        $scope.kitbagLogo = {};
+        $scope.kitbagLogo.isTeamLogo = false;
+        $scope.kitbagLogo.divattributes = {
+            top: '342px',
+            left: '278px'
+        };
+        $scope.kitbagLogo.attributes = {};
+        $scope.kitbagLogo.attributes.width = 100;
+        $scope.kitbagLogo.printType = 'embroidered';
+        $scope.statuses = {};
+
+        $scope.kitbag = {
+            'direction': 'left',
+            'quantity': 1
+        };
+        $scope.kitbag = [{
+            'direction': 'left',
+            'quantity': ''
+        }];
+        $scope.kitbagArr = [{
+            'direction': 'left',
+            'quantity': ''
+        }];
+        //tab changes
+
+        $scope.toOrderSummary = function () {
+            if (user && user.email) {
+                console.log($scope.designJson);
+                //submitkitbagorder
+                $scope.designJson.design.designType= $scope.designJson.type;
+                NavigationService.orderSummarykitbags(user.email, $scope.designJson, $scope.designJson.type,
+                    function (data) {
+                        console.log('Order Summary kitbag data: ', data);
+                        $state.go('ordersummary', {
+                            id: data.id
+                        });
+                    },
+                    function (err) {
+                        console.log(err);
+                    });
+                $scope.lastJSON = JSON.stringify($scope.combineJSON);
+            } else {
+                $.jStorage.set("nextOne", true);
+                $scope.openLogin();
+            }
+        };
+
+
+        $scope.tab = "design";
+        $scope.classa = 'active';
+        $scope.classb = '';
+        $scope.classc = '';
+        $scope.classd = '';
+        $scope.classe = '';
+
+
+
+        $scope.demo2 = {
+            range: {
+                min: 0,
+                max: 10050
+            },
+            minPrice: 1000,
+            maxPrice: 4000
+        };
+
+        $scope.tabAllowa = '';
+        $scope.tabAllowb = 'noAllow';
+        $scope.tabAllowc = '';
+        $scope.tabAllowd = 'noAllow';
+        $scope.tabAllowToa = false;
+        $scope.tabAllowTob = true;
+        $scope.tabAllowToc = true;
+        $scope.tabAllowTod = true;
+
+        $scope.openTab = function (tab) {
+            if (tab === 'a') {
+                //$scope.designJson.type="kitbag";
+                $scope.tabAllowa = '';
+                $scope.tabAllowToa = false;
+            } else if (tab === 'b') {
+                //$scope.designJson.type="polo";
+                $scope.tabAllowb = '';
+                $scope.tabAllowTob = false;
+            } else if (tab === 'c') {
+                //$scope.designJson.type="kitbag";
+                $scope.tabAllowc = '';
+                $scope.tabAllowToc = false;
+            } else if (tab === 'd') {
+                //$scope.designJson.type="kitbag";
+                $scope.tabAllowd = '';
+                $scope.tabAllowTod = false;
+            }
+        };
+
+
+
+        $scope.switchNavigation = function (tab) {
+
+            if (tab === 'a') {
+                if (!$scope.tabAllowToa) {
+                    $scope.tabchange('design', 1);
+                }
+            } else if (tab === 'b') {
+                if (!$scope.tabAllowTob) {
+                    $scope.tabchange('trim', 2);
+                }
+            } else if (tab === 'c') {
+                if (!$scope.tabAllowToc) {
+                    $scope.tabchange('team', 3);
+                    $scope.turnOnLogos(true);
+                }
+            } else if (tab === 'd') {
+                if (!$scope.tabAllowTod) {
+                    $scope.tabchange('quantity', 4);
+                }
+            }
+        };
+
+
+        $scope.openUpload = function () {
+            $uibModal.open({
+                templateUrl: "views/modal/tshirt.html",
+                controller: "Kitbags1Ctrl",
+                scope: $scope
+            })
+        };
+
+        $scope.copy = function () {
+            $uibModal.open({
+                templateUrl: "views/modal/outofplace.html",
+                controller: "Kitbags1Ctrl",
+                scope: $scope
+            })
+        };
+
+        $scope.continue = function () {
+            $uibModal.open({
+                templateUrl: "views/modal/continue.html",
+                controller: "Kitbags1Ctrl",
+                scope: $scope
+            })
+        };
+
+        $scope.choose = function () {
+            $uibModal.open({
+                templateUrl: "views/modal/choosefile.html",
+                controller: "Kitbags1Ctrl",
+                scope: $scope
+            })
+        };
+
+        $scope.copyright = function () {
+            $uibModal.open({
+                templateUrl: "views/modal/copyrights.html",
+                controller: "Kitbags1Ctrl",
+                scope: $scope
+            })
+        };
+
+
+        $scope.tshirtUpload = function () {
+            $uibModal.open({
+                templateUrl: "views/modal/tshirt-popup.html",
+                controller: "Kitbags1Ctrl",
+                scope: $scope
+            })
+        };
+
+        $scope.outplace = function () {
+            $uibModal.open({
+                templateUrl: "views/modal/outofplace.html",
+                // controller: "PadsCtrl",
+                windowClass: "modal-dialogintro",
+                scope: $scope
+            })
+        };
+
+    })
+    .controller('BatCtrlOld', function ($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("bat");
         $scope.menutitle = NavigationService.makeactive("Bat");
@@ -12485,6 +13542,684 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
 
+    })
+    .controller('BatCtrl', function ($scope, $filter, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("bats");
+        $scope.menutitle = NavigationService.makeactive("Bats");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        $scope.activeButton = 1;
+        $scope.toggleTab = function (val) {
+            $scope.activeButton = val;
+        };
+
+        $scope.$on('$stateChangeStart', function (event, toState, fromState) {
+            if (toState.name == 'batsEdit' || toState.name == 'ordersummary' || toState.name == 'savedesign') {
+                window.location.reload();
+            } else {
+                var answer = confirm("Are you sure you want to leave this page? Your changes will not be saved.");
+                if (answer) {
+                    console.log('yes ans');
+                } else {
+                    console.log('no ans');
+                    event.preventDefault();
+                }
+            }
+        });
+
+        $scope.batDeleteModal = function () {
+            $scope.batDel = $uibModal.open({
+                templateUrl: "views/modal/odi-delete.html",
+                scope: $scope
+            });
+        }
+        $scope.confirmEmptyImage = function (key) {
+            console.log('key', key);
+            $scope.designJson[key] = {};
+            $scope.batDel.close();
+        }
+        $scope.emptyImage = function (key) {
+            console.log('ftyghftg', key);
+            $scope.saveKey = key;
+            $scope.batDeleteModal();
+        }
+        $scope.outplace = function () {
+            $uibModal.open({
+                templateUrl: "viewsDesign.name/modal/outofplace.html",
+                // controller: "OdiCtrl",
+                windowClass: "modal-dialogintro",
+                scope: $scope
+            })
+        };
+	$scope.customBat = {};
+        $scope.customBat.text = '';
+        $scope.customBat.quantity = 1;
+        $scope.customBat.totalAmount = 995;
+
+        $scope.changeAmount = function () {
+            if (!$scope.customBat.quantity) {
+                $scope.customBat.quantity = 0;
+            }
+            $scope.customBat.totalAmount = $scope.singleAmount * $scope.customBat.quantity;
+        }
+        $scope.designJson = {
+            design: {
+                name:"Chintan",
+                base: "img/bat/bat.jpg",
+                designType:"bats",
+                designName:"VIKINGS"
+            },
+            color: {
+                base: "orange"
+            },
+            quantity: [{
+                    quantity: $scope.customBat.quantity,
+                    size: "Qty"
+                }
+            ],
+	   "batText": $scope.customBat.text,
+           "batQuantity": $scope.customBat.quantity,
+            type: "bat",
+        };
+
+        $scope.colorObj = $scope.batImages1;
+        $scope.changebatsImages = function (color) {
+            //console.log(color);
+            //console.log($scope.colorObj);
+            var val = _.pick($scope.colorObj, color);
+            //console.log(val);
+            $scope.capColors = color;
+            $scope.designJson.design.base = val[color][0];
+            $scope.designJson.color.base = getColor(color);
+
+        }
+        $scope.openDesign1 = function (img) {
+            //console.log('1111111', img.img[0]);
+            $scope.designJson.design.base = img.img[0];
+            $scope.designJson.design.name = img.name;
+            $scope.designJson.design.designName = img.name;
+            $scope.designJson.color.base = getColor(img.color);
+            $scope.colorObj = img.colorObj;
+            $scope.changebatsImages(img.color);
+        };
+        $scope.openDesign = function (index, tab, img) {
+            //console.log('*********************');
+            if(index==0)
+            {
+                $scope.designJson.type="bats";
+                $scope.designJson.design.designType= "bats";
+            }
+           
+            if ($scope.LogosTab) {
+                $scope.designIndex = index;
+                $scope.designTab = tab;
+                $scope.designImage = img;
+                $uibModal.open({
+                    templateUrl: "views/modal/tshirtdesign.html",
+                    scope: $scope
+                });
+            } else {
+                $scope.openDesign1(img);
+            }
+        };
+
+        function getColor(color) {
+            if (color == "orange") {
+                return "#f5b122";
+            }
+             else {
+                return _.filter($scope.batscolor, {
+                    name: color
+                })[0].colr;
+            }
+        }
+
+        $scope.batscolor = [{
+                colr: "#f5b122",
+                name: "orange"
+            }
+
+        ];
+
+        $scope.color = [{
+            colr: "#f5b122"
+        }];
+
+
+        $scope.images = [{
+            src: "img/bat/bat.jpg"
+        }];
+
+        $scope.tabchange = function (tab, a) {
+            //console.log(tab, a);
+            $scope.tab = tab;
+            if (a == 1) {
+                $scope.classa = 'active';
+                $scope.classb = '';
+                $scope.classc = '';
+                $scope.classd = '';
+                $scope.classe = '';
+
+            }
+            if (a == 2) {
+                $scope.classb = 'active';
+                $scope.classa = '';
+                $scope.classc = '';
+                $scope.classd = '';
+                $scope.classe = '';
+
+            }
+            if (a == 3) {
+                $scope.classc = 'active';
+                $scope.classb = '';
+                $scope.classa = '';
+                $scope.classd = '';
+                $scope.classe = '';
+
+            }
+            if (a == 4) {
+                $scope.classd = 'active';
+                $scope.classb = '';
+                $scope.classc = '';
+                $scope.classa = '';
+                $scope.classe = '';
+
+            } else if (a == 5) {
+                $scope.classd = 'active';
+                $scope.classb = '';
+                $scope.classc = '';
+                $scope.classa = '';
+
+            }
+        };
+
+        $scope.batImages1 = {
+            "orange": ["img/bat/bat.jpg"]
+        };
+
+       
+        $scope.myDesignID = 0;
+        $scope.designTabJson = function (id) {
+            $scope.myDesignID = id;
+            if(id==0)
+            {
+                $scope.designJson.type="bats";
+                $scope.designJson.design.designType= "cats";
+            }
+            else    
+            {
+                $scope.designJson.type="hats";
+                $scope.designJson.design.designType= "hats";
+            }
+            //console.log(id);
+        };
+
+        $scope.myArr = [{
+            name: "VIKINGS",
+            img: $scope.batImages1.orange,
+            color: "orange",
+            id: 0,
+            colorObj: $scope.batImages1
+        }];
+
+        function getColorObjByName(name) {
+            _.each($scope.myArr, function (obj) {
+                if (obj.name == name) {
+                    $scope.colorObj = obj.colorObj;
+                }
+            });
+        }
+
+        $scope.LogosTab = false;
+        $scope.quantityTab = false;
+        $scope.turnOnLogos = function (val) {
+            $scope.LogosTab = val;
+        }
+
+        if ($stateParams.status == "edit" && $.jStorage.get("custom")) {
+            $scope.turnOnLogos(true);
+            $scope.designJson = $.jStorage.get("custom");
+            $timeout(function () {
+                $scope.tabchange($scope.designJson.tab, $scope.designJson.tabNo);
+            }, 100)
+            getColorObjByName($scope.designJson.design.name);
+            console.log('$scope.designJson', $scope.designJson);
+
+        } else {
+            $scope.openDesign1($scope.myArr[0]);
+
+        }
+
+        $scope.rslider = {
+            min: 0,
+            max: 100
+        };
+        //$scope.designJson.teamLogo.size = 68;
+        $scope.statuses = {};
+
+        $scope.bats = {
+            'direction': 'Qty',
+            'quantity': 1
+        };
+        /*$scope.bats = [{
+            'direction': 'left',
+            'quantity': ''
+        }];*/
+        $scope.batsArr = [{
+            'direction': 'center',
+            'quantity': ''
+        }];
+
+        $scope.batsArrCount = 1;
+
+        $scope.addbatsValues = function () {
+            $scope.batsArr.push(_.clone($scope.bats));
+            $scope.batsArrCount = $scope.batsArrCount + 1;
+        }
+        $scope.removebatsValue = function (index) {
+            $scope.batsArr.splice(index, 1);
+            $scope.batsArrCount = $scope.batsArrCount - 1;
+        }
+
+        // $scope.singleAmount = 2750;
+        // $scope.totalAmount = 2750;
+
+        $scope.singleAmount = $filter('currencyFilter')($scope.designJson.design);
+        $scope.totalAmount = $filter('currencyFilter')($scope.designJson.design);
+        $scope.totalQuan = 0;
+        $scope.designJson.totalAmount = 0;
+        $scope.addQuantity = function () {
+            $scope.totalQuan = 0;
+            $scope.totalAmount = 0;
+            $scope.designJson.totalAmount = 0;
+            $scope.totalQuan = parseInt($scope.designJson.quantity[0].quantity );
+            if(!angular.isNumber($scope.designJson.quantity[0].quantity))
+                $scope.totalQuan=0;
+            if ($scope.totalQuan) {
+                console.log($scope.designJson.design);
+                console.log($filter('currencyFilter')($scope.designJson.design, "OnlyNumber"));
+                $scope.totalAmount = $scope.totalQuan * $filter('currencyFilter')($scope.designJson.design, "OnlyNumber");
+                $scope.designJson.totalAmount = $scope.totalAmount;
+            }
+            
+            return $scope.totalQuan;
+        };
+
+        // $scope.addQuantity();
+
+        $scope.batsDesign = {};
+
+        $scope.selectbatsDesign = function (item) {
+            console.log(item);
+            $scope.batsDesign.name = item.name;
+            $scope.designJson.design.designName= item.name;
+            $scope.batsDesign.image = item.img[0];
+            $scope.Arrayname = item.name;
+            $scope.selectedImage = item.img[0];
+            console.log($scope.Arrayname);
+            if ($scope.Arrayname == '$scope.capImages1') {
+                $scope.batLogo.divattributes = {
+                    // top: '343px',
+                    // left: '279px'
+                    top: '327px',
+                    left: '264px',
+                    width: '52px',
+                    height: '52px'
+                };
+            }
+            if ($scope.Arrayname == '$scope.hatImages2') {
+                $scope.batLogo.divattributes = {
+                    // top: '355px',
+                    // left: '296px'
+                    top: '340px',
+                    left: '282px',
+                    width: '52px',
+                    height: '52px'
+                };
+            }
+
+        }
+
+
+        $scope.selectbatsDesign($scope.myArr[0]);
+        console.log($scope.myArr[0]);
+
+
+        // $scope.emptyImage = function (key) {
+        //     $scope.designJson[key] = {};
+        // }
+
+        $scope.selectCapImage = function (image) {
+            console.log(image);
+            $scope.selectedImage = {
+                image: image
+            }
+            $rootScope.$broadcast('changeImage', {});
+
+        };
+
+        $scope.checkTeamLogo = function () {
+            if ($scope.designJson.sendTeamLogoLater || $scope.designJson.teamLogo.image) {
+                $scope.tabchange('quantity', 4);
+                $scope.openTab('d');
+            } else {
+                $uibModal.open({
+                    templateUrl: 'views/modal/checkTeamLogo.html',
+                    scope: $scope
+                });
+            }
+        };
+        $scope.openSaveDesignPopup = function () {
+            $uibModal.open({
+                templateUrl: 'views/modal/savedesign.html',
+                scope: $scope
+            });
+        };
+
+        $scope.openLogin = function () {
+            $.jStorage.set("onCustom", true);
+            $.jStorage.set("custom", $scope.designJson);
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/login.html',
+                controller: 'headerctrl',
+                scope: $scope
+            })
+        };
+        $scope.checkloginbats = function () {
+            // if (qty == 0) {
+            //     $scope.qtyValidation = true;
+            // }
+            if (NavigationService.getUser()) {
+                $scope.isLogin = true;
+            } else {
+                $scope.isLogin = false;
+            }
+            if ($scope.isLogin) {
+                console.log('////////////');
+                NavigationService.saveDesign(user.email, $scope.designJson, $scope.designJson.type,
+                    function (data) {
+                        console.log('Save Design data: ', data);
+                        // $state.go('savedesign');
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/onlogin.html',
+                            controller: 'headerctrl',
+                            scope: $scope
+                        })
+                    },
+                    function (err) {
+                        console.log(err);
+                    });
+            } else {
+                console.log('////////////1111111');
+                $scope.openLogin();
+            }
+        }
+        var check = 1;
+
+        $scope.UploadTeamLogo = function () {
+            check = 2;
+            $uibModal.open({
+                templateUrl: "views/modal/copyrights.html",
+                scope: $scope
+            })
+        }
+        $scope.UploadTeamLogo1 = function () {
+            check = 3;
+            $uibModal.open({
+                templateUrl: "views/modal/copyrights.html",
+                scope: $scope
+            })
+        }
+        $scope.openChooseFile = function () {
+            $uibModal.open({
+                templateUrl: "views/modal/choosefile.html",
+                scope: $scope
+            })
+        }
+        $scope.openUploads = function (variable, name) {
+            $scope.variable = variable;
+            $scope.name = name;
+            $scope.statuses.uploadStatus = false;
+            $uibModal.open({
+                templateUrl: "views/modal/tshirt.html",
+                scope: $scope
+            })
+        }
+        $scope.onFileSelect = function ($files, whichone, uploadtype, variable) {
+            $scope.toolarge = false;
+            console.log($files);
+            if ($files[0].size < 20000000) {
+                $scope.statuses.uploadStatus = true;
+                cfpLoadingBar.start();
+                $scope.showimage = true;
+                globalfunction.onFileSelect($files, function (image) {
+                    cfpLoadingBar.complete();
+                    if (whichone == 1) {
+                        console.log(image);
+                        $scope.tempImage = image[0];
+                        console.log($scope.tempImage);
+                    }
+                })
+            } else {
+                $files = [];
+                $scope.toolarge = true;
+            }
+        }
+        $scope.confirmUpload = function (variable, name) {
+            $scope.designJson.teamLogo.image = $scope.tempImage;
+            $scope.tempImage = "";
+        }
+        $scope.doneUploading = function () {
+            if (check == 3) {
+                $scope.tab = "sponsorlogo"
+            } else {
+                $scope.tab = "teamlogo";
+            }
+
+        }
+        $scope.openUploadNew = function () {
+            $uibModal.open({
+                templateUrl: "views/modal/tshirt-popup.html",
+                scope: $scope
+            })
+        }
+
+        $scope.proceed = function () {
+            $uibModal.open({
+                templateUrl: "views/modal/proceed.html",
+                scope: $scope
+            })
+        }
+        $scope.showColorTab = function () {
+            $scope.tab = "teamcolor";
+        }
+        $scope.showQuantiyTab = function () {
+            $scope.tab = "quantiy";
+        }
+        $scope.showQuantyTab = function () {
+            $scope.tab = "quanty";
+        }
+
+        $scope.proceedNext = function () {
+            $scope.tab = "sponsorlogo";
+        }
+
+        $scope.teamloging = function () {
+            $scope.tab = "teamlogo";
+        }
+        $scope.rslider = {
+            min: 10,
+            max: 100
+        };
+
+        $scope.batLogo = {};
+        $scope.batLogo.isTeamLogo = false;
+        $scope.batLogo.divattributes = {
+            top: '342px',
+            left: '278px'
+        };
+        $scope.batLogo.attributes = {};
+        $scope.batLogo.attributes.width = 100;
+        $scope.batLogo.printType = 'embroidered';
+        $scope.statuses = {};
+
+        $scope.bats = {
+            'direction': 'Qty',
+            'quantity': 1
+        };
+        $scope.batsArr = [{
+            'direction': 'left',
+            'quantity': ''
+        }];
+        //tab changes
+
+        $scope.toOrderSummary = function () {
+            if (user && user.email) {
+                console.log($scope.designJson);
+                //submitcaporder
+                $scope.designJson.design.designType= $scope.designJson.type;
+                NavigationService.orderSummarybats(user.email, $scope.designJson, $scope.designJson.type,
+                    function (data) {
+                        console.log('Order Summary bats data: ', data);
+                        $state.go('ordersummary', {
+                            id: data.id
+                        });
+                    },
+                    function (err) {
+                        console.log(err);
+                    });
+                $scope.lastJSON = JSON.stringify($scope.combineJSON);
+            } else {
+                $.jStorage.set("nextOne", true);
+                $scope.openLogin();
+            }
+        };
+
+
+        $scope.tab = "design";
+        $scope.classa = 'active';
+        $scope.classb = '';
+        $scope.classc = '';
+        $scope.classd = '';
+        $scope.classe = '';
+
+
+
+        $scope.demo2 = {
+            range: {
+                min: 0,
+                max: 10050
+            },
+            minPrice: 1000,
+            maxPrice: 4000
+        };
+
+        $scope.tabAllowa = '';
+        $scope.tabAllowb = 'noAllow';
+        $scope.tabAllowc = '';
+        $scope.tabAllowd = 'noAllow';
+        $scope.tabAllowToa = false;
+        $scope.tabAllowTob = true;
+        $scope.tabAllowToc = true;
+        $scope.tabAllowTod = true;
+
+        $scope.openTab = function (tab) {
+            if (tab === 'a') {
+                //$scope.designJson.type="bats";
+                $scope.tabAllowa = '';
+                $scope.tabAllowToa = false;
+            } else if (tab === 'b') {
+                //$scope.designJson.type="hats";
+                $scope.tabAllowb = '';
+                $scope.tabAllowTob = false;
+            } else if (tab === 'c') {
+                //$scope.designJson.type="bats";
+                $scope.tabAllowc = '';
+                $scope.tabAllowToc = false;
+            } 
+        };
+
+
+
+        $scope.switchNavigation = function (tab) {
+
+            if (tab === 'a') {
+                if (!$scope.tabAllowToa) {
+                    $scope.tabchange('design', 1);
+                }
+            } else if (tab === 'b') {
+                if (!$scope.tabAllowTob) {
+                    $scope.tabchange('trim', 2);
+                }
+            } else if (tab === 'c') {
+                if (!$scope.tabAllowToc) {
+                    $scope.tabchange('team', 3);
+                    $scope.turnOnLogos(true);
+                }
+            } 
+        };
+
+
+        $scope.openUpload = function () {
+            $uibModal.open({
+                templateUrl: "views/modal/tshirt.html",
+                controller: "BatCtrl",
+                scope: $scope
+            })
+        };
+
+        $scope.copy = function () {
+            $uibModal.open({
+                templateUrl: "views/modal/outofplace.html",
+                controller: "BatCtrl",
+                scope: $scope
+            })
+        };
+
+        $scope.continue = function () {
+            $uibModal.open({
+                templateUrl: "views/modal/continue.html",
+                controller: "BatCtrl",
+                scope: $scope
+            })
+        };
+
+        $scope.choose = function () {
+            $uibModal.open({
+                templateUrl: "views/modal/choosefile.html",
+                controller: "BatCtrl",
+                scope: $scope
+            })
+        };
+
+        $scope.copyright = function () {
+            $uibModal.open({
+                templateUrl: "views/modal/copyrights.html",
+                controller: "BatCtrl",
+                scope: $scope
+            })
+        };
+
+
+        $scope.tshirtUpload = function () {
+            $uibModal.open({
+                templateUrl: "views/modal/tshirt-popup.html",
+                controller: "BatCtrl",
+                scope: $scope
+            })
+        };
+
+        $scope.outplace = function () {
+            $uibModal.open({
+                templateUrl: "views/modal/outofplace.html",
+                // controller: "PadsCtrl",
+                windowClass: "modal-dialogintro",
+                scope: $scope
+            })
+        };
     })
 
     .controller('CategoriesInsideCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, cfpLoadingBar) {

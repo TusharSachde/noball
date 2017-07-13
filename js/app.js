@@ -442,7 +442,7 @@ firstapp.filter('currencyFilter', function ($filter) {
     var arr = _.filter(currencyObj, function (n) {
       return n.name == input.name;
     });
-    //console.log(arr,"currencyarr");
+    console.log(arr,"currencyarr");
     var priceObj;
     if (arr.length > 0) {
       priceObj = arr[0];
@@ -529,6 +529,20 @@ firstapp.filter('PriceFilter', function () {
       }
       return parseInt(input.totalAmount + addAmount);
     } else if (input.type == 'caps') {
+      if (myCountry == 'IN') {
+        addAmount = 5000;
+      } else if (myCountry == "AU") {
+        addAmount = 90;
+      } else if (myCountry == 'GB') {
+        addAmount = 60;
+      } else if (myCountry == 'US') {
+        addAmount = 75;
+      } else {
+        addAmount = 75;
+      }
+      return parseInt(input.totalAmount + addAmount);
+    }
+    else if (input.type == 'bat') {
       if (myCountry == 'IN') {
         addAmount = 5000;
       } else if (myCountry == "AU") {

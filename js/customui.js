@@ -1317,5 +1317,19 @@
           gbp: "39",
           aud: "68",
           euro: "53",
+      },{
+          name: "kitbags",
+          inr: "995",
+          usd: "60",
+          gbp: "39",
+          aud: "68",
+          euro: "53",
+      },{
+          name: "VIKINGS",
+          inr: "995",
+          usd: "60",
+          gbp: "39",
+          aud: "68",
+          euro: "53",
       }
   ];
