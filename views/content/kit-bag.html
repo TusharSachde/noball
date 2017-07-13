@@ -632,12 +632,12 @@
                                                         <input type="text" name="number" ng-model="bag.no" placeholder="Number">
                                                     </td>
                                                     <td>
-                                                        <input type="text" name="quantity" ng-change="addQuantity(bag.quantity)" ng-model="bag.quantity" min="1" maxlength="3">
+                                                        <input type="number" name="quantity" ng-change="addQuantity(bag.quantity)" ng-model="bag.quantity" min="1" maxlength="3">
                                                     </td>
                                                     <td></td>
                                                     <td></td>
                                                     <td style="display: flex; justify-content: center;">
-                                                        <img src="img/rubbishbin.png" class="img-responsive" alt="" ng-click="removeBagsValue($index); addQuantity();">
+                                                        <img src="img/rubbishbin.png" class="img-responsive" alt="" ng-click="removeBagsValue($index); addQuantity(bag.quantity);">
                                                     </td>
                                                 </tr>
                                                 <tr class="nothing">
@@ -645,7 +645,7 @@
                                                 </tr>
                                                 
                                                 <tr>
-                                                    <td class="pad6 pointer" ng-click="addBagsValues(); addQuantity();"><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</td>
+                                                    <td class="pad6 pointer" ng-click="addBagsValues(); addQuantity(0);"><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</td>
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>

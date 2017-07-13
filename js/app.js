@@ -198,6 +198,16 @@ $.get("https://ipinfo.io/json", function (response) {
       templateUrl: "views/template.html",
       controller: 'OdiTrouserCtrl'
     })
+    .state('kit-bags', {
+      url: "/kit-bags",
+      templateUrl: "views/template.html",
+      controller: 'Kitbags1Ctrl'
+    })
+    .state('kit-bagsEdit', {
+      url: "/kit-bags/:status",
+      templateUrl: "views/template.html",
+      controller: 'Kitbags1Ctrl'
+    })
     .state('kit-bag', {
       url: "/kit-bag",
       templateUrl: "views/template.html",

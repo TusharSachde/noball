@@ -5252,6 +5252,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             for (var i = 0; i < $scope.tshirtBackArrCount; i++) {
                 console.log('$scope.designJson.quantity', $scope.designJson.quantity);
                 // $scope.totalQuan += $scope.quantity[i].quantity;
+                if ($scope.designJson.quantity[i].quantity == "")
+                    $scope.designJson.quantity[i].quantity=0;
                 if ($scope.designJson.quantity[i].quantity !== undefined) {
 
                     $scope.designJson.totalQuan = parseInt($scope.designJson.totalQuan) + parseInt($scope.designJson.quantity[i].quantity);
@@ -11321,6 +11323,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     })
+    
     .controller('KitBagCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $uibModal, cfpLoadingBar) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("kit-bag");
@@ -11376,7 +11379,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }*/
             if ($scope.isLogin) {
                 console.log('////////////');
-                NavigationService.saveDesign(user.email, $scope.designJson, 'kitbags',
+                NavigationService.saveDesign(user.email, $scope.combineJSON, 'kitbags',
                     function (data) {
                         console.log('Save Design data: ', data);
                         // $state.go('savedesign');
