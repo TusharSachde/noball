@@ -997,6 +997,14 @@
                               right: 160,
                               "z+'-'+index": 9
                           }
+                  },
+                  "bat": {
+                      batText: {
+                          top: 245,
+                          width: 100,
+                          left: 241,
+                           "z+'-'+index": 9
+                      }
                   }
               };
 
@@ -1327,6 +1335,14 @@
       },{
           name: "VIKINGS",
           inr: "995",
+          usd: "60",
+          gbp: "39",
+          aud: "68",
+          euro: "53",
+      }
+      ,{
+          name: "Balls",
+          inr: "375",
           usd: "60",
           gbp: "39",
           aud: "68",

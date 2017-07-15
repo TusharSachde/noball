@@ -2822,6 +2822,7 @@
          top: 245px;
          left: 241px;
          width: 100px;
+         z-index:999999;
          @include transform(rotate(209deg));
          p {
              font-family: $font-stencil;
@@ -6434,6 +6435,7 @@
      height: 320px;
      top: 70px;
      left: 100px;
+     z-index: 99;
      .ball-attr {
          margin: 0 auto;
          font-size: 34px;

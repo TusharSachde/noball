@@ -82,12 +82,21 @@ $.get("https://ipinfo.io/json", function (response) {
       templateUrl: "views/template.html",
       controller: 'HatsCtrl'
     })
+    .state('ball', {
+      url: "/ball",
+      templateUrl: "views/template.html",
+      controller: 'BallCtrl'
+    })
     .state('balls', {
       url: "/balls",
       templateUrl: "views/template.html",
       controller: 'BallsCtrl'
     })
-
+    .state('ballsEdit', {
+      url: "/balls/:status",
+      templateUrl: "views/template.html",
+      controller: 'BallsCtrl'
+    })
     .state('pads', {
       url: "/pads",
       templateUrl: "views/template.html",
@@ -185,6 +194,11 @@ $.get("https://ipinfo.io/json", function (response) {
 
     .state('bat', {
       url: "/bat",
+      templateUrl: "views/template.html",
+      controller: 'BatCtrl'
+    })
+    .state('batsEdit', {
+      url: "/bat/:status",
       templateUrl: "views/template.html",
       controller: 'BatCtrl'
     })
@@ -442,7 +456,7 @@ firstapp.filter('currencyFilter', function ($filter) {
     var arr = _.filter(currencyObj, function (n) {
       return n.name == input.name;
     });
-    console.log(arr,"currencyarr");
+    //console.log(arr,"currencyarr");
     var priceObj;
     if (arr.length > 0) {
       priceObj = arr[0];
@@ -514,7 +528,7 @@ firstapp.filter('PriceFilter', function () {
   return function (input) {
     var myCountry = $.jStorage.get('getCountry');
     var addAmount = 0;
-    //console.log(input);
+    //console.log(input,"input");
     if (input.type == 'pads') {
       if (myCountry == 'IN') {
         addAmount = 5000;
@@ -543,6 +557,20 @@ firstapp.filter('PriceFilter', function () {
       return parseInt(input.totalAmount + addAmount);
     }
     else if (input.type == 'bat') {
+      if (myCountry == 'IN') {
+        addAmount = 5000;
+      } else if (myCountry == "AU") {
+        addAmount = 90;
+      } else if (myCountry == 'GB') {
+        addAmount = 60;
+      } else if (myCountry == 'US') {
+        addAmount = 75;
+      } else {
+        addAmount = 75;
+      }
+      return parseInt(input.totalAmount + addAmount);
+    }
+    else if (input.type == 'balls') {
       if (myCountry == 'IN') {
         addAmount = 5000;
       } else if (myCountry == "AU") {

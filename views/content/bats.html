@@ -88,19 +88,19 @@
                             Choose your grades
                           </h3>
                           <form class="radio">
-                            <input type="radio" id="opt1" name="optradio">
+                            <input type="radio" id="opt1" name="optradio" ng-model="designJson.batDet.grade" value="1">
                             <label class="radio-inline" for="opt1">
                                 <span></span> 1
                             </label>
-                            <input type="radio" id="opt1p" name="optradio">
+                            <input type="radio" id="opt1p" name="optradio" ng-model="designJson.batDet.grade" value="1+">
                             <label class="radio-inline" for="opt1p">
                                 <span></span> 1+
                             </label>
-                            <input type="radio" id="opt2" name="optradio">
+                            <input type="radio" id="opt2" name="optradio" ng-model="designJson.batDet.grade" value="2">
                             <label class="radio-inline" for="opt2">
                                 <span></span> 2
                             </label>
-                            <input type="radio" id="opt2p" name="optradio">
+                            <input type="radio" id="opt2p" name="optradio" ng-model="designJson.batDet.grade" value="2+">
                             <label class="radio-inline" for="opt2p">
                                 <span></span> 2+
                             </label>
@@ -129,7 +129,7 @@
                             <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor();">TEAM TEXT</button>
                         </div>-->
                         <form class="bat-form">
-                            <input type="text" maxlength="4" ng-model="customBat.text">
+                            <input type="text" maxlength="4" ng-model="designJson.batDet.text"  ng-change="textChange();">
                             <span>(Maximum  4 characters)</span>
                             <span class="block char">{{4 - customBat.text.length}} characters left</span>
                         </form>
@@ -158,7 +158,7 @@
                             </div>
 
                             <div class="edit-btn inline-block">
-                                <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                                <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginbats();">SAVE DESIGN &amp; EDIT LATER</button>
                             </div>
                             <div class="edit-btn inline-block">
                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('quantity',5)">NEXT</button>
@@ -235,7 +235,7 @@
                                 <span class="block">4.CCC logo colour will match colour of the trim.</span>
                             </div>
                             <div class="edit-btn inline-block">
-                                <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginCaps();">SAVE DESIGN &amp; EDIT LATER</button>
+                                <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginbats();">SAVE DESIGN &amp; EDIT LATER</button>
                             </div>
                             <div class="edit-btn inline-block">
                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('quantity',4)">NEXT</button>
@@ -244,18 +244,12 @@
                     </div>
                     <div class="choos quantity m20-l" ng-show="tab=='quantity'">
                         <div class="table-detail relative">
-                            <p class="capitalize">Select the quantity for your caps</p>
-                            <div class="option-shirt relative gloves" ng-repeat="cap in capsArr track by $index">
-                                <div class="sizes size inline-block mleft10">
-                                    <span class="uppercase pad-5 hand-side"></span>
-                                    <!--<select ng-model="pad.direction">
-                                        <option value="left">Left</option>
-                                        <option value="right">Right</option>
-                                    </select>-->
-                                </div>
+                            <p class="capitalize">Select the quantity for your Bats</p>
+                            <div class="option-shirt relative gloves" ng-repeat="bat in batsArr track by $index">
+                                
                                 <div class="sizes size inline-block mleft10">
                                     <span class="inline-block uppercase pad-5">quantity</span>
-                                    <input type="number" class="form-control inline-block" name="name" ng-change="addQuantity(cap.quantity)" ng-model="designJson.quantity[0].quantity"
+                                    <input type="number" class="form-control inline-block" name="name" ng-change="addQuantity(bat.quantity)" ng-model="designJson.quantity[0].quantity"
                                         placeholder="12" maxlength="3">
                                     <p class="error-td error-quantity f13" ng-if="totalQuan<12" style="padding:0px 0 !important;">Please enter valid quantity.The MOQ is 12</p>
                                 </div>
@@ -292,7 +286,7 @@
                                 <span class="pull-right uppercase totalAmount Raleway-Medium">Total: {{totalAmount}}</span>
                             </div>-->
                             <div class="edit-btn">
-                                <button class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="checkloginCaps();">save design</button>
+                                <button class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="checkloginbats();">save design</button>
                                 <button class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" ng-click="toOrderSummary()" ng-disabled="addQuantity()<12">next</button>
                                 <br>
                             </div>

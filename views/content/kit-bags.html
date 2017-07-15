@@ -85,7 +85,7 @@
                                     <h4>Choose Your Color</h4>
                                     <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
                                         <div class="colo-pallet text-center">
-                                            <div class="noti-img notihov" ng-style="{'background':'url({{col.img}})', 'background-size': 'cover'}" ng-click="switchTrimBase(col.name)">{{col.name}}</div>
+                                            <div class="noti-img notihov" ng-style="{'background':'url({{col.img}})', 'background-size': 'cover'}" ng-click="switchTrimBase(col.name)"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -297,18 +297,18 @@
                                     <div class="radio-options">
                                         <form action="" class="radio">
                                             <div class="form-group">
-                                                <input type="radio" id="jerseyradio1" ng-model="bags.font" value="arial" name="jerseyradio" />
+                                                <input type="radio" id="jerseyradio1" ng-model="designJson.quantity[0].font" value="arial" name="jerseyradio" />
                                                 <label for="jerseyradio1">
                                                     <span></span> Arial
                                                 </label>
                                             </div>
                                             <div class="form-group">
-                                                <input type="radio" id="jerseyradio2" ng-model="bags.font" value="times" name="jerseyradio" />
+                                                <input type="radio" id="jerseyradio2" ng-model="designJson.quantity[0].font" value="times" name="jerseyradio" />
                                                 <label for="jerseyradio2">
                                                     <span></span> Times roman</label>
                                             </div>
                                             <div class="form-group">
-                                                <input type="radio" id="jerseyradio3" ng-model="bags.font" value="helvetica" name="jerseyradio" />
+                                                <input type="radio" id="jerseyradio3" ng-model="designJson.quantity[0].font" value="helvetica" name="jerseyradio" />
                                                 <label for="jerseyradio3">
                                                     <span></span> Helvetica
                                                 </label>
@@ -320,7 +320,7 @@
                                             <h2>Choose Your Colour</h2>
                                             <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in dcolor track by $index">
                                                 <div class="colo-pallet text-center ">
-                                                    <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-class="{'activated': kitbagBack.color == col.colr, 'borergrey':col.name == 'white'}" ng-click="bags.color=col.colr"></div>
+                                                    <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-class="{'activated': kitbagBack.color == col.colr, 'borergrey':col.name == 'white'}" ng-click="designJson.quantity[0].color=col.colr"></div>
                                                 </div>
                                             </div>
 
@@ -353,7 +353,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr ng-repeat="bag in bagsArr track by $index">
+                                                <tr ng-repeat="bag in designJson.quantity track by $index">
                                                     <td>
                                                         <input type="text" name="name" ng-model="bag.name" placeholder="Name">
                                                     </td>
@@ -392,12 +392,12 @@
                                                 <span>size</span>
                                                 </div>
                                                 <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                                                <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="bags.attributes.name.fontSize" min="0" max="100" model-max="bags.attributes.name.fontSize" model-min="0" pin-handle="min">
+                                                <div  ng-if="(isEdit && isLoaded) || !isEdit" range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="designJson.quantity[0].attributes.name.fontSize" min="0" max="100" model-max="designJson.quantity[0].attributes.name.fontSize" model-min="0" pin-handle="min">
                                                 </div>
                                                 <!-- <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBack.attributes.fontSize" min="0" max="100" model-max="jerseyBack.attributes.fontSize" model-min="rslider.min" pin-handle="min"></div> -->
                                                 </div>
                                                 <div class="col-md-3 col-sm-3 col-xs-3">
-                                                <input class="inputtext" type="number" name="mySize" ng-model="bags.attributes.name.fontSize">
+                                                <input ng-if="(isEdit && isLoaded) || !isEdit" class="inputtext" type="number" name="mySize" ng-model="designJson.quantity[0].attributes.name.fontSize">
                                                 </div>
                                             </div>
                                             <div class="row pad5">
@@ -405,11 +405,11 @@
                                                 <span>spacing</span>
                                                 </div>
                                                 <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                                                <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="bags.attributes.name.letterSpacing" min="1" max="20" model-max="bags.attributes.name.letterSpacing" model-min="1" pin-handle="min">
+                                                <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="designJson.quantity[0].attributes.name.letterSpacing" min="1" max="20" model-max="designJson.quantity[0].attributes.name.letterSpacing" model-min="1" pin-handle="min">
                                                 </div>
                                                 </div>
                                                 <div class="col-md-3 col-sm-3 col-xs-3">
-                                                <input class="inputtext" type="number" name="myWordSpace" ng-model="bags.attributes.name.letterSpacing">
+                                                <input class="inputtext" type="number" name="myWordSpace" ng-model="designJson.quantity[0].attributes.name.letterSpacing">
                                                 </div>
                                             </div>
                                             </div>
@@ -422,12 +422,12 @@
                                                 <span>size</span>
                                                 </div>
                                                 <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                                                <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="bags.attributes.number.fontSize" min="0" max="100" model-max="bags.attributes.number.fontSize" model-min="0" pin-handle="min">
+                                                <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="designJson.quantity[0].attributes.number.fontSize" min="0" max="100" model-max="designJson.quantity[0].attributes.number.fontSize" model-min="0" pin-handle="min">
                                                 </div>
                                                 <!-- <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBack.attributes.fontSize" min="0" max="100" model-max="jerseyBack.attributes.fontSize" model-min="rslider.min" pin-handle="min"></div> -->
                                                 </div>
                                                 <div class="col-md-3 col-sm-3 col-xs-3">
-                                                <input class="inputtext" type="number" name="mySize" ng-model="bags.attributes.number.fontSize">
+                                                <input class="inputtext" type="number" name="mySize" ng-model="designJson.quantity[0].attributes.number.fontSize">
                                                 </div>
                                             </div>
                                             <div class="row pad5">
@@ -444,7 +444,7 @@
                                             </div>
                                             </div>
                                         </div>
-                                        <span class="pull-right tamount uppercase Raleway-Medium">Total Amount: {{totalAmount}}</span>
+                                        <span class="pull-right tamount uppercase Raleway-Medium">Total Amount: {{designJson | PriceFilter | currencySymbol}}</span>
                                         <span class="pull-right tquantity uppercase Raleway-Medium">Total Quantity: {{totalQuan}}</span>
                                         </div>
 

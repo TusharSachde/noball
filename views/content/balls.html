@@ -1,232 +1,167 @@
 <section>
     <div class="text-center">
-        <h3 class="high-light main-head">CUSTOMISE YOUR BALLS</h3>
+        <h3 class="high-light main-head">CUSTOMISE YOUR BALlS</h3>
     </div>
     <div class="container">
         <div class="row">
             <div class="step">
                 <ul>
-                    <li class="tab-item breadcrums {{classa}}" ng-click="tabchange('design',1); switchFrontBack(true);">
+                    <li class="tab-item breadcrums {{classa}}" ng-click="tabchange('design',1)">
                         <span class="bread-frnt"></span>
                         <p>1. DESIGN</p>
                         <span class="bread-back"></span>
                     </li>
-                    <li class="tab-item breadcrums {{classb}}" ng-click="tabchange('trim',2); switchFrontBack(false);">
+                    <li class="tab-item breadcrums {{classc}}" ng-click="tabchange('team',3)">
                         <span class="bread-frnt"></span>
-                        <p>2. INITIAS</p>
+                        <p>2. INITIALS</p>
                         <span class="bread-back"></span>
                     </li>
-                    <!-- <li class="tab-item breadcrums {{classc}}" ng-click="tabchange('team',3)">
-                        <span class="bread-frnt"></span>
-                        <p>3. TEAM LOGO</p>
-                        <span class="bread-back"></span>
-                    </li> -->
-                    <!-- <li class="tab-item breadcrums {{classd}}" ng-click="tabchange('logo',4)">
-                        <span class="bread-frnt"></span>
-                        <p>4. SPONSOR LOGOS</p>
-                        <span class="bread-back"></span>
-                    </li> -->
-                    <li class="tab-item breadcrums {{classe}}" ng-click="tabchange('quantity',5); switchFrontBack(true);">
+                    <li class="tab-item breadcrums {{classd}}" ng-click="tabchange('quantity',5)">
                         <span class="bread-frnt"></span>
                         <p>3. QUANTITY</p>
                         <span class="bread-back"></span>
                     </li>
+
                 </ul>
             </div>
         </div>
         <div class="product-detail">
             <div class="row">
                 <div class="col-md-5">
-                    <div class="text-center">
-                        <div class="gully-shirt">
-                            <img ng-src="{{ball.cloth}}" class="img-responsive" alt="">
-                            <div class="ball-text" ng-if="ball.back">
-                                <p class="uppercase ball-top-text" id="topText" ng-bind="ballText.top.text" ng-if="arcTTextShow"></p>
-                                <p class="uppercase ball-middle-text" id="middleText">{{ballText.middle.text}}</p>
-                                <p class="uppercase ball-bottom-text" id="bottomText" ng-bind="ballText.bottom.text" ng-if="arcBTextShow"></p>
-                            </div>
-                        </div>
-                        <div class="prev inline-block">
-                            <p class="uppercase" ng-click="switchFrontBack(false)"><img src="img/back.png" class="img-responsive" alt="">back</p>
-                        </div>
-                        <div class="next inline-block">
-                            <p class="uppercase" ng-click="switchFrontBack(true)"><img src="img/back.png" class="img-responsive" alt="">front</p>
-                        </div>
-                        <div class="feature-buttons">
-                            <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing">FORM + FUNCTION</button>
-                            <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing">DELIVERY</button>
-                            <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing">CARE</button>
-                        </div>
-                        <ul class="tshirt-features">
-                            <li> Miniroll style finger and thumb splits</li>
-                            <li>Lightweight high-density foam finger</li>
-                            <li>Split thumb and one-piece sidebar on lead hand</li>
-                            <li>Leather tabs on fingertips</li>
-                            <li>Toweled wristband with embossed velcro for perfect fits</li>
-                        </ul>
+                    
+                    <custom design="designJson" class="{{borderClass}}"></custom>
+                    <div class="feature-buttons">
+                        <button class="btn border-left btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 1}"
+                            ng-click="toggleTab(1)">FORM + FUNCTION</button>
+                        <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 2}"
+                            ng-click="toggleTab(2)">DELIVERY</button>
+                        <button class="btn btn-outline inline-block btn-dark  padding-btn letter-spacing" ng-class="{'active-btn': activeButton == 3}"
+                            ng-click="toggleTab(3)">CARE</button>
                     </div>
+                    <ul class="tshirt-features" ng-if="activeButton == 1">
+                        <!--<li>Light weight PU facing front</li>
+                        <li>3D flexi fitting knee construction with a high impact plastic shield for greater protection</li>
+                        <li>HDF & CANE - Our high density foam construction offers the ultimate protection from injury by instantly
+                            dissipating impacts</li>
+                        <li>Shin bolster forms perfectly around the lower leg providing immense comfort and protection</li>
+                        <li>Calf & ankle straps come with cushioned lining</li>
+                        <li>Low rebound foam panels and monolithic side wings for the contemporary look</li>-->
+                        <li>100% polyester</li>
+                    </ul>
+                    <ul class="tshirt-features" ng-if="activeButton == 2">
+                        <li>In-stock ballting caps are available for immediate shipment. Customisation takes 4 weeks for worldwide
+                            delivery from date of order.</li>
+                    </ul>
+                    <ul class="tshirt-features" ng-if="activeButton == 3" style="padding:0;">
+                        <li>To prolong the life and effectiveness of your ballting leg guards try to leave your balls in a shady
+                            area to dry with the straps open after a ballting session.</li>
+                        <li> Never in the sun and never in your bag because the sun will cause the padding and foam to dry out
+                            and harden and in your bag it will keep the padded area moist which leads to wear and odour.</li>
+                        <li> Also, When you first buy your balls, leave them in your bag with the straps firmly tightened as if
+                            you were wearing them.</li>
+                        <li> This will get the balls shaped to fit your leg better. Happy ballting!</li>
+                    </ul>
                 </div>
                 <div class="col-md-7">
                     <div class="det-name">
-                        <h4>{{ball.name}}</h4>
-                        <!--<p>The Custom Cricket company cricket cricket ball is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest .
+                        <h4 style="text-transform:capitalize;">{{designJson.design.name}}</h4>
+                        <!--<p>The Custom Cricket company cricket balls is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest
+                            .
                         </p>-->
-                        <h3><i class="fa fa-inr"></i>375</h3>
-                        <span><i>Minimum order to be placed for Balls is 4 boxes. 6 balls per box</i></span>
+                        <h3>{{designJson.design | currencyFilter}} </h3>
+                        <!--<span class="Raleway-Medium"><em>Minimum Order Quantity (MOQ) = 12 pairs of each design</em></span>-->
                     </div>
+                    <!--                    // design tab-->
                     <div class="choos m20-l" ng-show="tab=='design'">
                         <p>Choose Your Type Of Design</p>
                         <div class="row">
                             <div class="col-md-10">
-                                <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images track by $index">
-                                    <div class="cat-img" ng-click="changeBallName(img.title)">
-                                        <img ng-src="{{img.src}}" class="img-responsive">
-                                        <p class="text-center uppercase">{{img.title}}</p>
+                                <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in myArr track by $index">
+                                    <div class="cat-img" ng-class="{'active':myDesignID == $index }" ng-click="openDesign($index, 1,img);designTabJson(img.id)">
+                                        <img ng-src="{{img.img[0]}}" class="img-responsive">
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="edit-btn inline-block">
-                            <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
-                        </div>
-                        <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('trim', 2); switchFrontBack(false);">NEXT</button>
+                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('team', 3); openTab('b');">NEXT</button>
                         </div>
                         <div class="customize-design">
-                            <span>Learn How To Customise Your Design By </span>
-                            <a href="" class="text-bold">Clicking Here</a>
+                            <ul>
+                                <li>Something not right? <span><a href="" class="text-bold" ng-click="outplace();">Click Here</a></span>                                    to know more about customization tools.</li>
+                                <li>All our pricing is inclusive of taxes, shipping and customization (Balls, gloves & balls attract
+                                    a nominal one-time customization fees).</li>
+                            </ul>
                         </div>
                     </div>
-                    <!--                    //trim tab-->
-                    <!-- <div class="choos m20-l ">
-                        <div class="outline">
-                            <span>HIGHLIGHT </span>
-                            <p>Select The Trim Colour Of Your Choice</p>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h4>Select The Colour</h4>
-                                    <div class="col-md-2 col-xs-2 paddingl mr21" ng-repeat="col in color track by $index">
-                                        <div class="colo-pallet text-center ">
-                                            <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="edit-btn margintp">
-                                <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
-                            </div>
-                        </div> -->
-                    <!-- <div class="outline">
-                            <span>HIGHLIGHT 2</span>
-                            <p>Select The Trim Colour Of Your Choice</p>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h4>Select The Colour</h4>
-                                    <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
-                                        <div class="colo-pallet text-center ">
-                                            <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="edit-btn margintp">
-                                <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
-
-                            </div>
-                        </div> -->
-                    <!-- <div class="options">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">PALETTE</button>
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">COLLAR</button>
-                        </div> -->
-                    <!-- <div class="edit-btn inline-block">
-                            <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
-                        </div>
-                        <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
-                        </div>
-
-
-                    </div> -->
-                    <!--                    //trim tab-->
-                    <div class="choos m20-l" ng-show="tab=='trim'">
-                        <!-- ng-show="tab=='team'" -->
-                        <p>Enter Your Initials</p>
-                        <!--<div class="checkboxing">
-                            <input type="checkbox" class="form-control" id="later">
-                            <label for="later"><span></span>Send it Later</label>
-                        </div>
-                        <div class="logo-text">
-                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15">outer text</button>
-                            <span class="uppercase inline-block mright15">or</span>
-                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click = "showColorTab()">inner TEXT</button>
-                        </div>-->
+                    <div class="choos m20-l" ng-show="tab=='team'">
+                        <p>Enter Your Initials Below</p>
                         <div class="">
                             <button class="{{texta}} btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15 uppercase" ng-click="changeText('top');">Top</button>
                             <button class="{{textb}} btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15 uppercase" ng-click="changeText('middle');">Middle</button>
                             <button class="{{textc}} btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15 uppercase" ng-click="changeText('bottom');">Bottom</button>
                         </div>
                         <div class="range-slidings relative mt-20" ng-if="topmodel">
-                            <input type="text" class="block uppercase" ng-model="ballText.top.text" id="topInput" ng-change="changeTopText()">
+                            <input type="text" class="block uppercase" ng-model="designJson.text.Text.top.text" id="topInput" ng-change="changeTopText()">
                             <!--<button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15 uppercase" ng-click="changeTopText()">Click</button>-->
                         </div>
                         <div class="range-slidings relative mt-20" ng-if="middlemodel">
-                            <input type="text" class="block uppercase" ng-model="ballText.middle.text">
+                            <input type="text" class="block uppercase" ng-model="designJson.text.Text.middle.text">
                         </div>
                         <div class="range-slidings relative mt-20" ng-if="bottommodel">
-                            <input type="text" class="block uppercase" ng-model="ballText.bottom.text" ng-change="changeBottomText()">
+                            <input type="text" class="block uppercase" ng-model="designJson.text.Text.bottom.text" ng-change="changeBottomText()">
                         </div>
                         <div class="print-typ printing inline-box">
                             <p class="bold">Select The Printing Type</p>
                             <form action="" class="radio">
-                                <input type="radio" id="radio1" name="radio" value="foil" ng-model="ball.printType" />
+                                <input type="radio" id="radio1" name="radio" value="foil" ng-model="designJson.text.printType" />
                                 <label for="radio1">
-                      <span></span> Foil <a href="" class="link mleft10">VIEW EXAMPLES</a></label>
+                                     <span></span> Foil <a href="" class="link mleft10">VIEW EXAMPLES</a></label>
                                 <br>
-                                <input type="radio" id="radio2" name="radio" value="sublimated" ng-model="ball.printType" />
+                                <input type="radio" id="radio2" name="radio" value="Matte" ng-model="designJson.text.printType" />
                                 <label for="radio2">
-                      <span></span> Matte </label>
+                                 <span></span> Matte </label>
                             </form>
                         </div>
-                        <!--<div class="range ball-size inline-block">
-                            <div class="row">
-                                <div class="col-md-1 col-sm-1 col-xs-1">
-                                    <span>size</span>
-                                </div>
-                                <div class="col-md-6 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                                    <div range-slider on-handle-down="changeSize()" on-handle-up="resetSize()" min="0" max="100" model-max="sizemodel" model-min="0"></div>
-                                </div>
-                                <div class="col-md-2 col-sm-3 col-xs-3">
-                                    <input type="text" ng-model="sizemodel">
-                                </div>
+                        <!--
+                        <form class="ball-form">
+                            <input type="text" maxlength="4" ng-model="customball.text" ng-change="textChange();">
+                            <span>(Maximum  4 characters)</span>
+                            <span class="block char">{{4 - customball.text.length}} characters left</span>
+                        </form>-->
+                        <div class="print-typ printing">
+                            <!--<p>Select The Printing Type For Your Team Logo</p>
+                            <form action="" class="radio">
+                                <input type="radio" id="radio1" name="radio" />
+                                <label for="radio1">
+                                    <span></span> Embroidered <a href="" class="link mleft10">VIEW EXAMPLE</a></label>
+
+                                <br>
+                                <input type="radio" id="radio2" name="radio" />
+                                <label for="radio2">
+                                    <span></span> Sublimated
+                                    <a href="" class="link mleft22">VIEW EXAMPLE</a></label>
+                            </form>
+                            <div class="edit-btn">
+                                <button href="" class="btn btn-outline btn-dark padding-btn letter-spacing uppercase mright15">upload</button>
+                            </div>-->
+                            <div class="pbotom">
+                                <span class="block">Note:</span>
+                                <span class="block">1. The initials will be printed on both the edges.</span>
+                                <!--<span class="block">1.The printed CCC Logo will always be embroidered on your t-shirt</span>
+                                <span class="block">2.If you feel something is not great, our design team can fix it for you.</span>-->
+                                <!--<span><a href="" ng-click="outplace();">Click here</a> to find out how?</span>-->
                             </div>
-                            <div class="row">
-                                <div class="col-md-1 col-sm-1 col-xs-1">
-                                    <span>spacing</span>
-                                </div>
-                                <div class="col-md-6 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                                    <div range-slider on-handle-down="changeSpacing()" on-handle-up="resetSpacing()" ng-model="spacingmodel" min="0" max="20" model-max="spacingmodel" model-min="0"></div>
-                                </div>
-                                <div class="col-md-2 col-sm-3 col-xs-3">
-                                    <input type="text" ng-model="spacingmodel">
-                                </div>
-                            </div>
-                        </div>-->
-                        <div class="mt-20">
-                            <span><i>Note:</i></span>
-                            <span class="block"><i>1. The CCC initial will be printed on the backside of the ball.</i></span>
-                        </div>
-                        <div>
+
                             <div class="edit-btn inline-block">
-                                <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                                <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginballs();">SAVE DESIGN &amp; EDIT LATER</button>
                             </div>
                             <div class="edit-btn inline-block">
-                                <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('quantity', 5); switchFrontBack(true);">NEXT</button>
+                                <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('quantity',5)">NEXT</button>
                             </div>
                         </div>
+
+
                         <div class="modal fade custom" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -234,13 +169,16 @@
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
+
                                     </div>
                                     <div class="modal-body text-center">
                                         <div class="mod-img ">
+
                                             <div class="noti-imgs" ng-style="{'background-image':'url(img/custom/c4.jpg)'}"></div>
                                             <button href="" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing">SUBMIT</button>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -265,7 +203,7 @@
                                         </div>
                                         <div class="check">
                                             <input type="checkbox" class="form-control" id="login">
-                                            <label for="login"><span></span>Remove Image From Background</label>
+                                            <label for="login"><span></span>Remove Image Background</label>
                                         </div>
                                     </div>
                                 </div>
@@ -276,12 +214,12 @@
                             <form action="" class="radio">
                                 <input type="radio" id="radio1" name="radio" />
                                 <label for="radio1">
-                                    <span></span> Embroidered <a href="" class="link mleft10">VIEW EXAMPLE</a></label>
+                                    <span></span> Embroidered <a href="" class="link mleft10">VIEW EXAMPLES</a></label>
                                 <br>
                                 <input type="radio" id="radio2" name="radio" />
                                 <label for="radio2">
                                     <span></span> Sublimated
-                                    <a href="" class="link mleft22">VIEW EXAMPLE</a></label>
+                                    <a href="" class="link mleft20">VIEW EXAMPLES</a></label>
                             </form>
                             <div class="pbotom">
                                 <span class="block">Notes :</span>
@@ -289,254 +227,64 @@
                                 <span class="block">2. Embossing your logo will incur a one time cost of  `5000 or your
                                     logo can be screen printed at no additional cost.</span>
                                 <span class="block">3. If you feel something is not great, our design team can fix it for you.</span>
-                                <span class="block"><a href="" ng-click="outplace();">Click here</a> to find out how?</span>
+                                <span class="block"><a href="" class="clickinfo"  ng-click="outplace();">Click here</a> to find out how?</span>
                                 <span class="block">4.CCC logo colour will match colour of the trim.</span>
                             </div>
                             <div class="edit-btn inline-block">
-                                <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
+                                <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginballs();">SAVE DESIGN &amp; EDIT LATER</button>
                             </div>
                             <div class="edit-btn inline-block">
-                                <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="openColor()">NEXT</button>
+                                <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('quantity',4)">NEXT</button>
                             </div>
-                        </div>
-                    </div>
-                    <div class="choos m20-l nexter-level" ng-show="tab=='teamcolor'">
-                        <p>Upload Your Text</p>
-                        <!-- <div class="logo-text">
-                                <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="UploadTeamLogo()">TEAM LOGO</button>
-                                <span class="uppercase inline-block mright15">or</span>
-                                <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor();">TEAM TEXT</button>
-                            </div> -->
-                        <div class="radio-options">
-                            <h4>Select The Font For Your Ball Name</h4>
-                            <form action="" class="radio">
-                                <div class="form-group inline-block">
-                                    <input type="radio" id="textradio1" name="textradio" />
-                                    <label for="textradio1">
-                                            <span></span> Arial
-                                        </label>
-                                </div>
-                                <div class="form-group inline-block">
-                                    <input type="radio" id="textradio2" name="textradio" />
-                                    <label for="textradio2">
-                                            <span></span> Times roman</label>
-                                </div>
-                                <div class="form-group inline-block">
-                                    <input type="radio" id="textradio3" name="textradio" />
-                                    <label for="textradio3">
-                                            <span></span> Helvetica
-                                        </label>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- <div class="row">
-                                <div class="col-md-12">
-                                    <h4>Select The Colour</h4>
-                                    <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
-                                        <div class="colo-pallet text-center ">
-                                            <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div> -->
-                        <!-- <div class="notes">
-                                <span class="capitalize">please note that your tshirt name can be upto 10 characters</span>
-                            </div> -->
-                        <div class="edit-btn inline-block">
-                            <button href="" class="btn btn-outline btn-dark letter-spacing">OUTER TEXT</button>
-                        </div>
-                        <div class="edit-btn inline-block">
-                            <button href="" class="btn btn-outline btn-dark letter-spacing">INNER TEXT</button>
-                        </div>
-                        <div class="range-slidings relative">
-                            <h4 class="capitalize">enter your text below</h4>
-                            <input type="text" class="block" name="name1">
-                            <input type="text" class="block " name="name2">
-                            <a class="plus" href=""><i class="fa fa-2x fa-plus-circle" aria-hidden="true"></i></a>
-                            <input type="text" class="block" name="name3">
-                        </div>
-                        <div class="range">
-                            <div class="row">
-                                <div class="col-md-1 col-sm-1 col-xs-1">
-                                    <span>size</span>
-                                </div>
-                                <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                                    <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
-                                </div>
-                                <div class="col-md-3 col-sm-3 col-xs-3">
-                                    <input type="text" name="size">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-1 col-sm-1 col-xs-1">
-                                    <span>arc</span>
-                                </div>
-                                <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                                    <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
-                                </div>
-                                <div class="col-md-3 col-sm-3 col-xs-3">
-                                    <input type="text" name="size">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-1 col-sm-1 col-xs-1">
-                                    <span>rotation</span>
-                                </div>
-                                <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                                    <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
-                                </div>
-                                <div class="col-md-3 col-sm-3 col-xs-3">
-                                    <input type="text" name="size">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-1 col-sm-1 col-xs-1">
-                                    <span>spacing</span>
-                                </div>
-                                <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                                    <div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
-                                </div>
-                                <div class="col-md-3 col-sm-3 col-xs-3">
-                                    <input type="text" name="size">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="edit-btn inline-block">
-                            <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
-                        </div>
-                        <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
-                        </div>
-                    </div>
-                    <div class="choos m20-l" ng-show="tab=='logo'">
-                        <p>Upload Your Sponsor Logo (Optional)</p>
-                        <div class="sp-logo">
-                            <button href="" class="btn pad1 btn-outline btn-dark  block" data-toggle="modal" data-target="#myModal1">MAIN SPONSOR</button>
-                            <button href="" class="btn pad2 btn-outline btn-dark  block " data-toggle="modal" data-target="#myModal1">BACK SPONSOR 1</button>
-                            <button href="" class="btn pad2 btn-outline btn-dark  block " data-toggle="modal" data-target="#myModal1">BACK SPONSOR 2</button>
-                            <button href="" class="btn pad3 btn-outline btn-dark  block" data-toggle="modal" data-target="#myModal1">LEFT SLEEVE SPONSOR</button>
-                            <button href="" class="btn pad4 btn-outline btn-dark block" data-toggle="modal" data-target="#myModal1">RIGHT SLEEVE SPONSOR</button>
-                            <button href="" class="btn pad5 btn-outline btn-dark  block" data-toggle="modal" data-target="#myModal1">LEFT CHEST SPONSOR</button>
-                            <button href="" class="btn pad3 btn-outline btn-dark block" data-toggle="modal" data-target="#myModal1">RIGHT CHEST SPONSOR</button>
-                        </div>
-                        <div class="print-typ">
-                            <div class="pbotom">
-                                <span class="block">Notes :</span>
-                                <span class="block">1. The logo of your sponsors will be sublimated. </span>
-                                <span class="block">2. The logo on the sleeves are not cut in half. It’s just to provide realistic feel.</span>
-                                <span class="block">3. If you feel something is not great, our design team can fix it for you.</span>
-                                <span><a href="">Click here</a> to find out how?</span>
-                            </div>
-                        </div>
-                        <div class="edit-btn inline-block">
-                            <button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
-                        </div>
-                        <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="proceed()">NEXT</button>
-                        </div>
-                        <!-- ng-click="UploadTeamLogo1()" -->
-                    </div>
-                    <div class="choos m20-l nextest-level" ng-show="tab=='sponsorlogo'">
-                        <p>Upload Your Sponsor Logo (Optional)</p>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="up-img">
-                                    <div class="mod-img ">
-                                        <div class="noti-imgs" ng-style="{'background-image':'url(img/custom/c4.jpg)'}">
-                                        </div>
-                                        <div class="edit-btn">
-                                            <button href="" class="btn  btn-outline btn-dark">CHANGE</button>
-                                            <br>
-                                            <button href="" class="btn bits btn-outline btn-dark">REMOVE</button>
-                                        </div>
-                                        <div class="check">
-                                            <input type="checkbox" class="form-control" id="login">
-                                            <label for="login"><span></span>Remove Image From Background</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="up-img">
-                                    <div class="mod-img ">
-                                        <div class="noti-imgs" ng-style="{'background-image':'url(img/custom/c4.jpg)'}">
-                                        </div>
-                                        <div class="edit-btn">
-                                            <button href="" class="btn btn-outline btn-dark">CHANGE</button>
-                                            <br>
-                                            <button href="" class="btn btn-outline btn-dark">REMOVE</button>
-                                        </div>
-                                        <div class="check">
-                                            <input type="checkbox" class="form-control" id="login">
-                                            <label for="login"><span></span>Remove Image From Background</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sp-logo">
-                            <button href="" class="btn bit pad4 btn-outline btn-dark block" data-toggle="modal" data-target="#myModal1">RIGHT SLEEVE SPONSOR</button>
-                            <button href="" class="btn bit pad2 btn-outline btn-dark  block " data-toggle="modal" data-target="#myModal1">BACK SPONSOR 1</button>
-                            <button href="" class="btn pad2 btn-outline btn-dark  block " data-toggle="modal" data-target="#myModal1">BACK SPONSOR 2</button>
-                        </div>
-                        <div class="print-typ">
-                            <div class="pbotom">
-                                <span class="block">Notes :</span>
-                                <span class="block">1. The logo of your sponsors will be sublimated. </span>
-                                <span class="block">2. The logo on the sleeves are not cut in half. It’s just to provide realistic
-                    feel.</span>
-                                <span class="block">3. If you feel something is not great, our design team can fix it for you.</span>
-                                <span><a href="">Click here</a> to find out how?</span>
-                            </div>
-                        </div>
-                        <div class="eds">
-                            <div class="edit-btn inline-block">
-                                <button href="" class=" btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>
-                            </div>
-                        </div>
-                        <div class="edit-btn inline-block">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing">NEXT</button>
                         </div>
                     </div>
                     <div class="choos quantity m20-l" ng-show="tab=='quantity'">
                         <div class="table-detail relative">
-                            <p class="capitalize">Place Your Order</p>
-                            <div class="option-shirt grey-back relative gloves">
-                                <!-- <div class="sizes size inline-block">
-                            <span class="uppercase">L/R</span>
-                            <select>
-                              <option value="L">Left</option>
-                              <option value="R">Right</option>
-                          </select>
-                          </div> -->
-                                <div class="sizes size inline-block">
-                                    <span class="inline-block">Select Quantity</span>
-                                    <input type="number" class="form-control inline-block" name="name" ng-model="ballQuantity">
-                                    <span class="inline-block ">Boxes</span>
+                            <p class="capitalize">Select the quantity for your balls</p>
+                            <span><i>Minimum order to be placed for Balls is 4 boxes. 6 balls per box</i></span>
+                            <div class="option-shirt relative gloves" ng-repeat="ball in ballsArr track by $index">
+                                
+                                <div class="sizes size inline-block mleft10">
+                                    <span class="inline-block uppercase pad-5">quantity</span>
+                                    <input type="number" class="form-control inline-block" name="name" ng-change="addQuantity(cap.quantity)" ng-model="designJson.quantity[0].quantity"
+                                        placeholder="12" maxlength="3"> Boxes
+                                    <p class="error-td error-quantity f13" ng-if="totalQuan<4" style="padding:0px 0 !important;">Please enter valid quantity.The MOQ is 4</p>
                                 </div>
-                                <!-- <div class="sizes size inline-block">
-                              <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">preview</button>
-                          </div> -->
-                                <!-- <div class="sizes size inline-block">
-                            <span class="uppercase">sleeve</span>
-                          <select>
-                            <option value="XL">XL</option>
-                            <option value="20">20</option>
-                            <option value="30">30</option>
-                            <option value="40">40</option>
-                        </select></div> -->
                             </div>
-                            <!-- <a href="" class="bins"><img src="img/rubbishbin.png" class="img-responsive" alt=""></a>
-                          <div class="add-button">
-                            <p><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</p>
-                          </div>
-                          <div class="total-amount">
-                              <span class="pull-right uppercase">Total:20</span>
-                          </div> -->
+                            <!--//added-->
+                            <!--
+                            <div class="option-shirt relative gloves" ng-repeat="cap in capsArr track by $index">
+                                <div class="sizes size inline-block mleft10">
+                                    <span class="uppercase pad-5 hand-side">Righty</span>
+                                </div>
+                                <div class="sizes size inline-block">
+                                    <span class="inline-block uppercase pad-5">quantity</span>
+                                    <input type="number" class="form-control inline-block" name="name" ng-change="addQuantity(cap.quantity)" ng-model="designJson.quantity[1].quantity"
+                                        placeholder="12" maxlength="3">
+                                    <p class="error-td error-quantity f13 errors-pad" ng-if="totalQuan<12 && totalQuan!=0">Please enter valid quantity.The MOQ is 12</p>
+                                </div>
+                            </div>-->
+                            <!--<div class="add-button">
+                                <p class="pointer" ng-click="addballsValues(); addQuantity(pad.quantity);"><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</p>
+                            </div>-->
+                            <div class="total-amount clearfix">
+                                <!--<p class="more-price">One time customization fee for Glove is <i class="fa fa-inr"></i> 5000</p>-->
+                                <p class="more-price">A one-time customization fees of INR 5000/- or equivalent (in your currency) will be incurred
+                                    for your logo customization.</p>
+                                <span class="pull-right tamount totalAmount uppercase Raleway-Medium mar20" ng-if="totalQuan==0">Total Amount: {{designJson.totalAmount | currencySymbol}}</span>
+                                <span class="pull-right tamount totalAmount uppercase Raleway-Medium mar20" ng-if="totalQuan>0">Total Amount: {{designJson | PriceFilter | currencySymbol}}</span>
+                                <span class="pull-right tquantity totalAmount uppercase Raleway-Medium mar20">Total Quantity: {{totalQuan}}</span>
+                                <!--<span class="pull-right uppercase totalAmount Raleway-Medium">Total: {{totalAmount}}</span>-->
+                            </div>
+                            <!--<div class="total-amount">
+                                <p class="more-price">One time customization fee for balls is <i class="fa fa-inr"></i> 5000</p>
+                                <p class="more-price">A one-time customization fees of INR 5000/- or equivalent (in your currency) will be incurred
+                                    for your logo customization.</p>
+                                <span class="pull-right uppercase totalAmount Raleway-Medium">Total: {{totalAmount}}</span>
+                            </div>-->
                             <div class="edit-btn">
-                                <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>
-                                <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5">next</button>
+                                <button class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="checkloginballs();">save design</button>
+                                <button class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" ng-click="toOrderSummary()" ng-disabled="addQuantity()<4">next</button>
                                 <br>
                             </div>
                         </div>
@@ -552,263 +300,6 @@
                                  <button ng-click="showQuantiyTab()" class="btn btn-outline btn-dark mar15 mr10 padding-btn letter-spacing uppercase">yes,continue</button>
                                  <button href="" ng-click="showQuantyTab()" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase">no</button>
                              </div> -->
-                    </div>
-                    <div class="choos quantity m20-l nexterest-level" ng-show="tab=='quanty'">
-                        <div class="table-detail relative">
-                            <p class="capitalize">Select the size for your jersey</p>
-                            <div class="option-shirt relative">
-                                <div class="sizes size inline-block">
-                                    <span class="uppercase">size</span>
-                                    <select>
-        <option value="XL">XL</option>
-        <option value="20">20</option>
-        <option value="30">30</option>
-        <option value="40">40</option>
-    </select>
-                                </div>
-                                <div class="sizes size inline-block">
-                                    <span class="uppercase">sleeve</span>
-                                    <select>
-      <option value="XL">XL</option>
-      <option value="20">20</option>
-      <option value="30">30</option>
-      <option value="40">40</option>
-  </select></div>
-                                <div class="sizes size inline-block">
-                                    <span class="inline-block uppercase">quantity</span>
-                                    <input type="text" class="form-control inline-block" name="name" value="">
-                                </div>
-                            </div>
-                            <a href="" class="bins"><img src="img/rubbishbin.png" class="img-responsive" alt=""></a>
-                            <div class="add-button">
-                                <p><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</p>
-                            </div>
-                            <div class="total-amount">
-                                <span class="pull-right uppercase">Total:20</span>
-                            </div>
-                            <div class="edit-btn">
-                                <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>
-                                <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5">next</button>
-                                <br>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="choos quantity m20-l" ng-show="tab=='quantiy'">
-                        <div class="chart mar15">
-                            <p>view:
-                                <span data-toggle="modal" data-target="#myModal4">Size Chart</span>
-                            </p>
-                        </div>
-                        <div class="accordion">
-                            <uib-accordion close-others="oneAtATime">
-                                <uib-accordion-group is-open="status.open1">
-                                    <uib-accordion-heading>
-                                        <i class="pull-left fa " ng-class="{'fa fa-minus': status.open1, 'fa fa-plus': !status.open1}"></i>Select
-                                        The Font For Your Jersey Name
-                                    </uib-accordion-heading>
-                                    <div class="radio-options">
-                                        <form action="" class="radio">
-                                            <div class="form-group">
-                                                <input type="radio" id="jerseyradio1" name="jerseyradio" />
-                                                <label for="jerseyradio1">
-                                                    <span></span> Arial
-                                                </label>
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="radio" id="jerseyradio2" name="jerseyradio" />
-                                                <label for="jerseyradio2">
-                                                    <span></span> Times roman</label>
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="radio" id="jerseyradio3" name="jerseyradio" />
-                                                <label for="jerseyradio3">
-                                                    <span></span> Helvetica
-                                                </label>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <h2>Select The Colour</h2>
-                                            <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
-                                                <div class="colo-pallet text-center ">
-                                                    <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </uib-accordion-group>
-                        </div>
-                        <div class="pbotom">
-                            <span class="block">Note </span>
-                            <span class="block">1. Your t-shirt name can be up to 10 characters and t-shirt number can be selected from 0 to 999.</span>
-                            <span class="block">2. You can select sleeves from being short (S.S) or long (L.S).</span>
-                            <span class="block">3. (*) - this denotes the field is mandatory.</span>
-                        </div>
-                        <div class="accordion">
-                            <uib-accordion close-others="oneAtATime">
-                                <uib-accordion-group is-open="status.open1">
-                                    <uib-accordion-heading>
-                                        <i class="pull-left fa " ng-class="{'fa fa-minus': status.open1, 'fa fa-plus': !status.open1}"></i>Select
-                                        The Dimensions For Your Jersey
-                                    </uib-accordion-heading>
-                                    <div class="table-responsive">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th class="uppercase">sizeup <sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></th>
-                                                    <th class="uppercase">sleeve <sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></th>
-                                                    <th class="uppercase">qty <sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></th>
-                                                    <th class="uppercase">name</th>
-                                                    <th class="uppercase">number</th>
-                                                    <th></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr class="nothing">
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <select>
-                                                            <option value="XL">XL</option>
-                                                            <option value="20">20</option>
-                                                            <option value="30">30</option>
-                                                            <option value="40">40</option>
-                                                        </select>
-                                                    </td>
-                                                    <td>
-                                                        <select>
-                                                            <option value="L.S">L.S</option>
-                                                            <option value="30">30</option>
-                                                            <option value="40">40</option>
-                                                            <option value="40">40</option>
-                                                        </select>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" name="quantity" value="10">
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" name="name" value="MANAN">
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" name="number" value="07">
-                                                    </td>
-                                                    <td>
-                                                        <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">preview</button>
-                                                    </td>
-                                                </tr>
-                                                <tr class="nothing">
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <select>
-                                                            <option value="XL">M</option>
-                                                            <option value="20">20</option>
-                                                            <option value="30">30</option>
-                                                            <option value="40">40</option>
-                                                        </select>
-                                                    </td>
-                                                    <td>
-                                                        <select>
-                                                            <option value="L.S">S.S</option>
-                                                            <option value="30">30</option>
-                                                            <option value="40">40</option>
-                                                            <option value="40">40</option>
-                                                        </select>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" name="quantity" value="10">
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" name="name" value="HARSHIT">
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" name="number" value="09">
-                                                    </td>
-                                                    <td>
-                                                        <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">preview</button>
-                                                    </td>
-                                                </tr>
-                                                <tr class="nothing">
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="pad6"><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr class="nothing">
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="name">
-                                                        <span>size</span>
-                                                    </td>
-                                                    <td class="sliding">
-                                                        <div range-slider min="0" max="100" model-max="max" pin-handle="min">
-                                                        </div>
-                                                    </td>
-                                                    <td class="texting">
-                                                        <input type="text" name="size">
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="name">
-                                                        <span>arc</span>
-                                                    </td>
-                                                    <td class="sliding">
-                                                        <div range-slider min="0" max="100" model-max="max" pin-handle="min">
-                                                        </div>
-                                                    </td>
-                                                    <td class="texting">
-                                                        <input type="text" name="size">
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="name">
-                                                        <span>rotation</span>
-                                                    </td>
-                                                    <td class="sliding">
-                                                        <div range-slider min="0" max="100" model-max="max" pin-handle="min">
-                                                        </div>
-                                                    </td>
-                                                    <td class="texting">
-                                                        <input type="text" name="size">
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="name">
-                                                        <span>spacing</span>
-                                                    </td>
-                                                    <td class="sliding">
-                                                        <div range-slider min="0" max="100" model-max="max" pin-handle="min">
-                                                        </div>
-                                                    </td>
-                                                    <td class="texting">
-                                                        <input type="text" name="size">
-                                                    </td>
-                                                </tr>
-                                                <tr class="nothing">
-                                                    <td></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <a href="" class="bin"><img src="img/rubbishbin.png" class="img-responsive" alt=""></a>
-                                        <a href="" class="rubbish"><img src="img/rubbishbin.png" class="img-responsive" alt=""></a>
-                                        <span class="pull-right uppercase">Total</span>
-                                    </div>
-                                </uib-accordion-group>
-                        </div>
-                        <div class="edit-btn">
-                            <button href="" class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing">save design</button>
-                            <button href="" class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" data-toggle="modal" data-target="#myModal5">next</button>
-                            <br>
-                        </div>
                     </div>
                 </div>
             </div>
