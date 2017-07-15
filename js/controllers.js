@@ -12759,7 +12759,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             },
             teamLogo: {
                 image: null,
-                size: 50
+                size: 100
             },
             type: "kitbags",
             sendTeamLogoLater: false,

@@ -110,18 +110,18 @@
                 <table class="table table-ordersummary">
                   <thead>
                     <tr>
-                      <th class="uppercase">size</th>
+                      <th class="uppercase" ng-if="design.description.type=='odi'>size</th>
                       <th class="uppercase" ng-if="design.description.type=='odi'">sleeve</th>
                       <th class="uppercase">qty.</th>
-                      <th class="uppercase" ng-if="design.description.type=='odi'">name</th>
-                      <th class="uppercase" ng-if="design.description.type=='odi'">no.</th>
+                      <th class="uppercase" ng-if="design.description.type=='odi' || design.description.type=='kitbags' ">name</th>
+                      <th class="uppercase" ng-if="design.description.type=='odi' || design.description.type=='kitbags'">no.</th>
                     </tr>
                   </thead>
                 </table>
                 <table class="table table-ordersummary no-margin">
                   <tbody>
                     <tr ng-repeat="jersey in design.description.quantity track by $index" ng-if="jersey.quantity && jersey.quantity != 0">
-                      <td class="text-center size">
+                      <td class="text-center size" ng-if="design.description.type=='odi'">
                         <span class="capitalize">{{jersey.size}}</span>
 
                       </td>
@@ -131,10 +131,10 @@
                       <td class="text-center qty">
                         <span class="capitalize">{{jersey.quantity||0}}</span>
                       </td>
-                      <td class="text-center name" ng-if="design.description.type=='odi'">
+                      <td class="text-center name" ng-if="design.description.type=='odi' || design.description.type=='kitbags'">
                         <span class="capitalize">{{jersey.name}}</span>
                       </td>
-                      <td class="text-center no" ng-if="design.description.type=='odi'">
+                      <td class="text-center no" ng-if="design.description.type=='odi' || design.description.type=='kitbags'">
                         <span class="capitalize">{{jersey.no}}</span>
                       </td>
                     </tr>
