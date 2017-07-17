@@ -4,6 +4,7 @@ var firstapp = angular.module('firstapp', [
   'phonecatControllers',
   'templateservicemod',
   'navigationservice',
+  'angulartics',
   'customUI',
   'angular-google-analytics'
 ]);
