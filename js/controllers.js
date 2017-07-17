@@ -1513,6 +1513,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
         $scope.openLogin = function () {
+            //$(".modal-backdrop.in").show();
             $.jStorage.set("onCustom", true);
             $.jStorage.set("custom", $scope.trouserJson);
             $uibModal.open({
@@ -4749,6 +4750,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.openLogin = function () {
             $.jStorage.set("onCustom", true);
             $.jStorage.set("custom", $scope.designJson);
+            $.jStorage.set("isExpert", false);
             $uibModal.open({
                 animation: true,
                 templateUrl: 'views/modal/login.html',
@@ -4756,6 +4758,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 scope: $scope
             })
         };
+        $(".modal-close-btn img").click(function(){
+            console.log("close clicked");
+        });
+        /*$("body").click(function(){ 
+            console.log("Dismissing");
+            $myLoginmodalInstance.dismiss('cancel');
+        });
+         $(".modal.fade.ng-isolate-scope.in").click(function(){ 
+            console.log("Dismissing");
+            
+        });*/
         $scope.checkloginCaps = function () {
             // if (qty == 0) {
             //     $scope.qtyValidation = true;
@@ -18345,18 +18358,48 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $(window).scrollTop(0);
         });
         $scope.animationsEnabled = true;
-
+        var myLoginmodalInstance = {};
         $scope.openLogin = function () {
+            //$scope.showBackdrop();
             $.jStorage.set("isExpert", false);
+            $("#loginemailid").focus();
             $scope.changeTab(2);
-            $uibModal.open({
+            
+            myLoginmodalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'views/modal/login.html',
                 controller: 'headerctrl',
                 scope: $scope
             })
+            
         };
-
+        $timeout(function(){
+            // if($("body").hasClass('modal-open'))
+            // {
+            //     console.log("body modal class");
+            //     $scope.showBackdrop();
+            // }
+             $(".modal.fade.ng-isolate-scope.in").click(function(){
+                console.log("close clicked");
+                $(".modal-backdrop.in").remove();
+                $(".modal-open .modal").remove();
+                $("body").removeClass("modal-open");
+            });
+        },500);
+        $scope.showBackdrop = function() {
+            $(".modal-backdrop.in").show();
+        };
+       
+       
+        
+        $scope.closeModal = function() {
+            //     $uibModal.close();
+           console.log("close clicked");
+            $(".modal-backdrop.in").hide();
+            $(".modal-open .modal").hide();
+            $("body").removeClass("modal-open");
+            //$("body").addClass("modal-close");
+        };
         $scope.openSignup = function () {
             $.jStorage.set("isExpert", true);
             $scope.openLoginModal = $uibModal.open({
@@ -18374,10 +18417,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 scope: $scope
             })
         };
-        $scope.cancel = function () {
-            $uibModalInstance.dismiss('cancel');
-        };
-
+        // $scope.cancel = function () {
+        //     $uibModalInstance.dismiss('cancel');
+        // };
+        // $scope.close = function () {
+        //     $uibModalInstance.close('close');
+        // };
+       
         $scope.validatelogin = false;
         $scope.inputall = false;
 

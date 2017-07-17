@@ -42,6 +42,9 @@
                 </div>
               </p>
             </div>
+            <div ng-if="design.description.design.designType=='bat'">
+              <p  class="mgb20 inline-block">Grade: </p><span class="designer-name">{{design.description.batDet.grade}}</span>
+            </div>
             <div class="mgb20" ng-if="design.description.teamLogo && design.description.teamLogo.image">
               <p class="inline-block mgb20 wd88">Team Logo:</p>
               <div class="team-logo inline-block mgl-20 va-mid">
@@ -110,7 +113,7 @@
                 <table class="table table-ordersummary">
                   <thead>
                     <tr>
-                      <th class="uppercase" ng-if="design.description.type=='odi'>size</th>
+                      <th class="uppercase" ng-if="design.description.type=='odi'">size</th>
                       <th class="uppercase" ng-if="design.description.type=='odi'">sleeve</th>
                       <th class="uppercase">qty.</th>
                       <th class="uppercase" ng-if="design.description.type=='odi' || design.description.type=='kitbags' ">name</th>
