@@ -36,7 +36,8 @@
     "ngDialog": "~0.4.0",
     "angular-rangeslider": "~0.0.14",
     "angular-loading-bar": "^0.8.0",
-    "angular-google-analytics": "^1.1.9"
+    "angular-google-analytics": "^1.1.9",
+    "angulartics": "^1.4.0"
   },
   "resolutions": {
     "angular": "^1.2.9"
