@@ -5,6 +5,7 @@ var firstapp = angular.module('firstapp', [
   'templateservicemod',
   'navigationservice',
   'angulartics',
+  'angulartics.google.tagmanager',
   'customUI',
   'angular-google-analytics'
 ]);
