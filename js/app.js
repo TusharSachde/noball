@@ -5,9 +5,8 @@ var firstapp = angular.module('firstapp', [
   'templateservicemod',
   'navigationservice',
   'angulartics',
-  'angulartics.google.tagmanager',
+  'angular-google-analytics',
   'customUI',
-  'angular-google-analytics'
 ]);
 
 
@@ -17,10 +16,10 @@ $.get("https://ipinfo.io/json", function (response) {
 });
 
 
-  firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, cfpLoadingBarProvider, AnalyticsProvider) {
+firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, cfpLoadingBarProvider, $analyticsProvider) {
+  $analyticsProvider.firstPageview(true); /* Records pages that don't use $state or $route */
+  $analyticsProvider.withAutoBase(true); /* Records full path */
 
-    // for http request with session
-  AnalyticsProvider.setAccount('UA-76718395-1');
   $httpProvider.defaults.headers.common = {};
   $httpProvider.defaults.headers.post = {};
   $httpProvider.defaults.headers.put = {};
@@ -557,8 +556,7 @@ firstapp.filter('PriceFilter', function () {
         addAmount = 75;
       }
       return parseInt(input.totalAmount + addAmount);
-    }
-    else if (input.type == 'bat') {
+    } else if (input.type == 'bat') {
       if (myCountry == 'IN') {
         addAmount = 5000;
       } else if (myCountry == "AU") {
@@ -571,8 +569,7 @@ firstapp.filter('PriceFilter', function () {
         addAmount = 75;
       }
       return parseInt(input.totalAmount + addAmount);
-    }
-    else if (input.type == 'balls') {
+    } else if (input.type == 'balls') {
       if (myCountry == 'IN') {
         addAmount = 5000;
       } else if (myCountry == "AU") {
@@ -585,8 +582,7 @@ firstapp.filter('PriceFilter', function () {
         addAmount = 75;
       }
       return parseInt(input.totalAmount + addAmount);
-    }
-    else if (input.type == 'hats') {
+    } else if (input.type == 'hats') {
       if (myCountry == 'IN') {
         addAmount = 5000;
       } else if (myCountry == "AU") {
@@ -599,8 +595,7 @@ firstapp.filter('PriceFilter', function () {
         addAmount = 75;
       }
       return parseInt(input.totalAmount + addAmount);
-    }
-    else if (input.type == 'capsnhats') {
+    } else if (input.type == 'capsnhats') {
       if (myCountry == 'IN') {
         addAmount = 5000;
       } else if (myCountry == "AU") {
@@ -613,8 +608,7 @@ firstapp.filter('PriceFilter', function () {
         addAmount = 75;
       }
       return parseInt(input.totalAmount + addAmount);
-    }
-    else if (input.type == 'kitbags') {
+    } else if (input.type == 'kitbags') {
       if (myCountry == 'IN') {
         addAmount = 5000;
       } else if (myCountry == "AU") {
@@ -627,8 +621,7 @@ firstapp.filter('PriceFilter', function () {
         addAmount = 75;
       }
       return parseInt(input.totalAmount + addAmount);
-    }
-     else if (input.type == 'gloves') {
+    } else if (input.type == 'gloves') {
       if (myCountry == 'IN') {
         addAmount = 5000;
       } else if (myCountry == "AU") {
@@ -641,8 +634,7 @@ firstapp.filter('PriceFilter', function () {
         addAmount = 75;
       }
       return parseInt(input.totalAmount + addAmount);
-    }
-    else if (input.type == 'hoodie') {
+    } else if (input.type == 'hoodie') {
       if (myCountry == 'IN') {
         addAmount = 5000;
       } else if (myCountry == "AU") {
@@ -655,8 +647,7 @@ firstapp.filter('PriceFilter', function () {
         addAmount = 75;
       }
       return parseInt(input.totalAmount + addAmount);
-    }
-    else if (input.type == 'polo') {
+    } else if (input.type == 'polo') {
       if (myCountry == 'IN') {
         addAmount = 5000;
       } else if (myCountry == "AU") {
@@ -669,8 +660,7 @@ firstapp.filter('PriceFilter', function () {
         addAmount = 75;
       }
       return parseInt(input.totalAmount + addAmount);
-    }
-     else {
+    } else {
       if (myCountry == 'IN') {
         addAmount = 0;
       } else if (myCountry == "AU") {
