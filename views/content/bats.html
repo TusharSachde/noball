@@ -90,19 +90,19 @@
                           <form class="radio">
                             <input type="radio" id="opt1" name="optradio" ng-model="designJson.batDet.grade" value="1">
                             <label class="radio-inline" for="opt1">
-                                <span></span> 1
+                                <span></span> 1+
                             </label>
                             <input type="radio" id="opt1p" name="optradio" ng-model="designJson.batDet.grade" value="1+">
                             <label class="radio-inline" for="opt1p">
-                                <span></span> 1+
+                                <span></span> 1
                             </label>
                             <input type="radio" id="opt2" name="optradio" ng-model="designJson.batDet.grade" value="2">
                             <label class="radio-inline" for="opt2">
-                                <span></span> 2
+                                <span></span> 2+
                             </label>
                             <input type="radio" id="opt2p" name="optradio" ng-model="designJson.batDet.grade" value="2+">
                             <label class="radio-inline" for="opt2p">
-                                <span></span> 2+
+                                <span></span> 2
                             </label>
                           </form>
                         </div>
@@ -272,8 +272,8 @@
                             </div>-->
                             <div class="total-amount clearfix">
                                 <!--<p class="more-price">One time customization fee for Glove is <i class="fa fa-inr"></i> 5000</p>-->
-                                <p class="more-price">A one-time customization fees of INR 5000/- or equivalent (in your currency) will be incurred
-                                    for your logo customization.</p>
+                                <!--<p class="more-price">A one-time customization fees of INR 5000/- or equivalent (in your currency) will be incurred
+                                    for your logo customization.</p>-->
                                 <span class="pull-right tamount totalAmount uppercase Raleway-Medium mar20" ng-if="totalQuan==0">Total Amount: {{designJson.totalAmount | currencySymbol}}</span>
                                 <span class="pull-right tamount totalAmount uppercase Raleway-Medium mar20" ng-if="totalQuan>0">Total Amount: {{designJson | PriceFilter | currencySymbol}}</span>
                                 <span class="pull-right tquantity totalAmount uppercase Raleway-Medium mar20">Total Quantity: {{totalQuan}}</span>

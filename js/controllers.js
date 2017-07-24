@@ -10908,7 +10908,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
 
-    .controller('KitbagsCtrl', function ($scope, $filter, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
+     .controller('KitbagsCtrl', function ($scope, $filter, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("kitbags");
         $scope.menutitle = NavigationService.makeactive("Kitbags");
@@ -10984,6 +10984,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             type: "kitbags",
             sendTeamLogoLater: false
         };
+     
 
         $scope.colorObj = $scope.kitbagImages1;
         $scope.changeKitbagsImages = function (color) {
@@ -10996,6 +10997,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.designJson.color.base = getColor(color);
 
         }
+                // $scope.changeBigImages = function (img) {
+                //   $scope.designJson.design.base=img; 
+                // }
+
         $scope.openDesign1 = function (img) {
             console.log('1111111', img.img[0]);
             $scope.designJson.design.base = img.img[0];
@@ -12061,6 +12066,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             src: "img/skitbags/kitbag_ry.png",
             title: "skitbags"
         }];
+       
         //tab changes
 
         $scope.checkTeamLogo = function () {
@@ -12760,6 +12766,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             }
         }];*/
+
+         //snehal
+          $scope.images = [{
+            src: "img/kitbags/kitbag_ry.png",
+            title: "kitbags"
+        }, {
+            src: "img/skitbags/kitbag_ry.png",
+            title: "skitbags"
+        }];
+        
         $scope.designJson = {
             design: {
                 name:"Proton Club",
