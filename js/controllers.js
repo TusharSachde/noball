@@ -18171,12 +18171,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $uibModal.open({
                 animation: true,
                 templateUrl: "views/modal/customizepop.html",
-                controller: 'headerctrl'
-                // backdrop: 'static',
+                controller: 'headerctrl',
+                backdrop: 'static',
                 // keyboard: false
             });
         };
+        $scope.changeTab = function (tab) {
+            if (tab === 1) {
+                $scope.signupmodal = true;
+                $scope.loginmodal = false;
 
+            } else {
+                $scope.loginmodal = true;
+                $scope.signupmodal = false;
+            }
+        }
         $scope.logintab.tab = 1;
         $scope.hovermenu = false;
         $scope.validation = false;
@@ -18362,16 +18371,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             //     $scope.amount = data;
             // });
         }
-        $scope.changeTab = function (tab) {
-            if (tab === 1) {
-                $scope.signupmodal = true;
-                $scope.loginmodal = false;
 
-            } else {
-                $scope.loginmodal = true;
-                $scope.signupmodal = false;
-            }
-        }
         myfunction();
 
         $scope.hovered = function () {

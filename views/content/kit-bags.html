@@ -17,14 +17,6 @@
                             ng-click="toggleTab(3)">CARE</button>
                     </div>
                     <ul class="kitbag-features" ng-if="activeButton == 1">
-                        <!--<li>Light weight PU facing front</li>
-                        <li>3D flexi fitting knee construction with a high impact plastic shield for greater protection</li>
-                        <li>HDF & CANE - Our high density foam construction offers the ultimate protection from injury by instantly
-                            dissipating impacts</li>
-                        <li>Shin bolster forms perfectly around the lower leg providing immense comfort and protection</li>
-                        <li>Calf & ankle straps come with cushioned lining</li>
-                        <li>Low rebound foam panels and monolithic side wings for the contemporary look</li>-->
-                        <li>100% polyester</li>
                     </ul>
                     <ul class="kitbag-features" ng-if="activeButton == 2">
                         <li>In-stock batting Kitbag are available for immediate shipment. Customisation takes 4 weeks for worldwide
@@ -43,35 +35,18 @@
                 <div class="col-md-7">
                     <div class="det-name">
                         <h4 style="text-transform:capitalize;">{{designJson.design.name}}</h4>
-                        <!--<p>The Custom Cricket company cricket pads is made from wicking fabric that lifts moisture from your body. Tested and built to perform in warm and cold climate conditions. It features the Custom Cricket company on the right chest
-                            .
-                        </p>-->
                         <h3>{{designJson.design | currencyFilter}} </h3>
-                        <!--<span class="Raleway-Medium"><em>Minimum Order Quantity (MOQ) = 12 pairs of each design</em></span>-->
                     </div>
-                    <!--                    // design tab-->
                     <div class="choos m20-l" ng-show="tab=='design'">
                         <p>Choose Your Type Of Design</p>
                         <div class="row">
                             <div class="col-md-10">
-                                <!--<div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in myArr track by $index">
-                                    <div class="cat-img" ng-class="{'active':myDesignID == $index }" ng-click="openDesign($index, 1,img);designTabJson(img.id)">
-                                        <img ng-src="{{img.img[0]}}" class="img-responsive">
-                                    </div>
-                                </div>-->
                                 <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images track by $index">
-                                    <!--<div class="cat-img" ng-click="changeDesign(img.title)">
-                                        <img ng-src="{{img.src}}" class="img-responsive">
-                                    </div>-->
                                     <div class="cat-img" ng-click=" designJson.design.base = img.src ; kitbag.front = img.src">
                                         <img ng-src="{{img.src}}" class="img-responsive">
-
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="edit-btn inline-block">
-                            <!--<button href="" class="btn btn-outline btn-dark letter-spacing">SAVE DESIGN &amp; EDIT LATER</button>-->
                         </div>
                         <div class="edit-btn inline-block">
                             <button class="btn btn-outline btn-dark padding-btn letter-spacing" ng-click="tabchange('trim', 2); openTab('b');">NEXT</button>
@@ -98,53 +73,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div class="edit-btn margintp">
-                              <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
-                          </div> -->
+
                         </div>
-                        <!-- <div class="outline">
-                            <span>HIGHLIGHT </span>
-                            <p>Select The Trim Colour Of Your Choice</p>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h4>Select The Colour</h4>
-                                    <div class="col-md-2 col-xs-2 paddingl mr21" ng-repeat="col in color track by $index">
-                                        <div class="colo-pallet text-center ">
-                                            <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
-                                        </div>
-                                    </div>
 
-                                </div>
-                            </div>
-
-                            <div class="edit-btn margintp">
-                                <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
-                            </div>
-                        </div> -->
-                        <!-- <div class="outline">
-                            <span>HIGHLIGHT 2</span>
-                            <p>Select The Trim Colour Of Your Choice</p>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h4>Select The Colour</h4>
-                                    <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in color track by $index">
-                                        <div class="colo-pallet text-center ">
-                                            <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}"></div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="edit-btn margintp">
-                                <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">DONE</button>
-
-                            </div>
-                        </div> -->
-                        <!-- <div class="options">
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">PALETTE</button>
-                            <button class="btn btn-outline btn-dark padding-btn letter-spacing mright15">COLLAR</button>
-                        </div> -->
                         <div class="edit-btn inline-block">
                             <button href="" class="btn btn-outline btn-dark letter-spacing" ng-click="checkloginkitbag();">SAVE DESIGN &amp; EDIT LATER</button>
                         </div>
@@ -162,24 +93,12 @@
                     </div>
                     <!--  team logo-->
                     <div class="choos m20-l" ng-show="tab=='team'">
-                        <!--<p>Upload Your Logo</p>-->
                         <div class="checkboxing">
                             <input type="checkbox" class="form-control" id="later" ng-model="designJson.sendTeamLogoLater">
                             <label for="later"><span></span>SEND TEAM LOGO LATER</label>
                         </div>
-                        <!--<div class="logo-text">
-                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" >TEAM LOGO</button>
-                            <span class="uppercase inline-block mright15">or</span>
-                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="showColorTab()">TEAM TEXT</button>
-                        </div>-->
                         <div class="logo-text mt10 inline-box">
                             <button class="btn inline-block btn-dark padding-btn letter-spacing mright15">TEAM LOGO</button>
-                            <!--<div class="checkboxing">
-                                <input type="checkbox" class="form-control" id="later">
-                                <label for="later"><span></span>Send it Later</label>
-                            </div>-->
-                            <!--<span class="uppercase inline-block mright15">or</span>
-                                            <button class="btn btn-outline inline-block btn-dark padding-btn letter-spacing mright15" ng-click="openColor();">TEAM TEXT</button>-->
                         </div>
                         <div class="block-box">
                             <div class="teamlogo-box">
@@ -407,7 +326,6 @@
                                                                 min="0" max="100" model-max="designJson.quantity[0].attributes.name.fontSize"
                                                                 model-min="0" pin-handle="min">
                                                             </div>
-                                                            <!-- <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBack.attributes.fontSize" min="0" max="100" model-max="jerseyBack.attributes.fontSize" model-min="rslider.min" pin-handle="min"></div> -->
                                                         </div>
                                                         <div class="col-md-3 col-sm-3 col-xs-3">
                                                             <input ng-if="(isEdit && isLoaded) || !isEdit" class="inputtext" type="number" name="mySize" ng-model="designJson.quantity[0].attributes.name.fontSize">
@@ -441,7 +359,6 @@
                                                                 min="0" max="100" model-max="designJson.quantity[0].attributes.number.fontSize"
                                                                 model-min="0" pin-handle="min">
                                                             </div>
-                                                            <!-- <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBack.attributes.fontSize" min="0" max="100" model-max="jerseyBack.attributes.fontSize" model-min="rslider.min" pin-handle="min"></div> -->
                                                         </div>
                                                         <div class="col-md-3 col-sm-3 col-xs-3">
                                                             <input class="inputtext" type="number" name="mySize" ng-model="designJson.quantity[0].attributes.number.fontSize">
@@ -466,71 +383,16 @@
                                             <span class="pull-right tamount uppercase Raleway-Medium">Total Amount: {{designJson | PriceFilter | currencySymbol}}</span>
                                             <span class="pull-right tquantity uppercase Raleway-Medium">Total Quantity: {{totalQuan}}</span>
                                         </div>
-
-
                                     </uib-accordion-group>
                                 </uib-accordion>
                             </div>
                             <div class="table-detail relative">
-                                <!--
-                            <p class="capitalize">Select the quantity for your kitbag</p>
-                            <div class="option-shirt relative gloves" ng-repeat="kitbag in kitbagArr track by $index">
-                                <div class="sizes size inline-block mleft10">
-                                    <span class="uppercase pad-5 hand-side"></span>
-                                    
-                                </div>
-                                <div class="sizes size inline-block mleft10">
-                                    <span class="inline-block uppercase pad-5">quantity</span>
-                                    <input type="number" class="form-control inline-block" name="name" ng-change="addQuantity(kitbag.quantity)" ng-model="designJson.quantity[0].quantity"
-                                        placeholder="12" maxlength="3">
-                                    <p class="error-td error-quantity f13" ng-if="totalQuan<12" style="padding:0px 0 !important;">Please enter valid quantity.The MOQ is 12</p>
-                                </div>
-                            </div>-->
-                                <!--//added-->
-                                <!--
-                            <div class="option-shirt relative gloves" ng-repeat="cap in kitbagArr track by $index">
-                                <div class="sizes size inline-block mleft10">
-                                    <span class="uppercase pad-5 hand-side">Righty</span>
-                                </div>
-                                <div class="sizes size inline-block">
-                                    <span class="inline-block uppercase pad-5">quantity</span>
-                                    <input type="number" class="form-control inline-block" name="name" ng-change="addQuantity(cap.quantity)" ng-model="designJson.quantity[1].quantity"
-                                        placeholder="12" maxlength="3">
-                                    <p class="error-td error-quantity f13 errors-pad" ng-if="totalQuan<12 && totalQuan!=0">Please enter valid quantity.The MOQ is 12</p>
-                                </div>
-                            </div>-->
-                                <!--<div class="add-button">
-                                <p class="pointer" ng-click="addPadsValues(); addQuantity(pad.quantity);"><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</p>
-                            </div>-->
-                                <div class="total-amount clearfix">
-                                    <!--<p class="more-price">One time customization fee for Glove is <i class="fa fa-inr"></i> 5000</p>-->
-
-                                    <!--<span class="pull-right uppercase totalAmount Raleway-Medium">Total: {{totalAmount}}</span>-->
-                                </div>
-                                <!--<div class="total-amount">
-                                <p class="more-price">One time customization fee for Pads is <i class="fa fa-inr"></i> 5000</p>
-                                <p class="more-price">A one-time customization fees of INR 5000/- or equivalent (in your currency) will be incurred
-                                    for your logo customization.</p>
-                                <span class="pull-right uppercase totalAmount Raleway-Medium">Total: {{totalAmount}}</span>
-                            </div>-->
                                 <div class="edit-btn">
                                     <button class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="checkloginkitbag();">save design</button>
                                     <button class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" ng-click="toOrderSummary()" ng-disabled="designJson.totalQuan<12 || designJson.totalQuan=='' || designJson.totalQuan==0 ">next</button>
                                     <br>
                                 </div>
                             </div>
-                            <!-- <div class="eds inline-block">
-                                 <div class="edit-btn inline-block">
-                                     <button href="" class=" btn btn-outline btn-dark letter-spacing">SAVE DESIGN</button>
-                                 </div>
-                             </div>
-                             <div class="edit-btn inline-block">
-                                 <button class="btn btn-outline btn-dark padding-btn letter-spacing" >NEXT</button>
-                             </div> -->
-                            <!-- <div class="continue-buttons mr">
-                                 <button ng-click="showQuantiyTab()" class="btn btn-outline btn-dark mar15 mr10 padding-btn letter-spacing uppercase">yes,continue</button>
-                                 <button href="" ng-click="showQuantyTab()" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase">no</button>
-                             </div> -->
                         </div>
                     </div>
                 </div>

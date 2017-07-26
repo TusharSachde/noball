@@ -1,106 +1,4 @@
-<!-- <div class="tabs-login">
-  <div class="modal-header">
-    <h3 class="modal-title activered" ng-click="changeTab(1)">SIGN UP</h3>
-    <h3 class="modal-title activeyellow" ng-click="changeTab(2)">LOGIN</h3>
-  </div>
-  <div class="modal-body">
-    <div class="holder1" ng-show="signupmodal" >
-      <div class="signup">
-        <div class="login-form">
-          <div class="form-group">
-            <input type="text" class="form-control" ng-model="signup.firstname" placeholder="First Name *">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" ng-model="signup.lastname" placeholder="Last Name *">
-          </div>
-          <div class="form-group">
-            <input type="email" class="form-control" ng-model="signup.email" placeholder="Email *">
-          </div>
-          <div class="form-group">
-            <input type="password" class="form-control" ng-model="signup.password" placeholder="Password *">
-          </div>
-          <div class="form-group">
-            <input type="password" class="form-control" ng-model="signup.cpassword" placeholder="Confirm Password *">
-          </div>
-          <div class="form-group i-check">
-            <div class="checkbox">
-              <input type="checkbox" id="tc" ng-model="accept">
-              <label for="tc" class="agree">
-              <p style="color:red" ng-if="validation1!=''">{{validation1}}</p>
-                <span></span> I Accept the Terms and Conditions and Privacy Policy of the website
-            </div>
-          </div>
-        </div>
-        <div class="">
-          <button class="btn btn-outline btn-dark active" ng-click="doSignUp(accept)">SIGN UP</button>
-          <div class="mg">
-            <p class="or">OR SIGN UP VIA</p>
-          </div>
-          <div class="social-icon">
-            <button class="btn btn-facebook pad-btn">
-              <i class="fa fa-facebook social-f"></i>
-            </button>
-            <button class="btn btn-google pad-btn">
-              <i class="fa fa-google-plus"></i>
-            </button>
-            <button class="btn btn-twitter pad-btn">
-              <i class="fa fa-twitter"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="holder1" ng-show="loginmodal">
-      <div class="login">
-        <div class="login-form">
-          <div class="form-group">
-            <input type="email" class="form-control" ng-model="login.email" placeholder="Email *">
-          </div>
-          <div class="form-group">
-            <input type="password" class="form-control" ng-model="login.password" placeholder="Password *">
-          </div>
-          <div class="form-group i-check">
-            <div class="checkbox">
-              <input type="checkbox" id="tc">
-              <label for="tc" class="agree">
-                <p style="color:red" ng-if="validation">Enter all Fields</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-
-          <div class="col-xs-12">
-            <div class="class-forget">
-              <p><a href="#/forgot">Forgot Your Password?</a></p>
-            </div>
-          </div>
-          <div class="col-xs-12">
-            <button class="btn btn-outline btn-dark active" ng-click="doLogin()">LOGIN</button>
-          </div>
-        </div>
-        <div class="signupor">
-          <p class="or">OR SIGN IN VIA</p>
-          <div class="social-icon">
-            <button class="btn btn-facebook pad-btn">
-              <i class="fa fa-facebook social-f"></i>
-            </button>
-            <button class="btn btn-google pad-btn">
-              <i class="fa fa-google-plus"></i>
-            </button>
-            <button class="btn btn-twitter pad-btn">
-              <i class="fa fa-twitter"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>-->
-
 <div class="login-tab">
-    <div class="modal-close-btn hidden" ng-click="closeModal();">
-        <img src="img/x.png" >
-    </div>
     <uib-tabset>
         <uib-tab heading="Login">
             <div class="login-form">
@@ -131,9 +29,6 @@
                             <div class="ab text-center" ng-show="validatelogin">
                                 Invalid username or password
                             </div>
-                            <!-- <div class="ab text-center" ng-show="inputall">
-                Please input all info
-              </div> -->
                             <div class="text-center ">
                                 <span class="forgot text-uppercase" ng-click="openForgot();">Forgot Your Password ?</span>
                             </div>
@@ -154,8 +49,8 @@
                       <i class="fa fa-google-plus"></i>
                     </button>
                     <button class="btn btn-twitter pad-btn" ng-click="twitterlogin()">
-            <i class="fa fa-twitter"></i>
-          </button>
+                        <i class="fa fa-twitter"></i>
+                    </button>
                 </div>
             </div>
         </uib-tab>
@@ -207,8 +102,14 @@
                                 <div class="checkbox">
                                     <input type="checkbox" ng-model="accept" ng-change="acceptIt(accept)" class="text-uppercase" id="accept">
                                     <label for="accept" class="text-light text-uppercase">
-                    <span></span> I Accept The <a href="" ui-sref="termsconditions" target="_blank" style="color: #fff; text-decoration: underline;">Terms And Conditions</a> And <a href="" ui-sref="privacypolicy" target="_blank" style="color: #fff; text-decoration: underline;">Privacy Policy</a> Of The Website.
-                  </label>
+                                    <span></span> I Accept The 
+                                    <a href="" ui-sref="termsconditions" target="_blank" style="color: #fff; text-decoration: underline;">
+                                        Terms And Conditions</a> 
+                                        And 
+                                        <a href="" ui-sref="privacypolicy" target="_blank" style="color: #fff; text-decoration: underline;">
+                                            Privacy Policy</a> 
+                                            Of The Website.
+                                    </label>
                                 </div>
                                 <div class="ab" ng-show="acceptValidate">
                                     Please accept the terms and conditions to proceed.
@@ -222,7 +123,6 @@
                             </div>
                         </div>
                     </div>
-                    <!--</div>-->
                 </form>
                 <div class="text-center text-uppercase">
                     <p>or sign up via</p>
