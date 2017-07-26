@@ -12,6 +12,7 @@
               var design = $scope.design;
               var obj = {};
               $scope.backgroundImages = function () {
+
                   if ($scope.isBack) {
                       obj = _.compact(_.map(design.design, function (n, key) {
                           if (key != "name" && key != "designName" && key != "designType" && !_.endsWith(n, '/.png')) {
@@ -21,10 +22,12 @@
                       }));
                   } else {
                       obj = _.compact(_.map(design.design, function (n, key) {
+
                           if (key != "name" && key != "designName" && key != "designType" && !_.endsWith(n, '/.png')) {
                               return n;
                           }
                       }));
+
                   }
 
                   return obj;
@@ -96,13 +99,13 @@
                       },
                       "Grubber (SUB)": {
                           rightChestLogo: {
-                                width: 40,
+                              width: 40,
                               height: 40,
                               top: 123,
                               left: 165
                           },
                           teamLogo: {
-                                width: 40,
+                              width: 40,
                               height: 40,
                               top: 123,
                               right: 165,
@@ -111,7 +114,7 @@
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                               top: 155,
+                              top: 155,
                               left: 153,
 
                           },
@@ -120,7 +123,7 @@
                               height: 30,
                               top: 130,
                               right: 70,
-                            //   transform: 'rotate(10deg)'
+                              //   transform: 'rotate(10deg)'
                           },
                           leftSleeveLogoBack: {
                               onlyOnBack: true,
@@ -134,7 +137,7 @@
                               height: 30,
                               top: 140,
                               left: 70,
-                            transform: 'rotate (10deg)'
+                              transform: 'rotate (10deg)'
                           },
                           rightSleeveLogoBack: {
                               onlyOnBack: true,
@@ -154,13 +157,13 @@
                       },
                       "Plumb (SUB)": {
                           rightChestLogo: {
-                               width: 40,
+                              width: 40,
                               height: 40,
                               top: 123,
                               left: 165
                           },
                           teamLogo: {
-                               width: 40,
+                              width: 40,
                               height: 40,
                               top: 123,
                               right: 165,
@@ -178,7 +181,7 @@
                               height: 30,
                               top: 130,
                               right: 70,
-                            //   transform: 'rotate(10deg)'
+                              //   transform: 'rotate(10deg)'
                           },
                           leftSleeveLogoBack: {
                               onlyOnBack: true,
@@ -186,67 +189,7 @@
                               height: 30,
                               top: 130,
                               left: 65,
-                            
-                          },
-                          rightSleeveLogo: {
-                              width: 30,
-                              height: 30,
-                              top: 130,
-                              left: 70,
-                             transform: 'rotate(10deg)'
-                          },
-                          rightSleeveLogoBack: {
-                              onlyOnBack: true,
-                              width: 30,
-                              height: 30,
-                              top: 130,
-                              right: 65,
-                             
-                          },
-                          backSponsorLogo: {
-                              onlyOnBack: true,
-                              width: 161,
-                              height: 80,
-                                top: 60,
-                              left: 150
-                          },
-                          isColar: true
-                      },
-                      "Floater (SUB)": {
-                          rightChestLogo: {
-                               width: 40,
-                              height: 40,
-                              top: 123,
-                              left: 165
-                          },
-                          teamLogo: {
-                               width: 40,
-                              height: 40,
-                              top: 123,
-                              right: 165,
-                              "z+'-'+index": 9
-                          },
-                          mainSponsorLogo: {
-                              width: 161,
-                              height: 120,
-                            top: 155,
-                              left: 153,
 
-                          },
-                          leftSleeveLogo: {
-                              width: 30,
-                              height: 30,
-                              top: 130,
-                              right: 70,
-                            //   transform: 'rotate(10deg)'
-                          },
-                          leftSleeveLogoBack: {
-                              onlyOnBack: true,
-                              width: 30,
-                              height: 30,
-                              top: 130,
-                              left: 65,
-                            
                           },
                           rightSleeveLogo: {
                               width: 30,
@@ -261,13 +204,73 @@
                               height: 30,
                               top: 130,
                               right: 65,
-                             
+
                           },
                           backSponsorLogo: {
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                                  top: 60,
+                              top: 60,
+                              left: 150
+                          },
+                          isColar: true
+                      },
+                      "Floater (SUB)": {
+                          rightChestLogo: {
+                              width: 40,
+                              height: 40,
+                              top: 123,
+                              left: 165
+                          },
+                          teamLogo: {
+                              width: 40,
+                              height: 40,
+                              top: 123,
+                              right: 165,
+                              "z+'-'+index": 9
+                          },
+                          mainSponsorLogo: {
+                              width: 161,
+                              height: 120,
+                              top: 155,
+                              left: 153,
+
+                          },
+                          leftSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 130,
+                              right: 70,
+                              //   transform: 'rotate(10deg)'
+                          },
+                          leftSleeveLogoBack: {
+                              onlyOnBack: true,
+                              width: 30,
+                              height: 30,
+                              top: 130,
+                              left: 65,
+
+                          },
+                          rightSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 130,
+                              left: 70,
+                              transform: 'rotate(10deg)'
+                          },
+                          rightSleeveLogoBack: {
+                              onlyOnBack: true,
+                              width: 30,
+                              height: 30,
+                              top: 130,
+                              right: 65,
+
+                          },
+                          backSponsorLogo: {
+                              onlyOnBack: true,
+                              width: 161,
+                              height: 80,
+                              top: 60,
                               left: 150
                           },
                           isColar: true
@@ -289,7 +292,7 @@
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                             top: 155,
+                              top: 155,
                               left: 153
                           },
                           leftSleeveLogo: {
@@ -297,7 +300,7 @@
                               height: 30,
                               top: 130,
                               right: 70,
-                            //   transform: 'rotate(10deg)'
+                              //   transform: 'rotate(10deg)'
                           },
                           leftSleeveLogoBack: {
                               onlyOnBack: true,
@@ -305,14 +308,14 @@
                               height: 30,
                               top: 130,
                               left: 65,
-                            
+
                           },
                           rightSleeveLogo: {
                               width: 30,
                               height: 30,
                               top: 130,
                               left: 70,
-                               transform: 'rotate(10deg)'
+                              transform: 'rotate(10deg)'
                           },
                           rightSleeveLogoBack: {
                               onlyOnBack: true,
@@ -320,13 +323,13 @@
                               height: 30,
                               top: 130,
                               right: 65,
-                            
+
                           },
                           backSponsorLogo: {
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                                top: 60,
+                              top: 60,
                               left: 150,
 
                           },
@@ -334,7 +337,7 @@
                       },
                       "Seam (C&S)": {
                           rightChestLogo: {
-                               width: 40,
+                              width: 40,
                               height: 40,
                               top: 123,
                               left: 165
@@ -358,7 +361,7 @@
                               height: 30,
                               top: 130,
                               right: 70,
-                            //   transform: 'rotate(10deg)'
+                              //   transform: 'rotate(10deg)'
                           },
                           leftSleeveLogoBack: {
                               onlyOnBack: true,
@@ -366,127 +369,7 @@
                               height: 30,
                               top: 130,
                               left: 65,
-                            
-                          },
-                          rightSleeveLogo: {
-                              width: 30,
-                              height: 30,
-                              top: 130,
-                              left: 70,
-                               transform: 'rotate(10deg)'
-                          },
-                          rightSleeveLogoBack: {
-                              onlyOnBack: true,
-                              width: 30,
-                              height: 30,
-                              top: 130,
-                              right: 65,
-                            
-                          },
-                          backSponsorLogo: {
-                              onlyOnBack: true,
-                              width: 161,
-                              height: 80,
-                                top: 60,
-                              left: 150
-                          },
-                          isColar: false
-                      },
-                      "Dipper (C&S)": {
-                          rightChestLogo: {
-                                width: 40,
-                              height: 40,
-                              top: 123,
-                              left: 165
-                          },
-                          teamLogo: {
-                               width: 40,
-                              height: 40,
-                              top: 123,
-                              right: 165,
-                              "z+'-'+index": 9
-                          },
-                          mainSponsorLogo: {
-                              width: 161,
-                              height: 120,
-                               top: 155,
-                              left: 153,
 
-                          },
-                          leftSleeveLogo: {
-                              width: 30,
-                              height: 30,
-                              top: 130,
-                              right: 70,
-                            //   transform: 'rotate(10deg)'
-                          },
-                          leftSleeveLogoBack: {
-                              onlyOnBack: true,
-                              width: 30,
-                              height: 30,
-                              top: 130,
-                              left: 65,
-                             
-                          },
-                          rightSleeveLogo: {
-                              width: 30,
-                              height: 30,
-                              top: 130,
-                              left: 70,
-                               transform: 'rotate(10deg)'
-                          },
-                          rightSleeveLogoBack: {
-                              onlyOnBack: true,
-                              width: 30,
-                              height: 30,
-                              top: 130,
-                              right: 65,
-                             
-                          },
-                          backSponsorLogo: {
-                              onlyOnBack: true,
-                              width: 161,
-                              height: 80,
-                               top: 60,
-                              left: 150
-                          },
-                          isColar: false
-                      },
-                      "Flipper (C&S)": {
-                          rightChestLogo: {
-                               width: 40,
-                              height: 40,
-                              top: 123,
-                              left: 165
-                          },
-                          teamLogo: {
-                               width: 40,
-                              height: 40,
-                              top: 123,
-                              right: 165,
-                              "z+'-'+index": 9
-                          },
-                          mainSponsorLogo: {
-                              width: 161,
-                              height: 120,
-                              top: 155,
-                              left: 153,
-
-                          },
-                          leftSleeveLogo: {
-                              width: 30,
-                              height: 30,
-                              top: 130,
-                              right: 70,
-                            //   transform: 'rotate(10deg)'
-                          },
-                          leftSleeveLogoBack: {
-                              onlyOnBack: true,
-                              width: 30,
-                              height: 30,
-                              top: 130,
-                              left: 65,
-                            
                           },
                           rightSleeveLogo: {
                               width: 30,
@@ -501,26 +384,26 @@
                               height: 30,
                               top: 130,
                               right: 65,
-                             
+
                           },
                           backSponsorLogo: {
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                                 top: 60,
+                              top: 60,
                               left: 150
                           },
                           isColar: false
                       },
-                      "Drift (C&S)": {
+                      "Dipper (C&S)": {
                           rightChestLogo: {
-                               width: 40,
+                              width: 40,
                               height: 40,
                               top: 123,
                               left: 165
                           },
                           teamLogo: {
-                               width: 40,
+                              width: 40,
                               height: 40,
                               top: 123,
                               right: 165,
@@ -538,7 +421,7 @@
                               height: 30,
                               top: 130,
                               right: 70,
-                            //   transform: 'rotate(10deg)'
+                              //   transform: 'rotate(10deg)'
                           },
                           leftSleeveLogoBack: {
                               onlyOnBack: true,
@@ -546,14 +429,14 @@
                               height: 30,
                               top: 130,
                               left: 65,
-                             
+
                           },
                           rightSleeveLogo: {
                               width: 30,
                               height: 30,
                               top: 130,
                               left: 70,
-                               transform: 'rotate(10deg)'
+                              transform: 'rotate(10deg)'
                           },
                           rightSleeveLogoBack: {
                               onlyOnBack: true,
@@ -561,26 +444,146 @@
                               height: 30,
                               top: 130,
                               right: 65,
-                             
+
                           },
                           backSponsorLogo: {
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                                  top: 60,
+                              top: 60,
+                              left: 150
+                          },
+                          isColar: false
+                      },
+                      "Flipper (C&S)": {
+                          rightChestLogo: {
+                              width: 40,
+                              height: 40,
+                              top: 123,
+                              left: 165
+                          },
+                          teamLogo: {
+                              width: 40,
+                              height: 40,
+                              top: 123,
+                              right: 165,
+                              "z+'-'+index": 9
+                          },
+                          mainSponsorLogo: {
+                              width: 161,
+                              height: 120,
+                              top: 155,
+                              left: 153,
+
+                          },
+                          leftSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 130,
+                              right: 70,
+                              //   transform: 'rotate(10deg)'
+                          },
+                          leftSleeveLogoBack: {
+                              onlyOnBack: true,
+                              width: 30,
+                              height: 30,
+                              top: 130,
+                              left: 65,
+
+                          },
+                          rightSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 130,
+                              left: 70,
+                              transform: 'rotate(10deg)'
+                          },
+                          rightSleeveLogoBack: {
+                              onlyOnBack: true,
+                              width: 30,
+                              height: 30,
+                              top: 130,
+                              right: 65,
+
+                          },
+                          backSponsorLogo: {
+                              onlyOnBack: true,
+                              width: 161,
+                              height: 80,
+                              top: 60,
+                              left: 150
+                          },
+                          isColar: false
+                      },
+                      "Drift (C&S)": {
+                          rightChestLogo: {
+                              width: 40,
+                              height: 40,
+                              top: 123,
+                              left: 165
+                          },
+                          teamLogo: {
+                              width: 40,
+                              height: 40,
+                              top: 123,
+                              right: 165,
+                              "z+'-'+index": 9
+                          },
+                          mainSponsorLogo: {
+                              width: 161,
+                              height: 120,
+                              top: 155,
+                              left: 153,
+
+                          },
+                          leftSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 130,
+                              right: 70,
+                              //   transform: 'rotate(10deg)'
+                          },
+                          leftSleeveLogoBack: {
+                              onlyOnBack: true,
+                              width: 30,
+                              height: 30,
+                              top: 130,
+                              left: 65,
+
+                          },
+                          rightSleeveLogo: {
+                              width: 30,
+                              height: 30,
+                              top: 130,
+                              left: 70,
+                              transform: 'rotate(10deg)'
+                          },
+                          rightSleeveLogoBack: {
+                              onlyOnBack: true,
+                              width: 30,
+                              height: 30,
+                              top: 130,
+                              right: 65,
+
+                          },
+                          backSponsorLogo: {
+                              onlyOnBack: true,
+                              width: 161,
+                              height: 80,
+                              top: 60,
                               left: 150
                           },
                           isColar: false
                       },
                       "First Slip": {
                           rightChestLogo: {
-                               width: 40,
+                              width: 40,
                               height: 40,
                               top: 123,
                               left: 165
                           },
                           teamLogo: {
-                               width: 40,
+                              width: 40,
                               height: 40,
                               top: 123,
                               right: 165,
@@ -589,7 +592,7 @@
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                          top: 155,
+                              top: 155,
                               left: 153,
 
                           },
@@ -598,7 +601,7 @@
                               height: 30,
                               top: 130,
                               right: 70,
-                            //   transform: 'rotate(10deg)'
+                              //   transform: 'rotate(10deg)'
                           },
                           leftSleeveLogoBack: {
                               onlyOnBack: true,
@@ -606,14 +609,14 @@
                               height: 30,
                               top: 130,
                               left: 65,
-                              
+
                           },
                           rightSleeveLogo: {
                               width: 30,
                               height: 30,
                               top: 130,
                               left: 70,
-                               transform: 'rotate(10deg)'
+                              transform: 'rotate(10deg)'
                           },
                           rightSleeveLogoBack: {
                               onlyOnBack: true,
@@ -621,27 +624,27 @@
                               height: 30,
                               top: 130,
                               right: 65
-                             
+
                           },
                           backSponsorLogo: {
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                                  top: 60,
+                              top: 60,
 
                               left: 150
                           },
                           isColar: true
                       },
-     "Point": {
+                      "Point": {
                           rightChestLogo: {
-                               width: 40,
+                              width: 40,
                               height: 40,
                               top: 123,
                               left: 165
                           },
                           teamLogo: {
-                               width: 40,
+                              width: 40,
                               height: 40,
                               top: 123,
                               right: 165,
@@ -650,7 +653,7 @@
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                          top: 155,
+                              top: 155,
                               left: 153,
 
                           },
@@ -659,7 +662,7 @@
                               height: 30,
                               top: 130,
                               right: 70,
-                            //   transform: 'rotate(10deg)'
+                              //   transform: 'rotate(10deg)'
                           },
                           leftSleeveLogoBack: {
                               onlyOnBack: true,
@@ -667,14 +670,14 @@
                               height: 30,
                               top: 130,
                               left: 65,
-                              
+
                           },
                           rightSleeveLogo: {
                               width: 30,
                               height: 30,
                               top: 130,
                               left: 70,
-                               transform: 'rotate(10deg)'
+                              transform: 'rotate(10deg)'
                           },
                           rightSleeveLogoBack: {
                               onlyOnBack: true,
@@ -682,26 +685,26 @@
                               height: 30,
                               top: 130,
                               right: 65
-                             
+
                           },
                           backSponsorLogo: {
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                                 top: 60,
+                              top: 60,
                               left: 150
                           },
                           isColar: true
                       },
-                "Cover": {
+                      "Cover": {
                           rightChestLogo: {
-                               width: 40,
+                              width: 40,
                               height: 40,
                               top: 123,
                               left: 165
                           },
                           teamLogo: {
-                               width: 40,
+                              width: 40,
                               height: 40,
                               top: 123,
                               right: 165,
@@ -710,7 +713,7 @@
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                          top: 155,
+                              top: 155,
                               left: 153,
 
                           },
@@ -719,7 +722,7 @@
                               height: 30,
                               top: 130,
                               right: 70,
-                            //   transform: 'rotate(10deg)'
+                              //   transform: 'rotate(10deg)'
                           },
                           leftSleeveLogoBack: {
                               onlyOnBack: true,
@@ -727,14 +730,14 @@
                               height: 30,
                               top: 130,
                               left: 65,
-                              
+
                           },
                           rightSleeveLogo: {
                               width: 30,
                               height: 30,
                               top: 130,
                               left: 70,
-                               transform: 'rotate(10deg)'
+                              transform: 'rotate(10deg)'
                           },
                           rightSleeveLogoBack: {
                               onlyOnBack: true,
@@ -742,26 +745,26 @@
                               height: 30,
                               top: 130,
                               right: 65
-                             
+
                           },
                           backSponsorLogo: {
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                                 top: 60,
+                              top: 60,
                               left: 150
                           },
                           isColar: true
                       },
-                        "Gully": {
+                      "Gully": {
                           rightChestLogo: {
-                               width: 40,
+                              width: 40,
                               height: 40,
                               top: 123,
                               left: 165
                           },
                           teamLogo: {
-                               width: 40,
+                              width: 40,
                               height: 40,
                               top: 123,
                               right: 165,
@@ -770,7 +773,7 @@
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                          top: 155,
+                              top: 155,
                               left: 153,
 
                           },
@@ -779,7 +782,7 @@
                               height: 30,
                               top: 130,
                               right: 70,
-                            //   transform: 'rotate(10deg)'
+                              //   transform: 'rotate(10deg)'
                           },
                           leftSleeveLogoBack: {
                               onlyOnBack: true,
@@ -787,14 +790,14 @@
                               height: 30,
                               top: 130,
                               left: 65,
-                              
+
                           },
                           rightSleeveLogo: {
                               width: 30,
                               height: 30,
                               top: 130,
                               left: 70,
-                               transform: 'rotate(10deg)'
+                              transform: 'rotate(10deg)'
                           },
                           rightSleeveLogoBack: {
                               onlyOnBack: true,
@@ -802,26 +805,26 @@
                               height: 30,
                               top: 130,
                               right: 65
-                             
+
                           },
                           backSponsorLogo: {
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                                 top: 60,
+                              top: 60,
                               left: 150
                           },
                           isColar: true
                       },
-                           "Second Slip": {
+                      "Second Slip": {
                           rightChestLogo: {
-                               width: 40,
+                              width: 40,
                               height: 40,
                               top: 123,
                               left: 165
                           },
                           teamLogo: {
-                               width: 40,
+                              width: 40,
                               height: 40,
                               top: 123,
                               right: 165,
@@ -830,7 +833,7 @@
                           mainSponsorLogo: {
                               width: 161,
                               height: 120,
-                          top: 155,
+                              top: 155,
                               left: 153,
 
                           },
@@ -839,7 +842,7 @@
                               height: 30,
                               top: 130,
                               right: 70,
-                            //   transform: 'rotate(10deg)'
+                              //   transform: 'rotate(10deg)'
                           },
                           leftSleeveLogoBack: {
                               onlyOnBack: true,
@@ -847,14 +850,14 @@
                               height: 30,
                               top: 130,
                               left: 65,
-                              
+
                           },
                           rightSleeveLogo: {
                               width: 30,
                               height: 30,
                               top: 130,
                               left: 70,
-                               transform: 'rotate(10deg)'
+                              transform: 'rotate(10deg)'
                           },
                           rightSleeveLogoBack: {
                               onlyOnBack: true,
@@ -862,13 +865,13 @@
                               height: 30,
                               top: 130,
                               right: 65
-                             
+
                           },
                           backSponsorLogo: {
                               onlyOnBack: true,
                               width: 161,
                               height: 80,
-                                 top: 60,
+                              top: 60,
                               left: 150
                           },
                           isColar: true
@@ -968,49 +971,50 @@
                           top: 110,
                           left: 203,
                       }
-                  }, "hoodie": {
-                          rightChestLogo: {
-                              width: 40,
-                              height: 40,
-                              top: 123,
-                              left: 165
-                          },
-                          teamLogo: {
-                              width: 40,
-                              height: 40,
-                              top: 125,
-                              right: 145,
-                              "z+'-'+index": 9
-                          }
+                  },
+                  "hoodie": {
+                      rightChestLogo: {
+                          width: 40,
+                          height: 40,
+                          top: 123,
+                          left: 165
+                      },
+                      teamLogo: {
+                          width: 40,
+                          height: 40,
+                          top: 125,
+                          right: 145,
+                          "z+'-'+index": 9
+                      }
                   },
                   "polo": {
-                          rightChestLogo: {
-                              width: 40,
-                              height: 40,
-                              top: 123,
-                              left: 165
-                          },
-                          teamLogo: {
-                              width: 40,
-                              height: 40,
-                              top: 125,
-                              right: 160,
-                              "z+'-'+index": 9
-                          }
+                      rightChestLogo: {
+                          width: 40,
+                          height: 40,
+                          top: 123,
+                          left: 165
+                      },
+                      teamLogo: {
+                          width: 40,
+                          height: 40,
+                          top: 125,
+                          right: 160,
+                          "z+'-'+index": 9
+                      }
                   },
                   "bat": {
                       batText: {
                           top: 245,
                           width: 100,
                           left: 241,
-                           "z+'-'+index": 9
+                          "z+'-'+index": 9
                       }
                   }
               };
 
               var odiForBase = ["Plumb (SUB)", "Grubber (SUB)", "Googly (SUB)", "Floater (SUB)", "Pace (C&S)", "Seam (C&S)", "Dipper (C&S)", "Flipper (C&S)", "Drift (C&S)"];
-              var odiForTrim1 = ["Plumb (SUB)","Googly (SUB)", "Grubber (SUB)", "Floater (SUB)", "Pace (C&S)", "Seam (C&S)", "Dipper (C&S)", "Flipper (C&S)", "Drift (C&S)", "First Slip","Point","Cover","Gully","Second Slip"];
-              var odiForTrim2 = [ "Plumb (SUB)","Googly (SUB)", "Grubber (SUB)", "Floater (SUB)"];
+              var odiForTrim1 = ["Plumb (SUB)", "Googly (SUB)", "Grubber (SUB)", "Floater (SUB)", "Pace (C&S)", "Seam (C&S)", "Dipper (C&S)", "Flipper (C&S)", "Drift (C&S)", "First Slip", "Point", "Cover", "Gully", "Second Slip"];
+              var odiForTrim2 = ["Plumb (SUB)", "Googly (SUB)", "Grubber (SUB)", "Floater (SUB)"];
 
 
 
@@ -1184,29 +1188,29 @@
           usd: "18",
           gbp: "15",
           aud: "20",
-          euro: "18",    
-      },{
+          euro: "18",
+      }, {
           name: "First Slip",
           inr: "1000",
           usd: "24",
           gbp: "20",
           aud: "24",
           euro: "24.5",
-      },{
+      }, {
           name: "Point",
           inr: "1000",
           usd: "24",
           gbp: "20",
           aud: "24",
           euro: "24.5",
-      },{
+      }, {
           name: "Cover",
           inr: "1000",
-           usd: "24",
+          usd: "24",
           gbp: "20",
           aud: "24",
           euro: "24.5",
-      },{
+      }, {
           name: "Gully",
           inr: "1000",
           usd: "24",
@@ -1216,14 +1220,14 @@
       }, {
           name: "Second Slip",
           inr: "1000",
-           usd: "24",
+          usd: "24",
           gbp: "20",
           aud: "24",
           euro: "24.5",
       }, {
           name: "Googly (SUB)",
           inr: "1000",
-           usd: "28",
+          usd: "28",
           gbp: "24",
           aud: "28",
           euro: "24.5",
@@ -1237,14 +1241,14 @@
       }, {
           name: "Plumb (SUB)",
           inr: "1000",
-           usd: "28",
+          usd: "28",
           gbp: "24",
           aud: "28",
           euro: "24.5",
       }, {
           name: "Floater (SUB)",
           inr: "1000",
-           usd: "28",
+          usd: "28",
           gbp: "24",
           aud: "28",
           euro: "24.5",
@@ -1265,82 +1269,81 @@
       }, {
           name: "Dipper (C&S)",
           inr: "850",
-           usd: "20",
+          usd: "20",
           gbp: "18",
           aud: "26",
           euro: "20.5",
       }, {
           name: "Flipper (C&S)",
           inr: "850",
-           usd: "20",
+          usd: "20",
           gbp: "18",
           aud: "26",
           euro: "20.5",
-      },{
+      }, {
           name: "Drift (C&S)",
           inr: "850",
           usd: "20",
           gbp: "18",
           aud: "26",
           euro: "20.5",
-      },{
+      }, {
           name: "inside edge",
           inr: "2750",
           usd: "60",
           gbp: "39",
           aud: "68",
           euro: "53",
-      },{
+      }, {
           name: "MODENA",
           inr: "995",
           usd: "60",
           gbp: "39",
           aud: "68",
           euro: "53",
-      },{
+      }, {
           name: "TRINIDAD",
           inr: "995",
           usd: "60",
           gbp: "39",
           aud: "68",
           euro: "53",
-      },{
+      }, {
           name: "Proton Club",
           inr: "995",
           usd: "60",
           gbp: "39",
           aud: "68",
           euro: "53",
-      },{
+      }, {
           name: "Hoodie",
           inr: "995",
           usd: "60",
           gbp: "39",
           aud: "68",
           euro: "53",
-      },{
+      }, {
           name: "Polo",
           inr: "995",
           usd: "60",
           gbp: "39",
           aud: "68",
           euro: "53",
-      },{
+      }, {
           name: "kitbags",
           inr: "995",
           usd: "60",
           gbp: "39",
           aud: "68",
           euro: "53",
-      },{
+      }, {
           name: "VIKINGS",
           inr: "995",
           usd: "60",
           gbp: "39",
           aud: "68",
           euro: "53",
-      }
-      ,{
+      }, {
           name: "Balls",
           inr: "375",
           usd: "60",

@@ -59,12 +59,13 @@
                                         <img ng-src="{{img.img[0]}}" class="img-responsive">
                                     </div>
                                 </div>-->
-                                 <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images track by $index">
+                                <div class="col-md-4 col-xs-6 paddingl" ng-repeat="img in images track by $index">
                                     <!--<div class="cat-img" ng-click="changeDesign(img.title)">
                                         <img ng-src="{{img.src}}" class="img-responsive">
                                     </div>-->
-                                    <div class="cat-img" ng-click="openDesignKitBag($index, 1,img.title)">
+                                    <div class="cat-img" ng-click=" designJson.design.base = img.src ; kitbag.front = img.src">
                                         <img ng-src="{{img.src}}" class="img-responsive">
+
                                     </div>
                                 </div>
                             </div>
@@ -296,171 +297,182 @@
                     <div class="choos quantity m20-l" ng-show="tab=='quantity'">
                         <div class="accordion">
                             <div class="accordion">
-                            <uib-accordion >
-                                <uib-accordion-group class="panel-default" is-open="status.open1">
-                                    <uib-accordion-heading>
-                                        <i class="pull-left fa " ng-class="{'fa fa-minus': status.open1, 'fa fa-plus': !status.open1}"></i>Choose Your Font
-                                    </uib-accordion-heading>
-                                    <div class="radio-options">
-                                        <form action="" class="radio">
-                                            <div class="form-group">
-                                                <input type="radio" id="jerseyradio1" ng-model="designJson.quantity[0].font" value="arial" name="jerseyradio" />
-                                                <label for="jerseyradio1">
+                                <uib-accordion>
+                                    <uib-accordion-group class="panel-default" is-open="status.open1">
+                                        <uib-accordion-heading>
+                                            <i class="pull-left fa " ng-class="{'fa fa-minus': status.open1, 'fa fa-plus': !status.open1}"></i>Choose
+                                            Your Font
+                                        </uib-accordion-heading>
+                                        <div class="radio-options">
+                                            <form action="" class="radio">
+                                                <div class="form-group">
+                                                    <input type="radio" id="jerseyradio1" ng-model="designJson.quantity[0].font" value="arial" name="jerseyradio" />
+                                                    <label for="jerseyradio1">
                                                     <span></span> Arial
                                                 </label>
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="radio" id="jerseyradio2" ng-model="designJson.quantity[0].font" value="times" name="jerseyradio" />
-                                                <label for="jerseyradio2">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="radio" id="jerseyradio2" ng-model="designJson.quantity[0].font" value="times" name="jerseyradio" />
+                                                    <label for="jerseyradio2">
                                                     <span></span> Times roman</label>
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="radio" id="jerseyradio3" ng-model="designJson.quantity[0].font" value="helvetica" name="jerseyradio" />
-                                                <label for="jerseyradio3">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="radio" id="jerseyradio3" ng-model="designJson.quantity[0].font" value="helvetica" name="jerseyradio" />
+                                                    <label for="jerseyradio3">
                                                     <span></span> Helvetica
                                                 </label>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <h2>Choose Your Colour</h2>
-                                            <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in dcolor track by $index">
-                                                <div class="colo-pallet text-center ">
-                                                    <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-class="{'activated': kitbagBack.color == col.colr, 'borergrey':col.name == 'white'}" ng-click="designJson.quantity[0].color=col.colr"></div>
                                                 </div>
-                                            </div>
+                                            </form>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h2>Choose Your Colour</h2>
+                                                <div class="col-md-1 col-xs-2 paddingl mr" ng-repeat="col in dcolor track by $index">
+                                                    <div class="colo-pallet text-center ">
+                                                        <div class="noti-img notihov" ng-style="{'background-color':'{{col.colr}}'}" ng-class="{'activated': kitbagBack.color == col.colr, 'borergrey':col.name == 'white'}"
+                                                            ng-click="designJson.quantity[0].color=col.colr"></div>
+                                                    </div>
+                                                </div>
 
+                                            </div>
                                         </div>
+                                    </uib-accordion-group>
+
+                                    <div class="pbotom">
+                                        <span class="block">Note </span>
+                                        <span class="block">1. Your t-shirt name can be up to 10 characters and t-shirt number can be selected from 0 to 999.</span>
+                                        <span class="block">2. You can select sleeves from being short (S.S) or long (L.S).</span>
+                                        <span class="block">3. (*) - this denotes the field is mandatory.</span>
                                     </div>
-                                </uib-accordion-group>
-                        
-                        <div class="pbotom">
-                            <span class="block">Note </span>
-                            <span class="block">1. Your t-shirt name can be up to 10 characters and t-shirt number can be selected from 0 to 999.</span>
-                            <span class="block">2. You can select sleeves from being short (S.S) or long (L.S).</span>
-                            <span class="block">3. (*) - this denotes the field is mandatory.</span>
-                        </div>
-                       
-                           
-                                <uib-accordion-group class="panel-default" is-open="status.open2">
-                                    <uib-accordion-heading>
-                                        <i class="pull-left fa " ng-class="{'fa fa-minus': status.open2, 'fa fa-plus': !status.open2}"></i>Choose Your Initial
-                                    </uib-accordion-heading>
-                                    <div class="table-responsive">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th class="uppercase">name</th>
-                                                    <th class="uppercase">number</th>
-                                                    <th class="uppercase">qty <sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr ng-repeat="bag in designJson.quantity track by $index">
-                                                    <td>
-                                                        <input type="text" name="name" ng-model="bag.name" placeholder="Name">
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" name="number" ng-model="bag.no" placeholder="Number">
-                                                    </td>
-                                                    <td>
-                                                        <input type="number" name="quantity" ng-change="addQuantity(bag.quantity)" ng-model="bag.quantity" min="1" maxlength="3">
-                                                    </td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td style="display: flex; justify-content: center;">
-                                                        <img src="img/rubbishbin.png" class="img-responsive" alt="" ng-click="removeBagsValue($index); addQuantity(bag.quantity);">
-                                                    </td>
-                                                </tr>
-                                                <tr class="nothing">
-                                                    <td></td>
-                                                </tr>
-                                                
-                                                <tr>
-                                                    <td class="pad6 pointer" ng-click="addBagsValues(); addQuantity(0);"><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                               
-                                            </tbody>
-                                        </table>
-                                        <div class="quantity-name">
-                                            <span>NAME</span>
-                                            <div class="range">
-                                            <div class="row pad5">
-                                                <div class="col-md-1 col-sm-1 col-xs-1">
-                                                <span>size</span>
-                                                </div>
-                                                <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                                                <div  ng-if="(isEdit && isLoaded) || !isEdit" range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="designJson.quantity[0].attributes.name.fontSize" min="0" max="100" model-max="designJson.quantity[0].attributes.name.fontSize" model-min="0" pin-handle="min">
-                                                </div>
-                                                <!-- <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBack.attributes.fontSize" min="0" max="100" model-max="jerseyBack.attributes.fontSize" model-min="rslider.min" pin-handle="min"></div> -->
-                                                </div>
-                                                <div class="col-md-3 col-sm-3 col-xs-3">
-                                                <input ng-if="(isEdit && isLoaded) || !isEdit" class="inputtext" type="number" name="mySize" ng-model="designJson.quantity[0].attributes.name.fontSize">
-                                                </div>
-                                            </div>
-                                            <div class="row pad5">
-                                                <div class="col-md-1 col-sm-1 col-xs-1">
-                                                <span>spacing</span>
-                                                </div>
-                                                <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                                                <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="designJson.quantity[0].attributes.name.letterSpacing" min="1" max="20" model-max="designJson.quantity[0].attributes.name.letterSpacing" model-min="1" pin-handle="min">
-                                                </div>
-                                                </div>
-                                                <div class="col-md-3 col-sm-3 col-xs-3">
-                                                <input class="inputtext" type="number" name="myWordSpace" ng-model="designJson.quantity[0].attributes.name.letterSpacing">
-                                                </div>
-                                            </div>
-                                            </div>
-                                        </div>
-                                        <div class="quantity-no">
-                                            <span>NUMBER</span>
-                                            <div class="range">
-                                            <div class="row pad5">
-                                                <div class="col-md-1 col-sm-1 col-xs-1">
-                                                <span>size</span>
-                                                </div>
-                                                <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                                                <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="designJson.quantity[0].attributes.number.fontSize" min="0" max="100" model-max="designJson.quantity[0].attributes.number.fontSize" model-min="0" pin-handle="min">
-                                                </div>
-                                                <!-- <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBack.attributes.fontSize" min="0" max="100" model-max="jerseyBack.attributes.fontSize" model-min="rslider.min" pin-handle="min"></div> -->
-                                                </div>
-                                                <div class="col-md-3 col-sm-3 col-xs-3">
-                                                <input class="inputtext" type="number" name="mySize" ng-model="designJson.quantity[0].attributes.number.fontSize">
+
+
+                                    <uib-accordion-group class="panel-default" is-open="status.open2">
+                                        <uib-accordion-heading>
+                                            <i class="pull-left fa " ng-class="{'fa fa-minus': status.open2, 'fa fa-plus': !status.open2}"></i>Choose
+                                            Your Initial
+                                        </uib-accordion-heading>
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="uppercase">name</th>
+                                                        <th class="uppercase">number</th>
+                                                        <th class="uppercase">qty <sup><i class="fa fa-asterisk" aria-hidden="true"></i></sup></th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="bag in designJson.quantity track by $index">
+                                                        <td>
+                                                            <input type="text" name="name" ng-model="bag.name" placeholder="Name">
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="number" ng-model="bag.no" placeholder="Number">
+                                                        </td>
+                                                        <td>
+                                                            <input type="number" name="quantity" ng-change="addQuantity(bag.quantity)" ng-model="bag.quantity" min="1" maxlength="3">
+                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td style="display: flex; justify-content: center;">
+                                                            <img src="img/rubbishbin.png" class="img-responsive" alt="" ng-click="removeBagsValue($index); addQuantity(bag.quantity);">
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="nothing">
+                                                        <td></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="pad6 pointer" ng-click="addBagsValues(); addQuantity(0);"><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                            <div class="quantity-name">
+                                                <span>NAME</span>
+                                                <div class="range">
+                                                    <div class="row pad5">
+                                                        <div class="col-md-1 col-sm-1 col-xs-1">
+                                                            <span>size</span>
+                                                        </div>
+                                                        <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                                            <div ng-if="(isEdit && isLoaded) || !isEdit" range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="designJson.quantity[0].attributes.name.fontSize"
+                                                                min="0" max="100" model-max="designJson.quantity[0].attributes.name.fontSize"
+                                                                model-min="0" pin-handle="min">
+                                                            </div>
+                                                            <!-- <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBack.attributes.fontSize" min="0" max="100" model-max="jerseyBack.attributes.fontSize" model-min="rslider.min" pin-handle="min"></div> -->
+                                                        </div>
+                                                        <div class="col-md-3 col-sm-3 col-xs-3">
+                                                            <input ng-if="(isEdit && isLoaded) || !isEdit" class="inputtext" type="number" name="mySize" ng-model="designJson.quantity[0].attributes.name.fontSize">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row pad5">
+                                                        <div class="col-md-1 col-sm-1 col-xs-1">
+                                                            <span>spacing</span>
+                                                        </div>
+                                                        <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                                            <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="designJson.quantity[0].attributes.name.letterSpacing"
+                                                                min="1" max="20" model-max="designJson.quantity[0].attributes.name.letterSpacing"
+                                                                model-min="1" pin-handle="min">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3 col-sm-3 col-xs-3">
+                                                            <input class="inputtext" type="number" name="myWordSpace" ng-model="designJson.quantity[0].attributes.name.letterSpacing">
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="row pad5">
-                                                <div class="col-md-1 col-sm-1 col-xs-1">
-                                                <span>spacing</span>
-                                                </div>
-                                                <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
-                                                <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="bags.attributes.number.letterSpacing" min="1" max="20" model-max="bagsArr.attributes.number.letterSpacing" model-min="1" pin-handle="min">
-                                                </div>
-                                                </div>
-                                                <div class="col-md-3 col-sm-3 col-xs-3">
-                                                <input class="inputtext" type="number" name="myWordSpace" ng-model="bags.attributes.number.letterSpacing">
+                                            <div class="quantity-no">
+                                                <span>NUMBER</span>
+                                                <div class="range">
+                                                    <div class="row pad5">
+                                                        <div class="col-md-1 col-sm-1 col-xs-1">
+                                                            <span>size</span>
+                                                        </div>
+                                                        <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                                            <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="designJson.quantity[0].attributes.number.fontSize"
+                                                                min="0" max="100" model-max="designJson.quantity[0].attributes.number.fontSize"
+                                                                model-min="0" pin-handle="min">
+                                                            </div>
+                                                            <!-- <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="jerseyBack.attributes.fontSize" min="0" max="100" model-max="jerseyBack.attributes.fontSize" model-min="rslider.min" pin-handle="min"></div> -->
+                                                        </div>
+                                                        <div class="col-md-3 col-sm-3 col-xs-3">
+                                                            <input class="inputtext" type="number" name="mySize" ng-model="designJson.quantity[0].attributes.number.fontSize">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row pad5">
+                                                        <div class="col-md-1 col-sm-1 col-xs-1">
+                                                            <span>spacing</span>
+                                                        </div>
+                                                        <div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2">
+                                                            <div range-slider on-handle-down="changeText()" on-handle-up="resetTextStyle()" ng-model="bags.attributes.number.letterSpacing"
+                                                                min="1" max="20" model-max="bagsArr.attributes.number.letterSpacing"
+                                                                model-min="1" pin-handle="min">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3 col-sm-3 col-xs-3">
+                                                            <input class="inputtext" type="number" name="myWordSpace" ng-model="bags.attributes.number.letterSpacing">
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            </div>
-                                        </div>
-                                        <span class="pull-right tamount uppercase Raleway-Medium">Total Amount: {{designJson | PriceFilter | currencySymbol}}</span>
-                                        <span class="pull-right tquantity uppercase Raleway-Medium">Total Quantity: {{totalQuan}}</span>
+                                            <span class="pull-right tamount uppercase Raleway-Medium">Total Amount: {{designJson | PriceFilter | currencySymbol}}</span>
+                                            <span class="pull-right tquantity uppercase Raleway-Medium">Total Quantity: {{totalQuan}}</span>
                                         </div>
 
-                                   
-                                </uib-accordion-group>
+
+                                    </uib-accordion-group>
                                 </uib-accordion>
-                        </div>
-                        <div class="table-detail relative">
-                            <!--
+                            </div>
+                            <div class="table-detail relative">
+                                <!--
                             <p class="capitalize">Select the quantity for your kitbag</p>
                             <div class="option-shirt relative gloves" ng-repeat="kitbag in kitbagArr track by $index">
                                 <div class="sizes size inline-block mleft10">
@@ -474,8 +486,8 @@
                                     <p class="error-td error-quantity f13" ng-if="totalQuan<12" style="padding:0px 0 !important;">Please enter valid quantity.The MOQ is 12</p>
                                 </div>
                             </div>-->
-                            <!--//added-->
-                            <!--
+                                <!--//added-->
+                                <!--
                             <div class="option-shirt relative gloves" ng-repeat="cap in kitbagArr track by $index">
                                 <div class="sizes size inline-block mleft10">
                                     <span class="uppercase pad-5 hand-side">Righty</span>
@@ -487,27 +499,27 @@
                                     <p class="error-td error-quantity f13 errors-pad" ng-if="totalQuan<12 && totalQuan!=0">Please enter valid quantity.The MOQ is 12</p>
                                 </div>
                             </div>-->
-                            <!--<div class="add-button">
+                                <!--<div class="add-button">
                                 <p class="pointer" ng-click="addPadsValues(); addQuantity(pad.quantity);"><i class="fa mr7 fa-plus" aria-hidden="true"></i>ADD</p>
                             </div>-->
-                            <div class="total-amount clearfix">
-                                <!--<p class="more-price">One time customization fee for Glove is <i class="fa fa-inr"></i> 5000</p>-->
-                                
-                                <!--<span class="pull-right uppercase totalAmount Raleway-Medium">Total: {{totalAmount}}</span>-->
-                            </div>
-                            <!--<div class="total-amount">
+                                <div class="total-amount clearfix">
+                                    <!--<p class="more-price">One time customization fee for Glove is <i class="fa fa-inr"></i> 5000</p>-->
+
+                                    <!--<span class="pull-right uppercase totalAmount Raleway-Medium">Total: {{totalAmount}}</span>-->
+                                </div>
+                                <!--<div class="total-amount">
                                 <p class="more-price">One time customization fee for Pads is <i class="fa fa-inr"></i> 5000</p>
                                 <p class="more-price">A one-time customization fees of INR 5000/- or equivalent (in your currency) will be incurred
                                     for your logo customization.</p>
                                 <span class="pull-right uppercase totalAmount Raleway-Medium">Total: {{totalAmount}}</span>
                             </div>-->
-                            <div class="edit-btn">
-                                <button class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="checkloginkitbag();">save design</button>
-                                <button class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" ng-click="toOrderSummary()" ng-disabled="designJson.totalQuan<12 || designJson.totalQuan=='' || designJson.totalQuan==0 ">next</button>
-                                <br>
+                                <div class="edit-btn">
+                                    <button class="btn btn-outline uppercase btn-dark mright15 padding-btn letter-spacing" ng-click="checkloginkitbag();">save design</button>
+                                    <button class="btn btn-outline uppercase btn-dark padding-btn letter-spacing" ng-click="toOrderSummary()" ng-disabled="designJson.totalQuan<12 || designJson.totalQuan=='' || designJson.totalQuan==0 ">next</button>
+                                    <br>
+                                </div>
                             </div>
-                        </div>
-                        <!-- <div class="eds inline-block">
+                            <!-- <div class="eds inline-block">
                                  <div class="edit-btn inline-block">
                                      <button href="" class=" btn btn-outline btn-dark letter-spacing">SAVE DESIGN</button>
                                  </div>
@@ -515,14 +527,14 @@
                              <div class="edit-btn inline-block">
                                  <button class="btn btn-outline btn-dark padding-btn letter-spacing" >NEXT</button>
                              </div> -->
-                        <!-- <div class="continue-buttons mr">
+                            <!-- <div class="continue-buttons mr">
                                  <button ng-click="showQuantiyTab()" class="btn btn-outline btn-dark mar15 mr10 padding-btn letter-spacing uppercase">yes,continue</button>
                                  <button href="" ng-click="showQuantyTab()" class="btn btn-outline btn-dark mar15 padding-btn letter-spacing uppercase">no</button>
                              </div> -->
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </section>

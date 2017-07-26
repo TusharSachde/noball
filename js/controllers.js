@@ -2207,7 +2207,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
 
-    
+
 
     .controller('BallsCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal) {
         //Used to name the .html file
@@ -3430,7 +3430,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.designJson = {
             design: {
-                name:"Chintan",
+                name: "Chintan",
                 base: "img/caps/front/black.png"
             },
             color: {
@@ -3496,23 +3496,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 return "#7D7A77";
             } else if (color == "ink_blue") {
                 return "#2B2E71";
-            }
-            else if (color == "navy_blue") {
+            } else if (color == "navy_blue") {
                 return "#363657";
-            }
-            else if (color == "pink") {
+            } else if (color == "pink") {
                 return "#EAB3BC";
-            }
-            else if (color == "red") {
+            } else if (color == "red") {
                 return "#DC4434";
-            }
-            else if (color == "white") {
+            } else if (color == "white") {
                 return "#fff";
-            }
-            else if (color == "yellow") {
+            } else if (color == "yellow") {
                 return "#ECE42D";
-            }
-             else {
+            } else {
                 return _.filter($scope.capscolor, {
                     name: color
                 })[0].colr;
@@ -3522,29 +3516,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.capscolor = [{
                 colr: "#000000",
                 name: "black"
-            },{
+            }, {
                 colr: "#3C3131",
                 name: "dark_brown"
             },
-             {
+            {
                 colr: "#7D7A77",
                 name: "grey"
-            },{
+            }, {
                 colr: "#2B2E71",
                 name: "ink_blue"
-            },{
+            }, {
                 colr: "#363657",
                 name: "navy_blue"
-            },{
+            }, {
                 colr: "#EAB3BC",
                 name: "pink"
-            },{
+            }, {
                 colr: "#DC4434",
                 name: "red"
-            },{
+            }, {
                 colr: "#fff",
                 name: "white"
-            },{
+            }, {
                 colr: "#ECE42D",
                 name: "yellow"
             }
@@ -3552,26 +3546,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         ];
 
         $scope.color = [{
-            colr: "#000000"
-        }, {
-            colr: "#3C3131"
-        }, {
-            colr: "#7D7A77"
-        }, {
-            colr: "#2B2E71"
-        }, {
-            colr: "#363657"
-        }, {
-            colr: "#EAB3BC"
-        }, {
-            colr: "#DC4434",
-           },
-           {
-            colr: "#fff",
-           },
-           {
-            colr: "#ECE42D",
-           }
+                colr: "#000000"
+            }, {
+                colr: "#3C3131"
+            }, {
+                colr: "#7D7A77"
+            }, {
+                colr: "#2B2E71"
+            }, {
+                colr: "#363657"
+            }, {
+                colr: "#EAB3BC"
+            }, {
+                colr: "#DC4434",
+            },
+            {
+                colr: "#fff",
+            },
+            {
+                colr: "#ECE42D",
+            }
         ];
 
         $scope.tabchange = function (tab, a) {
@@ -3664,7 +3658,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "dark_brown": ["img/caps/front/dark_brown.png"],
             "grey": ["img/caps/front/grey.png"],
             "ink_blue": ["img/caps/front/ink_blue.png"],
-             "navy_blue": ["img/caps/front/navy_blue.png"],
+            "navy_blue": ["img/caps/front/navy_blue.png"],
             "pink": ["img/caps/front/pink.png"],
             "red": ["img/caps/front/red.png"],
             "white": ["img/caps/front/white.png"],
@@ -4228,10 +4222,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.designJson = {
             design: {
-                name:"Chintan",
+                name: "Chintan",
                 base: "img/caps/front/black.png",
-                designType:"",
-                designName:""
+                designType: "",
+                designName: ""
             },
             color: {
                 base: "black"
@@ -4241,10 +4235,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 size: 100
             },
             quantity: [{
-                    quantity: 12,
-                    size: "center"
-                }
-            ],
+                quantity: 12,
+                size: "center"
+            }],
             type: "caps",
             sendTeamLogoLater: false
         };
@@ -4271,14 +4264,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
         $scope.openDesign = function (index, tab, img) {
             //console.log('*********************');
-            if(index==0)
-            {
-                $scope.designJson.type="caps";
-                $scope.designJson.design.designType= "caps";
-            }
-            else {    
-                $scope.designJson.type="hats";
-                $scope.designJson.design.designType= "hats";
+            if (index == 0) {
+                $scope.designJson.type = "caps";
+                $scope.designJson.design.designType = "caps";
+            } else {
+                $scope.designJson.type = "hats";
+                $scope.designJson.design.designType = "hats";
             }
             if ($scope.LogosTab) {
                 $scope.designIndex = index;
@@ -4302,23 +4293,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 return "#7D7A77";
             } else if (color == "ink_blue") {
                 return "#2B2E71";
-            }
-            else if (color == "navy_blue") {
+            } else if (color == "navy_blue") {
                 return "#363657";
-            }
-            else if (color == "pink") {
+            } else if (color == "pink") {
                 return "#EAB3BC";
-            }
-            else if (color == "red") {
+            } else if (color == "red") {
                 return "#DC4434";
-            }
-            else if (color == "white") {
+            } else if (color == "white") {
                 return "#fff";
-            }
-            else if (color == "yellow") {
+            } else if (color == "yellow") {
                 return "#ECE42D";
-            }
-             else {
+            } else {
                 return _.filter($scope.capscolor, {
                     name: color
                 })[0].colr;
@@ -4328,29 +4313,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.capscolor = [{
                 colr: "#000000",
                 name: "black"
-            },{
+            }, {
                 colr: "#3C3131",
                 name: "dark_brown"
             },
-             {
+            {
                 colr: "#7D7A77",
                 name: "grey"
-            },{
+            }, {
                 colr: "#2B2E71",
                 name: "ink_blue"
-            },{
+            }, {
                 colr: "#363657",
                 name: "navy_blue"
-            },{
+            }, {
                 colr: "#EAB3BC",
                 name: "pink"
-            },{
+            }, {
                 colr: "#DC4434",
                 name: "red"
-            },{
+            }, {
                 colr: "#fff",
                 name: "white"
-            },{
+            }, {
                 colr: "#ECE42D",
                 name: "yellow"
             }
@@ -4360,29 +4345,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.hatscolor = [{
                 colr: "#000000",
                 name: "black"
-            },{
+            }, {
                 colr: "#3C3131",
                 name: "dark_brown"
             },
-             {
+            {
                 colr: "#7D7A77",
                 name: "grey"
-            },{
+            }, {
                 colr: "#2B2E71",
                 name: "ink_blue"
-            },{
+            }, {
                 colr: "#363657",
                 name: "navy_blue"
-            },{
+            }, {
                 colr: "#EAB3BC",
                 name: "pink"
-            },{
+            }, {
                 colr: "#DC4434",
                 name: "red"
-            },{
+            }, {
                 colr: "#fff",
                 name: "white"
-            },{
+            }, {
                 colr: "#ECE42D",
                 name: "yellow"
             }
@@ -4391,32 +4376,32 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
         $scope.color = [{
-            colr: "#000000"
-        }, {
-            colr: "#3C3131"
-        }, {
-            colr: "#7D7A77"
-        }, {
-            colr: "#2B2E71"
-        }, {
-            colr: "#363657"
-        }, {
-            colr: "#EAB3BC"
-        }, {
-            colr: "#DC4434",
-           },
-           {
-            colr: "#fff",
-           },
-           {
-            colr: "#ECE42D",
-           }
+                colr: "#000000"
+            }, {
+                colr: "#3C3131"
+            }, {
+                colr: "#7D7A77"
+            }, {
+                colr: "#2B2E71"
+            }, {
+                colr: "#363657"
+            }, {
+                colr: "#EAB3BC"
+            }, {
+                colr: "#DC4434",
+            },
+            {
+                colr: "#fff",
+            },
+            {
+                colr: "#ECE42D",
+            }
         ];
 
         $scope.tabchange = function (tab, a) {
             //console.log(tab, a);
-            console.log($scope.designJson.type,"tabchange");
-            
+            console.log($scope.designJson.type, "tabchange");
+
             $scope.tab = tab;
             $scope.designJson.tab = tab;
             $scope.designJson.tabNo = a;
@@ -4505,7 +4490,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "dark_brown": ["img/caps/front/dark_brown.png"],
             "grey": ["img/caps/front/grey.png"],
             "ink_blue": ["img/caps/front/ink_blue.png"],
-             "navy_blue": ["img/caps/front/navy_blue.png"],
+            "navy_blue": ["img/caps/front/navy_blue.png"],
             "pink": ["img/caps/front/pink.png"],
             "red": ["img/caps/front/red.png"],
             "white": ["img/caps/front/white.png"],
@@ -4549,15 +4534,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.myDesignID = 0;
         $scope.designTabJson = function (id) {
             $scope.myDesignID = id;
-            if(id==0)
-            {
-                $scope.designJson.type="caps";
-                $scope.designJson.design.designType= "cats";
-            }
-            else    
-            {
-                $scope.designJson.type="hats";
-                $scope.designJson.design.designType= "hats";
+            if (id == 0) {
+                $scope.designJson.type = "caps";
+                $scope.designJson.design.designType = "cats";
+            } else {
+                $scope.designJson.type = "hats";
+                $scope.designJson.design.designType = "hats";
             }
             //console.log(id);
         };
@@ -4663,16 +4645,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.totalQuan = 0;
             $scope.totalAmount = 0;
             $scope.designJson.totalAmount = 0;
-            $scope.totalQuan = parseInt($scope.designJson.quantity[0].quantity );
-            if(!angular.isNumber($scope.designJson.quantity[0].quantity))
-                $scope.totalQuan=0;
+            $scope.totalQuan = parseInt($scope.designJson.quantity[0].quantity);
+            if (!angular.isNumber($scope.designJson.quantity[0].quantity))
+                $scope.totalQuan = 0;
             if ($scope.totalQuan) {
                 console.log($scope.designJson.design);
                 console.log($filter('currencyFilter')($scope.designJson.design, "OnlyNumber"));
                 $scope.totalAmount = $scope.totalQuan * $filter('currencyFilter')($scope.designJson.design, "OnlyNumber");
                 $scope.designJson.totalAmount = $scope.totalAmount;
             }
-            
+
             return $scope.totalQuan;
         };
 
@@ -4683,7 +4665,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.selectCapsDesign = function (item) {
             console.log(item);
             $scope.capsDesign.name = item.name;
-            $scope.designJson.design.designName= item.name;
+            $scope.designJson.design.designName = item.name;
             $scope.capsDesign.image = item.img[0];
             $scope.Arrayname = item.name;
             $scope.selectedImage = item.img[0];
@@ -4758,7 +4740,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 scope: $scope
             })
         };
-        $(".modal-close-btn img").click(function(){
+        $(".modal-close-btn img").click(function () {
             console.log("close clicked");
         });
         /*$("body").click(function(){ 
@@ -4926,7 +4908,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             if (user && user.email) {
                 console.log($scope.designJson);
                 //submitcaporder
-                $scope.designJson.design.designType= $scope.designJson.type;
+                $scope.designJson.design.designType = $scope.designJson.type;
                 NavigationService.orderSummaryCapsnhats(user.email, $scope.designJson, $scope.designJson.type,
                     function (data) {
                         console.log('Order Summary caps data: ', data);
@@ -5076,7 +5058,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
     })
 
-     .controller('TravelwearCtrl', function ($scope, $filter, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
+    .controller('TravelwearCtrl', function ($scope, $filter, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("hoodienpolo");
         $scope.menutitle = NavigationService.makeactive("Hoodie");
@@ -5128,10 +5110,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.designJson = {
             design: {
-                name:"HoodienPolo",
+                name: "HoodienPolo",
                 base: "img/travelwear/hoodie/front/black.png",
-                designType:"",
-                designName:""
+                designType: "",
+                designName: ""
             },
             color: {
                 base: "black"
@@ -5147,7 +5129,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             type: "hoodie",
             sendTeamLogoLater: false
         };
-         $scope.designJson.quantity = [{
+        $scope.designJson.quantity = [{
             'size': 'L',
             'quantity': '',
         }];
@@ -5173,14 +5155,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
         $scope.openDesign = function (index, tab, img) {
             //console.log('*********************');
-            if(index==0 || index==1 || index==2)
-            {
-                $scope.designJson.type="hoodie";
-                $scope.designJson.design.designType= "hoodie";
-            }
-            else {    
-                $scope.designJson.type="polo";
-                $scope.designJson.design.designType= "polo";
+            if (index == 0 || index == 1 || index == 2) {
+                $scope.designJson.type = "hoodie";
+                $scope.designJson.design.designType = "hoodie";
+            } else {
+                $scope.designJson.type = "polo";
+                $scope.designJson.design.designType = "polo";
             }
             if ($scope.LogosTab) {
                 $scope.designIndex = index;
@@ -5204,26 +5184,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 return "#7D7A77";
             } else if (color == "mustard_yellow") {
                 return "#F3B300";
-            }
-            else if (color == "navy_blue") {
+            } else if (color == "navy_blue") {
                 return "#022653";
-            }
-            else if (color == "off_white") {
+            } else if (color == "off_white") {
                 return "#F3EEE9";
-            }
-            else if (color == "red") {
+            } else if (color == "red") {
                 return "#BD2F2F";
-            }
-	    else if(color == "sea_green") {
-		return "#17ACBE";
-	    }
-            else if (color == "white") {
+            } else if (color == "sea_green") {
+                return "#17ACBE";
+            } else if (color == "white") {
                 return "#fff";
-            }
-            else if (color == "yellow") {
+            } else if (color == "yellow") {
                 return "#ECE42D";
-            }
-             else {
+            } else {
                 return _.filter($scope.hoodiecolor, {
                     name: color
                 })[0].colr;
@@ -5233,32 +5206,32 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.hoodiecolor = [{
                 colr: "#000000",
                 name: "black"
-            },{
+            }, {
                 colr: "#1796E4",
                 name: "cobalt_blue"
             },
-             {
+            {
                 colr: "#7D7A77",
                 name: "grey"
-            },{
+            }, {
                 colr: "#F3B300",
                 name: "mustard_yellow"
-            },{
+            }, {
                 colr: "#022653",
                 name: "navy_blue"
-            },{
+            }, {
                 colr: "#F3EEE9",
                 name: "off_white"
-            },{
+            }, {
                 colr: "#BD2F2F",
                 name: "red"
-            },{
-		colr:"#17ACBE",
-		name:"sea_green"
-	    },{
+            }, {
+                colr: "#17ACBE",
+                name: "sea_green"
+            }, {
                 colr: "#fff",
                 name: "white"
-            },{
+            }, {
                 colr: "#ECE42D",
                 name: "yellow"
             }
@@ -5268,32 +5241,32 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.polocolor = [{
                 colr: "#000000",
                 name: "black"
-            },{
+            }, {
                 colr: "#1796E4",
                 name: "cobalt_blue"
             },
-             {
+            {
                 colr: "#7D7A77",
                 name: "grey"
-            },{
+            }, {
                 colr: "#F3B300",
                 name: "mustard_yellow"
-            },{
+            }, {
                 colr: "#022653",
                 name: "navy_blue"
-            },{
+            }, {
                 colr: "#F3EEE9",
                 name: "off_white"
-            },{
+            }, {
                 colr: "#BD2F2F",
                 name: "red"
-            },{
-		colr: "#17ACBE",
-		name: "sea_green",
-	    },{
+            }, {
+                colr: "#17ACBE",
+                name: "sea_green",
+            }, {
                 colr: "#fff",
                 name: "white"
-            },{
+            }, {
                 colr: "#ECE42D",
                 name: "yellow"
             }
@@ -5302,33 +5275,33 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
         $scope.color = [{
-            colr: "#000000"
-        }, {
-            colr: "#1796E4"
-        }, {
-            colr: "#7D7A77"
-        }, {
-            colr: "#F3B300"
-        }, {
-            colr: "#022653"
-        }, {
-            colr: "#F3EEE9"
-        }, {
-            colr: "#BD2F2F",
-           },{
-	     colr:"#17ACBE"
-           },{
-            colr: "#fff",
-           },
-           {
-            colr: "#ECE42D",
-           }
+                colr: "#000000"
+            }, {
+                colr: "#1796E4"
+            }, {
+                colr: "#7D7A77"
+            }, {
+                colr: "#F3B300"
+            }, {
+                colr: "#022653"
+            }, {
+                colr: "#F3EEE9"
+            }, {
+                colr: "#BD2F2F",
+            }, {
+                colr: "#17ACBE"
+            }, {
+                colr: "#fff",
+            },
+            {
+                colr: "#ECE42D",
+            }
         ];
 
         $scope.tabchange = function (tab, a) {
             //console.log(tab, a);
-            console.log($scope.designJson.type,"tabchange");
-            
+            console.log($scope.designJson.type, "tabchange");
+
             $scope.tab = tab;
             $scope.designJson.tab = tab;
             $scope.designJson.tabNo = a;
@@ -5397,7 +5370,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "navy_blue": ["img/travelwear/hoodie/front/navy_blue.png"],
             "off_white": ["img/travelwear/hoodie/front/off_white.png"],
             "red": ["img/travelwear/hoodie/front/red.png"],
-	    "sea_green": ["img/travelwear/hoodie/front/sea_green.png"],
+            "sea_green": ["img/travelwear/hoodie/front/sea_green.png"],
             "white": ["img/travelwear/hoodie/front/white.png"],
             "yellow": ["img/travelwear/hoodie/front/yellow.png"]
         };
@@ -5410,7 +5383,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "navy_blue": ["img/travelwear/hoodie/front/navy_blue.png"],
             "off_white": ["img/travelwear/hoodie/front/off_white.png"],
             "red": ["img/travelwear/hoodie/front/red.png"],
-	    "sea_green": ["img/travelwear/hoodie/front/sea_green.png"],
+            "sea_green": ["img/travelwear/hoodie/front/sea_green.png"],
             "white": ["img/travelwear/hoodie/front/white.png"],
             "yellow": ["img/travelwear/hoodie/front/yellow.png"]
         };
@@ -5419,10 +5392,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "cobalt_blue": ["img/travelwear/hoodie/front/cobalt_blue.png"],
             "grey": ["img/travelwear/hoodie/front/grey.png"],
             "mustard_yellow": ["img/travelwear/hoodie/front/mustard_yellow.png"],
-             "navy_blue": ["img/travelwear/hoodie/front/navy_blue.png"],
+            "navy_blue": ["img/travelwear/hoodie/front/navy_blue.png"],
             "off_white": ["img/travelwear/hoodie/front/off_white.png"],
             "red": ["img/travelwear/hoodie/front/red.png"],
-	    "sea_green": ["img/travelwear/hoodie/front/sea_green.png"],
+            "sea_green": ["img/travelwear/hoodie/front/sea_green.png"],
             "white": ["img/travelwear/hoodie/front/white.png"],
             "yellow": ["img/travelwear/hoodie/front/yellow.png"]
         };
@@ -5435,7 +5408,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "navy_blue": ["img/travelwear/polo/front/navy_blue.png"],
             "off_white": ["img/travelwear/polo/front/off_white.png"],
             "red": ["img/travelwear/polo/front/red.png"],
-	    "sea_green": ["img/travelwear/polo/front/sea_green.png"],
+            "sea_green": ["img/travelwear/polo/front/sea_green.png"],
             "white": ["img/travelwear/polo/front/white.png"],
             "yellow": ["img/travelwear/polo/front/yellow.png"]
         };
@@ -5448,7 +5421,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "navy_blue": ["img/travelwear/polo/front/navy_blue.png"],
             "off_white": ["img/travelwear/polo/front/off_white.png"],
             "red": ["img/travelwear/polo/front/red.png"],
-	    "sea_green": ["img/travelwear/polo/front/sea_green.png"],
+            "sea_green": ["img/travelwear/polo/front/sea_green.png"],
             "white": ["img/travelwear/polo/front/white.png"],
             "yellow": ["img/travelwear/polo/front/yellow.png"]
         };
@@ -5460,22 +5433,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "navy_blue": ["img/travelwear/polo/front/navy_blue.png"],
             "off_white": ["img/travelwear/polo/front/off_white.png"],
             "red": ["img/travelwear/polo/front/red.png"],
-	    "sea_green": ["img/travelwear/polo/front/sea_green.png"],
+            "sea_green": ["img/travelwear/polo/front/sea_green.png"],
             "white": ["img/travelwear/polo/front/white.png"],
             "yellow": ["img/travelwear/polo/front/yellow.png"]
         };
         $scope.myDesignID = 0;
         $scope.designTabJson = function (id) {
             $scope.myDesignID = id;
-            if(id==0 || id==1 || id==2)
-            {
-                $scope.designJson.type="hoodie";
-                $scope.designJson.design.designType= "hoodie";
-            }
-            else    
-            {
-                $scope.designJson.type="polo";
-                $scope.designJson.design.designType= "polo";
+            if (id == 0 || id == 1 || id == 2) {
+                $scope.designJson.type = "hoodie";
+                $scope.designJson.design.designType = "hoodie";
+            } else {
+                $scope.designJson.type = "polo";
+                $scope.designJson.design.designType = "polo";
             }
             //console.log(id);
         };
@@ -5486,13 +5456,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             color: "black",
             id: 0,
             colorObj: $scope.hoodieImages1
-        },{
+        }, {
             name: "Hoodie",
             img: $scope.hoodieImages1.red,
             color: "red",
             id: 1,
             colorObj: $scope.hoodieImages1
-        },{
+        }, {
             name: "Hoodie",
             img: $scope.hoodieImages1.cobalt_blue,
             color: "cobalt_blue",
@@ -5525,24 +5495,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             });
         }
-         $scope.tshirtBack = {
+        $scope.tshirtBack = {
             'quantity': '',
             'size': 'L',
-            
+
         };
-         $scope.tshirtBackArr = [{
-                    'quantity': '',
-                    'size': 'L',
-                    
-                }];
-               
+        $scope.tshirtBackArr = [{
+            'quantity': '',
+            'size': 'L',
+
+        }];
+
         $scope.tshirtBackArrCount = 2;
-       
+
         $scope.addTshirtValues = function () {
             var tempObj = {
                 'size': "L",
                 'quantity': '',
-                
+
             };
             // $scope.jerseyBackArr.push(_.clone($scope.jerseyBack));
             $scope.tshirtBackArrCount = $scope.tshirtBackArrCount + 1;
@@ -5550,7 +5520,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
         $scope.removeTshirtValue = function (index) {
             $scope.designJson.quantity.splice(index, 1);
-           $scope.tshirtBackArr.splice(index, 1);
+            $scope.tshirtBackArr.splice(index, 1);
             $scope.tshirtBackArrCount = $scope.tshirtBackArrCount - 1;
         }
         $scope.LogosTab = false;
@@ -5651,7 +5621,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 console.log('$scope.designJson.quantity', $scope.designJson.quantity);
                 // $scope.totalQuan += $scope.quantity[i].quantity;
                 if ($scope.designJson.quantity[i].quantity == "")
-                    $scope.designJson.quantity[i].quantity=0;
+                    $scope.designJson.quantity[i].quantity = 0;
                 if ($scope.designJson.quantity[i].quantity !== undefined) {
 
                     $scope.designJson.totalQuan = parseInt($scope.designJson.totalQuan) + parseInt($scope.designJson.quantity[i].quantity);
@@ -5669,7 +5639,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.selectHoodieDesign = function (item) {
             console.log(item);
             $scope.hoodieDesign.name = item.name;
-            $scope.designJson.design.designName= item.name;
+            $scope.designJson.design.designName = item.name;
             $scope.hoodieDesign.image = item.img[0];
             $scope.Arrayname = item.name;
             $scope.selectedImage = item.img[0];
@@ -5900,7 +5870,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             if (user && user.email) {
                 console.log($scope.designJson);
                 //submitcaporder
-                $scope.designJson.design.designType= $scope.designJson.type;
+                $scope.designJson.design.designType = $scope.designJson.type;
                 NavigationService.orderSummaryHoodienpolo(user.email, $scope.designJson, $scope.designJson.type,
                     function (data) {
                         console.log('Order Summary hoodie data: ', data);
@@ -6643,8 +6613,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             })
         };
     })
-   
-     .controller('HatsCtrl', function ($scope, $filter, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
+
+    .controller('HatsCtrl', function ($scope, $filter, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("hats");
         $scope.menutitle = NavigationService.makeactive("Hats");
@@ -6696,7 +6666,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.designJson = {
             design: {
-                name:"Chintan",
+                name: "Chintan",
                 base: "img/hats/black.png"
             },
             color: {
@@ -6721,7 +6691,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.colorObj = $scope.hatImages1;
         $scope.changeHatsImages = function (color) {
-            console.log(color,"change hat images");
+            console.log(color, "change hat images");
             console.log($scope.colorObj);
             var val = _.pick($scope.colorObj, color);
             console.log(val);
@@ -6762,23 +6732,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 return "#7D7A77";
             } else if (color == "ink_blue") {
                 return "#2B2E71";
-            }
-            else if (color == "navy_blue") {
+            } else if (color == "navy_blue") {
                 return "#363657";
-            }
-            else if (color == "pink") {
+            } else if (color == "pink") {
                 return "#EAB3BC";
-            }
-            else if (color == "red") {
+            } else if (color == "red") {
                 return "#DC4434";
-            }
-            else if (color == "white") {
+            } else if (color == "white") {
                 return "#fff";
-            }
-            else if (color == "yellow") {
+            } else if (color == "yellow") {
                 return "#ECE42D";
-            }
-             else {
+            } else {
                 return _.filter($scope.hatscolor, {
                     name: color
                 })[0].colr;
@@ -6788,28 +6752,28 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.hatscolor = [{
                 colr: "#000000",
                 name: "black",
-            },{
+            }, {
                 colr: "#3C3131",
                 name: "dark_brown",
-            },{
+            }, {
                 colr: "#7D7A77",
                 name: "grey",
-            },{
+            }, {
                 colr: "#2B2E71",
                 name: "ink_blue",
-            },{
+            }, {
                 colr: "#363657",
                 name: "navy_blue",
-            },{
+            }, {
                 colr: "#EAB3BC",
                 name: "pink",
-            },{
+            }, {
                 colr: "#DC4434",
                 name: "red",
-            },{
+            }, {
                 colr: "#fff",
                 name: "white",
-            },{
+            }, {
                 colr: "#ECE42D",
                 name: "yellow",
             }
@@ -6817,26 +6781,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         ];
 
         $scope.color = [{
-            colr: "#000000"
-        }, {
-            colr: "#3C3131"
-        }, {
-            colr: "#7D7A77"
-        }, {
-            colr: "#2B2E71"
-        }, {
-            colr: "#363657"
-        }, {
-            colr: "#EAB3BC"
-        }, {
-            colr: "#DC4434",
-           },
-           {
-            colr: "#fff",
-           },
-           {
-            colr: "#ECE42D",
-           }
+                colr: "#000000"
+            }, {
+                colr: "#3C3131"
+            }, {
+                colr: "#7D7A77"
+            }, {
+                colr: "#2B2E71"
+            }, {
+                colr: "#363657"
+            }, {
+                colr: "#EAB3BC"
+            }, {
+                colr: "#DC4434",
+            },
+            {
+                colr: "#fff",
+            },
+            {
+                colr: "#ECE42D",
+            }
         ];
 
         $scope.tabchange = function (tab, a) {
@@ -6928,7 +6892,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "dark_brown": ["img/hats/dark_brown.png"],
             "grey": ["img/hats/grey.png"],
             "ink_blue": ["img/hats/ink_blue.png"],
-             "navy_blue": ["img/hats/navy_blue.png"],
+            "navy_blue": ["img/hats/navy_blue.png"],
             "pink": ["img/hats/pink.png"],
             "red": ["img/hats/red.png"],
             "white": ["img/hats/white.png"],
@@ -10435,7 +10399,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
 
-   
+
 
     .controller('CustomCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $uibModal) {
         //Used to name the .html file
@@ -10908,7 +10872,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
 
-     .controller('KitbagsCtrl', function ($scope, $filter, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
+    .controller('KitbagsCtrl', function ($scope, $filter, $state, TemplateService, NavigationService, $timeout, $stateParams, $uibModal, cfpLoadingBar) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("kitbags");
         $scope.menutitle = NavigationService.makeactive("Kitbags");
@@ -10932,6 +10896,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             }
         });
+
 
         $scope.kitbagDeleteModal = function () {
             $scope.kitbagDel = $uibModal.open({
@@ -10960,10 +10925,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.designJson = {
             design: {
-                name:"Chintan",
+                name: "Chintan",
                 base: "img/kitbag/big/kitbag_bglg.png",
-                designType:"kitbags",
-                
+                designType: "kitbags",
+
             },
             color: {
                 base: "dgreen"
@@ -10975,16 +10940,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             quantity: [{
                     quantity: 12,
                     size: "center"
-                }/*
-                {
-                    quantity: null,
-                    size: "Right"
-                }*/
+                }
+                /*
+                                {
+                                    quantity: null,
+                                    size: "Right"
+                                }*/
             ],
             type: "kitbags",
             sendTeamLogoLater: false
         };
-     
+
 
         $scope.colorObj = $scope.kitbagImages1;
         $scope.changeKitbagsImages = function (color) {
@@ -10997,9 +10963,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.designJson.color.base = getColor(color);
 
         }
-                // $scope.changeBigImages = function (img) {
-                //   $scope.designJson.design.base=img; 
-                // }
+        // $scope.changeBigImages = function (img) {
+        //   $scope.designJson.design.base=img; 
+        // }
 
         $scope.openDesign1 = function (img) {
             console.log('1111111', img.img[0]);
@@ -11033,26 +10999,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 return "#000";
             } else if (color == "green") {
                 return "#072322";
-            }
-            else if (color == "greeno") {
+            } else if (color == "greeno") {
                 return "#092422";
-            }
-            else if (color == "dpink") {
+            } else if (color == "dpink") {
                 return "#7C444A";
-            }
-            else if (color == "dpinko") {
+            } else if (color == "dpinko") {
                 return "#F6A149";
-            }
-            else if (color == "dblue") {
+            } else if (color == "dblue") {
                 return "#010019";
-            }
-            else if (color == "navyblue") {
+            } else if (color == "navyblue") {
                 return "#010017";
-            }
-            else if (color == "red") {
+            } else if (color == "red") {
                 return "#FF2230";
-            }
-             else {
+            } else {
                 return _.filter($scope.kitbagscolor, {
                     name: color
                 })[0].colr;
@@ -11062,32 +11021,32 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.kitbagscolor = [{
                 colr: "#1A6C67",
                 name: "dgreen"
-            },{
+            }, {
                 colr: "#F79A3B",
                 name: "dgreeno"
             },
-             {
+            {
                 colr: "#000",
                 name: "black"
-            },{
+            }, {
                 colr: "#072322",
                 name: "green"
-            },{
+            }, {
                 colr: "#092422",
                 name: "greeno"
-            },{
+            }, {
                 colr: "#7C444A",
                 name: "dpink"
-            },{
+            }, {
                 colr: "#F6A149",
                 name: "dpinko"
-            },{
+            }, {
                 colr: "#010019",
                 name: "dblue"
-            },{
+            }, {
                 colr: "#010017",
                 name: "navyblue"
-            },{
+            }, {
                 colr: "#FF2230",
                 name: "red"
             }
@@ -11095,29 +11054,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         ];
 
         $scope.color = [{
-            colr: "#1A6C67"
-        }, {
-            colr: "#F79A3B"
-        }, {
-            colr: "#000"
-        }, {
-            colr: "#072322"
-        }, {
-            colr: "#092422"
-        }, {
-            colr: "#7C444A"
-        }, {
-            colr: "#F6A149",
-           },
-           {
-            colr: "#010019",
-           },
-           {
-            colr: "#010017",
-           },
-           {
-            colr: "#FF2230",
-           }
+                colr: "#1A6C67"
+            }, {
+                colr: "#F79A3B"
+            }, {
+                colr: "#000"
+            }, {
+                colr: "#072322"
+            }, {
+                colr: "#092422"
+            }, {
+                colr: "#7C444A"
+            }, {
+                colr: "#F6A149",
+            },
+            {
+                colr: "#010019",
+            },
+            {
+                colr: "#010017",
+            },
+            {
+                colr: "#FF2230",
+            }
         ];
 
         $scope.tabchange = function (tab, a) {
@@ -11299,11 +11258,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.kitbags = {
             'direction': 'center',
             'quantity': 1
-        };/*
-        $scope.kitbags = [{
-            'direction': 'left',
-            'quantity': ''
-        }];*/
+        };
+        /*
+                $scope.kitbags = [{
+                    'direction': 'left',
+                    'quantity': ''
+                }];*/
         $scope.kitbagsArr = [{
             'direction': 'left',
             'quantity': ''
@@ -11331,9 +11291,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.totalQuan = 0;
             $scope.totalAmount = 0;
             $scope.designJson.totalAmount = 0;
-            $scope.totalQuan = parseInt($scope.designJson.quantity[0].quantity );
-            if(!angular.isNumber($scope.designJson.quantity[0].quantity))
-                $scope.totalQuan=0;
+            $scope.totalQuan = parseInt($scope.designJson.quantity[0].quantity);
+            if (!angular.isNumber($scope.designJson.quantity[0].quantity))
+                $scope.totalQuan = 0;
             if ($scope.totalQuan) {
                 console.log($scope.designJson.design);
                 console.log($filter('currencyFilter')($scope.designJson.design, "OnlyNumber"));
@@ -11726,7 +11686,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     })
-    
+
     .controller('KitBagCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout, $uibModal, cfpLoadingBar) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("kit-bag");
@@ -12066,7 +12026,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             src: "img/skitbags/kitbag_ry.png",
             title: "skitbags"
         }];
-       
+
         //tab changes
 
         $scope.checkTeamLogo = function () {
@@ -12132,6 +12092,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             }
         }
+
 
         $scope.openDesignKitBag = function (index, tab, img) {
             console.log('//////////');
@@ -12295,19 +12256,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.allLogos = {};
             $scope.combineJSON = {
                 "design": {
-                    "name":"Proton Club",
+                    "name": "Proton Club",
                     "base": $scope.kitbag.front,
-                    "designType" : "kitbags",
-                    "designName" : "Proton Club",                 
+                    "designType": "kitbags",
+                    "designName": "Proton Club",
                 },
                 "color": {
-                    "base":$scope.trimKitbag.base,
+                    "base": $scope.trimKitbag.base,
                 },
                 "teamLogo": {
                     image: $scope.kitbag.image,
                     size: $scope.kitbag.attributes.width
                 },
-                "quantity" :  $scope.bagsArr,
+                "quantity": $scope.bagsArr,
                 "kitbags": {
                     "bags": $scope.bagsArr,
                     "allLogos": $scope.kitbag,
@@ -12317,7 +12278,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 "totalAmount": $scope.totalAmount,
                 "totalQuan": $scope.totalQuan,
                 "isTrim1": false,
-	            "isTrim2": false,
+                "isTrim2": false,
                 "type": "kitbags" //oldkitbag
             };
             //$scope.lastJSON = JSON.stringify($scope.combineJSON);
@@ -12631,22 +12592,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.toggleTab = function (val) {
             $scope.activeButton = val;
         };
-        $scope.isEdit=false;
-        $scope.isLoaded=false;
+        $scope.isEdit = false;
+        $scope.isLoaded = false;
         // add variable is edit - > is loading completed
-        $scope.$on('$viewContentLoaded', function(event) {
-            $timeout(function() {
+        $scope.$on('$viewContentLoaded', function (event) {
+            $timeout(function () {
                 $scope.isLoaded = true;
-            },5000);
+            }, 5000);
         });
         $scope.$on('$stateChangeStart', function (event, toState, fromState) {
-            console.log(toState.name,"state");
+            console.log(toState.name, "state");
             if (toState.name == 'kit-bagsEdit' || toState.name == 'ordersummary' || toState.name == 'savedesign') {
                 window.location.reload();
-                if(toState.name == 'kit-bagsEdit')
-                    $scope.isEdit=true;
-                    console.log($scope.isEdit,"is edit");
-                    
+                if (toState.name == 'kit-bagsEdit')
+                    $scope.isEdit = true;
+                console.log($scope.isEdit, "is edit");
+
             } else {
                 var answer = confirm("Are you sure you want to leave this page? Your changes will not be saved.");
                 if (answer) {
@@ -12657,13 +12618,72 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             }
         });
-        console.log($scope.isLoaded,"isloaded");
+        console.log($scope.isLoaded, "isloaded");
         $scope.kitbagDeleteModal = function () {
             $scope.kitbagDel = $uibModal.open({
                 templateUrl: "views/modal/odi-delete.html",
                 scope: $scope
             });
         }
+        $scope.changeDesign = function (name) {
+            $scope.kitbag.name = name;
+            $scope.kitbag.front = "img/" + $scope.kitbag.name + "/kitbag_ry.png";
+            console.log("kitbagfront", $scope.kitbag.front)
+            if (name === "kitbags") {
+                $scope.kitbag.divattributes = {
+                    top: '110px',
+                    left: '203px',
+                    transform: 'rotate(0deg)'
+                };
+                $scope.bags.divattributes = {
+                    'name': {
+                        top: '330px',
+                        left: '200px'
+                    },
+                    'number': {
+                        top: '265px',
+                        left: '210px'
+                    }
+                }
+            } else {
+                $scope.kitbag.divattributes = {
+                    top: '150px',
+                    left: '150px',
+                    transform: 'rotate(-2deg)'
+                };
+                $scope.bags.divattributes = {
+                    'name': {
+                        top: '320px',
+                        left: '150px',
+                        transform: 'rotate(3deg)'
+                        // transform: 'rotate(-2deg)'
+                    },
+                    'number': {
+                        top: '255px',
+                        left: '160px',
+                        transform: 'rotate(3deg)'
+                        // transform: 'rotate(-2deg)'
+                    }
+                }
+            }
+        }
+        $scope.openDesignKitBag = function (index, tab, img) {
+            console.log('//////////');
+            if ($scope.LogosTab) {
+                console.log('//////////11111');
+                $scope.designIndex = index;
+                $scope.designTab = tab;
+                $scope.designImage = img;
+                $uibModal.open({
+                    templateUrl: "views/modal/tshirtdesign.html",
+                    scope: $scope
+                });
+            } else {
+                console.log('//////////33333');
+                $scope.changeDesign(img);
+            }
+        }
+
         $scope.confirmEmptyImage = function (key) {
             console.log('key', key);
             $scope.designJson[key] = {};
@@ -12688,7 +12708,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             colr: "#000"
         }];
         $scope.totalAmount = 0;
-        $scope.totalQuan=0;
+        $scope.totalQuan = 0;
         $scope.kitbag = {};
         $scope.kitbag.isTeamLogo = false;
         $scope.kitbag.name = "kitbags";
@@ -12732,10 +12752,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             }
         };
-    $scope.bagsArr=[
-        $scope.bags
-    ];
-	/*$scope.bagsArr = [{
+        $scope.bagsArr = [
+            $scope.bags
+        ];
+        /*$scope.bagsArr = [{
             'name': '',
             'no': '',
             'font': 'arial',
@@ -12767,21 +12787,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         }];*/
 
-         //snehal
-          $scope.images = [{
-            src: "img/kitbags/kitbag_ry.png",
+        //snehal
+        $scope.images = [{
+            src: "img/kitbag/big/kitbag_ry.png",
             title: "kitbags"
         }, {
-            src: "img/skitbags/kitbag_ry.png",
+            src: "img/kitbag/small/s.kitbag_ry.png",
             title: "skitbags"
         }];
-        
+
         $scope.designJson = {
             design: {
-                name:"Proton Club",
+                name: "Proton Club",
                 base: $scope.kitbag.front,
-                designType:"kitbags",
-                designName:"Proton Club"
+                designType: "kitbags",
+                designName: "Proton Club"
             },
             color: {
                 base: "ry"
@@ -12792,19 +12812,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             },
             type: "kitbags",
             sendTeamLogoLater: false,
-	    "kitbags": {
-		    "bags": $scope.bags,
-		    "allLogos": $scope.kitbag,
-		    "totalAmount": $scope.totalAmount,
-		    "totalQuan": $scope.totalQuan
-		},
-		"totalAmount": $scope.totalAmount,
-		"totalQuan": $scope.totalQuan,
-		"isTrim1": false,
-		"isTrim2": false,
-        "quantity":$scope.bagsArr
+            "kitbags": {
+                "bags": $scope.bags,
+                "allLogos": $scope.kitbag,
+                "totalAmount": $scope.totalAmount,
+                "totalQuan": $scope.totalQuan
+            },
+            "totalAmount": $scope.totalAmount,
+            "totalQuan": $scope.totalQuan,
+            "isTrim1": false,
+            "isTrim2": false,
+            "quantity": $scope.bagsArr
         };
-       // $scope.designJson.quantity = $scope.bagsArr;
+        // $scope.designJson.quantity = $scope.bagsArr;
         $scope.bagsArrCount = 1;
 
         $scope.addBagsValues = function () {
@@ -12815,13 +12835,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.bagsArr.splice(index, 1);
             $scope.bagsArrCount = $scope.bagsArrCount - 1;
         }
-        
+
         $scope.totalAmount = 995;
         $scope.totalQuan = 1;
-        console.log($scope.bagsArrCount,"arrcount");
-        
+        console.log($scope.bagsArrCount, "arrcount");
+
         //$scope.addQuantity(1);
-         
+
 
 
         $scope.colorObj = $scope.kitbagImages1;
@@ -12836,7 +12856,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         }
         $scope.openDesign1 = function (img) {
-            //console.log('1111111', img.img[0]);
+            console.log('1111111', img.img[0]);
             $scope.designJson.design.base = img.img[0];
             $scope.designJson.design.name = img.name;
             $scope.designJson.design.designName = img.name;
@@ -12846,10 +12866,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
         $scope.openDesign = function (index, tab, img) {
             //console.log('*********************');
-            if(index==0 || index==1 || index==2)
-            {
-                $scope.designJson.type="kitbags";
-                $scope.designJson.design.designType= "kitbags";
+            if (index == 0 || index == 1 || index == 2) {
+                $scope.designJson.type = "kitbags";
+                $scope.designJson.design.designType = "kitbags";
             }
             if ($scope.LogosTab) {
                 $scope.designIndex = index;
@@ -12873,26 +12892,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 return "#7D7A77";
             } else if (color == "mustard_yellow") {
                 return "#F3B300";
-            }
-            else if (color == "navy_blue") {
+            } else if (color == "navy_blue") {
                 return "#022653";
-            }
-            else if (color == "off_white") {
+            } else if (color == "off_white") {
                 return "#F3EEE9";
-            }
-            else if (color == "red") {
+            } else if (color == "red") {
                 return "#BD2F2F";
-            }
-	    else if(color == "sea_green") {
-		return "#17ACBE";
-	    }
-            else if (color == "white") {
+            } else if (color == "sea_green") {
+                return "#17ACBE";
+            } else if (color == "white") {
                 return "#fff";
-            }
-            else if (color == "yellow") {
+            } else if (color == "yellow") {
                 return "#ECE42D";
-            }
-             else {
+            } else {
                 return _.filter($scope.kitbagcolor, {
                     name: color
                 })[0].colr;
@@ -12929,8 +12941,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             img: "img/kitbagscolor/ry.png",
             name: "ry"
         }];
-        $scope.kitbagcolor = [
-            {
+        $scope.kitbagcolor = [{
             img: "img/kitbagscolor/bglg.png",
             name: "bglg"
         }, {
@@ -12960,13 +12971,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }, {
             img: "img/kitbagscolor/ry.png",
             name: "ry"
-        }
-        ];
+        }];
 
         $scope.tabchange = function (tab, a) {
             //console.log(tab, a);
-            console.log($scope.designJson.type,"tabchange");
-            
+            console.log($scope.designJson.type, "tabchange");
+
             $scope.tab = tab;
             $scope.designJson.tab = tab;
             $scope.designJson.tabNo = a;
@@ -13035,7 +13045,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "dglg": ["img/kitbag/big/kitbag_dglg.png"],
             "dgy": ["img/kitbag/big/kitbag_dgy.png"],
             "mlg": ["img/kitbag/big/kitbag_mlg.png"],
-	    "my": ["img/kitbag/big/kitbag_my.png"],
+            "my": ["img/kitbag/big/kitbag_my.png"],
             "rbr": ["img/kitbag/big/kitbag_rbr.png"],
             "rby": ["img/kitbag/big/kitbag_rby.png"],
         };
@@ -13048,7 +13058,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "dglg": ["img/kitbag/big/kitbag_dglg.png"],
             "dgy": ["img/kitbag/big/kitbag_dgy.png"],
             "mlg": ["img/kitbag/big/kitbag_mlg.png"],
-	    "my": ["img/kitbag/big/kitbag_my.png"],
+            "my": ["img/kitbag/big/kitbag_my.png"],
             "rbr": ["img/kitbag/big/kitbag_rbr.png"],
             "rby": ["img/kitbag/big/kitbag_rby.png"],
         };
@@ -13060,7 +13070,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "dglg": ["img/kitbag/big/kitbag_dglg.png"],
             "dgy": ["img/kitbag/big/kitbag_dgy.png"],
             "mlg": ["img/kitbag/big/kitbag_mlg.png"],
-	    "my": ["img/kitbag/big/kitbag_my.png"],
+            "my": ["img/kitbag/big/kitbag_my.png"],
             "rbr": ["img/kitbag/big/kitbag_rbr.png"],
             "rby": ["img/kitbag/big/kitbag_rby.png"],
         };
@@ -13068,12 +13078,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.myDesignID = 0;
         $scope.designTabJson = function (id) {
             $scope.myDesignID = id;
-            if(id==0 )
-            {
-                $scope.designJson.type="kitbag";
-                $scope.designJson.design.designType= "kitbag";
+            if (id == 0) {
+                $scope.designJson.type = "kitbag";
+                $scope.designJson.design.designType = "kitbag";
             }
-            
+
         };
 
         $scope.myArr = [{
@@ -13091,7 +13100,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             });
         }
-         $scope.kitbagBack = {
+        $scope.kitbagBack = {
             'name': '',
             'no': '',
             'font': 'arial',
@@ -13121,9 +13130,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     left: '210px'
                 }
             }
-            
+
         };
-         $scope.kitbagBackArr = [{
+        $scope.kitbagBackArr = [{
             'name': '',
             'no': '',
             'font': 'arial',
@@ -13154,50 +13163,61 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             }
         }];
-             
+
         $scope.kitbagBackArrCount = 2;
         $scope.trimKitbag = {};
-       $scope.switchTrimBase = function (color) {
-            console.log(color);
+        $scope.switchTrimBase = function (color) {
+
+            var path = $scope.designJson.design.base.split("/");
+            console.log(path);
+            path = path[2];
             $scope.trimKitbag.base = color;
-            $scope.kitbag.front = "img/kitbag/big/kitbag_" + color + ".png";
-            $scope.designJson.design.base = "img/kitbag/big/kitbag_" + color + ".png";
+            if (path == "big") {
+                $scope.kitbag.front = "img/kitbag/big/kitbag_" + color + ".png";
+                $scope.designJson.design.base = "img/kitbag/big/kitbag_" + color + ".png";
+            } else {
+                $scope.kitbag.front = "img/kitbag/small/s.kitbag_" + color + ".png";
+                $scope.designJson.design.base = "img/kitbag/small/s.kitbag_" + color + ".png";
+            }
             $scope.designJson.color.base = color;
         }
-
-        //$scope.switchTrimBase("ry");
+        // $scope.switchTrimBase = function (color) {
+        //     $scope.trimKitbag.base = color;
+        //     $scope.kitbag.front = "img/" + $scope.kitbag.name + "/kitbag_" + color + ".png";
+        // }
+        // $scope.switchTrimBase("ry");
         $scope.addKitbagValues = function () {
             var tempObj = {
                 'name': '',
-		    'no': '',
-		    'font': 'arial',
-		    'color': 'white',
-		    'quantity': 1,
-		    'attributes': {
-		        'name': {
-		            'fontSize': 18,
-		            'border': 'none',
-		            'rotate': 0,
-		            'letterSpacing': 1
-		        },
-		        'number': {
-		            'fontSize': 54,
-		            'border': 'none',
-		            'rotate': 0,
-		            'letterSpacing': 1
-		        }
-		    },
-		    'divattributes': {
-		        'name': {
-		            top: '330px',
-		            left: '200px'
-		        },
-		        'number': {
-		            top: '265px',
-		            left: '210px'
-		        }
-		    }
-                
+                'no': '',
+                'font': 'arial',
+                'color': 'white',
+                'quantity': 1,
+                'attributes': {
+                    'name': {
+                        'fontSize': 18,
+                        'border': 'none',
+                        'rotate': 0,
+                        'letterSpacing': 1
+                    },
+                    'number': {
+                        'fontSize': 54,
+                        'border': 'none',
+                        'rotate': 0,
+                        'letterSpacing': 1
+                    }
+                },
+                'divattributes': {
+                    'name': {
+                        top: '330px',
+                        left: '200px'
+                    },
+                    'number': {
+                        top: '265px',
+                        left: '210px'
+                    }
+                }
+
             };
             // $scope.jerseyBackArr.push(_.clone($scope.jerseyBack));
             $scope.kitbagBackArrCount = $scope.kitbagBackArrCount + 1;
@@ -13205,7 +13225,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
         $scope.removeKitbagValue = function (index) {
             $scope.designJson.quantity.splice(index, 1);
-           $scope.kitbagBackArr.splice(index, 1);
+            $scope.kitbagBackArr.splice(index, 1);
             $scope.kitbagBackArrCount = $scope.kitbagBackArrCount - 1;
         }
         $scope.LogosTab = false;
@@ -13278,21 +13298,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         // $scope.singleAmount = 2750;
         // $scope.totalAmount = 2750;
-       /* $scope.addQuantity = function (q) {
-                $scope.totalAmount = 0;
-                $scope.totalQuan = 0;
-                for (var i = 0; i < $scope.bagsArrCount; i++) {
-                    $scope.totalQuan += $scope.bagsArr[i].quantity;
-                }
-                if ($scope.totalQuan) {
-                    $scope.totalAmount = 995 * $scope.totalQuan;
-                }
-            };
+        /* $scope.addQuantity = function (q) {
+                 $scope.totalAmount = 0;
+                 $scope.totalQuan = 0;
+                 for (var i = 0; i < $scope.bagsArrCount; i++) {
+                     $scope.totalQuan += $scope.bagsArr[i].quantity;
+                 }
+                 if ($scope.totalQuan) {
+                     $scope.totalAmount = 995 * $scope.totalQuan;
+                 }
+             };
 
-            $scope.getTotalQuantity  = function() {
-                var total = 0;
-                return $scope.totalQuan;
-            };*/
+             $scope.getTotalQuantity  = function() {
+                 var total = 0;
+                 return $scope.totalQuan;
+             };*/
         $scope.singleAmount = $filter('currencyFilter')($scope.designJson.design);
         $scope.totalAmount = $filter('currencyFilter')($scope.designJson.design);
         $scope.totalQuan = 0;
@@ -13313,7 +13333,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
             
             return $scope.totalQuan;*/
-            
+
             $scope.designJson.totalAmount = 0;
             $scope.designJson.totalQuan = 0;
             $scope.singleAmount = $filter('currencyFilter')($scope.designJson.design, "OnlyNumber");
@@ -13321,31 +13341,31 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 console.log('$scope.designJson.quantity', $scope.designJson.quantity);
                 // $scope.totalQuan += $scope.quantity[i].quantity;
                 if ($scope.designJson.quantity[i].quantity == "")
-                    $scope.designJson.quantity[i].quantity=0;
+                    $scope.designJson.quantity[i].quantity = 0;
                 if ($scope.designJson.quantity[i].quantity !== undefined) {
-                    console.log($scope.designJson.quantity[i].quantity,"totalq");
+                    console.log($scope.designJson.quantity[i].quantity, "totalq");
                     $scope.designJson.totalQuan = parseInt($scope.designJson.totalQuan) + parseInt($scope.designJson.quantity[i].quantity);
                 }
                 if ($scope.designJson.totalQuan) {
-                    $scope.designJson.totalAmount = $scope.designJson.totalQuan *$filter('currencyFilter')($scope.designJson.design, "OnlyNumber");
-                    $scope.totalAmount = $scope.designJson.totalQuan *$filter('currencyFilter')($scope.designJson.design, "OnlyNumber");
+                    $scope.designJson.totalAmount = $scope.designJson.totalQuan * $filter('currencyFilter')($scope.designJson.design, "OnlyNumber");
+                    $scope.totalAmount = $scope.designJson.totalQuan * $filter('currencyFilter')($scope.designJson.design, "OnlyNumber");
                     //$scope.designJson.totalAmount = $scope.singleAmount * $scope.designJson.totalQuan;
                 }
-                
-                $scope.totalQuan= $scope.designJson.totalQuan;
-                $scope.totalAmount= $scope.designJson.totalAmount;
-                
+
+                $scope.totalQuan = $scope.designJson.totalQuan;
+                $scope.totalAmount = $scope.designJson.totalAmount;
+
             }
         };
 
-         $scope.addQuantity(1);
+        $scope.addQuantity(1);
 
         $scope.kitbagDesign = {};
 
         $scope.selectkitbagDesign = function (item) {
             console.log(item);
             $scope.kitbagDesign.name = item.name;
-            $scope.designJson.design.designName= item.name;
+            $scope.designJson.design.designName = item.name;
             $scope.kitbagDesign.image = item.img[0];
             $scope.Arrayname = item.name;
             $scope.selectedImage = item.img[0];
@@ -13414,7 +13434,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             })
             $("#loginemailid").focus();
         };
-       
+
         $scope.checkloginkitbag = function () {
             // if (qty == 0) {
             //     $scope.qtyValidation = true;
@@ -13572,7 +13592,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             if (user && user.email) {
                 console.log($scope.designJson);
                 //submitkitbagorder
-                $scope.designJson.design.designType= $scope.designJson.type;
+                $scope.designJson.design.designType = $scope.designJson.type;
                 NavigationService.orderSummaryKitbags(user.email, $scope.designJson, $scope.designJson.type,
                     function (data) {
                         console.log('Order Summary kitbag data: ', data);
@@ -14039,9 +14059,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 scope: $scope
             })
         };
-	
-        
-	$scope.customball = {};
+
+
+        $scope.customball = {};
         $scope.customball.printType = "foil";
         $scope.customball.Text = {
             top: {
@@ -14059,9 +14079,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 size: 20,
                 spacing: 1
             },
-	         quantity:1,
-             front:"img/ball/front/ball.png",
-             back:"img/ball/back/ball.png"
+            quantity: 1,
+            front: "img/ball/front/ball.png",
+            back: "img/ball/back/ball.png"
         };
         $scope.customball.printType = "foil";
         $scope.customball.totalAmount = 375;
@@ -14073,26 +14093,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
         $scope.designJson = {
             design: {
-                name:"Chintan",
+                name: "Chintan",
                 base: "img/ball/front/ball.png",
-                designType:"balls",
-                designName:"balls"
+                designType: "balls",
+                designName: "balls"
             },
             color: {
                 base: "red"
             },
             quantity: [{
-                    quantity: $scope.customball.quantity,
-                    size: "Qty"
-                }
-            ],
+                quantity: $scope.customball.quantity,
+                size: "Qty"
+            }],
             type: "balls",
-	        text:$scope.customball,
+            text: $scope.customball,
         };
-       
+
         $scope.colorObj = $scope.ballImages1;
-        $scope.textChange =function(){
-             $scope.designJson.ballText=$scope.customball;
+        $scope.textChange = function () {
+            $scope.designJson.ballText = $scope.customball;
         };
         $scope.changeballsImages = function (color) {
             //console.log(color);
@@ -14115,12 +14134,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
         $scope.openDesign = function (index, tab, img) {
             //console.log('*********************');
-            if(index==0)
-            {
-                $scope.designJson.type="balls";
-                $scope.designJson.design.designType= "balls";
+            if (index == 0) {
+                $scope.designJson.type = "balls";
+                $scope.designJson.design.designType = "balls";
             }
-           
+
             if ($scope.LogosTab) {
                 $scope.designIndex = index;
                 $scope.designTab = tab;
@@ -14137,8 +14155,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         function getColor(color) {
             if (color == "red") {
                 return "#D40204";
-            }
-             else {
+            } else {
                 return _.filter($scope.ballscolor, {
                     name: color
                 })[0].colr;
@@ -14215,7 +14232,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "red": ["img/ball/front/ball.png"]
         };
 
-       $scope.changeText = function (variable) {
+        $scope.changeText = function (variable) {
             if (variable === 'top') {
                 $scope.texta = 'active';
                 $scope.textb = '';
@@ -14314,12 +14331,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.myDesignID = 0;
         $scope.designTabJson = function (id) {
             $scope.myDesignID = id;
-            if(id==0)
-            {
-                $scope.designJson.type="balls";
-                $scope.designJson.design.designType= "balls";
+            if (id == 0) {
+                $scope.designJson.type = "balls";
+                $scope.designJson.design.designType = "balls";
             }
-            
+
             //console.log(id);
         };
 
@@ -14401,16 +14417,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.totalQuan = 0;
             $scope.totalAmount = 0;
             $scope.designJson.totalAmount = 0;
-            $scope.totalQuan = parseInt($scope.designJson.quantity[0].quantity );
-            if(!angular.isNumber($scope.designJson.quantity[0].quantity))
-                $scope.totalQuan=0;
+            $scope.totalQuan = parseInt($scope.designJson.quantity[0].quantity);
+            if (!angular.isNumber($scope.designJson.quantity[0].quantity))
+                $scope.totalQuan = 0;
             if ($scope.totalQuan) {
                 //console.log($scope.designJson.design);
                 //console.log($filter('currencyFilter')($scope.designJson.design, "OnlyNumber"));
-                $scope.totalAmount = $scope.totalQuan* 6 * $filter('currencyFilter')($scope.designJson.design, "OnlyNumber");
+                $scope.totalAmount = $scope.totalQuan * 6 * $filter('currencyFilter')($scope.designJson.design, "OnlyNumber");
                 $scope.designJson.totalAmount = $scope.totalAmount;
             }
-            
+
             return $scope.totalQuan;
         };
 
@@ -14421,7 +14437,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.selectballsDesign = function (item) {
             console.log(item);
             $scope.ballsDesign.name = item.name;
-            $scope.designJson.design.designName= item.name;
+            $scope.designJson.design.designName = item.name;
             $scope.ballsDesign.image = item.img[0];
             $scope.Arrayname = item.name;
             $scope.selectedImage = item.img[0];
@@ -14648,7 +14664,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             if (user && user.email) {
                 console.log($scope.designJson);
                 //submitcaporder
-                $scope.designJson.design.designType= $scope.designJson.type;
+                $scope.designJson.design.designType = $scope.designJson.type;
                 NavigationService.orderSummaryballs(user.email, $scope.designJson, $scope.designJson.type,
                     function (data) {
                         console.log('Order Summary balls data: ', data);
@@ -14707,7 +14723,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 //$scope.designJson.type="balls";
                 $scope.tabAllowc = '';
                 $scope.tabAllowToc = false;
-            } 
+            }
         };
 
 
@@ -14727,7 +14743,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.tabchange('team', 3);
                     $scope.turnOnLogos(true);
                 }
-            } 
+            }
         };
 
 
@@ -14838,12 +14854,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 scope: $scope
             })
         };
-	    $scope.customBat = {};
+        $scope.customBat = {};
         $scope.customBat.text = '';
         $scope.customBat.quantity = 1;
         $scope.customBat.totalAmount = 995;
-        $scope.customBat.grade="1";
-        $scope.grade=$scope.customBat.grade;
+        $scope.customBat.grade = "1";
+        $scope.grade = $scope.customBat.grade;
         $scope.changeAmount = function () {
             if (!$scope.customBat.quantity) {
                 $scope.customBat.quantity = 0;
@@ -14852,27 +14868,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
         $scope.designJson = {
             design: {
-                name:"Chintan",
+                name: "Chintan",
                 base: "img/bat/bat.jpg",
-                designType:"bats",
-                designName:"VIKINGS"
+                designType: "bats",
+                designName: "VIKINGS"
             },
             color: {
                 base: "orange"
             },
             quantity: [{
-                    quantity: $scope.customBat.quantity,
-                    size: "Qty"
-                }
-            ],
-	       "batText": '',
-           "batDet":$scope.customBat,
+                quantity: $scope.customBat.quantity,
+                size: "Qty"
+            }],
+            "batText": '',
+            "batDet": $scope.customBat,
             type: "bat",
         };
-       
+
         $scope.colorObj = $scope.batImages1;
-        $scope.textChange =function(){
-             $scope.designJson.batText=$scope.customBat.text;
+        $scope.textChange = function () {
+            $scope.designJson.batText = $scope.customBat.text;
         };
         $scope.changebatsImages = function (color) {
             //console.log(color);
@@ -14895,12 +14910,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
         $scope.openDesign = function (index, tab, img) {
             //console.log('*********************');
-            if(index==0)
-            {
-                $scope.designJson.type="bats";
-                $scope.designJson.design.designType= "bats";
+            if (index == 0) {
+                $scope.designJson.type = "bats";
+                $scope.designJson.design.designType = "bats";
             }
-           
+
             if ($scope.LogosTab) {
                 $scope.designIndex = index;
                 $scope.designTab = tab;
@@ -14917,8 +14931,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         function getColor(color) {
             if (color == "orange") {
                 return "#f5b122";
-            }
-             else {
+            } else {
                 return _.filter($scope.batscolor, {
                     name: color
                 })[0].colr;
@@ -14993,16 +15006,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "orange": ["img/bat/bat.jpg"]
         };
 
-       
+
         $scope.myDesignID = 0;
         $scope.designTabJson = function (id) {
             $scope.myDesignID = id;
-            if(id==0)
-            {
-                $scope.designJson.type="bats";
-                $scope.designJson.design.designType= "bats";
+            if (id == 0) {
+                $scope.designJson.type = "bats";
+                $scope.designJson.design.designType = "bats";
             }
-            
+
             //console.log(id);
         };
 
@@ -15084,16 +15096,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.totalQuan = 0;
             $scope.totalAmount = 0;
             $scope.designJson.totalAmount = 0;
-            $scope.totalQuan = parseInt($scope.designJson.quantity[0].quantity );
-            if(!angular.isNumber($scope.designJson.quantity[0].quantity))
-                $scope.totalQuan=0;
+            $scope.totalQuan = parseInt($scope.designJson.quantity[0].quantity);
+            if (!angular.isNumber($scope.designJson.quantity[0].quantity))
+                $scope.totalQuan = 0;
             if ($scope.totalQuan) {
                 //console.log($scope.designJson.design);
                 //console.log($filter('currencyFilter')($scope.designJson.design, "OnlyNumber"));
                 $scope.totalAmount = $scope.totalQuan * $filter('currencyFilter')($scope.designJson.design, "OnlyNumber");
                 $scope.designJson.totalAmount = $scope.totalAmount;
             }
-            
+
             return $scope.totalQuan;
         };
 
@@ -15104,7 +15116,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.selectbatsDesign = function (item) {
             console.log(item);
             $scope.batsDesign.name = item.name;
-            $scope.designJson.design.designName= item.name;
+            $scope.designJson.design.designName = item.name;
             $scope.batsDesign.image = item.img[0];
             $scope.Arrayname = item.name;
             $scope.selectedImage = item.img[0];
@@ -15331,7 +15343,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             if (user && user.email) {
                 console.log($scope.designJson);
                 //submitcaporder
-                $scope.designJson.design.designType= $scope.designJson.type;
+                $scope.designJson.design.designType = $scope.designJson.type;
                 NavigationService.orderSummarybats(user.email, $scope.designJson, $scope.designJson.type,
                     function (data) {
                         console.log('Order Summary bats data: ', data);
@@ -15390,7 +15402,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 //$scope.designJson.type="bats";
                 $scope.tabAllowc = '';
                 $scope.tabAllowToc = false;
-            } 
+            }
         };
 
 
@@ -15410,7 +15422,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.tabchange('team', 3);
                     $scope.turnOnLogos(true);
                 }
-            } 
+            }
         };
 
 
@@ -15984,7 +15996,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             function (data) {
                 $scope.design = data.data;
                 //console.log("design",$scope.design);
-                
+
                 $scope.design.description = JSON.parse(data.data.description);
                 // design.description.totalAmount = parseInt($filter('currencyFilter','Number')(design.description.totalAmount));
                 console.log($scope.design.description);
@@ -16690,12 +16702,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             } else if ($scope.latestOrder.description.designType === 'kitbags') {
                 $scope.designColorName = $scope.latestOrder.description.kitbagDesign.color;
                 console.log($scope.designColorName);
-            }
-            else if ($scope.latestOrder.description.designType === 'bat') {
+            } else if ($scope.latestOrder.description.designType === 'bat') {
                 $scope.designColorName = $scope.latestOrder.description.batDesign.color;
                 console.log($scope.designColorName);
-            }
-             else if ($scope.latestOrder.description.designType === 'balls') {
+            } else if ($scope.latestOrder.description.designType === 'balls') {
                 $scope.designColorName = $scope.latestOrder.description.ballDesign.color;
                 console.log($scope.designColorName);
             }
@@ -17360,7 +17370,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     .controller('ReadyCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("ready");
-        $scope.menutitle = Naviimg/pogationService.makeactive("Ready");
+        $scope.menutitle = Naviimg / pogationService.makeactive("Ready");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.product = [{
@@ -17451,49 +17461,49 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         });
                         break;
                     }
-                     case "caps":
+                case "caps":
                     {
                         $state.go("capsnhatsEdit", {
                             status: "edit"
                         });
                         break;
                     }
-                    case "hats":
+                case "hats":
                     {
                         $state.go("capsnhatsEdit", {
                             status: "edit"
                         });
                         break;
                     }
-                     case "hoodie":
+                case "hoodie":
                     {
                         $state.go("travelwearEdit", {
                             status: "edit"
                         });
                         break;
                     }
-                    case "polo":
+                case "polo":
                     {
                         $state.go("travelwearEdit", {
                             status: "edit"
                         });
                         break;
                     }
-                    case "kitbags":
+                case "kitbags":
                     {
                         $state.go("kit-bagsEdit", {
                             status: "edit"
                         });
                         break;
                     }
-                    case "bat":
+                case "bat":
                     {
                         $state.go("batsEdit", {
                             status: "edit"
                         });
                         break;
                     }
-                    case "balls":
+                case "balls":
                     {
                         $state.go("ballsEdit", {
                             status: "edit"
@@ -18380,37 +18390,37 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $.jStorage.set("isExpert", false);
             $("#loginemailid").focus();
             $scope.changeTab(2);
-            
+
             myLoginmodalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'views/modal/login.html',
                 controller: 'headerctrl',
                 scope: $scope
             })
-            
+
         };
-        $timeout(function(){
+        $timeout(function () {
             // if($("body").hasClass('modal-open'))
             // {
             //     console.log("body modal class");
             //     $scope.showBackdrop();
             // }
-             $(".modal.fade.ng-isolate-scope.in").click(function(){
+            $(".modal.fade.ng-isolate-scope.in").click(function () {
                 console.log("close clicked");
                 $(".modal-backdrop.in").remove();
                 $(".modal-open .modal").remove();
                 $("body").removeClass("modal-open");
             });
-        },500);
-        $scope.showBackdrop = function() {
+        }, 500);
+        $scope.showBackdrop = function () {
             $(".modal-backdrop.in").show();
         };
-       
-       
-        
-        $scope.closeModal = function() {
+
+
+
+        $scope.closeModal = function () {
             //     $uibModal.close();
-           console.log("close clicked");
+            console.log("close clicked");
             $(".modal-backdrop.in").hide();
             $(".modal-open .modal").hide();
             $("body").removeClass("modal-open");
@@ -18439,7 +18449,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // $scope.close = function () {
         //     $uibModalInstance.close('close');
         // };
-       
+
         $scope.validatelogin = false;
         $scope.inputall = false;
 
