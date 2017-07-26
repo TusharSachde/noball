@@ -18399,33 +18399,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             })
 
         };
-        $timeout(function () {
-            // if($("body").hasClass('modal-open'))
-            // {
-            //     console.log("body modal class");
-            //     $scope.showBackdrop();
-            // }
-            $(".modal.fade.ng-isolate-scope.in").click(function () {
-                console.log("close clicked");
-                $(".modal-backdrop.in").remove();
-                $(".modal-open .modal").remove();
-                $("body").removeClass("modal-open");
-            });
-        }, 500);
-        $scope.showBackdrop = function () {
-            $(".modal-backdrop.in").show();
-        };
+        // $timeout(function () {
+        //     $(".modal.fade.ng-isolate-scope.in").click(function () {
+        //         console.log("close clicked");
+        //         $(".modal-open .modal").remove();
+        //         $("body").removeClass("modal-open");
+        //     });
+        // }, 100);
 
 
 
-        $scope.closeModal = function () {
-            //     $uibModal.close();
-            console.log("close clicked");
-            $(".modal-backdrop.in").hide();
-            $(".modal-open .modal").hide();
-            $("body").removeClass("modal-open");
-            //$("body").addClass("modal-close");
-        };
+        // $scope.closeModal = function () {
+        //     console.log("close clicked");
+        //     $(".modal-open .modal").hide();
+        //     $("body").removeClass("modal-open");
+        // };
         $scope.openSignup = function () {
             $.jStorage.set("isExpert", true);
             $scope.openLoginModal = $uibModal.open({
