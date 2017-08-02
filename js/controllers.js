@@ -1515,12 +1515,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.openLogin = function () {
             $.jStorage.set("onCustom", true);
             $.jStorage.set("custom", $scope.trouserJson);
-            $uibModal.open({
+            $uibModalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'views/modal/login.html',
                 controller: 'headerctrl',
                 scope: $scope
-            });
+            })
+        };
+
+        $scope.closeModal = function () {
+            $uibModalInstance.dismiss('cancel');
         };
         $scope.qtyValidation = false;
         $scope.checkloginTrousers = function (qty) {
@@ -1564,6 +1568,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         };
 
+        $scope.closeModal = function () {
+            $uibModalInstance.dismiss('cancel');
+        };
         $scope.tabchanges = function (tabs, b) {
             $scope.tabs = tabs;
             // $scope.trouserJson.tab = tabs;
@@ -3067,12 +3074,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.openLogin = function () {
             $.jStorage.set("onCustom", true);
             $.jStorage.set("custom", $scope.designJson);
-            $uibModal.open({
+            $uibModalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'views/modal/login.html',
                 controller: 'headerctrl',
                 scope: $scope
             })
+        };
+
+        $scope.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
         };
         $scope.checkloginPads = function () {
             // if (qty == 0) {
@@ -3858,12 +3869,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.openLogin = function () {
             $.jStorage.set("onCustom", true);
             $.jStorage.set("custom", $scope.designJson);
-            $uibModal.open({
+            $uibModalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'views/modal/login.html',
                 controller: 'headerctrl',
                 scope: $scope
             })
+        };
+        $scope.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
         };
         $scope.checkloginCaps = function () {
             // if (qty == 0) {
@@ -4732,12 +4746,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $.jStorage.set("onCustom", true);
             $.jStorage.set("custom", $scope.designJson);
             $.jStorage.set("isExpert", false);
-            $uibModal.open({
+            $uibModalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'views/modal/login.html',
                 controller: 'headerctrl',
                 scope: $scope
             })
+        };
+        $scope.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
         };
         /*$("body").click(function(){ 
             console.log("Dismissing");
@@ -5702,12 +5719,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.openLogin = function () {
             $.jStorage.set("onCustom", true);
             $.jStorage.set("custom", $scope.designJson);
-            $uibModal.open({
+            $uibModalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'views/modal/login.html',
                 controller: 'headerctrl',
                 scope: $scope
             })
+        };
+        $scope.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
         };
         $scope.checkloginHoodie = function () {
             // if (qty == 0) {
@@ -7089,12 +7109,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.openLogin = function () {
             $.jStorage.set("onCustom", true);
             $.jStorage.set("custom", $scope.designJson);
-            $uibModal.open({
+            $uibModalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'views/modal/login.html',
                 controller: 'headerctrl',
                 scope: $scope
             })
+        };
+        $scope.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
         };
         $scope.checkloginHats = function () {
             // if (qty == 0) {
@@ -7529,14 +7552,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.openLogin = function () {
             $.jStorage.set("onCustom", true);
             $.jStorage.set("custom", $scope.glovesJson);
-            $uibModal.open({
+            $uibModalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'views/modal/login.html',
                 controller: 'headerctrl',
                 scope: $scope
             })
         };
-
+        $scope.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
+        };
         $scope.qtyValidation = false;
         $scope.checkloginGloves = function (qty) {
             if (NavigationService.getUser()) {
@@ -8230,7 +8255,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.openLogin = function () {
             $.jStorage.set("onCustom", true);
             $.jStorage.set("custom", $scope.glovesJson);
-            $uibModal.open({
+            $uibModalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'views/modal/login.html',
                 controller: 'headerctrl',
@@ -8238,7 +8263,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             })
 
         };
-
+        $scope.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
+        };
 
         //    end
 
@@ -9505,14 +9532,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             // $scope.fromTa'/>p dsb = id;
             $.jStorage.set("isExpert", false);
             // $scope.changeTab(2);
-            $scope.openLoginModal = $uibModal.open({
+            $uibModalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'views/modal/login.html',
                 controller: 'headerctrl',
                 scope: $scope
             })
         };
-
+        $scope.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
+        };
         $scope.customizedShirtCount = Object.keys($scope.customizedShirt).length - 5; // -5 for removing front, back, cloth, backdrop, printType
 
         $scope.goToOrderSummary = function () {
@@ -11372,12 +11401,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.openLogin = function () {
             $.jStorage.set("onCustom", true);
             $.jStorage.set("custom", $scope.designJson);
-            $uibModal.open({
+            $uibModalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'views/modal/login.html',
                 controller: 'headerctrl',
                 scope: $scope
             })
+        };
+        $scope.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
         };
         $scope.checkloginKitbags = function () {
             // if (qty == 0) {
@@ -11702,12 +11734,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             })
         };
         $scope.openLogin = function () {
-            $uibModal.open({
+            $uibModalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'views/modal/login.html',
                 controller: 'headerctrl',
                 scope: $scope
             })
+        };
+        $scope.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
         };
         $scope.qtyValidation = false;
 
@@ -13431,7 +13466,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             // $scope.fromTa'/>p dsb = id;
             $.jStorage.set("isExpert", false);
             // $scope.changeTab(2);
-            $scope.openLoginModal = $uibModal.open({
+            $uibModalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'views/modal/login.html',
                 controller: 'headerctrl',
@@ -13439,7 +13474,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             })
             $("#loginemailid").focus();
         };
-
+        $scope.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
+        };
         $scope.checkloginkitbag = function () {
             // if (qty == 0) {
             //     $scope.qtyValidation = true;
@@ -14509,12 +14546,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.openLogin = function () {
             $.jStorage.set("onCustom", true);
             $.jStorage.set("custom", $scope.designJson);
-            $uibModal.open({
+            $uibModalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'views/modal/login.html',
                 controller: 'headerctrl',
                 scope: $scope
             })
+        };
+        $scope.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
         };
         $scope.checkloginballs = function () {
             // if (qty == 0) {
@@ -15188,12 +15228,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.openLogin = function () {
             $.jStorage.set("onCustom", true);
             $.jStorage.set("custom", $scope.designJson);
-            $uibModal.open({
+            $uibModalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'views/modal/login.html',
                 controller: 'headerctrl',
                 scope: $scope
             })
+        };
+        $scope.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
         };
         $scope.checkloginbats = function () {
             // if (qty == 0) {
@@ -18405,7 +18448,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             })
 
         };
-
+        $scope.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
+        };
+        $scope.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
+        };
         // $timeout(function () {
         //     $(".modal.in").click(function () {
         //         console.log("close clicked");
@@ -18420,7 +18468,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.openSignup = function () {
             $.jStorage.set("isExpert", true);
-            $scope.openLoginModal = $uibModal.open({
+            $uibModalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'views/modal/login.html',
                 controller: 'headerctrl',
@@ -18428,16 +18476,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             })
             $scope.changeTab(1);
         };
+        $scope.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
+        };
         $scope.openConfirm = function () {
-            $scope.openLoginModal = $uibModal.open({
+            $uibModalInstance = $uibModal.open({
                 animation: true,
-                templateUrl: 'views/modal/onlogin.html',
+                templateUrl: 'views/modal/login.html',
+                controller: 'headerctrl',
                 scope: $scope
             })
         };
-        // $scope.cancel = function () {
-        //     $uibModalInstance.dismiss('cancel');
-        // };
+
+        $scope.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
+        };
         // $scope.close = function () {
         //     $uibModalInstance.close('close');
         // };
