@@ -6,6 +6,7 @@ var firstapp = angular.module('firstapp', [
   'navigationservice',
   'angulartics',
   'angular-google-analytics',
+  'angulartics.google.tagmanager',
   'customUI',
 ]);
 
@@ -17,8 +18,8 @@ $.get("https://ipinfo.io/json", function (response) {
 
 
 firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, cfpLoadingBarProvider, $analyticsProvider) {
-  $analyticsProvider.firstPageview(true); /* Records pages that don't use $state or $route */
-  $analyticsProvider.withAutoBase(true); /* Records full path */
+$analyticsProvider.firstPageview(true); /* Records pages that don't use $state or $route */
+$analyticsProvider.withAutoBase(true);  /* Records full path */
 
   $httpProvider.defaults.headers.common = {};
   $httpProvider.defaults.headers.post = {};
