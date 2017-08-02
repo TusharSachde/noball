@@ -31,6 +31,7 @@ var jsArray = [
   './bower_components/angular-scroll/angular-scroll.min.js',
   './bower_components/angulartics/dist/angulartics.min.js',
   './bower_components/angular-google-analytics/dist/angular-google-analytics.js',
+  './bower_components/angulartics-google-analytics/dist/angulartics-ga.min.js',
 
   './js/app.js',
   './js/controllers.js',
