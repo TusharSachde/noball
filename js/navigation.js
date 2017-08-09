@@ -519,20 +519,16 @@ var navigationservice = angular.module('navigationservice', [])
 
   .factory('NavigationService', function ($http, $state, $rootScope) {
     var navigation = [{
-      name: "Products",
+      name: "cricket corner",
       classis: ""
     }, {
       name: "Customise",
       classis: "",
       link: "#/customisation"
     }, {
-      name: "Services",
-      classis: "",
-      link: "#/services"
-    }, {
       name: "Extras",
       classis: "",
-      link: "#/extras"
+      link: "#/services"
     }];
 
     var navigation2 = [{
@@ -542,14 +538,14 @@ var navigationservice = angular.module('navigationservice', [])
       name: "CUSTOM SPORTS APPAREL",
       anchor: "customapparel",
     }, {
-      name: "CCC LOUNGE",
+      name: "Conqvest LOUNGE",
       anchor: "ccclounge",
     }, {
-      name: "TOURS",
+      name: "CRICKET TOURS",
       anchor: "tours",
     }, {
-      name: "FOUNDATION",
-      anchor: "foundation",
+      name: "SOCIAL IMPACT",
+      anchor: "social_impact",
     }, {
       name: "CONSULTANCY",
       anchor: "consultancy",
@@ -778,7 +774,7 @@ var navigationservice = angular.module('navigationservice', [])
           "email": user,
           "description": jsonData,
           "type": type,
-         // "teamlogo": tl
+          // "teamlogo": tl
         };
 
         console.log(JSON.stringify(jsonData));

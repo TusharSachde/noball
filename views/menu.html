@@ -11,11 +11,11 @@
             <li ng-repeat="submenu in menu.subnav" ng-if="menu.name != 'Services' && submenu.name != 'Apparel' && submenu.name != 'Bats'">
                 <a ui-sref="categories-inside({category:submenu.name,name:submenu.name})" class="{{submenu.classis}}">{{submenu.name}}</a>
             </li>
-            <li class="blue-service" ng-repeat="submenu in services" ng-if="menu.name == 'Services'">
+            <!-- <li class="blue-service" ng-repeat="submenu in services" ng-if="menu.name == 'Services'">
                 <a ui-sref="servicesid({id:submenu.anchor})" class="{{submenu.classis}}">{{submenu.name}}</a>
-            </li>
+            </li> -->
             <li class="blue-service" ng-repeat="submenu in extras" ng-if="menu.name == 'Extras'">
-                <a ui-sref="extrasid({id:submenu.anchor})" class="{{submenu.classis}}">{{submenu.name}}</a>
+                <a ui-sref="servicesid({id:submenu.anchor})" class="{{submenu.classis}}">{{submenu.name}}</a>
             </li>
         </ul>
         <!--End of Submenu for Products-->
@@ -26,9 +26,9 @@
         <!--submenu for Customize-->
         <ul class="dropdown-menu custom-sub customise service-head-menu {{menu.name}} hidden-xs" ng-if="menu.name == 'Customise'"
             ng-if="menu.subnav!=[];">
-            <li>
+            <!-- <li>
                 <a ui-sref="apparels">Apparel</a>
-            </li>
+            </li> -->
             <!--<li>
                 <a>Bags</a>
             </li>
@@ -39,10 +39,17 @@
                 <a>Balls</a>
             </li>-->
             <li>
-                <a ui-sref="gloves">Gloves</a>
+                <a ui-sref="odi-shirt">Tees</a>
             </li>
             <li>
-                <a ui-sref="pads">Pads</a>
+                <a ui-sref="capsnhats">Caps & Hats</a>
+            </li>
+
+            <li>
+                <a ui-sref="travelwear">Travel Wear</a>
+            </li>
+            <li>
+                <a ui-sref="trousers">Trousers & Shorts</a>
             </li>
         </ul>
         <!--end ofsubmenu for Customize-->

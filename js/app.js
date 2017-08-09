@@ -314,7 +314,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, cfp
     })
 
     .state('servicesid', {
-      url: "/services/:id",
+      url: "/extras/:id",
       templateUrl: "views/template.html",
       controller: 'ServicesCtrl'
     })
@@ -420,7 +420,11 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, cfp
       templateUrl: "views/template.html",
       controller: 'CustomErrorCtrl'
     })
-
+    .state('faq', {
+      url: "/faq",
+      templateUrl: "views/template.html",
+      controller: 'FaqCtrl'
+    })
   $urlRouterProvider.otherwise("/home");
 
 });

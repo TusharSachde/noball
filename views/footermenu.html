@@ -46,7 +46,7 @@
     <div class="row">
       <div class="col-md-1 col-sm-3 col-xs-6 mobileli" style="padding-right:0;">
         <ul class="list-unstyled">
-          <li style="padding: 0px 10px;" class="mobileli">Products</li>
+          <li style="padding: 0px 10px;" class="mobileli">Cricket Corner</li>
           <li ng-repeat="shop in navigation[0].subnav">
             <a ui-sref="categories({name:shop.name})" ng-if="shop.name == 'Apparel' || shop.name == 'Bats'">{{shop.name}}</a>
             <a ui-sref="categories-inside({category:shop.name,name:shop.name})" ng-if="shop.name != 'Apparel' && shop.name != 'Bats'">{{shop.name}}</a>
@@ -67,25 +67,28 @@
       <div class="col-md-2 col-sm-3 col-xs-6 mobileli" style="padding-right:0;">
         <ul class="list-unstyled">
           <li style="padding: 0px 10px;">
-            Services
+            Extras
           </li>
-          <li>
+          <!-- <li>
             <a href="#/services/advancedcutomization">advanced customisation</a>
           </li>
           <li>
             <a href="#/services/customapparel">custom sports apparel</a>
+          </li> -->
+          <li>
+            <a href="#/services/ccclounge">conqvest lounge</a>
           </li>
           <li>
-            <a href="#/services/ccclounge">ccc lounge</a>
+            <a href="#/services/tours">Cricket tours</a>
           </li>
           <li>
-            <a href="#/services/tours">CCC tours</a>
-          </li>
-          <li>
-            <a href="#/services/foundation">foundation</a>
+            <a href="#/services/foundation">social impact</a>
           </li>
           <li>
             <a href="#/services/memorabilia">memorabilia</a>
+          </li>
+          <li>
+            <a href="#/services/testimonials">testimonials</a>
           </li>
         </ul>
       </div>
@@ -94,7 +97,7 @@
           <li>
             <a href="#/about">ABOUT US</a>
           </li>
-          <li><a href="#/services/ccclounge">CCC LOUNGE</a></li>
+          <li><a href="#/services/ccclounge">CONQVEST LOUNGE</a></li>
           <li>
             <a href="#/mywishlist" ng-show="wishlistshow">Wishlist</a>
           </li>
@@ -106,6 +109,9 @@
           </li>
           <li>
             <a href="#/contact">CONTACT US</a>
+          </li>
+          <li>
+            <a href="#/faq">FAQ'S</a>
           </li>
         </ul>
         <div class="follow-us">
@@ -131,16 +137,16 @@
               <a href="intent://send/+919820579300#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end" class="active blue ">+91 98205 79300 (Whatsapp/sms)
           </a>
             </li>
-            <li>
+            <!-- <li>
               <span class="fl-l "><i class="fa fa-skype "></i></span><a href="skype:customcricketcompany?call " class="active
                 orange " style="text-transform: lowercase; ">
           customcricketcompany
           </a>
-            </li>
+            </li> -->
             <li>
-              <span class="fl-l "><i class="fa fa-envelope-o "></i></span><a href="mailto:umpire@customcricketcompany.com "
-                target="_blank " class="active green " style="text-transform: lowercase; ">
-            umpire@customcricketcompany.com
+              <span class="fl-l "><i class="fa fa-envelope-o "></i></span><a href="mailto:connect@conqvest.com " target="_blank "
+                class="active green " style="text-transform: lowercase; ">
+            connect@conqvest.com
           </a>
             </li>
           </ul>

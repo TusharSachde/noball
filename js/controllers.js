@@ -24,7 +24,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // $scope.country = "GBP";
         $scope.country = $.jStorage.get("myCurrency");
         NavigationService.getCategory(function (data) {
-            $scope.categories = _.chunk(data, 3);
+            $scope.categories = _.chunk(data, 2);
         }, function (err) {
             console.log(err);
         });
@@ -15925,6 +15925,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
     })
+    .controller('FaqCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("faq");
+        $scope.menutitle = NavigationService.makeactive("faq");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+    })
+
     .controller('AboutCtrl', function ($scope, $state, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("about");
@@ -17620,7 +17628,35 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 size: 'lg'
             });
         };
-
+        $scope.examplestest = [{
+            image: "img/extras/testimonials/5.png",
+            content: "The location and feel of the studio is great and it’s a lovely setting for clients to come and pick their new bat in a comfortable and relaxed environment. I don’t think I’ve come across anything similar in all my years in the cricket industry. I also think that you’re on to a winner with the bespoke nature of your product range. For clubs to have the option of adding their club logo in to pads and gloves as well as bags and clothing is surely unique. I’ll be watching with interest from the UK and look forward to seeing how it all develops in the coming months.",
+            name: "Roger Myall, Director – Sport Arabia Worldwide"
+        }, {
+            image: "img/extras/testimonials/1.png",
+            content: "I was waiting for someone to come along and fill this gap in the market. A much needed service for India and the world. I’m amazed at the quality of production and bespoke customization. We’ve had a great experience with the NSCI team orders.",
+            name: "Sunil Tanwani, Convener of Sports at The National Sports Club of India"
+        }, {
+            image: "img/extras/testimonials/2.png",
+            content: "University of Southern California (USC) Cricket Club has been doing business with Custom Cricket Company for over a year now. Our club has over 200 members and each year we order about $7500 USD in cricket uniforms and equipment. We have used multiple vendors from US, India and Pakistan over the years. Like most clubs, we needed a vendor who would understand our clubs requirements for quality while giving us a great price and most importantly making sure that the order was delivered on-time. CCC did it all perfectly. We couldn’t be happier.",
+            name: "Tarun Sandhu"
+        }, {
+            image: "img/extras/testimonials/7.png",
+            content: "CCC offers a great selection of apparel and equipment and most importantly the opportunity to customise your equipment (kit bags) with your name and team logo. This is unique and no other vendor offers this. So far we have ordered over 250 uniforms, 10 customized kit bags along with other misc. cricket items and we are extremely pleased with the quality and reliability of CCC.",
+            name: "Joe Hamburg, Titans Cricket Club, England"
+        }, {
+            image: "img/extras/testimonials/6.png",
+            content: "For those who are looking for the ideal vendor, look no further. The staff at CCC is very proactive and experienced, they worked with our team to ensure that the design and quality was exactly what we required. The costs were very competitive compared to the vendors we worked with previously. But the most outstanding part was the delivery services. We had our products shipped and delivered to our doorstep within the stipulated time with peace of mind knowing there were no hidden costs and all items reached our doorstep without hassle.",
+            name: "Somesh Agarwal, CMD Rockwood Hotels (Corporate Cricket Team)"
+        }, {
+            image: "img/extras/testimonials/4.png",
+            content: "We’ve tried for a long time to find an Indian kit supplier who can deliver the quality, designs and styles we want – CCC have done this for us and we recommend their services.",
+            name: "Matt Greenwell, Chairman & Convenor – Malabar Pirates CC."
+        }, {
+            image: "img/extras/testimonials/3.png",
+            content: "Every team should use the Custom Cricket Company. Not only do they allow the amateur player to feel professional, with top-quality personalised kit and bags, but they can organise epic cricket tours on the maidaans of India. Lastly, all profits go to a wonderful cause, promoting the sport in rural areas there. There couldn’t be a better place to get your kit from.",
+            name: "Charlie Campbell, captain of the Authors Cricket Club, England."
+        }, ];
         $scope.customize = [{
             img: "img/services/ac/front.png"
         }, {
@@ -18364,38 +18400,40 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.navigation[0].subnav = data;
             $scope.navigation[1].subnav = '';
         }, function (err) {});
-        $scope.services = [{
-            name: "ADVANCED CUSTOMISATION",
-            anchor: "advancedcutomization",
-        }, {
-            name: "CUSTOM SPORTS APPAREL",
-            anchor: "customapparel",
-        }, {
-            name: "CCC LOUNGE",
-            anchor: "ccclounge",
-        }, {
-            name: "TOURS",
-            anchor: "tours",
-        }, {
-            name: "FOUNDATION",
-            anchor: "foundation",
-        }, {
-            name: "CONSULTANCY",
-            anchor: "consultancy",
-        }, {
-            name: "MEMORABILIA",
-            anchor: "memorabilia",
-        }];
-        $scope.extras = [{
-            name: "CLIENT EXAMPLES",
-            anchor: "clientexamples",
-        }, {
-            name: "TESTIMONIALS",
-            anchor: "testimonials",
-        }, {
-            name: "PRESS",
-            anchor: "press",
-        }];
+        $scope.extras = [ //{
+            //     name: "ADVANCED CUSTOMISATION",
+            //     anchor: "advancedcutomization",
+            // }, {
+            //     name: "CUSTOM SPORTS APPAREL",
+            //     anchor: "customapparel",
+            // },
+            {
+                name: "CONQVEST LOUNGE",
+                anchor: "conqvestlounge",
+            }, {
+                name: "CRICKET TOURS",
+                anchor: "tours",
+            }, {
+                name: "SOCIAL IMPACT",
+                anchor: "social_impact",
+            }, {
+                name: "MEMORABILIA",
+                anchor: "memorabilia",
+            }, {
+                name: "TESTIMONIALS",
+                anchor: "testimonials",
+            }
+        ];
+        // $scope.extras = [{
+        //     name: "CLIENT EXAMPLES",
+        //     anchor: "clientexamples",
+        // }, {
+        //     name: "TESTIMONIALS",
+        //     anchor: "testimonials",
+        // }, {
+        //     name: "PRESS",
+        //     anchor: "press",
+        // }];
         $scope.wishlistcountshow = false;
         myfunction = function () {
             if ($.jStorage.get("user")) {
