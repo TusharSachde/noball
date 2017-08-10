@@ -1,5 +1,5 @@
 <ul class="nav navbar-nav on-mobile">
-    <li ng-repeat="menu in navigation">
+    <li ng-repeat="menu in navigation" class="seperate-border">
         <a ng-href="{{menu.link}}" class="{{menu.classis}}" ng-if="menu.name != 'Customise'">{{menu.name}}</a>
         <a target="_blank" ng-href="{{menu.link}}" class="{{menu.classis}}" ng-if="menu.name == 'Customise'">{{menu.name}}</a>
         <!--ng-click="customize();"ui-sref="categories({name:submenu.name})"-->
