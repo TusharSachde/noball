@@ -4,7 +4,7 @@
         <a target="_blank" ng-href="{{menu.link}}" class="{{menu.classis}}" ng-if="menu.name == 'Customise'">{{menu.name}}</a>
         <!--ng-click="customize();"ui-sref="categories({name:submenu.name})"-->
         <!--Sub Menu for Products-->
-        <ul class="dropdown-menu custom-sub service-head-menu {{menu.name}}" ng-if="menu.subnav!=[];" ng-if="menu.name != 'Customise'">
+        <ul class="dropdown-menu custom-sub service-head-menu {{menu.name}}" ng-if="menu.name != 'Customise'">
             <li ng-repeat="submenu in menu.subnav" ng-if="menu.name != 'Services' && ( submenu.name == 'Apparel'|| submenu.name == 'Bats')">
                 <a ui-sref="categories({name:submenu.name})" class="{{submenu.classis}}" style="cursor:inherit;">{{submenu.name}}</a>
             </li>

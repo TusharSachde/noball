@@ -7156,5 +7156,13 @@
  .customize-dropdown {
      margin-left: 120px;
  }
-
+//scss for header
+    .seperate-border:before{
+    content: '';
+    position: absolute;
+    height: 30px;
+    border-right: 3px solid #5e5f5f;
+    right: 0;
+    top: 32%;
+    }
  @import "mobile/mobile";

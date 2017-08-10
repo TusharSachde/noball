@@ -518,13 +518,13 @@ var countries = [{
 var navigationservice = angular.module('navigationservice', [])
 
   .factory('NavigationService', function ($http, $state, $rootScope) {
-    var navigation = [{
-      name: "cricket corner",
-      classis: ""
-    }, {
+    var navigation = [ {
       name: "Customise",
       classis: "",
       link: "#/customisation"
+    },{
+      name: "cricket corner",
+      classis: ""
     }, {
       name: "Extras",
       classis: "",

@@ -18237,9 +18237,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         NavigationService.getCategory(function (data) {
 
 
-            $scope.navigation[0].subnav = data;
+            $scope.navigation[0].subnav = '';
 
-            $scope.navigation[1].subnav = '';
+            $scope.navigation[1].subnav = data;
 
         }, function (err) {
 
@@ -18397,8 +18397,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
         //Global function
         NavigationService.getCategory(function (data) {
-            $scope.navigation[0].subnav = data;
-            $scope.navigation[1].subnav = '';
+            $scope.navigation[0].subnav = '';
+            $scope.navigation[1].subnav = data;
         }, function (err) {});
         $scope.extras = [ //{
             //     name: "ADVANCED CUSTOMISATION",
