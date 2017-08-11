@@ -330,11 +330,15 @@ $screen-desktop: 1224px !default;
 }
 
 @media (max-width:$screen-xs-max) {
+     .mr50{
+    margin-left: 0;
+  }
   .option-shirt {
     .sizes {
       padding: 10px 4px;
     }
   }
+ 
   .desc-sec p {
     text-align: justify;
     width: inherit;
@@ -561,6 +565,7 @@ $screen-desktop: 1224px !default;
       padding: 6px 7px !important;
     }
   }
+
   .product-detail .review .design {
     margin-bottom: 10px;
     p {

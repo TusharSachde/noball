@@ -65,13 +65,13 @@
             </div>
         </div>-->
     </li>
-    <li ng-if="!isLogin">
+    <li ng-if="!isLogin" class="mr50">
         <a class="btn-blue" ng-click="openLogin()">Log In | Sign Up</a>
     </li>
     <!-- <li ng-if="isLogin">
     <a href="#" class="btn-yellow" ng-click="logout()">Logout</a>
   </li> -->
-    <li ng-if="isLogin" class="user-sec">
+    <li ng-if="isLogin" class="user-sec mr50">
         <a ui-sref="profile" class="user-name">Hi,
             {{::user.name | loginame | limitTo:12 }}
             <i class="fa fa-caret-down"></i>
