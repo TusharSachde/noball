@@ -195,7 +195,7 @@ $screen-desktop: 1224px !default;
         a {
           font-size: 12px;
           padding: 8px 2px;
-          margin: 15px 0;
+          margin: 0px 0;
         }
       }
     }
@@ -338,7 +338,9 @@ $screen-desktop: 1224px !default;
       padding: 10px 4px;
     }
   }
- 
+ .m0-mob{
+   margin-left: 0px !important;
+ }
   .desc-sec p {
     text-align: justify;
     width: inherit;
@@ -401,7 +403,8 @@ $screen-desktop: 1224px !default;
     }
   }
   .navbar-default .nav>li {
-    min-height: auto;
+  min-height: auto;
+    margin-top: 0px;
   }
   .high-light {
     font-size: 26px;
@@ -481,9 +484,9 @@ $screen-desktop: 1224px !default;
   .custom-sub:after {
     display: none;
   }
-  .navbar-nav {
-    margin: 0 -15px;
-  }
+  // .navbar-nav {
+  //   margin: 0 -15px;
+  // }
   .smart-content p {
     width: 100%;
   }
