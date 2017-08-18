@@ -681,7 +681,7 @@
      text-transform: uppercase;
      letter-spacing: 3px;
      background-size: cover;
-     background-position: top center;
+     background-position: center center;
      h4 {
          font-size: 29px;
          margin: 0;
@@ -1655,7 +1655,7 @@
      color: #737373;
      text-align: justify;
      line-height: 150%;
-     p {
+     p ,li{
          color: #737373;
          a {
              color: #737373;
@@ -4814,7 +4814,7 @@
  }
 
  .lounge {
-     padding: 12% 0 6%;
+     padding: 17% 0 10%;
      color: #fff;
      text-transform: none;
      background-image: url('../img/services/lounge.jpg');
