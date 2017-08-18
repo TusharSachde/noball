@@ -126,6 +126,9 @@ $screen-desktop: 1224px !default;
 }
 
 @media (max-width: $screen-sm-max) {
+  .mr50 {
+    margin-left: 20px;
+}
   .ccc-quality {
     p {
       padding: 0 8px;
@@ -331,6 +334,12 @@ $screen-desktop: 1224px !default;
 }
 
 @media (max-width:$screen-xs-max) {
+  .navbar-default .navbar-nav>li .user-name{
+    width:100%;
+  }
+  .profile-menu {
+    width: 100%;
+    }
  .privacy-info p, .privacy-info li {
     font-size: 9px !important;
 }
