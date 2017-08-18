@@ -129,7 +129,7 @@ $screen-desktop: 1224px !default;
   .ccc-quality {
     p {
       padding: 0 8px;
-      
+
       font-size: 12px;
     }
   }
@@ -331,6 +331,9 @@ $screen-desktop: 1224px !default;
 }
 
 @media (max-width:$screen-xs-max) {
+ .privacy-info p, .privacy-info li {
+    font-size: 9px !important;
+}
   .lounge {
     padding: 32% 0 4%;
     }
