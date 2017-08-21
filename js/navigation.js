@@ -1,19 +1,19 @@
 // var mainurl = "http://wohlig.io:81/callApi/noball/";
-var mainurl = "https://customcricketcompany.com/admin/index.php/";
+var mainurl = "http://conqvest.com/admin/index.php/";
 // var mainurl = "http://localhost/cccbackend/index.php/";
 // var mainurl = "http://192.168.0.22/cccbackend/index.php/";
 // var mainurl = "http://wohlig.co.in/cccbackend/index.php/";
 
-var websiteurl = "https://customcricketcompany.com/";
+var websiteurl = "http://conqvest.com/";
 // var websiteurl = "http://localhost:8080";
 
-var backendurl = "https://customcricketcompany.com/admin/";
+var backendurl = "http://conqvest.com/admin";
 // var backendurl = "http://192.168.0.22/cccbackend/index.php/";
 // var backendurl = "http://wohlig.co.in/cccbackend/index.php/";
 
 var country = "";
 
-var imgurl = "https://customcricketcompany.com/admin/uploads/";
+var imgurl = "http://conqvest.com/admin/uploads/";
 // var imgurl = "http://192.168.0.22/cccbackend/uploads/";
 // var imgurl = "http://wohlig.co.in/cccbackend/uploads/";
 

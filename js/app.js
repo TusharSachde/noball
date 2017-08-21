@@ -758,7 +758,7 @@ firstapp.filter('resizeimage1300', function () {
 firstapp.filter('largeImage', function () {
   return function (input) {
     if (input) {
-      return 'http://customcricketcompany.com/admin/index.php/image/index?name=' + input + '&width=2000';
+      return 'http://conqvest.com/admin/index.php/image/index?name=' + input + '&width=2000';
     } else {
       // return "img/logo.png";
       return "";

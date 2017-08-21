@@ -6,7 +6,7 @@ var tabvalue = 1;
 var user = $.jStorage.get("user");
 var globalfunction = {};
 var bigcount = {};
-window.uploadUrl = "https://customcricketcompany.com/admin/index.php/json/uploadImage";
+window.uploadUrl = "http://conqvest.com/admin/index.php/json/uploadImage";
 // window.uploadUrl = "http://192.168.0.22/cccbackend/index.php/json/uploadImage";
 // window.uploadUrl = "http://wohlig.co.in/cccbackend/index.php/json/uploadImage";
 
@@ -9888,7 +9888,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }]
         };
 
-        //window.uploadUrl = "http://customcricketcompany.com/admin/index.php/json/uploadImage";
+        //window.uploadUrl = "http://conqvest.com/admin/index.php/json/uploadImage";
 
         //tab changes
 
